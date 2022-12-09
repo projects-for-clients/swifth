@@ -1,0 +1,227 @@
+.heroText {
+  font-family: 'Rubik Glitch';
+  font-size: $hero-clamp;
+  max-width: 600px;
+  color: $color-1-dark;
+  line-height: 0.8;
+  margin-top: 4rem;
+  margin-right: 3rem;
+}
+
+
+
+.stepLabelIcon__active{
+  
+  svg{
+    
+    color: $color-1 !important;
+  }
+}
+.stepLabelIcon__completed{
+  
+  svg{
+    
+    color: $color-4 !important;
+  }
+}
+
+.auth__footerLayout {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  height: 30rem;
+  bottom: 0;
+
+  background: linear-gradient(
+    270deg,
+    rgba(8, 54, 227, 0.11) 33.33%,
+    rgba(8, 54, 227, 0) 66.39%
+  );
+
+  @include respond(phone){
+    display: none;
+  }
+}
+
+.auth__tag {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+
+  h3 {
+    text-transform: capitalize;
+    color: $color-1;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  &--rubik {
+    font-family: 'Rubik Glitch';
+  }
+  @include respond(phone) {
+    position: relative;
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    border-top: 1px solid rgba($color-1, 0.2);
+    margin-top: -1rem;
+    padding-top: 1rem;
+  }
+}
+
+//auth
+
+.auth {
+  // max-width: 1500px;
+  // margin: 0 auto;
+
+  &__header {
+    background: linear-gradient(
+      90deg,
+      rgba($color-1, 0.5) 26.35%,
+      rgba($color-1-dark, 0.9) 48.65%
+    );
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //margin-bottom: 2rem;
+    padding: 0.75rem 2.5rem;
+    padding-right: 4.7rem;
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    &--form {
+      display: flex;
+      gap: 1rem;
+
+      @include respond(phone) {
+        display: none;
+      }
+
+      .header__form--item {
+        display: grid;
+        align-content: flex-start;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    //overflow: hidden;
+    position: relative;
+
+    @include respond(phone) {
+      display: grid;
+      //   overflow: scroll;
+    }
+  }
+
+  .main-1 {
+    &__points {
+      position: relative;
+      bottom: 50px;
+      z-index: 5;
+      width: 100%;
+      display: grid;
+      justify-content: center;
+
+      @media screen and (max-width: 787px) {
+        left: 5rem;
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+
+      & > * {
+        padding: 0.5rem 1rem;
+        color: white;
+        font-weight: 700;
+        font-weight: 500;
+        letter-spacing: 1px;
+        width: max-content;
+        background-color: blue;
+        border-radius: 5px;
+      }
+
+      .points__item--1 {
+        background: $color-4;
+      }
+      .points__item--2 {
+        background: $color-3;
+      }
+      .points__item--3 {
+        background: $color-2;
+      }
+    }
+  }
+
+  &__form {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    border: none;
+    max-width: 620px;
+    z-index: 20;
+    margin-left: auto;
+    margin-right: 2rem;
+    margin-top: 4rem;
+   // height: 70vh;
+
+    @include respond(phone) {
+     
+      left: 0;
+      margin-right: 0;
+      margin-inline: auto;
+      right: 0;
+      // backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+  }
+}
+
+.pinlogin .pinlogin-field {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 30px !important;
+  height: 30px;
+  padding: 0 !important;
+  margin: 0 5px;
+  border: none;
+  border-bottom: 1px solid #969595;
+  border-radius: 3px;
+  text-align: center;
+  color: black;
+  box-shadow: inset -1px -1px 10px rgba(0, 0, 0, 0.1);
+  /* background: inherit; */
+}
+
+.pinlogin .pinlogin-field:focus {
+  background: white;
+}
+
+.pinlogin {
+  display: flex;
+  justify-content: center;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+// .login-input{
+
+//     input{
+
+//         font-size: 1.2rem;
+//     }
+
+//     & > label{
+//         font-size: 1.2rem;
+//     }
+// }

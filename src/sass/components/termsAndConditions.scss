@@ -1,0 +1,63 @@
+.terms {
+  max-width: 1200px;
+  display: grid;
+  margin-inline: auto;
+
+  padding: 3rem 2rem;
+
+  color: $color-1-dark;
+
+  &__heading {
+    @extend .heading__1;
+  }
+
+  &__heading--sub {
+    text-decoration: underline;
+  }
+
+  &__description {
+    margin: 0.5rem 0;
+  }
+
+  &__list {
+    margin: 1rem 0;
+    counter-reset: list;
+    display: grid;
+    gap: 1rem;
+
+    &--item {
+      position: relative;
+
+      .item {
+        &__heading {
+          &::before {
+            content: counter(list) '. ';
+            counter-increment: list;
+          }
+        }
+
+
+        &__text {
+          text-align: justify;
+          margin-bottom: .5rem;
+
+          a {
+            text-decoration: underline;
+            font-weight: 600;
+          }
+        }
+      }
+
+      
+
+        .terms__list--other{
+            li{
+                &::before {
+                content: counters(list, '.') '. ';
+                counter-increment: list;
+                }
+            }
+        }
+    }
+  }
+}

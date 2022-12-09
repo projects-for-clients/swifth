@@ -1,0 +1,47 @@
+// COLOR
+//$color-1: #1330ab;
+$color-1: #661fab;
+$color-2: #1330ab;
+$color-3: #700FDF;
+// $color-3: #292929;
+$color-4: #dc3e4a;
+$color-5: #cde353;
+$color-6: #008000;
+
+$color-1-dark: #041b80;
+
+$color-primary: #dc3e4a;
+$color-gray: #7c7878;
+
+
+$linear-gradient-blue: linear-gradient(
+  to right,
+  rgba($color-1-dark, 0.1),
+  rgba($color-2, 0.1)
+);
+
+$linear-gradient-red: linear-gradient(
+  to right,
+  rgba($color-3, 0.8),
+  rgba(white, 0.6)
+);
+$linear-gradient-white:  linear-gradient(
+        to right,
+        rgba($color-1, 0.6),
+        rgba(white, 0.6)
+      );
+      $linear-gradient-purple:  linear-gradient(
+        to right,
+        rgba($color-1, 0.4),
+        rgba(white, 0.4)
+      );
+
+// FONT VARIABLES
+$font-clamp: clamp(1.2rem, 1.5vw, 1.5vw);
+$hero-clamp: clamp(1.3rem, 7vw, 2rem);
+
+// FONT
+$default-font-size: 1.1rem;
+
+$border-radius: 5px;
+$border-radius-lg: 20px;

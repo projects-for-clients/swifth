@@ -1,0 +1,130 @@
+.tournaments {
+  display: grid;
+  margin-top: 3rem;
+  grid-template-columns: minmax(max-content, 300px) minmax(350px, 1fr);
+  padding: 1rem 2rem;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  &__topic {
+    margin-right: 2rem;
+
+    .topic {
+      &__heading {
+        padding-bottom: 1rem;
+        align-items: center;
+        gap: 0.5rem;
+        display: flex;
+
+        @include respond(phone) {
+          cursor: pointer;
+        }
+
+        span {
+          // display: flex;
+          align-self: center;
+
+          svg {
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      &__filter {
+        &--input[type='radio'] {
+          display: none;
+        }
+
+        &--label {
+          border-radius: $border-radius;
+          font-weight: 500;
+          padding: 0.5rem 0;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          display: flex;
+          gap: 0.5rem;
+
+          span {
+            display: flex;
+            align-self: center;
+          }
+        }
+
+        &--input[type='radio']:checked + label {
+          background: $linear-gradient-red;
+          color: white;
+          padding: 0.5rem 1rem;
+        }
+
+        @include respond(phone) {
+          display: none;
+        }
+      }
+
+      &__filter--showTopics {
+        @include respond(phone) {
+          display: grid;
+          padding-bottom: 1rem;
+          margin-bottom: 2rem;
+          border-bottom: 0.5px solid $color-4;
+        }
+      }
+    }
+  }
+
+  &__box {
+    display: grid;
+    
+  }
+  &__heading {
+    display: flex;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    grid-column: 1 / -1;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+    padding-bottom: 1rem;
+
+    span {
+      width: 1.4rem;
+      height: 1.4rem;
+      background-color: rgba($color-4, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 50%;
+        background-color: $color-4;
+      }
+    }
+  }
+
+  &__container {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    font-size: 1rem;
+    gap: 3rem;
+    padding: 2rem 1rem;
+    //background: white;
+    border-radius: 0.5rem;
+    justify-items: start;
+    margin-bottom: 1rem;
+
+    @include respond(phone) {
+      //justify-content: center;
+      //justify-items: center;
+    }
+  }
+}

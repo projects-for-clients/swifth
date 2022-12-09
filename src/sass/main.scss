@@ -1,0 +1,24 @@
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './abstracts/animations';
+
+@import './base/base';
+@import './base/typography';
+
+@import './components/auth';
+
+@import './components/competition';
+@import './components/tournaments';
+
+@import './components/profile';
+@import './components/card';
+@import './components/header';
+@import './components/sidebar';
+@import './components/privacyPolicy';
+@import './components/termsAndConditions';
+@import './components/contactUs';
+
+@import './components/footer';
+
+
+

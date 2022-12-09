@@ -1,0 +1,66 @@
+.contactUs {
+  height: 100vh; 
+  align-content: center;
+  gap: 2rem;
+  color: $color-1;
+    transform: translateY(30%);
+
+  &-1 {
+    justify-self: center;
+    min-height: 100px;
+    &__heading {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    &__text {
+     
+      text-align: center;
+    }
+  }
+
+  &-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    justify-items: center;
+    margin: 0 auto;
+
+    &__iconBox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .iconBox__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgba($color-3, 0.2);
+        border-radius: $border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          font-size: 1.5rem;
+          color: $color-1;
+        }
+
+        @include respond(phone) {
+          width: 1.5rem;
+          height: 1.5rem;
+
+          svg {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .iconBox__content {
+        address {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
