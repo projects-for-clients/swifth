@@ -1,7 +1,8 @@
 .header{
 
-    display: grid;
+    display: flex;
     grid-column: col-start 2 / col-start 18;
+    justify-content: space-between;
     margin-top: 1rem;
 
     &__left{
@@ -14,5 +15,15 @@
             font-weight: 700;
             font-size: 1.8rem;
         }
+    }
+
+    &__right{
+
+        &--btn{
+            border: 1px solid $color-tertiary;
+            border-radius: $border-radius;
+            padding: .5rem 3rem;
+        }
+
     }
 }

@@ -6,8 +6,8 @@ export default () => {
         <h3 className="header__left--logoText">Swifth</h3>
       </div>
       <div className="header__right">
-        <button className="btn">
-            Log in
+        <button className="btn header__right--btn">
+            Log In
         </button>
       </div>
     </div>
