@@ -1,4 +1,13 @@
 .app {
-    display: grid;
-    grid-template-columns: repeat(18, [col-start] 1fr [col-end]);
+  display: grid;
+  grid-template-columns: repeat(18, [col-start] 1fr [col-end]);
+
+  &__header {
+    grid-column: col-start 2 / col-start 18;
+    position: relative;
+  }
+}
+
+h1{
+    font-size: 2rem;
 }

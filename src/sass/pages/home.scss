@@ -1,4 +1,7 @@
 .hero{
-
+    display: grid;
+    justify-content: start;
+    align-items: center;
     grid-column: 2 / -1;
+    height: 100vh;
 }

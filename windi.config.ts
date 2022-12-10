@@ -4,11 +4,11 @@ export default defineConfig({
   darkMode: 'class',
   extract: {
     include: ['**/*.{jsx,tsx,css}'],
-    exclude: ['node_modules', '.git', '.next'],
+    exclude: ['node_modules', '.git'],
   },
 
   preflight: {
-    blocklist: 'h1 h2 h3 h4 h5 p',
+    blocklist: 'h1 h2 h3 h4 h5 p'
   },
 
   theme: {
@@ -23,9 +23,7 @@ export default defineConfig({
       animation: {
         'spin-slow': 'spin 20s linear infinite',
       },
-      screens: {
-        phone: '580px',
-      },
+      
     },
   },
 
