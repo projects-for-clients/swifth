@@ -6,8 +6,18 @@
     grid-column: col-start 2 / col-start 18;
     position: relative;
   }
+
+  &__hero{
+      grid-column: 2 / -1;
+      background: url('/public/heroImg.svg') no-repeat right;
+      
+  }
 }
 
 h1{
     font-size: 2rem;
+}
+
+p{
+  font-size: 1.6rem;
 }

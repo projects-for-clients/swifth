@@ -1,7 +1,33 @@
-.hero{
-    display: grid;
+.hero {
+  display: grid;
+  justify-content: start;
+  align-content: center;
+  height: 100vh;
+  gap: 1rem;
+
+  &__header {
+    font-size: 5rem;
+    max-width: 40rem;
+    line-height: 5.8rem;
+  }
+
+  &__text {
+    max-width: 51rem;
+  }
+
+  &__btn {
+    display: flex;
     justify-content: start;
-    align-items: center;
-    grid-column: 2 / -1;
-    height: 100vh;
+    border-radius: $border-radius;
+    background-color: $color-primary;
+    color: $color-white;
+    margin-top: 3rem;
+    max-width: 75%;
+
+    button {
+      font-weight: 700;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
 }
