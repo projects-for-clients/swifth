@@ -2,12 +2,17 @@
 
     display: grid;
     grid-column: col-start 2 / col-start 18;
-    background-color: red;
     margin-top: 1rem;
 
     &__left{
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: .5rem;
+
+        &--logoText{
+            font-family: 'Oxygen';
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
     }
 }
