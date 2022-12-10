@@ -41,28 +41,28 @@
     }
   }
 
-  @if $breakpoint==bigger-phone {
+  @if $breakpoint==tab {
     @media only screen and (max-width: 46.8em) {
       // 750px/16px
       @content;
     }
   }
 
-  @if $breakpoint==tab-port {
+  @if $breakpoint==tab-land {
     @media only screen and (max-width: 62.5em) {
       // 1000px/16px - 55
       @content;
     }
   }
 
-  @if $breakpoint==tab-land {
+  @if $breakpoint==desktop {
     @media only screen and (max-width: 75em) {
       //1200px/16px - 75px
       @content;
     }
   }
 
-  @if $breakpoint==desktop {
+  @if $breakpoint==big-desktop {
     @media only screen and (max-width: 112.5em) {
       //1800/16px
       @content;
