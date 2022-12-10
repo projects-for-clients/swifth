@@ -4,6 +4,8 @@ import Header from '../components/Header';
 const Hero = () => (
   <div className='hero'>
     Hero
+
+    <img src="/heroImg.svg" alt="heroImg" />
   </div>
 )
 

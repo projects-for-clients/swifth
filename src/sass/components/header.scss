@@ -1,8 +1,9 @@
 .header{
-
+    position: absolute;
+    left: auto;
     display: flex;
-    grid-column: col-start 2 / col-start 18;
     justify-content: space-between;
+    grid-column: col-start 2 / col-start 18;
     margin-top: 1rem;
 
     &__left{
@@ -16,6 +17,9 @@
             font-size: 1.8rem;
         }
     }
+
+    
+   
 
     &__right{
 
