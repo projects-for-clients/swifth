@@ -1,0 +1,4 @@
+.app {
+    display: grid;
+    grid-template-columns: repeat(18, [col-start] 1fr [col-end]);
+}
