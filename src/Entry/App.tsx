@@ -1,8 +1,10 @@
 import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
+import SocialButtons from '../components/SocialButtons';
+import { useRef } from 'react';
 
 interface IHero {
-  openModal: () => void
+  openModal: () => void;
 }
 
 const Hero = ({ openModal }: IHero) => (
@@ -26,10 +28,20 @@ const App = () => {
   };
 
   const openModal = () => {
-    console.log("clicked")
+    console.log('clicked');
     const dialog = document.querySelector('#authDialog') as any;
     dialog.showModal();
   };
+
+  const handleSocialLogin = (user: any) => {
+    console.log(user);
+  };
+
+  const handleSocialLoginFailure = (err: any) => {
+    console.error(err);
+  };
+
+  const ref = useRef();
 
   return (
     <div className="app">
@@ -38,7 +50,7 @@ const App = () => {
       </div>
 
       <div className="app__hero">
-        <Hero openModal={openModal}/>
+        <Hero openModal={openModal} />
       </div>
 
       <dialog className="authDialog relative z-10" id="authDialog">
@@ -51,9 +63,14 @@ const App = () => {
             <GrFormClose className="text-3xl " />
           </button>
 
-          <form className="grid my-2 justify-center w-full text-black justify-items-center">
-            <input type="text" />
-          </form>
+          <SocialButtons
+            provider="facebook"
+            appId="YOUR_APP_ID"
+            onLoginSuccess={handleSocialLogin}
+            onLoginFailure={handleSocialLoginFailure}
+          >
+            Login with Facebook
+          </SocialButtons>
         </div>
       </dialog>
     </div>
