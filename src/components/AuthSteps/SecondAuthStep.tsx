@@ -1,4 +1,7 @@
 import React, { useRef, useState, useEffect, SetStateAction, Dispatch } from 'react';
+import { useAppDispatch } from '../../store/app/hooks';
+import { updateUser } from '../../store/features/user/user';
+
 
 interface ISecondAuthStep {
   setStep: Dispatch<SetStateAction<number>>
@@ -6,6 +9,7 @@ interface ISecondAuthStep {
 
 
 const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
+  const dispatch = useAppDispatch()
   interface InputTypes {
     firstName: string;
     lastName: string;
@@ -19,7 +23,7 @@ const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
     email: '',
   });
 
-  const formRef = useRef(null)
+  
 
 
   useEffect(() => {
@@ -52,6 +56,7 @@ const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
       return false
     }
 
+    dispatch(updateUser(inputField))
     setStep(2)
   };
 
@@ -80,7 +85,6 @@ const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
         className="form"
         id='firstAuthStepForm'
         onSubmit={handleAuth}
-        ref={formRef}
         onChange={(e) => handleInputChange(e)}
       >
         <div className="form__input">

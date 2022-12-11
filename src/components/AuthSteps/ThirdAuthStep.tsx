@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import OtpInput from 'react-otp-input';
+import { useAppSelector } from '../../store/app/hooks';
+import { selectUser } from '../../store/features/user/user';
 
 
 function ThirdAuthStep() {
+    const userSelector = useAppSelector(selectUser)
+
     const [otp, setOtp] = useState<string>('');
     const [message, setMessage] = useState<{
       message: string;
@@ -34,8 +38,7 @@ function ThirdAuthStep() {
 
   return (
     <div className="grid gap-10 mt-16 justify-center pb-5">
-      <h1 className="heading1 text-center">Join Swifth</h1>
-      <p>Enter your required details to get started</p>
+      <h2 className="heading2 text-center">We just sent your an email</h2>
 
       <form
         className="grid w-full place-content-stretch md:w-3/4 md:mx-auto"
@@ -48,12 +51,12 @@ function ThirdAuthStep() {
           </p>
         )}
         <h2 className="font-black text-center text-black mb-2 text-xl">
-          Type in the 6-digit code you received in your Email{' '}
+          Enter the email we sent to {userSelector.email}
         </h2>
         <OtpInput
           value={otp}
           onChange={otpHandler}
-          numInputs={6}
+          numInputs={4}
           inputStyle="pinlogin-field"
           containerStyle="pinlogin"
           shouldAutoFocus

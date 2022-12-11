@@ -36,8 +36,8 @@
 .pinlogin .pinlogin-field {
   box-sizing: border-box;
   display: inline-block;
-  width: 30px !important;
-  height: 30px;
+  width: 4rem !important;
+  height: 4rem;
   padding: 0 !important;
   margin: 0 5px;
   border: none;
@@ -45,6 +45,7 @@
   border-radius: 3px;
   text-align: center;
   color: black;
+  font-size: 1.6rem;
   box-shadow: inset -1px -1px 10px rgba(0, 0, 0, 0.1);
   /* background: inherit; */
 }
