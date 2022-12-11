@@ -32,3 +32,31 @@
 
  
 }
+
+.pinlogin .pinlogin-field {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 30px !important;
+  height: 30px;
+  padding: 0 !important;
+  margin: 0 5px;
+  border: none;
+  border-bottom: 1px solid #969595;
+  border-radius: 3px;
+  text-align: center;
+  color: black;
+  box-shadow: inset -1px -1px 10px rgba(0, 0, 0, 0.1);
+  /* background: inherit; */
+}
+
+.pinlogin .pinlogin-field:focus {
+  background: white;
+}
+
+.pinlogin {
+  display: flex;
+  justify-content: center;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}

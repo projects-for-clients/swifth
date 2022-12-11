@@ -1,12 +1,18 @@
-import React, { useRef, useState, useEffect } from 'react';
-interface InputTypes {
-  firstName: string;
-  lastName: string;
-  email: string;
+import React, { useRef, useState, useEffect, SetStateAction, Dispatch } from 'react';
+
+interface ISecondAuthStep {
+  setStep: Dispatch<SetStateAction<number>>
 }
 
-const SecondAuthStep = () => {
+
+const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
+  interface InputTypes {
+    firstName: string;
+    lastName: string;
+    email: string;
+  }
   const [disabled, setDisabled] = useState(true);
+
   const [inputField, setInputField] = useState<InputTypes>({
     firstName: '',
     lastName: '',
@@ -39,6 +45,14 @@ const SecondAuthStep = () => {
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const isValid = validateInput()
+
+    if(!isValid){
+      return false
+    }
+
+    setStep(2)
   };
 
   const handleInputChange = (e: React.FormEvent<HTMLFormElement>) => {

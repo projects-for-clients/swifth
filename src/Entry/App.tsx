@@ -23,30 +23,29 @@ const Hero = ({ openModal }: IHero) => (
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0);
 
   const closeModal = () => {
-    setIsOpen(false)
-  }
-
-  const openModal = () => {
-    setIsOpen(true)
+    setIsOpen(false);
   };
 
+  const openModal = () => {
+    setIsOpen(true);
+  };
 
   const authSteps = () => {
+    switch (step) {
+      case 0:
+        return <FirstAuthStep setStep={setStep} />;
+      case 1:
+        return <SecondAuthStep setStep={setStep}/>;
+      case 2:
+        return <ThirdAuthStep />;
 
-    switch(step){
-      case 0: return <FirstAuthStep setStep={setStep} />;
-
-      case 1: return <SecondAuthStep/>
-      case 2: return <ThirdAuthStep/>
-
-      default: return 'hello'
+      default:
+        return 'hello';
     }
-  }
-
-
+  };
 
   return (
     <div className="app">
