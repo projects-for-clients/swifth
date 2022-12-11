@@ -55,11 +55,10 @@ const App = () => {
 
       <dialog className="authDialog relative z-10" id="authDialog">
         <div
-          id="makeDepositForm"
-          className="bg-white shadow-md w-full md:(w-3/5 mx-auto) rounded pb-8 md:(px-8 m-2) mb-4  grid  justify-center"
+          className="bg-white shadow-md w-full md:(w-3/5 mx-auto) rounded pb-8 md:(px-8 m-2) mb-4  grid  justify-center relative"
           // onSubmit={handleSubmit}
         >
-          <button className="bg-orange-300 text-[#1a1a2d] rounded absolute">
+          <button className="text-[#1a1a2d] rounded absolute right-0 p-5">
             <GrFormClose className="text-3xl " />
           </button>
 
