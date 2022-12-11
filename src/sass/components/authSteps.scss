@@ -1,4 +1,4 @@
-.socialButtons {
+.firstStep {
   padding: 1rem 2rem;
   display: grid;
   justify-items: center;
@@ -27,23 +27,8 @@
       }
     }
 
-    &__text{
-        text-align: center;
-
-        button{
-            color: $color-primary;
-            text-decoration: underline;
-        }
-    }
+   
   }
 
-  &__footer{
-   // margin-top: auto;
-   max-width: 47rem;
-   text-align: center;
-
-   a{
-    color: $color-primary;
-   }
-  }
+ 
 }

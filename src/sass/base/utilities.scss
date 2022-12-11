@@ -1,9 +1,28 @@
-.btn{
-    padding: 1rem 2rem;
-    font-size: 1.6rem;
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
 }
 
-.heading1{
-    font-size: 3rem;
-    font-weight: 600;
+.heading1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.authFooter {
+  // margin-top: auto;
+  max-width: 47rem;
+  text-align: center;
+
+  a {
+    color: $color-primary;
+  }
+}
+
+.authText {
+  text-align: center;
+
+  button {
+    color: $color-primary;
+    text-decoration: underline;
+  }
 }

@@ -1,12 +1,12 @@
 import React, { Dispatch, Fragment, SetStateAction } from 'react';
 
-interface ISocialButtons {
+interface IFirstStep {
   setStep: Dispatch<SetStateAction<number>>;
 }
 
-const SocialButtons = ({setStep}: ISocialButtons) => {
+const FirstStep = ({setStep}: IFirstStep) => {
   return (
-    <div className="socialButtons">
+    <div className="firstStep">
       <h1 className="heading1">Join Swifth</h1>
       <Fragment>
         <section className="container__box">
@@ -24,11 +24,11 @@ const SocialButtons = ({setStep}: ISocialButtons) => {
           </button>
         </section>
 
-        <p className='container__text'>
-          I have an account? <button className='container__btn'> Log In</button>
+        <p className='authText'>
+          I have an account? <button> Log In</button>
         </p>
       </Fragment>
-      <p className='socialButtons__footer'>
+      <p className='authFooter'>
         By signing you confirm to have read Swifth's{' '}
         <a href="/"> Privacy policy</a> and agree to the{' '}
         <a href="/">Terms of service</a>
@@ -37,4 +37,4 @@ const SocialButtons = ({setStep}: ISocialButtons) => {
   );
 };
 
-export default SocialButtons;
+export default FirstStep;

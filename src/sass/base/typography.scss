@@ -68,7 +68,7 @@ p {
     width: 76rem;
     margin: 0 auto;
     position: relative;
-    height: 80vh;
+    min-height: 80vh;
   }
 
   &__button {
@@ -84,6 +84,7 @@ p {
     justify-content: center;
     align-content: center;
     margin: 1rem;
+    cursor: pointer;
   }
 
   &::backdrop {

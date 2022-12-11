@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
-import SocialButtons from '../components/SocialButtons';
-import FirstAuthStep from '../components/FirstAuthStep';
+import SocialButtons from '../components/AuthSteps/FirstAuthStep';
+import FirstAuthStep from '../components/AuthSteps/SecondAuthStep';
 import { useState } from 'react';
 
 interface IHero {
