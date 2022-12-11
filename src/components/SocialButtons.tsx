@@ -1,16 +1,16 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Dispatch, Fragment, SetStateAction } from 'react';
 
 interface ISocialButtons {
-  children: React.ReactNode;
+  setStep: Dispatch<SetStateAction<number>>;
 }
 
-const SocialButtons: React.FC<{}> = () => {
+const SocialButtons = ({setStep}: ISocialButtons) => {
   return (
     <div className="socialButtons">
-      <h1 className="socialButtons__header">Join Swifth</h1>
+      <h1 className="heading1">Join Swifth</h1>
       <Fragment>
         <section className="container__box">
-          <button className="box__btn">
+          <button className="box__btn" onClick={() => setStep(1)}>
             <img src="/icons/email.svg" alt="emailIcon" />
             Continue with Email
           </button>
@@ -28,7 +28,7 @@ const SocialButtons: React.FC<{}> = () => {
           I have an account? <button className='container__btn'> Log In</button>
         </p>
       </Fragment>
-      <p>
+      <p className='socialButtons__footer'>
         By signing you confirm to have read Swifth's{' '}
         <a href="/"> Privacy policy</a> and agree to the{' '}
         <a href="/">Terms of service</a>

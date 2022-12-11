@@ -50,24 +50,28 @@ p {
 }
 
 .authDialog {
-  height: 100%;
-  background: transparent;
-
-  margin: 0 auto;
+  background: $color-dark;
   display: grid;
   align-content: center;
 
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
 
-  &__container{
+  &__container {
     background-color: $color-white;
-    width: 100%;
     border-radius: $border-radius;
     justify-content: center;
+    width: 76rem;
+    margin: 0 auto;
     position: relative;
     height: 80vh;
   }
 
-  &__button{
+  &__button {
     color: $color-black;
     position: absolute;
     right: 0;

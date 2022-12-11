@@ -1,7 +1,8 @@
 import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
 import SocialButtons from '../components/SocialButtons';
-import { useRef } from 'react';
+import FirstAuthStep from '../components/FirstAuthStep';
+import { useState } from 'react';
 
 interface IHero {
   openModal: () => void;
@@ -20,27 +21,30 @@ const Hero = ({ openModal }: IHero) => (
 );
 
 const App = () => {
-  const closeModal = () => {
-    const dialog = document.querySelector('#authDialog') as any;
+  const [isOpen, setIsOpen] = useState(false);
+  const [step, setStep] = useState(0)
 
-    dialog.close();
-  };
+  const closeModal = () => {
+    setIsOpen(false)
+  }
 
   const openModal = () => {
-    console.log('clicked');
-    const dialog = document.querySelector('#authDialog') as any;
-    dialog.showModal();
+    setIsOpen(true)
   };
 
-  const handleSocialLogin = (user: any) => {
-    console.log(user);
-  };
 
-  const handleSocialLoginFailure = (err: any) => {
-    console.error(err);
-  };
+  const authSteps = () => {
 
-  const ref = useRef();
+    switch(step){
+      case 0: return <SocialButtons setStep={setStep} />;
+
+      case 1: return <FirstAuthStep/>
+
+      default: return 'hello'
+    }
+  }
+
+
 
   return (
     <div className="app">
@@ -52,21 +56,20 @@ const App = () => {
         <Hero openModal={openModal} />
       </div>
 
-      <dialog className="authDialog relative z-10" id="authDialog">
-        <div
-          className="authDialog__container"
-          // onSubmit={handleSubmit}
-        >
+      {isOpen && (
+        <div className="authDialog relative z-10 " id="authDialog">
+          <div
+            className="authDialog__container"
+            // onSubmit={handleSubmit}
+          >
+            <button className="authDialog__button" onClick={closeModal}>
+              <GrFormClose className="text-3xl " />
+            </button>
 
-          <button className="authDialog__button ">
-            <GrFormClose className="text-3xl " />
-          </button>
-
-          <SocialButtons/>
-
-
+            {authSteps()}
+          </div>
         </div>
-      </dialog>
+      )}
     </div>
   );
 };

@@ -3,12 +3,8 @@
   display: grid;
   justify-items: center;
   margin-top: 4rem;
-  gap: 2rem;
-
-  &__header {
-    font-size: 3rem;
-    font-weight: 600;
-  }
+  gap: 4rem;
+  height: 100%;
 
  
 
@@ -39,5 +35,15 @@
             text-decoration: underline;
         }
     }
+  }
+
+  &__footer{
+   // margin-top: auto;
+   max-width: 47rem;
+   text-align: center;
+
+   a{
+    color: $color-primary;
+   }
   }
 }
