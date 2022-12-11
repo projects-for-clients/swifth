@@ -9,7 +9,6 @@ interface IHero {
 
 const Hero = ({ openModal }: IHero) => (
   <div className="hero">
-    {/* <img src="/heroImg.svg" alt="heroImg" /> */}
     <h1 className="hero__header">Manage Goods Clearing</h1>
     <p className="hero__text">
       Easily manage the process of clearing your goods with your clearing agents
@@ -55,10 +54,11 @@ const App = () => {
 
       <dialog className="authDialog relative z-10" id="authDialog">
         <div
-          className="bg-white shadow-md w-full md:(w-3/5 mx-auto) rounded pb-8 md:(px-8 m-2) mb-4  grid  justify-center relative"
+          className="authDialog__container"
           // onSubmit={handleSubmit}
         >
-          <button className="text-[#1a1a2d] rounded absolute right-0 p-5">
+
+          <button className="authDialog__button ">
             <GrFormClose className="text-3xl " />
           </button>
 

@@ -1,0 +1,43 @@
+.socialButtons {
+  padding: 1rem 2rem;
+  display: grid;
+  justify-items: center;
+  margin-top: 4rem;
+  gap: 2rem;
+
+  &__header {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+ 
+
+  .container {
+    &__box {
+      display: grid;
+      gap: 1rem;
+
+      .box__btn{
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: 1px solid $color-grey;
+        padding: 1rem 3rem;
+        border-radius: $border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+    }
+
+    &__text{
+        text-align: center;
+
+        button{
+            color: $color-primary;
+            text-decoration: underline;
+        }
+    }
+  }
+}
