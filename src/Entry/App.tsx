@@ -63,14 +63,9 @@ const App = () => {
             <GrFormClose className="text-3xl " />
           </button>
 
-          <SocialButtons
-            provider="facebook"
-            appId="YOUR_APP_ID"
-            onLoginSuccess={handleSocialLogin}
-            onLoginFailure={handleSocialLoginFailure}
-          >
-            Login with Facebook
-          </SocialButtons>
+          <SocialButtons/>
+
+
         </div>
       </dialog>
     </div>

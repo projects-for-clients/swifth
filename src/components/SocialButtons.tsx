@@ -3,11 +3,10 @@ import React, { useRef } from 'react';
 
 interface ISocialButtons {
   children: React.ReactNode;
-  triggerLogin: () => void;
 }
 
-const SocialButtons: React.FC<ISocialButtons> = ({ children }) => {
-  return <div>{children}</div>;
+const SocialButtons: React.FC<{}> = () => {
+  return <div>hello</div>;
 };
 
-export default SocialLogin(SocialButtons);
+export default SocialButtons;
