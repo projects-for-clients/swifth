@@ -1,22 +1,27 @@
 const FirstAuthStep = () => {
 
     return (
-      <div className="socialButtons">
+      <div className="grid gap-3 mt-16 justify-center h-full">
         <h1 className="heading1">Join Swifth</h1>
-          <section className="container__box">
-            <button className="box__btn">
-              <img src="/icons/email.svg" alt="emailIcon" />
-              Continue with Email
-            </button>
-            <button className="box__btn">
-              <img src="/icons/google.svg" alt="googleIcon" />
-              Continue with Google
-            </button>
-            <button className="box__btn">
-              <img src="/icons/facebook.svg" alt="facebookIcon" />
-              Continue with Facebook
-            </button>
-          </section>
+        <p>Enter your required details to get started</p>
+          <form className="form">
+          
+          <div className="form__input">
+
+          <label className="input__label">First Name</label>
+          <input type="text" placeholder="Enter first name" className="input__item"/>
+          </div>
+          <div className="form__input">
+
+          <label className="input__label">Last Name</label>
+          <input type="text" placeholder="Enter last name" className="input__item"/>
+          </div>
+          <div className="form__input">
+
+          <label className="input__label">Email</label>
+          <input type="text" placeholder="Enter email address" className="input__item"/>
+          </div>
+          </form>
 
           <p className="container__text">
             I have an account?{' '}
