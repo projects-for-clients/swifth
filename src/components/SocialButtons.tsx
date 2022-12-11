@@ -1,4 +1,3 @@
-import SocialLogin from 'react-social-login';
 import React, { useRef } from 'react';
 
 interface ISocialButtons {
@@ -6,7 +5,13 @@ interface ISocialButtons {
 }
 
 const SocialButtons: React.FC<{}> = () => {
-  return <div>hello</div>;
+  return (
+    <div>
+      <button>Continue with Email</button>
+      <button>Continue with Google</button>
+      <button>Continue with Facebook</button>
+    </div>
+  );
 };
 
 export default SocialButtons;
