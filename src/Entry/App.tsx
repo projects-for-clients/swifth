@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import { GrFormClose } from 'react-icons/gr';
 
 const Hero = () => (
   <div className="hero">
@@ -14,6 +15,17 @@ const Hero = () => (
 );
 
 const App = () => {
+  const closeModal = () => {
+    const dialog = document.querySelector('#registerDialog') as any;
+
+    dialog.close();
+  };
+
+  const openModal = () => {
+    const dialog = document.querySelector('#registerDialog') as any;
+    dialog.showModal();
+  };
+
   return (
     <div className="app">
       <div className="app__header">
@@ -23,6 +35,22 @@ const App = () => {
       <div className="app__hero">
         <Hero />
       </div>
+
+      <dialog className="registerDialog relative" id="registerDialog">
+        <div
+          id="makeDepositForm"
+          className="bg-white shadow-md w-full md:(w-3/5 mx-auto) rounded pb-8 md:(px-8 m-2) mb-4  grid  justify-center"
+          // onSubmit={handleSubmit}
+        >
+          <button className="bg-orange-300 text-[#1a1a2d] rounded absolute">
+            <GrFormClose className="text-3xl " />
+          </button>
+
+          <form className="grid my-2 justify-center w-full text-black justify-items-center">
+            <input type="text" />
+          </form>
+        </div>
+      </dialog>
     </div>
   );
 };
