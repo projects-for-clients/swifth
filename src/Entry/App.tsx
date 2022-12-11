@@ -1,8 +1,9 @@
 import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
-import SocialButtons from '../components/AuthSteps/FirstAuthStep';
-import FirstAuthStep from '../components/AuthSteps/SecondAuthStep';
+import FirstAuthStep from '../components/AuthSteps/FirstAuthStep';
+import SecondAuthStep from '../components/AuthSteps/SecondAuthStep';
 import { useState } from 'react';
+import ThirdAuthStep from '../components/AuthSteps/ThirdAuthStep';
 
 interface IHero {
   openModal: () => void;
@@ -36,9 +37,10 @@ const App = () => {
   const authSteps = () => {
 
     switch(step){
-      case 0: return <SocialButtons setStep={setStep} />;
+      case 0: return <FirstAuthStep setStep={setStep} />;
 
-      case 1: return <FirstAuthStep/>
+      case 1: return <SecondAuthStep/>
+      case 2: return <ThirdAuthStep/>
 
       default: return 'hello'
     }
