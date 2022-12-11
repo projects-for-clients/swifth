@@ -50,3 +50,14 @@ h1 {
 p {
   font-size: 1.6rem;
 }
+
+.authDialog {
+    width: 100%;
+    background: transparent;
+    box-sizing: content-box;
+
+    &::backdrop {
+        background: rgba(26, 26, 45, 0.375);
+        backdrop-filter: blur(10px);
+    }
+}

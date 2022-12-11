@@ -4,6 +4,8 @@
   align-content: center;
   height: 100%;
   gap: 1rem;
+  position: relative;
+  z-index: 5;
 
   &__header {
     font-size: 5rem;

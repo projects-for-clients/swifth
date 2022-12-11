@@ -1,14 +1,18 @@
 import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
 
-const Hero = () => (
+interface IHero {
+  openModal: () => void
+}
+
+const Hero = ({ openModal }: IHero) => (
   <div className="hero">
     {/* <img src="/heroImg.svg" alt="heroImg" /> */}
     <h1 className="hero__header">Manage Goods Clearing</h1>
     <p className="hero__text">
       Easily manage the process of clearing your goods with your clearing agents
     </p>
-    <div className="btn hero__btn">
+    <div className="btn hero__btn" onClick={openModal}>
       <button>Get Started</button>
     </div>
   </div>
@@ -16,13 +20,14 @@ const Hero = () => (
 
 const App = () => {
   const closeModal = () => {
-    const dialog = document.querySelector('#registerDialog') as any;
+    const dialog = document.querySelector('#authDialog') as any;
 
     dialog.close();
   };
 
   const openModal = () => {
-    const dialog = document.querySelector('#registerDialog') as any;
+    console.log("clicked")
+    const dialog = document.querySelector('#authDialog') as any;
     dialog.showModal();
   };
 
@@ -33,10 +38,10 @@ const App = () => {
       </div>
 
       <div className="app__hero">
-        <Hero />
+        <Hero openModal={openModal}/>
       </div>
 
-      <dialog className="registerDialog relative" id="registerDialog">
+      <dialog className="authDialog relative z-10" id="authDialog">
         <div
           id="makeDepositForm"
           className="bg-white shadow-md w-full md:(w-3/5 mx-auto) rounded pb-8 md:(px-8 m-2) mb-4  grid  justify-center"
