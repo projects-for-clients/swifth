@@ -68,8 +68,8 @@ p {
     width: 76rem;
     margin: 0 auto;
     position: relative;
-    //min-height: 50vh;
-    height: calc(100% + 2rem);
+    min-height: 50vh;
+   // height: calc(100% + 2rem);
   }
 
   &__button {

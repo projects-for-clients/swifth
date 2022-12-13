@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import OtpInput from 'react-otp-input';
-import { useAppSelector } from '../../store/app/hooks';
-import { selectUser } from '../../store/features/user/user';
+
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
-
 function ThirdAuthStep() {
-
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
- const [eyeIcon, setEyeIcon] = useState(false);
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [eyeIcon, setEyeIcon] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
   };
 
-  const toggleEyeIcon = () => setEyeIcon(!eyeIcon)
+  const toggleEyeIcon = () => setEyeIcon(!eyeIcon);
+
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
 
   return (
     <div className="grid gap-10 mt-16 justify-center pb-5">
@@ -24,27 +23,33 @@ function ThirdAuthStep() {
 
       <form className="grid w-full form" onSubmit={handleSubmit}>
         {' '}
-        <div className="form__input">
+        <div className="form__input relative">
           <label className="input__label">Create Password</label>
-          <input
-            type={eyeIcon ? 'text' : 'password'}
-            placeholder="create a password..."
-            className="input__item"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <span className="cursor-pointer absolute right-3 flex">
-            {eyeIcon ? (
-              <AiOutlineEyeInvisible id="password" onClick={toggleEyeIcon} />
-            ) : (
-              <AiOutlineEye id="password" onClick={toggleEyeIcon} />
-            )}
-          </span>
+          <div className="relative">
+            <input
+              type={eyeIcon ? 'text' : 'password'}
+              placeholder="create a password..."
+              className="input__item"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+            <span className="form__eyeIcon">
+              {eyeIcon ? (
+                <AiOutlineEyeInvisible onClick={toggleEyeIcon} />
+              ) : (
+                <AiOutlineEye onClick={toggleEyeIcon} />
+              )}
+            </span>
+          </div>
 
-          <p className="input__label">
-            Choose a password you will always remember
-          </p>
+          {password.length < 1 ? (
+            <p className="input__label">
+              Choose a password you will always remember
+            </p>
+          ) : (
+            ''
+          )}
         </div>
         <button
           className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 btn1"
