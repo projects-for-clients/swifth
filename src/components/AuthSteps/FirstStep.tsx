@@ -1,7 +1,9 @@
 import React, { Dispatch, Fragment, SetStateAction } from 'react';
 
 
-const FirstStep = () => {
+const FirstStep = (props) => {
+  console.log({props})
+
   return (
     <div className="firstStep">
       <h1 className="heading1">Join Swifth</h1>
