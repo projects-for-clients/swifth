@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { GrFormClose } from 'react-icons/gr';
-import ThirdAuthStep from '../components/AuthSteps/FourthStep';
+import FirstStep from '../components/AuthSteps/FirstStep';
+import SecondStep from '../components/AuthSteps/SecondStep';
+import ThirdStep from '../components/AuthSteps/ThirdStep';
 
 function Auth() {
       const [isOpen, setIsOpen] = useState(false);

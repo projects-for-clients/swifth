@@ -3,12 +3,10 @@ import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
 
 
-interface ISecondAuthStep {
-  setStep: Dispatch<SetStateAction<number>>
-}
 
 
-const SecondStep = ({setStep}: ISecondAuthStep) => {
+
+const SecondStep = () => {
   const dispatch = useAppDispatch()
   interface InputTypes {
     firstName: string;

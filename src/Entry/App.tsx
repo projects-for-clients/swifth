@@ -24,13 +24,13 @@ const Hero = ({ openModal }: IHero) => (
 const App = () => {
   const [step, setStep] = useState(0);
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsOpen(true);
+  // };
 
   
 
@@ -41,7 +41,7 @@ const App = () => {
       </div>
 
       <div className="app__hero">
-        <Hero openModal={openModal} />
+        {/* <Hero openModal={openModal} /> */}
       </div>
 
       

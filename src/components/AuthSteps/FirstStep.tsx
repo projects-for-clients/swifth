@@ -1,10 +1,7 @@
 import React, { Dispatch, Fragment, SetStateAction } from 'react';
 
-interface IFirstStep {
-  setStep: Dispatch<SetStateAction<number>>;
-}
 
-const FirstStep = ({setStep}: IFirstStep) => {
+const FirstStep = () => {
   return (
     <div className="firstStep">
       <h1 className="heading1">Join Swifth</h1>
