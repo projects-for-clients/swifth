@@ -36,6 +36,8 @@ const FirstStep = () => {
         <a href="/"> Privacy policy</a> and agree to the{' '}
         <a href="/">Terms of service</a>
       </p>
+     
+      
     </div>
   );
 };
