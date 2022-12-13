@@ -1,13 +1,13 @@
 import React, { useState, createContext } from 'react';
-import { GrFormClose } from 'react-icons/gr';
 import FirstStep from '../components/AuthSteps/FirstStep';
 import SecondStep from '../components/AuthSteps/SecondStep';
 import ThirdStep from '../components/AuthSteps/ThirdStep';
 
+export const AuthContext = createContext({});
+
 function Auth() {
   const [step, setStep] = useState(0);
 
-  const AuthContext = createContext({});
 
   const authSteps = () => {
     switch (step) {

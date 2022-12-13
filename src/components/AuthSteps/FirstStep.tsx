@@ -1,8 +1,7 @@
 import React, { Dispatch, Fragment, SetStateAction } from 'react';
 
 
-const FirstStep = (props) => {
-  console.log({props})
+const FirstStep = () => {
 
   return (
     <div className="firstStep">
