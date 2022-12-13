@@ -1,9 +1,9 @@
 import React, { Fragment, useContext } from 'react';
-import { AuthContext } from '../../container/Auth';
+import { AuthContext } from '../../Contexts/AuthContext';
 
 
 
-const FirstStep = () => {
+export const FirstSignUpStep = () => {
   const AuthContextData = useContext(AuthContext)
   
   const {setStep} = AuthContextData
@@ -42,4 +42,38 @@ const FirstStep = () => {
   );
 };
 
-export default FirstStep;
+export const FirstLoginStep = () => {
+  const AuthContextData = useContext(AuthContext);
+
+  const { setStep } = AuthContextData;
+
+  return (
+    <div className="firstStep">
+      <h1 className="heading1">Welcome Back!</h1>
+      <Fragment>
+        <section className="container__box">
+          <button className="box__btn" onClick={() => setStep(1)}>
+            <img src="/icons/email.svg" alt="emailIcon" />
+            Continue with Email
+          </button>
+          <button className="box__btn">
+            <img src="/icons/google.svg" alt="googleIcon" />
+            Continue with Google
+          </button>
+          <button className="box__btn">
+            <img src="/icons/facebook.svg" alt="facebookIcon" />
+            Continue with Facebook
+          </button>
+        </section>
+
+       
+      </Fragment>
+      <p className="authFooter">
+        Don't have an account? <button> Create an account</button>
+      </p>
+    </div>
+  );
+};
+
+
+
