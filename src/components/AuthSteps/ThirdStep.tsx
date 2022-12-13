@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import OtpInput from 'react-otp-input';
+import { AuthContext } from '../../container/Auth';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
 
 function ThirdStep() {
+  const AuthContextData = useContext(AuthContext);
+
+  const { setStep } = AuthContextData;
+  
     const userSelector = useAppSelector(selectUser)
 
     const [otp, setOtp] = useState<string>('');

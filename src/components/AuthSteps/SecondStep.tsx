@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, SetStateAction, Dispatch } from 'react';
+import React, { useRef, useState, useEffect, SetStateAction, Dispatch, useContext } from 'react';
+import { AuthContext } from '../../container/Auth';
 import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
 
@@ -7,6 +8,10 @@ import { updateUser } from '../../store/features/user/user';
 
 
 const SecondStep = () => {
+  const AuthContextData = useContext(AuthContext);
+
+  const { setStep } = AuthContextData;
+  
   const dispatch = useAppDispatch()
   interface InputTypes {
     firstName: string;

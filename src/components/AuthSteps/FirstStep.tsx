@@ -1,7 +1,12 @@
-import React, { Dispatch, Fragment, SetStateAction } from 'react';
+import React, { Fragment, useContext } from 'react';
+import { AuthContext } from '../../container/Auth';
+
 
 
 const FirstStep = () => {
+  const AuthContextData = useContext(AuthContext)
+  
+  const {setStep} = AuthContextData
 
   return (
     <div className="firstStep">
