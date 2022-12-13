@@ -1,9 +1,9 @@
 import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
-import FirstAuthStep from '../components/AuthSteps/FirstAuthStep';
-import SecondAuthStep from '../components/AuthSteps/SecondAuthStep';
+import FirstAuthStep from '../components/AuthSteps/FirstStep';
+import SecondAuthStep from '../components/AuthSteps/SecondStep';
 import { useState } from 'react';
-import ThirdAuthStep from '../components/AuthSteps/ThirdAuthStep';
+import ThirdAuthStep from '../components/AuthSteps/ThirdStep';
 
 interface IHero {
   openModal: () => void;
@@ -22,7 +22,6 @@ const Hero = ({ openModal }: IHero) => (
 );
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(0);
 
   const closeModal = () => {
@@ -33,19 +32,7 @@ const App = () => {
     setIsOpen(true);
   };
 
-  const authSteps = () => {
-    switch (step) {
-      case 0:
-        return <FirstAuthStep setStep={setStep} />;
-      case 1:
-        return <SecondAuthStep setStep={setStep}/>;
-      case 2:
-        return <ThirdAuthStep />;
-
-      default:
-        return 'hello';
-    }
-  };
+  
 
   return (
     <div className="app">
@@ -57,20 +44,7 @@ const App = () => {
         <Hero openModal={openModal} />
       </div>
 
-      {isOpen && (
-        <div className="authDialog relative z-10 " id="authDialog">
-          <div
-            className="authDialog__container"
-            // onSubmit={handleSubmit}
-          >
-            <button className="authDialog__button" onClick={closeModal}>
-              <GrFormClose className="text-3xl " />
-            </button>
-
-            {authSteps()}
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

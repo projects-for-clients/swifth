@@ -3,12 +3,19 @@
   font-size: 1.6rem;
 }
 
+.btn1 {
+  border-radius: $border-radius;
+  color: $color-white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .heading1 {
   font-size: 3rem;
   font-weight: 600;
 }
 
-.heading2{
+.heading2 {
   font-size: 2.4rem;
   font-weight: 500;
 }

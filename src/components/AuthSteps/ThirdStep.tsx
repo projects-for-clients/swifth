@@ -4,7 +4,7 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
 
-function ThirdAuthStep() {
+function ThirdStep() {
     const userSelector = useAppSelector(selectUser)
 
     const [otp, setOtp] = useState<string>('');
@@ -19,7 +19,7 @@ function ThirdAuthStep() {
  const otpHandler = (input: string) => {
    setOtp(input);
    setMessage(null);
-   if (input.length < 6) {
+   if (input.length < 4) {
      setIsOtpLengthInValid(true);
    } else {
      setIsOtpLengthInValid(false);
@@ -40,19 +40,16 @@ function ThirdAuthStep() {
     <div className="grid gap-10 mt-16 justify-center pb-5">
       <h2 className="heading2 text-center">We just sent your an email</h2>
 
-      <form
-        className="grid w-full place-content-stretch md:w-3/4 md:mx-auto"
-        onSubmit={handleSubmit}
-      >
+      <form className="grid w-full form" onSubmit={handleSubmit}>
         {' '}
         {message && message.type === 'error' && (
           <p className="text-red-500 text-sm font-semibold text-center py-4">
             {message.message}
           </p>
         )}
-        <h2 className="font-black text-center text-black mb-2 text-xl">
+        <p className="text-center">
           Enter the email we sent to {userSelector.email}
-        </h2>
+        </p>
         <OtpInput
           value={otp}
           onChange={otpHandler}
@@ -63,20 +60,18 @@ function ThirdAuthStep() {
           isInputNum
         />
         <button
-          className=" rounded-3xl outline-none  bg-[#1776d1] text-white text-lg py-2 mt-10 grid justify-self-center w-2/5 disabled:(bg-gray-500 opacity-40)"
+          className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 btn1"
           type="submit"
           disabled={isOtpLengthInValid}
         >
-          {loading ? 'Loading...' : (
-            'Confirm'
-          )}
+          {loading ? 'Loading...' : 'Continue'}
         </button>
       </form>
       <p className="authText mt-10">
-        I have an account? <button> Log In</button>
+        Didn't get a code? <button> Resend code</button>
       </p>
     </div>
   );
 }
 
-export default ThirdAuthStep;
+export default ThirdStep;

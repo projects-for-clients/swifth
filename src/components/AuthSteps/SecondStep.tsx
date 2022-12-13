@@ -8,7 +8,7 @@ interface ISecondAuthStep {
 }
 
 
-const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
+const SecondStep = ({setStep}: ISecondAuthStep) => {
   const dispatch = useAppDispatch()
   interface InputTypes {
     firstName: string;
@@ -133,4 +133,4 @@ const SecondAuthStep = ({setStep}: ISecondAuthStep) => {
   );
 };
 
-export default SecondAuthStep;
+export default SecondStep;

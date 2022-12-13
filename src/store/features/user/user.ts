@@ -30,13 +30,11 @@ export const userSlice = createSlice({
      const values = Object.entries(payload)
 
      values.forEach((item) => {
-      console.log(item)
       const [key, value] = item
 
-      console.log(key, value)
+      state[key as keyof IUser] = value as string
      })
 
-      state = payload
 
       // for(let i in payload){
       //   state[i] = payload[i]
