@@ -6,31 +6,14 @@ import { selectUser } from '../../store/features/user/user';
 function ThirdAuthStep() {
   const userSelector = useAppSelector(selectUser);
 
-  const [otp, setOtp] = useState<string>('');
-  const [message, setMessage] = useState<{
-    message: string;
-    type: string;
-  } | null>(null);
-  const [isOtpLengthInValid, setIsOtpLengthInValid] = useState(true);
-  const [loading, setLoading] = useState(false);
 
-  const otpHandler = (input: string) => {
-    setOtp(input);
-    setMessage(null);
-    if (input.length < 4) {
-      setIsOtpLengthInValid(true);
-    } else {
-      setIsOtpLengthInValid(false);
-    }
-  };
+
+ 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setMessage(null);
 
-    if (otp.length < 6) {
-      return;
-    }
+   
   };
 
   return (
@@ -39,23 +22,16 @@ function ThirdAuthStep() {
 
       <form className="grid w-full form" onSubmit={handleSubmit}>
         {' '}
-        {message && message.type === 'error' && (
-          <p className="text-red-500 text-sm font-semibold text-center py-4">
-            {message.message}
-          </p>
-        )}
-        <p className="text-center">
-          Enter the email we sent to {userSelector.email}
-        </p>
-        <OtpInput
-          value={otp}
-          onChange={otpHandler}
-          numInputs={4}
-          inputStyle="pinlogin-field"
-          containerStyle="pinlogin"
-          shouldAutoFocus
-          isInputNum
-        />
+        <div className="form__input">
+          <label className="input__label">First Name</label>
+          <input
+            type="text"
+            placeholder="Enter first name"
+            className="input__item"
+            name="firstName"
+            defaultValue={inputField.firstName}
+          />
+        </div>
         <button
           className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 btn1"
           type="submit"

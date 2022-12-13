@@ -35,9 +35,13 @@ function ThirdStep() {
    e.preventDefault();
    setMessage(null);
 
-   if (otp.length < 6) {
+   if (otp.length < 4) {
+    console.log('error')
      return;
    }
+
+   console.log("no error")
+   setStep(3)
 
  };
 
