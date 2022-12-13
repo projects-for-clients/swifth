@@ -1,9 +1,16 @@
 .header {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  width: 100%;
+   grid-column: col-start 2 / col-start 18;
+    position: relative;
+    z-index: 3;
+
+  &__container{
+
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 100%;
+  }
 
   &__left {
     display: flex;

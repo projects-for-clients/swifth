@@ -4,41 +4,7 @@
   max-width: 180rem;
   margin: 0 auto;
 
-  &__header {
-    grid-column: col-start 2 / col-start 18;
-    position: relative;
-    z-index: 3;
-  }
-
-  &__hero {
-    grid-column: 2 / -1;
-    position: relative;
-    height: 92rem;
-    z-index: 1;
-
-    &::before {
-      content: '';
-      width: 100%;
-      height: 100%;
-
-      z-index: 3;
-      position: absolute;
-      top: -2rem;
-      background: url('/public/heroImg.svg') no-repeat right;
-    }
-
-    &::after {
-      content: '';
-      width: 100%;
-      height: 100%;
-
-      position: absolute;
-      top: 0;
-      z-index: 1;
-
-      background: url('/public/heroRectangle.svg') no-repeat right;
-    }
-  }
+ 
 }
 
 h1 {

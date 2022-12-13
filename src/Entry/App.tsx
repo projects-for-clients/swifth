@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import { GrFormClose } from 'react-icons/gr';
 
 import { useState } from 'react';
-import Auth from '../container/Auth'
+import Auth from '../container/Auth';
 
 interface IHero {
   openModal: () => void;
@@ -10,12 +10,15 @@ interface IHero {
 
 const Hero = ({ openModal }: IHero) => (
   <div className="hero">
-    <h1 className="hero__header">Manage Goods Clearing</h1>
-    <p className="hero__text">
-      Easily manage the process of clearing your goods with your clearing agents
-    </p>
-    <div className="btn hero__btn" onClick={openModal}>
-      <button>Get Started</button>
+    <div className="hero__container">
+      <h1 className="hero__header">Manage Goods Clearing</h1>
+      <p className="hero__text">
+        Easily manage the process of clearing your goods with your clearing
+        agents
+      </p>
+      <div className="btn hero__btn" onClick={openModal}>
+        <button>Get Started</button>
+      </div>
     </div>
   </div>
 );
@@ -31,17 +34,11 @@ const App = () => {
     setIsOpen(true);
   };
 
-  
-
   return (
     <div className="app">
-      <div className="app__header">
-        <Header />
-      </div>
+      <Header />
 
-      <div className="app__hero">
-        <Hero openModal={openModal} />
-      </div>
+      <Hero openModal={openModal} />
 
       {isOpen && (
         <div className="authDialog relative z-10 " id="authDialog">
@@ -53,7 +50,7 @@ const App = () => {
               <GrFormClose className="text-3xl " />
             </button>
 
-            <Auth/>
+            <Auth />
           </div>
         </div>
       )}
