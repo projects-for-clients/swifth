@@ -4,9 +4,8 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
 function ThirdAuthStep() {
-  const userSelector = useAppSelector(selectUser);
 
-
+  const [password, setPassword] = useState('')
 
  
 
