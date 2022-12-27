@@ -17,6 +17,8 @@ const initialState: IUser = {
   email: ''
 }
 
+
+
 export const userSlice = createSlice({
   name: 'userState',
   initialState,
@@ -51,7 +53,9 @@ export const userSlice = createSlice({
    
   },
 
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+  
+  },
 });
 
 export const { clearUser, updateUser } =

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import OtpInput from 'react-otp-input';
-import { AuthContext } from '../../container/Auth';
+import { AuthContext } from '../../Context/AppContext';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 

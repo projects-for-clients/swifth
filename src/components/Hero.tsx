@@ -1,7 +1,9 @@
-interface IHero {
-  openModal: () => void;
+
+const openModal = () => {
+  console.log("how are you doing")
 }
-const Hero = ({ openModal }: IHero) => (
+
+const Hero = () => (
   <div className="hero">
     <div className="hero__container">
       <h1 className="hero__header">Manage Goods Clearing</h1>

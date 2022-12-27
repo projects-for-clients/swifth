@@ -1,12 +1,10 @@
 import React, { Fragment, useContext } from 'react';
-import { AuthContext } from '../../Contexts/AuthContext';
-
-
+import { AuthContext } from '../../Context/AppContext';
 
 export const FirstSignUpStep = () => {
-  const AuthContextData = useContext(AuthContext)
-  
-  const {setStep} = AuthContextData
+  const AuthContextData = useContext(AuthContext);
+
+  const { setStep } = AuthContextData;
 
   return (
     <div className="firstStep">
@@ -27,17 +25,15 @@ export const FirstSignUpStep = () => {
           </button>
         </section>
 
-        <p className='authText'>
+        <p className="authText">
           I have an account? <button> Log In</button>
         </p>
       </Fragment>
-      <p className='authFooter'>
+      <p className="authFooter">
         By signing you confirm to have read Swifth's{' '}
         <a href="/"> Privacy policy</a> and agree to the{' '}
         <a href="/">Terms of service</a>
       </p>
-     
-      
     </div>
   );
 };
@@ -65,8 +61,6 @@ export const FirstLoginStep = () => {
             Continue with Facebook
           </button>
         </section>
-
-       
       </Fragment>
       <p className="authFooter">
         Don't have an account? <button> Create an account</button>
@@ -74,6 +68,3 @@ export const FirstLoginStep = () => {
     </div>
   );
 };
-
-
-

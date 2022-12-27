@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, SetStateAction, Dispatch, useContext } from 'react';
-import { AuthContext } from '../../container/Auth';
+import { AuthContext } from '../../Context/AppContext';
 import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
 

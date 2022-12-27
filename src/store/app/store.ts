@@ -13,6 +13,7 @@ import {
 
 
 import userReducer from '../features/user/user';
+import user from '../features/user/user';
 
 
 const persistConfig = {
@@ -25,6 +26,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
 })
+
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -48,9 +50,4 @@ export type AppState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  AppState,
-  unknown,
-  Action<string>
->;
+

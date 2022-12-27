@@ -1,19 +1,30 @@
-import React, { useState, createContext, Dispatch, SetStateAction } from 'react';
-import {FirstSignUpStep, FirstLoginStep} from '../components/AuthSteps/FirstStep';
+import React, {
+  useState,
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+} from 'react';
+import {
+  FirstSignUpStep,
+  FirstLoginStep,
+} from '../components/AuthSteps/FirstStep';
 import FourthStep from '../components/AuthSteps/FourthStep';
 import SecondStep from '../components/AuthSteps/SecondStep';
 import ThirdStep from '../components/AuthSteps/ThirdStep';
-
-
+import { AppContext, AuthContext } from '../Context/AppContext';
 
 function Auth() {
   const [step, setStep] = useState(0);
 
+  const AppContextData = useContext(AppContext);
+
+  const { path } = AppContextData;
 
   const authSteps = () => {
     switch (step) {
       case 0:
-        return <FirstStep />;
+        return path === 'signup' ? <FirstSignUpStep /> : <FirstLoginStep />;
       case 1:
         return <SecondStep />;
       case 2:
@@ -22,7 +33,7 @@ function Auth() {
         return <FourthStep />;
 
       default:
-        return 'hello';
+        return path === 'signup' ? <FirstSignUpStep /> : <FirstLoginStep />;
     }
   };
 
