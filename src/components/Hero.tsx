@@ -4,9 +4,7 @@ import { open } from '../store/features/modal';
 const Hero = () => {
   const dispatch = useAppDispatch();
 
-  const openModal = () => {
-    dispatch(open());
-  };
+  const openModal = () => dispatch(open('signup'));
 
   return (
     <div className="hero">

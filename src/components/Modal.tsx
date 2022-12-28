@@ -8,16 +8,12 @@ interface IModal {
 }
 
 function Modal({ children }: IModal) {
+  const modalData = useAppSelector(modalSelector);
+  const dispatch = useAppDispatch();
 
-  const modalData = useAppSelector(modalSelector)
-  const dispatch = useAppDispatch()
+  const { isOpen } = modalData;
 
-
-  const {isOpen} = modalData
-
-  const closeModal = () => {
-    dispatch(close());
-  };
+  const closeModal = () => dispatch(close());
 
   return (
     <div>

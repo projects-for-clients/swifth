@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../app/store';
 
+type Path = 'signup' | 'login';
+
 type ModalState = {
   isOpen: boolean;
-  path: 'signup' | 'login';
+  path: Path;
 };
 
 const initialState: ModalState = {
@@ -16,13 +18,15 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     open: (state) => {
-      console.log('how are you doing', state);
       state.isOpen = true;
     },
 
-    close: (state) => {
-      state.isOpen = false
-    }
+    close: (state, action) => {
+      const path: Path = action.payload;
+
+      state.isOpen = false;
+      state.path = path;
+    },
   },
 });
 
