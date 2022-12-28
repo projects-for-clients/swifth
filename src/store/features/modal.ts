@@ -17,15 +17,14 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    open: (state) => {
+    open: (state, action) => {
+      const path: Path = action.payload;
+      state.path = path;
       state.isOpen = true;
     },
 
-    close: (state, action) => {
-      const path: Path = action.payload;
-
+    close: (state) => {
       state.isOpen = false;
-      state.path = path;
     },
   },
 });
