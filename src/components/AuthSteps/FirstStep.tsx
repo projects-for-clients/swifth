@@ -62,7 +62,7 @@ export const FirstLoginStep = () => {
           </button>
         </section>
       </Fragment>
-      <p className="authFooter">
+      <p className="authText">
         Don't have an account? <button> Create an account</button>
       </p>
     </div>

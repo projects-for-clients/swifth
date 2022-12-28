@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, SetStateAction, Dispatch, useContext } from 'react';
+import React, { useState, useEffect, SetStateAction, useContext } from 'react';
 import { AuthContext } from '../../Context/AppContext';
 import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
@@ -7,7 +7,7 @@ import { updateUser } from '../../store/features/user/user';
 
 
 
-const SecondStep = () => {
+export const SecondSignUpStep = () => {
   const AuthContextData = useContext(AuthContext);
 
   const { setStep } = AuthContextData;
@@ -136,4 +136,3 @@ const SecondStep = () => {
   );
 };
 
-export default SecondStep;

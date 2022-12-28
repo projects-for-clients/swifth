@@ -21,7 +21,7 @@ function ThirdAuthStep() {
     <div className="grid gap-10 mt-16 justify-center pb-5">
       <h2 className="heading2 text-center">Create your password</h2>
 
-      <form className="grid w-full form" onSubmit={handleSubmit}>
+      <form className="grid form w-[34rem]" onSubmit={handleSubmit}>
         {' '}
         <div className="form__input relative">
           <label className="input__label">Create Password</label>
@@ -29,7 +29,7 @@ function ThirdAuthStep() {
             <input
               type={eyeIcon ? 'text' : 'password'}
               placeholder="create a password..."
-              className="input__item"
+              className="input__item w-full"
               name="password"
               value={password}
               onChange={handlePassword}
@@ -44,8 +44,9 @@ function ThirdAuthStep() {
           </div>
 
           {password.length < 1 ? (
-            <p className="input__label">
+            <p className="input__label transition-all delay-75 ease-out">
               Choose a password you will always remember
+             
             </p>
           ) : (
             ''
