@@ -13,25 +13,24 @@ import {
 
 
 import userReducer from '../features/user/user';
-import user from '../features/user/user';
+import modalReducer from '../features/modal';
 
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user.cognitoDetails', 'user.userWallet']
-  // blacklist: ['competition', 'user.cognitoDetails', 'user.userWallet'],
 };
 
 const rootReducer = combineReducers({
   user: userReducer,
+  modal: modalReducer
 })
 
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+//const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

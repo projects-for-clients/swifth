@@ -12,14 +12,16 @@ import {
 import FourthStep from '../components/AuthSteps/FourthStep';
 import SecondStep from '../components/AuthSteps/SecondStep';
 import ThirdStep from '../components/AuthSteps/ThirdStep';
-import { AppContext, AuthContext } from '../Context/AppContext';
+import { AuthContext } from '../Context/AppContext';
+import { modalSelector } from '../store/features/modal';
+import { useAppSelector } from '../store/app/hooks';
 
 function Auth() {
   const [step, setStep] = useState(0);
 
-  const AppContextData = useContext(AppContext);
+  const modalData = useAppSelector(modalSelector);
 
-  const { path } = AppContextData;
+  const { path } = modalData;
 
   const authSteps = () => {
     switch (step) {
