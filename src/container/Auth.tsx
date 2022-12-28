@@ -10,7 +10,7 @@ import {
   FirstLoginStep,
 } from '../components/AuthSteps/FirstStep';
 import FourthStep from '../components/AuthSteps/FourthStep';
-import SecondStep from '../components/AuthSteps/SecondStep';
+import  { SecondLoginStep, SecondSignUpStep } from '../components/AuthSteps/SecondStep';
 import ThirdStep from '../components/AuthSteps/ThirdStep';
 import { AuthContext } from '../Context/AppContext';
 import { modalSelector } from '../store/features/modal';
@@ -28,7 +28,7 @@ function Auth() {
       case 0:
         return path === 'signup' ? <FirstSignUpStep /> : <FirstLoginStep />;
       case 1:
-        return <SecondStep />;
+        return path === 'signup' ? <SecondSignUpStep /> : <SecondLoginStep />;
       case 2:
         return <ThirdStep />;
       case 3:
