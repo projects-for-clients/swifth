@@ -15,14 +15,18 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    updateModal: (state, action) => {
+    open: (state, action) => {
       console.log('how are you doing', state, action);
       state.isOpen = true;
     },
+
+    close: (state, action) => {
+      state.isOpen = false
+    }
   },
 });
 
-export const { updateModal } = modalSlice.actions;
+export const { open, close } = modalSlice.actions;
 
 export const modalSelector = (state: AppState) => state.modal;
 

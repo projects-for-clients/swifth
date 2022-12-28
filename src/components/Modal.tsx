@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GrFormClose } from 'react-icons/gr';
+import { useAppSelector } from '../store/app/hooks';
+import { modalSelector, setIsOpen } from '../store/features/modal';
 
 interface IModal {
   children: React.ReactNode;
 }
 
 function Modal({ children }: IModal) {
-  const [isOpen, setIsOpen] = useState(false);
+
+  const modalData = useAppSelector(modalSelector)
+
+
+  const {isOpen} = modalData
 
   const closeModal = () => {
     setIsOpen(false);
