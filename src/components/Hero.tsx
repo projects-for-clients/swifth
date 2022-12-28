@@ -1,6 +1,10 @@
+import { useAppDispatch } from "../store/app/hooks";
+import { open } from "../store/features/modal";
 
+const dispatch  = useAppDispatch()
 const openModal = () => {
-  console.log("how are you doing")
+  dispatch(open)
+
 }
 
 const Hero = () => (

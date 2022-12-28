@@ -1,7 +1,7 @@
 import React from 'react';
 import { GrFormClose } from 'react-icons/gr';
 import { useAppSelector } from '../store/app/hooks';
-import { modalSelector, setIsOpen } from '../store/features/modal';
+import { modalSelector, open, close } from '../store/features/modal';
 
 interface IModal {
   children: React.ReactNode;
@@ -15,11 +15,11 @@ function Modal({ children }: IModal) {
   const {isOpen} = modalData
 
   const closeModal = () => {
-    setIsOpen(false);
+    open();
   };
 
   const openModal = () => {
-    setIsOpen(true);
+    close();
   };
 
   return (

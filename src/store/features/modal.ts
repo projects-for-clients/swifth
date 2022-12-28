@@ -15,12 +15,12 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    open: (state, action) => {
-      console.log('how are you doing', state, action);
+    open: (state) => {
+      console.log('how are you doing', state);
       state.isOpen = true;
     },
 
-    close: (state, action) => {
+    close: (state) => {
       state.isOpen = false
     }
   },
