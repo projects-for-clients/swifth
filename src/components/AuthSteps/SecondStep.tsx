@@ -124,11 +124,9 @@ export const SecondSignUpStep = () => {
 };
 
 export const SecondLoginStep = () => {
-  const AuthContextData = useContext(AuthContext);
 
   const [eyeIcon, setEyeIcon] = useState(false);
 
-  const { setStep } = AuthContextData;
 
   const dispatch = useAppDispatch();
   interface InputTypes {
@@ -141,6 +139,10 @@ export const SecondLoginStep = () => {
     email: '',
     password: '',
   });
+
+  const handleSubmit = () => {
+    console.log('submit')
+  }
 
   useEffect(() => {
     const values = Object.values(inputField);
@@ -169,7 +171,8 @@ export const SecondLoginStep = () => {
     }
 
     dispatch(updateUser(inputField));
-    setStep(2);
+
+    handleSubmit()
   };
   const toggleEyeIcon = () => setEyeIcon(!eyeIcon);
 
@@ -227,7 +230,7 @@ export const SecondLoginStep = () => {
           </div>
 
           
-            <p className="input__label transition-all delay-75 ease-out">
+            <p className="input__label text-end">
               <a href="/">Forgot password?</a>
             </p>
           
