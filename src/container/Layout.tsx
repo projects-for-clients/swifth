@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { GrFormClose } from 'react-icons/gr';
+
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Modal from '../components/Modal';
