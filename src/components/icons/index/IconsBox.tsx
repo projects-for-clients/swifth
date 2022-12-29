@@ -13,8 +13,8 @@ import PayoutBankSvg from '../payoutBankSvg';
 
 function IconsBox() {
   return (
-    <ul>
-      <li>
+    <ul className='iconsBox'>
+      <li className='iconsBox__list'>
         <HomeSvg fill="white" />
         <Link to="/">Home</Link>
       </li>
