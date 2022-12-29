@@ -4,7 +4,7 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__container">
         <section className='section-1'>
-            <img src="/logo-white.svg" alt="" width={14} height={28} />
+            <img src="/logo-white.svg" alt="" width={28} height={28} />
           <h3 className="header__left--logoText">Swifth</h3>
           <BiMenu />
         </section>
