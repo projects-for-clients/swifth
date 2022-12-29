@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { BiMenu } from 'react-icons/bi';
 
 import IconsBox from '../icons/IconsBox';
@@ -19,10 +18,10 @@ function Sidebar() {
           <IconsBox />
         </section>
         <section className="section-3">
-          <Link to="/">
+          <button>
             <LogoutSvg fill="white" />
             Logout
-          </Link>
+          </button>
         </section>
       </div>
     </div>
