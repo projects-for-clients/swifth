@@ -1,13 +1,12 @@
 import { BiMenu } from 'react-icons/bi';
 
-import IconsBox from '../icons/IconsBox';
+import IconsBox from '../icons/index/IconsBox';
 import LogoutSvg from '../icons/logoutSvg';
 
 function Sidebar() {
-
   const handleLogout = () => {
-    console.log('logout')
-  }
+    console.log('logout');
+  };
 
   return (
     <div className="sidebar">
