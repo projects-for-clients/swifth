@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { BiMenu } from 'react-icons/bi';
+
 import IconsBox from '../icons/IconsBox';
 import LogoutSvg from '../icons/logoutSvg';
 
@@ -13,11 +15,14 @@ function Sidebar() {
             <h3>Swifth</h3>
           </div>
         </section>
-        <section className='section-2'>
-          <IconsBox/>
+        <section className="section-2">
+          <IconsBox />
         </section>
-        <section className='section-3'>
-          <LogoutSvg fill='white'/>
+        <section className="section-3">
+          <Link to="/">
+            <LogoutSvg fill="white" />
+            Logout
+          </Link>
         </section>
       </div>
     </div>
