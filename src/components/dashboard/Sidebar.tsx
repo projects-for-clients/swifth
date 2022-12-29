@@ -1,5 +1,6 @@
 import { BiMenu } from 'react-icons/bi';
 import IconsBox from '../icons/IconsBox';
+import LogoutSvg from '../icons/logoutSvg';
 
 function Sidebar() {
   return (
@@ -15,7 +16,9 @@ function Sidebar() {
         <section className='section-2'>
           <IconsBox/>
         </section>
-        <section>third</section>
+        <section className='section-3'>
+          <LogoutSvg fill='white'/>
+        </section>
       </div>
     </div>
   );
