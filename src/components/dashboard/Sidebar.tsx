@@ -1,7 +1,12 @@
 
 function Sidebar() {
   return (
-    <div className='sidebar'>Sidebar</div>
+    <div className='sidebar'>
+        <section>first</section>
+        <section>second</section>
+        <section>third</section>
+
+    </div>
   )
 }
 
