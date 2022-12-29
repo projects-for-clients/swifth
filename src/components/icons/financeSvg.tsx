@@ -1,6 +1,6 @@
 import React from 'react'
 
-function moneySvg({fill}: {fill: string}) {
+function financeSvg({fill}: {fill: string}) {
   return (
     <svg
       width="24"
@@ -31,4 +31,4 @@ function moneySvg({fill}: {fill: string}) {
   );
 }
 
-export default moneySvg
+export default financeSvg
