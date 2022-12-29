@@ -1,6 +1,6 @@
 import React from 'react'
 
-function peopleSvg({fill}: {fill: string}) {
+function teamSvg({fill}: {fill: string}) {
   return (
     <svg
       width="24"
@@ -31,4 +31,4 @@ function peopleSvg({fill}: {fill: string}) {
   );
 }
 
-export default peopleSvg
+export default teamSvg

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function shoppingCart({fill}: {fill: string}) {
+function deliverySvg({fill}: {fill: string}) {
   return (
     <svg
       width="24"
@@ -25,4 +25,4 @@ function shoppingCart({fill}: {fill: string}) {
   );
 }
 
-export default shoppingCart
+export default deliverySvg
