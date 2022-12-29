@@ -6,10 +6,31 @@
 
     &__container{
         position: fixed;
-        padding: 2rem 1rem;
+        padding: 4rem;
     }
 
     .section-1{
+        display: flex;
+        width: 100%;
+        gap: 4rem;
+        justify-content: space-between;
+        align-items: center;
 
+        svg{
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        &__box{
+            display: flex;
+            gap: .5rem;
+
+            h3{
+                color: white;
+                font-weight: 500;
+                font-size: 1.7rem;
+            }
+        }
     }
 }

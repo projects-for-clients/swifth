@@ -5,10 +5,10 @@ function Sidebar() {
       <div className="sidebar__container">
         <section className="section-1">
           <BiMenu />
-          <div>
+          <div className='section-1__box'>
             <img src="/logo-white.svg" alt="" width={28} height={28} />
+            <h3>Swifth</h3>
           </div>
-          <h3>Swifth</h3>
         </section>
         <section>second</section>
         <section>third</section>
