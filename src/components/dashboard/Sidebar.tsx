@@ -1,6 +1,5 @@
 import { BiMenu } from 'react-icons/bi';
-import HomeSvg from '../../../public/sidebar/home.svg'
-import HomeSVG from '../icons/homeSvg'
+import HomeSvg from '../icons/homeSvg'
 
 function Sidebar() {
   return (
@@ -14,7 +13,7 @@ function Sidebar() {
           </div>
         </section>
         <section className='section-2'>
-          <HomeSVG fill={'white'}/>
+          <HomeSvg fill={'white'}/>
         </section>
         <section>third</section>
       </div>
