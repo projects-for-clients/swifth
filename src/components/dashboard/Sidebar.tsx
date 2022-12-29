@@ -4,6 +4,11 @@ import IconsBox from '../icons/IconsBox';
 import LogoutSvg from '../icons/logoutSvg';
 
 function Sidebar() {
+
+  const handleLogout = () => {
+    console.log('logout')
+  }
+
   return (
     <div className="sidebar">
       <div className="sidebar__container">
@@ -18,7 +23,7 @@ function Sidebar() {
           <IconsBox />
         </section>
         <section className="section-3">
-          <button>
+          <button onClick={handleLogout}>
             <LogoutSvg fill="white" />
             Logout
           </button>
