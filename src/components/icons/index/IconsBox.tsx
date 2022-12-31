@@ -19,40 +19,40 @@ function IconsBox() {
         <Link to="/">Home</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
+        <OrderSvg fill="white" />
         <Link to="/">Orders</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <PaymentSvg fill="white" />
+        <Link to="/">Payments</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <FinanceSvg fill="white" />
+        <Link to="/">Finance</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <PayoutBankSvg fill="white" />
+        <Link to="/">Payout Bank</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <DeliverySvg fill="white" />
+        <Link to="/">Delivery</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <TeamSvg fill="white" />
+        <Link to="/">Teams</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <AnalyticSvg fill="white" />
+        <Link to="/">Analytics</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <ReportSvg fill="white" />
+        <Link to="/">Reports</Link>
       </li>
       <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+        <AccountSvg fill="white" />
+        <Link to="/">Account</Link>
       </li>
     </ul>
   );
