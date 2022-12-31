@@ -1,108 +1,99 @@
-.sidebar{
+.sidebar {
+  height: 100%;
+  grid-column: 1 / 4;
+  background-color: $color-primary-dark;
+  position: relative;
+  display: grid;
+  justify-items: center;
+
+  &__container {
+    position: absolute;
+    padding: 4rem;
+    width: 100%;
     height: 100%;
-    grid-column: 1 / 4;
-    background-color: $color-primary-dark;
-    position: relative;
-    display: grid;
-    justify-items: center;
-    
-    
-    &__container{
-        position: absolute;
-        padding: 4rem;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        color: white;
-        
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+  }
+
+  .section-1 {
+    display: flex;
+    width: 100%;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      color: white;
     }
 
-    .section-1{
+    &__box {
+      display: flex;
+      gap: 0.5rem;
+
+      h3 {
+        color: white;
+        font-weight: 500;
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .section-2 {
+    .iconsBox {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+
+      &__list {
         display: flex;
-        width: 100%;
-        gap: 4rem;
-        justify-content: space-between;
+        gap: 1rem;
+        font-size: 1.6rem;
+        border-radius: $border-radius;
+        padding: 1rem 2rem;
         align-items: center;
 
-        svg{
-            width: 28px;
-            height: 28px;
-            color: white;
+        &:hover {
+          background-color: $color-grey-2;
+          color: black;
+
+          svg {
+            fill: black;
+          }
         }
 
-        &__box{
-            display: flex;
-            gap: .5rem;
-
-            h3{
-                color: white;
-                font-weight: 500;
-                font-size: 1.7rem;
-            }
+        svg {
+          fill: white;
         }
+      }
     }
+  }
 
-    .section-2{
+  .section-3 {
+    button {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.6rem;
+      border-radius: $border-radius;
+      padding: 1rem 2rem;
+      width: 100%;
+      align-items: center;
 
-        .iconsBox{
-            display: grid;
-            gap: 1rem;
-            width: 100%;
-            
-            &__list{
-                
-                display: flex;
-                gap: 1rem;
-                font-size: 1.6rem;
-                border-radius: $border-radius;
-                padding: 1rem 2rem;
-                align-items: center;
-                
-                
-                &:hover{
-                    background-color: $color-grey-2;
+      &:hover {
+        background-color: $color-grey-2;
+        color: black;
 
-                    svg{
-                        fill: black;
-                    }
-                }
-                
-                
-
-                svg{
-                    fill: white;
-                }
-            }
+        svg {
+          fill: black;
         }
+      }
+
+      svg {
+        fill: white;
+      }
     }
-
-    .section-3{
-        button{
-            display: flex;
-            gap: 1rem;
-            font-size: 1.6rem;
-            border-radius: $border-radius;
-            padding: 1rem 2rem;
-            width: 100%;
-            align-items: center;
-            
-            &:hover{
-                background-color: $color-grey-2;
-
-        
-                svg{
-                    fill: black;
-                }
-                
-            }
-            
-
-            svg{
-                fill: white;
-            }
-        }
-    }
-
+  }
 }
