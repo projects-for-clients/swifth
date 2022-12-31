@@ -12,7 +12,7 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__container">
         <section className="section-1">
-          <div className="absolute right-0">
+          <div className="section-1__menu">
             <label htmlFor="section-1__button">
               <BiMenu/>
             </label>
