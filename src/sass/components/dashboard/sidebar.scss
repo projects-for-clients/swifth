@@ -17,8 +17,6 @@
     color: white;
   }
 
- 
-
   .section-1 {
     display: flex;
     width: 100%;
@@ -27,22 +25,12 @@
     align-items: center;
     position: relative;
 
-    &__menu {
-      position: absolute;
-      right: 0;
-      cursor: pointer;
-
-      
-    
-
-      .menu__label {
-    
-
-        svg {
-          width: 28px;
-          height: 28px;
-          color: white;
-        }
+    span {
+        cursor: pointer;
+      svg {
+        width: 28px;
+        height: 28px;
+        color: white;
       }
     }
 
