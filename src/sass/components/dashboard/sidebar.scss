@@ -1,7 +1,6 @@
 .sidebar {
   height: 100%;
-  grid-column: 1 / 4;
-  //grid-column: 1 / 2;
+  width: 30rem;
   background-color: $color-primary-dark;
   position: relative;
   display: grid;
@@ -31,14 +30,14 @@
       height: 28px;
       color: white;
 
-      left: 0;
+      // left: 0;
     }
 
     &__box {
       display: flex;
       gap: 0.5rem;
 
-      display: none;
+      // display: none;
 
       h3 {
         color: white;
@@ -59,14 +58,12 @@
         gap: 1rem;
         font-size: 1.6rem;
         border-radius: $border-radius;
-        padding: 1rem 2rem;
         align-items: center;
-        transition: all .2s;
 
-        padding: inherit 0rem;
+        padding: 1rem 0;
 
-        span{
-            display: none;
+        span {
+          // display: none;
         }
 
         svg {
@@ -74,10 +71,11 @@
         }
 
         &:hover {
+          transition: all 0.2s;
+          padding: 1rem 2rem;
           background-color: $color-grey-2;
           color: black;
           transform: translateX(1rem);
-          transition: all;
 
           svg {
             fill: black;
@@ -93,9 +91,9 @@
       gap: 1rem;
       font-size: 1.6rem;
       border-radius: $border-radius;
-      padding: 1rem 2rem;
       width: 100%;
       align-items: center;
+      padding: 1rem 2rem;
 
       &:hover {
         background-color: $color-grey-2;
