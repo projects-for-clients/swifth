@@ -12,11 +12,11 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__container">
         <section className="section-1">
-          <div className="relative">
+          <div className=" absolute right-0">
             <label htmlFor="menuButton">
-              <BiMenu className="absolute right-0" />
+              <BiMenu className="" />
             </label>
-            <input type="checkbox" id="menuButton" className="bg-red-500" />
+            <input type="checkbox" id="menuButton" className="hidden" />
           </div>
           <div className="section-1__box">
             <img src="/logo-white.svg" alt="" width={28} height={28} />
