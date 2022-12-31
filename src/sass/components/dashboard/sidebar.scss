@@ -23,6 +23,7 @@
     gap: 4rem;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     svg {
       width: 28px;
@@ -48,25 +49,28 @@
       gap: 1rem;
       width: 100%;
 
-      &__list {
+      a {
         display: flex;
         gap: 1rem;
         font-size: 1.6rem;
         border-radius: $border-radius;
         padding: 1rem 2rem;
         align-items: center;
+        transition: all .2s;
+
+        svg {
+          fill: white;
+        }
 
         &:hover {
           background-color: $color-grey-2;
           color: black;
+          transform: translateX(1rem);
+          transition: all;
 
           svg {
             fill: black;
           }
-        }
-
-        svg {
-          fill: white;
         }
       }
     }

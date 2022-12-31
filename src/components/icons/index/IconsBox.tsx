@@ -13,46 +13,71 @@ import PayoutBankSvg from '../payoutBankSvg';
 
 function IconsBox() {
   return (
-    <ul className='iconsBox'>
-      <li className='iconsBox__list'>
-        <HomeSvg fill="white" />
-        <Link to="/">Home</Link>
+    <ul className="iconsBox">
+      <li className="iconsBox__list">
+        <Link to="/">
+          <HomeSvg fill="white" />
+          <span>Home</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <OrderSvg fill="white" />
-        <Link to="/">Orders</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          {' '}
+          <OrderSvg fill="white" />
+          <span>Orders</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <PaymentSvg fill="white" />
-        <Link to="/">Payments</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          <PaymentSvg fill="white" />
+          <span>Payments</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <FinanceSvg fill="white" />
-        <Link to="/">Finance</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          {' '}
+          <FinanceSvg fill="white" />
+          <span>Finance</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <PayoutBankSvg fill="white" />
-        <Link to="/">Payout Bank</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          <PayoutBankSvg fill="white" />
+          <span>Payout Bank</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <DeliverySvg fill="white" />
-        <Link to="/">Delivery</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          {' '}
+          <DeliverySvg fill="white" />
+          <span>Delivery</span>{' '}
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <TeamSvg fill="white" />
-        <Link to="/">Teams</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          {' '}
+          <TeamSvg fill="white" />
+          <span>Teams</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <AnalyticSvg fill="white" />
-        <Link to="/">Analytics</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          <AnalyticSvg fill="white" />
+          <span>Analytics</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <ReportSvg fill="white" />
-        <Link to="/">Reports</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          {' '}
+          <ReportSvg fill="white" />
+          <span>Reports</span>
+        </Link>
       </li>
-      <li className='iconsBox__list'>
-        <AccountSvg fill="white" />
-        <Link to="/">Account</Link>
+      <li className="iconsBox__list">
+        <Link to="/">
+          <AccountSvg fill="white" />
+          <span>Account</span>
+        </Link>
       </li>
     </ul>
   );
