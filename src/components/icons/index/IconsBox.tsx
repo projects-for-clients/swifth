@@ -18,6 +18,42 @@ function IconsBox() {
         <HomeSvg fill="white" />
         <Link to="/">Home</Link>
       </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Orders</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
+      <li className='iconsBox__list'>
+        <HomeSvg fill="white" />
+        <Link to="/">Home</Link>
+      </li>
     </ul>
   );
 }
