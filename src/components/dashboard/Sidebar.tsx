@@ -13,10 +13,15 @@ function Sidebar() {
       <div className="sidebar__container">
         <section className="section-1">
           <div className="section-1__menu">
-            <label htmlFor="section-1__button">
-              <BiMenu/>
+            <input
+              type="checkbox"
+              id="menu__checkbox"
+              className="menu__checkbox"
+            />
+            <label htmlFor="menu__checkbox" className='menu__label'>
+              hello
+              <BiMenu />
             </label>
-            <input type="checkbox" id="section-1__button" className="hidden" />
           </div>
           <div className="section-1__box">
             <img src="/logo-white.svg" alt="" width={28} height={28} />
