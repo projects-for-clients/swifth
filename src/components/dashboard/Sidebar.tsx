@@ -19,7 +19,6 @@ function Sidebar() {
 
     sidebar.classList.toggle('sidebarToggle');
 
-   
 
     setOpenSidebar((state) => !state);
   };
