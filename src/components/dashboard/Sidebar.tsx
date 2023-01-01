@@ -45,7 +45,7 @@ function Sidebar() {
         <section className="section-3">
           <button onClick={handleLogout}>
             <LogoutSvg fill="white" />
-            Logout
+            <span>Logout</span>
           </button>
         </section>
       </div>
