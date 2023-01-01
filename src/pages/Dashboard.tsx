@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from '../components/dashboard/Header'
 import Sidebar from '../components/dashboard/Sidebar'
 
 function Dashboard() {
@@ -8,6 +9,7 @@ function Dashboard() {
 
     <Sidebar/>
     <div className='dashboard__container'>
+      <Header/>
 
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam accusantium sequi unde maxime possimus dolor corporis quisquam fuga quo facilis cumque tenetur, ipsum et quaerat voluptatibus. Enim nihil aliquam reprehenderit.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur unde, alias recusandae laboriosam nam nesciunt aperiam totam assumenda, ratione deleniti aliquid cumque animi aspernatur saepe, ullam deserunt obcaecati? Quaerat.
