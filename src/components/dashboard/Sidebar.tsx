@@ -6,8 +6,7 @@ import LogoutSvg from '../icons/logoutSvg';
 
 function Sidebar() {
   const sidebarRef = useRef(null);
-  const section_2_ref = useRef(null);
-  const section_1_boxRef = useRef(null);
+
 
   const [openSidebar, setOpenSidebar] = useState(true);
 
@@ -20,13 +19,7 @@ function Sidebar() {
 
     sidebar.classList.toggle('sidebarToggle');
 
-    const section_2: HTMLElement = section_2_ref.current!;
-
-    section_2.classList.toggle('section-2_toggle');
-
-    const section_1_box: HTMLDivElement = section_1_boxRef.current!;
-
-    section_1_box.classList.toggle('section-1_box_toggle');
+   
 
     setOpenSidebar((state) => !state);
   };
@@ -39,7 +32,7 @@ function Sidebar() {
         }`}
       >
         <section className="section-1">
-          <div className="section-1__box" ref={section_1_boxRef}>
+          <div className="section-1__box" >
             <img src="/logo-white.svg" alt="" width={28} height={28} />
             <h3>Swifth</h3>
           </div>
@@ -47,7 +40,7 @@ function Sidebar() {
             <BiMenu />
           </span>
         </section>
-        <section className="section-2" ref={section_2_ref}>
+        <section className="section-2" >
           <IconsBox />
         </section>
         <section className="section-3">

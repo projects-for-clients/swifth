@@ -46,10 +46,7 @@
       }
     }
   }
-  .section-1_box_toggle {
-      display: none;
-   
-  }
+ 
 
   .section-2 {
     .iconsBox {
@@ -122,4 +119,21 @@
 
 .sidebarToggle {
   width: 8rem;
+
+  .section-1{
+
+    &__box{
+        display: none;
+    }
+  }
+
+   .section-2 {
+    .iconsBox {
+      a {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
 }
