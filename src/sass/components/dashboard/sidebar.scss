@@ -1,5 +1,6 @@
 .sidebar {
   height: 100%;
+  transition: all 0.3s;
   width: 30rem;
   background-color: $color-primary-dark;
   position: relative;
@@ -26,7 +27,7 @@
     position: relative;
 
     span {
-        cursor: pointer;
+      cursor: pointer;
       svg {
         width: 28px;
         height: 28px;
@@ -38,14 +39,16 @@
       display: flex;
       gap: 0.5rem;
 
-      // display: none;
-
       h3 {
         color: white;
         font-weight: 500;
         font-size: 1.7rem;
       }
     }
+  }
+  .section-1_box_toggle {
+      display: none;
+   
   }
 
   .section-2 {
@@ -63,10 +66,6 @@
 
         padding: 1rem 0;
 
-        span {
-          // display: none;
-        }
-
         svg {
           fill: white;
         }
@@ -81,6 +80,15 @@
           svg {
             fill: black;
           }
+        }
+      }
+    }
+  }
+  .section-2_toggle {
+    .iconsBox {
+      a {
+        span {
+          display: none;
         }
       }
     }
@@ -110,4 +118,8 @@
       }
     }
   }
+}
+
+.sidebarToggle {
+  width: 8rem;
 }
