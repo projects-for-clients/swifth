@@ -1,12 +1,11 @@
 import { BiMenu } from 'react-icons/bi';
 import { useRef, useState } from 'react';
 
-import IconsBox from '../icons/index/IconsBox';
-import LogoutSvg from '../icons/logoutSvg';
+import IconsBox from '../icons/IconsBox';
+import LogoutSvg from '../icons/sidebar/logoutSvg'
 
 function Sidebar() {
   const sidebarRef = useRef(null);
-
 
   const [openSidebar, setOpenSidebar] = useState(true);
 
@@ -19,7 +18,6 @@ function Sidebar() {
 
     sidebar.classList.toggle('sidebarToggle');
 
-
     setOpenSidebar((state) => !state);
   };
 
@@ -31,7 +29,7 @@ function Sidebar() {
         }`}
       >
         <section className="section-1">
-          <div className="section-1__box" >
+          <div className="section-1__box">
             <img src="/logo-white.svg" alt="" width={28} height={28} />
             <h3>Swifth</h3>
           </div>
@@ -39,7 +37,7 @@ function Sidebar() {
             <BiMenu />
           </span>
         </section>
-        <section className="section-2" >
+        <section className="section-2">
           <IconsBox />
         </section>
         <section className="section-3">

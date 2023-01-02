@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 
-import HomeSvg from '../homeSvg';
-import TeamSvg from '../teamSvg';
-import OrderSvg from '../orderSvg';
-import ReportSvg from '../reportSvg';
-import FinanceSvg from '../financeSvg';
-import AccountSvg from '../accountSvg';
-import PaymentSvg from '../paymentSvg';
-import AnalyticSvg from '../analyticSvg';
-import DeliverySvg from '../deliverySvg';
-import PayoutBankSvg from '../payoutBankSvg';
+import HomeSvg from './sidebar/homeSvg';
+import TeamSvg from './sidebar/teamSvg';
+import OrderSvg from './sidebar/orderSvg';
+import ReportSvg from './sidebar/reportSvg';
+import FinanceSvg from './sidebar/financeSvg';
+import AccountSvg from './sidebar/accountSvg';
+import PaymentSvg from './sidebar/paymentSvg';
+import AnalyticSvg from './sidebar/analyticSvg';
+import DeliverySvg from './sidebar/deliverySvg';
+import PayoutBankSvg from './sidebar/payoutBankSvg';
 
 function IconsBox() {
   return (
