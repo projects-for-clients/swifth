@@ -16,7 +16,8 @@ function Header({title, subTitle}: THeader) {
             <p>{subTitle}</p>
       </div>
       <div className="header__right">
-
+      <NotificationSvg/>
+      <AccountSvg fill="black"/>
       </div>
     </div>
   );
