@@ -81,6 +81,7 @@
     gap: 1rem;
     display: grid;
     align-self: baseline;
+    background-color: red;
 
     &-item {
       border-radius: $border-radius;
@@ -97,7 +98,7 @@
     }
 
     &-item--1{
-        background-color: $color-red-light-1;
+        background: url('/ellipse2.svg') no-repeat right $color-red-light-1;
 
         h2{
             color: #957979;
