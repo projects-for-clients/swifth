@@ -97,9 +97,11 @@
     }
 
     &-item--1{
-        background-color: $color-red-light;
-        color: $color-red-light-1;
+        background-color: $color-red-light-1;
 
+        h2{
+            color: #957979;
+        }
         p{
             color: #645050;
 
