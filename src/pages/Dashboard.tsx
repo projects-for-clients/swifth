@@ -29,7 +29,7 @@ function Dashboard() {
             </div>
             <div>
               <input type="radio" name="contactInfo" id="contactInfo" />
-              <label htmlFor="contactInfo"> Contact information</label>
+              <label htmlFor="contactInfo">Contact information</label>
             </div>
           </div>
         </div>
