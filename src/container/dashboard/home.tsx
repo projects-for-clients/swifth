@@ -16,9 +16,9 @@ function home() {
               It's time to set up your account. We will need a few things to get
               you going
             </p>
-            <div className='left-1__box'>
+            <div className="left-1__box">
               <div className="left-1__progress">
-                <span>0%</span>Completed
+                <p>0%</p> <p>Completed</p>
               </div>
               <button className="left-1__btn">Get Started</button>
             </div>

@@ -25,6 +25,8 @@
                 background-color: $color-purple-light-1;
                 padding: 1rem;
                 border-radius: $border-radius;
+                display: flex;
+                gap: 1rem;
             }
         }
     }
