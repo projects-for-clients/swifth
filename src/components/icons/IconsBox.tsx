@@ -15,66 +15,66 @@ function IconsBox() {
   return (
     <ul className="iconsBox">
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard">
           <HomeSvg fill="white" />
           <span>Home</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/orders">
           {' '}
           <OrderSvg fill="white" />
           <span>Orders</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/payments">
           <PaymentSvg fill="white" />
           <span>Payments</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/finance">
           {' '}
           <FinanceSvg fill="white" />
           <span>Finance</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/payout-bank">
           <PayoutBankSvg fill="white" />
           <span>Payout Bank</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/delivery">
           {' '}
           <DeliverySvg fill="white" />
           <span>Delivery</span>{' '}
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/teams">
           {' '}
           <TeamSvg fill="white" />
           <span>Teams</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/analytics">
           <AnalyticSvg fill="white" />
           <span>Analytics</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/reports">
           {' '}
           <ReportSvg fill="white" />
           <span>Reports</span>
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/">
+        <Link to="/dashboard/account">
           <AccountSvg fill="white" />
           <span>Account</span>
         </Link>
