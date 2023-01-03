@@ -48,11 +48,19 @@
 
             &__step{
                 display: flex;
-
+                align-items: center;
+                gap: 2rem;
+                
                 label{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    width: 100%;
+
+                    svg{
+                        width: 1.6rem;
+                        height: 1.6rem;
+                    }
                 }
             }
         }

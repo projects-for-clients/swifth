@@ -30,17 +30,25 @@ function home() {
                   <FiChevronDown />
                 </label>
               </div>
-              <div>
+              <div className="left-1__step">
                 <input
                   type="radio"
                   name="portAndTerminal"
                   id="portAndTerminal"
                 />
-                <label htmlFor="portAndTerminal">Port and terminal Info</label>
+                <label htmlFor="portAndTerminal">
+                  <p className="text">Port and terminal Info</p>
+                  <FiChevronDown />
+                </label>
               </div>
-              <div>
+              <div className="left-1__step">
                 <input type="radio" name="contactInfo" id="contactInfo" />
-                <label htmlFor="contactInfo">Contact information</label>
+                <label htmlFor="contactInfo">
+                  <p className='text'>
+                    Contact information
+                    </p>
+                  <FiChevronDown />
+                </label>
               </div>
             </div>
           </div>
