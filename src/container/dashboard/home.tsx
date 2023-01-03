@@ -27,29 +27,27 @@ function home() {
             </div>
             <div className="left-1__steps">
               <div className="left-1__step">
-                <EllipseSvg/>
-                <label htmlFor="businessInfo">
+                <EllipseSvg />
+                <div className="left-1__step--label">
                   <p className="text">Your business information</p>
                   <FiChevronDown />
-                </label>
+                </div>
               </div>
               <div className="left-1__step">
-                <input
-                  type="radio"
-                  name="portAndTerminal"
-                  id="portAndTerminal"
-                />
-                <label htmlFor="portAndTerminal">
+                <EllipseSvg />
+                <div className="left-1__step--label">
+                  {' '}
                   <p className="text">Port and terminal Info</p>
                   <FiChevronDown />
-                </label>
+                </div>
               </div>
               <div className="left-1__step">
-                <input type="radio" name="contactInfo" id="contactInfo" />
-                <label htmlFor="contactInfo">
+                <EllipseSvg />
+                <div className="left-1__step--label">
+                  {' '}
                   <p className="text">Contact information</p>
                   <FiChevronDown />
-                </label>
+                </div>
               </div>
             </div>
           </div>
