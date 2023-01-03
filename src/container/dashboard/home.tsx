@@ -69,7 +69,7 @@ function home() {
             <FinanceSvg fill={'#957979'} />
             <div className="right-item__content">
               <h2 className="heading3">Total Earnings</h2>
-              <p className="heading2">NGN span0.0</p>
+              <p className="heading2">NGN <span>0.0</span></p>
             </div>
           </div>
           <div className="home__right-item home__right-item--2">
