@@ -16,14 +16,14 @@ function home() {
               It's time to set up your account. We will need a few things to get
               you going
             </p>
-            <div>
+            <div className='left-1__box'>
               <div className="left-1__progress">
                 <span>0%</span>Completed
               </div>
               <button className="left-1__btn">Get Started</button>
             </div>
-            <div className='left-1__steps'>
-              <div className='left-1__step'>
+            <div className="left-1__steps">
+              <div className="left-1__step">
                 <input type="radio" name="businessInfo" id="businessInfo" />
                 <label htmlFor="businessInfo">
                   <p className="text">Your business information</p>
