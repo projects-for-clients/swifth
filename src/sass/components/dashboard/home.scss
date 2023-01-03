@@ -1,14 +1,15 @@
 .dashboard__home {
   display: grid;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 55% auto;
+  gap: 1rem;
 }
 
 .home {
   &__left {
-    background-color: red;
+    border-radius: $border-radius;
+    padding: 1rem;
   }
 
   &__right {
-    background-color: blue;
   }
 }
