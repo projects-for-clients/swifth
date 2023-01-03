@@ -1,3 +1,15 @@
 .dashboard__home{
-    display: flex;
+    display: grid;
+    grid-template-columns: 60% auto;
+}
+
+.home{
+
+    &__left{
+
+    }
+
+    &__right{
+        
+    }
 }
