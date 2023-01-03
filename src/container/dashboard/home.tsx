@@ -65,21 +65,21 @@ function home() {
           </div>
         </section>
         <section className="home__right">
-          <div className="home__right-item">
+          <div className="home__right-item home__right-item--1">
             <FinanceSvg fill={'#957979'} />
             <div className="right-item__content">
               <h2 className="heading3">Total Earnings</h2>
               <p className="heading2">NGN 0.0</p>
             </div>
           </div>
-          <div className="home__right-item">
+          <div className="home__right-item home__right-item--2">
             <FinanceSvg fill={'#957979'} />
             <div className="right-item__content">
               <h2 className="heading3">Total Earnings</h2>
               <p className="heading2">NGN 0.0</p>
             </div>
           </div>
-          <div className="home__right-item">
+          <div className="home__right-item home__right-item--3">
             <FinanceSvg fill={'#957979'} />
             <div className="right-item__content">
               <h2 className="heading3">Total Earnings</h2>

@@ -94,7 +94,11 @@
         height: 4rem;
       }
 
-     
+    }
+
+    &-item--1{
+        background-color: $color-red-light;
+        color: $color-red-light-1;
     }
   }
 }
