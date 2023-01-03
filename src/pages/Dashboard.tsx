@@ -8,16 +8,7 @@ function Dashboard() {
       <Sidebar />
       <div className="dashboard__container">
         <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
-        accusantium sequi unde maxime possimus dolor corporis quisquam fuga quo
-        facilis cumque tenetur, ipsum et quaerat voluptatibus. Enim nihil
-        aliquam reprehenderit. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Vitae pariatur unde, alias recusandae laboriosam nam
-        nesciunt aperiam totam assumenda, ratione deleniti aliquid cumque animi
-        aspernatur saepe, ullam deserunt obcaecati? Quaerat. Lorem ipsum dolor
-        sit amet consectetur, adipisicing elit. Sed, obcaecati earum illo
-        impedit aspernatur quasi et placeat eaque. Saepe tenetur, temporibus
-        esse sapiente neque accusamus omnis ut doloribus quam ratione! Mollitia
+        litia
         corrupti, doloremque expedita ea iusto laborum exercitationem
         repudiandae nihil maxime, corporis, ut debitis neque non ab dolores
         magnam commodi. Maiores esse necessitatibus veritatis, placeat quam id
