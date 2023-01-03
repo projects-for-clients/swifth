@@ -84,6 +84,8 @@
       border-radius: $border-radius;
       padding: 1rem;
       border: $border-2;
+      display: flex;
+      gap: 3rem;
     }
   }
 }
