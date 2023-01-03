@@ -9,12 +9,14 @@ import {
 import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 import DashboardHome from '../container/dashboard/home';
+import Orders from '../container/dashboard/orders';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<Home />} />,
     <Route path="/dashboard" element={<Dashboard />}>
       <Route path="home" element={<DashboardHome />} />
+      <Route path="orders" element={<Orders />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])
