@@ -1,15 +1,14 @@
-.dashboard__home{
-    display: grid;
-    grid-template-columns: 60% auto;
+.dashboard__home {
+  display: grid;
+  grid-template-columns: 60% auto;
 }
 
-.home{
+.home {
+  &__left {
+    background-color: red;
+  }
 
-    &__left{
-
-    }
-
-    &__right{
-        
-    }
+  &__right {
+    background-color: blue;
+  }
 }
