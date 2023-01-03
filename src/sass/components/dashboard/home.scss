@@ -19,7 +19,7 @@
 
             &__box{
                 display: grid;
-                grid-template-columns: 60% 40%;
+                grid-template-columns: 60% auto;
                 gap: 1rem;
             }
 
