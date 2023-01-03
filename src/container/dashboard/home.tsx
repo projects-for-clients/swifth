@@ -1,5 +1,6 @@
-import Header from '../../components/dashboard/Header';
+import { FiChevronDown } from 'react-icons/fi';
 
+import Header from '../../components/dashboard/Header';
 import FinanceSvg from '../../components/icons/sidebar/financeSvg';
 
 function home() {
@@ -11,18 +12,23 @@ function home() {
         <section className="home__left">
           <div className="home__left-1">
             <h2 className="heading3">Account Setup</h2>
-            <p>
+            <p className="left-1__text">
               It’s time to set up your account. We will need a few things to get
               you going
             </p>
             <div>
-              <div>box 1</div>
-              <div>box 2</div>
+              <div className="left-1__progress">
+                <span>0%</span>Completed
+              </div>
+              <button className="left-1__btn">Get Started</button>
             </div>
-            <div>
-              <div>
+            <div className='left-1__steps'>
+              <div className='left-1__step'>
                 <input type="radio" name="businessInfo" id="businessInfo" />
-                <label htmlFor="businessInfo">Your business information</label>
+                <label htmlFor="businessInfo">
+                  <p className="left-1__text">Your business information</p>
+                  <FiChevronDown />
+                </label>
               </div>
               <div>
                 <input
