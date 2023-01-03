@@ -29,7 +29,16 @@
                 border-radius: $border-radius;
                 display: flex;
                 gap: 1rem;
-                color: $color-purple-light;
+                color: $color-tertiary;
+            }
+
+            &__btn{
+                font-size: 1.4rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: $color-white;
+                background-color: $color-primary;
+                border-radius: $border-radius;
             }
         }
     }
