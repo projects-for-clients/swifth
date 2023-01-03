@@ -24,6 +24,11 @@
           gap: 1rem;
         }
 
+        &__content{
+            display: grid;
+            background-color: red;
+        }
+
         &__progress {
           background-color: $color-purple-light-1;
           padding: 1rem 2rem;
