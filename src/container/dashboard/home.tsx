@@ -12,7 +12,7 @@ function home() {
         <section className="home__left">
           <div className="home__left-1">
             <h2 className="heading3">Account Setup</h2>
-            <p className="left-1__text">
+            <p className="text">
               It’s time to set up your account. We will need a few things to get
               you going
             </p>
@@ -26,7 +26,7 @@ function home() {
               <div className='left-1__step'>
                 <input type="radio" name="businessInfo" id="businessInfo" />
                 <label htmlFor="businessInfo">
-                  <p className="left-1__text">Your business information</p>
+                  <p className="text">Your business information</p>
                   <FiChevronDown />
                 </label>
               </div>
