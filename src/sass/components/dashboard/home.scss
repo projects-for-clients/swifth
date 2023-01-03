@@ -1,6 +1,7 @@
 .dashboard__home {
   display: grid;
   grid-template-columns: 55% auto;
+  grid-template-rows: min-content;
   gap: 1rem;
 }
 
@@ -8,8 +9,12 @@
   &__left {
     border-radius: $border-radius;
     padding: 1rem;
+    border: $border;
   }
 
   &__right {
+    border-radius: $border-radius;
+    padding: 1rem;
+    border: $border-2;
   }
 }
