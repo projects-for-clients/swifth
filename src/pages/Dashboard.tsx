@@ -15,7 +15,22 @@ function Dashboard() {
             you going
           </p>
           <div>
-            
+            <div>box 1</div>
+            <div>box 2</div>
+          </div>
+          <div>
+            <div>
+              <input type="radio" name="businessInfo" id="businessInfo" />
+              <label htmlFor="businessInfo">Your business information</label>
+            </div>
+            <div>
+              <input type="radio" name="portAndTerminal" id="portAndTerminal" />
+              <label htmlFor="portAndTerminal">Port and terminal Info</label>
+            </div>
+            <div>
+              <input type="radio" name="contactInfo" id="contactInfo" />
+              <label htmlFor="contactInfo"> Contact information</label>
+            </div>
           </div>
         </div>
       </div>
