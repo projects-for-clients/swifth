@@ -34,7 +34,7 @@ function home() {
                 </div>
               </div>
               <div className="left-1__step">
-                <EllipseSvg />
+                <CheckmarkSvg />
                 <div className="left-1__step--label">
                   {' '}
                   <p className="text">Port and terminal Info</p>
@@ -42,7 +42,7 @@ function home() {
                 </div>
               </div>
               <div className="left-1__step">
-                <EllipseSvg />
+                <CancelSvg />
                 <div className="left-1__step--label">
                   {' '}
                   <p className="text">Contact information</p>
