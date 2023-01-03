@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router';
-import Header from '../components/dashboard/Header';
 import Sidebar from '../components/dashboard/Sidebar';
 
 function Dashboard() {
