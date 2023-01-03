@@ -10,12 +10,12 @@ type THeader = {
 
 function Header({title, subTitle}: THeader) {
   return (
-    <div className="flex justify-between items-center">
-      <div className="grid">
-            <h1>{title}</h1>
-            <p>{subTitle}</p>
+    <div className="header">
+      <div className="header__left">
+            <h1 className="font-medium">{title}</h1>
+            <h2 className="font-medium">{subTitle}</h2>
       </div>
-      <div className="flex">
+      <div className="header__right">
       <NotificationSvg/>
       <AccountSvg fill="black"/>
       </div>
