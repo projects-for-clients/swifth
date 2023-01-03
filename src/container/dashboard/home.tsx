@@ -13,7 +13,7 @@ function home() {
           <div className="home__left-1">
             <h2 className="heading3">Account Setup</h2>
             <p className="text">
-              It’s time to set up your account. We will need a few things to get
+              It's time to set up your account. We will need a few things to get
               you going
             </p>
             <div>
