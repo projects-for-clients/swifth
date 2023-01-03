@@ -40,6 +40,21 @@
                 background-color: $color-primary;
                 border-radius: $border-radius;
             }
+
+            &__steps{
+                display: grid;
+            }
+
+
+            &__step{
+                display: flex;
+
+                label{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
         }
     }
   }
