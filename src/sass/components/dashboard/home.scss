@@ -24,9 +24,12 @@
           gap: 1rem;
         }
 
-        &__content{
-            display: grid;
-            background-color: red;
+        &__content {
+          display: grid;
+          justify-items: center;
+          align-content: center;
+          height: 100%;
+          gap: 2rem;
         }
 
         &__progress {

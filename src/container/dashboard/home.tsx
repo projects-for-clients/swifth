@@ -53,11 +53,14 @@ function home() {
             </div>
           </div>
           <div className="home__left-item">
+            <div>
+
             <h2 className="heading3">Business analysis</h2>
 
             <div className="left-item__content">
               <AnalyticsSvg />
               <p className='text'>Your business analytics would be shown here</p>
+            </div>
             </div>
           </div>
         </section>
