@@ -5,6 +5,7 @@ import FinanceSvg from '../../components/icons/sidebar/financeSvg';
 import EllipseSvg from '../../components/icons/ellipseSvg';
 import CancelSvg from '../../components/icons/cancelSvg';
 import CheckmarkSvg from '../../components/icons/checkmarkSvg';
+import AnalyticsSvg from '../../components/icons/analyticsSvg';
 
 function home() {
   return (
@@ -53,8 +54,11 @@ function home() {
           </div>
           <div className="home__left-item">
             <h2 className="heading3">Business analysis</h2>
-           
-          
+
+            <div className="left-item__content">
+              <AnalyticsSvg />
+              <p>Your business analytics would be shown here</p>
+            </div>
           </div>
         </section>
         <section className="home__right">

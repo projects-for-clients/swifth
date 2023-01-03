@@ -7,6 +7,7 @@
 .home {
   &__left {
     display: grid;
+    grid-auto-rows: 1fr;
     gap: 1rem;
 
     &-item {
