@@ -1,13 +1,14 @@
 .dashboard__home {
   display: grid;
   grid-template-columns: 55% auto;
-  grid-template-rows: min-content;
   gap: 1rem;
 }
 
 .home {
   &__left {
-    display: ;
+    display: grid;
+    gap: 1rem;
+
     &-item {
       border-radius: $border-radius;
       padding: 1rem;
