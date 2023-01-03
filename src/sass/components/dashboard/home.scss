@@ -88,14 +88,16 @@
       display: flex;
       gap: 3rem;
 
-      .right-item {
+      svg{
+        width: 4rem;
+        height: 4rem;
+      }
 
-        &__content{
-            
+      .right-item {
+        &__content {
+         
         }
       }
     }
-
-
   }
 }
