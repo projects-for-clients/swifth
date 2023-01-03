@@ -2,6 +2,7 @@ import { FiChevronDown } from 'react-icons/fi';
 
 import Header from '../../components/dashboard/Header';
 import FinanceSvg from '../../components/icons/sidebar/financeSvg';
+import EllipseSvg from '../../components/icons/ellipseSvg';
 
 function home() {
   return (
@@ -24,7 +25,7 @@ function home() {
             </div>
             <div className="left-1__steps">
               <div className="left-1__step">
-                <input type="radio" name="businessInfo" id="businessInfo" />
+                <EllipseSvg/>
                 <label htmlFor="businessInfo">
                   <p className="text">Your business information</p>
                   <FiChevronDown />
