@@ -81,11 +81,10 @@
     gap: 1rem;
     display: grid;
     align-self: baseline;
-    background-color: red;
 
     &-item {
       border-radius: $border-radius;
-      padding: 1rem;
+      padding: 2rem;
       border: $border-2;
       display: flex;
       gap: 3rem;
