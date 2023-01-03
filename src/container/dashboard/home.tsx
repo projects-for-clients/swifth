@@ -1,5 +1,7 @@
 import Header from '../../components/dashboard/Header';
 
+import FinanceSvg from '../../components/icons/sidebar/financeSvg';
+
 function home() {
   return (
     <>
@@ -7,7 +9,7 @@ function home() {
 
       <div className="dashboard__home">
         <section className="home__left">
-          <div className='home__left-1'>
+          <div className="home__left-1">
             <h2 className="heading3">Account Setup</h2>
             <p>
               It’s time to set up your account. We will need a few things to get
@@ -38,8 +40,8 @@ function home() {
           </div>
         </section>
         <section className="home__right">
-          <div className='home__right-1'>
-            
+          <div className="home__right-1">
+            <FinanceSvg fill={'#957979'} />
           </div>
           <div>left two</div>
         </section>

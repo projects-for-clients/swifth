@@ -6,10 +6,11 @@ function Dashboard() {
     <div className="dashboard">
       <Sidebar />
       <div className="dashboard__container">
-      <Outlet/>
+        <Outlet />
       </div>
     </div>
   );
+
 }
 
 export default Dashboard;
