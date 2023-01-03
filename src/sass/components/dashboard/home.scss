@@ -12,6 +12,8 @@
     border: $border;
 
     &-1{
+        display: grid;
+        gap: 2rem;
 
         .left-1{
 
@@ -23,10 +25,11 @@
 
             &__progress{
                 background-color: $color-purple-light-1;
-                padding: 1rem;
+                padding: 1rem 2rem;
                 border-radius: $border-radius;
                 display: flex;
                 gap: 1rem;
+                color: $color-purple-light;
             }
         }
     }
