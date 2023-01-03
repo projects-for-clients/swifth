@@ -11,71 +11,67 @@
     padding: 1rem;
     border: $border;
 
-    &-1{
-        display: grid;
-        gap: 2rem;
+    &-item {
+      display: grid;
+      gap: 2rem;
 
-        .left-1{
-
-            &__box{
-                display: grid;
-                grid-template-columns: 60% auto;
-                gap: 1rem;
-            }
-
-            &__progress{
-                background-color: $color-purple-light-1;
-                padding: 1rem 2rem;
-                border-radius: $border-radius;
-                display: flex;
-                gap: 1rem;
-                color: $color-tertiary;
-            }
-
-            &__btn{
-                font-size: 1.4rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                color: $color-white;
-                background-color: $color-primary;
-                border-radius: $border-radius;
-            }
-
-            &__steps{
-                display: grid;
-                gap: 1rem;
-            }
-
-
-            &__step{
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-                
-                &--label{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 100%;
-                    cursor: pointer;
-
-                    svg{
-                        width: 1.6rem;
-                        height: 1.6rem;
-                    }
-                }
-            }
+      .left-item {
+        &__box {
+          display: grid;
+          grid-template-columns: 60% auto;
+          gap: 1rem;
         }
+
+        &__progress {
+          background-color: $color-purple-light-1;
+          padding: 1rem 2rem;
+          border-radius: $border-radius;
+          display: flex;
+          gap: 1rem;
+          color: $color-tertiary;
+        }
+
+        &__btn {
+          font-size: 1.4rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: $color-white;
+          background-color: $color-primary;
+          border-radius: $border-radius;
+        }
+
+        &__steps {
+          display: grid;
+          gap: 1rem;
+        }
+
+        &__step {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+
+          &--label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+
+            svg {
+              width: 1.6rem;
+              height: 1.6rem;
+            }
+          }
+        }
+      }
     }
   }
 
   &__right {
-    border-radius: $border-radius;
-    padding: 1rem;
-    border: $border-2;
-
-    &-1{
-        align-self: center;
+    &-item {
+      border-radius: $border-radius;
+      padding: 1rem;
+      border: $border-2;
     }
   }
 }
