@@ -6,30 +6,40 @@ function home() {
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <section>
-          <h3 className="">Account Setup</h3>
-          <p>
-            It’s time to set up your account. We will need a few things to get
-            you going
-          </p>
-          <div>
-            <div>box 1</div>
-            <div>box 2</div>
+        <section className="home__left">
+          <div className='left-1'>
+            <h2 className="">Account Setup</h2>
+            <p>
+              It’s time to set up your account. We will need a few things to get
+              you going
+            </p>
+            <div>
+              <div>box 1</div>
+              <div>box 2</div>
+            </div>
+            <div>
+              <div>
+                <input type="radio" name="businessInfo" id="businessInfo" />
+                <label htmlFor="businessInfo">Your business information</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="portAndTerminal"
+                  id="portAndTerminal"
+                />
+                <label htmlFor="portAndTerminal">Port and terminal Info</label>
+              </div>
+              <div>
+                <input type="radio" name="contactInfo" id="contactInfo" />
+                <label htmlFor="contactInfo">Contact information</label>
+              </div>
+            </div>
           </div>
-          <div>
-            <div>
-              <input type="radio" name="businessInfo" id="businessInfo" />
-              <label htmlFor="businessInfo">Your business information</label>
-            </div>
-            <div>
-              <input type="radio" name="portAndTerminal" id="portAndTerminal" />
-              <label htmlFor="portAndTerminal">Port and terminal Info</label>
-            </div>
-            <div>
-              <input type="radio" name="contactInfo" id="contactInfo" />
-              <label htmlFor="contactInfo">Contact information</label>
-            </div>
-          </div>
+        </section>
+        <section className="home__right">
+          <div>left one</div>
+          <div>left two</div>
         </section>
       </div>
     </>
