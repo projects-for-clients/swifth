@@ -8,7 +8,7 @@ function home() {
       <div className="dashboard__home">
         <section className="home__left">
           <div className='left-1'>
-            <h2 className="">Account Setup</h2>
+            <h2 className="heading3">Account Setup</h2>
             <p>
               It’s time to set up your account. We will need a few things to get
               you going
