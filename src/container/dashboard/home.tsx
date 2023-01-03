@@ -3,6 +3,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import Header from '../../components/dashboard/Header';
 import FinanceSvg from '../../components/icons/sidebar/financeSvg';
 import EllipseSvg from '../../components/icons/ellipseSvg';
+import cancelSvg from '../../components/icons/cancelSvg';
 
 function home() {
   return (
