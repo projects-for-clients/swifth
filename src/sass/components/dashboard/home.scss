@@ -80,6 +80,7 @@
   &__right {
     gap: 1rem;
     display: grid;
+    align-self: baseline;
 
     &-item {
       border-radius: $border-radius;
