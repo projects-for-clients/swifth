@@ -42,6 +42,10 @@ function home() {
         <section className="home__right">
           <div className="home__right-1">
             <FinanceSvg fill={'#957979'} />
+            <div className="right-1__content">
+              <h2 className="heading3">Total Earnings</h2>
+              <p className="heading2">NGN 0.0</p>
+            </div>
           </div>
           <div>left two</div>
         </section>
