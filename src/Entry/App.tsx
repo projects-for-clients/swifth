@@ -15,7 +15,7 @@ const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<Home />} />,
     <Route path="/dashboard" element={<Dashboard />}>
-      <Route path="home" element={<DashboardHome />} />
+      <Route index element={<DashboardHome />} />
       <Route path="orders" element={<Orders />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,

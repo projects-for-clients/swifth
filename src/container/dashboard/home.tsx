@@ -2,10 +2,10 @@ import Header from '../../components/dashboard/Header';
 
 function home() {
   return (
-    <div>
+    <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
-      <div>
+      <div className='dashboard__home'>
         <h3>Account Setup</h3>
         <p>
           It’s time to set up your account. We will need a few things to get you
@@ -30,7 +30,7 @@ function home() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
