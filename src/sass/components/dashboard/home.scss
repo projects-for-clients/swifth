@@ -80,12 +80,22 @@
   &__right {
     gap: 1rem;
     display: grid;
+
     &-item {
       border-radius: $border-radius;
       padding: 1rem;
       border: $border-2;
       display: flex;
       gap: 3rem;
+
+      .right-item {
+
+        &__content{
+            
+        }
+      }
     }
+
+
   }
 }
