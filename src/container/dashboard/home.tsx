@@ -44,9 +44,7 @@ function home() {
               <div className="left-1__step">
                 <input type="radio" name="contactInfo" id="contactInfo" />
                 <label htmlFor="contactInfo">
-                  <p className='text'>
-                    Contact information
-                    </p>
+                  <p className="text">Contact information</p>
                   <FiChevronDown />
                 </label>
               </div>
