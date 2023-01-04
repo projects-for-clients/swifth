@@ -6,6 +6,8 @@ import EllipseSvg from '../../components/icons/ellipseSvg';
 import CancelSvg from '../../components/icons/cancelSvg';
 import CheckmarkSvg from '../../components/icons/checkmarkSvg';
 import AnalyticsSvg from '../../components/icons/analyticsSvg';
+import BoxTimeSvg from '../../components/icons/boxTimeSvg';
+import MoneysSvg from '../../components/icons/moneysSvg';
 
 function home() {
   return (
