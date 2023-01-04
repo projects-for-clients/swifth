@@ -100,7 +100,7 @@ function home() {
             </div>
           </div>
           <div className="home__right-item">
-            <h2 className="heading3">Business analysis</h2>
+            <h2 className="heading3"> Teams</h2>
 
             <div className="left-item__content">
               <TeamsSvg />

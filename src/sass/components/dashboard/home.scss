@@ -115,15 +115,15 @@
       display: grid;
       gap: 3rem;
 
-      h2{
+      h2 {
         color: $color-purple;
       }
 
-      p{
+      p {
         color: $color-purple;
 
-        span{
-            color: $color-black;
+        span {
+          color: $color-black;
         }
       }
 
@@ -133,12 +133,13 @@
       }
     }
 
-    &-item{
-         border-radius: $border-radius;
+    &-item {
+      border-radius: $border-radius;
       padding: 1rem;
       border: $border;
       display: grid;
       gap: 2rem;
+      grid-auto-rows: 1fr;
     }
   }
 }
