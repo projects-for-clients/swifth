@@ -87,7 +87,7 @@ function home() {
                 </p>
               </div>
             </div>
-            <hr />
+            <hr className="text-[#7D67BD]" />
             <div className="flex gap-12">
               <MoneysSvg />
               <div className="right-item__content">

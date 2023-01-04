@@ -111,7 +111,7 @@
       background: url('/frame2.svg') no-repeat right #ded9ef;
       border-radius: $border-radius;
       padding: 2rem;
-      border: $border-2;
+      border: $border;
       display: grid;
       gap: 3rem;
 
@@ -121,6 +121,10 @@
 
       p{
         color: $color-purple;
+
+        span{
+            color: $color-black;
+        }
       }
 
       svg {
