@@ -8,6 +8,7 @@ import CheckmarkSvg from '../../components/icons/checkmarkSvg';
 import AnalyticsSvg from '../../components/icons/analyticsSvg';
 import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
+import TeamsSvg from '../../components/icons/teamsSvg';
 
 function home() {
   return (
@@ -87,7 +88,7 @@ function home() {
                 </p>
               </div>
             </div>
-            <hr className="text-[#7D67BD]" />
+            <hr className="border-[#7D67BD]" />
             <div className="flex gap-12">
               <MoneysSvg />
               <div className="right-item__content">
@@ -96,6 +97,14 @@ function home() {
                   NGN <span>0.0</span>
                 </p>
               </div>
+            </div>
+          </div>
+          <div className="home__right-item">
+            <h2 className="heading3">Business analysis</h2>
+
+            <div className="left-item__content">
+              <TeamsSvg />
+              <p className="text">Your teams would be shown here</p>
             </div>
           </div>
         </section>

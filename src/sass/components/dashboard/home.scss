@@ -132,5 +132,13 @@
         height: 4rem;
       }
     }
+
+    &-item{
+         border-radius: $border-radius;
+      padding: 1rem;
+      border: $border;
+      display: grid;
+      gap: 2rem;
+    }
   }
 }
