@@ -107,14 +107,21 @@
       }
     }
 
-     &-item--2 {
-           background: url('/frame2.svg') no-repeat right #DED9EF;
-
+    &-item--2 {
+      background: url('/frame2.svg') no-repeat right #ded9ef;
       border-radius: $border-radius;
       padding: 2rem;
       border: $border-2;
       display: grid;
       gap: 3rem;
+
+      h2{
+        color: $color-purple;
+      }
+
+      p{
+        color: $color-purple;
+      }
 
       svg {
         width: 4rem;

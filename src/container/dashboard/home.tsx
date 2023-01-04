@@ -79,7 +79,7 @@ function home() {
           </div>
           <div className="home__right-item--2">
             <div className="flex gap-12">
-              <BoxTimeSvg fill={'#957979'} />
+              <BoxTimeSvg />
               <div className="right-item__content">
                 <h2 className="heading3">Pending Clearance</h2>
                 <p className="heading2">
@@ -87,9 +87,9 @@ function home() {
                 </p>
               </div>
             </div>
-            <hr/>
+            <hr />
             <div className="flex gap-12">
-              <MoneysSvg fill={'#957979'} />
+              <MoneysSvg />
               <div className="right-item__content">
                 <h2 className="heading3">Total Earnings</h2>
                 <p className="heading2">
