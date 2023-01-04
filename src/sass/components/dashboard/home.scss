@@ -82,33 +82,43 @@
     display: grid;
     align-self: baseline;
 
-    &-item {
+    &-item--1 {
+      background: url('/ellipse2.svg') no-repeat right $color-red-light-1;
       border-radius: $border-radius;
       padding: 2rem;
       border: $border-2;
       display: flex;
       gap: 3rem;
 
-      svg{
+      svg {
         width: 4rem;
         height: 4rem;
       }
 
+      h2 {
+        color: #957979;
+      }
+      p {
+        color: #645050;
+
+        span {
+          color: #322828;
+        }
+      }
     }
 
-    &-item--1{
-        background: url('/ellipse2.svg') no-repeat right $color-red-light-1;
+     &-item--2 {
+     
+      border-radius: $border-radius;
+      padding: 2rem;
+      border: $border-2;
+      display: grid;
+      gap: 3rem;
 
-        h2{
-            color: #957979;
-        }
-        p{
-            color: #645050;
-
-            span{
-                color: #322828;
-            }
-        }
+      svg {
+        width: 4rem;
+        height: 4rem;
+      }
     }
   }
 }

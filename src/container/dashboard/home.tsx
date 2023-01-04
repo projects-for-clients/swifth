@@ -54,36 +54,46 @@ function home() {
           </div>
           <div className="home__left-item">
             <div>
+              <h2 className="heading3">Business analysis</h2>
 
-            <h2 className="heading3">Business analysis</h2>
-
-            <div className="left-item__content">
-              <AnalyticsSvg />
-              <p className='text'>Your business analytics would be shown here</p>
-            </div>
+              <div className="left-item__content">
+                <AnalyticsSvg />
+                <p className="text">
+                  Your business analytics would be shown here
+                </p>
+              </div>
             </div>
           </div>
         </section>
         <section className="home__right">
-          <div className="home__right-item home__right-item--1">
+          <div className="home__right-item--1">
             <FinanceSvg fill={'#957979'} />
             <div className="right-item__content">
               <h2 className="heading3">Total Earnings</h2>
-              <p className="heading2">NGN <span>0.0</span></p>
+              <p className="heading2">
+                NGN <span>0.0</span>
+              </p>
             </div>
           </div>
-          <div className="home__right-item home__right-item--2">
-            <FinanceSvg fill={'#957979'} />
-            <div className="right-item__content">
-              <h2 className="heading3">Pending Clearance</h2>
-              <p className="heading2">NGN <span>0.0</span></p>
+          <div className="home__right-item--2">
+            <div className="flex gap-12">
+              <FinanceSvg fill={'#957979'} />
+              <div className="right-item__content">
+                <h2 className="heading3">Pending Clearance</h2>
+                <p className="heading2">
+                  0 <span>Items</span>
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="home__right-item home__right-item--3">
-            <FinanceSvg fill={'#957979'} />
-            <div className="right-item__content">
-              <h2 className="heading3">Total Earnings</h2>
-              <p className="heading2">NGN <span>0.0</span></p>
+            <hr/>
+            <div className="flex gap-12">
+              <FinanceSvg fill={'#957979'} />
+              <div className="right-item__content">
+                <h2 className="heading3">Total Earnings</h2>
+                <p className="heading2">
+                  NGN <span>0.0</span>
+                </p>
+              </div>
             </div>
           </div>
         </section>
