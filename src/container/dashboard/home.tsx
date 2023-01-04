@@ -102,7 +102,7 @@ function home() {
           <div className="home__right-item">
             <h2 className="heading3"> Teams</h2>
 
-            <div className="left-item__content">
+            <div className="right-item__content">
               <TeamsSvg />
               <p className="text">Your teams would be shown here</p>
             </div>
