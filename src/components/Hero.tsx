@@ -8,9 +8,7 @@ const Hero = () => {
   const openModal = () => dispatch(open('signup'));
 
   return (
-    <div className="hero" style={{
-      background: `url(${heroSvg})`
-    }}>
+    <div className={`hero`}>
       <div className="hero__container">
         <h1 className="hero__header">Manage Goods Clearing</h1>
         <p className="hero__text">

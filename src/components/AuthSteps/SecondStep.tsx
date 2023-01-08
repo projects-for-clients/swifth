@@ -3,6 +3,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { AuthContext } from '../../Context/AppContext';
 import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
+import { open } from '../../store/features/modal';
 
 export const SecondSignUpStep = () => {
   const AuthContextData = useContext(AuthContext);
@@ -10,6 +11,7 @@ export const SecondSignUpStep = () => {
   const { setStep } = AuthContextData;
 
   const dispatch = useAppDispatch();
+   const redirectToLogin = () => dispatch(open('login'));
   interface InputTypes {
     firstName: string;
     lastName: string;
@@ -117,7 +119,7 @@ export const SecondSignUpStep = () => {
       </form>
 
       <p className="authText mt-10">
-        I have an account? <button> Log In</button>
+        I have an account? <button onClick={redirectToLogin}> Log In</button>
       </p>
     </div>
   );
@@ -129,6 +131,8 @@ export const SecondLoginStep = () => {
 
 
   const dispatch = useAppDispatch();
+   const redirectToRegister = () => dispatch(open('signup'));
+
   interface InputTypes {
     email: string;
     password: string;
@@ -176,6 +180,7 @@ export const SecondLoginStep = () => {
   };
   const toggleEyeIcon = () => setEyeIcon(!eyeIcon);
 
+
   const handleInputChange = (e: React.FormEvent<HTMLFormElement>) => {
     interface InputProps extends EventTarget {
       name: string;
@@ -189,6 +194,8 @@ export const SecondLoginStep = () => {
       [target.name]: target.value,
     });
   };
+
+
 
   return (
     <div className="grid gap-10 mt-16 justify-center pb-5">
@@ -229,11 +236,9 @@ export const SecondLoginStep = () => {
             </span>
           </div>
 
-          
-            <p className="input__label text-end">
-              <a href="/">Forgot password?</a>
-            </p>
-          
+          <p className="input__label text-end">
+            <a href="/">Forgot password?</a>
+          </p>
         </div>
 
         <button
@@ -243,9 +248,9 @@ export const SecondLoginStep = () => {
           Continue
         </button>
       </form>
-
       <p className="authText mt-10">
-        I have an account? <button> Log In</button>
+         Don't have an account?{' '}
+        <button onClick={redirectToRegister}> Create an account</button>
       </p>
     </div>
   );
