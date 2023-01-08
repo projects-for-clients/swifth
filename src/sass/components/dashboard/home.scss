@@ -139,14 +139,13 @@
       border: $border;
       display: grid;
       gap: 2rem;
-      grid-auto-rows: 1fr;
      
       .right-item__content {
           display: grid;
           justify-items: center;
           align-content: center;
-          height: 100%;
           gap: 2rem;
+          grid-auto-rows: 1fr;
         }
     }
   }

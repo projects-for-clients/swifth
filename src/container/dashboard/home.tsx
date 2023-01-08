@@ -100,11 +100,13 @@ function home() {
             </div>
           </div>
           <div className="home__right-item">
-            <h2 className="heading3"> Teams</h2>
+            <div>
+              <h2 className="heading3"> Teams</h2>
 
-            <div className="right-item__content">
-              <TeamsSvg />
-              <p className="text">Your teams would be shown here</p>
+              <div className="right-item__content">
+                <TeamsSvg />
+                <p className="text">Your teams would be shown here</p>
+              </div>
             </div>
           </div>
         </section>
