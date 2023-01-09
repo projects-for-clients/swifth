@@ -1,6 +1,5 @@
 import { useAppDispatch } from '../store/app/hooks';
 import { open } from '../store/features/modal';
-import heroSvg from '../../public/heroImg.svg';
 
 const Hero = () => {
   const dispatch = useAppDispatch();
@@ -10,7 +9,7 @@ const Hero = () => {
   return (
     <div className={`hero`}>
       <div className="hero__container">
-        <h1 className="hero__header">Manage Goods Clearing</h1>
+        <h1 className="hero__header <sm:text-lg ">Manage Goods Clearing</h1>
         <p className="hero__text">
           Easily manage the process of clearing your goods with your clearing
           agents

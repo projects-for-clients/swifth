@@ -95,7 +95,7 @@ export const SecondSignUpStep = () => {
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log({validationError})
+    console.log({ validationError });
     const isValid = formValidate();
 
     if (!isValid) {
@@ -112,7 +112,7 @@ export const SecondSignUpStep = () => {
       value: string;
     }
 
-    setValidationError(null)
+    setValidationError(null);
     const target = e.target as InputProps;
 
     setInputField({
@@ -214,9 +214,9 @@ export const SecondLoginStep = () => {
     email: '',
     password: '',
   });
-   const [validationError, setValidationError] = useState<InputTypes | null>(
-     null
-   );
+  const [validationError, setValidationError] = useState<InputTypes | null>(
+    null
+  );
 
   const handleSubmit = () => {
     console.log('submit');
@@ -262,7 +262,7 @@ export const SecondLoginStep = () => {
         if (inputField[key].length < 6) {
           errors[
             key as keyof InputTypes
-          ] = `${key} Password cannot be less than 6`;
+          ] = `${key} cannot be less than 6`;
 
           setValidationError(errors);
         }
@@ -306,6 +306,8 @@ export const SecondLoginStep = () => {
       value: string;
     }
 
+    setValidationError(null)
+
     const target = e.target as InputProps;
 
     setInputField({
@@ -328,10 +330,17 @@ export const SecondLoginStep = () => {
           <input
             type="email"
             placeholder="Enter email address"
-            className="input__item"
+            className={`input__item ${
+              validationError && validationError.email
+                ? 'border-red-600 border animate__animated animate__shakeX'
+                : ''
+            }`}
             name="email"
             defaultValue={inputField.email}
           />
+          {validationError && (
+            <span className="text-red-600">{validationError.email}</span>
+          )}
         </div>
 
         <div className="form__input relative">
@@ -340,7 +349,11 @@ export const SecondLoginStep = () => {
             <input
               type={eyeIcon ? 'text' : 'password'}
               placeholder="create a password..."
-              className="input__item w-full"
+              className={`input__item w-full ${
+                validationError && validationError.email
+                  ? 'border-red-600 border animate__animated animate__shakeX'
+                  : ''
+              }`}
               name="password"
               defaultValue={inputField.password}
             />
@@ -352,7 +365,9 @@ export const SecondLoginStep = () => {
               )}
             </span>
           </div>
-
+          {validationError && (
+            <span className="text-red-600">{validationError.password}</span>
+          )}
           <p className="input__label text-end">
             <a href="/">Forgot password?</a>
           </p>

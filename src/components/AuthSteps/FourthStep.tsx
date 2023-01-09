@@ -6,20 +6,49 @@ import { useNavigate } from 'react-router';
 function ThirdAuthStep() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [validationMessage, setValidationMessage] = useState<string | null>(
+    null
+  );
   const [eyeIcon, setEyeIcon] = useState(false);
 
-const navigate = useNavigate()
+  const validatePassword = () => {
+    let isError = false;
+
+    if (password.length < 6) {
+      setValidationMessage('Password must be more than 6');
+      isError = true;
+    }
+
+    if (password === '') {
+      setValidationMessage('Password cannot be empty');
+      isError = true;
+    }
+
+    console.log({ isError });
+    return isError;
+  };
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('navigate')
+    e.preventDefault();
 
-    navigate('/dashboard')
+    const isValid = validatePassword();
+
+    if (!!isValid) {
+      return;
+    }
+
+    setLoading(true)
+    setTimeout(() => {
+      navigate('/dashboard');
+    }, 2000);
   };
 
   const toggleEyeIcon = () => setEyeIcon(!eyeIcon);
 
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValidationMessage(null);
     setPassword(e.target.value);
   };
 
@@ -35,7 +64,11 @@ const navigate = useNavigate()
             <input
               type={eyeIcon ? 'text' : 'password'}
               placeholder="create a password..."
-              className="input__item w-full"
+              className={`input__item w-full ${
+                validationMessage && validationMessage
+                  ? 'border-red-600 border animate__animated animate__shakeX'
+                  : ''
+              }`}
               name="password"
               value={password}
               onChange={handlePassword}
@@ -48,11 +81,12 @@ const navigate = useNavigate()
               )}
             </span>
           </div>
-
+          {validationMessage && (
+            <span className="text-red-600">{validationMessage}</span>
+          )}
           {password.length < 1 ? (
             <p className="input__label transition-all delay-75 ease-out">
               Choose a password you will always remember
-             
             </p>
           ) : (
             ''

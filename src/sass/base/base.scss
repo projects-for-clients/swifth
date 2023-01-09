@@ -29,9 +29,7 @@ html {
   @include respond(desktop) {
     font-size: 75%; //1rem = 12, 12/16
   }
-  @include respond(desktop) {
-    font-size: 75%; //1rem = 12, 12/16
-  }
+ 
 }
 ::selection {
   background-color: $color-primary;

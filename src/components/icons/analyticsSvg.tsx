@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function analyticsSvg() {
   return (
@@ -15,7 +15,7 @@ function analyticsSvg() {
         r="34.6797"
         fill="#FEF4F4"
         stroke="#F9C9C9"
-        stroke-width="0.640625"
+        strokeWidth="0.640625"
       />
       <path
         d="M48.125 50.6772H21.875C21.2771 50.6772 20.7812 50.1814 20.7812 49.5835C20.7812 48.9856 21.2771 48.4897 21.875 48.4897H48.125C48.7229 48.4897 49.2188 48.9856 49.2188 49.5835C49.2188 50.1814 48.7229 50.6772 48.125 50.6772Z"
@@ -37,4 +37,4 @@ function analyticsSvg() {
   );
 }
 
-export default analyticsSvg
+export default analyticsSvg;

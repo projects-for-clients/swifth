@@ -5,15 +5,14 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
 function ThirdStep() {
-  
-   type ValidationError = {
+  type ValidationError = {
     email: string;
     password: string;
   };
 
   const AuthContextData = useContext(AuthContext);
 
-  const { setStep } = AuthContextData;
+  const { setStep, setErrorMessage } = AuthContextData;
 
   const userSelector = useAppSelector(selectUser);
 
@@ -26,8 +25,6 @@ function ThirdStep() {
   const [loading, setLoading] = useState(false);
   const [validationError, setValidationError] =
     useState<ValidationError | null>(null);
-
-  
 
   const otpHandler = (input: string) => {
     setOtp(input);
@@ -44,11 +41,14 @@ function ThirdStep() {
     setMessage(null);
 
     if (otp.length < 4) {
-      console.log('error');
       return;
     }
 
-    console.log('no error');
+    if (otp !== '4444') {
+      return setErrorMessage('Wrong OTP code');
+    }
+
+    setErrorMessage(null)
     setStep(3);
   };
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function checkmarkSvg() {
   return (
@@ -13,19 +13,19 @@ function checkmarkSvg() {
       <path
         d="M7.33333 12.3338L4 9.00049"
         stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M13.9999 5.66699L7.33325 12.3337"
         stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
     </svg>
   );
 }
 
-export default checkmarkSvg
+export default checkmarkSvg;
