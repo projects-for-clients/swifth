@@ -10,20 +10,24 @@ import {
   FirstLoginStep,
 } from '../components/AuthSteps/FirstStep';
 import FourthStep from '../components/AuthSteps/FourthStep';
-import  { SecondLoginStep, SecondSignUpStep } from '../components/AuthSteps/SecondStep';
+import {
+  SecondLoginStep,
+  SecondSignUpStep,
+} from '../components/AuthSteps/SecondStep';
 import ThirdStep from '../components/AuthSteps/ThirdStep';
 import { AuthContext } from '../Context/AppContext';
 import { modalSelector } from '../store/features/modal';
 import { useAppSelector } from '../store/app/hooks';
 
 function Auth() {
-  const [step, setStep] = useState(0);
 
   const modalData = useAppSelector(modalSelector);
+  const AuthContextData = useContext(AuthContext);
+  const { step } = AuthContextData;
 
   const { path } = modalData;
 
-  const authSteps = () => {
+  const AuthSteps = () => {
     switch (step) {
       case 0:
         return path === 'signup' ? <FirstSignUpStep /> : <FirstLoginStep />;
@@ -39,15 +43,7 @@ function Auth() {
     }
   };
 
-  return (
-    <AuthContext.Provider
-      value={{
-        setStep,
-      }}
-    >
-      {authSteps()}
-    </AuthContext.Provider>
-  );
+  return <AuthSteps />;
 }
 
 export default Auth;

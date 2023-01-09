@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
+import { useNavigate } from 'react-router';
 
 function ThirdAuthStep() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [eyeIcon, setEyeIcon] = useState(false);
 
+const navigate = useNavigate()
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
+    console.log('navigate')
+
+    navigate('/dashboard')
   };
 
   const toggleEyeIcon = () => setEyeIcon(!eyeIcon);

@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { AuthContext } from '../../Context/AppContext';
 import { useAppDispatch } from '../../store/app/hooks';
 import { open } from '../../store/features/modal';
@@ -9,6 +9,8 @@ export const FirstSignUpStep = () => {
   const redirectToLogin = () => dispatch(open('login'));
 
   const { setStep } = AuthContextData;
+
+
 
   return (
     <div className="firstStep">
@@ -44,12 +46,11 @@ export const FirstSignUpStep = () => {
 
 export const FirstLoginStep = () => {
   const AuthContextData = useContext(AuthContext);
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const { setStep } = AuthContextData;
 
-  const redirectToRegister = () => dispatch(open('signup'))
-
+  const redirectToRegister = () => dispatch(open('signup'));
 
   return (
     <div className="firstStep">
@@ -71,7 +72,8 @@ export const FirstLoginStep = () => {
         </section>
       </Fragment>
       <p className="authText">
-        Don't have an account? <button onClick={redirectToRegister}> Create an account</button>
+        Don't have an account?{' '}
+        <button onClick={redirectToRegister}> Create an account</button>
       </p>
     </div>
   );

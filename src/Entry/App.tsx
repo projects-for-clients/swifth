@@ -10,6 +10,8 @@ import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 import DashboardHome from '../container/dashboard/home';
 import Orders from '../container/dashboard/orders';
+import 'animate.css/animate.css';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements([

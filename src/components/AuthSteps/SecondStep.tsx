@@ -6,18 +6,22 @@ import { updateUser } from '../../store/features/user/user';
 import { open } from '../../store/features/modal';
 
 export const SecondSignUpStep = () => {
-  const AuthContextData = useContext(AuthContext);
-
-  const { setStep } = AuthContextData;
-
-  const dispatch = useAppDispatch();
-   const redirectToLogin = () => dispatch(open('login'));
   interface InputTypes {
     firstName: string;
     lastName: string;
     email: string;
   }
+
+  const AuthContextData = useContext(AuthContext);
+
+  const { setStep } = AuthContextData;
+
+  const dispatch = useAppDispatch();
+  const redirectToLogin = () => dispatch(open('login'));
   const [disabled, setDisabled] = useState(true);
+  const [validationError, setValidationError] = useState<InputTypes | null>(
+    null
+  );
 
   const [inputField, setInputField] = useState<InputTypes>({
     firstName: '',
@@ -38,14 +42,61 @@ export const SecondSignUpStep = () => {
     setDisabled(false);
   }, [inputField]);
 
-  const validateInput = (): Boolean => {
+  const formValidate = () => {
+    const errors = {} as InputTypes;
+    const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
+      const emailRegex = new RegExp(
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+
+      const isValid = emailRegex.test(e);
+
+      return cb(isValid);
+    };
+
+    for (const key in inputField) {
+      if (key === 'email') {
+        isValidMail(inputField[key], (cb) => {
+          if (!cb) {
+            errors[key] = 'Invalid email';
+
+            setValidationError(errors);
+          }
+        });
+      }
+
+      if (key === 'firstName' || key === 'lastName') {
+        if (inputField[key].length < 3) {
+          errors[
+            key as keyof InputTypes
+          ] = `${key} must be more than 3 letters`;
+
+          setValidationError(errors);
+        }
+      }
+
+      if (
+        inputField[key as keyof InputTypes] === '' ||
+        inputField[key as keyof InputTypes] === null
+      ) {
+        errors[key as keyof InputTypes] = 'This field is required';
+
+        setValidationError(errors);
+      }
+    }
+
+    if (Object.keys(errors).length > 0) {
+      return false;
+    }
+
     return true;
   };
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const isValid = validateInput();
+    console.log({validationError})
+    const isValid = formValidate();
 
     if (!isValid) {
       return false;
@@ -61,6 +112,7 @@ export const SecondSignUpStep = () => {
       value: string;
     }
 
+    setValidationError(null)
     const target = e.target as InputProps;
 
     setInputField({
@@ -84,30 +136,51 @@ export const SecondSignUpStep = () => {
           <input
             type="text"
             placeholder="Enter first name"
-            className="input__item"
+            className={`input__item ${
+              validationError && validationError.firstName
+                ? 'border-red-600 border animate__animated animate__shakeX'
+                : ''
+            }`}
             name="firstName"
             defaultValue={inputField.firstName}
           />
+          {validationError && (
+            <span className="text-red-600">{validationError.firstName}</span>
+          )}
         </div>
         <div className="form__input">
           <label className="input__label">Last Name</label>
           <input
             type="text"
             placeholder="Enter last name"
-            className="input__item"
+            className={`input__item ${
+              validationError && validationError.lastName
+                ? 'border-red-600 border animate__animated animate__shakeX'
+                : ''
+            }`}
             name="lastName"
             defaultValue={inputField.lastName}
           />
+          {validationError && (
+            <span className="text-red-600">{validationError.lastName}</span>
+          )}
         </div>
         <div className="form__input">
           <label className="input__label">Email</label>
           <input
             type="email"
             placeholder="Enter email address"
-            className="input__item"
+            className={`input__item ${
+              validationError && validationError.email
+                ? 'border-red-600 border animate__animated animate__shakeX'
+                : ''
+            }`}
             name="email"
             defaultValue={inputField.email}
           />
+          {validationError && (
+            <span className="text-red-600">{validationError.email}</span>
+          )}
         </div>
 
         <button
@@ -126,12 +199,10 @@ export const SecondSignUpStep = () => {
 };
 
 export const SecondLoginStep = () => {
-
   const [eyeIcon, setEyeIcon] = useState(false);
 
-
   const dispatch = useAppDispatch();
-   const redirectToRegister = () => dispatch(open('signup'));
+  const redirectToRegister = () => dispatch(open('signup'));
 
   interface InputTypes {
     email: string;
@@ -143,10 +214,13 @@ export const SecondLoginStep = () => {
     email: '',
     password: '',
   });
+   const [validationError, setValidationError] = useState<InputTypes | null>(
+     null
+   );
 
   const handleSubmit = () => {
-    console.log('submit')
-  }
+    console.log('submit');
+  };
 
   useEffect(() => {
     const values = Object.values(inputField);
@@ -161,14 +235,60 @@ export const SecondLoginStep = () => {
     setDisabled(false);
   }, [inputField]);
 
-  const validateInput = (): Boolean => {
+  const formValidate = () => {
+    const errors = {} as InputTypes;
+    const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
+      const emailRegex = new RegExp(
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+
+      const isValid = emailRegex.test(e);
+
+      return cb(isValid);
+    };
+
+    for (const key in inputField) {
+      if (key === 'email') {
+        isValidMail(inputField[key], (cb) => {
+          if (!cb) {
+            errors[key] = 'Invalid email';
+
+            setValidationError(errors);
+          }
+        });
+      }
+
+      if (key === 'password') {
+        if (inputField[key].length < 6) {
+          errors[
+            key as keyof InputTypes
+          ] = `${key} Password cannot be less than 6`;
+
+          setValidationError(errors);
+        }
+      }
+
+      if (
+        inputField[key as keyof InputTypes] === '' ||
+        inputField[key as keyof InputTypes] === null
+      ) {
+        errors[key as keyof InputTypes] = 'This field is required';
+
+        setValidationError(errors);
+      }
+    }
+
+    if (Object.keys(errors).length > 0) {
+      return false;
+    }
+
     return true;
   };
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const isValid = validateInput();
+    const isValid = formValidate();
 
     if (!isValid) {
       return false;
@@ -176,10 +296,9 @@ export const SecondLoginStep = () => {
 
     dispatch(updateUser(inputField));
 
-    handleSubmit()
+    handleSubmit();
   };
   const toggleEyeIcon = () => setEyeIcon(!eyeIcon);
-
 
   const handleInputChange = (e: React.FormEvent<HTMLFormElement>) => {
     interface InputProps extends EventTarget {
@@ -194,8 +313,6 @@ export const SecondLoginStep = () => {
       [target.name]: target.value,
     });
   };
-
-
 
   return (
     <div className="grid gap-10 mt-16 justify-center pb-5">
@@ -249,7 +366,7 @@ export const SecondLoginStep = () => {
         </button>
       </form>
       <p className="authText mt-10">
-         Don't have an account?{' '}
+        Don't have an account?{' '}
         <button onClick={redirectToRegister}> Create an account</button>
       </p>
     </div>

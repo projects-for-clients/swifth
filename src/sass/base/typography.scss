@@ -62,6 +62,18 @@ p {
     min-height: 50vh;
     // height: calc(100% + 2rem);
   }
+  &__message {
+    border-radius: $border-radius;
+    justify-content: center;
+    width: 68rem;
+    padding: 1rem 3rem;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 1rem;
+    // height: calc(100% + 2rem);
+  }
+
+  
 
   &__button {
     color: $color-black;

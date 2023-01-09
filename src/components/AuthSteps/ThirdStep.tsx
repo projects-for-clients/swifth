@@ -4,46 +4,53 @@ import { AuthContext } from '../../Context/AppContext';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
-
 function ThirdStep() {
+  
+   type ValidationError = {
+    email: string;
+    password: string;
+  };
+
   const AuthContextData = useContext(AuthContext);
 
   const { setStep } = AuthContextData;
-  
-    const userSelector = useAppSelector(selectUser)
 
-    const [otp, setOtp] = useState<string>('');
-    const [message, setMessage] = useState<{
-      message: string;
-      type: string;
-    } | null>(null);
+  const userSelector = useAppSelector(selectUser);
+
+  const [otp, setOtp] = useState<string>('');
+  const [message, setMessage] = useState<{
+    message: string;
+    type: string;
+  } | null>(null);
   const [isOtpLengthInValid, setIsOtpLengthInValid] = useState(true);
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [validationError, setValidationError] =
+    useState<ValidationError | null>(null);
 
+  
 
- const otpHandler = (input: string) => {
-   setOtp(input);
-   setMessage(null);
-   if (input.length < 4) {
-     setIsOtpLengthInValid(true);
-   } else {
-     setIsOtpLengthInValid(false);
-   }
- };
+  const otpHandler = (input: string) => {
+    setOtp(input);
+    setMessage(null);
+    if (input.length < 4) {
+      setIsOtpLengthInValid(true);
+    } else {
+      setIsOtpLengthInValid(false);
+    }
+  };
 
- const handleSubmit = async (e: React.FormEvent) => {
-   e.preventDefault();
-   setMessage(null);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setMessage(null);
 
-   if (otp.length < 4) {
-    console.log('error')
-     return;
-   }
+    if (otp.length < 4) {
+      console.log('error');
+      return;
+    }
 
-   console.log("no error")
-   setStep(3)
-
- };
+    console.log('no error');
+    setStep(3);
+  };
 
   return (
     <div className="grid gap-10 mt-16 justify-center pb-5">
