@@ -12,7 +12,7 @@ function Modal({ children }: IModal) {
   const modalData = useAppSelector(modalSelector);
   const dispatch = useAppDispatch();
   const [step, setStep] = useState(0);
-  const [errorMessage, setErrorMessage] = useState<string>(null as any);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const messageType = 'error';
 

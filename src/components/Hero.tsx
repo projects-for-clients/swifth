@@ -8,6 +8,9 @@ const Hero = () => {
 
   return (
     <div className={`hero`}>
+        <div className="hero__mobileImg">
+          <img src="mobileHero.png" alt="" />
+        </div>
       <div className="hero__container">
         <h1 className="hero__header <sm:text-lg ">Manage Goods Clearing</h1>
         <p className="hero__text">

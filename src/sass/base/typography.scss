@@ -60,7 +60,10 @@ p {
     margin: 0 auto;
     position: relative;
     min-height: 50vh;
-    // height: calc(100% + 2rem);
+    
+    @include respond(phone){
+      
+    }
   }
   &__message {
     border-radius: $border-radius;
@@ -70,7 +73,7 @@ p {
     margin: 0 auto;
     position: relative;
     margin-bottom: 1rem;
-    // height: calc(100% + 2rem);
+    
   }
 
   

@@ -28,10 +28,40 @@
     background: url('/heroEllipse.png') no-repeat bottom;
   }
 
+  &__mobileImg{
+    display: none;
+  }
+
+  @include respond(phone) {
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &__mobileImg{
+      background-color: red;
+      display: flex;
+      width: 100%;
+      position: relative;
+
+
+      img{
+        width: 100%;
+       
+      }
+      
+    }
+
+    display: grid;
+    grid-template-rows: 60% auto;
+    justify-items: start;
+  }
+
+  
+
   &__container {
     display: grid;
     justify-items: center;
-    // justify-content: center;
     align-content: center;
     height: 100%;
     gap: 1rem;
@@ -40,6 +70,23 @@
     text-align: center;
 
     transform: translateY(-25%);
+
+    @include respond(tab-land) {
+      transform: translateY(-20%);
+    }
+
+    @include respond(phone){
+      height: auto;
+      transform: none;
+      justify-items: start;
+      align-content: baseline;
+      margin-top: 5rem;
+      text-align: left;
+
+      max-width: 80%;
+      padding-left: 3rem;
+    }
+    
   }
 
   &__header {
@@ -47,10 +94,23 @@
     max-width: 40rem;
     line-height: 5.8rem;
     font-weight: 400;
+
+    
+
+    @include respond(phone) {
+      line-height: 4.2rem;
+      font-size: 3.4rem;
+      max-width: none;
+    }
   }
 
   &__text {
     max-width: 51rem;
+
+    @include respond(phone){
+      max-width: none;
+      text-align: left;
+    }
   }
 
   &__btn {
