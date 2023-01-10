@@ -1,11 +1,12 @@
 import { BiMenu } from 'react-icons/bi';
-import { useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import IconsBox from '../icons/IconsBox';
-import LogoutSvg from '../icons/sidebar/logoutSvg'
+import LogoutSvg from '../icons/sidebar/logoutSvg';
 
 function Sidebar() {
   const sidebarRef = useRef(null);
+  const menuCheckboxRef: MutableRefObject<HTMLInputElement | null> = useRef(null)
 
   const [openSidebar, setOpenSidebar] = useState(true);
 
@@ -21,6 +22,15 @@ function Sidebar() {
     setOpenSidebar((state) => !state);
   };
 
+  const selectDashboard = document.querySelector('.dashboard__home')
+  useEffect(() => {
+    console.log(menuCheckboxRef.current?.checked)
+
+    if(menuCheckboxRef.current?.checked){
+      selectDashboard?.classList.toggle('dashboard__home--mobile')
+    }
+  }, [menuCheckboxRef.current?.checked])
+
   return (
     <div className="sidebar" ref={sidebarRef}>
       <div
@@ -33,8 +43,12 @@ function Sidebar() {
             <img src="/logo-white.svg" alt="" width={28} height={28} />
             <h3>Swifth</h3>
           </div>
-          <span onClick={handleToggleMenu}>
-            <BiMenu />
+          <span onChange={handleToggleMenu}>
+            <input type="checkbox" id="menu__checkbox" ref={menuCheckboxRef} className='hidden' />
+
+            <label htmlFor="menu__checkbox">
+              <BiMenu />
+            </label>
           </span>
         </section>
         <section className="section-2">

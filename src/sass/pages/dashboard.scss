@@ -24,6 +24,7 @@
       gap: 0;
     }
 
+    
     &__right {
       display: flex;
       align-items: center;
@@ -39,10 +40,14 @@
 
   //RESPONSIVENESS
 
-  @include respond(phone){
+  @include respond(tab){
     
+    // &__home--mobile{
+    //   background-color: red;
+    // }
+
     &__home{
-      background-color: red;
+      grid-template-columns: auto;
     }
   }
 }

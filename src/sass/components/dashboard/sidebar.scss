@@ -27,7 +27,9 @@
     position: relative;
 
     span {
-      cursor: pointer;
+      label {
+        cursor: pointer;
+      }
 
       svg {
         width: 28px;
@@ -62,8 +64,7 @@
         align-items: center;
         padding: 1rem 0;
         width: 100%;
-        transition: all .2s;
-
+        transition: all 0.2s;
 
         svg {
           fill: white;
@@ -155,3 +156,4 @@
     }
   }
 }
+
