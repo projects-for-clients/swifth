@@ -1,3 +1,62 @@
+.authDialog {
+  background: $color-dark;
+  display: grid;
+  align-content: center;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+
+  &__container {
+    background-color: $color-white;
+    border-radius: $border-radius;
+    justify-content: center;
+    width: 76rem;
+    margin: 0 auto;
+    position: relative;
+    min-height: 50vh;
+  }
+  &__message {
+    border-radius: $border-radius;
+    justify-content: center;
+    width: 68rem;
+    padding: 1rem 3rem;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+    color: $color-black;
+    position: absolute;
+    right: 0;
+    padding: 1rem;
+    border: 1px solid $color-grey;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem;
+    cursor: pointer;
+  }
+
+  &::backdrop {
+    background: rgba(26, 26, 45, 0.5);
+  }
+
+  @include respond(phone) {
+    &__container,
+    &__message {
+      width: 100%;
+    }
+  }
+}
+
 .firstStep {
   padding: 1rem 2rem;
   display: grid;
@@ -5,14 +64,12 @@
   margin-top: 4rem;
   gap: 4rem;
 
- 
-
   .container {
     &__box {
       display: grid;
       gap: 1rem;
 
-      .box__btn{
+      .box__btn {
         font-size: 1.4rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -25,11 +82,7 @@
         gap: 0.5rem;
       }
     }
-
-   
   }
-
- 
 }
 
 .pinlogin .pinlogin-field {
