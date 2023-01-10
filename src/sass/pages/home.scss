@@ -28,36 +28,9 @@
     background: url('/heroEllipse.png') no-repeat bottom;
   }
 
-  &__mobileImg{
+  &__mobileImg {
     display: none;
   }
-
-  @include respond(phone) {
-    &::before,
-    &::after {
-      display: none;
-    }
-
-    &__mobileImg{
-      background-color: red;
-      display: flex;
-      width: 100%;
-      position: relative;
-
-
-      img{
-        width: 100%;
-       
-      }
-      
-    }
-
-    display: grid;
-    grid-template-rows: 60% auto;
-    justify-items: start;
-  }
-
-  
 
   &__container {
     display: grid;
@@ -70,23 +43,6 @@
     text-align: center;
 
     transform: translateY(-25%);
-
-    @include respond(tab-land) {
-      transform: translateY(-20%);
-    }
-
-    @include respond(phone){
-      height: auto;
-      transform: none;
-      justify-items: start;
-      align-content: baseline;
-      margin-top: 5rem;
-      text-align: left;
-
-      max-width: 80%;
-      padding-left: 3rem;
-    }
-    
   }
 
   &__header {
@@ -94,23 +50,10 @@
     max-width: 40rem;
     line-height: 5.8rem;
     font-weight: 400;
-
-    
-
-    @include respond(phone) {
-      line-height: 4.2rem;
-      font-size: 3.4rem;
-      max-width: none;
-    }
   }
 
   &__text {
     max-width: 51rem;
-
-    @include respond(phone){
-      max-width: none;
-      text-align: left;
-    }
   }
 
   &__btn {
@@ -127,6 +70,71 @@
       font-weight: 700;
       text-transform: uppercase;
       width: 100%;
+    }
+  }
+
+  //RESPONSIVENESS
+
+  @include respond(tab-land) {
+    &__container {
+      transform: translateY(-20%);
+    }
+  }
+
+  @include respond(phone) {
+    display: grid;
+    grid-template-rows: 60% auto;
+    justify-items: start;
+    gap: 3rem;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &__mobileImg {
+      background-color: red;
+      display: flex;
+      width: 100%;
+      position: relative;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &__container {
+      height: auto;
+      transform: none;
+      justify-items: start;
+      align-content: baseline;
+
+      text-align: left;
+
+      max-width: 80%;
+      padding-left: 3rem;
+    }
+
+    &__header {
+      line-height: 4.2rem;
+      font-size: 3.4rem;
+      max-width: none;
+    }
+
+    &__text {
+      max-width: none;
+      text-align: left;
+    }
+  }
+
+  @include respond(smaller-phone) {
+    grid-template-rows: 50% auto;
+
+    &__container{
+      max-width: 100%;
+      padding-right: 3rem;
+
+      margin-top: 2rem;
     }
   }
 }

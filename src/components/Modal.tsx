@@ -3,8 +3,7 @@ import { GrFormClose } from 'react-icons/gr';
 import { AuthContext } from '../Context/AppContext';
 import { useAppDispatch, useAppSelector } from '../store/app/hooks';
 import { modalSelector, close } from '../store/features/modal';
-  import { ToastContainer, toast } from 'react-toastify';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 interface IModal {
   children: React.ReactNode;
@@ -14,41 +13,43 @@ function Modal({ children }: IModal) {
   const modalData = useAppSelector(modalSelector);
   const dispatch = useAppDispatch();
   const [step, setStep] = useState(0);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const messageType = 'error';
+  const [isToast, setIsToast] = useState(false)
 
   const { isOpen } = modalData;
 
   const closeModal = () => dispatch(close());
-  const notify = () => toast('Wow so easy!');
+  const notify = (message: string = 'Wrong OTP code') => {
+    setIsToast(true)
+    toast(message, {
+      type: 'error',
+      className: 'bg-[#FDE9E9] text-[#E82830]',
+    });
+  };
 
   return (
     <AuthContext.Provider
       value={{
         setStep,
         step,
-        setErrorMessage,
-        errorMessage,
+        notify,
       }}
     >
       <div>
         {isOpen && (
           <div className="authDialog relative z-10 " id="authDialog">
-            <ToastContainer />
-            {errorMessage && (
-              <p
-                className={`authDialog__message text-center ${
-                  messageType === 'error'
-                    ? 'bg-[#FDE9E9] text-[#E82830]'
-                    : 'bg-[#D9EFE1] text-[#319F5A]'
-                } `}
-              >
-                {errorMessage}
-              </p>
+            {isToast && (
+              <ToastContainer />
+              // <p
+              //   className={`authDialog__message text-center ${
+              //     messageType === 'error'
+              //       ? 'bg-[#FDE9E9] text-[#E82830]'
+              //       : 'bg-[#D9EFE1] text-[#319F5A]'
+              //   } `}
+              // >
+              //   {errorMessage}
+              // </p>
             )}
             <div className="authDialog__container">
-              <button onClick={notify}>click</button>
               <button className="authDialog__button" onClick={closeModal}>
                 <GrFormClose className="text-3xl " />
               </button>

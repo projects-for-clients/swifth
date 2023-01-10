@@ -12,7 +12,7 @@ function ThirdStep() {
 
   const AuthContextData = useContext(AuthContext);
 
-  const { setStep, setErrorMessage } = AuthContextData;
+  const { setStep, notify } = AuthContextData;
 
   const userSelector = useAppSelector(selectUser);
 
@@ -45,10 +45,9 @@ function ThirdStep() {
     }
 
     if (otp !== '4444') {
-      return setErrorMessage('Wrong OTP code');
+      return notify('Wrong OTP code');
     }
 
-    setErrorMessage(null)
     setStep(3);
   };
 

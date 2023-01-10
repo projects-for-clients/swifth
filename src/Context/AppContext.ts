@@ -5,8 +5,7 @@ export type MessageType = 'error' | 'success'
 interface IAuthContext {
   setStep: Dispatch<SetStateAction<number>>;
   step: number;
-  errorMessage: string | null
-  setErrorMessage: Dispatch<SetStateAction<string | null>>
+  notify: (message: string) => void
 }
 export const AuthContext = createContext<IAuthContext>(null as any);
 

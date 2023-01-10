@@ -1,8 +1,4 @@
-.dashboard__home {
-  display: grid;
-  grid-template-columns: 55% auto;
-  gap: 1rem;
-}
+
 
 .home {
   &__left {
@@ -83,7 +79,7 @@
     align-self: baseline;
 
     &-item--1 {
-      background: url('/ellipse2.svg') no-repeat right $color-red-light-1;
+      background: url('/frame7.svg') no-repeat right $color-red-light-1;
       border-radius: $border-radius;
       padding: 2rem;
       border: $border-2;
@@ -108,7 +104,7 @@
     }
 
     &-item--2 {
-      background: url('/frame2.svg') no-repeat right #ded9ef;
+      background: url('/frame4.svg') no-repeat right #ded9ef;
       border-radius: $border-radius;
       padding: 2rem;
       border: $border;

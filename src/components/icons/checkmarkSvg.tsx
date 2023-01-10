@@ -15,14 +15,14 @@ function checkmarkSvg() {
         stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M13.9999 5.66699L7.33325 12.3337"
         stroke="white"
         strokeWidth="1.5"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
