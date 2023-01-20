@@ -9,6 +9,7 @@ import AnalyticsSvg from '../../components/icons/analyticsSvg';
 import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
+import Orders from '../../components/icons/sidebar/orders';
 
 function home() {
   return (
@@ -102,7 +103,7 @@ function home() {
             <div>
               <h2 className="heading3">Business Analytics</h2>
 
-              <div className="grid justify-items-center content-center auto-cols-auto gap-8">
+              <div className="grid justify-items-center content-center gap-8">
                 <AnalyticsSvg />
                 <p className="text">
                   Your business analytics would be shown here
@@ -120,6 +121,30 @@ function home() {
               <div className="grid justify-items-center content-center auto-cols-auto gap-8">
                 <TeamsSvg />
                 <p className="text">Your teams would be shown here</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="grid gap-4 self-baseline">
+          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+            <div>
+              <h2 className="heading3"> Orders</h2>
+
+              <div className="grid justify-items-center content-center auto-cols-auto gap-8">
+                <Orders fill='' />
+                <p className="text">Your orders would be shown here</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="grid gap-4 self-baseline">
+          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+            <div>
+              <h2 className="heading3"> Payout Bank</h2>
+
+              <div className="grid justify-items-center content-center auto-cols-auto gap-8">
+                <TeamsSvg />
+                <p className="text">Your bank details would be shown here</p>
               </div>
             </div>
           </div>
