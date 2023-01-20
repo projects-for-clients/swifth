@@ -1,9 +1,16 @@
+import Header from "../../components/dashboard/Header";
 
 
 const onboarding = () => {
   return (
-    <div>onboarding</div>
-  )
+    <>
+      <Header title="Business Information" subTitle="Enter your business details" />
+
+      <div>
+
+      </div>
+    </>
+  );
 }
 
 
