@@ -9,6 +9,7 @@ import {
 import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 import DashboardHome from '../container/dashboard/home';
+import OnBoarding from '../container/dashboard/onboarding';
 import Orders from '../container/dashboard/orders';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
     <Route path="/dashboard" element={<Dashboard />}>
       <Route index element={<DashboardHome />} />
       <Route path="orders" element={<Orders />} />
+      <Route path="onboarding" element={<OnBoarding />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])
