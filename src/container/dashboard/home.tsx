@@ -74,12 +74,14 @@ function home() {
                   className="flex items-center w-full justify-between cursor-pointer "
                   onClick={handleBusinessDrop}
                 >
-                  <p className="text">Your business information</p>
-                  {isDropDown.isBusinessDown && (
-                    <p className="text-[1.4rem] font-light">
-                      Details of your business required
-                    </p>
-                  )}
+                  <div>
+                    <p className="text">Your business information</p>
+                    {isDropDown.isBusinessDown && (
+                      <p className="text-[1.4rem] font-light">
+                        Details of your business required
+                      </p>
+                    )}
+                  </div>
                   {isDropDown.isBusinessDown ? (
                     <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
                   ) : (
@@ -95,13 +97,15 @@ function home() {
                   className="flex items-center w-full justify-between cursor-pointer "
                   onClick={handlePAndTDrop}
                 >
-                  {' '}
-                  <p className="text">Port and terminal Info</p>
-                  {isDropDown.isPortAndTerminalDown && (
-                    <p className="text-[1.4rem] font-light">
-                      Your port and terminal details required
-                    </p>
-                  )}
+                  <div>
+                    <p className="text">Port and terminal Info</p>
+
+                    {isDropDown.isPortAndTerminalDown && (
+                      <p className="text-[1.4rem] font-light">
+                        Your port and terminal details required
+                      </p>
+                    )}
+                  </div>
                   {isDropDown.isPortAndTerminalDown ? (
                     <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
                   ) : (
@@ -122,7 +126,7 @@ function home() {
                     <p className="text">Contact information</p>
                     {isDropDown.isContactDown && (
                       <p className="text-[1.4rem] font-light">
-                        Details of your business required
+                        Your personal Information required
                       </p>
                     )}
                   </div>
