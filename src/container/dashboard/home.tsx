@@ -1,4 +1,4 @@
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 import Header from '../../components/dashboard/Header';
 import FinanceSvg from '../../components/icons/sidebar/financeSvg';
@@ -11,8 +11,13 @@ import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
 import PayoutBankSvg from '../../components/icons/sidebar/payoutBankSvg';
+import { useState } from 'react';
 
 function home() {
+  const [isDropDown, setIsDropDown] = useState(false);
+
+  const handleDropDown = () => setIsDropDown(!isDropDown);
+
   return (
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
@@ -55,10 +60,20 @@ function home() {
                 {/* <CancelSvg /> */}
                 <EllipseSvg />
 
-                <div className="flex items-center w-full justify-between cursor-pointer ">
+                <div
+                  className="flex items-center w-full justify-between cursor-pointer "
+                  onClick={handleDropDown}
+                >
                   {' '}
-                  <p className="text">Contact information</p>
-                  <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+                  <div>
+                    <p className="text">Contact information</p>
+                    {isDropDown && <p className='text-[1.4rem] font-light'>Details of your business required</p>}
+                  </div>
+                  {isDropDown ? (
+                    <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+                  ) : (
+                    <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+                  )}
                 </div>
               </div>
             </div>
