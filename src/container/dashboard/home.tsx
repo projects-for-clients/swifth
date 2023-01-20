@@ -10,6 +10,7 @@ import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
+import PayoutBankSvg from '../../components/icons/sidebar/payoutBankSvg';
 
 function home() {
   return (
@@ -74,7 +75,7 @@ function home() {
               </p>
             </div>
           </div>
-          <div className="home-box2 p-8 grid gap-4">
+          <div className="home-box2 p-8 grid gap-4 rounded-lg border border-color-purple-light">
             <div className="flex gap-12">
               <BoxTimeSvg />
               <div className="grid justify-items-baseline content-center gap-4 auto-rows-auto">
@@ -131,7 +132,7 @@ function home() {
               <h2 className="heading3"> Orders</h2>
 
               <div className="grid justify-items-center content-center auto-cols-auto gap-8">
-                <Orders fill='' />
+                <Orders fill="" />
                 <p className="text">Your orders would be shown here</p>
               </div>
             </div>
@@ -143,7 +144,7 @@ function home() {
               <h2 className="heading3"> Payout Bank</h2>
 
               <div className="grid justify-items-center content-center auto-cols-auto gap-8">
-                <FinanceSvg fill='' />
+                <Orders fill="" />
                 <p className="text">Your bank details would be shown here</p>
               </div>
             </div>
