@@ -1,5 +1,3 @@
-
-
 .home {
   &__left {
     display: grid;
@@ -80,17 +78,11 @@
     align-self: baseline;
 
     &-item--1 {
-      background: url('/frame7.svg') no-repeat right $color-red-light-1;
       border-radius: $border-radius;
       padding: 2rem;
       border: $border-2;
       display: flex;
       gap: 3rem;
-
-      svg {
-        width: 4rem;
-        height: 4rem;
-      }
 
       h2 {
         color: #957979;
@@ -105,7 +97,6 @@
     }
 
     &-item--2 {
-      background: url('/frame4.svg') no-repeat right #ded9ef;
       border-radius: $border-radius;
       padding: 2rem;
       border: $border;
@@ -136,14 +127,31 @@
       border: $border;
       display: grid;
       gap: 2rem;
-     
+
       .right-item__content {
-          display: grid;
-          justify-items: center;
-          align-content: center;
-          gap: 2rem;
-          grid-auto-rows: 1fr;
-        }
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        gap: 2rem;
+        grid-auto-rows: 1fr;
+      }
     }
+  }
+}
+
+.home-box1 {
+  background: url('/frame7.svg') no-repeat right $color-red-light-1;
+
+  svg {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.home-box2 {
+  background: url('/frame4.svg') no-repeat right #ded9ef;
+
+  svg {
+    width: 4rem;
+    height: 4rem;
   }
 }

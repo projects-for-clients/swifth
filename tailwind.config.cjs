@@ -25,6 +25,9 @@ module.exports = {
         'color-red-light': '#C7A1A1',
         'color-red-light-1': '#FDE9E9',
       },
+      gridTemplateColumns: {
+        '60-auto': '60% auto',
+      }
     },
     plugins: [],
   },
