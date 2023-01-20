@@ -14,34 +14,38 @@ import PayoutBankSvg from '../../components/icons/sidebar/payoutBankSvg';
 import { useReducer, useState } from 'react';
 
 function home() {
- 
+  interface DropDown {
+    isContactDown?: boolean;
+    isBusinessDown?: boolean;
+    isPortAndTerminalDown?: boolean;
+  }
 
-  //write a useReducer function from react that handles the drop down for three items
-
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'TOGGLE_DROPDOWN':
-        return {
-          ...state,
-          isDropDown: !state.isDropDown,
-        };
-      default:
-        return state;
+  const [isDropDown, setIsDropDown] = useReducer(
+    //what is the type of the prev and next
+    (prev: DropDown, next: DropDown): DropDown => {
+      return {
+        ...prev,
+        ...next,
+      };
+    },
+    {
+      isContactDown: false,
+      isBusinessDown: false,
+      isPortAndTerminalDown: false,
     }
+  );
+
+  const handleContactDown = () => {
+    setIsDropDown({ isContactDown: !isDropDown.isContactDown });
   };
 
-//write the rducer function here
+  const handleBusinessDrop = () => {
+    setIsDropDown({ isBusinessDown: !isDropDown.isBusinessDown });
+  };
 
-const [state, dispatch] = useReducer(reducer, {
-    isContactInfoClicked: false,
-    isBusinessInfoClicked: false,
-    isPortAndTerminalInfoClicked: false,
-  });
-  
-
-
-
-  const handleDropDown = () => {}
+  const handlePAndTDrop = () => {
+    setIsDropDown({ isPortAndTerminalDown: !isDropDown.isPortAndTerminalDown });
+  };
 
   return (
     <>
@@ -66,19 +70,43 @@ const [state, dispatch] = useReducer(reducer, {
             <div className="grid gap-4">
               <div className="flex items-center gap-4">
                 <EllipseSvg />
-                <div className="flex items-center w-full justify-between cursor-pointer ">
+                <div
+                  className="flex items-center w-full justify-between cursor-pointer "
+                  onClick={handleBusinessDrop}
+                >
                   <p className="text">Your business information</p>
-                  <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+                  {isDropDown.isBusinessDown && (
+                    <p className="text-[1.4rem] font-light">
+                      Details of your business required
+                    </p>
+                  )}
+                  {isDropDown.isBusinessDown ? (
+                    <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+                  ) : (
+                    <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+                  )}{' '}
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 {/* <CheckmarkSvg /> */}
                 <EllipseSvg />
 
-                <div className="flex items-center w-full justify-between cursor-pointer ">
+                <div
+                  className="flex items-center w-full justify-between cursor-pointer "
+                  onClick={handlePAndTDrop}
+                >
                   {' '}
                   <p className="text">Port and terminal Info</p>
-                  <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+                  {isDropDown.isPortAndTerminalDown && (
+                    <p className="text-[1.4rem] font-light">
+                      Your port and terminal details required
+                    </p>
+                  )}
+                  {isDropDown.isPortAndTerminalDown ? (
+                    <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+                  ) : (
+                    <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+                  )}{' '}
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -87,14 +115,18 @@ const [state, dispatch] = useReducer(reducer, {
 
                 <div
                   className="flex items-center w-full justify-between cursor-pointer "
-                  onClick={handleDropDown}
+                  onClick={handleContactDown}
                 >
                   {' '}
                   <div>
                     <p className="text">Contact information</p>
-                    {isDropDown && <p className='text-[1.4rem] font-light'>Details of your business required</p>}
+                    {isDropDown.isContactDown && (
+                      <p className="text-[1.4rem] font-light">
+                        Details of your business required
+                      </p>
+                    )}
                   </div>
-                  {isDropDown ? (
+                  {isDropDown.isContactDown ? (
                     <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
                   ) : (
                     <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
