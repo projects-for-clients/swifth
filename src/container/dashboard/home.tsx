@@ -141,7 +141,7 @@ function home() {
           </div>
         </section>
         <section className="grid gap-4 self-baseline">
-          <div className="p-8 border border-color-purple-light rounded-lg flex gap-12 home-box1">
+          <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
             <FinanceSvg fill={'#957979'} />
 
             <div className="grid justify-items-center content-center gap-4 auto-rows-auto">
