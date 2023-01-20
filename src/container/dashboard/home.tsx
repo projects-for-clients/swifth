@@ -11,12 +11,37 @@ import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
 import PayoutBankSvg from '../../components/icons/sidebar/payoutBankSvg';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 
 function home() {
-  const [isDropDown, setIsDropDown] = useState(false);
+ 
 
-  const handleDropDown = () => setIsDropDown(!isDropDown);
+  //write a useReducer function from react that handles the drop down for three items
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'TOGGLE_DROPDOWN':
+        return {
+          ...state,
+          isDropDown: !state.isDropDown,
+        };
+      default:
+        return state;
+    }
+  };
+
+//write the rducer function here
+
+const [state, dispatch] = useReducer(reducer, {
+    isContactInfoClicked: false,
+    isBusinessInfoClicked: false,
+    isPortAndTerminalInfoClicked: false,
+  });
+  
+
+
+
+  const handleDropDown = () => {}
 
   return (
     <>
