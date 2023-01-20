@@ -143,7 +143,7 @@ function home() {
               <h2 className="heading3"> Payout Bank</h2>
 
               <div className="grid justify-items-center content-center auto-cols-auto gap-8">
-                <TeamsSvg />
+                <FinanceSvg fill='' />
                 <p className="text">Your bank details would be shown here</p>
               </div>
             </div>
