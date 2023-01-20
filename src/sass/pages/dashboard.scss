@@ -40,11 +40,11 @@
 
   //RESPONSIVENESS
 
-  @include respond(tab){
+  @include respond(tab-land){
     
-    // &__home--mobile{
-    //   background-color: red;
-    // }
+    &__home--mobile{
+      background-color: red;
+    }
 
     &__home{
       grid-template-columns: auto;

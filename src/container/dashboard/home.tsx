@@ -16,8 +16,8 @@ function home() {
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <section className="home__left">
-          <div className="home__left-item">
+        <section className="grid auto-cols-auto">
+          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
             <h2 className="heading3">Account Setup</h2>
             <p className="text">
               It's time to set up your account. We will need a few things to get
@@ -55,18 +55,6 @@ function home() {
               </div>
             </div>
           </div>
-          <div className="home__left-item">
-            <div>
-              <h2 className="heading3">Business Analytics</h2>
-
-              <div className="left-item__content">
-                <AnalyticsSvg />
-                <p className="text">
-                  Your business analytics would be shown here
-                </p>
-              </div>
-            </div>
-          </div>
         </section>
         <section className="home__right">
           <div className="home__right-item--1">
@@ -99,6 +87,23 @@ function home() {
               </div>
             </div>
           </div>
+        </section>
+        <section className="home__left">
+          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+            <div>
+              <h2 className="heading3">Business Analytics</h2>
+
+              <div className="left-item__content">
+                <AnalyticsSvg />
+                <p className="text">
+                  Your business analytics would be shown here
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="home__right">
           <div className="home__right-item">
             <div>
               <h2 className="heading3"> Teams</h2>

@@ -30,9 +30,10 @@
 
         &__progress {
           background-color: $color-purple-light-1;
-          padding: 1rem 2rem;
+          padding: 0 2rem;
           border-radius: $border-radius;
           display: flex;
+          align-items: center;
           gap: 1rem;
           color: $color-tertiary;
         }
