@@ -1,45 +1,32 @@
-import { MouseEvent, useEffect, useReducer, useState } from 'react';
+import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import Header from '../../components/dashboard/Header';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 const onboarding = () => {
+  const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
+  const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
 
-
-  const [cacUploadUrl, setCacUploadUrl] = useState<File>(null as any);
-  const [licenseUploadUrl, setLicenseUploadUrl] = useState<File>(null as any);
-
-  
-
-  
-  const uploadPhotoHandler = async (
-    e: MouseEvent<HTMLInputElement>,
-    value: string,
-    type: 'cac' | 'license'
+  const cacUploadHandler = (
+    e: ChangeEvent<HTMLInputElement>,
+    value: string
   ) => {
+    const fileObj = e.target as HTMLInputElement;
 
-    const fileObj = e.target as HTMLInputElement
+    const { name } = fileObj.files![0];
 
-    const path = fileObj.files![0];
-    let getCacUploadUrl = '';
-    let getLicenseUploadUrl = '';
-
-    if (type === 'cac') {
-      setCacUploadUrl(path)
-      getCacUploadUrl = await getPhotoUrl(value);
-
-    } else {
-      setLicenseUploadUrl(path)
-      getLicenseUploadUrl = await getPhotoUrl(value);
-    }
-
-
-    console.log(getCacUploadUrl, getLicenseUploadUrl);
-
+    setCacUploadUrl(name);
   };
 
-  useEffect(() => {
-    console.log({cacUploadUrl, licenseUploadUrl});
-  }, [cacUploadUrl, licenseUploadUrl])
+  const licenseUploadHandler = (
+    e: ChangeEvent<HTMLInputElement>,
+    value: string
+  ) => {
+    const fileObj = e.target as HTMLInputElement;
+
+    const { name } = fileObj.files![0];
+
+    setLicenseUploadUrl(name);
+  };
 
   return (
     <>
@@ -79,7 +66,7 @@ const onboarding = () => {
               id="cacUpload"
               accept="image/*"
               // className="hidden"
-              onClick={(e) => uploadPhotoHandler(e, 'cacUpload', 'cac')}
+              onChange={(e) => cacUploadHandler(e, 'cacUpload')}
             />
             <label
               htmlFor="licenseUpload"
@@ -94,7 +81,7 @@ const onboarding = () => {
               id="licenseUpload"
               accept="image/*"
               className="hidden"
-              onClick={(e) => uploadPhotoHandler(e, 'licenseUpload', 'license')}
+              onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
             />
           </div>
         </div>
