@@ -103,7 +103,12 @@ const onboarding = () => {
             >
               <img src="/icons/admin/upload.svg" alt="" />
               {cacUploadUrl ? (
-                <p>{cacUploadUrl}</p>
+                <div className="grid">
+                  <p>{cacUploadUrl}</p>
+                  <p className="text-color-grey-4 text-[1rem]">
+                    {imageSize.cac}
+                  </p>
+                </div>
               ) : (
                 <p>Upload CAC Certificate</p>
               )}
@@ -122,7 +127,12 @@ const onboarding = () => {
             >
               <img src="/icons/admin/upload.svg" alt="" />
               {licenseUploadUrl ? (
-                <p>{licenseUploadUrl}</p>
+                <div className="grid">
+                  <p>{licenseUploadUrl}</p>
+                  <p className="text-color-grey-4 text-[1rem]">
+                    {imageSize.license}
+                  </p>
+                </div>
               ) : (
                 <p>Upload Custom License (yearly)</p>
               )}

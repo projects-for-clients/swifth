@@ -17,6 +17,7 @@ module.exports = {
         'color-grey-1': '#d2d4d84d',
         'color-grey-2': '#D9EFE1',
         'color-grey-3': '#4B5463',
+        'color-grey-4': '#787F8A',
 
         'color-purple-light': '#9D8DCE',
         'color-purple-light-1': '#EEEBF6',
@@ -27,7 +28,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         '60-auto': '60% auto',
-      }
+      },
     },
     plugins: [],
   },
