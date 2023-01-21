@@ -72,12 +72,16 @@ const onboarding = () => {
     setLicenseUploadUrl(name);
   };
 
-  const logoUploadHandler = async (e: MouseEvent<HTMLInputElement>, value: string) => {
+  const logoUploadHandler = async (
+    e: MouseEvent<HTMLInputElement>,
+    value: string
+  ) => {
     const getUrl = await getPhotoUrl(value);
 
     setLogoUrl(getUrl);
   };
 
+  const handleFormSubmit = () => {};
   return (
     <>
       <Header
@@ -93,8 +97,15 @@ const onboarding = () => {
         </div>
 
         <div className="grid gap-10">
-          <label htmlFor="logoUpload" className="flex gap-8 items-center cursor-pointer">
-            <img src={logoUrl} alt="" className="object-cover w-[9.6rem] h-[9.6rem] rounded-full" />
+          <label
+            htmlFor="logoUpload"
+            className="flex gap-8 items-center cursor-pointer"
+          >
+            <img
+              src={logoUrl}
+              alt=""
+              className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
+            />
             <input
               type="file"
               id="logoUpload"
@@ -159,6 +170,17 @@ const onboarding = () => {
               onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
             />
           </div>
+
+          <form className="grid gap-4 max-w-[50rem]" onSubmit={handleFormSubmit}>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">Business name</label>
+              <input
+                type="text"
+                placeholder="Enter business name"
+                className=" rounded-lg py-8 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1"
+              />
+            </div>
+          </form>
         </div>
       </div>
     </>
