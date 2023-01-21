@@ -59,13 +59,13 @@ const onboarding = () => {
 
       setImageSize((prev) => ({
         ...prev,
-        cac: `${MBSize.toFixed(2)}MB`,
+        license: `${MBSize.toFixed(2)}MB`,
       }));
     } else {
       console.log('KB');
       setImageSize((prev) => ({
         ...prev,
-        cac: `${KBSize}KB`,
+        license: `${KBSize}KB`,
       }));
     }
 
