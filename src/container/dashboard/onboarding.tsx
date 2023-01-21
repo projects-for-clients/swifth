@@ -65,7 +65,7 @@ const onboarding = () => {
               name="cacUpload"
               id="cacUpload"
               accept="image/*"
-              // className="hidden"
+               className="hidden"
               onChange={(e) => cacUploadHandler(e, 'cacUpload')}
             />
             <label
