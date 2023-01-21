@@ -72,7 +72,7 @@ const onboarding = () => {
     setLicenseUploadUrl(name);
   };
 
-  const logoUploadHandler = async (e: ChangeEvent<HTMLInputElement>, value: string) => {
+  const logoUploadHandler = async (e: MouseEvent<HTMLInputElement>, value: string) => {
     const getUrl = await getPhotoUrl(value);
 
     console.log({getUrl})
@@ -101,7 +101,7 @@ const onboarding = () => {
               id="logoUpload"
               accept="image/*"
               className="hidden"
-              onChange={(e) => logoUploadHandler(e, 'logoUpload')}
+              onClick={(e) => logoUploadHandler(e, 'logoUpload')}
             />
             <p className="text-[1.6rem] text-color-primary uppercase">
               Upload Logo
