@@ -9,6 +9,7 @@ const onboarding = () => {
     cac: string;
     license: string;
   }>(null as any);
+  const [logoUrl, setLogoUrl] = useState('/icons/admin/bag.svg');
 
   const cacUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -53,7 +54,6 @@ const onboarding = () => {
 
     const KBSize = size.toString().split('.')[0];
 
-
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
@@ -72,6 +72,11 @@ const onboarding = () => {
     setLicenseUploadUrl(name);
   };
 
+  const logoUploadHandler = async (e: ChangeEvent<HTMLInputElement>) => {
+    const getUrl = await getPhotoUrl(`#photoUpload`);
+    setLogoUrl(getUrl);
+  };
+
   return (
     <>
       <Header
@@ -88,23 +93,30 @@ const onboarding = () => {
 
         <div className="grid gap-10">
           <figure className="flex gap-8 items-center">
-            <img src="/icons/admin/bag.svg" alt="" />
-            <figcaption>
+            <label htmlFor="logoUpload">
+              <img src={logoUrl} alt="" className="object-contain" />
+              <input
+                type="file"
+                id="logoUpload"
+                accept="image/*"
+                className="hidden"
+                onChange={logoUploadHandler}
+              />
               <p className="text-[1.6rem] text-color-primary uppercase">
                 Upload Logo
               </p>
-            </figcaption>
+            </label>
           </figure>
 
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
               htmlFor="cacUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer"
+              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[9rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
               {cacUploadUrl ? (
                 <div className="grid">
-                  <p>{cacUploadUrl}</p>
+                  <p className="text-[1.4rem] font-normal">{cacUploadUrl}</p>
                   <p className="text-color-grey-4 text-[1rem]">
                     {imageSize.cac}
                   </p>
@@ -123,12 +135,14 @@ const onboarding = () => {
             />
             <label
               htmlFor="licenseUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer"
+              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[9rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
               {licenseUploadUrl ? (
                 <div className="grid">
-                  <p>{licenseUploadUrl}</p>
+                  <p className="text-[1.4rem] font-normal">
+                    {licenseUploadUrl}
+                  </p>
                   <p className="text-color-grey-4 text-[1rem]">
                     {imageSize.license}
                   </p>
