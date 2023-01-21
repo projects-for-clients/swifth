@@ -183,18 +183,20 @@ const onboarding = () => {
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">
                 Custom License expiration date
               </label>
-              <div>
-
-              <input
-                type="date"
-                placeholder="select Date"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full appearance-none"
+              <div className="relative">
+                <input
+                  type="date"
+                  placeholder="select Date"
+                  className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full hide-date-icon "
                 />
-                </div>
+                <span className="absolute right-0 bg-color-red w-20 h-20 z-10">
+                </span>
+                  <img src="/icons/admin/calendar.svg" alt="" />
+              </div>
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Business name</label>
