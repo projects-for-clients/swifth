@@ -23,8 +23,6 @@ const onboarding = () => {
 
     const KBSize = size.toString().split('.')[0];
 
-    console.log(KBSize, KBSize.length);
-
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
