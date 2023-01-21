@@ -15,7 +15,14 @@ const onboarding = () => {
     const { name } = fileObj.files![0];
     const path = fileObj.files![0];
 
+    const size = path.size / 1000
+
     console.log(path)
+
+    console.log(size)
+     const KBSize =  size.toString().split('.')[0]
+
+     console.log(KBSize, KBSize.length)
 
 
 
