@@ -75,7 +75,6 @@ const onboarding = () => {
   const logoUploadHandler = async (e: MouseEvent<HTMLInputElement>, value: string) => {
     const getUrl = await getPhotoUrl(value);
 
-    console.log({getUrl})
     setLogoUrl(getUrl);
   };
 
@@ -95,7 +94,7 @@ const onboarding = () => {
 
         <div className="grid gap-10">
           <label htmlFor="logoUpload" className="flex gap-8 items-center cursor-pointer">
-            <img src={logoUrl} alt="" className="object-contain" />
+            <img src={logoUrl} alt="" className="object-cover w-[9.6rem] h-[9.6rem] rounded-full" />
             <input
               type="file"
               id="logoUpload"
