@@ -72,8 +72,8 @@ const onboarding = () => {
     setLicenseUploadUrl(name);
   };
 
-  const logoUploadHandler = async (e: ChangeEvent<HTMLInputElement>) => {
-    const getUrl = await getPhotoUrl(`#photoUpload`);
+  const logoUploadHandler = async (e: ChangeEvent<HTMLInputElement>, value: string) => {
+    const getUrl = await getPhotoUrl(value);
     setLogoUrl(getUrl);
   };
 
@@ -92,21 +92,19 @@ const onboarding = () => {
         </div>
 
         <div className="grid gap-10">
-          <figure className="flex gap-8 items-center">
-            <label htmlFor="logoUpload">
-              <img src={logoUrl} alt="" className="object-contain" />
-              <input
-                type="file"
-                id="logoUpload"
-                accept="image/*"
-                className="hidden"
-                onChange={logoUploadHandler}
-              />
-              <p className="text-[1.6rem] text-color-primary uppercase">
-                Upload Logo
-              </p>
-            </label>
-          </figure>
+          <label htmlFor="logoUpload" className="flex gap-8 items-center">
+            <img src={logoUrl} alt="" className="object-contain" />
+            <input
+              type="file"
+              id="logoUpload"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => logoUploadHandler(e, 'logoUpload')}
+            />
+            <p className="text-[1.6rem] text-color-primary uppercase">
+              Upload Logo
+            </p>
+          </label>
 
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
