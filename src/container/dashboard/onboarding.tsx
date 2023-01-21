@@ -3,52 +3,44 @@ import Header from '../../components/dashboard/Header';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 const onboarding = () => {
-  interface PhotoUrl {
-    cacUploadUrl?: string;
-    licenseUploadUrl?: string;
-  }
 
-  const [photoUrl, setPhotoUrl] = useReducer(
-    (prev: PhotoUrl, next: PhotoUrl): PhotoUrl => {
-      return {
-        ...prev,
-        ...next,
-      };
-    },
-    {
-      cacUploadUrl: '',
-      licenseUploadUrl: '',
-    }
-  );
+
+  const [cacUploadUrl, setCacUploadUrl] = useState<File>(null as any);
+  const [licenseUploadUrl, setLicenseUploadUrl] = useState<File>(null as any);
+
+  
 
   
   const uploadPhotoHandler = async (
-    file: MouseEvent<HTMLInputElement>,
+    e: MouseEvent<HTMLInputElement>,
     value: string,
     type: 'cac' | 'license'
   ) => {
 
-    console.log('e', e.target.files);
+    const fileObj = e.target as HTMLInputElement
+
+    const path = fileObj.files![0];
     let getCacUploadUrl = '';
     let getLicenseUploadUrl = '';
 
     if (type === 'cac') {
+      setCacUploadUrl(path)
       getCacUploadUrl = await getPhotoUrl(value);
+
     } else {
+      setLicenseUploadUrl(path)
       getLicenseUploadUrl = await getPhotoUrl(value);
     }
 
+
     console.log(getCacUploadUrl, getLicenseUploadUrl);
 
-    setPhotoUrl({
-      cacUploadUrl: getCacUploadUrl ?? '',
-      licenseUploadUrl: getLicenseUploadUrl ?? '',
-    });
   };
 
   useEffect(() => {
-    console.log({photoUrl});
-  }, [photoUrl.cacUploadUrl, photoUrl.licenseUploadUrl]);
+    console.log({cacUploadUrl, licenseUploadUrl});
+  }, [cacUploadUrl, licenseUploadUrl])
+
   return (
     <>
       <Header
