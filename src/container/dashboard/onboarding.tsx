@@ -121,7 +121,7 @@ const onboarding = () => {
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
               htmlFor="cacUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[9rem]"
+              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
               {cacUploadUrl ? (
@@ -145,7 +145,7 @@ const onboarding = () => {
             />
             <label
               htmlFor="licenseUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[9rem]"
+              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
               {licenseUploadUrl ? (
@@ -171,13 +171,37 @@ const onboarding = () => {
             />
           </div>
 
-          <form className="grid gap-4 max-w-[50rem]" onSubmit={handleFormSubmit}>
+          <form
+            className="grid gap-10 mt-4 max-w-[50rem]"
+            onSubmit={handleFormSubmit}
+          >
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Business name</label>
               <input
                 type="text"
                 placeholder="Enter business name"
-                className=" rounded-lg py-8 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+              />
+            </div>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">
+                Custom License expiration date
+              </label>
+              <div>
+
+              <input
+                type="date"
+                placeholder="select Date"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full appearance-none"
+                />
+                </div>
+            </div>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">Business name</label>
+              <input
+                type="text"
+                placeholder="Enter business name"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
           </form>
