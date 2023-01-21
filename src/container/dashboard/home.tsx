@@ -12,6 +12,7 @@ import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
 import PayoutBankSvg from '../../components/icons/sidebar/payoutBankSvg';
 import { useReducer, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function home() {
   interface DropDown {
@@ -21,7 +22,6 @@ function home() {
   }
 
   const [isDropDown, setIsDropDown] = useReducer(
-    //what is the type of the prev and next
     (prev: DropDown, next: DropDown): DropDown => {
       return {
         ...prev,
@@ -63,9 +63,12 @@ function home() {
               <div className="bg-color-purple-light-1 px-8 rounded-lg flex items-center gap-4 text-color-tertary h-[4.5rem]">
                 <p>0%</p> <p>Completed</p>
               </div>
-              <button className="text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-lg h-[4.5rem] ">
+              <Link
+                className="text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-lg h-[4.5rem] px-8 flex items-center justify-center"
+                to="/dashboard/onboarding"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
             <div className="grid gap-4">
               <div className="flex items-center gap-4">
