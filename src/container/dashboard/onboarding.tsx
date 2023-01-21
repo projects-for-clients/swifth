@@ -15,7 +15,7 @@ const onboarding = () => {
           <img src="/icons/admin/barEmpty.svg" alt="" />
         </div>
 
-        <div className="grid">
+        <div className="grid gap-10">
           <figure className="flex gap-8 items-center">
             <img src="/icons/admin/bag.svg" alt="" />
             <figcaption>
@@ -25,12 +25,12 @@ const onboarding = () => {
             </figcaption>
           </figure>
 
-          <div className="flex gap-4 items-center">
-            <div className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center">
+          <div className="grid grid-cols-2 gap-4 items-center justify-between">
+            <div className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer">
               <img src="/icons/admin/upload.svg" alt="" />
               <p>Upload CAC Certificate</p>
             </div>
-            <div className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center">
+            <div className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer">
               <img src="/icons/admin/upload.svg" alt="" />
               <p>Upload Custom License (yearly)</p>
             </div>
