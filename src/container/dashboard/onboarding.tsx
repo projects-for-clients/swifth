@@ -5,6 +5,10 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl';
 const onboarding = () => {
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
+  const [imageSize, setImageSize] = useState<{
+    cac: string;
+    license: string;
+  }>(null as any);
 
   const cacUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -15,16 +19,25 @@ const onboarding = () => {
     const { name } = fileObj.files![0];
     const path = fileObj.files![0];
 
-    const size = path.size / 1000
+    const size = path.size / 1000;
 
-    console.log(path)
+    const KBSize = size.toString().split('.')[0];
 
-    console.log(size)
-     const KBSize =  size.toString().split('.')[0]
+    console.log(KBSize, KBSize.length);
 
-     console.log(KBSize, KBSize.length)
+    if (KBSize.length > 3) {
+      const MBSize = Number(KBSize) / 1000;
 
-
+      setImageSize((prev) => ({
+        ...prev,
+        cac: `${MBSize.toFixed(2)}MB`,
+      }));
+    } else {
+      setImageSize((prev) => ({
+        ...prev,
+        cac: `${KBSize}KB`,
+      }));
+    }
 
     setCacUploadUrl(name);
   };
@@ -36,6 +49,27 @@ const onboarding = () => {
     const fileObj = e.target as HTMLInputElement;
 
     const { name } = fileObj.files![0];
+    const path = fileObj.files![0];
+
+    const size = path.size / 1000;
+
+    const KBSize = size.toString().split('.')[0];
+
+
+    if (KBSize.length > 3) {
+      const MBSize = Number(KBSize) / 1000;
+
+      setImageSize((prev) => ({
+        ...prev,
+        cac: `${MBSize.toFixed(2)}MB`,
+      }));
+    } else {
+      console.log('KB');
+      setImageSize((prev) => ({
+        ...prev,
+        cac: `${KBSize}KB`,
+      }));
+    }
 
     setLicenseUploadUrl(name);
   };
