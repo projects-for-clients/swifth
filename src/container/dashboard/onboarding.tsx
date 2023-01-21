@@ -13,6 +13,11 @@ const onboarding = () => {
     const fileObj = e.target as HTMLInputElement;
 
     const { name } = fileObj.files![0];
+    const path = fileObj.files![0];
+
+    console.log(path)
+
+
 
     setCacUploadUrl(name);
   };
@@ -58,14 +63,18 @@ const onboarding = () => {
               className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer"
             >
               <img src="/icons/admin/upload.svg" alt="" />
-              <p>Upload CAC Certificate</p>
+              {cacUploadUrl ? (
+                <p>{cacUploadUrl}</p>
+              ) : (
+                <p>Upload CAC Certificate</p>
+              )}
             </label>
             <input
               type="file"
               name="cacUpload"
               id="cacUpload"
               accept="image/*"
-               className="hidden"
+              className="hidden"
               onChange={(e) => cacUploadHandler(e, 'cacUpload')}
             />
             <label
@@ -73,7 +82,11 @@ const onboarding = () => {
               className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer"
             >
               <img src="/icons/admin/upload.svg" alt="" />
-              <p>Upload Custom License (yearly)</p>
+              {licenseUploadUrl ? (
+                <p>{licenseUploadUrl}</p>
+              ) : (
+                <p>Upload Custom License (yearly)</p>
+              )}
             </label>
             <input
               type="file"
