@@ -12,6 +12,10 @@ const onboarding = () => {
           <img src="/icons/admin/barEmpty.svg" alt="" />
           <img src="/icons/admin/barEmpty.svg" alt="" />
         </div>
+
+        <div>
+          
+        </div>
       </div>
     </>
   );
