@@ -9,8 +9,8 @@ const PersonalInfo = () => {
     cac: string;
     license: string;
   }>(null as any);
-  const [logoUrl, setLogoUrl] = useState('/icons/admin/bag.svg');
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+
 
   const cacUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -73,14 +73,7 @@ const PersonalInfo = () => {
     setLicenseUploadUrl(name);
   };
 
-  const logoUploadHandler = async (
-    e: MouseEvent<HTMLInputElement>,
-    value: string
-  ) => {
-    const getUrl = await getPhotoUrl(value);
-
-    setLogoUrl(getUrl);
-  };
+  
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -101,9 +94,12 @@ const PersonalInfo = () => {
         </div>
 
         <form className="grid gap-10 " onSubmit={handleFormSubmit}>
-          <div className="grid gap-10 mt-4" style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))'
-          }}>
+          <div
+            className="grid gap-10 mt-4"
+            style={{
+              gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
+            }}
+          >
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Full Name</label>
               <input
@@ -116,14 +112,15 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">Phone Number</label>
               <input
                 type="text"
-                placeholder="Enter Address"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"/>
+                placeholder="Phone Number"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+              />
             </div>
             <div className="grid gap-4">
-              <label className="text-[1.4rem]">Office Address</label>
+              <label className="text-[1.4rem]">Email Address</label>
               <input
                 type="text"
-                placeholder="Enter Address"
+                placeholder="Enter Email"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
@@ -142,7 +139,7 @@ const PersonalInfo = () => {
                   </p>
                 </div>
               ) : (
-                <p>Upload CAC Certificate</p>
+                <p>Upload ID card</p>
               )}
             </label>
             <input
@@ -168,7 +165,7 @@ const PersonalInfo = () => {
                   </p>
                 </div>
               ) : (
-                <p>Upload Custom License (yearly)</p>
+                <p>Upload Proof of Address</p>
               )}
             </label>
             <input
@@ -178,6 +175,47 @@ const PersonalInfo = () => {
               accept="image/*"
               className="hidden"
               onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
+            />
+          </div>
+
+          <div className="grid gap-4">
+            <label className="text-[1.4rem]">Business name</label>
+            <input
+              type="text"
+              placeholder="Enter business name"
+              className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+            />
+          </div>
+          <div className="grid gap-4 w-full">
+            <label className="text-[1.4rem]">
+              Custom License expiration date
+            </label>
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="select Date"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                onFocus={(e) => {
+                  e.target.type = 'date';
+                  setShowCalendarIcon(false);
+                }}/>
+             
+              {showCalendarIcon && (
+                <img
+                  src="/icons/admin/calendar.svg"
+                  alt=""
+                  className="absolute right-4 w-[2rem] h-[2rem]"
+                />
+              )}
+              
+            </div>
+          </div>
+          <div className="grid gap-4">
+            <label className="text-[1.4rem]">Office Address</label>
+            <input
+              type="text"
+              placeholder="Enter Address"
+              className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
             />
           </div>
 
