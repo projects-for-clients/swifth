@@ -1,3 +1,4 @@
+import React from 'react';
 import { ChangeEvent, FC, FormEvent, MouseEvent, useEffect, useReducer, useState } from 'react';
 import { GrDown } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
@@ -152,7 +153,7 @@ const Terminal:FC<ITerminal> = ({isTerminal, setIsTerminal}) => {
 const PersonalInfo = () => {
   
   const [isTerminal, setIsTerminal] = useState(false);
-  const [terminalCount, setIsTerminalCount] = useState(0);
+  const [terminalCount, setIsTerminalCount] = useState([1]);
 
   
 
@@ -167,8 +168,13 @@ const PersonalInfo = () => {
 
   const addTerminal = (e: MouseEvent<HTMLButtonElement>) => {
 
-        setIsTerminalCount(prev => prev + 1)
+    setIsTerminalCount((prev) => [...prev, prev.length + 1]);
+      
     }
+
+    useEffect(() => {
+        console.log({terminalCount})
+    }, [terminalCount])
 
     
 
@@ -180,7 +186,7 @@ const PersonalInfo = () => {
       />
 
       <div
-        className="grid gap-16 h-[90%]"
+        className="grid gap-16 h-[85vh] overflow-y-scroll"
         style={{
           gridTemplateRows: 'max-content 1fr',
         }}
@@ -214,9 +220,12 @@ const PersonalInfo = () => {
                   <GrDown className="text-[1.3rem] absolute right-3" />
                 </div>
               </div>
-
-            <Terminal isTerminal={isTerminal} setIsTerminal={setIsTerminal}/>
-
+              {
+                terminalCount.map((_, index) => {
+                    return <Terminal isTerminal={isTerminal} setIsTerminal={setIsTerminal} key={index} />
+                })
+              }
+             
               <button
                 type="button"
                 className="flex self-start items-center gap-4 mt-10 disabled:text-color-grey-4"
