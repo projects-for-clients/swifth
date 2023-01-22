@@ -59,14 +59,18 @@ function home() {
               It's time to set up your account. We will need a few things to get
               you going
             </p>
-            <div className="grid grid-cols-60-auto gap-4">
-              <progress className="progressBar" max='100' value='30'>
-                <p>0%</p> <p>Completed</p>
-                
-              </progress>
-              {/* <div className="bg-color-purple-light-1 px-8 rounded-lg flex items-center gap-4 text-color-tertary h-[4.5rem]">
-                <p>0%</p> <p>Completed</p>
-              </div> */}
+            <div className="grid grid-cols-60-auto gap-4 items-center -mt-8">
+              <div className="progressBar">
+                <progress
+                  className="progressBar__item"
+                  max="100"
+                  value="0"
+                ></progress>
+                <p className="absolute left-4 text-color-tertiary ">
+                  <span>0%</span> <span>Completed</span>
+                </p>
+              </div>
+             
               <Link
                 className="text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-lg h-[4.5rem] px-8 flex items-center justify-center"
                 to="/dashboard/onboarding"
