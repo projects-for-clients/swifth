@@ -9,7 +9,7 @@ import {
 import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 import DashboardHome from '../container/dashboard/home';
-import OnBoarding from '../container/dashboard/onboarding';
+import OnBoarding from '../container/Onboarding';
 import Orders from '../container/dashboard/orders';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.css';
