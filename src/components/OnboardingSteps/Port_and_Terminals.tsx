@@ -187,6 +187,7 @@ const PersonalInfo = () => {
       <Header
         title="Ports and Terminals"
         subTitle="Enter your ports and terminals details"
+        onboarding
       />
 
       <div

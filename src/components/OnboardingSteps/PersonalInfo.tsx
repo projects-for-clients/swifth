@@ -88,39 +88,72 @@ const PersonalInfo = () => {
   return (
     <>
       <Header
-        title="Business Information"
-        subTitle="Enter your business details"
+        title="Personal Information"
+        subTitle="Enter your personal information"
+        onboarding
       />
 
       <div className="grid gap-16">
         <div className="flex gap-2">
           <img src="/icons/admin/barFilled.svg" alt="" />
-          <img src="/icons/admin/barEmpty.svg" alt="" />
-          <img src="/icons/admin/barEmpty.svg" alt="" />
+          <img src="/icons/admin/barFilled.svg" alt="" />
+          <img src="/icons/admin/barFilled.svg" alt="" />
         </div>
 
         <form className="grid gap-10 " onSubmit={handleFormSubmit}>
-          <label
-            htmlFor="logoUpload"
-            className="flex gap-8 items-center cursor-pointer w-max"
-          >
-            <img
-              src={logoUrl}
-              alt=""
-              className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
-            />
-            <input
-              type="file"
-              id="logoUpload"
-              accept="image/*"
-              className="hidden"
-              onClick={(e) => logoUploadHandler(e, 'logoUpload')}
-            />
-            <p className="text-[1.6rem] text-color-primary uppercase">
-              Upload Logo
-            </p>
-          </label>
+          <div className="grid gap-10 mt-4" style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))'
+          }}>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">Business name</label>
+              <input
+                type="text"
+                placeholder="Enter business name"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+              />
+            </div>
+            <div className="grid gap-4 w-full">
+              <label className="text-[1.4rem]">
+                Custom License expiration date
+              </label>
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  placeholder="select Date"
+                  className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                  onFocus={(e) => {
+                    e.target.type = 'date';
+                    setShowCalendarIcon(false);
+                  }}
+                  // onBlur={(e) => {
+                  //   e.target.type = 'text';
 
+                  //   e.target.placeholder = 'select Date';
+
+                  //   e.target.value = '';
+
+                  //   setShowCalendarIcon(true);
+                  // }}
+                />
+                {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
+                {showCalendarIcon && (
+                  <img
+                    src="/icons/admin/calendar.svg"
+                    alt=""
+                    className="absolute right-4 w-[2rem] h-[2rem]"
+                  />
+                )}
+              </div>
+            </div>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">Office Address</label>
+              <input
+                type="text"
+                placeholder="Enter Address"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+              />
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
               htmlFor="cacUpload"
@@ -174,57 +207,6 @@ const PersonalInfo = () => {
             />
           </div>
 
-          <div className="grid gap-10 mt-4 max-w-[50rem]">
-            <div className="grid gap-4">
-              <label className="text-[1.4rem]">Business name</label>
-              <input
-                type="text"
-                placeholder="Enter business name"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
-              />
-            </div>
-            <div className="grid gap-4 w-full">
-              <label className="text-[1.4rem]">
-                Custom License expiration date
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  placeholder="select Date"
-                  className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
-                  onFocus={(e) => {
-                    e.target.type = 'date';
-                    setShowCalendarIcon(false);
-                  }}
-                  // onBlur={(e) => {
-                  //   e.target.type = 'text';
-
-                  //   e.target.placeholder = 'select Date';
-
-                  //   e.target.value = '';
-
-                  //   setShowCalendarIcon(true);
-                  // }}
-                />
-                {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
-                {showCalendarIcon && (
-                  <img
-                    src="/icons/admin/calendar.svg"
-                    alt=""
-                    className="absolute right-4 w-[2rem] h-[2rem]"
-                  />
-                )}
-              </div>
-            </div>
-            <div className="grid gap-4">
-              <label className="text-[1.4rem]">Office Address</label>
-              <input
-                type="text"
-                placeholder="Enter Address"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
-              />
-            </div>
-          </div>
           <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold">
             Continue
           </button>

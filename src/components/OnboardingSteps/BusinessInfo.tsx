@@ -95,6 +95,7 @@ const businessInfo = () => {
       <Header
         title="Business Information"
         subTitle="Enter your business details"
+        onboarding
       />
 
       <div className="grid gap-16">
