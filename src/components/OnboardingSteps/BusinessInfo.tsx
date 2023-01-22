@@ -1,8 +1,12 @@
-import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent, useContext, useState } from 'react';
 import Header from '../../components/dashboard/Header';
+import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 const businessInfo = () => {
+
+  const { setStep } = useContext(OnboardingContext);
+
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
@@ -84,6 +88,7 @@ const businessInfo = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setStep(1)
   };
   return (
     <>
