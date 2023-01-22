@@ -105,45 +105,19 @@ const PersonalInfo = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))'
           }}>
             <div className="grid gap-4">
-              <label className="text-[1.4rem]">Business name</label>
+              <label className="text-[1.4rem]">Full Name</label>
               <input
                 type="text"
-                placeholder="Enter business name"
+                placeholder="Enter full name"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
             <div className="grid gap-4 w-full">
-              <label className="text-[1.4rem]">
-                Custom License expiration date
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  placeholder="select Date"
-                  className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
-                  onFocus={(e) => {
-                    e.target.type = 'date';
-                    setShowCalendarIcon(false);
-                  }}
-                  // onBlur={(e) => {
-                  //   e.target.type = 'text';
-
-                  //   e.target.placeholder = 'select Date';
-
-                  //   e.target.value = '';
-
-                  //   setShowCalendarIcon(true);
-                  // }}
-                />
-                {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
-                {showCalendarIcon && (
-                  <img
-                    src="/icons/admin/calendar.svg"
-                    alt=""
-                    className="absolute right-4 w-[2rem] h-[2rem]"
-                  />
-                )}
-              </div>
+              <label className="text-[1.4rem]">Phone Number</label>
+              <input
+                type="text"
+                placeholder="Enter Address"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"/>
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Office Address</label>
