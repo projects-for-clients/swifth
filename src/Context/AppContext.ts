@@ -13,7 +13,7 @@ export const AuthContext = createContext<IAuthContext>(null as any);
 interface IOnboardingContext {
   setStep: Dispatch<SetStateAction<number>>;
   step: number;
-  notify: (message: string) => void;
+  notify?: (message: string) => void;
 }
 export const OnboardingContext = createContext<IOnboardingContext>(null as any);
 
