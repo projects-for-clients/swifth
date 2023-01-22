@@ -60,9 +60,13 @@ function home() {
               you going
             </p>
             <div className="grid grid-cols-60-auto gap-4">
-              <div className="bg-color-purple-light-1 px-8 rounded-lg flex items-center gap-4 text-color-tertary h-[4.5rem]">
+              <progress className="progressBar" max='100' value='30'>
                 <p>0%</p> <p>Completed</p>
-              </div>
+                
+              </progress>
+              {/* <div className="bg-color-purple-light-1 px-8 rounded-lg flex items-center gap-4 text-color-tertary h-[4.5rem]">
+                <p>0%</p> <p>Completed</p>
+              </div> */}
               <Link
                 className="text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-lg h-[4.5rem] px-8 flex items-center justify-center"
                 to="/dashboard/onboarding"

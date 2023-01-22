@@ -11,7 +11,6 @@ const PersonalInfo = () => {
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-
   const cacUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     value: string
@@ -73,8 +72,6 @@ const PersonalInfo = () => {
     setLicenseUploadUrl(name);
   };
 
-  
-
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
@@ -124,102 +121,98 @@ const PersonalInfo = () => {
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 items-center justify-between">
-            <label
-              htmlFor="cacUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
-            >
-              <img src="/icons/admin/upload.svg" alt="" />
-              {cacUploadUrl ? (
-                <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{cacUploadUrl}</p>
-                  <p className="text-color-grey-4 text-[1rem]">
-                    {imageSize.cac}
-                  </p>
-                </div>
-              ) : (
-                <p>Upload ID card</p>
-              )}
-            </label>
-            <input
-              type="file"
-              name="cacUpload"
-              id="cacUpload"
-              accept="image/*"
-              className="hidden"
-              onChange={(e) => cacUploadHandler(e, 'cacUpload')}
-            />
-            <label
-              htmlFor="licenseUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
-            >
-              <img src="/icons/admin/upload.svg" alt="" />
-              {licenseUploadUrl ? (
-                <div className="grid">
-                  <p className="text-[1.4rem] font-normal">
-                    {licenseUploadUrl}
-                  </p>
-                  <p className="text-color-grey-4 text-[1rem]">
-                    {imageSize.license}
-                  </p>
-                </div>
-              ) : (
-                <p>Upload Proof of Address</p>
-              )}
-            </label>
-            <input
-              type="file"
-              name="licenseUpload"
-              id="licenseUpload"
-              accept="image/*"
-              className="hidden"
-              onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
-            />
-          </div>
-
-          <div className="grid gap-4">
-            <label className="text-[1.4rem]">Business name</label>
-            <input
-              type="text"
-              placeholder="Enter business name"
-              className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
-            />
-          </div>
-          <div className="grid gap-4 w-full">
-            <label className="text-[1.4rem]">
-              Custom License expiration date
-            </label>
-            <div className="relative flex items-center">
+            <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
+              <label
+                htmlFor="cacUpload"
+                className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
+              >
+                <img src="/icons/admin/upload.svg" alt="" />
+                {cacUploadUrl ? (
+                  <div className="grid">
+                    <p className="text-[1.4rem] font-normal">{cacUploadUrl}</p>
+                    <p className="text-color-grey-4 text-[1rem]">
+                      {imageSize.cac}
+                    </p>
+                  </div>
+                ) : (
+                  <p>Upload ID card</p>
+                )}
+                <input
+                  type="file"
+                  name="cacUpload"
+                  id="cacUpload"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => cacUploadHandler(e, 'cacUpload')}
+                />
+              </label>
+              <label
+                htmlFor="licenseUpload"
+                className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
+              >
+                <img src="/icons/admin/upload.svg" alt="" />
+                {licenseUploadUrl ? (
+                  <div className="grid">
+                    <p className="text-[1.4rem] font-normal">
+                      {licenseUploadUrl}
+                    </p>
+                    <p className="text-color-grey-4 text-[1rem]">
+                      {imageSize.license}
+                    </p>
+                  </div>
+                ) : (
+                  <p>Upload Proof of Address</p>
+                )}
+                <input
+                  type="file"
+                  name="licenseUpload"
+                  id="licenseUpload"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
+                />
+              </label>
+            </div>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">ID Type</label>
               <input
                 type="text"
-                placeholder="select Date"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
-                onFocus={(e) => {
-                  e.target.type = 'date';
-                  setShowCalendarIcon(false);
-                }}/>
-             
-              {showCalendarIcon && (
-                <img
-                  src="/icons/admin/calendar.svg"
-                  alt=""
-                  className="absolute right-4 w-[2rem] h-[2rem]"
+                placeholder="Enter ID Type"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+              />
+            </div>
+            <div className="grid gap-4">
+              <label className="text-[1.4rem]">ID Number</label>
+              <input
+                type="number"
+                placeholder="Enter ID number"
+                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+              />
+            </div>
+            <div className="grid gap-4 w-full">
+              <label className="text-[1.4rem]">Expiry Date</label>
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  placeholder="Input Date"
+                  className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                  onFocus={(e) => {
+                    e.target.type = 'date';
+                    setShowCalendarIcon(false);
+                  }}
                 />
-              )}
-              
+
+                {showCalendarIcon && (
+                  <img
+                    src="/icons/admin/calendar.svg"
+                    alt=""
+                    className="absolute right-4 w-[2rem] h-[2rem]"
+                  />
+                )}
+              </div>
             </div>
           </div>
-          <div className="grid gap-4">
-            <label className="text-[1.4rem]">Office Address</label>
-            <input
-              type="text"
-              placeholder="Enter Address"
-              className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
-            />
-          </div>
-
-          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold">
+          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold self-center">
             Continue
           </button>
         </form>

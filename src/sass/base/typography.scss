@@ -40,5 +40,12 @@ p {
   font-size: 1.6rem;
 }
 
+.progressBar {
+  background-color: $color-purple-light-1;
 
 
+  &::-webkit-progress-bar,
+  &::-moz-progress-bar {
+    background-color: $color-primary-light;
+  }
+}
