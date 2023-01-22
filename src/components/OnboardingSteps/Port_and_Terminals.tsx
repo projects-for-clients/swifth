@@ -3,7 +3,7 @@ import Header from '../../components/dashboard/Header';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 const PersonalInfo = () => {
-  const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
+  const [formCUpload, setFormCUpload] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
     cac: string;
@@ -39,7 +39,7 @@ const PersonalInfo = () => {
       }));
     }
 
-    setCacUploadUrl(name);
+    setFormCUpload(name);
   };
 
   const licenseUploadHandler = (
@@ -127,9 +127,9 @@ const PersonalInfo = () => {
               className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
-              {cacUploadUrl ? (
+              {formCUpload ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{cacUploadUrl}</p>
+                  <p className="text-[1.4rem] font-normal">{formCUpload}</p>
                   <p className="text-color-grey-4 text-[1rem]">
                     {imageSize.cac}
                   </p>
