@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ChangeEvent, FC, FormEvent, MouseEvent, useEffect, useReducer, useState } from 'react';
 import { GrDown } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
+import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 
@@ -151,7 +152,8 @@ const Terminal:FC<ITerminal> = ({isTerminal, setIsTerminal}) => {
 }
 
 const PersonalInfo = () => {
-  
+    const { setStep } = useContext(OnboardingContext);
+
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
@@ -159,6 +161,8 @@ const PersonalInfo = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
+        setStep(2);
+
   };
 
 
@@ -228,7 +232,7 @@ const PersonalInfo = () => {
              
               <button
                 type="button"
-                className="flex self-start items-center gap-4 mt-10 disabled:text-color-grey-4"
+                className="flex self-start items-center gap-4 mt-10 disabled:text-color-grey-4 disabled:cursor-not-allowed"
                 onClick={addTerminal}
                 disabled={!isTerminal}
               >
