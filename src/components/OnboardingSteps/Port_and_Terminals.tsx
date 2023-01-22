@@ -120,7 +120,7 @@ const PersonalInfo = () => {
                 <div className="flex items-center w-full">
                   <label
                     htmlFor="cacUpload"
-                    className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] text-[1.4rem] w-full"
+                    className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-full"
                   >
                     <img src="/icons/admin/upload.svg" alt="" />
                     {formCUpload ? (
