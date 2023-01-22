@@ -9,7 +9,6 @@ const PersonalInfo = () => {
     cac: string;
     license: string;
   }>(null as any);
-  const [logoUrl, setLogoUrl] = useState('/icons/admin/bag.svg');
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const cacUploadHandler = (
@@ -73,14 +72,7 @@ const PersonalInfo = () => {
     setLicenseUploadUrl(name);
   };
 
-  const logoUploadHandler = async (
-    e: MouseEvent<HTMLInputElement>,
-    value: string
-  ) => {
-    const getUrl = await getPhotoUrl(value);
 
-    setLogoUrl(getUrl);
-  };
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
