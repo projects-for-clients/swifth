@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from 'react';
 import { GrDown } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
@@ -47,8 +47,12 @@ const PersonalInfo = () => {
   };
 
   const handleSelectChange = () => {
-    setIsTerminal(!isTerminal);
+    setIsTerminal(true);
   }
+
+  useEffect(() => {
+    console.log({isTerminal})
+  }, [isTerminal])
   return (
     <>
       <Header
@@ -123,70 +127,74 @@ const PersonalInfo = () => {
                     <GrDown className="text-[1.3rem] absolute right-3" />
                   </div>
                 </div>
-                <div className="flex items-center w-full">
-                  <label
-                    htmlFor="cacUpload"
-                    className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-full"
-                  >
-                    <img src="/icons/admin/upload.svg" alt="" />
-                    {formCUpload ? (
-                      <div className="grid">
-                        <p className="text-[1.4rem] font-normal">
-                          {formCUpload}
-                        </p>
-                        <p className="text-color-grey-4 text-[1rem]">
-                          {imageSize.cac}
-                        </p>
-                      </div>
-                    ) : (
-                      <p className="text-[1.4rem]">
-                        Upload Form C-30 per terminal (Yearly)
-                      </p>
-                    )}
-                  </label>
-                  <input
-                    type="file"
-                    name="cacUpload"
-                    id="cacUpload"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={(e) => formCUploadHandler(e, 'cacUpload')}
-                  />
-                </div>
-
-                <div className="grid gap-4  w-full">
-                  <label className="text-[1.4rem]">
-                    Input expiration date for each form C-30{' '}
-                  </label>
-                  <div className="relative flex items-center">
-                    <input
-                      type="text"
-                      placeholder="select Date"
-                      className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
-                      onFocus={(e) => {
-                        e.target.type = 'date';
-                        setShowCalendarIcon(false);
-                      }}
-                      // onBlur={(e) => {
-                      //   e.target.type = 'text';
-
-                      //   e.target.placeholder = 'select Date';
-
-                      //   e.target.value = '';
-
-                      //   setShowCalendarIcon(true);
-                      // }}
-                    />
-                    {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
-                    {showCalendarIcon && (
-                      <img
-                        src="/icons/admin/calendar.svg"
-                        alt=""
-                        className="absolute right-4 w-[2rem] h-[2rem]"
+                {isTerminal && (
+                  <>
+                    <div className="flex items-center w-full">
+                      <label
+                        htmlFor="cacUpload"
+                        className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-full"
+                      >
+                        <img src="/icons/admin/upload.svg" alt="" />
+                        {formCUpload ? (
+                          <div className="grid">
+                            <p className="text-[1.4rem] font-normal">
+                              {formCUpload}
+                            </p>
+                            <p className="text-color-grey-4 text-[1rem]">
+                              {imageSize.cac}
+                            </p>
+                          </div>
+                        ) : (
+                          <p className="text-[1.4rem]">
+                            Upload Form C-30 per terminal (Yearly)
+                          </p>
+                        )}
+                      </label>
+                      <input
+                        type="file"
+                        name="cacUpload"
+                        id="cacUpload"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => formCUploadHandler(e, 'cacUpload')}
                       />
-                    )}
-                  </div>
-                </div>
+                    </div>
+
+                    <div className="grid gap-4  w-full">
+                      <label className="text-[1.4rem]">
+                        Input expiration date for each form C-30{' '}
+                      </label>
+                      <div className="relative flex items-center">
+                        <input
+                          type="text"
+                          placeholder="select Date"
+                          className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                          onFocus={(e) => {
+                            e.target.type = 'date';
+                            setShowCalendarIcon(false);
+                          }}
+                          // onBlur={(e) => {
+                          //   e.target.type = 'text';
+
+                          //   e.target.placeholder = 'select Date';
+
+                          //   e.target.value = '';
+
+                          //   setShowCalendarIcon(true);
+                          // }}
+                        />
+                        {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
+                        {showCalendarIcon && (
+                          <img
+                            src="/icons/admin/calendar.svg"
+                            alt=""
+                            className="absolute right-4 w-[2rem] h-[2rem]"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
               </section>
 
               <button
