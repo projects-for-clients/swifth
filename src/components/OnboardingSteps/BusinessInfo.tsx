@@ -1,8 +1,8 @@
-import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
 import Header from '../../components/dashboard/Header';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
-const onboarding = () => {
+const businessInfo = () => {
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
@@ -83,7 +83,7 @@ const onboarding = () => {
   };
 
   const handleFormSubmit = (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
   };
   return (
     <>
@@ -225,7 +225,7 @@ const onboarding = () => {
               />
             </div>
           </div>
-          <button className='text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold'>
+          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold">
             Continue
           </button>
         </form>
@@ -234,4 +234,4 @@ const onboarding = () => {
   );
 };
 
-export default onboarding;
+export default businessInfo;
