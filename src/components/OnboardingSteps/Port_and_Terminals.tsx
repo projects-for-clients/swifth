@@ -152,7 +152,7 @@ const Terminal:FC<ITerminal> = ({isTerminal, setIsTerminal}) => {
 const PersonalInfo = () => {
   
   const [isTerminal, setIsTerminal] = useState(false);
-  const [terminalCount, setIsTerminalCount] = useReducer((count: number) => Math.min(0, 10), 0);
+  const [terminalCount, setIsTerminalCount] = useState(0);
 
   
 
@@ -166,8 +166,11 @@ const PersonalInfo = () => {
   }, [isTerminal])
 
   const addTerminal = (e: MouseEvent<HTMLButtonElement>) => {
-    
+
+        setIsTerminalCount(prev => prev + 1)
     }
+
+    
 
   return (
     <>
