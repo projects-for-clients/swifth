@@ -100,26 +100,7 @@ const PersonalInfo = () => {
         </div>
 
         <form className="grid gap-10 " onSubmit={handleFormSubmit}>
-          <label
-            htmlFor="logoUpload"
-            className="flex gap-8 items-center cursor-pointer w-max"
-          >
-            <img
-              src={logoUrl}
-              alt=""
-              className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
-            />
-            <input
-              type="file"
-              id="logoUpload"
-              accept="image/*"
-              className="hidden"
-              onClick={(e) => logoUploadHandler(e, 'logoUpload')}
-            />
-            <p className="text-[1.6rem] text-color-primary uppercase">
-              Upload Logo
-            </p>
-          </label>
+
 
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
