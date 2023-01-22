@@ -10,6 +10,7 @@ const PersonalInfo = () => {
     license: string;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+  const [isTerminal, setIsTerminal] = useState(false);
 
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -44,6 +45,10 @@ const PersonalInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
+
+  const handleSelectChange = () => {
+    setIsTerminal(!isTerminal);
+  }
   return (
     <>
       <Header
@@ -66,12 +71,13 @@ const PersonalInfo = () => {
         <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
             <div className="grid gap-10 mt-4 ">
-              <div className="grid gap-4 w-[33rem]">
+              <div className="grid gap-4 w-[33rem] items-center">
                 <label className="text-[1.4rem]">Choose Port</label>
                 <div className="relative flex items-center">
                   <select
                     placeholder="Enter business name"
                     className=" rounded-lg py-4 px-4 outline-none border-none bg-color-grey-1 w-full cursor-pointer appearance-none text-[1.4rem]"
+                    onChange={handleSelectChange}
                   >
                     <option value="1" className="cursor-pointer py-3 px-4">
                       Lagos Port
@@ -182,6 +188,18 @@ const PersonalInfo = () => {
                   </div>
                 </div>
               </section>
+
+              <button
+                type="button"
+                className="flex self-start items-center gap-4 mt-10"
+              >
+                <img
+                  src="/icons/admin/add-circle.svg"
+                  alt=""
+                  className="w-[2.5rem]"
+                />
+                <span className="text-[1.4rem]">Add terminal</span>
+              </button>
             </div>
           </div>
 
