@@ -1,11 +1,29 @@
-import { ChangeEvent, FormEvent, MouseEvent, useContext, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+  useContext,
+  useState,
+} from 'react';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 const businessInfo = () => {
-
-  const { setStep, onboardingInputs } = useContext(OnboardingContext);
+  const {
+    setStep,
+    onboardingInputs: {
+      businessInfo: {
+        businessName,
+        businessAddress,
+        cacCertificateUri,
+        customLicenseExpirationDate,
+        customLicenseUri,
+        logoUri,
+      },
+    },
+    setOnboardingInputs,
+  } = useContext(OnboardingContext);
 
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
@@ -13,14 +31,14 @@ const businessInfo = () => {
     cac: string;
     license: string;
   }>(null as any);
-  const [logoUrl, setLogoUrl] = useState('/icons/admin/bag.svg');
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-  const cacUploadHandler = (
+  const cacUploadHandler = async(
     e: ChangeEvent<HTMLInputElement>,
     value: string
   ) => {
     const fileObj = e.target as HTMLInputElement;
+
 
     const { name } = fileObj.files![0];
     const path = fileObj.files![0];
@@ -42,11 +60,19 @@ const businessInfo = () => {
         cac: `${KBSize}KB`,
       }));
     }
+    const getUrl = await getPhotoUrl(value);
 
     setCacUploadUrl(name);
+    setOnboardingInputs((prev) => ({
+      ...prev,
+      businessInfo: {
+        ...prev.businessInfo,
+        cacCertificateUri: getUrl,
+      },
+    }));
   };
 
-  const licenseUploadHandler = (
+  const licenseUploadHandler = async(
     e: ChangeEvent<HTMLInputElement>,
     value: string
   ) => {
@@ -75,6 +101,15 @@ const businessInfo = () => {
     }
 
     setLicenseUploadUrl(name);
+    const getUrl = await getPhotoUrl(value);
+
+    setOnboardingInputs((prev) => ({
+      ...prev,
+      businessInfo: {
+        ...prev.businessInfo,
+        customLicenseUri: getUrl,
+      },
+    }));
   };
 
   const logoUploadHandler = async (
@@ -83,12 +118,18 @@ const businessInfo = () => {
   ) => {
     const getUrl = await getPhotoUrl(value);
 
-    setLogoUrl(getUrl);
+    setOnboardingInputs((prev) => ({
+      ...prev,
+      businessInfo: {
+        ...prev.businessInfo,
+        logoUri: getUrl,
+      },
+    }));
   };
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setStep(1)
+    setStep(1);
   };
   return (
     <>
@@ -111,7 +152,7 @@ const businessInfo = () => {
             className="flex gap-8 items-center cursor-pointer w-max"
           >
             <img
-              src={logoUrl}
+              src={logoUri}
               alt=""
               className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
             />

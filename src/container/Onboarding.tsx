@@ -13,7 +13,7 @@ function Onboarding() {
       cacCertificateUri: '',
       customLicenseExpirationDate: null,
       customLicenseUri: '',
-      logoUri: '',
+      logoUri: '/icons/admin/bag.svg',
     },
     portsAndTerminal: {
       port: '',
@@ -30,7 +30,7 @@ function Onboarding() {
       IdCardNumber: 0,
       IdCardType: '',
       proofOfAddressUri: '',
-    }
+    },
   });
 
   const OnboardingSteps = () => {
