@@ -25,7 +25,7 @@ const businessInfo = () => {
     },
   } = useContext(OnboardingContext);
 
-  const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
+  const [cacDetails, setCacDetails] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
     cac: string;
@@ -34,16 +34,28 @@ const businessInfo = () => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const cacUploadHandler = async (
-    e: ChangeEvent<HTMLInputElement>,
+    e: MouseEvent<HTMLInputElement>,
     value: string
   ) => {
-    const fileObj = e.target as HTMLInputElement;
+    const getUri = await getPhotoUri(value);
 
-    const files = fileObj.files ? fileObj.files[0] : null;
+    const data = {
+      target: {
+        name: 'cacCertificateUri',
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
+
+    handleInputChange(data, 'businessInfo');
+  };
+
+  const cacDetailsHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+
+  
 
     if (files) {
-      console.log(files.name);
-      const path = fileObj.files![0];
+      const path = files![0];
 
       const size = path.size / 1000;
 
@@ -62,23 +74,10 @@ const businessInfo = () => {
           cac: `${KBSize}KB`,
         }));
       }
-      setCacUploadUrl(files.name);
-      const getUri = await getPhotoUri(value);
 
-      const data = {
-        target: {
-          name: 'cacCertificateUri',
-          value: getUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      console.log('clicked cac', data);
-
-      handleInputChange(data, 'businessInfo');
-    } else {
-      console.log('no file', files);
+      
     }
-  };
+  }
 
   const licenseUploadHandler = async (
     e: ChangeEvent<HTMLInputElement>,
@@ -144,7 +143,8 @@ const businessInfo = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setStep(1);
+
+    //setStep(1);
   };
 
   const setInput = (e: FormEvent, key: string) => {
@@ -195,9 +195,9 @@ const businessInfo = () => {
               className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
-              {cacUploadUrl ? (
+              {cacDetails ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{cacUploadUrl}</p>
+                  <p className="text-[1.4rem] font-normal">{cacDetails}</p>
                   <p className="text-color-grey-4 text-[1rem]">
                     {imageSize.cac}
                   </p>
@@ -212,7 +212,8 @@ const businessInfo = () => {
               id="cacUpload"
               accept="image/*"
               className="hidden"
-              onChange={(e) => cacUploadHandler(e, 'cacUpload')}
+              onClick={(e) => cacUploadHandler(e, 'cacUpload')}
+              onChange={(e) => cacDetailsHandler(e)}
             />
             <label
               htmlFor="licenseUpload"
