@@ -5,7 +5,7 @@ import { getPhotoUrl } from '../../utils/getPhotoUrl';
 
 const businessInfo = () => {
 
-  const { setStep } = useContext(OnboardingContext);
+  const { setStep, onboardingInputs } = useContext(OnboardingContext);
 
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
   const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);

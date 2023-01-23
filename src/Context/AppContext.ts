@@ -17,14 +17,14 @@ namespace Onboarding {
     logoUri: string;
     cacCertificateUri: string;
     customLicenseUri: string;
-    customLicenseExpirationDate: Date;
+    customLicenseExpirationDate: Date | null;
   }
 
   interface PortsAndTerminal {
     port: string;
-    termainal: string;
+    terminal: string;
     formCUri: string;
-    formCExpirationDate: Date;
+    formCExpirationDate: Date | null;
   }
 
   interface PersonalInfo {
@@ -32,23 +32,27 @@ namespace Onboarding {
     email: string;
     phoneNumber: string;
     IdCardUri: string;
-    IdCardExpirationDate: Date;
+    IdCardExpirationDate: Date | null;
     proofOfAddressUri: string;
     IdCardType: string;
     IdCardNumber: number;
   }
+
+  export interface OnboardingInputs {
+    businessInfo: BusinessInfo;
+     portsAndTerminal: PortsAndTerminal;
+     personalInfo: PersonalInfo;
+  }
   export interface IOnboardingContext {
     setStep: Dispatch<SetStateAction<number>>;
     step: number;
-    onboardingInputs: {
-      businessInfo: BusinessInfo;
-      portsAndTerminal: PortsAndTerminal;
-      personalInfo: PersonalInfo;
-    };
+    onboardingInputs: OnboardingInputs;
+    setOnboardingInputs: Dispatch<SetStateAction<OnboardingInputs>>;
 
     notify?: (message: string) => void;
   }
 }
+export type OnboardingInputs = Onboarding.OnboardingInputs
 export const OnboardingContext = createContext<Onboarding.IOnboardingContext>(
   null as any
 );
