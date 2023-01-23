@@ -11,7 +11,7 @@ namespace Auth {
 export const AuthContext = createContext<Auth.IAuthContext>(null as any);
 
 namespace Onboarding {
-  interface BusinessInfo {
+  export interface BusinessInfo {
     businessName: string;
     officeAddress: string;
     logoUri: string;
@@ -20,14 +20,14 @@ namespace Onboarding {
     customLicenseExpirationDate: Date | null;
   }
 
-  interface PortsAndTerminal {
+  export interface PortsAndTerminal {
     port: string;
     terminal: string;
     formCUri: string;
     formCExpirationDate: Date | null;
   }
 
-  interface PersonalInfo {
+  export interface PersonalInfo {
     fullName: string;
     email: string;
     phoneNumber: string;
@@ -38,19 +38,25 @@ namespace Onboarding {
     IdCardNumber: number;
   }
 
+
   export interface OnboardingInputs {
     businessInfo: BusinessInfo;
-     portsAndTerminal: PortsAndTerminal;
-     personalInfo: PersonalInfo;
+    portsAndTerminal: PortsAndTerminal;
+    personalInfo: PersonalInfo;
   }
   export interface IOnboardingContext {
     setStep: Dispatch<SetStateAction<number>>;
     step: number;
     onboardingInputs: OnboardingInputs;
-    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>, key: string) => void;
+    validationError: unknown;
+    handleInputChange: (
+      e: React.ChangeEvent<HTMLInputElement>,
+      key: string
+    ) => void;
     notify?: (message: string) => void;
   }
 }
+
 export type OnboardingInputs = Onboarding.OnboardingInputs
 export const OnboardingContext = createContext<Onboarding.IOnboardingContext>(
   null as any

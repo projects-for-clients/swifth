@@ -1,15 +1,16 @@
 import { ChangeEvent, useEffect, useMemo, useState } from 'react';
-import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
-import { OnboardingContext, OnboardingInputs } from '../Context/AppContext';
+import {
+  OnboardingContext,
+  OnboardingInputs,
+} from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
-
-export interface ValidationError { [key: string]: string };
+import dayjs from 'dayjs';
+import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
   const [step, setStep] = useState(0);
-  const [validationError, setValidationError] =
-    useState<ValidationError | null>(null);
+  const [validationError, setValidationError] = useState<unknown>(null);
   const [onboardingInputs, setOnboardingInputs] = useState<OnboardingInputs>({
     businessInfo: {
       businessName: '',
@@ -37,7 +38,7 @@ const Onboarding = () => {
     },
   });
 
-  const businessInfoChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
     const { name, value } = e.target;
 
     console.log({ name, value });
@@ -51,8 +52,6 @@ const Onboarding = () => {
   };
 
   const formValidate = () => {
-    const errors = {} as ValidationError;
-
     const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
       const emailRegex = new RegExp(
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -63,102 +62,47 @@ const Onboarding = () => {
       return cb(isValid);
     };
 
-    
+    const { businessInfo } = onboardingInputs;
 
-
-
-    const { businessInfo} = onboardingInputs;
-
-
+    const errors = {} as any;
     for (const key in businessInfo) {
-
       //Validation for the first step
 
-        switch (key) {
-          
+      switch (key) {
+        case 'businessName':
+          if (businessInfo[key].length < 3) {
+            errors[key] = 'This field must be at least 3 characters long';
 
-          case 'businessName':
-            if (businessInfo[key].length < 3) {
-              errors[key as keyof businessInfoProps] =
-                'This field must be at least 3 characters long';
+            setValidationError(errors);
+          }
+          return;
 
-              setValidationError(errors);
-            }
-            break;
-        //   case 'password':
-        //     isValidPassword(businessInfo[key], (pa) => {
-        //       if (!pa) {
-        //         errors[key] = 'Password should have numbers';
+        case 'customLicenseExpirationDate':
+          if (!dayjs(businessInfo[key]).isValid()) {
+            errors[key] = 'Invalid Date';
 
-        //         setValidationError(errors);
-        //       }
-        //     });
+            setValidationError(errors);
+          }
+          return;
 
-        //   case 'confirmPassword':
-        //     if (businessInfo[key] !== businessInfo.password) {
-        //       errors[key as keyof businessInfoProps] = 'Passwords do not match';
+        case 'officeAddress':
+          if (businessInfo[key].length < 3) {
+            errors[key as keyof typeof businessInfo] =
+              'This field must be at least 3 characters long';
 
-        //       setValidationError(errors);
-        //     }
+            setValidationError(errors);
+          }
+          return;
+      }
 
-        //     if (businessInfo[key].length < 8) {
-        //       errors[key as keyof businessInfoProps] =
-        //         'Password must be at least 8 characters long';
+      if (
+        businessInfo[key as keyof typeof businessInfo] === '' ||
+        businessInfo[key as keyof typeof businessInfo] === null
+      ) {
+        errors[key as keyof typeof businessInfo] = 'This field is required';
 
-        //       setValidationError(errors);
-        //     }
-        //     if (businessInfo[key].length < 8) {
-        //       errors[key as keyof businessInfoProps] =
-        //         'Password must be at least 8 characters long';
-
-        //       setValidationError(errors);
-        //     }
-        //     break;
-
-        //   case 'phoneNumber':
-        //     if (businessInfo[key].length < 10) {
-        //       errors[key as keyof businessInfoProps] = 'Phone number not valid';
-
-        //       setValidationError(errors);
-        //     }
-        //     break;
-
-        //   case 'birthDate':
-        //     if (!dayjs(businessInfo[key]).isValid()) {
-        //       errors[key as keyof businessInfoProps] = 'Invalid Date';
-
-        //       setValidationError(errors);
-        //     }
-        //     break;
-         }
-
-        if (
-          businessInfo[key as keyof businessInfoProps] === '' ||
-          businessInfo[key as keyof businessInfoProps] === null
-        ) {
-          errors[key as keyof businessInfoProps] = 'This field is required';
-
-          setValidationError(errors);
-        }
-      } 
-      //   if (
-      //     businessInfo[key as keyof businessInfoProps] === '' ||
-      //     businessInfo[key as keyof businessInfoProps] === null
-      //   ) {
-      //     errors[key as keyof businessInfoProps] = 'This field is required';
-
-      //     setValidationError(errors);
-      //   }
-      // } else if (activeStep === 2 && count > 11) {
-      //   if (
-      //     businessInfo[key as keyof businessInfoProps] === '' ||
-      //     businessInfo[key as keyof businessInfoProps] === null
-      //   ) {
-      //     errors[key as keyof businessInfoProps] = 'This field is required';
-
-      //     setValidationError(errors);
-      //   }
-      // }
+        setValidationError(errors);
+      }
     }
 
     if (Object.keys(errors).length > 0) {
@@ -167,9 +111,6 @@ const Onboarding = () => {
 
     return true;
   };
-
-
-
 
   const OnboardingSteps = () => {
     switch (step) {
@@ -185,16 +126,19 @@ const Onboarding = () => {
     }
   };
 
-  
-
   return (
     <OnboardingContext.Provider
-      value={{ step, setStep, onboardingInputs, businessInfoChange }}
+      value={{
+        step,
+        setStep,
+        onboardingInputs,
+        handleInputChange,
+        validationError,
+      }}
     >
-
       {OnboardingSteps()}
     </OnboardingContext.Provider>
   );
-}
+};
 
 export default Onboarding;
