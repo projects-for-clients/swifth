@@ -59,12 +59,13 @@ function home() {
               It's time to set up your account. We will need a few things to get
               you going
             </p>
-            <div className="grid grid-cols-60-auto gap-4 items-center -mt-8">
+            
+            <div className="grid grid-cols-60-auto gap-4 items-center -pt-8">
               <div className="progressBar">
                 <progress
                   className="progressBar__item"
                   max="100"
-                  value="0"
+                  value="40"
                 ></progress>
                 <p className="absolute left-4 text-color-tertiary ">
                   <span>0%</span> <span>Completed</span>
