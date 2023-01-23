@@ -32,7 +32,6 @@ const businessInfo = () => {
     license: string;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
-  const [business, setBusiness] = useState('');
 
   const cacUploadHandler = async (
     e: ChangeEvent<HTMLInputElement>,
@@ -40,37 +39,45 @@ const businessInfo = () => {
   ) => {
     const fileObj = e.target as HTMLInputElement;
 
-    const { name } = fileObj.files![0];
-    const path = fileObj.files![0];
+    const files = fileObj.files ? fileObj.files[0] : null;
 
-    const size = path.size / 1000;
+    if (files) {
+      console.log(files.name);
+      const path = fileObj.files![0];
 
-    const KBSize = size.toString().split('.')[0];
+      const size = path.size / 1000;
 
-    if (KBSize.length > 3) {
-      const MBSize = Number(KBSize) / 1000;
+      const KBSize = size.toString().split('.')[0];
 
-      setImageSize((prev) => ({
-        ...prev,
-        cac: `${MBSize.toFixed(2)}MB`,
-      }));
+      if (KBSize.length > 3) {
+        const MBSize = Number(KBSize) / 1000;
+
+        setImageSize((prev) => ({
+          ...prev,
+          cac: `${MBSize.toFixed(2)}MB`,
+        }));
+      } else {
+        setImageSize((prev) => ({
+          ...prev,
+          cac: `${KBSize}KB`,
+        }));
+      }
+      setCacUploadUrl(files.name);
+      const getUri = await getPhotoUri(value);
+
+      const data = {
+        target: {
+          name: 'cacCertificateUri',
+          value: getUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      console.log('clicked cac', data);
+
+      handleInputChange(data, 'businessInfo');
     } else {
-      setImageSize((prev) => ({
-        ...prev,
-        cac: `${KBSize}KB`,
-      }));
+      console.log('no file', files);
     }
-    const getUri = await getPhotoUri(value);
-
-    setCacUploadUrl(name);
-    const data = {
-      target: {
-        name: 'cacCertificateUri',
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(data, 'businessInfo')
   };
 
   const licenseUploadHandler = async (
@@ -79,39 +86,44 @@ const businessInfo = () => {
   ) => {
     const fileObj = e.target as HTMLInputElement;
 
-    const { name } = fileObj.files![0];
-    const path = fileObj.files![0];
+    const files = fileObj.files ? fileObj.files[0] : null;
 
-    const size = path.size / 1000;
+    if (files) {
+      const path = fileObj.files![0];
 
-    const KBSize = size.toString().split('.')[0];
+      console.log({ files });
 
-    if (KBSize.length > 3) {
-      const MBSize = Number(KBSize) / 1000;
+      const size = path.size / 1000;
 
-      setImageSize((prev) => ({
-        ...prev,
-        license: `${MBSize.toFixed(2)}MB`,
-      }));
-    } else {
-      console.log('KB');
-      setImageSize((prev) => ({
-        ...prev,
-        license: `${KBSize}KB`,
-      }));
+      const KBSize = size.toString().split('.')[0];
+
+      if (KBSize.length > 3) {
+        const MBSize = Number(KBSize) / 1000;
+
+        setImageSize((prev) => ({
+          ...prev,
+          license: `${MBSize.toFixed(2)}MB`,
+        }));
+      } else {
+        console.log('KB');
+        setImageSize((prev) => ({
+          ...prev,
+          license: `${KBSize}KB`,
+        }));
+      }
+
+      setLicenseUploadUrl(files.name);
+      const getUri = await getPhotoUri(value);
+
+      const data = {
+        target: {
+          name: 'customLicenseUri',
+          value: getUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'businessInfo');
     }
-
-    setLicenseUploadUrl(name);
-    const getUri = await getPhotoUri(value);
-
-    const data = {
-      target: {
-        name: 'customLicenseUri',
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(data, 'businessInfo');
   };
 
   const logoUploadHandler = async (
