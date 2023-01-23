@@ -10,7 +10,6 @@ type THeader = {
 }
 
 function Header({title, subTitle, onboarding}: THeader) {
-  console.log({onboarding})
   return (
     <div className="header">
       <div className="header__left">

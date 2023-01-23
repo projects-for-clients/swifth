@@ -3,6 +3,7 @@ import {
   FormEvent,
   MouseEvent,
   useContext,
+  useEffect,
   useState,
 } from 'react';
 import Header from '../../components/dashboard/Header';
@@ -12,17 +13,17 @@ import { getPhotoUri } from '../../utils/getPhotoUri';
 const businessInfo = () => {
   const {
     setStep,
+    handleInputChange,
     onboardingInputs: {
       businessInfo: {
         businessName,
-        businessAddress,
+        officeAddress,
         cacCertificateUri,
         customLicenseExpirationDate,
         customLicenseUri,
         logoUri,
       },
     },
-    setOnboardingInputs,
   } = useContext(OnboardingContext);
 
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
@@ -32,13 +33,13 @@ const businessInfo = () => {
     license: string;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+  const [business, setBusiness] = useState('');
 
-  const cacUploadHandler = async(
+  const cacUploadHandler = async (
     e: ChangeEvent<HTMLInputElement>,
     value: string
   ) => {
     const fileObj = e.target as HTMLInputElement;
-
 
     const { name } = fileObj.files![0];
     const path = fileObj.files![0];
@@ -63,16 +64,16 @@ const businessInfo = () => {
     const getUri = await getPhotoUri(value);
 
     setCacUploadUrl(name);
-    setOnboardingInputs((prev) => ({
-      ...prev,
-      businessInfo: {
-        ...prev.businessInfo,
-        cacCertificateUri: getUri,
-      },
-    }));
+    // setOnboardingInputs((prev: { businessInfo: any; }) => ({
+    //   ...prev,
+    //   businessInfo: {
+    //     ...prev.businessInfo,
+    //     cacCertificateUri: getUri,
+    //   },
+    // }));
   };
 
-  const licenseUploadHandler = async(
+  const licenseUploadHandler = async (
     e: ChangeEvent<HTMLInputElement>,
     value: string
   ) => {
@@ -103,13 +104,13 @@ const businessInfo = () => {
     setLicenseUploadUrl(name);
     const getUri = await getPhotoUri(value);
 
-    setOnboardingInputs((prev) => ({
-      ...prev,
-      businessInfo: {
-        ...prev.businessInfo,
-        customLicenseUri: getUri,
-      },
-    }));
+    // setOnboardingInputs((prev: { businessInfo: any; }) => ({
+    //   ...prev,
+    //   businessInfo: {
+    //     ...prev.businessInfo,
+    //     customLicenseUri: getUri,
+    //   },
+    // }));
   };
 
   const logoUploadHandler = async (
@@ -118,13 +119,13 @@ const businessInfo = () => {
   ) => {
     const getUrl = await getPhotoUri(value);
 
-    setOnboardingInputs((prev) => ({
-      ...prev,
-      businessInfo: {
-        ...prev.businessInfo,
-        logoUri: getUrl,
-      },
-    }));
+    // setOnboardingInputs((prev: { businessInfo: any; }) => ({
+    //   ...prev,
+    //   businessInfo: {
+    //     ...prev.businessInfo,
+    //     logoUri: getUrl,
+    //   },
+    // }));
   };
 
   const handleFormSubmit = (e: FormEvent) => {
@@ -132,9 +133,13 @@ const businessInfo = () => {
     setStep(1);
   };
 
-  const handleInputChange = (e:any) => {
-    console.log(e)
-  }
+  const setInput = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
+    const { name, value } = e.target;
+
+    handleInputChange(e);
+  };
+
   return (
     <>
       <Header
@@ -225,13 +230,16 @@ const businessInfo = () => {
             />
           </div>
 
-          <div className="grid gap-10 mt-4 max-w-[50rem]" onChange={handleInputChange}>
+          <div className="grid gap-10 mt-4 max-w-[50rem]">
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Business name</label>
               <input
                 type="text"
                 placeholder="Enter business name"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                name="businessName"
+                value={businessName}
+                onChange={setInput}
               />
             </div>
             <div className="grid gap-4 w-full">
@@ -247,17 +255,7 @@ const businessInfo = () => {
                     e.target.type = 'date';
                     setShowCalendarIcon(false);
                   }}
-                  // onBlur={(e) => {
-                  //   e.target.type = 'text';
-
-                  //   e.target.placeholder = 'select Date';
-
-                  //   e.target.value = '';
-
-                  //   setShowCalendarIcon(true);
-                  // }}
                 />
-                {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
                 {showCalendarIcon && (
                   <img
                     src="/icons/admin/calendar.svg"
@@ -273,6 +271,8 @@ const businessInfo = () => {
                 type="text"
                 placeholder="Enter Address"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                name="officeAddress"
+                defaultValue={officeAddress}
               />
             </div>
           </div>

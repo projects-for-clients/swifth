@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import { OnboardingContext, OnboardingInputs } from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 
-function Onboarding() {
+const Onboarding = () => {
   const [step, setStep] = useState(0);
   const [onboardingInputs, setOnboardingInputs] = useState<OnboardingInputs>({
     businessInfo: {
       businessName: '',
-      businessAddress: '',
+      officeAddress: '',
       cacCertificateUri: '',
       customLicenseExpirationDate: null,
       customLicenseUri: '',
@@ -33,6 +33,28 @@ function Onboarding() {
     },
   });
 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    console.log({ name, value });
+    setOnboardingInputs((prev) => ({
+      ...prev,
+      businessInfo: {
+        ...prev.businessInfo,
+        [name]: value,
+      },
+    }));
+  };
+
+
+
+
+ 
+
+  useEffect(() => {
+    console.log('onboardingInputs', onboardingInputs);
+  }, [handleInputChange])
+
   const OnboardingSteps = () => {
     switch (step) {
       case 0:
@@ -47,10 +69,14 @@ function Onboarding() {
     }
   };
 
+  
+
   return (
     <OnboardingContext.Provider
-      value={{ step, setStep, onboardingInputs, setOnboardingInputs }}
+      value={{ step, setStep, onboardingInputs, handleInputChange }}
     >
+
+      {/* <input type="text" placeholder='enter' className='border py-8 px-4' value={onboardingInputs.businessInfo.businessName} onChange={handleInputChange} name='businessName' /> */}
       <OnboardingSteps />
     </OnboardingContext.Provider>
   );

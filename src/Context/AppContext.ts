@@ -13,7 +13,7 @@ export const AuthContext = createContext<Auth.IAuthContext>(null as any);
 namespace Onboarding {
   interface BusinessInfo {
     businessName: string;
-    businessAddress: string;
+    officeAddress: string;
     logoUri: string;
     cacCertificateUri: string;
     customLicenseUri: string;
@@ -47,8 +47,7 @@ namespace Onboarding {
     setStep: Dispatch<SetStateAction<number>>;
     step: number;
     onboardingInputs: OnboardingInputs;
-    setOnboardingInputs: Dispatch<SetStateAction<OnboardingInputs>>;
-
+    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     notify?: (message: string) => void;
   }
 }
