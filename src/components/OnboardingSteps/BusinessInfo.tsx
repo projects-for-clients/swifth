@@ -119,6 +119,15 @@ const businessInfo = () => {
   ) => {
     const getUrl = await getPhotoUri(value);
 
+    const data = {
+      target: {
+        name: 'logoUri',
+        value: getUrl,
+      },
+    } as ChangeEvent<HTMLInputElement>;
+
+    handleInputChange(data, 'businessInfo');
+
     // setOnboardingInputs((prev: { businessInfo: any; }) => ({
     //   ...prev,
     //   businessInfo: {
@@ -133,12 +142,10 @@ const businessInfo = () => {
     setStep(1);
   };
 
-  // const setInput = (e: ChangeEvent<HTMLInputElement>) => {
-  //   console.log(e);
-  //   const { name, value } = e.target;
-
-  //   handleInputChange(e);
-  // };
+  const setInput = (e: FormEvent, key: string) => {
+    const changeEvent = e as ChangeEvent<HTMLInputElement>;
+    handleInputChange(changeEvent, key);
+  };
 
   return (
     <>
@@ -146,15 +153,6 @@ const businessInfo = () => {
         title="Business Information"
         subTitle="Enter your business details"
         onboarding
-      />
-
-      <input
-        type="text"
-        placeholder="enter"
-        className="border py-8 px-4"
-        value={businessName}
-        onChange={handleInputChange}
-        name="businessName"
       />
 
       <div className="grid gap-16">
@@ -239,7 +237,10 @@ const businessInfo = () => {
             />
           </div>
 
-          <div className="grid gap-10 mt-4 max-w-[50rem]">
+          <div
+            className="grid gap-10 mt-4 max-w-[50rem]"
+            onChange={(e) => setInput(e, 'businessInfo')}
+          >
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Business name</label>
               <input
@@ -247,8 +248,7 @@ const businessInfo = () => {
                 placeholder="Enter business name"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
                 name="businessName"
-                value={businessName}
-                onChange={setInput}
+                defaultValue={businessName}
               />
             </div>
             <div className="grid gap-4 w-full">

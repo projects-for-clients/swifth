@@ -3,7 +3,6 @@ import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import { OnboardingContext, OnboardingInputs } from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
-import InputChange from '../components/OnboardingSteps/inputChange';
 
 const Onboarding = () => {
   const [step, setStep] = useState(0);
@@ -34,13 +33,13 @@ const Onboarding = () => {
     },
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
     const { name, value } = e.target;
 
     console.log({ name, value });
     setOnboardingInputs((prev) => ({
       ...prev,
-      businessInfo: {
+      [key]: {
         ...prev.businessInfo,
         [name]: value,
       },

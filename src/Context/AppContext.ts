@@ -47,7 +47,7 @@ namespace Onboarding {
     setStep: Dispatch<SetStateAction<number>>;
     step: number;
     onboardingInputs: OnboardingInputs;
-    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>, key: string) => void;
     notify?: (message: string) => void;
   }
 }
