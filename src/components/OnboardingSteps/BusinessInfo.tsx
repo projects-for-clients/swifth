@@ -26,7 +26,7 @@ const businessInfo = () => {
   } = useContext(OnboardingContext);
 
   const [cacDetails, setCacDetails] = useState<string>(null as any);
-  const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
+  const [licenseDetails, setLicenseDetails] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
     cac: string;
     license: string;
@@ -52,10 +52,9 @@ const businessInfo = () => {
   const cacDetailsHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
 
-  
-
     if (files) {
-      const path = files![0];
+      const path = files[0];
+
 
       const size = path.size / 1000;
 
@@ -63,6 +62,7 @@ const businessInfo = () => {
 
       if (KBSize.length > 3) {
         const MBSize = Number(KBSize) / 1000;
+
 
         setImageSize((prev) => ({
           ...prev,
@@ -75,22 +75,34 @@ const businessInfo = () => {
         }));
       }
 
+      setCacDetails(path.name);
       
     }
   }
 
   const licenseUploadHandler = async (
-    e: ChangeEvent<HTMLInputElement>,
+    e: MouseEvent<HTMLInputElement>,
     value: string
   ) => {
-    const fileObj = e.target as HTMLInputElement;
+    
+      const getUri = await getPhotoUri(value);
 
-    const files = fileObj.files ? fileObj.files[0] : null;
+      const data = {
+        target: {
+          name: 'customLicenseUri',
+          value: getUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'businessInfo');
+    
+  };
+
+  const licenseDetailsHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
 
     if (files) {
-      const path = fileObj.files![0];
-
-      console.log({ files });
+      const path = files[0];
 
       const size = path.size / 1000;
 
@@ -104,24 +116,13 @@ const businessInfo = () => {
           license: `${MBSize.toFixed(2)}MB`,
         }));
       } else {
-        console.log('KB');
         setImageSize((prev) => ({
           ...prev,
           license: `${KBSize}KB`,
         }));
       }
 
-      setLicenseUploadUrl(files.name);
-      const getUri = await getPhotoUri(value);
-
-      const data = {
-        target: {
-          name: 'customLicenseUri',
-          value: getUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'businessInfo');
+      setLicenseDetails(path.name);
     }
   };
 
@@ -220,10 +221,10 @@ const businessInfo = () => {
               className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
             >
               <img src="/icons/admin/upload.svg" alt="" />
-              {licenseUploadUrl ? (
+              {licenseDetails ? (
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">
-                    {licenseUploadUrl}
+                    {licenseDetails}
                   </p>
                   <p className="text-color-grey-4 text-[1rem]">
                     {imageSize.license}
@@ -239,7 +240,8 @@ const businessInfo = () => {
               id="licenseUpload"
               accept="image/*"
               className="hidden"
-              onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
+              onClick={(e) => licenseUploadHandler(e, 'licenseUpload')}
+              onChange={(e) => licenseDetailsHandler(e)}
             />
           </div>
 
