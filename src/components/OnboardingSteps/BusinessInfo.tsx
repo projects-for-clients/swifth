@@ -3,7 +3,6 @@ import {
   FormEvent,
   MouseEvent,
   useContext,
-  useEffect,
   useState,
 } from 'react';
 import Header from '../../components/dashboard/Header';
@@ -64,13 +63,14 @@ const businessInfo = () => {
     const getUri = await getPhotoUri(value);
 
     setCacUploadUrl(name);
-    // setOnboardingInputs((prev: { businessInfo: any; }) => ({
-    //   ...prev,
-    //   businessInfo: {
-    //     ...prev.businessInfo,
-    //     cacCertificateUri: getUri,
-    //   },
-    // }));
+    const data = {
+      target: {
+        name: 'cacCertificateUri',
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
+
+    handleInputChange(data, 'businessInfo')
   };
 
   const licenseUploadHandler = async (
@@ -104,22 +104,14 @@ const businessInfo = () => {
     setLicenseUploadUrl(name);
     const getUri = await getPhotoUri(value);
 
-     const data = {
-       target: {
-         name: 'logoUri',
-         value: getUri,
-       },
-     } as ChangeEvent<HTMLInputElement>;
+    const data = {
+      target: {
+        name: 'customLicenseUri',
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
 
-     handleInputChange(data, 'businessInfo');
-
-    // setOnboardingInputs((prev: { businessInfo: any; }) => ({
-    //   ...prev,
-    //   businessInfo: {
-    //     ...prev.businessInfo,
-    //     customLicenseUri: getUri,
-    //   },
-    // }));
+    handleInputChange(data, 'businessInfo');
   };
 
   const logoUploadHandler = async (
@@ -136,8 +128,6 @@ const businessInfo = () => {
     } as ChangeEvent<HTMLInputElement>;
 
     handleInputChange(data, 'businessInfo');
-
-   
   };
 
   const handleFormSubmit = (e: FormEvent) => {
