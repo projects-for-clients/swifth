@@ -223,9 +223,7 @@ const businessInfo = () => {
               <img src="/icons/admin/upload.svg" alt="" />
               {licenseDetails ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">
-                    {licenseDetails}
-                  </p>
+                  <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
                   <p className="text-color-grey-4 text-[1rem]">
                     {imageSize.license}
                   </p>
@@ -268,6 +266,7 @@ const businessInfo = () => {
                   type="text"
                   placeholder="select Date"
                   className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                  name="customLicenseExpirationDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
                     setShowCalendarIcon(false);
