@@ -104,6 +104,15 @@ const businessInfo = () => {
     setLicenseUploadUrl(name);
     const getUri = await getPhotoUri(value);
 
+     const data = {
+       target: {
+         name: 'logoUri',
+         value: getUri,
+       },
+     } as ChangeEvent<HTMLInputElement>;
+
+     handleInputChange(data, 'businessInfo');
+
     // setOnboardingInputs((prev: { businessInfo: any; }) => ({
     //   ...prev,
     //   businessInfo: {
@@ -117,24 +126,18 @@ const businessInfo = () => {
     e: MouseEvent<HTMLInputElement>,
     value: string
   ) => {
-    const getUrl = await getPhotoUri(value);
+    const getUri = await getPhotoUri(value);
 
     const data = {
       target: {
         name: 'logoUri',
-        value: getUrl,
+        value: getUri,
       },
     } as ChangeEvent<HTMLInputElement>;
 
     handleInputChange(data, 'businessInfo');
 
-    // setOnboardingInputs((prev: { businessInfo: any; }) => ({
-    //   ...prev,
-    //   businessInfo: {
-    //     ...prev.businessInfo,
-    //     logoUri: getUrl,
-    //   },
-    // }));
+   
   };
 
   const handleFormSubmit = (e: FormEvent) => {
