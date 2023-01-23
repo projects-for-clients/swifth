@@ -3,6 +3,7 @@ import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
   OnboardingInputs,
+  ValidationErrors,
 } from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 import dayjs from 'dayjs';
@@ -10,27 +11,27 @@ import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
   const [step, setStep] = useState(0);
-  const [validationError, setValidationError] = useState<unknown>(null);
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors | null>(null);
   const [onboardingInputs, setOnboardingInputs] = useState<OnboardingInputs>({
     businessInfo: {
       businessName: '',
       officeAddress: '',
       cacCertificateUri: '',
-      customLicenseExpirationDate: null,
+      customLicenseExpirationDate: '',
       customLicenseUri: '',
       logoUri: '',
     },
     portsAndTerminal: {
       port: '',
       terminal: '',
-      formCExpirationDate: null,
+      formCExpirationDate: '',
       formCUri: '',
     },
     personalInfo: {
       fullName: '',
       email: '',
       phoneNumber: '',
-      IdCardExpirationDate: null,
+      IdCardExpirationDate: '',
       IdCardUri: '',
       IdCardNumber: 0,
       IdCardType: '',
@@ -64,7 +65,7 @@ const Onboarding = () => {
 
     const { businessInfo } = onboardingInputs;
 
-    const errors = {} as any;
+    const errors = {} as ValidationErrors;
     for (const key in businessInfo) {
       console.log({key})
       //Validation for the first step
@@ -74,7 +75,7 @@ const Onboarding = () => {
           if (businessInfo[key].length < 3) {
             errors[key] = 'This field must be at least 3 characters long';
 
-            setValidationError(errors);
+            setValidationErrors(errors);
           }
           break;
 
@@ -82,16 +83,16 @@ const Onboarding = () => {
           if (!dayjs(businessInfo[key]).isValid()) {
             errors[key] = 'Invalid Date';
 
-            setValidationError(errors);
+            setValidationErrors(errors);
           }
           break;
 
         case 'officeAddress':
           if (businessInfo[key].length < 3) {
-            errors[key as keyof typeof businessInfo] =
+            errors[key] =
               'This field must be at least 3 characters long';
 
-            setValidationError(errors);
+            setValidationErrors(errors);
           }
           break;
       }
@@ -102,7 +103,7 @@ const Onboarding = () => {
       ) {
         errors[key as keyof typeof businessInfo] = 'This field is required';
 
-        setValidationError(errors);
+        setValidationErrors(errors);
       }
      
     }
@@ -132,7 +133,7 @@ const Onboarding = () => {
   const handleStep = (e: number) => {
     const isValid = formValidate();
     
-    console.log({ isValid, validationError});
+    console.log({ isValid, validationErrors});
   }
 
   return (
@@ -142,7 +143,7 @@ const Onboarding = () => {
         handleStep,
         onboardingInputs,
         handleInputChange,
-        validationError,
+        validationErrors,
       }}
     >
       {OnboardingSteps()}

@@ -17,14 +17,14 @@ namespace Onboarding {
     logoUri: string;
     cacCertificateUri: string;
     customLicenseUri: string;
-    customLicenseExpirationDate: Date | null;
+    customLicenseExpirationDate: string;
   }
 
   export interface PortsAndTerminal {
     port: string;
     terminal: string;
     formCUri: string;
-    formCExpirationDate: Date | null;
+    formCExpirationDate: string;
   }
 
   export interface PersonalInfo {
@@ -32,13 +32,32 @@ namespace Onboarding {
     email: string;
     phoneNumber: string;
     IdCardUri: string;
-    IdCardExpirationDate: Date | null;
+    IdCardExpirationDate: string;
     proofOfAddressUri: string;
     IdCardType: string;
     IdCardNumber: number;
   }
 
-
+  export interface ValidationErrors {
+    businessName: string;
+    officeAddress: string;
+    logoUri: string;
+    cacCertificateUri: string;
+    customLicenseUri: string;
+    customLicenseExpirationDate: string;
+    port: string;
+    terminal: string;
+    formCUri: string;
+    formCExpirationDate: string;
+    fullName: string;
+    email: string;
+    phoneNumber: string;
+    IdCardUri: string;
+    IdCardExpirationDate: string;
+    proofOfAddressUri: string;
+    IdCardType: string;
+    IdCardNumber: number;
+  }
   export interface OnboardingInputs {
     businessInfo: BusinessInfo;
     portsAndTerminal: PortsAndTerminal;
@@ -48,7 +67,7 @@ namespace Onboarding {
     handleStep: (step: number) => void;
     step: number;
     onboardingInputs: OnboardingInputs;
-    validationError: unknown;
+    validationErrors: ValidationErrors | null;
     handleInputChange: (
       e: React.ChangeEvent<HTMLInputElement>,
       key: string
@@ -57,6 +76,7 @@ namespace Onboarding {
   }
 }
 
+export type ValidationErrors = Onboarding.ValidationErrors;
 export type OnboardingInputs = Onboarding.OnboardingInputs
 export const OnboardingContext = createContext<Onboarding.IOnboardingContext>(
   null as any

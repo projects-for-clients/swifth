@@ -13,6 +13,7 @@ const businessInfo = () => {
   const {
     handleStep,
     handleInputChange,
+    validationErrors,
     onboardingInputs: {
       businessInfo: {
         businessName,
@@ -252,10 +253,19 @@ const businessInfo = () => {
               <input
                 type="text"
                 placeholder="Enter business name"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                className={`rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full ${
+                  validationErrors && validationErrors.businessName
+                    ? 'border-red-600 border animate__animated animate__shakeX'
+                    : ''
+                }`}
                 name="businessName"
                 defaultValue={businessName}
               />
+              {validationErrors && validationErrors.businessName && (
+                  <p className="text-red-600 text-[1.2rem]">
+                    {validationErrors.businessName}
+                  </p>
+              )}
             </div>
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">
