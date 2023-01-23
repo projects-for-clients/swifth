@@ -1,4 +1,4 @@
-export const getPhotoUrl = async(selector: string) => {
+export const getPhotoUri = async(selector: string) => {
     const selectPhoto = document.querySelector(`#${selector}`)
 
     if (!selectPhoto) return 'no photo selected'
@@ -6,7 +6,7 @@ export const getPhotoUrl = async(selector: string) => {
     const photo = selectPhoto as HTMLInputElement
 
 
-    const photoUrl:string = await new Promise((resolve, reject) => {
+    const photoUri:string = await new Promise((resolve, reject) => {
         photo.addEventListener('change', (e) => {
             const file = e.target as HTMLInputElement
 
@@ -21,5 +21,5 @@ export const getPhotoUrl = async(selector: string) => {
         })
     })
 
-    return photoUrl
+    return photoUri
 }

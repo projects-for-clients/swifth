@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
 import Header from '../../components/dashboard/Header';
-import { getPhotoUrl } from '../../utils/getPhotoUrl';
+import { getPhotoUrl } from '../../utils/getPhotoUri';
 
 const PersonalInfo = () => {
   const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);

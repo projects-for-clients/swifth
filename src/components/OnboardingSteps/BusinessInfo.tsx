@@ -7,7 +7,7 @@ import {
 } from 'react';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
-import { getPhotoUrl } from '../../utils/getPhotoUrl';
+import { getPhotoUri } from '../../utils/getPhotoUri';
 
 const businessInfo = () => {
   const {
@@ -60,14 +60,14 @@ const businessInfo = () => {
         cac: `${KBSize}KB`,
       }));
     }
-    const getUrl = await getPhotoUrl(value);
+    const getUri = await getPhotoUri(value);
 
     setCacUploadUrl(name);
     setOnboardingInputs((prev) => ({
       ...prev,
       businessInfo: {
         ...prev.businessInfo,
-        cacCertificateUri: getUrl,
+        cacCertificateUri: getUri,
       },
     }));
   };
@@ -101,13 +101,13 @@ const businessInfo = () => {
     }
 
     setLicenseUploadUrl(name);
-    const getUrl = await getPhotoUrl(value);
+    const getUri = await getPhotoUri(value);
 
     setOnboardingInputs((prev) => ({
       ...prev,
       businessInfo: {
         ...prev.businessInfo,
-        customLicenseUri: getUrl,
+        customLicenseUri: getUri,
       },
     }));
   };
@@ -116,7 +116,7 @@ const businessInfo = () => {
     e: MouseEvent<HTMLInputElement>,
     value: string
   ) => {
-    const getUrl = await getPhotoUrl(value);
+    const getUrl = await getPhotoUri(value);
 
     setOnboardingInputs((prev) => ({
       ...prev,
@@ -131,6 +131,10 @@ const businessInfo = () => {
     e.preventDefault();
     setStep(1);
   };
+
+  const handleInputChange = (e:any) => {
+    console.log(e)
+  }
   return (
     <>
       <Header
@@ -221,7 +225,7 @@ const businessInfo = () => {
             />
           </div>
 
-          <div className="grid gap-10 mt-4 max-w-[50rem]">
+          <div className="grid gap-10 mt-4 max-w-[50rem]" onChange={handleInputChange}>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Business name</label>
               <input
