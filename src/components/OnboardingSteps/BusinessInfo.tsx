@@ -11,7 +11,7 @@ import { getPhotoUri } from '../../utils/getPhotoUri';
 
 const businessInfo = () => {
   const {
-    setStep,
+    handleStep,
     handleInputChange,
     onboardingInputs: {
       businessInfo: {
@@ -145,7 +145,7 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    //setStep(1);
+    handleStep(1);
   };
 
   const setInput = (e: FormEvent, key: string) => {
@@ -174,7 +174,7 @@ const businessInfo = () => {
             className="flex gap-8 items-center cursor-pointer w-max"
           >
             <img
-              src={logoUri}
+              src={logoUri ? logoUri : '/icons/admin/bag.svg'}
               alt=""
               className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
             />

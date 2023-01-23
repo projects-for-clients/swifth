@@ -18,7 +18,7 @@ const Onboarding = () => {
       cacCertificateUri: '',
       customLicenseExpirationDate: null,
       customLicenseUri: '',
-      logoUri: '/icons/admin/bag.svg',
+      logoUri: '',
     },
     portsAndTerminal: {
       port: '',
@@ -51,7 +51,7 @@ const Onboarding = () => {
     }));
   };
 
-  const formValidate = () => {
+  const formValidate = ():boolean => {
     const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
       const emailRegex = new RegExp(
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -66,6 +66,7 @@ const Onboarding = () => {
 
     const errors = {} as any;
     for (const key in businessInfo) {
+      console.log({key})
       //Validation for the first step
 
       switch (key) {
@@ -75,7 +76,7 @@ const Onboarding = () => {
 
             setValidationError(errors);
           }
-          return;
+          break;
 
         case 'customLicenseExpirationDate':
           if (!dayjs(businessInfo[key]).isValid()) {
@@ -83,7 +84,7 @@ const Onboarding = () => {
 
             setValidationError(errors);
           }
-          return;
+          break;
 
         case 'officeAddress':
           if (businessInfo[key].length < 3) {
@@ -92,7 +93,7 @@ const Onboarding = () => {
 
             setValidationError(errors);
           }
-          return;
+          break;
       }
 
       if (
@@ -103,6 +104,7 @@ const Onboarding = () => {
 
         setValidationError(errors);
       }
+     
     }
 
     if (Object.keys(errors).length > 0) {
@@ -126,11 +128,18 @@ const Onboarding = () => {
     }
   };
 
+
+  const handleStep = (e: number) => {
+    const isValid = formValidate();
+    
+    console.log({ isValid, validationError});
+  }
+
   return (
     <OnboardingContext.Provider
       value={{
         step,
-        setStep,
+        handleStep,
         onboardingInputs,
         handleInputChange,
         validationError,

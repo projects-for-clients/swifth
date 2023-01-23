@@ -45,7 +45,7 @@ namespace Onboarding {
     personalInfo: PersonalInfo;
   }
   export interface IOnboardingContext {
-    setStep: Dispatch<SetStateAction<number>>;
+    handleStep: (step: number) => void;
     step: number;
     onboardingInputs: OnboardingInputs;
     validationError: unknown;
