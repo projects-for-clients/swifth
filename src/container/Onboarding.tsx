@@ -37,7 +37,7 @@ const Onboarding = () => {
     },
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
+  const businessInfoChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
     const { name, value } = e.target;
 
     console.log({ name, value });
@@ -52,6 +52,7 @@ const Onboarding = () => {
 
   const formValidate = () => {
     const errors = {} as ValidationError;
+
     const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
       const emailRegex = new RegExp(
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -61,144 +62,103 @@ const Onboarding = () => {
 
       return cb(isValid);
     };
-    const isValidPassword = (e: string, pa: (checkValid: boolean) => void) => {
-      const passRegex = new RegExp(/\d/);
 
-      const isCorrect = passRegex.test(e);
+    
 
-      return pa(isCorrect);
-    };
 
-    let count = 0;
 
-    for (const key in handleInput) {
-      count++;
+    const { businessInfo} = onboardingInputs;
+
+
+    for (const key in businessInfo) {
 
       //Validation for the first step
 
-      if (activeStep === 0 && count < 9) {
         switch (key) {
-          case 'email':
-            isValidMail(handleInput[key], (cb) => {
-              if (!cb) {
-                errors[key] = 'Invalid email';
+          
 
-                setValidationError(errors);
-              }
-            });
-            break;
-
-          case 'lastName' || 'firstName':
-            if (handleInput[key].length < 3) {
-              errors[key as keyof handleInputProps] =
+          case 'businessName':
+            if (businessInfo[key].length < 3) {
+              errors[key as keyof businessInfoProps] =
                 'This field must be at least 3 characters long';
 
               setValidationError(errors);
             }
             break;
-          case 'password':
-            isValidPassword(handleInput[key], (pa) => {
-              if (!pa) {
-                errors[key] = 'Password should have numbers';
+        //   case 'password':
+        //     isValidPassword(businessInfo[key], (pa) => {
+        //       if (!pa) {
+        //         errors[key] = 'Password should have numbers';
 
-                setValidationError(errors);
-              }
-            });
+        //         setValidationError(errors);
+        //       }
+        //     });
 
-          case 'confirmPassword':
-            if (handleInput[key] !== handleInput.password) {
-              errors[key as keyof handleInputProps] = 'Passwords do not match';
+        //   case 'confirmPassword':
+        //     if (businessInfo[key] !== businessInfo.password) {
+        //       errors[key as keyof businessInfoProps] = 'Passwords do not match';
 
-              setValidationError(errors);
-            }
+        //       setValidationError(errors);
+        //     }
 
-            if (handleInput[key].length < 8) {
-              errors[key as keyof handleInputProps] =
-                'Password must be at least 8 characters long';
+        //     if (businessInfo[key].length < 8) {
+        //       errors[key as keyof businessInfoProps] =
+        //         'Password must be at least 8 characters long';
 
-              setValidationError(errors);
-            }
-            if (handleInput[key].length < 8) {
-              errors[key as keyof handleInputProps] =
-                'Password must be at least 8 characters long';
+        //       setValidationError(errors);
+        //     }
+        //     if (businessInfo[key].length < 8) {
+        //       errors[key as keyof businessInfoProps] =
+        //         'Password must be at least 8 characters long';
 
-              setValidationError(errors);
-            }
-            break;
+        //       setValidationError(errors);
+        //     }
+        //     break;
 
-          case 'phoneNumber':
-            if (handleInput[key].length < 10) {
-              errors[key as keyof handleInputProps] = 'Phone number not valid';
+        //   case 'phoneNumber':
+        //     if (businessInfo[key].length < 10) {
+        //       errors[key as keyof businessInfoProps] = 'Phone number not valid';
 
-              setValidationError(errors);
-            }
-            break;
+        //       setValidationError(errors);
+        //     }
+        //     break;
 
-          case 'birthDate':
-            if (!dayjs(handleInput[key]).isValid()) {
-              errors[key as keyof handleInputProps] = 'Invalid Date';
+        //   case 'birthDate':
+        //     if (!dayjs(businessInfo[key]).isValid()) {
+        //       errors[key as keyof businessInfoProps] = 'Invalid Date';
 
-              setValidationError(errors);
-            }
-            break;
-        }
+        //       setValidationError(errors);
+        //     }
+        //     break;
+         }
 
         if (
-          handleInput[key as keyof handleInputProps] === '' ||
-          handleInput[key as keyof handleInputProps] === null
+          businessInfo[key as keyof businessInfoProps] === '' ||
+          businessInfo[key as keyof businessInfoProps] === null
         ) {
-          errors[key as keyof handleInputProps] = 'This field is required';
+          errors[key as keyof businessInfoProps] = 'This field is required';
 
           setValidationError(errors);
         }
-      } else if (activeStep === 1 && count > 8 && count < 13) {
-        switch (key) {
-          case 'guardianEmail':
-            isValidMail(handleInput[key], (cb) => {
-              if (!cb) {
-                errors[key] = 'Invalid email';
+      } 
+      //   if (
+      //     businessInfo[key as keyof businessInfoProps] === '' ||
+      //     businessInfo[key as keyof businessInfoProps] === null
+      //   ) {
+      //     errors[key as keyof businessInfoProps] = 'This field is required';
 
-                setValidationError(errors);
-              }
-            });
-            break;
+      //     setValidationError(errors);
+      //   }
+      // } else if (activeStep === 2 && count > 11) {
+      //   if (
+      //     businessInfo[key as keyof businessInfoProps] === '' ||
+      //     businessInfo[key as keyof businessInfoProps] === null
+      //   ) {
+      //     errors[key as keyof businessInfoProps] = 'This field is required';
 
-          case 'guardianName':
-            if (handleInput[key].length < 3) {
-              errors[key as keyof handleInputProps] =
-                'This field must be at least 3 characters long';
-
-              setValidationError(errors);
-            }
-            break;
-
-          case 'guardianPhoneNumber':
-            if (handleInput[key].length < 10) {
-              errors[key as keyof handleInputProps] = 'Phone number not valid';
-
-              setValidationError(errors);
-            }
-            break;
-        }
-
-        if (
-          handleInput[key as keyof handleInputProps] === '' ||
-          handleInput[key as keyof handleInputProps] === null
-        ) {
-          errors[key as keyof handleInputProps] = 'This field is required';
-
-          setValidationError(errors);
-        }
-      } else if (activeStep === 2 && count > 11) {
-        if (
-          handleInput[key as keyof handleInputProps] === '' ||
-          handleInput[key as keyof handleInputProps] === null
-        ) {
-          errors[key as keyof handleInputProps] = 'This field is required';
-
-          setValidationError(errors);
-        }
-      }
+      //     setValidationError(errors);
+      //   }
+      // }
     }
 
     if (Object.keys(errors).length > 0) {
@@ -229,7 +189,7 @@ const Onboarding = () => {
 
   return (
     <OnboardingContext.Provider
-      value={{ step, setStep, onboardingInputs, handleInputChange }}
+      value={{ step, setStep, onboardingInputs, businessInfoChange }}
     >
 
       {OnboardingSteps()}
