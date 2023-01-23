@@ -3,6 +3,7 @@ import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import { OnboardingContext, OnboardingInputs } from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
+import InputChange from '../components/OnboardingSteps/inputChange';
 
 const Onboarding = () => {
   const [step, setStep] = useState(0);
@@ -76,8 +77,7 @@ const Onboarding = () => {
       value={{ step, setStep, onboardingInputs, handleInputChange }}
     >
 
-      {/* <input type="text" placeholder='enter' className='border py-8 px-4' value={onboardingInputs.businessInfo.businessName} onChange={handleInputChange} name='businessName' /> */}
-      <OnboardingSteps />
+      {OnboardingSteps()}
     </OnboardingContext.Provider>
   );
 }

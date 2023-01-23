@@ -133,12 +133,12 @@ const businessInfo = () => {
     setStep(1);
   };
 
-  const setInput = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e);
-    const { name, value } = e.target;
+  // const setInput = (e: ChangeEvent<HTMLInputElement>) => {
+  //   console.log(e);
+  //   const { name, value } = e.target;
 
-    handleInputChange(e);
-  };
+  //   handleInputChange(e);
+  // };
 
   return (
     <>
@@ -146,6 +146,15 @@ const businessInfo = () => {
         title="Business Information"
         subTitle="Enter your business details"
         onboarding
+      />
+
+      <input
+        type="text"
+        placeholder="enter"
+        className="border py-8 px-4"
+        value={businessName}
+        onChange={handleInputChange}
+        name="businessName"
       />
 
       <div className="grid gap-16">
