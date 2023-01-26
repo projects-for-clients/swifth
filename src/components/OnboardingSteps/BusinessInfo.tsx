@@ -64,12 +64,10 @@ const businessInfo = () => {
       if (KBSize.length > 3) {
         const MBSize = Number(KBSize) / 1000;
 
-        
-
         setImageSize((prev) => ({
           ...prev,
           cac: `${MBSize.toFixed(2)}MB`,
-          error: MBSize > 2
+          error: MBSize > 2,
         }));
       } else {
         setImageSize((prev) => ({
@@ -201,12 +199,14 @@ const businessInfo = () => {
             <label
               htmlFor="cacUpload"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-               ( validationErrors && validationErrors.cacCertificateUri) || imageSize?.error
+                (validationErrors && validationErrors.cacCertificateUri) ||
+                imageSize?.error
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {(validationErrors && validationErrors.cacCertificateUri) || imageSize?.error ? (
+              {(validationErrors && validationErrors.cacCertificateUri) ||
+              imageSize?.error ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
@@ -228,6 +228,7 @@ const businessInfo = () => {
                       {validationErrors.cacCertificateUri}
                     </p>
                   )}
+                  
                 </div>
               )}
             </label>
