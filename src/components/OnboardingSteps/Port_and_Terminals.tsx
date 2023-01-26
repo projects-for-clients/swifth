@@ -115,17 +115,8 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
                   e.target.type = 'date';
                   setShowCalendarIcon(false);
                 }}
-                // onBlur={(e) => {
-                //   e.target.type = 'text';
-
-                //   e.target.placeholder = 'select Date';
-
-                //   e.target.value = '';
-
-                //   setShowCalendarIcon(true);
-                // }}
+              
               />
-              {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
               {showCalendarIcon && (
                 <img
                   src="/icons/admin/calendar.svg"
@@ -141,19 +132,10 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   );
 };
 
-type Port = 'Lagos' | 'Onitsha';
 
 const PortAndTerminals = () => {
-  const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
-  const [toggleSortMenu, setToggleSortMenu] = useState(false);
-
-  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
-
-  const handleSelectedSort = (item: Port) => {
-    setSelectedSort(item);
-    setToggleSortMenu(false);
-  };
+  const port = ['Lagos', 'Onitsha'];
+  
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
