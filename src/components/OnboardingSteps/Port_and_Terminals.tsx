@@ -16,7 +16,7 @@ interface ITerminal {
   setIsTerminal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
+const Terminal: FC<ITerminal> = ({ isTerminal }) => {
   const [formCUpload, setFormCUpload] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
     cac: string;
@@ -53,10 +53,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
 
     setFormCUpload(name);
   };
-  const handleSelectChange = () => {
-    console.log('changed select');
-    setIsTerminal(true);
-  };
+ 
 
   return (
     <section
@@ -153,9 +150,7 @@ const PortAndTerminals = () => {
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
 
-  useEffect(() => {
-    console.log({ terminalCount });
-  }, [terminalCount]);
+
 
   return (
     <>
