@@ -12,6 +12,7 @@ import { GrDown, GrUp } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
+import SelectInput from '../utils/selectInput';
 
 interface ITerminal {
   isTerminal: boolean;
@@ -147,7 +148,12 @@ const PortAndTerminals = () => {
   const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
- 
+  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+
+  const handleSelectedSort = (item: Port) => {
+    setSelectedSort(item);
+    setToggleSortMenu(false);
+  };
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
@@ -193,36 +199,11 @@ const PortAndTerminals = () => {
         <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
             <div className="grid gap-10 mt-4 ">
-              <div className="grid gap-4 w-[33rem] items-center">
-                <label className="text-[1.4rem] text-color-dark-1">Choose Port</label>
-                <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
-                  <p
-                    className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
-                    onClick={sortMenuToggler}
-                  >
-                    {selectedSort}
-                  </p>
+              <SelectInput items={port} defaultSelected='Lagos' label='Choose Port'/>
+              <SelectInput items={port} defaultSelected='Lagos' label='Choose Port'/>
+              <SelectInput items={port} defaultSelected='Lagos' label='Choose School'/>
+              <SelectInput items={port} defaultSelected='Lagos' label='Choose Port'/>
 
-                  {toggleSortMenu && (
-                    <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
-                      {port.map((item, index) => (
-                        <p
-                          className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
-                          key={index}
-                          onClick={() => handleSelectedSort(item)}
-                        >
-                          {item}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-                  {toggleSortMenu ? (
-                    <GrUp className="absolute right-4 text-[1.3rem]" />
-                  ) : (
-                    <GrDown className="absolute right-4 text-[1.3rem]" />
-                  )}
-                </div>
-              </div>
               {terminalCount.map((_, index) => {
                 return (
                   <Terminal
