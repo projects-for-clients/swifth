@@ -31,6 +31,7 @@ const businessInfo = () => {
   const [imageSize, setImageSize] = useState<{
     cac: string;
     license: string;
+    error: boolean;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
@@ -63,9 +64,12 @@ const businessInfo = () => {
       if (KBSize.length > 3) {
         const MBSize = Number(KBSize) / 1000;
 
+        
+
         setImageSize((prev) => ({
           ...prev,
           cac: `${MBSize.toFixed(2)}MB`,
+          error: MBSize > 2
         }));
       } else {
         setImageSize((prev) => ({
@@ -181,21 +185,28 @@ const businessInfo = () => {
               className="hidden"
               onClick={(e) => logoUploadHandler(e, 'logoUpload')}
             />
-            <p className="text-[1.6rem] text-color-primary uppercase">
-              Upload Logo
-            </p>
+            <div>
+              <p className="text-[1.6rem] text-color-primary uppercase">
+                Upload Logo
+              </p>
+              {validationErrors && validationErrors.cacCertificateUri && (
+                <p className="text-red-600 text-[1.2rem]">
+                  {validationErrors.cacCertificateUri}
+                </p>
+              )}
+            </div>
           </label>
 
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
               htmlFor="cacUpload"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                validationErrors && validationErrors.cacCertificateUri
+               ( validationErrors && validationErrors.cacCertificateUri) || imageSize?.error
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {validationErrors && validationErrors.cacCertificateUri ? (
+              {(validationErrors && validationErrors.cacCertificateUri) || imageSize?.error ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
