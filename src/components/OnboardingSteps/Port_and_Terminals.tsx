@@ -18,6 +18,8 @@ interface ITerminal {
   setIsTerminal: (value: boolean) => void;
 }
 
+type Terminal = 'Terminal 1' | 'Terminal 2' | 'Terminal 3';
+
 const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   const [formCUpload, setFormCUpload] = useState<string>(null as any);
   const [imageSize, setImageSize] = useState<{
@@ -25,15 +27,15 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
     license: string;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
-  const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
-  const [toggleSortMenu, setToggleSortMenu] = useState(false);
+  const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
+  const [selectedItem, setSelectedItem] = useState<Terminal>('Terminal 1');
+  const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
-  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+  const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const handleSelectedSort = (item: Port) => {
-    setSelectedSort(item);
-    setToggleSortMenu(false);
+  const handleSelectedItem = (item: Terminal) => {
+    setSelectedItem(item);
+    setToggleSelectMenu(false);
   };
 
 
@@ -79,29 +81,29 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
       }}
     >
       <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
-        <label className="text-[1.4rem] text-color-dark-1">Choose Port</label>
+        <label className="text-[1.4rem] text-color-dark-1">Choose Terminal</label>
         <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
           <p
             className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
-            onClick={sortMenuToggler}
+            onClick={selectMenuToggler}
           >
-            {selectedSort}
+            {selectedItem}
           </p>
 
-          {toggleSortMenu && (
+          {toggleSelectMenu && (
             <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
-              {port.map((item, index) => (
+              {terminal.map((item, index) => (
                 <p
                   className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
                   key={index}
-                  onClick={() => handleSelectedSort(item)}
+                  onClick={() => handleSelectedItem(item)}
                 >
                   {item}
                 </p>
               ))}
             </div>
           )}
-          {toggleSortMenu ? (
+          {toggleSelectMenu ? (
             <GrUp className="absolute right-4 text-[1.3rem]" />
           ) : (
             <GrDown className="absolute right-4 text-[1.3rem]" />
@@ -182,14 +184,14 @@ type Port = 'Lagos' | 'Onitsha';
 
 const PortAndTerminals = () => {
   const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
-  const [toggleSortMenu, setToggleSortMenu] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<Port | null>(null);
+  const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
-  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+  const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const handleSelectedSort = (item: Port) => {
-    setSelectedSort(item);
-    setToggleSortMenu(false);
+  const handleSelectedItem = (item: Port) => {
+    setSelectedItem(item);
+    setToggleSelectMenu(false);
   };
   const { handleStep } = useContext(OnboardingContext);
 
@@ -242,26 +244,26 @@ const PortAndTerminals = () => {
                 </label>
                 <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
                   <p
-                    className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
-                    onClick={sortMenuToggler}
+                    className="border  p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
+                    onClick={selectMenuToggler}
                   >
-                    {selectedSort}
+                    {selectedItem ? selectedItem : 'Select Port'}
                   </p>
 
-                  {toggleSortMenu && (
-                    <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
+                  {toggleSelectMenu && (
+                    <div className="absolute top-[5rem]  left-0 border w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
                       {port.map((item, index) => (
                         <p
                           className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
                           key={index}
-                          onClick={() => handleSelectedSort(item)}
+                          onClick={() => handleSelectedItem(item)}
                         >
                           {item}
                         </p>
                       ))}
                     </div>
                   )}
-                  {toggleSortMenu ? (
+                  {toggleSelectMenu ? (
                     <GrUp className="absolute right-4 text-[1.3rem]" />
                   ) : (
                     <GrDown className="absolute right-4 text-[1.3rem]" />
