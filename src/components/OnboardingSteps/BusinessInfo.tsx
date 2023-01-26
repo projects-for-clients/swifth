@@ -29,8 +29,8 @@ const businessInfo = () => {
         businessName,
         officeAddress,
         cacUri,
-    licenseUri,
-    licenseExpirationDate,
+        licenseUri,
+        licenseExpirationDate,
         logoUri,
       },
     },
@@ -55,19 +55,15 @@ const businessInfo = () => {
   ) => {
     const getUri = await getPhotoUri(key);
 
+    const data = {
+      target: {
+        name: key,
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
 
-      const data = {
-        target: {
-          name: key,
-          value: getUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'businessInfo');
-
+    handleInputChange(data, 'businessInfo');
   };
-
- 
 
   const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -113,9 +109,6 @@ const businessInfo = () => {
     }
   };
 
-  
-
-
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
@@ -125,6 +118,8 @@ const businessInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     handleInputChange(changeEvent, key);
+
+    console.log({ businessInfo });
   };
 
   return (
@@ -329,12 +324,11 @@ const businessInfo = () => {
                   />
                 )}
               </div>
-              {validationErrors &&
-                validationErrors.licenseExpirationDate && (
-                  <p className="text-red-600 text-[1.2rem]">
-                    {validationErrors.licenseExpirationDate}
-                  </p>
-                )}
+              {validationErrors && validationErrors.licenseExpirationDate && (
+                <p className="text-red-600 text-[1.2rem]">
+                  {validationErrors.licenseExpirationDate}
+                </p>
+              )}
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Office Address</label>

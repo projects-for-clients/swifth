@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
@@ -133,7 +133,6 @@ const Onboarding = () => {
   const handleStep = (e: number) => {
     const isValid = formValidate();
     
-    console.log({ isValid, validationErrors});
     if (!isValid) {
       return;
     }
