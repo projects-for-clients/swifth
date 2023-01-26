@@ -28,9 +28,9 @@ const businessInfo = () => {
       businessInfo: {
         businessName,
         officeAddress,
-        cacCertificateUri,
-        customLicenseExpirationDate,
-        customLicenseUri,
+        cacUri,
+    licenseUri,
+    licenseExpirationDate,
         logoUri,
       },
     },
@@ -75,7 +75,7 @@ const businessInfo = () => {
 
     const data = {
       target: {
-        name: 'cacCertificateUri',
+        name: 'cacUri',
         value: getUri,
       },
     } as ChangeEvent<HTMLInputElement>;
@@ -135,7 +135,7 @@ const businessInfo = () => {
 
     const data = {
       target: {
-        name: 'customLicenseUri',
+        name: 'licenseUri',
         value: getUri,
       },
     } as ChangeEvent<HTMLInputElement>;
@@ -207,9 +207,9 @@ const businessInfo = () => {
               <p className="text-[1.6rem] text-color-primary uppercase">
                 Upload Logo
               </p>
-              {validationErrors && validationErrors.cacCertificateUri && (
+              {validationErrors && validationErrors.cacUri && (
                 <p className="text-red-600 text-[1.2rem]">
-                  {validationErrors.cacCertificateUri}
+                  {validationErrors.cacUri}
                 </p>
               )}
               {imageSize.error.logo && (
@@ -224,13 +224,13 @@ const businessInfo = () => {
             <label
               htmlFor="cacUpload"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                (validationErrors && validationErrors.cacCertificateUri) ||
+                (validationErrors && validationErrors.cacUri) ||
                 imageSize.error.cac
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {(validationErrors && validationErrors.cacCertificateUri) ||
+              {(validationErrors && validationErrors.cacUri) ||
               imageSize.error.cac ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
@@ -255,9 +255,9 @@ const businessInfo = () => {
                 <div className="grid">
                   <p className="text-color-grey-3">Upload CAC Certificate</p>
 
-                  {validationErrors && validationErrors.cacCertificateUri && (
+                  {validationErrors && validationErrors.cacUri && (
                     <p className="text-red-600 text-[1.2rem]">
-                      {validationErrors.cacCertificateUri}
+                      {validationErrors.cacUri}
                     </p>
                   )}
                 </div>
@@ -275,13 +275,13 @@ const businessInfo = () => {
             <label
               htmlFor="licenseUpload"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                (validationErrors && validationErrors.customLicenseUri) ||
+                (validationErrors && validationErrors.licenseUri) ||
                 imageSize.error.license
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {(validationErrors && validationErrors.customLicenseUri) ||
+              {(validationErrors && validationErrors.licenseUri) ||
               imageSize.error.license ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
@@ -303,9 +303,9 @@ const businessInfo = () => {
               ) : (
                 <div className="grid">
                   <p>Upload Custom License (yearly)</p>
-                  {validationErrors && validationErrors.customLicenseUri && (
+                  {validationErrors && validationErrors.licenseUri && (
                     <p className="text-red-600 text-[1.2rem]">
-                      {validationErrors.customLicenseUri}
+                      {validationErrors.licenseUri}
                     </p>
                   )}
                 </div>
@@ -354,11 +354,11 @@ const businessInfo = () => {
                   type="text"
                   placeholder="select Date"
                   className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full ${
-                    validationErrors && validationErrors.customLicenseUri
+                    validationErrors && validationErrors.licenseUri
                       ? 'border-red-600 border animate__animated animate__shakeX'
                       : ''
                   }`}
-                  name="customLicenseExpirationDate"
+                  name="licenseExpirationDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
                     setShowCalendarIcon(false);
@@ -373,9 +373,9 @@ const businessInfo = () => {
                 )}
               </div>
               {validationErrors &&
-                validationErrors.customLicenseExpirationDate && (
+                validationErrors.licenseExpirationDate && (
                   <p className="text-red-600 text-[1.2rem]">
-                    {validationErrors.customLicenseExpirationDate}
+                    {validationErrors.licenseExpirationDate}
                   </p>
                 )}
             </div>

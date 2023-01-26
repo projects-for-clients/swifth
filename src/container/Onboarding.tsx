@@ -16,9 +16,9 @@ const Onboarding = () => {
     businessInfo: {
       businessName: '',
       officeAddress: '',
-      cacCertificateUri: '',
-      customLicenseExpirationDate: '',
-      customLicenseUri: '',
+      cacUri: '',
+      licenseExpirationDate: '',
+      licenseUri: '',
       logoUri: '',
     },
     portsAndTerminal: {
@@ -79,7 +79,7 @@ const Onboarding = () => {
           }
           break;
 
-        case 'customLicenseExpirationDate':
+        case 'licenseExpirationDate':
           if (!dayjs(businessInfo[key]).isValid()) {
             errors[key] = 'Invalid Date';
 

@@ -15,9 +15,9 @@ namespace Onboarding {
     businessName: string;
     officeAddress: string;
     logoUri: string;
-    cacCertificateUri: string;
-    customLicenseUri: string;
-    customLicenseExpirationDate: string;
+    cacUri: string;
+    licenseUri: string;
+    licenseExpirationDate: string;
   }
 
   export interface PortsAndTerminal {
@@ -42,9 +42,9 @@ namespace Onboarding {
     businessName: string;
     officeAddress: string;
     logoUri: string;
-    cacCertificateUri: string;
-    customLicenseUri: string;
-    customLicenseExpirationDate: string;
+    cacUri: string;
+    licenseUri: string;
+    licenseExpirationDate: string;
     port: string;
     terminal: string;
     formCUri: string;
