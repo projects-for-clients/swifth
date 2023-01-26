@@ -9,6 +9,16 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
+
+interface Imagesize {
+  cac: string;
+  license: string;
+  error: {
+    cac: boolean;
+    license: boolean;
+  }
+}
+
 const businessInfo = () => {
   const {
     handleStep,
@@ -28,11 +38,7 @@ const businessInfo = () => {
 
   const [cacDetails, setCacDetails] = useState<string>(null as any);
   const [licenseDetails, setLicenseDetails] = useState<string>(null as any);
-  const [imageSize, setImageSize] = useState<{
-    cac: string;
-    license: string;
-    error: boolean;
-  }>(null as any);
+  const [imageSize, setImageSize] = useState<Imagesize>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const cacUploadHandler = async (
@@ -67,13 +73,19 @@ const businessInfo = () => {
         setImageSize((prev) => ({
           ...prev,
           [type]: `${MBSize.toFixed(2)}MB`,
-          error: MBSize > 2 ? true : false,
+          error: {
+            ...prev.error,
+            [type]: true
+          }
         }));
       } else {
         setImageSize((prev) => ({
           ...prev,
           [type]: `${KBSize}KB`,
-          error: false
+          error: {
+            ...prev.error,
+            [type]: false
+          }
         }));
       }
 
