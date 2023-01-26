@@ -3,6 +3,7 @@ import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
   OnboardingInputs,
+  Step,
   ValidationErrors,
 } from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
@@ -10,8 +11,9 @@ import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
-  const [step, setStep] = useState(0);
-  const [validationErrors, setValidationErrors] = useState<ValidationErrors | null>(null);
+  const [step, setStep] = useState<Step>('businessInfo');
+  const [validationErrors, setValidationErrors] =
+    useState<ValidationErrors | null>(null);
   const [onboardingInputs, setOnboardingInputs] = useState<OnboardingInputs>({
     businessInfo: {
       businessName: '',
@@ -42,7 +44,7 @@ const Onboarding = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
     const { name, value } = e.target;
 
-    setValidationErrors(null)
+    setValidationErrors(null);
     setOnboardingInputs((prev) => ({
       ...prev,
       [key]: {
@@ -52,7 +54,7 @@ const Onboarding = () => {
     }));
   };
 
-  const formValidate = ():boolean => {
+  const formValidate = (): boolean => {
     const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
       const emailRegex = new RegExp(
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -67,7 +69,7 @@ const Onboarding = () => {
 
     const errors = {} as ValidationErrors;
     for (const key in businessInfo) {
-      console.log({key})
+      console.log({ key });
       //Validation for the first step
 
       switch (key) {
@@ -89,8 +91,7 @@ const Onboarding = () => {
 
         case 'officeAddress':
           if (businessInfo[key].length < 3) {
-            errors[key] =
-              'This field must be at least 3 characters long';
+            errors[key] = 'This field must be at least 3 characters long';
 
             setValidationErrors(errors);
           }
@@ -105,7 +106,6 @@ const Onboarding = () => {
 
         setValidationErrors(errors);
       }
-     
     }
 
     if (Object.keys(errors).length > 0) {
@@ -115,30 +115,21 @@ const Onboarding = () => {
     return true;
   };
 
-  const OnboardingSteps = () => {
-    switch (step) {
-      case 0:
-        return <BusinessInfo />;
-      case 1:
-        return <PortsAndTerminal />;
-      case 2:
-        return <PersonalInfo />;
-
-      default:
-        return <BusinessInfo />;
-    }
-  };
-
-
-  const handleStep = (e: number) => {
+  const handleStep = (step: Step) => {
     const isValid = formValidate();
-    
+
     if (!isValid) {
       return;
     }
 
-    setStep(e);
-  }
+    setStep(step);
+  };
+
+  const onboardingSteps: Record<Step, JSX.Element> = {
+    businessInfo: <BusinessInfo />,
+    personalInfo: <PersonalInfo />,
+    portsAndTerminal: <PortsAndTerminal />,
+  };
 
   return (
     <OnboardingContext.Provider
@@ -150,7 +141,7 @@ const Onboarding = () => {
         validationErrors,
       }}
     >
-      {OnboardingSteps()}
+      {onboardingSteps[step]}
     </OnboardingContext.Provider>
   );
 };

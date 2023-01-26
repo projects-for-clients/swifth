@@ -63,9 +63,11 @@ namespace Onboarding {
     portsAndTerminal: PortsAndTerminal;
     personalInfo: PersonalInfo;
   }
+
+  export type Step =  'businessInfo' | 'portsAndTerminal' | 'personalInfo'
   export interface IOnboardingContext {
-    handleStep: (step: number) => void;
-    step: number;
+    handleStep: (step: Step ) => void;
+    step: Step;
     onboardingInputs: OnboardingInputs;
     validationErrors: ValidationErrors | null;
     handleInputChange: (
@@ -75,7 +77,7 @@ namespace Onboarding {
     notify?: (message: string) => void;
   }
 }
-
+export type Step = Onboarding.Step;
 export type ValidationErrors = Onboarding.ValidationErrors;
 export type OnboardingInputs = Onboarding.OnboardingInputs
 export const OnboardingContext = createContext<Onboarding.IOnboardingContext>(
