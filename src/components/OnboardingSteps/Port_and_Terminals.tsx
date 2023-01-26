@@ -25,6 +25,17 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
     license: string;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+  const port: Port[] = ['Lagos', 'Onitsha'];
+  const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
+  const [toggleSortMenu, setToggleSortMenu] = useState(false);
+
+  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+
+  const handleSelectedSort = (item: Port) => {
+    setSelectedSort(item);
+    setToggleSortMenu(false);
+  };
+
 
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -67,9 +78,36 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
       }}
     >
-      <div
-        className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}
-      ></div>
+      <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
+        <label className="text-[1.4rem] text-color-dark-1">Choose Port</label>
+        <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
+          <p
+            className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
+            onClick={sortMenuToggler}
+          >
+            {selectedSort}
+          </p>
+
+          {toggleSortMenu && (
+            <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
+              {port.map((item, index) => (
+                <p
+                  className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+                  key={index}
+                  onClick={() => handleSelectedSort(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          )}
+          {toggleSortMenu ? (
+            <GrUp className="absolute right-4 text-[1.3rem]" />
+          ) : (
+            <GrDown className="absolute right-4 text-[1.3rem]" />
+          )}
+        </div>
+      </div>
       {isTerminal && (
         <>
           <div className="flex items-center w-full">
