@@ -226,7 +226,7 @@ const businessInfo = () => {
               accept="image/*"
               className="hidden"
               onClick={(e) => cacUploadHandler(e, 'cacUpload')}
-              onChange={(e) => cacDetailsHandler(e)}
+              onChange={(e) => uploadDetailsHandler(e, 'cac')}
             />
             <label
               htmlFor="licenseUpload"
@@ -266,7 +266,7 @@ const businessInfo = () => {
               accept="image/*"
               className="hidden"
               onClick={(e) => licenseUploadHandler(e, 'licenseUpload')}
-              onChange={(e) => licenseDetailsHandler(e)}
+              onChange={(e) => uploadDetailsHandler(e, 'license')}
             />
           </div>
 
