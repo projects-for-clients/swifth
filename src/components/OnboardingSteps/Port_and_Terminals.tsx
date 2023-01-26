@@ -27,8 +27,9 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
     license: string;
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
-  const [selectedItem, setSelectedItem] = useState<Terminal>('Terminal 1');
+  const [selectedItem, setSelectedItem] = useState<Terminal | null>(null)
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
@@ -88,7 +89,11 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
             className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
             onClick={selectMenuToggler}
           >
-            {selectedItem}
+            {selectedItem ? (
+              selectedItem
+            ) : (
+              <span className="text-gray-400">Select Terminal</span>
+            )}{' '}
           </p>
 
           {toggleSelectMenu && (
