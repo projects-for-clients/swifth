@@ -147,12 +147,7 @@ const PortAndTerminals = () => {
   const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
-
-  const handleSelectedSort = (item: Port) => {
-    setSelectedSort(item);
-    setToggleSortMenu(false);
-  };
+ 
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);

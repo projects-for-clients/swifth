@@ -8,7 +8,7 @@ interface ISelectInput {
     label: string
 }
 
-const selectInput:FC<ISelectInput> = ({items, defaultSelected, label}) => {
+const SelectInput:FC<ISelectInput> = ({items, defaultSelected, label}) => {
 
 
   const [selectedSort, setSelectedSort] = useState<string>(defaultSelected);
@@ -55,4 +55,4 @@ const selectInput:FC<ISelectInput> = ({items, defaultSelected, label}) => {
   );
 };
 
-export default selectInput;
+export default SelectInput;
