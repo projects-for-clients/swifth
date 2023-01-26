@@ -208,7 +208,7 @@ const PortAndTerminals = () => {
   const selectItemHandler = (_: MouseEvent, item: Port) => {
     setSelectedItem(item);
     setToggleSelectMenu(false);
-    setShowNextCount(true)
+    setShowNext(true)
   };
 
   return (
