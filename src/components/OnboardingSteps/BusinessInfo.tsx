@@ -67,21 +67,7 @@ const businessInfo = () => {
 
   };
 
-  const cacUploadHandler = async (
-    e: MouseEvent<HTMLInputElement>,
-    value: string
-  ) => {
-    const getUri = await getPhotoUri(value);
-
-    const data = {
-      target: {
-        name: 'cacUri',
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(data, 'businessInfo');
-  };
+ 
 
   const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -127,37 +113,8 @@ const businessInfo = () => {
     }
   };
 
-  const licenseUploadHandler = async (
-    e: MouseEvent<HTMLInputElement>,
-    value: string
-  ) => {
-    const getUri = await getPhotoUri(value);
+  
 
-    const data = {
-      target: {
-        name: 'licenseUri',
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(data, 'businessInfo');
-  };
-
-  const logoUploadHandler = async (
-    e: MouseEvent<HTMLInputElement>,
-    value: string
-  ) => {
-    const getUri = await getPhotoUri(value);
-
-    const data = {
-      target: {
-        name: 'logoUri',
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(data, 'businessInfo');
-  };
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -201,7 +158,7 @@ const businessInfo = () => {
               accept="image/*"
               className="hidden"
               onChange={(e) => uploadDetailsHandler(e, 'logo')}
-              onClick={(e) => logoUploadHandler(e, 'logoUpload')}
+              onClick={(e) => uploadUriHandler(e, 'logoUri')}
             />
             <div>
               <p className="text-[1.6rem] text-color-primary uppercase">
@@ -269,7 +226,7 @@ const businessInfo = () => {
               id="cacUpload"
               accept="image/*"
               className="hidden"
-              onClick={(e) => cacUploadHandler(e, 'cacUpload')}
+              onClick={(e) => uploadUriHandler(e, 'cacUri')}
               onChange={(e) => uploadDetailsHandler(e, 'cac')}
             />
             <label
@@ -317,7 +274,7 @@ const businessInfo = () => {
               id="licenseUpload"
               accept="image/*"
               className="hidden"
-              onClick={(e) => licenseUploadHandler(e, 'licenseUpload')}
+              onClick={(e) => uploadUriHandler(e, 'licenseUri')}
               onChange={(e) => uploadDetailsHandler(e, 'license')}
             />
           </div>
