@@ -22,10 +22,17 @@ type Terminal = 'Terminal 1' | 'Terminal 2' | 'Terminal 3';
 
 const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   const [formCUpload, setFormCUpload] = useState<string>(null as any);
-  const [imageSize, setImageSize] = useState<{
-    cac: string;
-    license: string;
-  }>(null as any);
+  const [imageDetails, setImageDetails] = useState<{
+    error: boolean;
+    message: string | null;
+    size: string;
+    name: string;
+  }>({
+    error: false,
+    message: null,
+    name: '',
+    size: '',
+  });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
@@ -50,18 +57,22 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      setImageSize((prev) => ({
+      setImageDetails((prev) => ({
         ...prev,
-        cac: `${MBSize.toFixed(2)}MB`,
+        error: MBSize > 2 ? true : false,
+        message: MBSize > 2 ? 'File size too large' : null,
+        size: `${MBSize.toFixed(2)}MB`,
+        name,
       }));
     } else {
-      setImageSize((prev) => ({
+      setImageDetails((prev) => ({
         ...prev,
-        cac: `${KBSize}KB`,
+        size: `${KBSize}KB`,
+        message: null,
+        error: false,
+        name,
       }));
     }
-
-    setFormCUpload(name);
   };
   const handleSelectChange = (_: MouseEvent, item: Terminal) => {
     setIsTerminal(true);
@@ -71,7 +82,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
 
   return (
     <section
-      className="grid gap-8 items-center"
+      className="grid gap-8 items-center "
       style={{
         gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
       }}
@@ -82,7 +93,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
         </label>
         <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
           <p
-            className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
+            className="border p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
             onClick={selectMenuToggler}
           >
             {selectedItem ? (
@@ -93,7 +104,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
           </p>
 
           {toggleSelectMenu && (
-            <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
+            <div className="absolute top-[5rem]  left-0 border w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
               {terminal.map((item, index) => (
                 <p
                   className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
@@ -114,17 +125,29 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
       </div>
       {isTerminal && (
         <>
-          <div className="flex items-center w-full">
+          <div className="flex items-center w-full self-end">
             <label
-              htmlFor="cacUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-full"
+              htmlFor="formC"
+              className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
+                imageDetails.error
+                  ? 'border-red-600 border bg-red-50'
+                  : 'border-color-purple-light'
+              }`}
             >
-              <img src="/icons/admin/upload.svg" alt="" />
-              {formCUpload ? (
+              {imageDetails.error ? (
+                <img src="/icons/admin/uploadError.svg" alt="" />
+              ) : (
+                <img src="/icons/admin/upload.svg" alt="" />
+              )}
+              {imageDetails.name ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{formCUpload}</p>
+                  <p className="text-[1.4rem] font-normal">
+                    {imageDetails.name}
+                  </p>
                   <p className="text-color-grey-4 text-[1rem]">
-                    {imageSize.cac}
+                    {imageDetails.message
+                      ? imageDetails.message
+                      : imageDetails.size}
                   </p>
                 </div>
               ) : (
@@ -135,11 +158,11 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
             </label>
             <input
               type="file"
-              name="cacUpload"
-              id="cacUpload"
+              name="formC"
+              id="formC"
               accept="image/*"
               className="hidden"
-              onChange={(e) => formCUploadHandler(e, 'cacUpload')}
+              onChange={(e) => formCUploadHandler(e, 'formC')}
             />
           </div>
 
