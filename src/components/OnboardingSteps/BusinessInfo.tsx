@@ -49,6 +49,24 @@ const businessInfo = () => {
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
+  const uploadUriHandler = async (
+    e: MouseEvent<HTMLInputElement>,
+    key: 'cacUri' | 'licenseUri' | 'logoUri'
+  ) => {
+    const getUri = await getPhotoUri(key);
+
+
+      const data = {
+        target: {
+          name: key,
+          value: getUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'businessInfo');
+
+  };
+
   const cacUploadHandler = async (
     e: MouseEvent<HTMLInputElement>,
     value: string
@@ -193,13 +211,12 @@ const businessInfo = () => {
                 <p className="text-red-600 text-[1.2rem]">
                   {validationErrors.cacCertificateUri}
                 </p>
-              )}{
-                imageSize.error.logo && (
-                  <p className="text-red-600 text-[1.2rem]">
-                    Image size should not exceed 2MB
-                  </p>
-                )
-              }
+              )}
+              {imageSize.error.logo && (
+                <p className="text-red-600 text-[1.2rem]">
+                  Image size should not exceed 2MB
+                </p>
+              )}
             </div>
           </label>
 
