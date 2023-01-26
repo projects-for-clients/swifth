@@ -121,7 +121,9 @@ const businessInfo = () => {
   useEffect(() => {
     console.log(onboardingInputs.businessInfo);
 
-    console.log(Object.keys(onboardingInputs))
+    const inputValues =  Object.values(onboardingInputs.businessInfo)
+
+    console.log(inputValues);
 
   }, [onboardingInputs.businessInfo]);
 
