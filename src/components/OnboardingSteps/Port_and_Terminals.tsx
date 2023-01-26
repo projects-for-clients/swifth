@@ -246,6 +246,10 @@ const PortAndTerminals = () => {
     setShowNext(true);
   };
 
+  useEffect(() => {
+    console.log(terminalCount)
+  }, [terminalCount])
+
   return (
     <>
       <Header
