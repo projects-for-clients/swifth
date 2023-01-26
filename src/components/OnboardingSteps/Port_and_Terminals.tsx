@@ -159,9 +159,7 @@ const PortAndTerminals = () => {
     handleStep('personalInfo');
   };
 
-  useEffect(() => {
-    console.log({ isTerminal });
-  }, [isTerminal]);
+
 
   const addTerminal = (e: MouseEvent<HTMLButtonElement>) => {
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
