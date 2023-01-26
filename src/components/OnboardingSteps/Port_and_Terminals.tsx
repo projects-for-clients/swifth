@@ -192,7 +192,7 @@ const PortAndTerminals = () => {
                   placeholder="Select Terminal"
                   label="Choose Terminal"
                   countEnabled={countEnabled}
-                  setCountEnabled={setCountEnabled}
+                 setIsTerminal={setIsTerminal}
                 />
               )}
 

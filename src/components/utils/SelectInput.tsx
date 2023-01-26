@@ -8,9 +8,10 @@ interface ISelectInput {
     label: string
     countEnabled?: number
     setCountEnabled?: Dispatch<SetStateAction<number>>
+    setIsTerminal?: Dispatch<SetStateAction<boolean>>
 }
 
-const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setCountEnabled}) => {
+const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setCountEnabled, setIsTerminal}) => {
 
 
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
@@ -25,6 +26,8 @@ const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setCountEnable
       if(prev === 0) return 1
       return prev
     });
+
+    setIsTerminal && setIsTerminal(true)
   };
 
   return (
