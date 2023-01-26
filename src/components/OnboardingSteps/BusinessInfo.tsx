@@ -51,7 +51,7 @@ const businessInfo = () => {
     handleInputChange(data, 'businessInfo');
   };
 
-  const cacDetailsHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const uploadDetailsHandler = (e: ChangeEvent<HTMLInputElement>, type: 'cac' | 'license') => {
     const { files } = e.target;
 
     if (files) {
@@ -66,20 +66,26 @@ const businessInfo = () => {
 
         setImageSize((prev) => ({
           ...prev,
-          cac: `${MBSize.toFixed(2)}MB`,
+          [type]: `${MBSize.toFixed(2)}MB`,
           error: MBSize > 2 ? true : false,
         }));
       } else {
         setImageSize((prev) => ({
           ...prev,
-          cac: `${KBSize}KB`,
+          [type]: `${KBSize}KB`,
           error: false
         }));
       }
 
-      setCacDetails(path.name);
+      if (type === 'cac') {
+        setCacDetails(path.name);
+      } else {
+        setLicenseDetails(path.name);
+      }
     }
-  };
+
+  }
+  
 
   const licenseUploadHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -97,35 +103,7 @@ const businessInfo = () => {
     handleInputChange(data, 'businessInfo');
   };
 
-  const licenseDetailsHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const { files } = e.target;
-
-    if (files) {
-      const path = files[0];
-
-      const size = path.size / 1000;
-
-      const KBSize = size.toString().split('.')[0];
-
-      if (KBSize.length > 3) {
-        const MBSize = Number(KBSize) / 1000;
-
-        setImageSize((prev) => ({
-          ...prev,
-          license: `${MBSize.toFixed(2)}MB`,
-          error: MBSize > 2 ? true : false,
-        }));
-      } else {
-        setImageSize((prev) => ({
-          ...prev,
-          license: `${KBSize}KB`,
-          error: false
-        }));
-      }
-
-      setLicenseDetails(path.name);
-    }
-  };
+  
 
   const logoUploadHandler = async (
     e: MouseEvent<HTMLInputElement>,
