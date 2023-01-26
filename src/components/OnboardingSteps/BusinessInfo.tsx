@@ -200,7 +200,7 @@ const businessInfo = () => {
                   </p>
                 </div>
               ) : (
-                <div className='grid'>
+                <div className="grid">
                   <p>Upload CAC Certificate</p>
 
                   {validationErrors && validationErrors.cacCertificateUri && (
@@ -233,7 +233,14 @@ const businessInfo = () => {
                   </p>
                 </div>
               ) : (
-                <p>Upload Custom License (yearly)</p>
+                <div>
+                  <p>Upload Custom License (yearly)</p>
+                  {validationErrors && validationErrors.customLicenseUri && (
+                    <p className="text-red-600 text-[1.2rem]">
+                      {validationErrors.customLicenseUri}
+                    </p>
+                  )}
+                </div>
               )}
             </label>
             <input
