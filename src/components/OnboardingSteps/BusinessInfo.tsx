@@ -47,6 +47,15 @@ const businessInfo = () => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
 
+  useEffect(() => {
+    const inputValues = Object.values(onboardingInputs.businessInfo);
+
+    const isDisabled = inputValues.some((value) => value === '');
+
+    setIsDisabled(isDisabled);
+  }, [onboardingInputs.businessInfo]);
+  
+
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
     key: 'cacUri' | 'licenseUri' | 'logoUri'
@@ -118,14 +127,7 @@ const businessInfo = () => {
     handleInputChange(changeEvent, key);
   };
 
-  useEffect(() => {
-    console.log(onboardingInputs.businessInfo);
-
-    const inputValues =  Object.values(onboardingInputs.businessInfo)
-
-    console.log(inputValues);
-
-  }, [onboardingInputs.businessInfo]);
+  
 
   return (
     <>
