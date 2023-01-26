@@ -24,17 +24,17 @@ const businessInfo = () => {
     handleStep,
     handleInputChange,
     validationErrors,
-    onboardingInputs: {
-      businessInfo: {
-        businessName,
-        officeAddress,
-        cacUri,
-        licenseUri,
-        licenseExpirationDate,
-        logoUri,
-      },
-    },
+    onboardingInputs
   } = useContext(OnboardingContext);
+  
+   const {
+     businessName,
+     officeAddress,
+     cacUri,
+     licenseUri,
+     licenseExpirationDate,
+     logoUri,
+   } = onboardingInputs.businessInfo;
 
   const [cacDetails, setCacDetails] = useState<string>('');
   const [licenseDetails, setLicenseDetails] = useState<string>('');
@@ -121,6 +121,8 @@ const businessInfo = () => {
 
     console.log({ businessInfo });
   };
+
+ 
 
   return (
     <>
