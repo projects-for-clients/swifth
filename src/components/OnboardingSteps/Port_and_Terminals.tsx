@@ -181,7 +181,7 @@ const PortAndTerminals = () => {
         <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
             <div className="grid gap-10 mt-4 ">
-              <SelectInput items={port} placeholder='Lagos' label='Choose Port'/>
+              <SelectInput items={port} placeholder='Select Port' label='Choose Port'/>
               <SelectInput items={['Terminal1', 'Terminal2']} placeholder='Select Terminal' label='Choose Terminal'/>
 
               {terminalCount.map((_, index) => {
