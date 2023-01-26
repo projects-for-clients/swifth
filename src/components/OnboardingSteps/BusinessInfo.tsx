@@ -36,9 +36,16 @@ const businessInfo = () => {
     },
   } = useContext(OnboardingContext);
 
-  const [cacDetails, setCacDetails] = useState<string>(null as any);
-  const [licenseDetails, setLicenseDetails] = useState<string>(null as any);
-  const [imageSize, setImageSize] = useState<Imagesize>(null as any);
+  const [cacDetails, setCacDetails] = useState<string>('');
+  const [licenseDetails, setLicenseDetails] = useState<string>('');
+  const [imageSize, setImageSize] = useState<Imagesize>({
+    cac: '',
+    license: '',
+    error: {
+      cac: false,
+      license: false
+    }
+  });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const cacUploadHandler = async (
