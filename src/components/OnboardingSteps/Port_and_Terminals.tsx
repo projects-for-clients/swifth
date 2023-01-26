@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import {
   ChangeEvent,
   FC,
@@ -151,9 +151,13 @@ const PortAndTerminals = () => {
   };
 
 
+  const PortAndTerminalContext = createContext(null as any)
+
+  
 
   return (
-    <>
+    <PortAndTerminalContext.Provider value={{isTerminal, setIsTerminal}}>
+    
       <Header
         title="Ports and Terminals"
         subTitle="Enter your ports and terminals details"
@@ -214,7 +218,7 @@ const PortAndTerminals = () => {
           </button>
         </form>
       </div>
-    </>
+    </PortAndTerminalContext.Provider>
   );
 };
 
