@@ -6,12 +6,10 @@ interface ISelectInput {
     items: string[]
     placeholder: string
     label: string
-    countEnabled?: number
-    setCountEnabled?: Dispatch<SetStateAction<number>>
     setIsTerminal?: Dispatch<SetStateAction<boolean>>
 }
 
-const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setCountEnabled, setIsTerminal}) => {
+const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setIsTerminal}) => {
 
 
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
@@ -22,16 +20,13 @@ const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setCountEnable
   const handleSelectedSort = (item: typeof selectedSort) => {
     setSelectedSort(item);
     setToggleSortMenu(false);
-    setCountEnabled && setCountEnabled(prev => {
-      if(prev === 0) return 1
-      return prev
-    });
+   
 
     setIsTerminal && setIsTerminal(true)
   };
 
   return (
-    <div className="grid gap-4 w-[33rem] items-center">
+    <div className="grid gap-4 min-w-[30rem] items-center">
       <label className="text-[1.4rem] text-color-dark-1">{label}</label>
       <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer text-black">
 

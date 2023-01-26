@@ -5,18 +5,15 @@ import {
   FormEvent,
   MouseEvent,
   useEffect,
-  useReducer,
   useState,
 } from 'react';
-import { GrDown, GrUp } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
-import { getPhotoUri } from '../../utils/getPhotoUri';
 import SelectInput from '../utils/SelectInput';
 
 interface ITerminal {
   isTerminal: boolean;
-  setIsTerminal: (value: boolean) => void;
+  setIsTerminal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
@@ -68,11 +65,15 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
       }}
     >
-      <div
-        className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}
-      ></div>
       {isTerminal && (
         <>
+          <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
+            <SelectInput
+              items={['Terminal1', 'Terminal2']}
+              placeholder="Select Terminal"
+              label="Choose Terminal"
+            />
+          </div>
           <div className="flex items-center w-full">
             <label
               htmlFor="cacUpload"
@@ -138,7 +139,6 @@ const PortAndTerminals = () => {
 
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
-  const [countEnabled, setCountEnabled] = useState(0);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -184,17 +184,9 @@ const PortAndTerminals = () => {
                 items={port}
                 placeholder="Select Port"
                 label="Choose Port"
-                setCountEnabled={setCountEnabled}
+                setIsTerminal={setIsTerminal}
               />
-              {countEnabled === 1 && (
-                <SelectInput
-                  items={['Terminal1', 'Terminal2']}
-                  placeholder="Select Terminal"
-                  label="Choose Terminal"
-                  countEnabled={countEnabled}
-                 setIsTerminal={setIsTerminal}
-                />
-              )}
+             
 
               {terminalCount.map((_, index) => {
                 return (
