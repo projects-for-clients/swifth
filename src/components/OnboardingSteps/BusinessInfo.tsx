@@ -67,12 +67,13 @@ const businessInfo = () => {
         setImageSize((prev) => ({
           ...prev,
           cac: `${MBSize.toFixed(2)}MB`,
-          error: MBSize > 2,
+          error: MBSize > 2 ? true : false,
         }));
       } else {
         setImageSize((prev) => ({
           ...prev,
           cac: `${KBSize}KB`,
+          error: false
         }));
       }
 
@@ -112,11 +113,13 @@ const businessInfo = () => {
         setImageSize((prev) => ({
           ...prev,
           license: `${MBSize.toFixed(2)}MB`,
+          error: MBSize > 2 ? true : false,
         }));
       } else {
         setImageSize((prev) => ({
           ...prev,
           license: `${KBSize}KB`,
+          error: false
         }));
       }
 
@@ -215,9 +218,16 @@ const businessInfo = () => {
               {cacDetails ? (
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{cacDetails}</p>
-                  <p className="text-color-grey-4 text-[1rem]">
-                    {imageSize.cac}
-                  </p>
+
+                  {imageSize?.error ? (
+                    <p className="text-red-600 text-[1.2rem]">
+                      File size must not exceed 2MB
+                    </p>
+                  ) : (
+                    <p className="text-color-grey-4 text-[1rem]">
+                      {imageSize.cac}
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="grid">
@@ -228,7 +238,6 @@ const businessInfo = () => {
                       {validationErrors.cacCertificateUri}
                     </p>
                   )}
-                  
                 </div>
               )}
             </label>
