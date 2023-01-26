@@ -98,7 +98,7 @@ const businessInfo = () => {
           [type]: `${MBSize.toFixed(2)}MB`,
           error: {
             ...prev.error,
-            [type]: true,
+            [type]: MBSize > 2 ? true : false,
           },
         }));
       } else {

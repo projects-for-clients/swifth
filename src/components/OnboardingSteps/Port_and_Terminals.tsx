@@ -17,11 +17,24 @@ interface ITerminal {
 }
 
 const Terminal: FC<ITerminal> = ({ isTerminal }) => {
+  interface Imagesize {
+  cac: string;
+  license: string;
+  error: {
+    cac: boolean;
+    license: boolean;
+    logo: boolean;
+  };
+}
+
   const [formCUpload, setFormCUpload] = useState<string>(null as any);
-  const [imageSize, setImageSize] = useState<{
-    cac: string;
-    license: string;
-  }>(null as any);
+  const [imageSize, setImageSize] = useState<Imagesize>({cac: '',
+    license: '',
+    error: {
+      cac: false,
+      license: false,
+      logo: false,
+    },});
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const formCUploadHandler = (
@@ -41,9 +54,12 @@ const Terminal: FC<ITerminal> = ({ isTerminal }) => {
       const MBSize = Number(KBSize) / 1000;
 
       setImageSize((prev) => ({
-        ...prev,
-        cac: `${MBSize.toFixed(2)}MB`,
-      }));
+          ...prev,
+          [type]: `${MBSize.toFixed(2)}MB`,
+          error: {
+            ...prev.error,
+            [type]: MBSize > 2 ? true : false,
+          })
     } else {
       setImageSize((prev) => ({
         ...prev,
@@ -53,7 +69,6 @@ const Terminal: FC<ITerminal> = ({ isTerminal }) => {
 
     setFormCUpload(name);
   };
- 
 
   return (
     <section
@@ -129,6 +144,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal }) => {
   );
 };
 
+
 const PortAndTerminals = () => {
   const port = ['Lagos', 'Onitsha'];
 
@@ -150,14 +166,8 @@ const PortAndTerminals = () => {
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
 
-
-  const PortAndTerminalContext = createContext(null as any)
-
-  
-
   return (
-    <PortAndTerminalContext.Provider value={{isTerminal, setIsTerminal}}>
-    
+    <>
       <Header
         title="Ports and Terminals"
         subTitle="Enter your ports and terminals details"
@@ -185,7 +195,6 @@ const PortAndTerminals = () => {
                 label="Choose Port"
                 setIsTerminal={setIsTerminal}
               />
-             
 
               {terminalCount.map((_, index) => {
                 return (
@@ -218,7 +227,7 @@ const PortAndTerminals = () => {
           </button>
         </form>
       </div>
-    </PortAndTerminalContext.Provider>
+    </>
   );
 };
 

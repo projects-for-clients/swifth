@@ -11,7 +11,8 @@ import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
-  const [step, setStep] = useState<Step>('portsAndTerminal');
+  // const [step, setStep] = useState<Step>('portsAndTerminal');
+  const [step, setStep] = useState<Step>('businessInfo');
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
     
