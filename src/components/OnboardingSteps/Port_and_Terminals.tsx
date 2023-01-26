@@ -1,41 +1,29 @@
-import React, { createContext, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   ChangeEvent,
   FC,
   FormEvent,
   MouseEvent,
   useEffect,
+  useReducer,
   useState,
 } from 'react';
+import { GrDown, GrUp } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
-import SelectInput from '../utils/SelectInput';
+import { getPhotoUri } from '../../utils/getPhotoUri';
 
 interface ITerminal {
   isTerminal: boolean;
-  setIsTerminal: React.Dispatch<React.SetStateAction<boolean>>;
-  key: any
+  setIsTerminal: (value: boolean) => void;
 }
 
-const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
-  interface Imagesize {
-  cac: string;
-  license: string;
-  error: {
-    cac: boolean;
-    license: boolean;
-    logo: boolean;
-  };
-}
-
+const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   const [formCUpload, setFormCUpload] = useState<string>(null as any);
-  const [imageSize, setImageSize] = useState<Imagesize>({cac: '',
-    license: '',
-    error: {
-      cac: false,
-      license: false,
-      logo: false,
-    },});
+  const [imageSize, setImageSize] = useState<{
+    cac: string;
+    license: string;
+  }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const formCUploadHandler = (
@@ -54,13 +42,10 @@ const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      // setImageSize((prev) => ({
-      //     ...prev,
-      //     [type]: `${MBSize.toFixed(2)}MB`,
-      //     error: {
-      //       ...prev.error,
-      //       [type]: MBSize > 2 ? true : false,
-      //     }})
+      setImageSize((prev) => ({
+        ...prev,
+        cac: `${MBSize.toFixed(2)}MB`,
+      }));
     } else {
       setImageSize((prev) => ({
         ...prev,
@@ -70,6 +55,10 @@ const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
 
     setFormCUpload(name);
   };
+  const handleSelectChange = () => {
+    console.log('changed select');
+    setIsTerminal(true);
+  };
 
   return (
     <section
@@ -78,15 +67,11 @@ const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
       }}
     >
+      <div
+        className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}
+      ></div>
       {isTerminal && (
         <>
-          <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
-            <SelectInput
-              items={['Terminal1', 'Terminal2']}
-              placeholder="Select Terminal"
-              label="Choose Terminal"
-            />
-          </div>
           <div className="flex items-center w-full">
             <label
               htmlFor="cacUpload"
@@ -129,7 +114,17 @@ const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
                   e.target.type = 'date';
                   setShowCalendarIcon(false);
                 }}
+                // onBlur={(e) => {
+                //   e.target.type = 'text';
+
+                //   e.target.placeholder = 'select Date';
+
+                //   e.target.value = '';
+
+                //   setShowCalendarIcon(true);
+                // }}
               />
+              {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
               {showCalendarIcon && (
                 <img
                   src="/icons/admin/calendar.svg"
@@ -145,10 +140,19 @@ const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
   );
 };
 
+type Port = 'Lagos' | 'Onitsha';
 
 const PortAndTerminals = () => {
-  const port = ['Lagos', 'Onitsha'];
+  const port: Port[] = ['Lagos', 'Onitsha'];
+  const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
+  const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
+  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+
+  const handleSelectedSort = (item: Port) => {
+    setSelectedSort(item);
+    setToggleSortMenu(false);
+  };
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
@@ -159,11 +163,17 @@ const PortAndTerminals = () => {
     handleStep('personalInfo');
   };
 
-
+  useEffect(() => {
+    console.log({ isTerminal });
+  }, [isTerminal]);
 
   const addTerminal = (e: MouseEvent<HTMLButtonElement>) => {
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
+
+  useEffect(() => {
+    console.log({ terminalCount });
+  }, [terminalCount]);
 
   return (
     <>
@@ -188,13 +198,38 @@ const PortAndTerminals = () => {
         <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
             <div className="grid gap-10 mt-4 ">
-              <SelectInput
-                items={port}
-                placeholder="Select Port"
-                label="Choose Port"
-                setIsTerminal={setIsTerminal}
-              />
+              <div className="grid gap-4 w-[33rem] items-center">
+                <label className="text-[1.4rem] text-color-dark-1">
+                  Choose Port
+                </label>
+                <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
+                  <p
+                    className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
+                    onClick={sortMenuToggler}
+                  >
+                    {selectedSort}
+                  </p>
 
+                  {toggleSortMenu && (
+                    <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
+                      {port.map((item, index) => (
+                        <p
+                          className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+                          key={index}
+                          onClick={() => handleSelectedSort(item)}
+                        >
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                  {toggleSortMenu ? (
+                    <GrUp className="absolute right-4 text-[1.3rem]" />
+                  ) : (
+                    <GrDown className="absolute right-4 text-[1.3rem]" />
+                  )}
+                </div>
+              </div>
               {terminalCount.map((_, index) => {
                 return (
                   <Terminal
