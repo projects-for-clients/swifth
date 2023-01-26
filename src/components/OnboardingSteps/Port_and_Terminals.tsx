@@ -16,12 +16,12 @@ import { getPhotoUri } from '../../utils/getPhotoUri';
 interface ITerminal {
   isTerminal: boolean;
   setIsTerminal: (value: boolean) => void;
+  id: number
 }
 
 type Terminal = 'Terminal 1' | 'Terminal 2' | 'Terminal 3';
 
-const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
-  const [formCUpload, setFormCUpload] = useState<string>(null as any);
+const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
@@ -35,12 +35,32 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
+
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
   const [selectedItem, setSelectedItem] = useState<Terminal | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
+
+  const uploadUriHandler = async (
+    e: MouseEvent<HTMLInputElement>,
+    key: string
+  ) => {
+    const getUri = await getPhotoUri(key);
+
+    const data = {
+      target: {
+        name: key,
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
+
+    console.log({data})
+    // handleInputChange(data, 'businessInfo');
+  };
+
+  
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     value: string
@@ -61,7 +81,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
         ...prev,
         error: MBSize > 2 ? true : false,
         message: MBSize > 2 ? 'File size too large' : null,
-        size: `${MBSize.toFixed(2)}MB`,
+        size: `${MBSize.toFixed(1)}MB`,
         name,
       }));
     } else {
@@ -127,7 +147,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
         <>
           <div className="flex items-center w-full self-end">
             <label
-              htmlFor="formC"
+              htmlFor={`formC${id}`}
               className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
                 imageDetails.error
                   ? 'border-red-600 border bg-red-50'
@@ -158,11 +178,12 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
             </label>
             <input
               type="file"
-              name="formC"
-              id="formC"
+              name={`formC${id}`}
+              id={`formC${id}`}
               accept="image/*"
               className="hidden"
-              onChange={(e) => formCUploadHandler(e, 'formC')}
+              onClick={(e) => uploadUriHandler(e, `formC${id}`)}
+              onChange={(e) => formCUploadHandler(e, `formC${id}`)}
             />
           </div>
 
@@ -292,6 +313,7 @@ const PortAndTerminals = () => {
                       isTerminal={isTerminal}
                       setIsTerminal={setIsTerminal}
                       key={index}
+                      id={index}
                     />
                   )
                 );
@@ -299,7 +321,7 @@ const PortAndTerminals = () => {
 
               <button
                 type="button"
-                className="flex self-start items-center gap-4 mt-10 disabled:text-color-grey-4 disabled:cursor-not-allowed"
+                className="flex self-start items-center justify-self-start gap-4 mt-10 disabled:text-color-grey-4 disabled:cursor-not-allowed"
                 onClick={addTerminal}
                 disabled={!isTerminal}
               >
