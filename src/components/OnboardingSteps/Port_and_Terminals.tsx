@@ -14,9 +14,10 @@ import SelectInput from '../utils/SelectInput';
 interface ITerminal {
   isTerminal: boolean;
   setIsTerminal: React.Dispatch<React.SetStateAction<boolean>>;
+  key: any
 }
 
-const Terminal: FC<ITerminal> = ({ isTerminal }) => {
+const Terminal: FC<ITerminal> = ({ isTerminal, key }) => {
   interface Imagesize {
   cac: string;
   license: string;
@@ -53,13 +54,13 @@ const Terminal: FC<ITerminal> = ({ isTerminal }) => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      setImageSize((prev) => ({
-          ...prev,
-          [type]: `${MBSize.toFixed(2)}MB`,
-          error: {
-            ...prev.error,
-            [type]: MBSize > 2 ? true : false,
-          })
+      // setImageSize((prev) => ({
+      //     ...prev,
+      //     [type]: `${MBSize.toFixed(2)}MB`,
+      //     error: {
+      //       ...prev.error,
+      //       [type]: MBSize > 2 ? true : false,
+      //     }})
     } else {
       setImageSize((prev) => ({
         ...prev,
