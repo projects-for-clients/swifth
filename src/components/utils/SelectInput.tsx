@@ -5,9 +5,10 @@ import { GrUp, GrDown } from 'react-icons/gr';
 interface ISelectInput {
     items: string[]
     defaultSelected: string
+    label: string
 }
 
-const selectInput:FC<ISelectInput> = ({items, defaultSelected}) => {
+const selectInput:FC<ISelectInput> = ({items, defaultSelected, label}) => {
 
 
   const [selectedSort, setSelectedSort] = useState<string>(defaultSelected);
@@ -22,7 +23,7 @@ const selectInput:FC<ISelectInput> = ({items, defaultSelected}) => {
 
   return (
     <div className="grid gap-4 w-[33rem] items-center">
-      <label className="text-[1.4rem] text-color-dark-1">Choose Port</label>
+      <label className="text-[1.4rem] text-color-dark-1">{label}</label>
       <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
         <p
           className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
