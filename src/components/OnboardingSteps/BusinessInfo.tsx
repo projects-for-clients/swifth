@@ -56,14 +56,12 @@ const businessInfo = () => {
     if (files) {
       const path = files[0];
 
-
       const size = path.size / 1000;
 
       const KBSize = size.toString().split('.')[0];
 
       if (KBSize.length > 3) {
         const MBSize = Number(KBSize) / 1000;
-
 
         setImageSize((prev) => ({
           ...prev,
@@ -77,26 +75,23 @@ const businessInfo = () => {
       }
 
       setCacDetails(path.name);
-      
     }
-  }
+  };
 
   const licenseUploadHandler = async (
     e: MouseEvent<HTMLInputElement>,
     value: string
   ) => {
-    
-      const getUri = await getPhotoUri(value);
+    const getUri = await getPhotoUri(value);
 
-      const data = {
-        target: {
-          name: 'customLicenseUri',
-          value: getUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
+    const data = {
+      target: {
+        name: 'customLicenseUri',
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
 
-      handleInputChange(data, 'businessInfo');
-    
+    handleInputChange(data, 'businessInfo');
   };
 
   const licenseDetailsHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -152,7 +147,6 @@ const businessInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     handleInputChange(changeEvent, key);
-    
   };
 
   return (
@@ -207,6 +201,11 @@ const businessInfo = () => {
                 </div>
               ) : (
                 <p>Upload CAC Certificate</p>
+              )}
+              {validationErrors && validationErrors.cacCertificateUri && (
+                <p className="text-red-600 text-[1.2rem]">
+                  {validationErrors.cacCertificateUri}
+                </p>
               )}
             </label>
             <input
