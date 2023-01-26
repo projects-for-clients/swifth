@@ -46,7 +46,7 @@ const businessInfo = () => {
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
-  
+
 
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.businessInfo);
@@ -124,7 +124,7 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    handleStep(1);
+    handleStep('portsAndTerminal');
   };
 
   const setInput = (e: FormEvent, key: string) => {

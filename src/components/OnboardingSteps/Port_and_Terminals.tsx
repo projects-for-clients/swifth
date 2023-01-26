@@ -166,7 +166,7 @@ const PersonalInfo = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    handleStep(2);
+    handleStep('personalInfo');
   };
 
   useEffect(() => {
