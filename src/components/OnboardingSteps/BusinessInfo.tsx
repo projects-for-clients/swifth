@@ -21,21 +21,17 @@ interface Imagesize {
 }
 
 const businessInfo = () => {
-  const {
-    handleStep,
-    handleInputChange,
-    validationErrors,
-    onboardingInputs
-  } = useContext(OnboardingContext);
+  const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
+    useContext(OnboardingContext);
 
-   const {
-     businessName,
-     officeAddress,
-     cacUri,
-     licenseUri,
-     licenseExpirationDate,
-     logoUri,
-   } = onboardingInputs.businessInfo;
+  const {
+    businessName,
+    officeAddress,
+    cacUri,
+    licenseUri,
+    licenseExpirationDate,
+    logoUri,
+  } = onboardingInputs.businessInfo;
 
   const [cacDetails, setCacDetails] = useState<string>('');
   const [licenseDetails, setLicenseDetails] = useState<string>('');
@@ -120,15 +116,14 @@ const businessInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     handleInputChange(changeEvent, key);
-
   };
-
 
   useEffect(() => {
     console.log(onboardingInputs.businessInfo);
 
-  }, [onboardingInputs.businessInfo])
- 
+    console.log(Object.keys(onboardingInputs))
+
+  }, [onboardingInputs.businessInfo]);
 
   return (
     <>
