@@ -29,15 +29,10 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
-  const [selectedItem, setSelectedItem] = useState<Terminal | null>(null)
+  const [selectedItem, setSelectedItem] = useState<Terminal | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
-
-  const handleSelectedItem = (item: Terminal) => {
-    setSelectedItem(item);
-    setToggleSelectMenu(false);
-  };
 
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -68,9 +63,10 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
 
     setFormCUpload(name);
   };
-  const handleSelectChange = () => {
-    console.log('changed select');
+  const handleSelectChange = (_: MouseEvent, item: Terminal) => {
     setIsTerminal(true);
+    setSelectedItem(item);
+    setToggleSelectMenu(false);
   };
 
   return (
@@ -102,7 +98,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
                 <p
                   className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
                   key={index}
-                  onClick={() => handleSelectedItem(item)}
+                  onClick={(e) => handleSelectChange(e, item)}
                 >
                   {item}
                 </p>
@@ -160,17 +156,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
                   e.target.type = 'date';
                   setShowCalendarIcon(false);
                 }}
-                // onBlur={(e) => {
-                //   e.target.type = 'text';
-
-                //   e.target.placeholder = 'select Date';
-
-                //   e.target.value = '';
-
-                //   setShowCalendarIcon(true);
-                // }}
               />
-              {/* <span className="absolute right-0 bg-color-red w-20 h-20 z-10"></span> */}
               {showCalendarIcon && (
                 <img
                   src="/icons/admin/calendar.svg"
@@ -213,7 +199,7 @@ const PortAndTerminals = () => {
   const selectItemHandler = (_: MouseEvent, item: Port) => {
     setSelectedItem(item);
     setToggleSelectMenu(false);
-    setShowNext(true)
+    setShowNext(true);
   };
 
   return (
@@ -275,22 +261,19 @@ const PortAndTerminals = () => {
                   )}
                 </div>
               </div>
-            
 
-                  {terminalCount.map((_, index) => {
-                   return (
-                     showNext && (
-                       <Terminal
-                         isTerminal={isTerminal}
-                         setIsTerminal={setIsTerminal}
-                         key={index}
-                       />
-                     )
-                   );
+              {terminalCount.map((_, index) => {
+                return (
+                  showNext && (
+                    <Terminal
+                      isTerminal={isTerminal}
+                      setIsTerminal={setIsTerminal}
+                      key={index}
+                    />
+                  )
+                );
+              })}
 
-                  })}
-
-                
               <button
                 type="button"
                 className="flex self-start items-center gap-4 mt-10 disabled:text-color-grey-4 disabled:cursor-not-allowed"
