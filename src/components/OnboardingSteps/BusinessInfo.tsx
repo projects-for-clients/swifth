@@ -9,14 +9,14 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
-
 interface Imagesize {
   cac: string;
   license: string;
   error: {
     cac: boolean;
     license: boolean;
-  }
+    logo: boolean;
+  };
 }
 
 const businessInfo = () => {
@@ -43,8 +43,9 @@ const businessInfo = () => {
     license: '',
     error: {
       cac: false,
-      license: false
-    }
+      license: false,
+      logo: false,
+    },
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
@@ -64,7 +65,10 @@ const businessInfo = () => {
     handleInputChange(data, 'businessInfo');
   };
 
-  const uploadDetailsHandler = (e: ChangeEvent<HTMLInputElement>, type: 'cac' | 'license') => {
+  const uploadDetailsHandler = (
+    e: ChangeEvent<HTMLInputElement>,
+    type: 'cac' | 'license' | 'logo'
+  ) => {
     const { files } = e.target;
 
     if (files) {
@@ -82,8 +86,8 @@ const businessInfo = () => {
           [type]: `${MBSize.toFixed(2)}MB`,
           error: {
             ...prev.error,
-            [type]: true
-          }
+            [type]: true,
+          },
         }));
       } else {
         setImageSize((prev) => ({
@@ -91,20 +95,19 @@ const businessInfo = () => {
           [type]: `${KBSize}KB`,
           error: {
             ...prev.error,
-            [type]: false
-          }
+            [type]: false,
+          },
         }));
       }
 
       if (type === 'cac') {
         setCacDetails(path.name);
-      } else {
+      }
+      if (type === 'license') {
         setLicenseDetails(path.name);
       }
     }
-
-  }
-  
+  };
 
   const licenseUploadHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -121,8 +124,6 @@ const businessInfo = () => {
 
     handleInputChange(data, 'businessInfo');
   };
-
-  
 
   const logoUploadHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -181,6 +182,7 @@ const businessInfo = () => {
               id="logoUpload"
               accept="image/*"
               className="hidden"
+              onChange={(e) => uploadDetailsHandler(e, 'logo')}
               onClick={(e) => logoUploadHandler(e, 'logoUpload')}
             />
             <div>
