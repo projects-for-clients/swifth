@@ -263,9 +263,9 @@ const businessInfo = () => {
                 defaultValue={businessName}
               />
               {validationErrors && validationErrors.businessName && (
-                  <p className="text-red-600 text-[1.2rem]">
-                    {validationErrors.businessName}
-                  </p>
+                <p className="text-red-600 text-[1.2rem]">
+                  {validationErrors.businessName}
+                </p>
               )}
             </div>
             <div className="grid gap-4 w-full">
@@ -291,6 +291,12 @@ const businessInfo = () => {
                   />
                 )}
               </div>
+              {validationErrors &&
+                validationErrors.customLicenseExpirationDate && (
+                  <p className="text-red-600 text-[1.2rem]">
+                    {validationErrors.customLicenseExpirationDate}
+                  </p>
+                )}
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Office Address</label>
@@ -301,6 +307,11 @@ const businessInfo = () => {
                 name="officeAddress"
                 defaultValue={officeAddress}
               />
+              {validationErrors && validationErrors.officeAddress && (
+                <p className="text-red-600 text-[1.2rem]">
+                  {validationErrors.officeAddress}
+                </p>
+              )}
             </div>
           </div>
           <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold">
