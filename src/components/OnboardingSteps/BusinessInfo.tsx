@@ -26,7 +26,7 @@ const businessInfo = () => {
     validationErrors,
     onboardingInputs
   } = useContext(OnboardingContext);
-  
+
    const {
      businessName,
      officeAddress,
@@ -119,7 +119,7 @@ const businessInfo = () => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     handleInputChange(changeEvent, key);
 
-    console.log({ businessInfo });
+    console.log(onboardingInputs.businessInfo);
   };
 
  
