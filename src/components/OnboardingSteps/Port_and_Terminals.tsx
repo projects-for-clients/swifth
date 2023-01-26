@@ -38,7 +38,6 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
     setToggleSelectMenu(false);
   };
 
-
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     value: string
@@ -81,7 +80,9 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
       }}
     >
       <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
-        <label className="text-[1.4rem] text-color-dark-1">Choose Terminal</label>
+        <label className="text-[1.4rem] text-color-dark-1">
+          Choose Terminal
+        </label>
         <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
           <p
             className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
@@ -186,13 +187,10 @@ const PortAndTerminals = () => {
   const port: Port[] = ['Lagos', 'Onitsha'];
   const [selectedItem, setSelectedItem] = useState<Port | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
+  const [showNext, setShowNext] = useState(false);
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const handleSelectedItem = (item: Port) => {
-    setSelectedItem(item);
-    setToggleSelectMenu(false);
-  };
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
@@ -203,17 +201,15 @@ const PortAndTerminals = () => {
     handleStep('personalInfo');
   };
 
-  useEffect(() => {
-    console.log({ isTerminal });
-  }, [isTerminal]);
-
-  const addTerminal = (e: MouseEvent<HTMLButtonElement>) => {
+  const addTerminal = (_: MouseEvent<HTMLButtonElement>) => {
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
 
-  useEffect(() => {
-    console.log({ terminalCount });
-  }, [terminalCount]);
+  const selectItemHandler = (_: MouseEvent, item: Port) => {
+    setSelectedItem(item);
+    setToggleSelectMenu(false);
+    setShowNextCount(true)
+  };
 
   return (
     <>
@@ -247,7 +243,11 @@ const PortAndTerminals = () => {
                     className="border  p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
                     onClick={selectMenuToggler}
                   >
-                    {selectedItem ? selectedItem : 'Select Port'}
+                    {selectedItem ? (
+                      selectedItem
+                    ) : (
+                      <span className="text-gray-400">Select Port</span>
+                    )}
                   </p>
 
                   {toggleSelectMenu && (
@@ -256,7 +256,7 @@ const PortAndTerminals = () => {
                         <p
                           className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
                           key={index}
-                          onClick={() => handleSelectedItem(item)}
+                          onClick={(e) => selectItemHandler(e, item)}
                         >
                           {item}
                         </p>
@@ -270,16 +270,22 @@ const PortAndTerminals = () => {
                   )}
                 </div>
               </div>
-              {terminalCount.map((_, index) => {
-                return (
-                  <Terminal
-                    isTerminal={isTerminal}
-                    setIsTerminal={setIsTerminal}
-                    key={index}
-                  />
-                );
-              })}
+            
 
+                  {terminalCount.map((_, index) => {
+                   return (
+                     showNext && (
+                       <Terminal
+                         isTerminal={isTerminal}
+                         setIsTerminal={setIsTerminal}
+                         key={index}
+                       />
+                     )
+                   );
+
+                  })}
+
+                
               <button
                 type="button"
                 className="flex self-start items-center gap-4 mt-10 disabled:text-color-grey-4 disabled:cursor-not-allowed"
