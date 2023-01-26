@@ -209,7 +209,7 @@ const businessInfo = () => {
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{cacDetails}</p>
 
-                  {imageSize?.error ? (
+                  {imageSize?.error.cac ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
@@ -256,9 +256,15 @@ const businessInfo = () => {
               {licenseDetails ? (
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
-                  <p className="text-color-grey-4 text-[1rem]">
-                    {imageSize.license}
-                  </p>
+                  {imageSize?.error.license ? (
+                    <p className="text-red-600 text-[1.2rem]">
+                      File size must not exceed 2MB
+                    </p>
+                  ) : (
+                    <p className="text-color-grey-4 text-[1rem]">
+                      {imageSize.license}
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="grid">
