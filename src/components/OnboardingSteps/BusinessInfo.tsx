@@ -285,7 +285,11 @@ const businessInfo = () => {
                 <input
                   type="text"
                   placeholder="select Date"
-                  className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full ${
+                    validationErrors && validationErrors.customLicenseUri
+                      ? 'border-red-600 border animate__animated animate__shakeX'
+                      : ''
+                  }`}
                   name="customLicenseExpirationDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
@@ -312,7 +316,11 @@ const businessInfo = () => {
               <input
                 type="text"
                 placeholder="Enter Address"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full ${
+                  validationErrors && validationErrors.officeAddress
+                    ? 'border-red-600 border animate__animated animate__shakeX'
+                    : ''
+                }`}
                 name="officeAddress"
                 defaultValue={officeAddress}
               />
