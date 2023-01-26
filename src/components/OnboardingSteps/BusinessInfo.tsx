@@ -54,7 +54,7 @@ const businessInfo = () => {
 
     setIsDisabled(isDisabled);
   }, [onboardingInputs.businessInfo]);
-  
+
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -357,7 +357,7 @@ const businessInfo = () => {
               )}
             </div>
           </div>
-          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold">
+          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold disabled:opacity-60 disabled:cursor-not-allowed" disabled={isDisabled} >
             Continue
           </button>
         </form>
