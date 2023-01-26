@@ -144,7 +144,7 @@ const businessInfo = () => {
 
         <form className="grid gap-10 " onSubmit={handleFormSubmit}>
           <label
-            htmlFor="logoUpload"
+            htmlFor="logoUri"
             className="flex gap-8 items-center cursor-pointer w-max"
           >
             <img
@@ -154,7 +154,7 @@ const businessInfo = () => {
             />
             <input
               type="file"
-              id="logoUpload"
+              id="logoUri"
               accept="image/*"
               className="hidden"
               onChange={(e) => uploadDetailsHandler(e, 'logo')}
@@ -179,7 +179,7 @@ const businessInfo = () => {
 
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
-              htmlFor="cacUpload"
+              htmlFor="cacUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.cacUri) ||
                 imageSize.error.cac
@@ -222,15 +222,15 @@ const businessInfo = () => {
             </label>
             <input
               type="file"
-              name="cacUpload"
-              id="cacUpload"
+              name="cacUri"
+              id="cacUri"
               accept="image/*"
               className="hidden"
               onClick={(e) => uploadUriHandler(e, 'cacUri')}
               onChange={(e) => uploadDetailsHandler(e, 'cac')}
             />
             <label
-              htmlFor="licenseUpload"
+              htmlFor="licenseUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.licenseUri) ||
                 imageSize.error.license
@@ -270,8 +270,8 @@ const businessInfo = () => {
             </label>
             <input
               type="file"
-              name="licenseUpload"
-              id="licenseUpload"
+              name="licenseUri"
+              id="licenseUri"
               accept="image/*"
               className="hidden"
               onClick={(e) => uploadUriHandler(e, 'licenseUri')}
