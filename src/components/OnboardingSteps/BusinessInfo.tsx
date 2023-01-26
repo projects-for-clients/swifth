@@ -200,13 +200,13 @@ const businessInfo = () => {
               htmlFor="cacUpload"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.cacCertificateUri) ||
-                imageSize?.error
+                imageSize.error.cac
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
               {(validationErrors && validationErrors.cacCertificateUri) ||
-              imageSize?.error ? (
+              imageSize.error.cac ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
@@ -250,12 +250,14 @@ const businessInfo = () => {
             <label
               htmlFor="licenseUpload"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                validationErrors && validationErrors.customLicenseUri
+                (validationErrors && validationErrors.customLicenseUri) ||
+                imageSize.error.license
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {validationErrors && validationErrors.customLicenseUri ? (
+              {(validationErrors && validationErrors.customLicenseUri) ||
+              imageSize.error.license ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
