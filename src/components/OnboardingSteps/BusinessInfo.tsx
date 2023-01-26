@@ -193,7 +193,13 @@ const businessInfo = () => {
                 <p className="text-red-600 text-[1.2rem]">
                   {validationErrors.cacCertificateUri}
                 </p>
-              )}
+              )}{
+                imageSize.error.logo && (
+                  <p className="text-red-600 text-[1.2rem]">
+                    Image size should not exceed 2MB
+                  </p>
+                )
+              }
             </div>
           </label>
 
