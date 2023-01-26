@@ -3,6 +3,7 @@ import {
   FormEvent,
   MouseEvent,
   useContext,
+  useEffect,
   useState,
 } from 'react';
 import Header from '../../components/dashboard/Header';
@@ -122,6 +123,11 @@ const businessInfo = () => {
     console.log(onboardingInputs.businessInfo);
   };
 
+
+  useEffect(() => {
+    console.log(onboardingInputs.businessInfo);
+
+  }, [onboardingInputs.businessInfo]])
  
 
   return (
