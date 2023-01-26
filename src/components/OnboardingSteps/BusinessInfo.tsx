@@ -189,9 +189,18 @@ const businessInfo = () => {
           <div className="grid grid-cols-2 gap-4 items-center justify-between">
             <label
               htmlFor="cacUpload"
-              className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
+              className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
+                validationErrors && validationErrors.cacCertificateUri
+                  ? 'border-red-600 border bg-red-50'
+                  : 'border-color-purple-light'
+              }`}
             >
-              <img src="/icons/admin/upload.svg" alt="" />
+              {validationErrors && validationErrors.cacCertificateUri ? (
+                <img src="/icons/admin/uploadError.svg" alt="" />
+              ) : (
+                <img src="/icons/admin/upload.svg" alt="" />
+              )}
+
               {cacDetails ? (
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{cacDetails}</p>
@@ -201,7 +210,7 @@ const businessInfo = () => {
                 </div>
               ) : (
                 <div className="grid">
-                  <p>Upload CAC Certificate</p>
+                  <p className='text-color-grey-3'>Upload CAC Certificate</p>
 
                   {validationErrors && validationErrors.cacCertificateUri && (
                     <p className="text-red-600 text-[1.2rem]">
