@@ -158,7 +158,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   );
 };
 
-const PersonalInfo = () => {
+const PortAndTerminals = () => {
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
@@ -259,4 +259,4 @@ const PersonalInfo = () => {
   );
 };
 
-export default PersonalInfo;
+export default PortAndTerminals;
