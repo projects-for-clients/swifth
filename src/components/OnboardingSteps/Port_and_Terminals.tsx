@@ -12,7 +12,7 @@ import { GrDown, GrUp } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
-import SelectInput from '../utils/selectInput';
+import SelectInput from '../utils/SelectInput';
 
 interface ITerminal {
   isTerminal: boolean;
@@ -68,9 +68,9 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
       }}
     >
-      <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
-       
-      </div>
+      <div
+        className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}
+      ></div>
       {isTerminal && (
         <>
           <div className="flex items-center w-full">
@@ -115,7 +115,6 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
                   e.target.type = 'date';
                   setShowCalendarIcon(false);
                 }}
-              
               />
               {showCalendarIcon && (
                 <img
@@ -132,14 +131,14 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   );
 };
 
-
 const PortAndTerminals = () => {
   const port = ['Lagos', 'Onitsha'];
-  
+
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
+  const [countEnabled, setCountEnabled] = useState(0);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -181,8 +180,21 @@ const PortAndTerminals = () => {
         <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
             <div className="grid gap-10 mt-4 ">
-              <SelectInput items={port} placeholder='Select Port' label='Choose Port'/>
-              <SelectInput items={['Terminal1', 'Terminal2']} placeholder='Select Terminal' label='Choose Terminal'/>
+              <SelectInput
+                items={port}
+                placeholder="Select Port"
+                label="Choose Port"
+                setCountEnabled={setCountEnabled}
+              />
+              {countEnabled === 1 && (
+                <SelectInput
+                  items={['Terminal1', 'Terminal2']}
+                  placeholder="Select Terminal"
+                  label="Choose Terminal"
+                  countEnabled={countEnabled}
+                  setCountEnabled={setCountEnabled}
+                />
+              )}
 
               {terminalCount.map((_, index) => {
                 return (

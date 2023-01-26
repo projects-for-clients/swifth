@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
 
 
@@ -6,9 +6,11 @@ interface ISelectInput {
     items: string[]
     placeholder: string
     label: string
+    countEnabled?: number
+    setCountEnabled?: Dispatch<SetStateAction<number>>
 }
 
-const SelectInput:FC<ISelectInput> = ({items, placeholder, label}) => {
+const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setCountEnabled}) => {
 
 
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
@@ -19,6 +21,10 @@ const SelectInput:FC<ISelectInput> = ({items, placeholder, label}) => {
   const handleSelectedSort = (item: typeof selectedSort) => {
     setSelectedSort(item);
     setToggleSortMenu(false);
+    setCountEnabled && setCountEnabled(prev => {
+      if(prev === 0) return 1
+      return prev
+    });
   };
 
   return (
@@ -28,10 +34,10 @@ const SelectInput:FC<ISelectInput> = ({items, placeholder, label}) => {
 
         
         <p
-          className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left"
+          className="border  p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left"
           onClick={sortMenuToggler}
         >
-          { selectedSort ? selectedSort : <span className='bg-green-600'>placeholder</span>}
+          { selectedSort ? selectedSort : <span className='text-gray-500'>{placeholder}</span>}
         </p>
 
         {toggleSortMenu && (
