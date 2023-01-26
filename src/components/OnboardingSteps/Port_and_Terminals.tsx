@@ -11,7 +11,7 @@ import {
 import { GrDown } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
-import { getPhotoUrl } from '../../utils/getPhotoUri';
+import { getPhotoUri } from '../../utils/getPhotoUri';
 
 interface ITerminal {
   isTerminal: boolean;
@@ -159,14 +159,14 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
 };
 
 const PersonalInfo = () => {
-  const { setStep } = useContext(OnboardingContext);
+  const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setStep(2);
+    handleStep(2);
   };
 
   useEffect(() => {

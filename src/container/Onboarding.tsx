@@ -42,7 +42,7 @@ const Onboarding = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
     const { name, value } = e.target;
 
-    console.log({ name, value });
+    setValidationErrors(null)
     setOnboardingInputs((prev) => ({
       ...prev,
       [key]: {
@@ -134,6 +134,11 @@ const Onboarding = () => {
     const isValid = formValidate();
     
     console.log({ isValid, validationErrors});
+    if (!isValid) {
+      return;
+    }
+
+    setStep(e);
   }
 
   return (

@@ -152,6 +152,7 @@ const businessInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     handleInputChange(changeEvent, key);
+    
   };
 
   return (
@@ -253,7 +254,7 @@ const businessInfo = () => {
               <input
                 type="text"
                 placeholder="Enter business name"
-                className={`rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full ${
+                className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full ${
                   validationErrors && validationErrors.businessName
                     ? 'border-red-600 border animate__animated animate__shakeX'
                     : ''
