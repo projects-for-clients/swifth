@@ -200,9 +200,7 @@ const PortAndTerminals = () => {
           <div>
             <div className="grid gap-10 mt-4 ">
               <SelectInput items={port} defaultSelected='Lagos' label='Choose Port'/>
-              <SelectInput items={port} defaultSelected='Lagos' label='Choose Port'/>
-              <SelectInput items={port} defaultSelected='Lagos' label='Choose School'/>
-              <SelectInput items={port} defaultSelected='Lagos' label='Choose Port'/>
+         
 
               {terminalCount.map((_, index) => {
                 return (
