@@ -8,7 +8,7 @@ import {
   useReducer,
   useState,
 } from 'react';
-import { GrDown } from 'react-icons/gr';
+import { GrDown, GrUp } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
@@ -68,25 +68,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
       }}
     >
       <div className={`grid gap-4 ${isTerminal ? 'w-full' : 'w-[33rem]'}`}>
-        <label className="text-[1.4rem]">Choose Terminal</label>
-        <div className="relative flex items-center">
-          <select
-            placeholder="Enter business name"
-            className=" rounded-lg py-4 px-4 outline-none border-none text-[1.4rem] bg-color-grey-1 w-full cursor-pointer appearance-none"
-            onChange={handleSelectChange}
-          >
-            <option value="1" hidden className="cursor-pointer py-3 px-4">
-              Select Terminal
-            </option>
-            <option value="2" className="cursor-pointer py-3 px-4">
-              Onitsha Port
-            </option>
-            <option value="3" className="cursor-pointer py-3 px-4">
-              PH Port
-            </option>
-          </select>
-          <GrDown className="text-[1.3rem] absolute right-3" />
-        </div>
+       
       </div>
       {isTerminal && (
         <>
@@ -158,7 +140,19 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal }) => {
   );
 };
 
+type Port = 'Lagos' | 'Onitsha';
+
 const PortAndTerminals = () => {
+  const port: Port[] = ['Lagos', 'Onitsha'];
+  const [selectedSort, setSelectedSort] = useState<Port>('Lagos');
+  const [toggleSortMenu, setToggleSortMenu] = useState(false);
+
+  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+
+  const handleSelectedSort = (item: Port) => {
+    setSelectedSort(item);
+    setToggleSortMenu(false);
+  };
   const { handleStep } = useContext(OnboardingContext);
 
   const [isTerminal, setIsTerminal] = useState(false);
@@ -205,23 +199,33 @@ const PortAndTerminals = () => {
           <div>
             <div className="grid gap-10 mt-4 ">
               <div className="grid gap-4 w-[33rem] items-center">
-                <label className="text-[1.4rem]">Choose Port</label>
-                <div className="relative flex items-center">
-                  <select
-                    placeholder="Enter business name"
-                    className=" rounded-lg py-4 px-4 outline-none border-none bg-color-grey-1 w-full cursor-pointer appearance-none text-[1.4rem]"
+                <label className="text-[1.4rem] text-color-dark-1">Choose Port</label>
+                <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
+                  <p
+                    className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
+                    onClick={sortMenuToggler}
                   >
-                    <option value="1" className="cursor-pointer py-3 px-4">
-                      Lagos Port
-                    </option>
-                    <option value="2" className="cursor-pointer py-3 px-4">
-                      Onitsha Port
-                    </option>
-                    <option value="3" className="cursor-pointer py-3 px-4">
-                      PH Port
-                    </option>
-                  </select>
-                  <GrDown className="text-[1.3rem] absolute right-3" />
+                    {selectedSort}
+                  </p>
+
+                  {toggleSortMenu && (
+                    <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
+                      {port.map((item, index) => (
+                        <p
+                          className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+                          key={index}
+                          onClick={() => handleSelectedSort(item)}
+                        >
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                  {toggleSortMenu ? (
+                    <GrUp className="absolute right-4 text-[1.3rem]" />
+                  ) : (
+                    <GrDown className="absolute right-4 text-[1.3rem]" />
+                  )}
                 </div>
               </div>
               {terminalCount.map((_, index) => {
