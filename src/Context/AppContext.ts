@@ -22,9 +22,11 @@ namespace Onboarding {
 
   export interface PortsAndTerminal {
     port: string;
-    terminal: string;
-    formCUri: string;
-    formCExpirationDate: string;
+    terminalList: {
+      terminal: string;
+      formCUri: string;
+      formCExpirationDate: string;
+    }[];
   }
 
   export interface PersonalInfo {
