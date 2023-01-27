@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Dispatch, SetStateAction, useContext } from 'react';
 import {
   ChangeEvent,
   FC,
@@ -17,11 +17,19 @@ interface ITerminal {
   isTerminal: boolean;
   setIsTerminal: (value: boolean) => void;
   id: number;
+  terminalCount: number[];
+  setIsError: Dispatch<SetStateAction<boolean>>;
 }
 
 type Terminal = 'Terminal 1' | 'Terminal 2' | 'Terminal 3';
 
-const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
+const Terminal: FC<ITerminal> = ({
+  isTerminal,
+  setIsTerminal,
+  id,
+  terminalCount,
+  setIsError,
+}) => {
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
@@ -50,9 +58,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
   ) => {
     const getUri = await getPhotoUri(key);
     setFormCUri(getUri);
-    
   };
-  
 
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -101,7 +107,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
           value: {
             terminal: selectedItem,
             formCUri: imageDetails.error ? '' : formCUri,
-            formCExpirationDate: dateChange
+            formCExpirationDate: dateChange,
           },
         },
       } as unknown as ChangeEvent<HTMLInputElement>;
@@ -110,11 +116,19 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
     }
   }, [selectedItem, formCUri, dateChange]);
 
+  useEffect(() => {
+ 
+
+    if (terminalCount.length > 1 && !selectedItem) {
+      setIsError(true);
+    }
+    
+  }, [terminalCount, selectedItem]);
+
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const date = new Date(e.target.value).toLocaleDateString();
     setDateChange(date);
-  }
-
+  };
 
   return (
     <section
@@ -215,7 +229,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
                 onChange={handleDateChange}
                 onFocus={(e) => {
                   e.target.type = 'date';
-                  e.target.min=new Date().toISOString().split('T')[0]
+                  e.target.min = new Date().toISOString().split('T')[0];
                   setShowCalendarIcon(false);
                 }}
               />
@@ -241,18 +255,24 @@ const PortAndTerminals = () => {
   const [selectedItem, setSelectedItem] = useState<Port | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
   const [showNext, setShowNext] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
-  const { handleStep, handleInputChange } =
-    useContext(OnboardingContext);
+  const { handleStep, handleInputChange } = useContext(OnboardingContext);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    handleStep('personalInfo');
+    if(isError) {
+      console.log('error')
+    }
+    else{
+      console.log('no error')
+      handleStep('personalInfo');
+    }
   };
 
   const addTerminal = (_: MouseEvent<HTMLButtonElement>) => {
@@ -266,11 +286,6 @@ const PortAndTerminals = () => {
   };
 
   useEffect(() => {
-    console.log({ terminalCount });
-  }, [terminalCount])
-
-
-   useEffect(() => {
     if (selectedItem) {
       const data = {
         target: {
@@ -281,9 +296,7 @@ const PortAndTerminals = () => {
 
       handleInputChange(data, 'port');
     }
-
-    
-   }, [selectedItem]);
+  }, [selectedItem]);
 
   return (
     <>
@@ -305,10 +318,7 @@ const PortAndTerminals = () => {
           <img src="/icons/admin/barEmpty.svg" alt="" />
         </div>
 
-        <form
-          className="grid gap-10"
-          onSubmit={handleFormSubmit}
-        >
+        <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
             <div className="grid gap-10 mt-4 ">
               <div className="grid gap-4 w-[33rem] items-center">
@@ -354,6 +364,8 @@ const PortAndTerminals = () => {
                     <Terminal
                       isTerminal={isTerminal}
                       setIsTerminal={setIsTerminal}
+                      terminalCount={terminalCount}
+                      setIsError={setIsError}
                       key={index}
                       id={index}
                     />
