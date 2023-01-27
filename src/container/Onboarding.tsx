@@ -24,7 +24,7 @@ const Onboarding = () => {
       businessName: '',
       officeAddress: '',
       cacUri: '',
-      licenseExpirationDate: '',
+      licenseExpirationDate: null,
       licenseUri: '',
       logoUri: '',
     },
@@ -36,7 +36,7 @@ const Onboarding = () => {
       fullName: '',
       email: '',
       phoneNumber: '',
-      IdCardExpirationDate: '',
+      IdCardExpirationDate: null,
       IdCardUri: '',
       IdCardNumber: 0,
       IdCardType: '',
@@ -173,6 +173,9 @@ const Onboarding = () => {
     return true;
   };
 
+  useEffect(() => {
+    console.log(onboardingInputs);
+  }, [onboardingInputs]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();

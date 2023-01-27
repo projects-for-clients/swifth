@@ -17,7 +17,7 @@ namespace Onboarding {
     logoUri: string;
     cacUri: string;
     licenseUri: string;
-    licenseExpirationDate: string;
+    licenseExpirationDate: Date | null;
   }
 
   export interface PortsAndTerminal {
@@ -25,7 +25,7 @@ namespace Onboarding {
     terminalList: {
       terminal: string;
       formCUri: string;
-      formCExpirationDate: string;
+      formCExpirationDate: Date | null;
     }[];
   }
 
@@ -34,7 +34,7 @@ namespace Onboarding {
     email: string;
     phoneNumber: string;
     IdCardUri: string;
-    IdCardExpirationDate: string;
+    IdCardExpirationDate: Date | null;
     proofOfAddressUri: string;
     IdCardType: string;
     IdCardNumber: number;
