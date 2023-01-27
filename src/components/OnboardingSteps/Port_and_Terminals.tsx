@@ -18,6 +18,7 @@ interface ITerminal {
   setIsTerminal: (value: boolean) => void;
   id: number;
   terminalCount: number[];
+  isError: boolean;
   setIsError: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -29,6 +30,7 @@ const Terminal: FC<ITerminal> = ({
   id,
   terminalCount,
   setIsError,
+  isError,
 }) => {
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
@@ -117,12 +119,9 @@ const Terminal: FC<ITerminal> = ({
   }, [selectedItem, formCUri, dateChange]);
 
   useEffect(() => {
- 
-
     if (terminalCount.length > 1 && !selectedItem) {
       setIsError(true);
     }
-    
   }, [terminalCount, selectedItem]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,16 +141,25 @@ const Terminal: FC<ITerminal> = ({
           Choose Terminal
         </label>
         <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
-          <p
-            className="border p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
-            onClick={selectMenuToggler}
-          >
-            {selectedItem ? (
-              selectedItem
-            ) : (
-              <span className="text-gray-400">Select Terminal</span>
-            )}{' '}
-          </p>
+          <div className='w-full'>
+            <p
+              className={`border p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left ${
+                !selectedItem && isError ? 'border-red-400' : ''
+              }`}
+              onClick={selectMenuToggler}
+            >
+              {selectedItem ? (
+                selectedItem
+              ) : (
+                <span className="text-gray-400">Select Terminal</span>
+              )}{' '}
+            </p>
+            {!selectedItem  && isError ? (
+              <span>
+                <span className="text-red-500">Field cannot be empty</span>
+              </span>
+            ) : null}
+          </div>
 
           {toggleSelectMenu && (
             <div className="absolute top-[5rem]  left-0 border w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
@@ -266,11 +274,10 @@ const PortAndTerminals = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if(isError) {
-      console.log('error')
-    }
-    else{
-      console.log('no error')
+    if (isError) {
+      console.log('error');
+    } else {
+      console.log('no error');
       handleStep('personalInfo');
     }
   };
@@ -366,6 +373,7 @@ const PortAndTerminals = () => {
                       setIsTerminal={setIsTerminal}
                       terminalCount={terminalCount}
                       setIsError={setIsError}
+                      isError={isError}
                       key={index}
                       id={index}
                     />
