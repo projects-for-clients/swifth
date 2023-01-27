@@ -30,7 +30,7 @@ const Onboarding = () => {
     },
     portsAndTerminal: {
       port: '',
-      terminalList: []
+      terminalList: [],
     },
     personalInfo: {
       fullName: '',
@@ -68,7 +68,7 @@ const Onboarding = () => {
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
-    key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'|any
+    key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal' | any
   ) => {
     const { name, value } = e.target;
 
@@ -94,7 +94,7 @@ const Onboarding = () => {
           portsAndTerminal: {
             ...onboardingInputs.portsAndTerminal,
             [name]: value,
-          }
+          },
         },
       });
     }
@@ -108,8 +108,8 @@ const Onboarding = () => {
             terminalList: {
               ...onboardingInputs.portsAndTerminal.terminalList,
               [name]: value,
-            }
-          }
+            },
+          },
         },
       });
     }
@@ -164,6 +164,26 @@ const Onboarding = () => {
 
         setValidationErrors(errors);
       }
+    }
+
+    if (!portsAndTerminal.port) {
+      errors['port'] = 'This field is required';
+
+      setValidationErrors(errors);
+    }
+
+    for (const key in portsAndTerminal.terminalList) {
+      Object.entries(portsAndTerminal.terminalList[key]).forEach(
+        (terminal: [key: string, value: string]) => {
+          const [key,value] = terminal
+          console.log(key,value)
+          // if (terminal === '') {
+          //   errors['terminal'] = 'This field is required';
+
+          //   setValidationErrors(errors);
+          // }
+        }
+      );
     }
 
     if (Object.keys(errors).length > 0) {
