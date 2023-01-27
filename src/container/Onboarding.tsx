@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useReducer, useState } from 'react';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
@@ -11,11 +11,14 @@ import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
-   const [step, setStep] = useState<Step>('portsAndTerminal');
-  const [validationErrors, setValidationErrors] =
-    useState<ValidationErrors | null>(null);
-    
-  const [onboardingInputs, setOnboardingInputs] = useState<OnboardingInputs>({
+
+  interface Action {
+  type: string;
+  payload: OnboardingInputs;
+}
+
+
+  const initialState:OnboardingInputs = {
     businessInfo: {
       businessName: '',
       officeAddress: '',
@@ -33,7 +36,7 @@ const Onboarding = () => {
           formCUri: '',
         },
       ]
-      
+
     },
     personalInfo: {
       fullName: '',
@@ -45,19 +48,48 @@ const Onboarding = () => {
       IdCardType: '',
       proofOfAddressUri: '',
     },
-  });
+  }
+   const [step, setStep] = useState<Step>('businessInfo');
+  const [validationErrors, setValidationErrors] =
+    useState<ValidationErrors | null>(null);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: string) => {
+  const [onboardingInputs, setOnboardingInputs] = useReducer(
+    (state: OnboardingInputs, action: Action) => {
+      switch (action.type) {
+        case 'UPDATE_BUSINESS_INFO':
+          return { ...state, businessInfo: action.payload.businessInfo };
+        case 'UPDATE_PORTS_AND_TERMINAL':
+          return {
+            ...state,
+            portsAndTerminal: action.payload.portsAndTerminal,
+          };
+        case 'UPDATE_PERSONAL_INFO':
+          return { ...state, personalInfo: action.payload.personalInfo };
+        default:
+          return state;
+      }
+    },
+    initialState
+  );
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: 'businessInfo' | 'portAndTerminals' | 'personalInfo' | any) => {
     const { name, value } = e.target;
 
     setValidationErrors(null);
-    setOnboardingInputs((prev) => ({
-      ...prev,
-      [key]: {
-        ...prev.businessInfo,
-        [name]: value,
+
+
+
+    setOnboardingInputs({
+      type: 'UPDATE_BUSINESS_INFO',
+      payload: {
+        ...onboardingInputs,
+        businessInfo: {
+          ...onboardingInputs.businessInfo,
+          [name]: value,
+        },
       },
-    }));
+    });
+
   };
 
   const formValidate = (): boolean => {
@@ -118,6 +150,10 @@ const Onboarding = () => {
 
     return true;
   };
+
+  useEffect(() => {
+    console.log(onboardingInputs);
+  }, [onboardingInputs])
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
