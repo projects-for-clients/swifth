@@ -36,7 +36,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
-  const [dateChange, setDateChange] = useState<Date | null>(null);
+  const [dateChange, setDateChange] = useState('');
   const [formCUri, setFormCUri] = useState('');
   const [selectedItem, setSelectedItem] = useState<Terminal | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
@@ -111,7 +111,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
   }, [selectedItem, formCUri, dateChange]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const date = new Date(e.target.value);
+    const date = new Date(e.target.value).toLocaleDateString();
     setDateChange(date);
   }
 
