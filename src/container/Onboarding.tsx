@@ -173,9 +173,6 @@ const Onboarding = () => {
     return true;
   };
 
-  useEffect(() => {
-    console.log(onboardingInputs);
-  }, [onboardingInputs]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();

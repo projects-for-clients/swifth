@@ -24,7 +24,6 @@ function Sidebar() {
 
   const selectDashboard = document.querySelector('.dashboard__home')
   useEffect(() => {
-    console.log(menuCheckboxRef.current?.checked)
 
     if(menuCheckboxRef.current?.checked){
       selectDashboard?.classList.toggle('dashboard__home--mobile')
