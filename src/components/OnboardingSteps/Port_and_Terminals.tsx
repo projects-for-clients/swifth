@@ -234,6 +234,7 @@ const PortAndTerminals = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
     handleStep('personalInfo');
+
   };
 
   const addTerminal = (_: MouseEvent<HTMLButtonElement>) => {

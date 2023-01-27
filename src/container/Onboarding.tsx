@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
-   const [step, setStep] = useState<Step>('portsAndTerminal');
+   const [step, setStep] = useState<Step>('businessInfo');
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
     
@@ -70,8 +70,6 @@ const Onboarding = () => {
 
     const errors = {} as ValidationErrors;
     for (const key in businessInfo) {
-      console.log({ key });
-      //Validation for the first step
 
       switch (key) {
         case 'businessName':
