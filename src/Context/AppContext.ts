@@ -41,24 +41,25 @@ namespace Onboarding {
   }
 
   export interface ValidationErrors {
-    businessName: string;
-    officeAddress: string;
-    logoUri: string;
-    cacUri: string;
-    licenseUri: string;
-    licenseExpirationDate: string;
-    port: string;
-    terminal: string;
-    formCUri: string;
-    formCExpirationDate: string;
-    fullName: string;
-    email: string;
-    phoneNumber: string;
-    IdCardUri: string;
-    IdCardExpirationDate: string;
-    proofOfAddressUri: string;
-    IdCardType: string;
-    IdCardNumber: number;
+    // businessName: string;
+    // officeAddress: string;
+    // logoUri: string;
+    // cacUri: string;
+    // licenseUri: string;
+    // licenseExpirationDate: string;
+    // port: string;
+    // terminal: string;
+    // formCUri: string;
+    // formCExpirationDate: string;
+    // fullName: string;
+    // email: string;
+    // phoneNumber: string;
+    // IdCardUri: string;
+    // IdCardExpirationDate: string;
+    // proofOfAddressUri: string;
+    // IdCardType: string;
+    // IdCardNumber: number;
+    [key: string]: string | any
   }
   export interface OnboardingInputs {
     businessInfo: BusinessInfo;

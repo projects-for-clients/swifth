@@ -64,7 +64,7 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(!toggleSelectMenu);
   };
 
-  const { handleInputChange } = useContext(OnboardingContext);
+  const { handleInputChange, onboardingInputs, validationErrors } = useContext(OnboardingContext);
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -113,6 +113,12 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(false);
   };
 
+  const keyId = `terminal${id}`
+  const terminalError = validationErrors && validationErrors[keyId]['formCCertificateUri']
+
+  console.log({terminalError})
+
+
   useEffect(() => {
     if (selectedItem) {
       const data = {
@@ -147,6 +153,8 @@ const Terminal: FC<ITerminal> = ({
     const date = new Date(e.target.value).toLocaleDateString();
     setDateChange(date);
   };
+
+  
 
   return (
     <section
@@ -208,7 +216,8 @@ const Terminal: FC<ITerminal> = ({
             <label
               htmlFor={`formC${id}`}
               className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                imageDetails.error
+                imageDetails.error ||
+                (validationErrors && validationErrors[keyId]['formCUri'])
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
@@ -254,7 +263,12 @@ const Terminal: FC<ITerminal> = ({
               <input
                 type="text"
                 placeholder="select Date"
-                className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                className={` rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer ${
+                  validationErrors &&
+                  validationErrors[keyId]['formCExpirationDate']
+                    ? 'border-red-600 border bg-red-50'
+                    : 'border-color-purple-light bg-color-grey-1'
+                }`}
                 onChange={handleDateChange}
                 onFocus={(e) => {
                   e.target.type = 'date';
