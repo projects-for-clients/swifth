@@ -174,9 +174,11 @@ const Onboarding = () => {
 
     for (const key in portsAndTerminal.terminalList) {
       Object.entries(portsAndTerminal.terminalList[key]).forEach(
-        (terminal: [key: string, value: string]) => {
-          const [key,value] = terminal
-          console.log(key,value)
+        (terminal: [left: string, right: string]) => {
+          const [left,right] = terminal
+          console.log(left, right)
+
+          console.log(key)
           // if (terminal === '') {
           //   errors['terminal'] = 'This field is required';
 
