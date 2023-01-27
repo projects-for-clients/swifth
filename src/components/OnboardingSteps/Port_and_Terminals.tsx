@@ -13,13 +13,17 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
+type ErrorMessage = {
+  message?: string | null;
+  error: boolean;
+};
 interface ITerminal {
   isTerminal: boolean;
   setIsTerminal: (value: boolean) => void;
   id: number;
   terminalCount: number[];
-  isError: boolean;
-  setIsError: Dispatch<SetStateAction<boolean>>;
+  isError: ErrorMessage;
+  setIsError: Dispatch<SetStateAction<ErrorMessage>>;
 }
 
 type Terminal = 'Terminal 1' | 'Terminal 2' | 'Terminal 3';
@@ -51,7 +55,14 @@ const Terminal: FC<ITerminal> = ({
   const [selectedItem, setSelectedItem] = useState<Terminal | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
-  const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
+  const selectMenuToggler = () => {
+    setIsError({
+      error: false,
+      message: null,
+    });
+    setToggleSelectMenu(!toggleSelectMenu);
+  };
+
   const { handleInputChange } = useContext(OnboardingContext);
 
   const uploadUriHandler = async (
@@ -108,7 +119,7 @@ const Terminal: FC<ITerminal> = ({
           name: `terminal${id}`,
           value: {
             terminal: selectedItem,
-            formCUri: imageDetails.error ? '' : formCUri,
+            formCUri: imageDetails.error ? 'too large' : formCUri,
             formCExpirationDate: dateChange,
           },
         },
@@ -120,7 +131,14 @@ const Terminal: FC<ITerminal> = ({
 
   useEffect(() => {
     if (terminalCount.length > 1 && !selectedItem) {
-      setIsError(true);
+      return setIsError({
+        error: true,
+      });
+    } else {
+      setIsError({
+
+        error: false,
+      });
     }
   }, [terminalCount, selectedItem]);
 
@@ -141,10 +159,10 @@ const Terminal: FC<ITerminal> = ({
           Choose Terminal
         </label>
         <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer">
-          <div className='w-full'>
+          <div className="w-full items-center">
             <p
               className={`border p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left ${
-                !selectedItem && isError ? 'border-red-400' : ''
+                !selectedItem && isError.message ? 'border-red-400' : ''
               }`}
               onClick={selectMenuToggler}
             >
@@ -154,9 +172,11 @@ const Terminal: FC<ITerminal> = ({
                 <span className="text-gray-400">Select Terminal</span>
               )}{' '}
             </p>
-            {!selectedItem  && isError ? (
+            {!selectedItem && isError.message ? (
               <span>
-                <span className="text-red-500">Field cannot be empty</span>
+                <span className="text-red-500 absolute -bottom-8 ">
+                  Field cannot be empty
+                </span>
               </span>
             ) : null}
           </div>
@@ -263,7 +283,10 @@ const PortAndTerminals = () => {
   const [selectedItem, setSelectedItem] = useState<Port | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
   const [showNext, setShowNext] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState<ErrorMessage>({
+    message: '',
+    error: false,
+  });
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
@@ -274,10 +297,16 @@ const PortAndTerminals = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (isError) {
+    if (isError.error) {
       console.log('error');
+      setIsError((prev) => {
+        return {
+          ...prev,
+          message: 'Field cannot be empty',
+        };
+      });
+      return;
     } else {
-      console.log('no error');
       handleStep('personalInfo');
     }
   };

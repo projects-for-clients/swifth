@@ -128,7 +128,7 @@ const Onboarding = () => {
 
     const { businessInfo, portsAndTerminal, personalInfo } = onboardingInputs;
 
-    const errors = {} as ValidationErrors;
+    let errors = {} as any ;
     for (const key in businessInfo) {
       switch (key) {
         case 'businessName':
@@ -173,40 +173,28 @@ const Onboarding = () => {
     }
 
     for (const key in portsAndTerminal.terminalList) {
-      console.log({key})
       Object.entries(portsAndTerminal.terminalList[key]).forEach(
         (terminal: [left: string, right: string]) => {
           const [left,right] = terminal
 
-          // console.log(left, right)
-
-          // console.log(errors[key as unknown as keyof typeof errors])
-
+          
           if (right === '') {
-            errors[key as unknown as keyof typeof errors] = {
-              ...errors[key as unknown as keyof typeof errors],
-              [left]: 'This field is required',
-            };
+
+            errors[key] = {
+              ...errors[key],
+              [left]: 'This field is required'
+            }
+
+            console.log(errors)
 
             setValidationErrors(errors);
           }
 
-          // if(right === '') {
-          //   errors['terminal'] = {
-
-          //     [key]: {
-          //       ...[key],
-          //       [left]: 'This field is required'
-          //     }
-          //   }
+         
 
             setValidationErrors(errors);
           }
-          // if (terminal === '') {
-          //   errors['terminal'] = 'This field is required';
-
-          //   setValidationErrors(errors);
-          // }
+          
         
       );
     }
