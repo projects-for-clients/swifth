@@ -13,7 +13,7 @@ import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 const Onboarding = () => {
 
   interface Action {
-  type: string;
+  type: 'UPDATE_BUSINESS_INFO' | 'UPDATE_PORTS_AND_TERMINAL' | 'UPDATE_PERSONAL_INFO';
   payload: OnboardingInputs;
 }
 
@@ -77,18 +77,32 @@ const Onboarding = () => {
 
     setValidationErrors(null);
 
+    if(key === 'businessInfo'){
 
-
-    setOnboardingInputs({
-      type: 'UPDATE_BUSINESS_INFO',
-      payload: {
-        ...onboardingInputs,
-        businessInfo: {
-          ...onboardingInputs.businessInfo,
-          [name]: value,
+      setOnboardingInputs({
+        type: 'UPDATE_BUSINESS_INFO',
+        payload: {
+          ...onboardingInputs,
+          businessInfo: {
+            ...onboardingInputs.businessInfo,
+            [name]: value,
+          },
         },
-      },
-    });
+      });
+    }
+    if(key === 'portAndTerminals'){
+
+      setOnboardingInputs({
+        type: 'UPDATE_PORTS_AND_TERMINAL',
+        payload: {
+          ...onboardingInputs,
+          portsAndTerminal: {
+            ...onboardingInputs.portsAndTerminal,
+            [name]: value,
+          },
+        },
+      });
+    }
 
   };
 
