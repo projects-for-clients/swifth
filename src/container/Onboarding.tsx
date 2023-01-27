@@ -30,13 +30,7 @@ const Onboarding = () => {
     },
     portsAndTerminal: {
       port: '',
-      terminalList: [
-        {
-          terminal: '',
-          formCExpirationDate: '',
-          formCUri: '',
-        },
-      ],
+      terminalList: []
     },
     personalInfo: {
       fullName: '',
@@ -105,7 +99,6 @@ const Onboarding = () => {
       });
     }
     if (key === 'terminal') {
-      console.log("terminals", name, value)
       setOnboardingInputs({
         type: 'UPDATE_PORTS_AND_TERMINAL',
         payload: {

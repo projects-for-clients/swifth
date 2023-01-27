@@ -93,14 +93,13 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
   };
 
   useEffect(() => {
-    console.log('selectedItem', selectedItem)
     if (selectedItem) {
       const data = {
         target: {
           name: `terminal${id}`,
           value: {
             terminal: selectedItem,
-            formCUri,
+            formCUri: imageDetails.error ? '' : formCUri,
             formCExpirationDate: dateChange
           },
         },
