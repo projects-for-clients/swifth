@@ -49,6 +49,7 @@ const Terminal: FC<ITerminal> = ({
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
+  console.log({id})
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
   const [dateChange, setDateChange] = useState('');
   const [formCUri, setFormCUri] = useState('');

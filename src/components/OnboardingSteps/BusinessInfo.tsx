@@ -27,9 +27,7 @@ const businessInfo = () => {
   const {
     businessName,
     officeAddress,
-    cacUri,
-    licenseUri,
-    licenseExpirationDate,
+ 
     logoUri,
   } = onboardingInputs.businessInfo;
 
