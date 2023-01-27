@@ -247,7 +247,7 @@ const PortAndTerminals = () => {
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
-  const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
+  const { handleStep, handleInputChange } =
     useContext(OnboardingContext);
 
   const handleFormSubmit = (e: FormEvent) => {
