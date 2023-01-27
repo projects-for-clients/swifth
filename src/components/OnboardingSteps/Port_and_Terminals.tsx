@@ -114,7 +114,10 @@ const Terminal: FC<ITerminal> = ({
   };
 
   const keyId = `terminal${id}`
-  const terminalError = validationErrors && validationErrors[keyId]['formCCertificateUri']
+  const terminalError = (val: string) => {
+    
+    validationErrors && validationErrors[keyId][val]
+  } 
 
   console.log({terminalError})
 
