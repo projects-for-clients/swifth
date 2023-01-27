@@ -250,6 +250,8 @@ const PortAndTerminals = () => {
     console.log(terminalCount)
   }, [terminalCount])
 
+ 
+
   return (
     <>
       <Header
@@ -339,7 +341,7 @@ const PortAndTerminals = () => {
             </div>
           </div>
 
-          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold mt-auto">
+          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold mt-auto disabled:opacity-60 disabled:cursor-not-allowed" disabled={!isTerminal} onClick={handleFormSubmit}>
             Continue
           </button>
         </form>

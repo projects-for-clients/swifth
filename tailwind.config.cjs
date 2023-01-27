@@ -8,6 +8,8 @@ module.exports = {
         'color-primary-dark': '#338A56',
         'color-primary-light': '#8CCEA6',
 
+        'color-green-light': '#40AD6B',
+
         'color-tertiary': '#372768',
 
         'color-white': '#fff',
@@ -15,7 +17,6 @@ module.exports = {
         'color-dark': '#0c1018bf',
         'color-dark-1': '#0e2043cc',
         'color-dark-2': '#0E2043',
-
 
         'color-grey': '#D2D4D8',
         'color-grey-1': '#d2d4d84d',
