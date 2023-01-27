@@ -52,17 +52,6 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
     setFormCUri(getUri);
     
   };
-
-  //get today's full date
-  const today = new Date();
-  const dd = String(today.getDate()).padStart(2, '0');
-  const mm = String(today.getMonth() + 1).padStart(2, '0'); 
-  const yyyy = today.getFullYear();
-
-  const todayDate = `${yyyy}-${mm}-${dd}`;
-
-  console.log(todayDate)
-  console.log(new Date().toISOString().split('T')[0]);
   
 
   const formCUploadHandler = (
