@@ -72,7 +72,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
       setImageDetails((prev) => ({
         ...prev,
         error: MBSize > 2 ? true : false,
-        message: MBSize > 2 ? 'File size too large' : null,
+        message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
         size: `${MBSize.toFixed(1)}MB`,
         name,
       }));
@@ -262,16 +262,11 @@ const PortAndTerminals = () => {
     setShowNext(true);
   };
 
-  useEffect(() => {
-    console.log(terminalCount);
-  }, [terminalCount]);
 
-  const setInput = (e: any, item: string) => {
-    console.log({ e, item });
-  };
+
+
 
    useEffect(() => {
-    console.log('selectedItem', selectedItem);
     if (selectedItem) {
       const data = {
         target: {
@@ -309,7 +304,6 @@ const PortAndTerminals = () => {
         <form
           className="grid gap-10"
           onSubmit={handleFormSubmit}
-          onChange={(e) => setInput(e, 'businessInfo')}
         >
           <div>
             <div className="grid gap-10 mt-4 ">
