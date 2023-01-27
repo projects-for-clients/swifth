@@ -16,7 +16,7 @@ import { getPhotoUri } from '../../utils/getPhotoUri';
 interface ITerminal {
   isTerminal: boolean;
   setIsTerminal: (value: boolean) => void;
-  id: number
+  id: number;
 }
 
 type Terminal = 'Terminal 1' | 'Terminal 2' | 'Terminal 3';
@@ -35,32 +35,24 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
+  const [dateChange, setDateChange] = useState('');
+  const [formCUri, setFormCUri] = useState('');
   const [selectedItem, setSelectedItem] = useState<Terminal | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
-
+  const { handleInputChange } = useContext(OnboardingContext);
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
     key: string
   ) => {
     const getUri = await getPhotoUri(key);
-
-    const data = {
-      target: {
-        name: key,
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    console.log({data})
-    // handleInputChange(data, 'businessInfo');
+    setFormCUri(getUri);
+    
   };
 
-  
   const formCUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     value: string
@@ -99,6 +91,29 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
     setSelectedItem(item);
     setToggleSelectMenu(false);
   };
+
+  useEffect(() => {
+    console.log('selectedItem', selectedItem)
+    if (selectedItem) {
+      const data = {
+        target: {
+          name: `terminal${id}`,
+          value: {
+            terminal: selectedItem,
+            formCUri,
+            formCExpirationDate: dateChange
+          },
+        },
+      } as unknown as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'terminal');
+    }
+  }, [selectedItem, formCUri, dateChange]);
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDateChange(e.target.value)
+  }
+
 
   return (
     <section
@@ -196,6 +211,7 @@ const Terminal: FC<ITerminal> = ({ isTerminal, setIsTerminal, id }) => {
                 type="text"
                 placeholder="select Date"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
+                onChange={handleDateChange}
                 onFocus={(e) => {
                   e.target.type = 'date';
                   setShowCalendarIcon(false);
@@ -226,15 +242,15 @@ const PortAndTerminals = () => {
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const { handleStep } = useContext(OnboardingContext);
-
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
+
+  const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
+    useContext(OnboardingContext);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
     handleStep('personalInfo');
-
   };
 
   const addTerminal = (_: MouseEvent<HTMLButtonElement>) => {
@@ -248,13 +264,28 @@ const PortAndTerminals = () => {
   };
 
   useEffect(() => {
-    console.log(terminalCount)
-  }, [terminalCount])
+    console.log(terminalCount);
+  }, [terminalCount]);
 
   const setInput = (e: any, item: string) => {
-    console.log({e, item})
-  }
- 
+    console.log({ e, item });
+  };
+
+   useEffect(() => {
+    console.log('selectedItem', selectedItem);
+    if (selectedItem) {
+      const data = {
+        target: {
+          name: 'port',
+          value: selectedItem,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'port');
+    }
+
+    
+   }, [selectedItem]);
 
   return (
     <>

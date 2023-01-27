@@ -11,14 +11,15 @@ import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
-
   interface Action {
-  type: 'UPDATE_BUSINESS_INFO' | 'UPDATE_PORTS_AND_TERMINAL' | 'UPDATE_PERSONAL_INFO';
-  payload: OnboardingInputs;
-}
+    type:
+      | 'UPDATE_BUSINESS_INFO'
+      | 'UPDATE_PORTS_AND_TERMINAL'
+      | 'UPDATE_PERSONAL_INFO';
+    payload: OnboardingInputs;
+  }
 
-
-  const initialState:OnboardingInputs = {
+  const initialState: OnboardingInputs = {
     businessInfo: {
       businessName: '',
       officeAddress: '',
@@ -35,8 +36,7 @@ const Onboarding = () => {
           formCExpirationDate: '',
           formCUri: '',
         },
-      ]
-
+      ],
     },
     personalInfo: {
       fullName: '',
@@ -48,8 +48,8 @@ const Onboarding = () => {
       IdCardType: '',
       proofOfAddressUri: '',
     },
-  }
-   const [step, setStep] = useState<Step>('portsAndTerminal');
+  };
+  const [step, setStep] = useState<Step>('portsAndTerminal');
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
 
@@ -72,13 +72,15 @@ const Onboarding = () => {
     initialState
   );
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, key: 'businessInfo' | 'portAndTerminals' | 'personalInfo' | any) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'|any
+  ) => {
     const { name, value } = e.target;
 
     setValidationErrors(null);
 
-    if(key === 'businessInfo'){
-
+    if (key === 'businessInfo') {
       setOnboardingInputs({
         type: 'UPDATE_BUSINESS_INFO',
         payload: {
@@ -90,8 +92,7 @@ const Onboarding = () => {
         },
       });
     }
-    if(key === 'portAndTerminals'){
-
+    if (key === 'port') {
       setOnboardingInputs({
         type: 'UPDATE_PORTS_AND_TERMINAL',
         payload: {
@@ -99,11 +100,26 @@ const Onboarding = () => {
           portsAndTerminal: {
             ...onboardingInputs.portsAndTerminal,
             [name]: value,
-          },
+          }
         },
       });
     }
-
+    if (key === 'terminal') {
+      console.log("terminals", name, value)
+      setOnboardingInputs({
+        type: 'UPDATE_PORTS_AND_TERMINAL',
+        payload: {
+          ...onboardingInputs,
+          portsAndTerminal: {
+            ...onboardingInputs.portsAndTerminal,
+            terminalList: {
+              ...onboardingInputs.portsAndTerminal.terminalList,
+              [name]: value,
+            }
+          }
+        },
+      });
+    }
   };
 
   const formValidate = (): boolean => {
@@ -121,7 +137,6 @@ const Onboarding = () => {
 
     const errors = {} as ValidationErrors;
     for (const key in businessInfo) {
-
       switch (key) {
         case 'businessName':
           if (businessInfo[key].length < 3) {
@@ -167,7 +182,7 @@ const Onboarding = () => {
 
   useEffect(() => {
     console.log(onboardingInputs);
-  }, [onboardingInputs])
+  }, [onboardingInputs]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
