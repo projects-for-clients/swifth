@@ -251,6 +251,9 @@ const PortAndTerminals = () => {
     console.log(terminalCount)
   }, [terminalCount])
 
+  const setInput = (e: any, item: string) => {
+    console.log({e, item})
+  }
  
 
   return (
@@ -273,7 +276,11 @@ const PortAndTerminals = () => {
           <img src="/icons/admin/barEmpty.svg" alt="" />
         </div>
 
-        <form className="grid gap-10" onSubmit={handleFormSubmit}>
+        <form
+          className="grid gap-10"
+          onSubmit={handleFormSubmit}
+          onChange={(e) => setInput(e, 'businessInfo')}
+        >
           <div>
             <div className="grid gap-10 mt-4 ">
               <div className="grid gap-4 w-[33rem] items-center">
@@ -342,7 +349,11 @@ const PortAndTerminals = () => {
             </div>
           </div>
 
-          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold mt-auto disabled:opacity-60 disabled:cursor-not-allowed" disabled={!isTerminal} onClick={handleFormSubmit}>
+          <button
+            className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold mt-auto disabled:opacity-60 disabled:cursor-not-allowed"
+            disabled={!isTerminal}
+            onClick={handleFormSubmit}
+          >
             Continue
           </button>
         </form>
