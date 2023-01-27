@@ -126,7 +126,7 @@ const Onboarding = () => {
       return cb(isValid);
     };
 
-    const { businessInfo } = onboardingInputs;
+    const { businessInfo, portsAndTerminal, personalInfo } = onboardingInputs;
 
     const errors = {} as ValidationErrors;
     for (const key in businessInfo) {
