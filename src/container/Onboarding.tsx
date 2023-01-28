@@ -43,7 +43,7 @@ const Onboarding = () => {
       proofOfAddressUri: '',
     },
   };
-  const [step, setStep] = useState<Step>('businessInfo');
+  const [step, setStep] = useState<Step>('portsAndTerminal');
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
 
@@ -129,67 +129,69 @@ const Onboarding = () => {
     const { businessInfo, portsAndTerminal, personalInfo } = onboardingInputs;
 
     let errors = {} as any;
-    for (const key in businessInfo) {
-      switch (key) {
-        case 'businessName':
-          if (businessInfo[key].length < 3) {
-            errors[key] = 'This field must be at least 3 characters long';
+    if (step === 'businessInfo') {
+      for (const key in businessInfo) {
+        switch (key) {
+          case 'businessName':
+            if (businessInfo[key].length < 3) {
+              errors[key] = 'This field must be at least 3 characters long';
 
-            setValidationErrors(errors);
-          }
-          break;
+              setValidationErrors(errors);
+            }
+            break;
 
-        case 'licenseExpirationDate':
-          if (!dayjs(businessInfo[key]).isValid()) {
-            errors[key] = 'Invalid Date';
+          case 'licenseExpirationDate':
+            if (!dayjs(businessInfo[key]).isValid()) {
+              errors[key] = 'Invalid Date';
 
-            setValidationErrors(errors);
-          }
-          break;
+              setValidationErrors(errors);
+            }
+            break;
 
-        case 'officeAddress':
-          if (businessInfo[key].length < 3) {
-            errors[key] = 'This field must be at least 3 characters long';
+          case 'officeAddress':
+            if (businessInfo[key].length < 3) {
+              errors[key] = 'This field must be at least 3 characters long';
 
-            setValidationErrors(errors);
-          }
-          break;
+              setValidationErrors(errors);
+            }
+            break;
+        }
+
+        if (
+          businessInfo[key as keyof typeof businessInfo] === '' ||
+          businessInfo[key as keyof typeof businessInfo] === null
+        ) {
+          errors[key as keyof typeof businessInfo] = 'This field is required';
+
+          setValidationErrors(errors);
+        }
       }
+    }
 
-      if (
-        businessInfo[key as keyof typeof businessInfo] === '' ||
-        businessInfo[key as keyof typeof businessInfo] === null
-      ) {
-        errors[key as keyof typeof businessInfo] = 'This field is required';
+    if (step === 'portsAndTerminal') {
+      if (!portsAndTerminal.port) {
+        errors['port'] = 'This field is required';
 
         setValidationErrors(errors);
       }
-    }
 
-    if (!portsAndTerminal.port) {
-      errors['port'] = 'This field is required';
+      for (const key in portsAndTerminal.terminalList) {
+        Object.entries(portsAndTerminal.terminalList[key]).forEach(
+          (terminal: [left: string, right: string]) => {
+            const [left, right] = terminal;
 
-      setValidationErrors(errors);
-    }
+            if (right === '') {
+              errors[key] = {
+                ...errors[key],
+                [left]: 'This field is required',
+              };
 
-    for (const key in portsAndTerminal.terminalList) {
-      Object.entries(portsAndTerminal.terminalList[key]).forEach(
-        (terminal: [left: string, right: string]) => {
-          const [left, right] = terminal;
-
-          if (right === '') {
-            errors[key] = {
-              ...errors[key],
-              [left]: 'This field is required',
-            };
-
-            setValidationErrors(errors);
+              setValidationErrors(errors);
+            }
           }
-
-        }
-      );
+        );
+      }
     }
-
     console.log(errors);
 
     if (Object.keys(errors).length > 0) {
