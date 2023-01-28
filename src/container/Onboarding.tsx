@@ -43,7 +43,7 @@ const Onboarding = () => {
       proofOfAddressUri: '',
     },
   };
-  const [step, setStep] = useState<Step>('portsAndTerminal');
+  const [step, setStep] = useState<Step>('personalInfo');
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
 
@@ -179,6 +179,15 @@ const Onboarding = () => {
         Object.entries(portsAndTerminal.terminalList[key]).forEach(
           (terminal: [left: string, right: string]) => {
             const [left, right] = terminal;
+
+            console.log({left, right})
+
+            if(right === 'too large'){
+              errors[key] = {
+                ...errors[key],
+                [left]: 'File must not exceed 2MB'
+              }
+            }
 
             if (right === '') {
               errors[key] = {
