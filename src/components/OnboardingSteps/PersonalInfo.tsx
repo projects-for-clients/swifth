@@ -1,15 +1,38 @@
-import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent, useContext, useState } from 'react';
 import Header from '../../components/dashboard/Header';
+import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
+
+interface Imagesize {
+  cac: string;
+  license: string;
+  error: {
+    cac: boolean;
+    license: boolean;
+    logo: boolean;
+  };
+}
+
 const PersonalInfo = () => {
-  const [cacUploadUrl, setCacUploadUrl] = useState<string>(null as any);
-  const [licenseUploadUrl, setLicenseUploadUrl] = useState<string>(null as any);
-  const [imageSize, setImageSize] = useState<{
-    cac: string;
-    license: string;
-  }>(null as any);
+  const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
+    useContext(OnboardingContext);
+    
+ 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+
+   const [cacDetails, setCacDetails] = useState<string>('');
+  const [licenseDetails, setLicenseDetails] = useState<string>('');
+  const [imageSize, setImageSize] = useState<Imagesize>({
+    cac: '',
+    license: '',
+    error: {
+      cac: false,
+      license: false,
+      logo: false,
+    },
+  });
+
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -120,58 +143,107 @@ const PersonalInfo = () => {
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
-              <label
-                htmlFor="cacUpload"
-                className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
-              >
+            <div className="grid grid-cols-2 gap-4 items-center justify-between">
+            <label
+              htmlFor="cacUri"
+              className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
+                (validationErrors && validationErrors.cacUri) ||
+                imageSize.error.cac
+                  ? 'border-red-600 border bg-red-50'
+                  : 'border-color-purple-light'
+              }`}
+            >
+              {(validationErrors && validationErrors.cacUri) ||
+              imageSize.error.cac ? (
+                <img src="/icons/admin/uploadError.svg" alt="" />
+              ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
-                {cacUploadUrl ? (
-                  <div className="grid">
-                    <p className="text-[1.4rem] font-normal">{cacUploadUrl}</p>
+              )}
+
+              {cacDetails ? (
+                <div className="grid">
+                  <p className="text-[1.4rem] font-normal">{cacDetails}</p>
+
+                  {imageSize?.error.cac ? (
+                    <p className="text-red-600 text-[1.2rem]">
+                      File size must not exceed 2MB
+                    </p>
+                  ) : (
                     <p className="text-color-grey-4 text-[1rem]">
                       {imageSize.cac}
                     </p>
-                  </div>
-                ) : (
-                  <p>Upload ID card</p>
-                )}
-                <input
-                  type="file"
-                  name="cacUpload"
-                  id="cacUpload"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => cacUploadHandler(e, 'cacUpload')}
-                />
-              </label>
-              <label
-                htmlFor="licenseUpload"
-                className="flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem]"
-              >
-                <img src="/icons/admin/upload.svg" alt="" />
-                {licenseUploadUrl ? (
-                  <div className="grid">
-                    <p className="text-[1.4rem] font-normal">
-                      {licenseUploadUrl}
+                  )}
+                </div>
+              ) : (
+                <div className="grid">
+                  <p className="text-color-grey-3">Upload CAC Certificate</p>
+
+                  {validationErrors && validationErrors.cacUri && (
+                    <p className="text-red-600 text-[1.2rem]">
+                      {validationErrors.cacUri}
                     </p>
+                  )}
+                </div>
+              )}
+            </label>
+            <input
+              type="file"
+              name="cacUri"
+              id="cacUri"
+              accept="image/*"
+              className="hidden"
+              onClick={(e) => uploadUriHandler(e, 'cacUri')}
+              onChange={(e) => uploadDetailsHandler(e, 'cac')}
+            />
+            <label
+              htmlFor="licenseUri"
+              className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
+                (validationErrors && validationErrors.licenseUri) ||
+                imageSize.error.license
+                  ? 'border-red-600 border bg-red-50'
+                  : 'border-color-purple-light'
+              }`}
+            >
+              {(validationErrors && validationErrors.licenseUri) ||
+              imageSize.error.license ? (
+                <img src="/icons/admin/uploadError.svg" alt="" />
+              ) : (
+                <img src="/icons/admin/upload.svg" alt="" />
+              )}
+              {licenseDetails ? (
+                <div className="grid">
+                  <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
+                  {imageSize?.error.license ? (
+                    <p className="text-red-600 text-[1.2rem]">
+                      File size must not exceed 2MB
+                    </p>
+                  ) : (
                     <p className="text-color-grey-4 text-[1rem]">
                       {imageSize.license}
                     </p>
-                  </div>
-                ) : (
-                  <p>Upload Proof of Address</p>
-                )}
-                <input
-                  type="file"
-                  name="licenseUpload"
-                  id="licenseUpload"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => licenseUploadHandler(e, 'licenseUpload')}
-                />
-              </label>
-            </div>
+                  )}
+                </div>
+              ) : (
+                <div className="grid">
+                  <p>Upload Custom License (yearly)</p>
+                  {validationErrors && validationErrors.licenseUri && (
+                    <p className="text-red-600 text-[1.2rem]">
+                      {validationErrors.licenseUri}
+                    </p>
+                  )}
+                </div>
+              )}
+            </label>
+            <input
+              type="file"
+              name="licenseUri"
+              id="licenseUri"
+              accept="image/*"
+              className="hidden"
+              onClick={(e) => uploadUriHandler(e, 'licenseUri')}
+              onChange={(e) => uploadDetailsHandler(e, 'license')}
+            />
+          </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">ID Type</label>
               <input
