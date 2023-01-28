@@ -128,7 +128,7 @@ const Onboarding = () => {
 
     const { businessInfo, portsAndTerminal, personalInfo } = onboardingInputs;
 
-    let errors = {} as any ;
+    let errors = {} as any;
     for (const key in businessInfo) {
       switch (key) {
         case 'businessName':
@@ -175,31 +175,22 @@ const Onboarding = () => {
     for (const key in portsAndTerminal.terminalList) {
       Object.entries(portsAndTerminal.terminalList[key]).forEach(
         (terminal: [left: string, right: string]) => {
-          const [left,right] = terminal
+          const [left, right] = terminal;
 
-          
           if (right === '') {
-
             errors[key] = {
               ...errors[key],
-              [left]: 'This field is required'
-            }
-
-            console.log(errors)
+              [left]: 'This field is required',
+            };
 
             setValidationErrors(errors);
           }
 
-         
-
-            setValidationErrors(errors);
-          }
-          
-        
+        }
       );
     }
 
-    console.log(errors)
+    console.log(errors);
 
     if (Object.keys(errors).length > 0) {
       return false;
@@ -208,9 +199,9 @@ const Onboarding = () => {
     return true;
   };
 
-  useEffect(() => {
-    console.log(onboardingInputs);
-  }, [onboardingInputs]);
+  // useEffect(() => {
+  //   console.log(onboardingInputs);
+  // }, [onboardingInputs]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();

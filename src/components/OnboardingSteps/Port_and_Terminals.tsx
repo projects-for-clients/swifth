@@ -118,7 +118,6 @@ const Terminal: FC<ITerminal> = ({
     if(validationErrors && validationErrors[keyId]){
 
       const isError = validationErrors[keyId][val];
-      console.log({ isError });
       return isError;
     }
 
