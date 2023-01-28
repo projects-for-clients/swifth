@@ -11,65 +11,64 @@ const PersonalInfo = () => {
   }>(null as any);
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-  const cacUploadHandler = (
-    e: ChangeEvent<HTMLInputElement>,
-    value: string
+  const uploadUriHandler = async (
+    e: MouseEvent<HTMLInputElement>,
+    key: 'cacUri' | 'licenseUri' | 'logoUri'
   ) => {
-    const fileObj = e.target as HTMLInputElement;
+    const getUri = await getPhotoUri(key);
 
-    const { name } = fileObj.files![0];
-    const path = fileObj.files![0];
+    const data = {
+      target: {
+        name: key,
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
 
-    const size = path.size / 1000;
-
-    const KBSize = size.toString().split('.')[0];
-
-    if (KBSize.length > 3) {
-      const MBSize = Number(KBSize) / 1000;
-
-      setImageSize((prev) => ({
-        ...prev,
-        cac: `${MBSize.toFixed(2)}MB`,
-      }));
-    } else {
-      setImageSize((prev) => ({
-        ...prev,
-        cac: `${KBSize}KB`,
-      }));
-    }
-
-    setCacUploadUrl(name);
+    handleInputChange(data, 'businessInfo');
   };
 
-  const licenseUploadHandler = (
+  const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    value: string
+    type: 'cac' | 'license' | 'logo'
   ) => {
-    const fileObj = e.target as HTMLInputElement;
+    const { files } = e.target;
 
-    const { name } = fileObj.files![0];
-    const path = fileObj.files![0];
+    if (files) {
+      const path = files[0];
 
-    const size = path.size / 1000;
+      const size = path.size / 1000;
 
-    const KBSize = size.toString().split('.')[0];
+      const KBSize = size.toString().split('.')[0];
 
-    if (KBSize.length > 3) {
-      const MBSize = Number(KBSize) / 1000;
+      if (KBSize.length > 3) {
+        const MBSize = Number(KBSize) / 1000;
 
-      setImageSize((prev) => ({
-        ...prev,
-        license: `${MBSize.toFixed(2)}MB`,
-      }));
-    } else {
-      console.log('KB');
-      setImageSize((prev) => ({
-        ...prev,
-        license: `${KBSize}KB`,
-      }));
+        setImageSize((prev) => ({
+          ...prev,
+          [type]: `${MBSize.toFixed(2)}MB`,
+          error: {
+            ...prev.error,
+            [type]: MBSize > 2 ? true : false,
+          },
+        }));
+      } else {
+        setImageSize((prev) => ({
+          ...prev,
+          [type]: `${KBSize}KB`,
+          error: {
+            ...prev.error,
+            [type]: false,
+          },
+        }));
+      }
+
+      if (type === 'cac') {
+        setCacDetails(path.name);
+      }
+      if (type === 'license') {
+        setLicenseDetails(path.name);
+      }
     }
-
-    setLicenseUploadUrl(name);
   };
 
   const handleFormSubmit = (e: FormEvent) => {

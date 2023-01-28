@@ -57,8 +57,6 @@ const businessInfo = () => {
 
 
 
-
-
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
     key: 'cacUri' | 'licenseUri' | 'logoUri'
