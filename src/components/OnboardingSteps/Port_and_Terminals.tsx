@@ -114,9 +114,9 @@ const Terminal: FC<ITerminal> = ({
   };
 
   const keyId = `terminal${id}`
-  const terminalError = (val: string) => {
+  const terminalError = (val: string):boolean => {
     
-    validationErrors && validationErrors[keyId][val]
+    return validationErrors && validationErrors[keyId][val]
   } 
 
   console.log({terminalError})
