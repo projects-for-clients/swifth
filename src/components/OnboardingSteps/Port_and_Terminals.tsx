@@ -49,7 +49,6 @@ const Terminal: FC<ITerminal> = ({
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-  console.log({id})
   const terminal: Terminal[] = ['Terminal 1', 'Terminal 2', 'Terminal 3'];
   const [dateChange, setDateChange] = useState('');
   const [formCUri, setFormCUri] = useState('');
@@ -64,7 +63,8 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(!toggleSelectMenu);
   };
 
-  const { handleInputChange, onboardingInputs, validationErrors } = useContext(OnboardingContext);
+  const { handleInputChange, onboardingInputs, validationErrors } =
+    useContext(OnboardingContext);
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -113,13 +113,19 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(false);
   };
 
-  const keyId = `terminal${id}`
-  const terminalError = (val: string):boolean => {
-    
-    return validationErrors && validationErrors[keyId][val]
-  } 
+  const keyId = `terminal${id}`;
+  const terminalError = (val: string): boolean | string => {
+    if(validationErrors && validationErrors[keyId]){
+
+      const isError = validationErrors[keyId][val];
+      console.log({ isError });
+      return isError;
+    }
+
+    return false;
 
 
+  };
 
   useEffect(() => {
     if (selectedItem) {
@@ -145,7 +151,6 @@ const Terminal: FC<ITerminal> = ({
       });
     } else {
       setIsError({
-
         error: false,
       });
     }
@@ -155,8 +160,6 @@ const Terminal: FC<ITerminal> = ({
     const date = new Date(e.target.value).toLocaleDateString();
     setDateChange(date);
   };
-
-  
 
   return (
     <section
@@ -261,13 +264,12 @@ const Terminal: FC<ITerminal> = ({
             <label className="text-[1.4rem]">
               Input expiration date for each form C-30{' '}
             </label>
-            <div className="relative flex items-center">
+            <div className="relative flex items-center ">
               <input
                 type="text"
                 placeholder="select Date"
-                className={` rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer ${
-                  validationErrors &&
-                  validationErrors[keyId]['formCExpirationDate']
+                className={` rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer   border ${
+                  terminalError('formCExpirationDate')
                     ? 'border-red-600 border bg-red-50'
                     : 'border-color-purple-light bg-color-grey-1'
                 }`}
