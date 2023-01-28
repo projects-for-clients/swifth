@@ -119,7 +119,6 @@ const Terminal: FC<ITerminal> = ({
     return validationErrors && validationErrors[keyId][val]
   } 
 
-  console.log({terminalError})
 
 
   useEffect(() => {
@@ -220,7 +219,7 @@ const Terminal: FC<ITerminal> = ({
               htmlFor={`formC${id}`}
               className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
                 imageDetails.error ||
-                (validationErrors && validationErrors[keyId]['formCUri'])
+                (validationErrors && terminalError('formCUri'))
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
