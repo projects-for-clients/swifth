@@ -113,6 +113,19 @@ const Onboarding = () => {
         },
       });
     }
+
+     if (key === 'personalInfo') {
+       setOnboardingInputs({
+         type: 'UPDATE_PERSONAL_INFO',
+         payload: {
+           ...onboardingInputs,
+           personalInfo: {
+             ...onboardingInputs.personalInfo,
+             [name]: value,
+           },
+         },
+       });
+     }
   };
 
   const formValidate = (): boolean => {
@@ -201,6 +214,45 @@ const Onboarding = () => {
         );
       }
     }
+
+     if (step === 'personalInfo') {
+       for (const key in personalInfo) {
+        //  switch (key) {
+        //    case 'businessName':
+        //      if (businessInfo[key].length < 3) {
+        //        errors[key] = 'This field must be at least 3 characters long';
+
+        //        setValidationErrors(errors);
+        //      }
+        //      break;
+
+        //    case 'licenseExpirationDate':
+        //      if (!dayjs(businessInfo[key]).isValid()) {
+        //        errors[key] = 'Invalid Date';
+
+        //        setValidationErrors(errors);
+        //      }
+        //      break;
+
+        //    case 'officeAddress':
+        //      if (businessInfo[key].length < 3) {
+        //        errors[key] = 'This field must be at least 3 characters long';
+
+        //        setValidationErrors(errors);
+        //      }
+        //      break;
+        //  }
+
+         if (
+           personalInfo[key as keyof typeof personalInfo] === '' ||
+           personalInfo[key as keyof typeof personalInfo] === null
+         ) {
+           errors[key as keyof typeof personalInfo] = 'This field is required';
+
+           setValidationErrors(errors);
+         }
+       }
+     }
     console.log(errors);
 
     if (Object.keys(errors).length > 0) {
