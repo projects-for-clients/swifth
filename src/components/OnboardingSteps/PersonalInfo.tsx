@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, MouseEvent, useContext, useState } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent, useContext, useEffect, useState } from 'react';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
@@ -30,6 +30,15 @@ const PersonalInfo = () => {
       POA: false,
     },
   });
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    const inputValues = Object.values(onboardingInputs.personalInfo);
+
+    const isDisabled = inputValues.some((value) => value === '');
+
+    setIsDisabled(isDisabled);
+  }, [onboardingInputs.personalInfo]);
 
 
   const uploadUriHandler = async (
@@ -281,7 +290,7 @@ const PersonalInfo = () => {
               </div>
             </div>
           </div>
-          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold self-center">
+          <button className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold self-center" disabled={!isDisabled}>
             Continue
           </button>
         </form>
