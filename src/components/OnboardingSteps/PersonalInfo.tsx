@@ -5,11 +5,11 @@ import { getPhotoUri } from '../../utils/getPhotoUri';
 
 
 interface Imagesize {
-  cac: string;
-  license: string;
+  idCard: string;
+  POA: string;
   error: {
-    cac: boolean;
-    license: boolean;
+    idCard: boolean;
+    POA: boolean;
     logo: boolean;
   };
 }
