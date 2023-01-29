@@ -143,7 +143,7 @@ const PersonalInfo = () => {
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4 items-center justify-between">
+            <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
             <label
               htmlFor="cacUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${

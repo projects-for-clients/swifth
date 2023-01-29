@@ -43,7 +43,7 @@ const Onboarding = () => {
       proofOfAddressUri: '',
     },
   };
-  const [step, setStep] = useState<Step>('personalInfo');
+  const [step, setStep] = useState<Step>('businessInfo');
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
 
