@@ -10,7 +10,6 @@ interface Imagesize {
   error: {
     idCard: boolean;
     POA: boolean;
-    logo: boolean;
   };
 }
 
@@ -21,22 +20,21 @@ const PersonalInfo = () => {
  
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-   const [cacDetails, setCacDetails] = useState<string>('');
-  const [licenseDetails, setLicenseDetails] = useState<string>('');
+   const [idCardDetails, setIdCardDetails] = useState<string>('');
+  const [POADetails, setPOADetails] = useState<string>('');
   const [imageSize, setImageSize] = useState<Imagesize>({
-    cac: '',
-    license: '',
+    idCard: '',
+    POA: '',
     error: {
-      cac: false,
-      license: false,
-      logo: false,
+      idCard: false,
+      POA: false,
     },
   });
 
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
-    key: 'cacUri' | 'licenseUri' | 'logoUri'
+    key: 'idCardUri' | 'pOAUri' | 'logoUri'
   ) => {
     const getUri = await getPhotoUri(key);
 
@@ -52,7 +50,7 @@ const PersonalInfo = () => {
 
   const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    type: 'cac' | 'license' | 'logo'
+    type: 'idCard' | 'pOA' | 'logo'
   ) => {
     const { files } = e.target;
 
@@ -85,11 +83,11 @@ const PersonalInfo = () => {
         }));
       }
 
-      if (type === 'cac') {
-        setCacDetails(path.name);
+      if (type === 'idCard') {
+        setIdCardDetails(path.name);
       }
-      if (type === 'license') {
-        setLicenseDetails(path.name);
+      if (type === 'pOA') {
+        setPOADetails(path.name);
       }
     }
   };
@@ -145,42 +143,42 @@ const PersonalInfo = () => {
             </div>
             <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
             <label
-              htmlFor="cacUri"
+              htmlFor="idCardUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                (validationErrors && validationErrors.cacUri) ||
-                imageSize.error.cac
+                (validationErrors && validationErrors.idCardUri) ||
+                imageSize.error.idCard
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {(validationErrors && validationErrors.cacUri) ||
-              imageSize.error.cac ? (
+              {(validationErrors && validationErrors.idCardUri) ||
+              imageSize.error.idCard ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
               )}
 
-              {cacDetails ? (
+              {idCardDetails ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{cacDetails}</p>
+                  <p className="text-[1.4rem] font-normal">{idCardDetails}</p>
 
-                  {imageSize?.error.cac ? (
+                  {imageSize?.error.idCard ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
                   ) : (
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageSize.cac}
+                      {imageSize.idCard}
                     </p>
                   )}
                 </div>
               ) : (
                 <div className="grid">
-                  <p className="text-color-grey-3">Upload CAC Certificate</p>
+                  <p className="text-color-grey-3">Upload Contact Person ID Card</p>
 
-                  {validationErrors && validationErrors.cacUri && (
+                  {validationErrors && validationErrors.idCardUri && (
                     <p className="text-red-600 text-[1.2rem]">
-                      {validationErrors.cacUri}
+                      {validationErrors.idCardUri}
                     </p>
                   )}
                 </div>
@@ -188,47 +186,47 @@ const PersonalInfo = () => {
             </label>
             <input
               type="file"
-              name="cacUri"
-              id="cacUri"
+              name="idCardUri"
+              id="idCardUri"
               accept="image/*"
               className="hidden"
-              onClick={(e) => uploadUriHandler(e, 'cacUri')}
-              onChange={(e) => uploadDetailsHandler(e, 'cac')}
+              onClick={(e) => uploadUriHandler(e, 'idCardUri')}
+              onChange={(e) => uploadDetailsHandler(e, 'idCard')}
             />
             <label
-              htmlFor="licenseUri"
+              htmlFor="POAUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                (validationErrors && validationErrors.licenseUri) ||
-                imageSize.error.license
+                (validationErrors && validationErrors.POAUri) ||
+                imageSize.error.POA
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
-              {(validationErrors && validationErrors.licenseUri) ||
-              imageSize.error.license ? (
+              {(validationErrors && validationErrors.pOAUri) ||
+              imageSize.error.POA ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
               )}
-              {licenseDetails ? (
+              {POADetails ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
-                  {imageSize?.error.license ? (
+                  <p className="text-[1.4rem] font-normal">{POADetails}</p>
+                  {imageSize?.error.POA ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
                   ) : (
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageSize.license}
+                      {imageSize.POA}
                     </p>
                   )}
                 </div>
               ) : (
                 <div className="grid">
-                  <p>Upload Custom License (yearly)</p>
-                  {validationErrors && validationErrors.licenseUri && (
+                  <p>Upload Custom POA (yearly)</p>
+                  {validationErrors && validationErrors.pOAUri && (
                     <p className="text-red-600 text-[1.2rem]">
-                      {validationErrors.licenseUri}
+                      {validationErrors.pOAUri}
                     </p>
                   )}
                 </div>
@@ -236,12 +234,12 @@ const PersonalInfo = () => {
             </label>
             <input
               type="file"
-              name="licenseUri"
-              id="licenseUri"
+              name="pOAUri"
+              id="pOAUri"
               accept="image/*"
               className="hidden"
-              onClick={(e) => uploadUriHandler(e, 'licenseUri')}
-              onChange={(e) => uploadDetailsHandler(e, 'license')}
+              onClick={(e) => uploadUriHandler(e, 'pOAUri')}
+              onChange={(e) => uploadDetailsHandler(e, 'pOA')}
             />
           </div>
             <div className="grid gap-4">
