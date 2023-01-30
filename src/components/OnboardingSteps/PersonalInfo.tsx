@@ -114,6 +114,10 @@ const PersonalInfo = () => {
     }
   };
 
+  useEffect(() => {
+    console.log({ POADetails, idCardDetails })
+  }, [POADetails, idCardDetails])
+
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
