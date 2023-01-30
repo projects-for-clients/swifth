@@ -15,7 +15,6 @@ interface ImageDetails {
   message: string | null;
   size: string;
   name: string;
-  value: string;
 }
 
 const PersonalInfo = () => {
@@ -24,14 +23,19 @@ const PersonalInfo = () => {
 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-  const [imageDetails, setImageDetails] = useState<ImageDetails>({
+  const [POADetails, setPOADetails] = useState<ImageDetails>({
     error: false,
     message: null,
-    name: '',
     size: '',
-    value: ''
+    name: '',
   });
 
+  const [idCardDetails, setIdCardDetails] = useState<ImageDetails>({
+    error: false,
+    message: null,
+    size: '',
+    name: '',
+  });
 
   const [formUri, setFormUri] = useState('');
 
@@ -52,7 +56,6 @@ const PersonalInfo = () => {
     const getUri = await getPhotoUri(key);
 
     setFormUri(getUri);
-
   };
 
   const formUploadHandler = (
@@ -71,23 +74,39 @@ const PersonalInfo = () => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      setImageDetails((prev) => ({
-        ...prev,
-        error: MBSize > 2 ? true : false,
-        message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-        size: `${MBSize.toFixed(1)}MB`,
-        name,
-        value
-      }));
+      value === 'idCardUri' ?
+        setIdCardDetails((prev) => ({
+          ...prev,
+          error: MBSize > 2 ? true : false,
+          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+          size: `${MBSize.toFixed(1)}MB`,
+          name,
+        })) : setPOADetails((prev) => ({
+          ...prev,
+          error: MBSize > 2 ? true : false,
+          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+          size: `${MBSize.toFixed(1)}MB`,
+          name,
+        }));
+    
+      
     } else {
-      setImageDetails((prev) => ({
+
+      value === 'idCardUri' ?
+        setIdCardDetails((prev) => ({
         ...prev,
         size: `${KBSize}KB`,
         message: null,
         error: false,
         name,
-        value
+      })): setPOADetails((prev) => ({
+        ...prev,
+        size: `${KBSize}KB`,
+        message: null,
+        error: false,
+        name,
       }));
+      
     }
   };
 
@@ -171,8 +190,7 @@ const PersonalInfo = () => {
                 <label
                   htmlFor={`idCardUri`}
                   className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                    imageDetails.error ||
-                    formErrorField('idCardUri')
+                    imageDetails.error || formErrorField('idCardUri')
                       ? 'border-red-600 border bg-red-50'
                       : 'border-color-purple-light'
                   }`}
@@ -182,7 +200,7 @@ const PersonalInfo = () => {
                   ) : (
                     <img src="/icons/admin/upload.svg" alt="" />
                   )}
-                  {imageDetails.name ? (
+                  {imageDetails.value === 'idCardUri' ? (
                     <div className="grid">
                       <p className="text-[1.4rem] font-normal">
                         {imageDetails.name}
@@ -194,7 +212,9 @@ const PersonalInfo = () => {
                       </p>
                     </div>
                   ) : (
-                    <p className="text-[1.4rem]">Upload Contact Person ID Card</p>
+                    <p className="text-[1.4rem]">
+                      Upload Contact Person ID Card
+                    </p>
                   )}
                 </label>
                 <input
@@ -222,7 +242,7 @@ const PersonalInfo = () => {
                   ) : (
                     <img src="/icons/admin/upload.svg" alt="" />
                   )}
-                  {imageDetails.name ? (
+                  {imageDetails.value === 'POAUri' ? (
                     <div className="grid">
                       <p className="text-[1.4rem] font-normal">
                         {imageDetails.name}
