@@ -15,6 +15,7 @@ interface ImageDetails {
   message: string | null;
   size: string;
   name: string;
+  value: 'idCardUri' | 'POAUri';
 }
 
 const PersonalInfo = () => {
@@ -28,6 +29,7 @@ const PersonalInfo = () => {
     message: null,
     size: '',
     name: '',
+    value: 'POAUri',
   });
 
   const [idCardDetails, setIdCardDetails] = useState<ImageDetails>({
@@ -35,6 +37,7 @@ const PersonalInfo = () => {
     message: null,
     size: '',
     name: '',
+    value: 'idCardUri',
   });
 
   const [formUri, setFormUri] = useState({
@@ -61,7 +64,7 @@ const PersonalInfo = () => {
     setFormUri((prev) => ({
       ...prev,
       [key]: getUri,
-      }));
+    }));
   };
 
   const formUploadHandler = (
@@ -115,18 +118,34 @@ const PersonalInfo = () => {
   };
 
   useEffect(() => {
-    console.log({ POADetails, idCardDetails })
+    console.log({ POADetails, idCardDetails });
 
-    if(idCardDetails){
-
+    if (idCardDetails) {
       const data = {
         target: {
           name: 'idCardUri',
-        }
-      }
+          value: idCardDetails.error
+            ? 'File size must not exceed 2MB'
+            : formUri.idCardUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'personalInfo');
     }
 
-  }, [POADetails, idCardDetails])
+    if (POADetails) {
+      const data = {
+        target: {
+          name: 'POAUri',
+          value: POADetails.error
+            ? 'File size must not exceed 2MB'
+            : formUri.POAUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'personalInfo');
+    }
+  }, [POADetails, idCardDetails]);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
