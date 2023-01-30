@@ -90,7 +90,7 @@ const businessInfo = () => {
 
   const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    type: 'cac' | 'license' | 'logo'
+    type: 'cacUri' | 'licenseUri' | 'logoUri'
   ) => {
     const { files } = e.target;
 
@@ -123,10 +123,10 @@ const businessInfo = () => {
         }));
       }
 
-      if (type === 'cac') {
+      if (type === 'cacUri') {
         setCacDetails(path.name);
       }
-      if (type === 'license') {
+      if (type === 'licenseUri') {
         setLicenseDetails(path.name);
       }
     }
@@ -177,7 +177,7 @@ const businessInfo = () => {
               id="logoUri"
               accept="image/*"
               className="hidden"
-              onChange={(e) => uploadDetailsHandler(e, 'logo')}
+              onChange={(e) => uploadDetailsHandler(e, 'logoUri')}
               onClick={(e) => uploadUriHandler(e, 'logoUri')}
             />
             <div>
@@ -247,7 +247,7 @@ const businessInfo = () => {
               accept="image/*"
               className="hidden"
               onClick={(e) => uploadUriHandler(e, 'cacUri')}
-              onChange={(e) => uploadDetailsHandler(e, 'cac')}
+              onChange={(e) => uploadDetailsHandler(e, 'cacUri')}
             />
             <label
               htmlFor="licenseUri"
@@ -295,7 +295,7 @@ const businessInfo = () => {
               accept="image/*"
               className="hidden"
               onClick={(e) => uploadUriHandler(e, 'licenseUri')}
-              onChange={(e) => uploadDetailsHandler(e, 'license')}
+              onChange={(e) => uploadDetailsHandler(e, 'licenseUri')}
             />
           </div>
 
