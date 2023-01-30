@@ -125,7 +125,11 @@ const PersonalInfo = () => {
           <img src="/icons/admin/barFilled.svg" alt="" />
         </div>
 
-        <form className="grid gap-10 " onSubmit={handleFormSubmit} onChange={(e) => setInput(e, 'personalInfo')}>
+        <form
+          className="grid gap-10 "
+          onSubmit={handleFormSubmit}
+          onChange={(e) => setInput(e, 'personalInfo')}
+        >
           <div
             className="grid gap-10 mt-4"
             style={{
@@ -139,22 +143,28 @@ const PersonalInfo = () => {
                 name="fullName"
                 placeholder="Enter full name"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                required
               />
             </div>
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">Phone Number</label>
               <input
-                type="text"
+                type="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="Phone Number"
+                name='phoneNumber'
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                required
               />
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Email Address</label>
               <input
-                type="text"
+                type="email"
+                name='email'
                 placeholder="Enter Email"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                required
               />
             </div>
             <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
@@ -264,14 +274,17 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">ID Type</label>
               <input
                 type="text"
+                name='idCardType'
                 placeholder="Enter ID Type"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+                required
               />
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">ID Number</label>
               <input
                 type="number"
+                name='idCardNumber'
                 placeholder="Enter ID number"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
@@ -281,6 +294,7 @@ const PersonalInfo = () => {
               <div className="relative flex items-center">
                 <input
                   type="text"
+                  name='idCardExpirationDate'
                   placeholder="Input Date"
                   className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
                   onFocus={(e) => {
