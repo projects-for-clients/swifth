@@ -236,7 +236,7 @@ const PersonalInfo = () => {
                   htmlFor={`POAUri`}
                   className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
                     POADetails.error ||
-                    (validationErrors && formErrorField('formCUri'))
+                    (validationErrors && formErrorField('POAUri'))
                       ? 'border-red-600 border bg-red-50'
                       : 'border-color-purple-light'
                   }`}
