@@ -35,6 +35,8 @@ const PersonalInfo = () => {
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.personalInfo);
 
+    console.log(inputValues);
+
     const isDisabled = inputValues.some((value) => value === '');
 
     setIsDisabled(isDisabled);

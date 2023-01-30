@@ -40,7 +40,7 @@ const Onboarding = () => {
       IdCardUri: '',
       IdCardNumber: 0,
       IdCardType: '',
-      proofOfAddressUri: '',
+      POAUri: '',
     },
   };
   const [step, setStep] = useState<Step>('personalInfo');

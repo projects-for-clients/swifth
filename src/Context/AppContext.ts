@@ -35,7 +35,7 @@ namespace Onboarding {
     phoneNumber: string;
     IdCardUri: string;
     IdCardExpirationDate: string;
-    proofOfAddressUri: string;
+    POAUri: string;
     IdCardType: string;
     IdCardNumber: number;
   }
