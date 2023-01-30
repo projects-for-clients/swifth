@@ -10,7 +10,7 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
-interface Imagesize {
+interface ImageDetails {
   cac: string;
   license: string;
   error: {
@@ -33,7 +33,7 @@ const businessInfo = () => {
 
   const [cacDetails, setCacDetails] = useState<string>('');
   const [licenseDetails, setLicenseDetails] = useState<string>('');
-  const [imageSize, setImageDetails] = useState<Imagesize>({
+  const [imageDetails, setImageDetails] = useState<ImageDetails>({
     cac: '',
     license: '',
     error: {
@@ -69,6 +69,8 @@ const businessInfo = () => {
         value: getUri,
       },
     } as ChangeEvent<HTMLInputElement>;
+
+    console.log(imageDetails)
 
     handleInputChange(data, 'businessInfo');
   };
@@ -174,7 +176,7 @@ const businessInfo = () => {
                   {validationErrors.cacUri}
                 </p>
               )}
-              {imageSize.error.logo && (
+              {imageDetails.error.logo && (
                 <p className="text-red-600 text-[1.2rem]">
                   Image size should not exceed 2MB
                 </p>
@@ -187,13 +189,13 @@ const businessInfo = () => {
               htmlFor="cacUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.cacUri) ||
-                imageSize.error.cac
+                imageDetails.error.cac
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
               {(validationErrors && validationErrors.cacUri) ||
-              imageSize.error.cac ? (
+              imageDetails.error.cac ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
@@ -203,13 +205,13 @@ const businessInfo = () => {
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{cacDetails}</p>
 
-                  {imageSize?.error.cac ? (
+                  {imageDetails?.error.cac ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
                   ) : (
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageSize.cac}
+                      {imageDetails.cac}
                     </p>
                   )}
                 </div>
@@ -238,13 +240,13 @@ const businessInfo = () => {
               htmlFor="licenseUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.licenseUri) ||
-                imageSize.error.license
+                imageDetails.error.license
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
               {(validationErrors && validationErrors.licenseUri) ||
-              imageSize.error.license ? (
+              imageDetails.error.license ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
@@ -252,13 +254,13 @@ const businessInfo = () => {
               {licenseDetails ? (
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
-                  {imageSize?.error.license ? (
+                  {imageDetails?.error.license ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
                   ) : (
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageSize.license}
+                      {imageDetails.license}
                     </p>
                   )}
                 </div>
