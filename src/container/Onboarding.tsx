@@ -115,6 +115,7 @@ const Onboarding = () => {
     }
 
      if (key === 'personalInfo') {
+      console.log({name, value}, 'personalInfo')
        setOnboardingInputs({
          type: 'UPDATE_PERSONAL_INFO',
          payload: {

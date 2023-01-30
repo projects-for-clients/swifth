@@ -104,6 +104,12 @@ const PersonalInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
+
+  const setInput = (e: FormEvent, key: string) => {
+    const changeEvent = e as ChangeEvent<HTMLInputElement>;
+    handleInputChange(changeEvent, key);
+  };
+
   return (
     <>
       <Header
@@ -119,7 +125,7 @@ const PersonalInfo = () => {
           <img src="/icons/admin/barFilled.svg" alt="" />
         </div>
 
-        <form className="grid gap-10 " onSubmit={handleFormSubmit}>
+        <form className="grid gap-10 " onSubmit={handleFormSubmit} onChange={(e) => setInput(e, 'personalInfo')}>
           <div
             className="grid gap-10 mt-4"
             style={{
@@ -130,6 +136,7 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">Full Name</label>
               <input
                 type="text"
+                name="fullName"
                 placeholder="Enter full name"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
