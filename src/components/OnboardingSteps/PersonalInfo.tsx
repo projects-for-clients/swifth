@@ -120,7 +120,7 @@ const PersonalInfo = () => {
   useEffect(() => {
     console.log({ POADetails, idCardDetails });
 
-    if (idCardDetails) {
+    if (idCardDetails.name && formUri.idCardUri) {
       const data = {
         target: {
           name: 'idCardUri',
@@ -133,7 +133,7 @@ const PersonalInfo = () => {
       handleInputChange(data, 'personalInfo');
     }
 
-    if (POADetails) {
+    if (POADetails.name && formUri.POAUri) {
       const data = {
         target: {
           name: 'POAUri',
@@ -145,19 +145,20 @@ const PersonalInfo = () => {
 
       handleInputChange(data, 'personalInfo');
     }
-  }, [POADetails, idCardDetails]);
+  }, [POADetails, idCardDetails, formUri]);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
+    handleStep('personalInfo');
   };
 
   const setInput = (e: FormEvent, key: string) => {
 
 
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
-    if(changeEvent.target.name === 'idCardUrl' || changeEvent.target.name === 'POAUrl') return;
-    
-    handleInputChange(changeEvent, key);
+    if(changeEvent.target.name === 'idCardUri' || changeEvent.target.name === 'POAUri') return;
+
+    handleInputChange(changeEvent, 'personalInfo');
   };
 
   const formErrorField = (val: string): boolean | string => {

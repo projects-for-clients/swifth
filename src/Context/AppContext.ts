@@ -67,7 +67,7 @@ namespace Onboarding {
     personalInfo: PersonalInfo;
   }
 
-  export type Step =  'businessInfo' | 'portsAndTerminal' | 'personalInfo'
+  export type Step =  'businessInfo' | 'portsAndTerminal' | 'personalInfo' | 'next'
   export interface IOnboardingContext {
     handleStep: (step: Step ) => void;
     step: Step;
@@ -75,7 +75,7 @@ namespace Onboarding {
     validationErrors: ValidationErrors | null;
     handleInputChange: (
       e: React.ChangeEvent<HTMLInputElement>,
-      key: string
+      key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
     ) => void;
     notify?: (message: string) => void;
   }
