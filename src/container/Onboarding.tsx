@@ -148,7 +148,7 @@ const Onboarding = () => {
     if (step === 'businessInfo') {
     
       for (const key in businessInfo) {
-              console.log('step is businessInfo', personalInfo);
+            
 
         switch (key) {
           case 'businessName':
@@ -188,7 +188,7 @@ const Onboarding = () => {
     }
 
     if (step === 'portsAndTerminal') {
-            console.log('step is ports and terminal', personalInfo);
+          
 
       if (!portsAndTerminal.port) {
         errors['port'] = 'This field is required';

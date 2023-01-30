@@ -33,7 +33,7 @@ const businessInfo = () => {
 
   const [cacDetails, setCacDetails] = useState<string>('');
   const [licenseDetails, setLicenseDetails] = useState<string>('');
-  const [imageSize, setImageSize] = useState<Imagesize>({
+  const [imageSize, setImageDetails] = useState<Imagesize>({
     cac: '',
     license: '',
     error: {
@@ -89,7 +89,7 @@ const businessInfo = () => {
       if (KBSize.length > 3) {
         const MBSize = Number(KBSize) / 1000;
 
-        setImageSize((prev) => ({
+        setImageDetails((prev) => ({
           ...prev,
           [type]: `${MBSize.toFixed(2)}MB`,
           error: {
@@ -98,7 +98,7 @@ const businessInfo = () => {
           },
         }));
       } else {
-        setImageSize((prev) => ({
+        setImageDetails((prev) => ({
           ...prev,
           [type]: `${KBSize}KB`,
           error: {
@@ -125,7 +125,7 @@ const businessInfo = () => {
 
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
-    handleInputChange(changeEvent, key);
+    handleInputChange(changeEvent, 'businessInfo');
   };
 
   return (
