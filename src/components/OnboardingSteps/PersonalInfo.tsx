@@ -23,14 +23,14 @@ const PersonalInfo = () => {
 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-  const [idCardDetails, setIdCardDetails] = useState<string>('');
-  const [POADetails, setPOADetails] = useState<string>('');
-   const [imageDetails, setImageDetails] = useState<ImageDetails>({
-     error: false,
-     message: null,
-     name: '',
-     size: '',
-   });
+  const [imageDetails, setImageDetails] = useState<ImageDetails>({
+    error: false,
+    message: null,
+    name: '',
+    size: '',
+  });
+
+
   const [formUri, setFormUri] = useState('');
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -58,50 +58,40 @@ const PersonalInfo = () => {
 
     setFormUri(getUri);
 
-    handleInputChange(data, 'personalInfo');
+    // handleInputChange(data, 'personalInfo');
   };
 
-  const uploadDetailsHandler = (
+  const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    type: 'idCard' | 'POA'
+    value: string
   ) => {
-    const { files } = e.target;
+    const fileObj = e.target as HTMLInputElement;
 
-    if (files) {
-      const path = files[0];
+    const { name } = fileObj.files![0];
+    const path = fileObj.files![0];
 
-      const size = path.size / 1000;
+    const size = path.size / 1000;
 
-      const KBSize = size.toString().split('.')[0];
+    const KBSize = size.toString().split('.')[0];
 
-      if (KBSize.length > 3) {
-        const MBSize = Number(KBSize) / 1000;
+    if (KBSize.length > 3) {
+      const MBSize = Number(KBSize) / 1000;
 
-        setImageSize((prev) => ({
-          ...prev,
-          [type]: `${MBSize.toFixed(2)}MB`,
-          error: {
-            ...prev.error,
-            [type]: MBSize > 2 ? true : false,
-          },
-        }));
-      } else {
-        setImageSize((prev) => ({
-          ...prev,
-          [type]: `${KBSize}KB`,
-          error: {
-            ...prev.error,
-            [type]: false,
-          },
-        }));
-      }
-
-      if (type === 'idCard') {
-        setIdCardDetails(path.name);
-      }
-      if (type === 'POA') {
-        setPOADetails(path.name);
-      }
+      setImageDetails((prev) => ({
+        ...prev,
+        error: MBSize > 2 ? true : false,
+        message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+        size: `${MBSize.toFixed(1)}MB`,
+        name,
+      }));
+    } else {
+      setImageDetails((prev) => ({
+        ...prev,
+        size: `${KBSize}KB`,
+        message: null,
+        error: false,
+        name,
+      }));
     }
   };
 
@@ -112,6 +102,15 @@ const PersonalInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     handleInputChange(changeEvent, key);
+  };
+
+  const terminalError = (val: string): boolean | string => {
+    if (validationErrors && validationErrors[val]) {
+      const isError = validationErrors[val];
+      return isError;
+    }
+
+    return false;
   };
 
   return (
@@ -173,105 +172,44 @@ const PersonalInfo = () => {
             </div>
             <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
               <label
-                htmlFor="idCardUri"
-                className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                  (validationErrors && validationErrors.idCardUri) ||
-                  imageSize.error.idCard
+                htmlFor={`POA`}
+                className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
+                  imageDetails.error ||
+                  (validationErrors && terminalError('formCUri'))
                     ? 'border-red-600 border bg-red-50'
                     : 'border-color-purple-light'
                 }`}
               >
-                {(validationErrors && validationErrors.idCardUri) ||
-                imageSize.error.idCard ? (
+                {imageDetails.error ? (
                   <img src="/icons/admin/uploadError.svg" alt="" />
                 ) : (
                   <img src="/icons/admin/upload.svg" alt="" />
                 )}
-
-                {idCardDetails ? (
+                {imageDetails.name ? (
                   <div className="grid">
-                    <p className="text-[1.4rem] font-normal">{idCardDetails}</p>
-
-                    {imageSize?.error.idCard ? (
-                      <p className="text-red-600 text-[1.2rem]">
-                        File size must not exceed 2MB
-                      </p>
-                    ) : (
-                      <p className="text-color-grey-4 text-[1rem]">
-                        {imageSize.idCard}
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <div className="grid">
-                    <p className="text-color-grey-3">
-                      Upload Contact Person ID Card
+                    <p className="text-[1.4rem] font-normal">
+                      {imageDetails.name}
                     </p>
-
-                    {validationErrors && validationErrors.idCardUri && (
-                      <p className="text-red-600 text-[1.2rem]">
-                        {validationErrors.idCardUri}
-                      </p>
-                    )}
+                    <p className="text-color-grey-4 text-[1rem]">
+                      {imageDetails.message
+                        ? imageDetails.message
+                        : imageDetails.size}
+                    </p>
                   </div>
+                ) : (
+                  <p className="text-[1.4rem]">
+                    Upload Form C-30 per terminal (Yearly)
+                  </p>
                 )}
               </label>
               <input
                 type="file"
-                name="idCardUri"
-                id="idCardUri"
+                name={`POA`}
+                id={`POA`}
                 accept="image/*"
                 className="hidden"
-                onClick={(e) => uploadUriHandler(e, 'idCardUri')}
-                onChange={(e) => uploadDetailsHandler(e, 'idCard')}
-              />
-              <label
-                htmlFor="POAUri"
-                className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
-                  (validationErrors && validationErrors.POAUri) ||
-                  imageSize.error.POA
-                    ? 'border-red-600 border bg-red-50'
-                    : 'border-color-purple-light'
-                }`}
-              >
-                {(validationErrors && validationErrors.pOAUri) ||
-                imageSize.error.POA ? (
-                  <img src="/icons/admin/uploadError.svg" alt="" />
-                ) : (
-                  <img src="/icons/admin/upload.svg" alt="" />
-                )}
-                {POADetails ? (
-                  <div className="grid">
-                    <p className="text-[1.4rem] font-normal">{POADetails}</p>
-                    {imageSize?.error.POA ? (
-                      <p className="text-red-600 text-[1.2rem]">
-                        File size must not exceed 2MB
-                      </p>
-                    ) : (
-                      <p className="text-color-grey-4 text-[1rem]">
-                        {imageSize.POA}
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <div className="grid">
-                    <p>Upload Custom POA (yearly)</p>
-                    {validationErrors && validationErrors.pOAUri && (
-                      <p className="text-red-600 text-[1.2rem]">
-                        {validationErrors.pOAUri}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </label>
-              <input
-                type="file"
-                name="POAUri"
-                id="POAUri"
-                accept="image/*"
-                className="hidden"
-                onClick={(e) => uploadUriHandler(e, 'POAUri')}
-                onChange={(e) => uploadDetailsHandler(e, 'POA')}
+                onClick={(e) => uploadUriHandler(e, `POAUri`)}
+                onChange={(e) => formUploadHandler(e, `POA`)}
               />
             </div>
             <div className="grid gap-4">
