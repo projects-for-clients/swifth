@@ -116,6 +116,16 @@ const PersonalInfo = () => {
 
   useEffect(() => {
     console.log({ POADetails, idCardDetails })
+
+    if(idCardDetails){
+
+      const data = {
+        target: {
+          name: 'idCardUri',
+        }
+      }
+    }
+
   }, [POADetails, idCardDetails])
 
   const handleFormSubmit = (e: FormEvent) => {
