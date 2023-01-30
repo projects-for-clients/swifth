@@ -115,7 +115,6 @@ const Onboarding = () => {
     }
 
      if (key === 'personalInfo') {
-      console.log({name, value}, 'personalInfo')
        setOnboardingInputs({
          type: 'UPDATE_PERSONAL_INFO',
          payload: {
@@ -194,7 +193,6 @@ const Onboarding = () => {
           (terminal: [left: string, right: string]) => {
             const [left, right] = terminal;
 
-            console.log({left, right})
 
             if(right === 'too large'){
               errors[key] = {
@@ -218,6 +216,7 @@ const Onboarding = () => {
 
      if (step === 'personalInfo') {
        for (const key in personalInfo) {
+
         //  switch (key) {
         //    case 'businessName':
         //      if (businessInfo[key].length < 3) {
