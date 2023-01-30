@@ -299,6 +299,7 @@ const PersonalInfo = () => {
                   className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
                   onFocus={(e) => {
                     e.target.type = 'date';
+                    e.target.min = new Date().toISOString().split('T')[0];
                     setShowCalendarIcon(false);
                   }}
                 />
