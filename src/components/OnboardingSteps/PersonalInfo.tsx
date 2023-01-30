@@ -152,7 +152,11 @@ const PersonalInfo = () => {
   };
 
   const setInput = (e: FormEvent, key: string) => {
+
+
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
+    if(changeEvent.target.name === 'idCardUrl' || changeEvent.target.name === 'POAUrl') return;
+    
     handleInputChange(changeEvent, key);
   };
 
