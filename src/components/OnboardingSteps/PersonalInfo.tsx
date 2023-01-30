@@ -15,6 +15,7 @@ interface ImageDetails {
   message: string | null;
   size: string;
   name: string;
+  value: string;
 }
 
 const PersonalInfo = () => {
@@ -28,6 +29,7 @@ const PersonalInfo = () => {
     message: null,
     name: '',
     size: '',
+    value: ''
   });
 
 
@@ -75,6 +77,7 @@ const PersonalInfo = () => {
         message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
         size: `${MBSize.toFixed(1)}MB`,
         name,
+        value
       }));
     } else {
       setImageDetails((prev) => ({
@@ -83,6 +86,7 @@ const PersonalInfo = () => {
         message: null,
         error: false,
         name,
+        value
       }));
     }
   };
