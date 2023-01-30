@@ -143,7 +143,11 @@ const businessInfo = () => {
           <img src="/icons/admin/barEmpty.svg" alt="" />
         </div>
 
-        <form className="grid gap-10 " onSubmit={handleFormSubmit}>
+        <form
+          className="grid gap-10 "
+          onSubmit={handleFormSubmit}
+          onChange={(e) => setInput(e, 'businessInfo')}
+        >
           <label
             htmlFor="logoUri"
             className="flex gap-8 items-center cursor-pointer w-max"
@@ -280,10 +284,7 @@ const businessInfo = () => {
             />
           </div>
 
-          <div
-            className="grid gap-10 mt-4 max-w-[50rem]"
-            onChange={(e) => setInput(e, 'businessInfo')}
-          >
+          <div className="grid gap-10 mt-4 max-w-[50rem]">
             <div className="grid gap-4">
               <label className="text-[1.4rem]">Business name</label>
               <input
@@ -319,6 +320,7 @@ const businessInfo = () => {
                   name="licenseExpirationDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
+                    e.target.min = new Date().toISOString().split('T')[0];
                     setShowCalendarIcon(false);
                   }}
                 />

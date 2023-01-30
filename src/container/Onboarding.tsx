@@ -275,8 +275,8 @@ const Onboarding = () => {
   };
 
   useEffect(() => {
-    console.log(onboardingInputs.personalInfo, 'onboardingInputs.personalInfo');
-  }, [onboardingInputs.personalInfo]);
+    console.log(onboardingInputs.businessInfo, 'businessInfo');
+  }, [onboardingInputs.businessInfo]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
@@ -285,7 +285,9 @@ const Onboarding = () => {
       return;
     }
 
-    setStep(step);
+    alert('go to next step')
+
+    //setStep(step);
   };
 
   const onboardingSteps: Record<Step, JSX.Element> = {
