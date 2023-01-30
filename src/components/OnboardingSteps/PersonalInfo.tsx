@@ -1,48 +1,47 @@
-import { ChangeEvent, FormEvent, MouseEvent, useContext, useEffect, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
-
-interface Imagesize {
-  idCard: string;
-  POA: string;
-  error: {
-    idCard: boolean;
-    POA: boolean;
-  };
+interface ImageDetails {
+  error: boolean;
+  message: string | null;
+  size: string;
+  name: string;
 }
 
 const PersonalInfo = () => {
   const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
-    
- 
+
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
 
-   const [idCardDetails, setIdCardDetails] = useState<string>('');
+  const [idCardDetails, setIdCardDetails] = useState<string>('');
   const [POADetails, setPOADetails] = useState<string>('');
-  const [imageSize, setImageSize] = useState<Imagesize>({
-    idCard: '',
-    POA: '',
-    error: {
-      idCard: false,
-      POA: false,
-    },
-  });
-    const [formUri, setFormUri] = useState('');
+   const [imageDetails, setImageDetails] = useState<ImageDetails>({
+     error: false,
+     message: null,
+     name: '',
+     size: '',
+   });
+  const [formUri, setFormUri] = useState('');
 
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.personalInfo);
 
-
     const isDisabled = inputValues.some((value) => value === '');
 
     setIsDisabled(isDisabled);
   }, [onboardingInputs.personalInfo]);
-
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -57,8 +56,7 @@ const PersonalInfo = () => {
       },
     } as ChangeEvent<HTMLInputElement>;
 
-        setFormUri(getUri);
-
+    setFormUri(getUri);
 
     handleInputChange(data, 'personalInfo');
   };
@@ -158,7 +156,7 @@ const PersonalInfo = () => {
                 type="tel"
                 //pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="Phone Number"
-                name='phoneNumber'
+                name="phoneNumber"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
                 required
               />
@@ -167,7 +165,7 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">Email Address</label>
               <input
                 type="email"
-                name='email'
+                name="email"
                 placeholder="Enter Email"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
                 required
@@ -280,7 +278,7 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">ID Type</label>
               <input
                 type="text"
-                name='idCardType'
+                name="idCardType"
                 placeholder="Enter ID Type"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
                 required
@@ -290,7 +288,7 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">ID Number</label>
               <input
                 type="number"
-                name='idCardNumber'
+                name="idCardNumber"
                 placeholder="Enter ID number"
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
               />
@@ -300,7 +298,7 @@ const PersonalInfo = () => {
               <div className="relative flex items-center">
                 <input
                   type="text"
-                  name='idCardExpirationDate'
+                  name="idCardExpirationDate"
                   placeholder="Input Date"
                   className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full cursor-pointer"
                   onFocus={(e) => {
