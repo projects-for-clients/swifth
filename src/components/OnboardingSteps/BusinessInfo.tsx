@@ -11,13 +11,18 @@ import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
 interface ImageDetails {
-  cac: string;
-  license: string;
+  cacUri: string;
+  licenseUri: string;
   error: {
     cacUri: boolean;
     licenseUri: boolean;
     logoUri: boolean;
   };
+}
+
+type UriDetails = {
+  name: string
+  uri: string
 }
 
 const businessInfo = () => {
@@ -31,11 +36,17 @@ const businessInfo = () => {
     logoUri,
   } = onboardingInputs.businessInfo;
 
-  const [cacDetails, setCacDetails] = useState<string>('');
-  const [licenseDetails, setLicenseDetails] = useState<string>('');
+  const [cacDetails, setCacDetails] = useState<UriDetails>({
+    name: '',
+    uri: ''
+  });
+  const [licenseDetails, setLicenseDetails] = useState<UriDetails>({
+    name: '',
+    uri: '',
+  });
   const [imageDetails, setImageDetails] = useState<ImageDetails>({
-    cac: '',
-    license: '',
+    cacUri: '',
+    licenseUri: '',
     error: {
       cacUri: false,
       licenseUri: false,
@@ -66,7 +77,24 @@ const businessInfo = () => {
       },
     } as ChangeEvent<HTMLInputElement>;
 
-    handleInputChange(data, 'businessInfo');
+   if(key === 'cacUri') {
+     setCacDetails(prev => {
+        return {
+          ...prev,
+          uri: getUri
+        }
+     })
+   }
+
+
+    if(key === 'licenseUri') {
+      setLicenseDetails(prev => {
+        return {
+          ...prev,
+          uri: getUri
+        }
+      })
+    }
   };
 
   useEffect(() => {
@@ -123,11 +151,23 @@ const businessInfo = () => {
         }));
       }
 
+
       if (type === 'cacUri') {
-        setCacDetails(path.name);
+        setCacDetails(prev => {
+          return {
+            ...prev,
+            name: path.name,
+          }
+        });
       }
       if (type === 'licenseUri') {
-        setLicenseDetails(path.name);
+        setLicenseDetails(prev => {
+          return {
+            ...prev,
+            name: path.name,
+            
+          }}
+            );
       }
     }
   };
@@ -214,9 +254,9 @@ const businessInfo = () => {
                 <img src="/icons/admin/upload.svg" alt="" />
               )}
 
-              {cacDetails ? (
+              {cacDetails.name ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{cacDetails}</p>
+                  <p className="text-[1.4rem] font-normal">{cacDetails.name}</p>
 
                   {imageDetails?.error.cacUri ? (
                     <p className="text-red-600 text-[1.2rem]">
@@ -224,7 +264,7 @@ const businessInfo = () => {
                     </p>
                   ) : (
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageDetails.cac}
+                      {imageDetails.cacUri}
                     </p>
                   )}
                 </div>
@@ -264,16 +304,16 @@ const businessInfo = () => {
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
               )}
-              {licenseDetails ? (
+              {licenseDetails.name ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
+                  <p className="text-[1.4rem] font-normal">{licenseDetails.name}</p>
                   {imageDetails?.error.licenseUri ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
                   ) : (
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageDetails.license}
+                      {imageDetails.licenseUri}
                     </p>
                   )}
                 </div>
