@@ -171,46 +171,86 @@ const PersonalInfo = () => {
               />
             </div>
             <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
-              <label
-                htmlFor={`POA`}
-                className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                  imageDetails.error ||
-                  (validationErrors && terminalError('formCUri'))
-                    ? 'border-red-600 border bg-red-50'
-                    : 'border-color-purple-light'
-                }`}
-              >
-                {imageDetails.error ? (
-                  <img src="/icons/admin/uploadError.svg" alt="" />
-                ) : (
-                  <img src="/icons/admin/upload.svg" alt="" />
-                )}
-                {imageDetails.name ? (
-                  <div className="grid">
-                    <p className="text-[1.4rem] font-normal">
-                      {imageDetails.name}
-                    </p>
-                    <p className="text-color-grey-4 text-[1rem]">
-                      {imageDetails.message
-                        ? imageDetails.message
-                        : imageDetails.size}
-                    </p>
-                  </div>
-                ) : (
-                  <p className="text-[1.4rem]">
-                    Upload Form C-30 per terminal (Yearly)
-                  </p>
-                )}
-              </label>
-              <input
-                type="file"
-                name={`POA`}
-                id={`POA`}
-                accept="image/*"
-                className="hidden"
-                onClick={(e) => uploadUriHandler(e, `POAUri`)}
-                onChange={(e) => formUploadHandler(e, `POA`)}
-              />
+              <div>
+                <label
+                  htmlFor={`POA`}
+                  className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
+                    imageDetails.error ||
+                    (validationErrors && terminalError('formCUri'))
+                      ? 'border-red-600 border bg-red-50'
+                      : 'border-color-purple-light'
+                  }`}
+                >
+                  {imageDetails.error ? (
+                    <img src="/icons/admin/uploadError.svg" alt="" />
+                  ) : (
+                    <img src="/icons/admin/upload.svg" alt="" />
+                  )}
+                  {imageDetails.name ? (
+                    <div className="grid">
+                      <p className="text-[1.4rem] font-normal">
+                        {imageDetails.name}
+                      </p>
+                      <p className="text-color-grey-4 text-[1rem]">
+                        {imageDetails.message
+                          ? imageDetails.message
+                          : imageDetails.size}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-[1.4rem]">Upload Proof of Address</p>
+                  )}
+                </label>
+                <input
+                  type="file"
+                  name={`POAUri`}
+                  id={`POAUri`}
+                  accept="image/*"
+                  className="hidden"
+                  onClick={(e) => uploadUriHandler(e, `POAUri`)}
+                  onChange={(e) => formUploadHandler(e, `POA`)}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor={`POA`}
+                  className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
+                    imageDetails.error ||
+                    (validationErrors && terminalError('formCUri'))
+                      ? 'border-red-600 border bg-red-50'
+                      : 'border-color-purple-light'
+                  }`}
+                >
+                  {imageDetails.error ? (
+                    <img src="/icons/admin/uploadError.svg" alt="" />
+                  ) : (
+                    <img src="/icons/admin/upload.svg" alt="" />
+                  )}
+                  {imageDetails.name ? (
+                    <div className="grid">
+                      <p className="text-[1.4rem] font-normal">
+                        {imageDetails.name}
+                      </p>
+                      <p className="text-color-grey-4 text-[1rem]">
+                        {imageDetails.message
+                          ? imageDetails.message
+                          : imageDetails.size}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-[1.4rem]">Upload Proof of Address</p>
+                  )}
+                </label>
+                <input
+                  type="file"
+                  name={`POAUri`}
+                  id={`POAUri`}
+                  accept="image/*"
+                  className="hidden"
+                  onClick={(e) => uploadUriHandler(e, `POAUri`)}
+                  onChange={(e) => formUploadHandler(e, `POA`)}
+                />
+              </div>
             </div>
             <div className="grid gap-4">
               <label className="text-[1.4rem]">ID Type</label>
@@ -222,6 +262,7 @@ const PersonalInfo = () => {
                 required
               />
             </div>
+
             <div className="grid gap-4">
               <label className="text-[1.4rem]">ID Number</label>
               <input
@@ -256,6 +297,7 @@ const PersonalInfo = () => {
               </div>
             </div>
           </div>
+
           <button
             className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed"
             disabled={isDisabled}
