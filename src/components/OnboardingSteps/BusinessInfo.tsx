@@ -21,26 +21,25 @@ interface ImageDetails {
 }
 
 type UriDetails = {
-  name: string
-  uri: string
-}
+  name: string;
+  uri: string;
+};
 
 const businessInfo = () => {
   const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
 
-  const {
-    businessName,
-    officeAddress,
-
-    logoUri,
-  } = onboardingInputs.businessInfo;
+  const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
   const [cacDetails, setCacDetails] = useState<UriDetails>({
     name: '',
-    uri: ''
+    uri: '',
   });
   const [licenseDetails, setLicenseDetails] = useState<UriDetails>({
+    name: '',
+    uri: '',
+  });
+  const [logoDetails, setLogoDetails] = useState<UriDetails>({
     name: '',
     uri: '',
   });
@@ -70,40 +69,45 @@ const businessInfo = () => {
   ) => {
     const getUri = await getPhotoUri(key);
 
-    const data = {
-      target: {
-        name: key,
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-   if(key === 'cacUri') {
-     setCacDetails(prev => {
+    if (key === 'cacUri') {
+      console.log(imageDetails);
+      return setCacDetails((prev) => {
         return {
           ...prev,
-          uri: getUri
-        }
-     })
-   }
+          uri: getUri,
+        };
+      });
+    }
 
-
-    if(key === 'licenseUri') {
-      setLicenseDetails(prev => {
+    if (key === 'licenseUri') {
+      return setLicenseDetails((prev) => {
         return {
           ...prev,
-          uri: getUri
-        }
-      })
+          uri: getUri,
+        };
+      });
+    }
+    if (key === 'logoUri') {
+      return setLogoDetails((prev) => {
+        return {
+          ...prev,
+          uri: getUri,
+        };
+      });
     }
   };
 
   useEffect(() => {
-    console.log(imageDetails);
-
     const { error } = imageDetails;
+
+    let isError = {};
 
     for (let key in error) {
       if (error[key as keyof typeof error] === true) {
+        isError = {
+          ...isError,
+          [key]: true,
+        };
         const data = {
           target: {
             name: key,
@@ -114,7 +118,40 @@ const businessInfo = () => {
         handleInputChange(data, 'businessInfo');
       }
     }
-  }, [imageDetails]);
+
+    if (cacDetails.uri && !isError['cacUri' as keyof typeof isError]) {
+      const data = {
+        target: {
+          name: 'cacUri',
+          value: cacDetails.uri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      return handleInputChange(data, 'businessInfo');
+    }
+
+    if (licenseDetails.uri && !isError['licenseUri' as keyof typeof isError]) {
+      const data = {
+        target: {
+          name: 'licenseUri',
+          value: licenseDetails.uri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      return handleInputChange(data, 'businessInfo');
+    }
+
+    if (logoDetails.uri && !isError['logoUri' as keyof typeof isError]) {
+      const data = {
+        target: {
+          name: 'logoUri',
+          value: logoDetails.uri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      return handleInputChange(data, 'businessInfo');
+    }
+  }, [imageDetails, cacDetails, licenseDetails, logoDetails]);
 
   const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -132,6 +169,8 @@ const businessInfo = () => {
       if (KBSize.length > 3) {
         const MBSize = Number(KBSize) / 1000;
 
+        console.log({ MBSize });
+
         setImageDetails((prev) => ({
           ...prev,
           [type]: `${MBSize.toFixed(2)}MB`,
@@ -141,6 +180,7 @@ const businessInfo = () => {
           },
         }));
       } else {
+        console.log({ KBSize });
         setImageDetails((prev) => ({
           ...prev,
           [type]: `${KBSize}KB`,
@@ -151,23 +191,29 @@ const businessInfo = () => {
         }));
       }
 
-
       if (type === 'cacUri') {
-        setCacDetails(prev => {
+        setCacDetails((prev) => {
           return {
             ...prev,
             name: path.name,
-          }
+          };
         });
       }
       if (type === 'licenseUri') {
-        setLicenseDetails(prev => {
+        setLicenseDetails((prev) => {
           return {
             ...prev,
             name: path.name,
-            
-          }}
-            );
+          };
+        });
+      }
+      if (type === 'logoUri') {
+        setLogoDetails((prev) => {
+          return {
+            ...prev,
+            name: path.name,
+          };
+        });
       }
     }
   };
@@ -180,6 +226,12 @@ const businessInfo = () => {
 
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
+
+    const { name } = changeEvent.target;
+    if (name === 'cacUri' || name === 'licenseUri' || name === 'logoUri') {
+      return;
+    }
+
     handleInputChange(changeEvent, 'businessInfo');
   };
 
@@ -208,13 +260,14 @@ const businessInfo = () => {
             className="flex gap-8 items-center cursor-pointer w-max"
           >
             <img
-              src={logoUri ? logoUri : '/icons/admin/bag.svg'}
+              src={logoDetails.uri ? logoDetails.uri : '/icons/admin/bag.svg'}
               alt=""
               className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
             />
             <input
               type="file"
               id="logoUri"
+              name="logoUri"
               accept="image/*"
               className="hidden"
               onChange={(e) => uploadDetailsHandler(e, 'logoUri')}
@@ -306,7 +359,9 @@ const businessInfo = () => {
               )}
               {licenseDetails.name ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">{licenseDetails.name}</p>
+                  <p className="text-[1.4rem] font-normal">
+                    {licenseDetails.name}
+                  </p>
                   {imageDetails?.error.licenseUri ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB

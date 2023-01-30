@@ -69,13 +69,15 @@ const Onboarding = () => {
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
-    key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal' 
+    key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
   ) => {
     const { name, value } = e.target;
 
     setValidationErrors(null);
-
     if (key === 'businessInfo') {
+
+      console.count(name + ' ' + value);
+
       setOnboardingInputs({
         type: 'UPDATE_BUSINESS_INFO',
         payload: {
@@ -116,7 +118,6 @@ const Onboarding = () => {
     }
 
     if (key === 'personalInfo') {
-      console.log({ name, value })
       setOnboardingInputs({
         type: 'UPDATE_PERSONAL_INFO',
         payload: {
@@ -146,10 +147,7 @@ const Onboarding = () => {
     let errors = {} as any;
 
     if (step === 'businessInfo') {
-    
       for (const key in businessInfo) {
-            
-
         switch (key) {
           case 'businessName':
             if (businessInfo[key].length < 3) {
@@ -188,8 +186,6 @@ const Onboarding = () => {
     }
 
     if (step === 'portsAndTerminal') {
-          
-
       if (!portsAndTerminal.port) {
         errors['port'] = 'This field is required';
 
@@ -222,7 +218,7 @@ const Onboarding = () => {
     }
 
     if (step === 'personalInfo') {
-      console.log('step is personalInfo', personalInfo)
+      console.log('step is personalInfo', personalInfo);
       for (const key in personalInfo) {
         console.log({ key });
         switch (key) {
@@ -253,7 +249,7 @@ const Onboarding = () => {
               });
             }
             break;
-        }  
+        }
 
         if (
           personalInfo[key as keyof typeof personalInfo] === '' ||
@@ -285,7 +281,7 @@ const Onboarding = () => {
       return;
     }
 
-    alert('go to next step')
+    alert('go to next step');
 
     //setStep(step);
   };
@@ -294,7 +290,7 @@ const Onboarding = () => {
     businessInfo: <BusinessInfo />,
     personalInfo: <PersonalInfo />,
     portsAndTerminal: <PortsAndTerminal />,
-    next: <DashboardHome/>
+    next: <DashboardHome />,
   };
 
   return (
