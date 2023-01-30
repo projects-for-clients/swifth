@@ -30,6 +30,8 @@ const PersonalInfo = () => {
       POA: false,
     },
   });
+    const [formUri, setFormUri] = useState('');
+
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
@@ -54,6 +56,9 @@ const PersonalInfo = () => {
         value: getUri,
       },
     } as ChangeEvent<HTMLInputElement>;
+
+        setFormUri(getUri);
+
 
     handleInputChange(data, 'personalInfo');
   };

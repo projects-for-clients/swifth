@@ -5,7 +5,6 @@ import {
   FormEvent,
   MouseEvent,
   useEffect,
-  useReducer,
   useState,
 } from 'react';
 import { GrDown, GrUp } from 'react-icons/gr';
