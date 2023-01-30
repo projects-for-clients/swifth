@@ -151,7 +151,7 @@ const PersonalInfo = () => {
               <label className="text-[1.4rem]">Phone Number</label>
               <input
                 type="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                //pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="Phone Number"
                 name='phoneNumber'
                 className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"

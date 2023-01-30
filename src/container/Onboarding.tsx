@@ -114,18 +114,18 @@ const Onboarding = () => {
       });
     }
 
-     if (key === 'personalInfo') {
-       setOnboardingInputs({
-         type: 'UPDATE_PERSONAL_INFO',
-         payload: {
-           ...onboardingInputs,
-           personalInfo: {
-             ...onboardingInputs.personalInfo,
-             [name]: value,
-           },
-         },
-       });
-     }
+    if (key === 'personalInfo') {
+      setOnboardingInputs({
+        type: 'UPDATE_PERSONAL_INFO',
+        payload: {
+          ...onboardingInputs,
+          personalInfo: {
+            ...onboardingInputs.personalInfo,
+            [name]: value,
+          },
+        },
+      });
+    }
   };
 
   const formValidate = (): boolean => {
@@ -193,12 +193,11 @@ const Onboarding = () => {
           (terminal: [left: string, right: string]) => {
             const [left, right] = terminal;
 
-
-            if(right === 'too large'){
+            if (right === 'too large') {
               errors[key] = {
                 ...errors[key],
-                [left]: 'File must not exceed 2MB'
-              }
+                [left]: 'File must not exceed 2MB',
+              };
             }
 
             if (right === '') {
@@ -214,46 +213,49 @@ const Onboarding = () => {
       }
     }
 
-     if (step === 'personalInfo') {
-       for (const key in personalInfo) {
+    if (step === 'personalInfo') {
+      for (const key in personalInfo) {
+        console.log({ key });
+        switch (key) {
+          case 'fullName':
+            if (personalInfo[key].length < 3) {
+              errors[key] = 'This field must be at least 3 characters long';
 
-          console.log({key})
-        //  switch (key) {
-        //    case 'businessName':
-        //      if (businessInfo[key].length < 3) {
-        //        errors[key] = 'This field must be at least 3 characters long';
+              setValidationErrors(errors);
+            }
+            break;
 
-        //        setValidationErrors(errors);
-        //      }
-        //      break;
+          case 'idCardExpirationDate':
+            if (!dayjs(personalInfo[key]).isValid()) {
+              errors[key] = 'Invalid Date';
 
-        //    case 'licenseExpirationDate':
-        //      if (!dayjs(businessInfo[key]).isValid()) {
-        //        errors[key] = 'Invalid Date';
+              setValidationErrors(errors);
+            }
+            break;
 
-        //        setValidationErrors(errors);
-        //      }
-        //      break;
+          case 'email':
+            if (key === 'email') {
+              isValidMail(personalInfo[key], (cb) => {
+                if (!cb) {
+                  errors[key] = 'Invalid email';
 
-        //    case 'officeAddress':
-        //      if (businessInfo[key].length < 3) {
-        //        errors[key] = 'This field must be at least 3 characters long';
+                  setValidationErrors(errors);
+                }
+              });
+            }
+            break;
+        }
 
-        //        setValidationErrors(errors);
-        //      }
-        //      break;
-        //  }
+        if (
+          personalInfo[key as keyof typeof personalInfo] === '' ||
+          personalInfo[key as keyof typeof personalInfo] === null
+        ) {
+          errors[key as keyof typeof personalInfo] = 'This field is required';
 
-         if (
-           personalInfo[key as keyof typeof personalInfo] === '' ||
-           personalInfo[key as keyof typeof personalInfo] === null
-         ) {
-           errors[key as keyof typeof personalInfo] = 'This field is required';
-
-           setValidationErrors(errors);
-         }
-       }
-     }
+          setValidationErrors(errors);
+        }
+      }
+    }
     console.log(errors);
 
     if (Object.keys(errors).length > 0) {
