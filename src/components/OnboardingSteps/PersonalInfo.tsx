@@ -149,7 +149,7 @@ const PersonalInfo = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    handleStep('personalInfo');
+    handleStep('next');
   };
 
   const setInput = (e: FormEvent, key: string) => {
