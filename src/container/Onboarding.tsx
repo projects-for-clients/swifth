@@ -217,6 +217,7 @@ const Onboarding = () => {
      if (step === 'personalInfo') {
        for (const key in personalInfo) {
 
+          console.log({key})
         //  switch (key) {
         //    case 'businessName':
         //      if (businessInfo[key].length < 3) {
