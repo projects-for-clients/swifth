@@ -21,5 +21,6 @@ export const getPhotoUri = async(selector: string) => {
         })
     })
 
+
     return photoUri
 }

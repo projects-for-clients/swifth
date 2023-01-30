@@ -46,6 +46,7 @@ const businessInfo = () => {
   const [imageDetails, setImageDetails] = useState<ImageDetails>({
     cacUri: '',
     licenseUri: '',
+
     error: {
       cacUri: false,
       licenseUri: false,
@@ -69,91 +70,29 @@ const businessInfo = () => {
   ) => {
     const getUri = await getPhotoUri(key);
 
-    if (key === 'cacUri') {
-      console.log(imageDetails);
-      return setCacDetails((prev) => {
-        return {
-          ...prev,
-          uri: getUri,
-        };
-      });
+   
+    const data = {
+      target: {
+        name: key,
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
+    
+    if(key === 'logoUri') {
+      
+      setLogoDetails((prev) => ({
+        ...prev,
+        uri: getUri,
+      }));
     }
 
-    if (key === 'licenseUri') {
-      return setLicenseDetails((prev) => {
-        return {
-          ...prev,
-          uri: getUri,
-        };
-      });
-    }
-    if (key === 'logoUri') {
-      return setLogoDetails((prev) => {
-        return {
-          ...prev,
-          uri: getUri,
-        };
-      });
-    }
+    handleInputChange(data, 'businessInfo');
+    
   };
 
-  useEffect(() => {
-    const { error } = imageDetails;
 
-    let isError = {};
 
-    for (let key in error) {
-      if (error[key as keyof typeof error] === true) {
-        isError = {
-          ...isError,
-          [key]: true,
-        };
-        const data = {
-          target: {
-            name: key,
-            value: 'too large',
-          },
-        } as ChangeEvent<HTMLInputElement>;
-
-        handleInputChange(data, 'businessInfo');
-      }
-    }
-
-    if (cacDetails.uri && !isError['cacUri' as keyof typeof isError]) {
-      const data = {
-        target: {
-          name: 'cacUri',
-          value: cacDetails.uri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      return handleInputChange(data, 'businessInfo');
-    }
-
-    if (licenseDetails.uri && !isError['licenseUri' as keyof typeof isError]) {
-      const data = {
-        target: {
-          name: 'licenseUri',
-          value: licenseDetails.uri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      return handleInputChange(data, 'businessInfo');
-    }
-
-    if (logoDetails.uri && !isError['logoUri' as keyof typeof isError]) {
-      const data = {
-        target: {
-          name: 'logoUri',
-          value: logoDetails.uri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      return handleInputChange(data, 'businessInfo');
-    }
-  }, [imageDetails, cacDetails, licenseDetails, logoDetails]);
-
-  const uploadDetailsHandler = (
+  const uploadDetailsHandler = async (
     e: ChangeEvent<HTMLInputElement>,
     type: 'cacUri' | 'licenseUri' | 'logoUri'
   ) => {
@@ -166,31 +105,6 @@ const businessInfo = () => {
 
       const KBSize = size.toString().split('.')[0];
 
-      if (KBSize.length > 3) {
-        const MBSize = Number(KBSize) / 1000;
-
-        console.log({ MBSize });
-
-        setImageDetails((prev) => ({
-          ...prev,
-          [type]: `${MBSize.toFixed(2)}MB`,
-          error: {
-            ...prev.error,
-            [type]: MBSize > 2 ? true : false,
-          },
-        }));
-      } else {
-        console.log({ KBSize });
-        setImageDetails((prev) => ({
-          ...prev,
-          [type]: `${KBSize}KB`,
-          error: {
-            ...prev.error,
-            [type]: false,
-          },
-        }));
-      }
-
       if (type === 'cacUri') {
         setCacDetails((prev) => {
           return {
@@ -199,22 +113,72 @@ const businessInfo = () => {
           };
         });
       }
-      if (type === 'licenseUri') {
-        setLicenseDetails((prev) => {
-          return {
-            ...prev,
-            name: path.name,
-          };
-        });
-      }
-      if (type === 'logoUri') {
-        setLogoDetails((prev) => {
-          return {
-            ...prev,
-            name: path.name,
-          };
-        });
-      }
+
+       if (type === 'licenseUri') {
+         setLicenseDetails((prev) => {
+           return {
+             ...prev,
+             name: path.name,
+           };
+         });
+       }
+
+       if (type === 'logoUri') {
+         setLogoDetails((prev) => {
+           return {
+             ...prev,
+             name: path.name,
+           };
+         });
+       }
+
+      if (KBSize.length > 3) {
+        const MBSize = Number(KBSize) / 1000;
+
+        console.log({ MBSize });
+        setImageDetails((prev) => ({
+          ...prev,
+          [type]: `${MBSize.toFixed(2)}MB`,
+          error: {
+            ...prev.error,
+            [type]: MBSize > 2 ? true : false,
+          },
+        }));
+
+        
+
+        if (MBSize > 2) {
+          const data = {
+            target: {
+              name: type,
+              value: 'too large',
+            },
+          } as ChangeEvent<HTMLInputElement>;
+
+          handleInputChange(data, 'businessInfo');
+        } 
+      } else {
+        console.log({ KBSize });
+
+        setImageDetails((prev) => ({
+          ...prev,
+          [type]: `${KBSize}KB`,
+          error: {
+            ...prev.error,
+            [type]: false,
+          },
+        }));
+
+        
+
+       
+
+
+      
+
+     
+    }
+     
     }
   };
 
