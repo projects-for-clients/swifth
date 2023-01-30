@@ -33,11 +33,11 @@ namespace Onboarding {
     fullName: string;
     email: string;
     phoneNumber: string;
-    IdCardUri: string;
-    IdCardExpirationDate: string;
+    idCardUri: string;
+    idCardExpirationDate: string;
     POAUri: string;
-    IdCardType: string;
-    IdCardNumber: number;
+    idCardType: string;
+    idCardNumber: number;
   }
 
   export interface ValidationErrors {

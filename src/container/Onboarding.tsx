@@ -36,10 +36,10 @@ const Onboarding = () => {
       fullName: '',
       email: '',
       phoneNumber: '',
-      IdCardExpirationDate: '',
-      IdCardUri: '',
-      IdCardNumber: 0,
-      IdCardType: '',
+      idCardExpirationDate: '',
+      idCardUri: '',
+      idCardNumber: 0,
+      idCardType: '',
       POAUri: '',
     },
   };
@@ -263,9 +263,9 @@ const Onboarding = () => {
     return true;
   };
 
-  // useEffect(() => {
-  //   console.log(onboardingInputs);
-  // }, [onboardingInputs]);
+  useEffect(() => {
+    console.log(onboardingInputs.personalInfo, 'onboardingInputs.personalInfo');
+  }, [onboardingInputs.personalInfo]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
