@@ -49,21 +49,13 @@ const PersonalInfo = () => {
   ) => {
     const getUri = await getPhotoUri(key);
 
-    const data = {
-      target: {
-        name: key,
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
     setFormUri(getUri);
 
-    // handleInputChange(data, 'personalInfo');
   };
 
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    value: string
+    value: 'idCardUri' | 'POAUri'
   ) => {
     const fileObj = e.target as HTMLInputElement;
 
@@ -104,7 +96,7 @@ const PersonalInfo = () => {
     handleInputChange(changeEvent, key);
   };
 
-  const terminalError = (val: string): boolean | string => {
+  const formErrorField = (val: string): boolean | string => {
     if (validationErrors && validationErrors[val]) {
       const isError = validationErrors[val];
       return isError;
@@ -173,10 +165,10 @@ const PersonalInfo = () => {
             <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
               <div>
                 <label
-                  htmlFor={`POA`}
+                  htmlFor={`idCardUri`}
                   className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
                     imageDetails.error ||
-                    (validationErrors && terminalError('formCUri'))
+                    formErrorField('idCardUri')
                       ? 'border-red-600 border bg-red-50'
                       : 'border-color-purple-light'
                   }`}
@@ -198,25 +190,25 @@ const PersonalInfo = () => {
                       </p>
                     </div>
                   ) : (
-                    <p className="text-[1.4rem]">Upload Proof of Address</p>
+                    <p className="text-[1.4rem]">Upload Contact Person ID Card</p>
                   )}
                 </label>
                 <input
                   type="file"
-                  name={`POAUri`}
-                  id={`POAUri`}
+                  name={`idCardUri`}
+                  id={`idCardUri`}
                   accept="image/*"
                   className="hidden"
-                  onClick={(e) => uploadUriHandler(e, `POAUri`)}
-                  onChange={(e) => formUploadHandler(e, `POA`)}
+                  onClick={(e) => uploadUriHandler(e, `idCardUri`)}
+                  onChange={(e) => formUploadHandler(e, `idCardUri`)}
                 />
               </div>
               <div>
                 <label
-                  htmlFor={`POA`}
+                  htmlFor={`POAUri`}
                   className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
                     imageDetails.error ||
-                    (validationErrors && terminalError('formCUri'))
+                    (validationErrors && formErrorField('formCUri'))
                       ? 'border-red-600 border bg-red-50'
                       : 'border-color-purple-light'
                   }`}
@@ -248,7 +240,7 @@ const PersonalInfo = () => {
                   accept="image/*"
                   className="hidden"
                   onClick={(e) => uploadUriHandler(e, `POAUri`)}
-                  onChange={(e) => formUploadHandler(e, `POA`)}
+                  onChange={(e) => formUploadHandler(e, `POAUri`)}
                 />
               </div>
             </div>
