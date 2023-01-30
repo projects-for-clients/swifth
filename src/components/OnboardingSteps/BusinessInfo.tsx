@@ -14,9 +14,9 @@ interface ImageDetails {
   cac: string;
   license: string;
   error: {
-    cac: boolean;
-    license: boolean;
-    logo: boolean;
+    cacUri: boolean;
+    licenseUri: boolean;
+    logoUri: boolean;
   };
 }
 
@@ -27,7 +27,7 @@ const businessInfo = () => {
   const {
     businessName,
     officeAddress,
- 
+
     logoUri,
   } = onboardingInputs.businessInfo;
 
@@ -37,14 +37,13 @@ const businessInfo = () => {
     cac: '',
     license: '',
     error: {
-      cac: false,
-      license: false,
-      logo: false,
+      cacUri: false,
+      licenseUri: false,
+      logoUri: false,
     },
   });
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
-
 
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.businessInfo);
@@ -53,9 +52,6 @@ const businessInfo = () => {
 
     setIsDisabled(isDisabled);
   }, [onboardingInputs.businessInfo]);
-
-
-
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -70,10 +66,27 @@ const businessInfo = () => {
       },
     } as ChangeEvent<HTMLInputElement>;
 
-    console.log(imageDetails)
-
     handleInputChange(data, 'businessInfo');
   };
+
+  useEffect(() => {
+    console.log(imageDetails);
+
+    const { error } = imageDetails;
+
+    for (let key in error) {
+      if (error[key as keyof typeof error] === true) {
+        const data = {
+          target: {
+            name: key,
+            value: 'too large',
+          },
+        } as ChangeEvent<HTMLInputElement>;
+
+        handleInputChange(data, 'businessInfo');
+      }
+    }
+  }, [imageDetails]);
 
   const uploadDetailsHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -176,7 +189,7 @@ const businessInfo = () => {
                   {validationErrors.cacUri}
                 </p>
               )}
-              {imageDetails.error.logo && (
+              {imageDetails.error.logoUri && (
                 <p className="text-red-600 text-[1.2rem]">
                   Image size should not exceed 2MB
                 </p>
@@ -189,13 +202,13 @@ const businessInfo = () => {
               htmlFor="cacUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.cacUri) ||
-                imageDetails.error.cac
+                imageDetails.error.cacUri
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
               {(validationErrors && validationErrors.cacUri) ||
-              imageDetails.error.cac ? (
+              imageDetails.error.cacUri ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
@@ -205,7 +218,7 @@ const businessInfo = () => {
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{cacDetails}</p>
 
-                  {imageDetails?.error.cac ? (
+                  {imageDetails?.error.cacUri ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
@@ -240,13 +253,13 @@ const businessInfo = () => {
               htmlFor="licenseUri"
               className={`flex border rounded-lg py-8 px-10 items-center gap-6 cursor-pointer h-[7rem] ${
                 (validationErrors && validationErrors.licenseUri) ||
-                imageDetails.error.license
+                imageDetails.error.licenseUri
                   ? 'border-red-600 border bg-red-50'
                   : 'border-color-purple-light'
               }`}
             >
               {(validationErrors && validationErrors.licenseUri) ||
-              imageDetails.error.license ? (
+              imageDetails.error.licenseUri ? (
                 <img src="/icons/admin/uploadError.svg" alt="" />
               ) : (
                 <img src="/icons/admin/upload.svg" alt="" />
@@ -254,7 +267,7 @@ const businessInfo = () => {
               {licenseDetails ? (
                 <div className="grid">
                   <p className="text-[1.4rem] font-normal">{licenseDetails}</p>
-                  {imageDetails?.error.license ? (
+                  {imageDetails?.error.licenseUri ? (
                     <p className="text-red-600 text-[1.2rem]">
                       File size must not exceed 2MB
                     </p>
