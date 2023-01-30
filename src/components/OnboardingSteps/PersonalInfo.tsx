@@ -37,7 +37,10 @@ const PersonalInfo = () => {
     name: '',
   });
 
-  const [formUri, setFormUri] = useState('');
+  const [formUri, setFormUri] = useState({
+    idCardUri: '',
+    POAUri: '',
+  });
 
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -55,7 +58,10 @@ const PersonalInfo = () => {
   ) => {
     const getUri = await getPhotoUri(key);
 
-    setFormUri(getUri);
+    setFormUri((prev) => ({
+      ...prev,
+      [key]: getUri,
+      }));
   };
 
   const formUploadHandler = (
@@ -74,39 +80,37 @@ const PersonalInfo = () => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      value === 'idCardUri' ?
-        setIdCardDetails((prev) => ({
-          ...prev,
-          error: MBSize > 2 ? true : false,
-          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-          size: `${MBSize.toFixed(1)}MB`,
-          name,
-        })) : setPOADetails((prev) => ({
-          ...prev,
-          error: MBSize > 2 ? true : false,
-          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-          size: `${MBSize.toFixed(1)}MB`,
-          name,
-        }));
-    
-      
+      value === 'idCardUri'
+        ? setIdCardDetails((prev) => ({
+            ...prev,
+            error: MBSize > 2 ? true : false,
+            message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+            size: `${MBSize.toFixed(1)}MB`,
+            name,
+          }))
+        : setPOADetails((prev) => ({
+            ...prev,
+            error: MBSize > 2 ? true : false,
+            message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+            size: `${MBSize.toFixed(1)}MB`,
+            name,
+          }));
     } else {
-
-      value === 'idCardUri' ?
-        setIdCardDetails((prev) => ({
-        ...prev,
-        size: `${KBSize}KB`,
-        message: null,
-        error: false,
-        name,
-      })): setPOADetails((prev) => ({
-        ...prev,
-        size: `${KBSize}KB`,
-        message: null,
-        error: false,
-        name,
-      }));
-      
+      value === 'idCardUri'
+        ? setIdCardDetails((prev) => ({
+            ...prev,
+            size: `${KBSize}KB`,
+            message: null,
+            error: false,
+            name,
+          }))
+        : setPOADetails((prev) => ({
+            ...prev,
+            size: `${KBSize}KB`,
+            message: null,
+            error: false,
+            name,
+          }));
     }
   };
 
@@ -190,25 +194,25 @@ const PersonalInfo = () => {
                 <label
                   htmlFor={`idCardUri`}
                   className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                    imageDetails.error || formErrorField('idCardUri')
+                    idCardDetails.error || formErrorField('idCardUri')
                       ? 'border-red-600 border bg-red-50'
                       : 'border-color-purple-light'
                   }`}
                 >
-                  {imageDetails.error ? (
+                  {idCardDetails.error ? (
                     <img src="/icons/admin/uploadError.svg" alt="" />
                   ) : (
                     <img src="/icons/admin/upload.svg" alt="" />
                   )}
-                  {imageDetails.value === 'idCardUri' ? (
+                  {idCardDetails.name ? (
                     <div className="grid">
                       <p className="text-[1.4rem] font-normal">
-                        {imageDetails.name}
+                        {idCardDetails.name}
                       </p>
                       <p className="text-color-grey-4 text-[1rem]">
-                        {imageDetails.message
-                          ? imageDetails.message
-                          : imageDetails.size}
+                        {idCardDetails.message
+                          ? idCardDetails.message
+                          : idCardDetails.size}
                       </p>
                     </div>
                   ) : (
@@ -231,26 +235,26 @@ const PersonalInfo = () => {
                 <label
                   htmlFor={`POAUri`}
                   className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                    imageDetails.error ||
+                    POADetails.error ||
                     (validationErrors && formErrorField('formCUri'))
                       ? 'border-red-600 border bg-red-50'
                       : 'border-color-purple-light'
                   }`}
                 >
-                  {imageDetails.error ? (
+                  {POADetails.error ? (
                     <img src="/icons/admin/uploadError.svg" alt="" />
                   ) : (
                     <img src="/icons/admin/upload.svg" alt="" />
                   )}
-                  {imageDetails.value === 'POAUri' ? (
+                  {POADetails.name ? (
                     <div className="grid">
                       <p className="text-[1.4rem] font-normal">
-                        {imageDetails.name}
+                        {POADetails.name}
                       </p>
                       <p className="text-color-grey-4 text-[1rem]">
-                        {imageDetails.message
-                          ? imageDetails.message
-                          : imageDetails.size}
+                        {POADetails.message
+                          ? POADetails.message
+                          : POADetails.size}
                       </p>
                     </div>
                   ) : (
