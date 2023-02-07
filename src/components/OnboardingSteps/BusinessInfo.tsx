@@ -167,7 +167,7 @@ const businessInfo = () => {
             className="flex gap-8 items-center cursor-pointer w-max"
           >
             <img
-              src={logoUri ? logoUri : '/icons/admin/bag.svg'}
+              src={imgUris.logoUri ? imgUris.logoUri : '/icons/admin/bag.svg'}
               alt=""
               className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
             />
