@@ -280,7 +280,9 @@ const Onboarding = () => {
     if(step === 'next') {
       console.log(onboardingInputs)
       dispatch(updateUser(onboardingInputs))
-      dispatch(updateUserOnboarding)
+      dispatch(updateUserOnboarding({
+        
+      }))
     }
     setStep(step);
   };

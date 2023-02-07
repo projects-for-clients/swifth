@@ -29,14 +29,14 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
 
-    updateUserOnboarding: (state, action) => {
-      console.log('action.payload onboarding', action.payload);
-      state.onboarding = action.payload;
+    updateUserOnboarding: (state, {payload}) => {
+      console.log('payload onboarding', payload);
+      state.onboarding = payload;
     },
 
-    updateUser: (state, action) => {
+    updateUser: (state, {payload}) => {
       
-      const data = action.payload as OnboardingInputs;    
+      const data = payload as OnboardingInputs;    
 
    
       state.fullName = data.personalInfo.fullName;
@@ -49,7 +49,7 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { updateUserOnboarding, updateUser } = userSlice.actions;
+export const { updateUserOnboarding, updateUser } = userSlice.;
 
 export const selectUser = (state: AppState) => state.user;
 
