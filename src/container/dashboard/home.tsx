@@ -149,7 +149,7 @@ function home() {
 
   const secondStep = (
     <div
-      className="flex"
+      className="flex items-center gap-8 pt-10"
       // style={{
       //   gridTemplateColumns: 'max-content 1fr',
       // }}
@@ -157,7 +157,7 @@ function home() {
       <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
-        <p className="text-[2.4rem] font-semibold">Documents Submitted</p>
+        <p className="text-[2rem] font-medium">Documents Submitted</p>
         <p>
           Your details has been received and will undergo verification and
           approval. You will be notified once it is approved
