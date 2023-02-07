@@ -115,7 +115,7 @@ const businessInfo = () => {
     e.preventDefault();
 
 
-    console.log(Object.values(imageDetails))
+    
 
     //handleInputChange(changeEvent, 'businessInfo');
 
@@ -126,6 +126,19 @@ const businessInfo = () => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 
     const { name } = changeEvent.target;
+
+
+    const filterValues = Object.values(imageDetails).some(
+      (value) => {
+        console.log({value})
+        return value.error === true || value.pathName === '';
+      }
+    );
+
+    console.log({ filterValues });
+
+    console.log({ isOnboardingError });
+
     if (name === 'cacUri' || name === 'licenseUri' || name === 'logoUri') {
       return;
     } else {
