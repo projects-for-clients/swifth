@@ -10,13 +10,18 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
-interface ImageDetails {
-  error: boolean;
-  message: string | null;
-  size: string;
-  pathName: string;
-  key: string[];
-}
+// type UriKeys = 'logoUri' | 'cacUri' | 'licenseUri';
+// interface ImageDetails {
+//   [key as string]: {
+
+//     error: boolean;
+//     message: string | null;
+//     size: string;
+//     pathName: string;
+//   }
+// }
+
+const keyProps = { error: false, message: null, size: '', pathName: '' };
 
 const businessInfo = () => {
   const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
@@ -24,12 +29,10 @@ const businessInfo = () => {
 
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
-  const [imageDetails, setImageDetails] = useState<ImageDetails>({
-    error: false,
-    message: null,
-    size: '',
-    pathName: '',
-    key: [],
+  const [imageDetails, setImageDetails] = useState({
+    logoUri: keyProps,
+    cacUri: keyProps,
+    licenseUri: keyProps,
   });
 
   const [imgUris, setImgUris] = useState({
@@ -82,9 +85,7 @@ const businessInfo = () => {
       setImageDetails((prev) => ({
         ...prev,
         size: `${KBSize}KB`,
-        key: [
-          ...imageDetails.key.filter((item) => item !== key),
-        ]
+        key: [...imageDetails.key.filter((item) => item !== key)],
       }));
     }
   };
@@ -210,7 +211,7 @@ const businessInfo = () => {
                 onChange={(e) => formUploadHandler(e, `cacUri`)}
               />
             </div>
-            <div>
+            {/* <div>
               <label
                 htmlFor={`licenseUri`}
                 className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
@@ -250,7 +251,7 @@ const businessInfo = () => {
                 onClick={() => uploadUriHandler(`licenseUri`)}
                 onChange={(e) => formUploadHandler(e, `licenseUri`)}
               />
-            </div>
+            </div> */}
           </div>
 
           <div className="grid gap-10 mt-4 max-w-[50rem]">
