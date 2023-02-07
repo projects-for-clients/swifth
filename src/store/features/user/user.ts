@@ -29,15 +29,20 @@ export const userSlice = createSlice({
   reducers: {
 
     updateUserOnboarding: (state, action) => {
+      console.log('action.payload onboarding', action.payload);
       state.onboarding = action.payload;
     },
 
     updateUser: (state, action) => {
+      
       const data = action.payload
+      
+      console.log('action.payload user', data.personalInfo.fullName);
+    
 
    
-      state.fullName = data.PersonalInfo.fullName;
-      state.email = data.PersonalInfo.email;
+      state.fullName = data.personalInfo.fullName;
+      state.email = data.personalInfo.email;
 
     }
 

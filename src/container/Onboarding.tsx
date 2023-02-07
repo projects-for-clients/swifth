@@ -275,13 +275,11 @@ const Onboarding = () => {
       return;
     }
 
-    alert('go to next step');
-
 
 
     if(step === 'next') {
       console.log(onboardingInputs)
-      dispatch(updateUser(onboardingInputs.personalInfo))
+      dispatch(updateUser(onboardingInputs))
       dispatch(updateUserOnboarding)
     }
     setStep(step);
