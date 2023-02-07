@@ -232,20 +232,20 @@ const businessInfo = () => {
                     : 'border-color-purple-light'
                 }`}
               >
-                {imageDetails.cacUri.error ? (
+                {imageDetails.licenseUri.error ? (
                   <img src="/icons/admin/uploadError.svg" alt="" />
                 ) : (
                   <img src="/icons/admin/upload.svg" alt="" />
                 )}
-                {imageDetails.cacUri.pathName ? (
+                {imageDetails.licenseUri.pathName ? (
                   <div className="grid">
                     <p className="text-[1.4rem] font-normal">
-                      {imageDetails.cacUri.pathName}
+                      {imageDetails.licenseUri.pathName}
                     </p>
                     <p className="text-color-grey-4 text-[1rem]">
-                      {imageDetails.cacUri.message
-                        ? imageDetails.cacUri.message
-                        : imageDetails.cacUri.size}
+                      {imageDetails.licenseUri.message
+                        ? imageDetails.licenseUri.message
+                        : imageDetails.licenseUri.size}
                     </p>
                   </div>
                 ) : (
