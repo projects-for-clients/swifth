@@ -40,7 +40,7 @@ export const userSlice = createSlice({
       state.firstName = data.PersonalInfo.firstName;
       state.lastName = data.PersonalInfo.lastName;
       state.email = data.PersonalInfo.email;
-      
+
     }
 
   },
@@ -48,7 +48,7 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { updateUserOnboarding } = userSlice.actions;
+export const { updateUserOnboarding, updateUser } = userSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;
 
