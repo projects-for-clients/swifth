@@ -115,18 +115,6 @@ const businessInfo = () => {
     handleInputChange(changeEvent, 'businessInfo');
   };
 
-  // const formErrorField = (val: string): boolean | string => {
-  //   if (validationErrors && validationErrors[val]) {
-  //     const isError = validationErrors[val];
-  //     return isError;
-  //   }
-
-  //   return false;
-  // };
-
-  useEffect(() => {
-    console.log(imageDetails);
-  }, [imageDetails]);
 
   return (
     <>
