@@ -268,9 +268,9 @@ const Onboarding = () => {
     return true;
   };
 
-  useEffect(() => {
-    console.log(onboardingInputs.businessInfo, 'businessInfo');
-  }, [onboardingInputs.businessInfo]);
+  // useEffect(() => {
+  //   console.log(onboardingInputs.businessInfo, 'businessInfo');
+  // }, [onboardingInputs.businessInfo]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
