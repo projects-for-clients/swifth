@@ -48,6 +48,7 @@ const businessInfo = () => {
 
   
   useEffect(() => {
+    console.log(onboardingInputs.businessInfo)
     const inputValues = Object.entries(onboardingInputs.businessInfo);
 
     const filterValues = inputValues.filter((value) => value[1] === '');
@@ -65,7 +66,7 @@ const businessInfo = () => {
     }
 
     setIsDisabled(isDisabled);
-  }, [onboardingInputs.businessInfo, imgUris]);
+  }, [onboardingInputs.businessInfo]);
 
   const uploadUriHandler = async (key: 'logoUri' | 'cacUri' | 'licenseUri') => {
     const getUri = await getPhotoUri(key);
@@ -123,17 +124,9 @@ const businessInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 
-    const { name } = changeEvent.target;
-    if (name === 'cacUri' || name === 'licenseUri' || name === 'logoUri') {
-      return;
-    }
-
     handleInputChange(changeEvent, 'businessInfo');
   };
 
-  useEffect(() => {
-    console.log(imageDetails);
-  }, [imageDetails]);
 
   return (
     <>

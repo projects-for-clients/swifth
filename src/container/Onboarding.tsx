@@ -76,6 +76,7 @@ const Onboarding = () => {
 
     setValidationErrors(null);
     if (key === 'businessInfo') {
+      console.log("name: ", name)
       setOnboardingInputs({
         type: 'UPDATE_BUSINESS_INFO',
         payload: {
