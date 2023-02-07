@@ -124,6 +124,12 @@ const businessInfo = () => {
   //   return false;
   // };
 
+
+  useEffect(() => {
+
+    console.log(imageDetails)
+  }, [imageDetails])
+
   return (
     <>
       <Header
