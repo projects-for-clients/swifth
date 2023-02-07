@@ -15,7 +15,7 @@ interface ImageDetails {
   message: string | null;
   size: string;
   pathName: string;
-  key: 'logoUri' | 'cacUri' | 'licenseUri' | null;
+  key: string[];
 }
 
 const businessInfo = () => {
@@ -29,9 +29,8 @@ const businessInfo = () => {
     message: null,
     size: '',
     pathName: '',
-    key: null,
+    key: [],
   });
-
 
   const [imgUris, setImgUris] = useState({
     logoUri: '',
@@ -56,7 +55,6 @@ const businessInfo = () => {
     setImgUris((prev) => ({ ...prev, [key]: getUri }));
   };
 
-
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     key: 'logoUri' | 'cacUri' | 'licenseUri'
@@ -78,21 +76,16 @@ const businessInfo = () => {
         error: MBSize > 2 ? true : false,
         message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
         size: `${MBSize.toFixed(1)}MB`,
-        pathName: name,
-        key,
+        key: [...imageDetails.key, key],
       }));
-
-      
     } else {
       setImageDetails((prev) => ({
         ...prev,
-        error: false,
-        message: null,
         size: `${KBSize}KB`,
-        pathName: name,
-        key,
+        key: [
+          ...imageDetails.key.filter((item) => item !== key),
+        ]
       }));
-
     }
   };
 
@@ -164,7 +157,7 @@ const businessInfo = () => {
               <p className="text-[1.6rem] text-color-primary uppercase">
                 Upload Logo
               </p>
-              {imageDetails.error && imageDetails.key === 'logoUri' && (
+              {imageDetails.error && imageDetails.key.includes('logoUri') && (
                 <p className="text-red-600 text-[1.2rem]">
                   {imageDetails.message}
                 </p>
@@ -177,18 +170,17 @@ const businessInfo = () => {
             </div>
           </label>
 
-          {/* <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
+          <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
             <div>
               <label
                 htmlFor={`cacUri`}
                 className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                  cacDetails.error ||
-                  (validationErrors && formErrorField('cacUri'))
+                  imageDetails.error && imageDetails.key.includes('cacUri')
                     ? 'border-red-600 border bg-red-50'
                     : 'border-color-purple-light'
                 }`}
               >
-                {cacDetails.error ? (
+                {imageDetails.error && imageDetails.key.includes('cacUri') ? (
                   <img src="/icons/admin/uploadError.svg" alt="" />
                 ) : (
                   <img src="/icons/admin/upload.svg" alt="" />
@@ -259,7 +251,7 @@ const businessInfo = () => {
                 onChange={(e) => formUploadHandler(e, `licenseUri`)}
               />
             </div>
-          </div> */}
+          </div>
 
           <div className="grid gap-10 mt-4 max-w-[50rem]">
             <div className="grid gap-4">
