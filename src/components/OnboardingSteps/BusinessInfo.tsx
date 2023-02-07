@@ -46,42 +46,29 @@ const businessInfo = () => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  
   useEffect(() => {
-    console.log(onboardingInputs.businessInfo)
     const inputValues = Object.values(onboardingInputs.businessInfo);
 
     const filterValues = inputValues.some((value) => value === '');
 
-    console.log({ filterValues });
-
-    // if (filterValues.length === 3) {
-    //   Object.keys(filterValues).forEach((key) => {
-    //     if (key === 'logoUri' || key === 'cacUri' || key === 'licenseUri') {
-    //       const isImgUriEmpty = Object.values(imgUris).some(
-    //         (value) => value === ''
-    //       );
-
-    //       console.log({ isImgUriEmpty });
-    //     }
-    //   });
-    // }
-
-    setIsDisabled(isDisabled);
+    setIsDisabled(filterValues);
   }, [onboardingInputs.businessInfo]);
 
   const uploadUriHandler = async (key: 'logoUri' | 'cacUri' | 'licenseUri') => {
     const getUri = await getPhotoUri(key);
 
     setImgUris((prev) => ({ ...prev, [key]: getUri }));
+
+    const data = {
+      target: {
+        name: key,
+        value: getUri,
+      },
+    } as ChangeEvent<HTMLInputElement>;
+
+    handleInputChange(data, 'businessInfo');
   };
 
-  useEffect(() => {
-    console.log(imgUris);
-     
-   // handleInputChange(imgUris, 'businessInfo')
-
-  }, [imgUris])
 
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -135,7 +122,6 @@ const businessInfo = () => {
 
     handleInputChange(changeEvent, 'businessInfo');
   };
-
 
   return (
     <>
