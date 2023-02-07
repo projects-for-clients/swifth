@@ -149,14 +149,22 @@ const PersonalInfo = () => {
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    handleStep('next');
+
+    console.log(idCardDetails, POADetails);
+    //handleStep('next');
   };
 
-  const setInput = (e: FormEvent, key: string) => {
+    useEffect(() => {
+    
+    }, [setInput]);
 
-
+  function setInput (e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
-    if(changeEvent.target.name === 'idCardUri' || changeEvent.target.name === 'POAUri') return;
+    if (
+      changeEvent.target.name === 'idCardUri' ||
+      changeEvent.target.name === 'POAUri'
+    )
+      return;
 
     handleInputChange(changeEvent, 'personalInfo');
   };
