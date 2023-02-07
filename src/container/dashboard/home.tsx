@@ -148,9 +148,23 @@ function home() {
   );
 
   const secondStep = (
-    <>
-    </>
-  )
+    <div
+      className="grid bg-red-500"
+      style={{
+        gridTemplateColumns: 'min-content 1fr',
+      }}
+    >
+      <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
+
+      <div>
+        <p className="text-[2.4rem] font-semibold">Documents Submitted</p>
+        <p>
+          Your details has been received and will undergo verification and
+          approval. You will be notified once it is approved
+        </p>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -160,7 +174,7 @@ function home() {
         <section className="grid auto-cols-auto">
           <div className="rounded-lg p-4 border border-color-purple-light grid">
             <h2 className="heading3">Account Setup</h2>
-            {firstStep}
+            {secondStep}
           </div>
         </section>
         <section className="grid gap-4 self-baseline">
