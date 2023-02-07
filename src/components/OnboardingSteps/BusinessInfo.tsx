@@ -194,15 +194,15 @@ const businessInfo = () => {
                 ) : (
                   <img src="/icons/admin/upload.svg" alt="" />
                 )}
-                {cacDetails.name ? (
+                {imageDetails.cacUri.pathName ? (
                   <div className="grid">
                     <p className="text-[1.4rem] font-normal">
-                      {cacDetails.name}
+                      {imageDetails.cacUri.pathName}
                     </p>
                     <p className="text-color-grey-4 text-[1rem]">
-                      {cacDetails.message
-                        ? cacDetails.message
-                        : cacDetails.size}
+                      {imageDetails.cacUri.message
+                        ? imageDetails.cacUri.message
+                        : imageDetails.cacUri.size}
                     </p>
                   </div>
                 ) : (
