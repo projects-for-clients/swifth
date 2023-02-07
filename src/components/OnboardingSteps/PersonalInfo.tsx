@@ -46,13 +46,14 @@ const PersonalInfo = () => {
   });
 
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isOnboardingError, setIsOnboardingError] = useState(false);
 
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.personalInfo);
 
     const isDisabled = inputValues.some((value) => value === '');
 
-    setIsDisabled(isDisabled);
+    setIsOnboardingError(isDisabled);
   }, [onboardingInputs.personalInfo]);
 
   const uploadUriHandler = async (
@@ -118,8 +119,6 @@ const PersonalInfo = () => {
   };
 
   useEffect(() => {
-    console.log({ POADetails, idCardDetails });
-
     if (idCardDetails.name && formUri.idCardUri) {
       const data = {
         target: {
@@ -154,9 +153,18 @@ const PersonalInfo = () => {
     //handleStep('next');
   };
 
-    useEffect(() => {
+  useEffect(() => {
+
+    if(POADetails.error || idCardDetails.error || isOnboardingError) {
+      setIsDisabled(true)
+    }
+    else{
+      setIsDisabled(false)
+    }
+
+  }, [setInput])
+
     
-    }, [setInput]);
 
   function setInput (e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
