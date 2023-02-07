@@ -111,15 +111,6 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    const filterValues = Object.values(imageDetails).some((value) => {
-      console.log({ value });
-      return value.error === true || value.pathName === '';
-    });
-
-    if (filterValues) {
-      return;
-    }
-
     handleStep('portsAndTerminal');
 
   };
@@ -130,6 +121,8 @@ const businessInfo = () => {
       return value.error === true || value.pathName === '';
     });
 
+
+    console.log({ filterValues, isOnboardingError })
     if(filterValues || isOnboardingError) {
       setIsDisabled(true);
     } else {
