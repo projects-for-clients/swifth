@@ -46,7 +46,6 @@ const businessInfo = () => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(true);
   const [isOnboardingError, setIsOnboardingError] = useState(false);
-  
 
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.businessInfo);
@@ -54,7 +53,6 @@ const businessInfo = () => {
     const filterValues = inputValues.some((value) => value === '');
 
     setIsOnboardingError(filterValues);
-
   }, [onboardingInputs.businessInfo]);
 
   const uploadUriHandler = async (key: 'logoUri' | 'cacUri' | 'licenseUri') => {
@@ -88,7 +86,6 @@ const businessInfo = () => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-
       setImageDetails((prev) => ({
         ...prev,
         [key]: {
@@ -114,37 +111,36 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-
-    
-
     //handleInputChange(changeEvent, 'businessInfo');
 
     //handleStep('portsAndTerminal');
   };
 
-  const setInput = (e: FormEvent, key: string) => {
+  useEffect(() => {
+    const filterValues = Object.values(imageDetails).some((value) => {
+      console.log({ value });
+      return value.error === true || value.pathName === '';
+    });
+
+    if(filterValues || isOnboardingError) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+
+  }, [setInput]);
+
+  function setInput(e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 
     const { name } = changeEvent.target;
-
-
-    const filterValues = Object.values(imageDetails).some(
-      (value) => {
-        console.log({value})
-        return value.error === true || value.pathName === '';
-      }
-    );
-
-    console.log({ filterValues });
-
-    console.log({ isOnboardingError });
 
     if (name === 'cacUri' || name === 'licenseUri' || name === 'logoUri') {
       return;
     } else {
       handleInputChange(changeEvent, 'businessInfo');
     }
-  };
+  }
 
   return (
     <>
