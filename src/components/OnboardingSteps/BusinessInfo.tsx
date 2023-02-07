@@ -49,21 +49,23 @@ const businessInfo = () => {
   
   useEffect(() => {
     console.log(onboardingInputs.businessInfo)
-    const inputValues = Object.entries(onboardingInputs.businessInfo);
+    const inputValues = Object.values(onboardingInputs.businessInfo);
 
-    const filterValues = inputValues.filter((value) => value[1] === '');
+    const filterValues = inputValues.some((value) => value === '');
 
-    if (filterValues.length === 3) {
-      Object.keys(filterValues).forEach((key) => {
-        if (key === 'logoUri' || key === 'cacUri' || key === 'licenseUri') {
-          const isImgUriEmpty = Object.values(imgUris).some(
-            (value) => value === ''
-          );
+    console.log({ filterValues });
 
-          console.log({ isImgUriEmpty });
-        }
-      });
-    }
+    // if (filterValues.length === 3) {
+    //   Object.keys(filterValues).forEach((key) => {
+    //     if (key === 'logoUri' || key === 'cacUri' || key === 'licenseUri') {
+    //       const isImgUriEmpty = Object.values(imgUris).some(
+    //         (value) => value === ''
+    //       );
+
+    //       console.log({ isImgUriEmpty });
+    //     }
+    //   });
+    // }
 
     setIsDisabled(isDisabled);
   }, [onboardingInputs.businessInfo]);
@@ -73,6 +75,13 @@ const businessInfo = () => {
 
     setImgUris((prev) => ({ ...prev, [key]: getUri }));
   };
+
+  useEffect(() => {
+    console.log(imgUris);
+     
+   // handleInputChange(imgUris, 'businessInfo')
+
+  }, [imgUris])
 
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
