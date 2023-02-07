@@ -1,4 +1,4 @@
-import { ChangeEvent, useReducer, useState } from 'react';
+import { ChangeEvent, useEffect, useReducer, useState } from 'react';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
@@ -216,7 +216,6 @@ const Onboarding = () => {
     }
 
     if (step === 'personalInfo') {
-      console.log('step is personalInfo', personalInfo);
       for (const key in personalInfo) {
         console.log({ key });
         switch (key) {
@@ -259,7 +258,6 @@ const Onboarding = () => {
         }
       }
     }
-    console.log(errors);
 
     if (Object.keys(errors).length > 0) {
       return false;
@@ -268,9 +266,9 @@ const Onboarding = () => {
     return true;
   };
 
-  // useEffect(() => {
-  //   console.log(onboardingInputs.businessInfo, 'businessInfo');
-  // }, [onboardingInputs.businessInfo]);
+  useEffect(() => {
+    console.log(onboardingInputs.portsAndTerminal, 'portsAndTerminal');
+  }, [onboardingInputs.portsAndTerminal]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
@@ -279,9 +277,9 @@ const Onboarding = () => {
       return;
     }
 
-    alert('go to next step');
+  alert('go to next step');
 
-    //setStep(step);
+    setStep(step);
   };
 
   const onboardingSteps: Record<Step, JSX.Element> = {
