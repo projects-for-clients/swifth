@@ -36,7 +36,7 @@ export const userSlice = createSlice({
         payload: Pick<IUser, 'onboarding'>;
       }
     ) => {
-      console.log('payload onboarding', payload)
+      console.log('payload onboarding', payload);
       state.onboarding = payload.onboarding;
     },
 
