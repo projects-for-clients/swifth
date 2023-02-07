@@ -111,9 +111,17 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    //handleInputChange(changeEvent, 'businessInfo');
+    const filterValues = Object.values(imageDetails).some((value) => {
+      console.log({ value });
+      return value.error === true || value.pathName === '';
+    });
 
-    //handleStep('portsAndTerminal');
+    if (filterValues) {
+      return;
+    }
+
+    handleStep('portsAndTerminal');
+
   };
 
   useEffect(() => {
