@@ -144,7 +144,7 @@ const businessInfo = () => {
         >
           <label
             htmlFor="logoUri"
-            className="flex gap-8 items-center cursor-pointer w-max"
+            className="flex gap-8 items-center w-max cursor-pointer"
           >
             <img
               src={imgUris.logoUri ? imgUris.logoUri : '/icons/admin/bag.svg'}
