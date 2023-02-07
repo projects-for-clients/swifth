@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useReducer, useState } from 'react';
+import { ChangeEvent, useReducer, useState } from 'react';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
@@ -45,6 +45,7 @@ const Onboarding = () => {
     },
   };
   const [step, setStep] = useState<Step>('businessInfo');
+
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
 
@@ -75,7 +76,6 @@ const Onboarding = () => {
 
     setValidationErrors(null);
     if (key === 'businessInfo') {
-
       setOnboardingInputs({
         type: 'UPDATE_BUSINESS_INFO',
         payload: {

@@ -47,6 +47,8 @@ const businessInfo = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
+
+    console.log(onboardingInputs.businessInfo)
     const inputValues = Object.values(onboardingInputs.businessInfo);
 
     const isDisabled = inputValues.some((value) => value === '');
@@ -166,7 +168,6 @@ const businessInfo = () => {
                   {imageDetails.logoUri.message}
                 </p>
               )}
-              
             </div>
           </label>
 
