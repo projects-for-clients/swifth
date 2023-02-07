@@ -47,11 +47,12 @@ const businessInfo = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-
-    console.log(onboardingInputs.businessInfo)
+    console.log(onboardingInputs.businessInfo);
     const inputValues = Object.values(onboardingInputs.businessInfo);
 
-    const isDisabled = inputValues.some((value) => value === '');
+    console.log({inputValues})
+
+    //console.log({ filterValues });
 
     setIsDisabled(isDisabled);
   }, [onboardingInputs.businessInfo]);
@@ -103,7 +104,10 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    handleStep('portsAndTerminal');
+    console.log(imgUris);
+    //handleInputChange(changeEvent, 'businessInfo');
+
+    //handleStep('portsAndTerminal');
   };
 
   const setInput = (e: FormEvent, key: string) => {
