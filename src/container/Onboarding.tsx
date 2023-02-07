@@ -10,8 +10,11 @@ import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import DashboardHome from '../container/dashboard/home';
+import { useAppDispatch } from '../store/app/hooks';
+import { updateUser, updateUserOnboarding } from '../store/features/user/user';
 
 const Onboarding = () => {
+  const dispatch = useAppDispatch()
   interface Action {
     type:
       | 'UPDATE_BUSINESS_INFO'
@@ -265,7 +268,6 @@ const Onboarding = () => {
     return true;
   };
 
-
   const handleStep = (step: Step) => {
     const isValid = formValidate();
 
@@ -273,8 +275,15 @@ const Onboarding = () => {
       return;
     }
 
-  alert('go to next step');
+    alert('go to next step');
 
+
+
+    if(step === 'next') {
+      console.log(onboardingInputs)
+      dispatch(updateUser(onboardingInputs.personalInfo))
+      dispatch(updateUserOnboarding)
+    }
     setStep(step);
   };
 
