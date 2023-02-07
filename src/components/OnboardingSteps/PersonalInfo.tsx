@@ -149,8 +149,7 @@ const PersonalInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    console.log(idCardDetails, POADetails);
-    //handleStep('next');
+    handleStep('next');
   };
 
   useEffect(() => {
