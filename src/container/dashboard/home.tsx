@@ -164,8 +164,9 @@ function home() {
   );
   const thirdStep = (
     <div
-      className="flex items-center gap-8 pt-12"
+      className="flex items-center gap-8 pt-12 relative"
     >
+      <img src="/icons/close.svg" alt="" className='absolute right-4 top-0' />
       <img src="/icons/success.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
@@ -185,14 +186,14 @@ function home() {
         <section className="grid ">
           <div className="rounded-lg p-4 border border-color-purple-light">
             <h2 className="heading3">Account Setup</h2>
-            {secondStep}
+            {thirdStep}
           </div>
         </section>
         <section className="grid gap-4 self-baseline">
           <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
             <FinanceSvg fill={'#957979'} />
 
-            <div className="grid justify-items-center content-center gap-4 auto-rows-auto">
+            <div className="grid justify-items-center content-center gap-4 ">
               <h2 className="heading3">Total Earnings</h2>
               <p className="heading2">
                 NGN <span>0.0</span>
@@ -202,7 +203,7 @@ function home() {
           <div className="home-box2 p-8 grid gap-4 rounded-lg border border-color-purple-light">
             <div className="flex gap-12">
               <BoxTimeSvg />
-              <div className="grid justify-items-baseline content-center gap-4 auto-rows-auto">
+              <div className="grid justify-items-baseline content-center gap-4 ">
                 <h2 className="heading3 text-color-purple">
                   Pending Clearance
                 </h2>
@@ -214,7 +215,7 @@ function home() {
             <hr className="border-[#7D67BD]" />
             <div className="flex gap-12">
               <MoneysSvg />
-              <div className="grid justify-items-baseline content-center gap-4 auto-rows-auto">
+              <div className="grid justify-items-baseline content-center gap-4 ">
                 <h2 className="heading3">Total Earnings</h2>
                 <p className="heading2">
                   NGN <span>0.0</span>
