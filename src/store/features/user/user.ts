@@ -35,10 +35,7 @@ export const userSlice = createSlice({
 
     updateUser: (state, action) => {
       
-      const data = action.payload
-      
-      console.log('action.payload user', data.personalInfo.fullName);
-    
+      const data = action.payload    
 
    
       state.fullName = data.personalInfo.fullName;
