@@ -14,7 +14,7 @@ import { useAppDispatch } from '../store/app/hooks';
 import { updateUser, updateUserOnboarding } from '../store/features/user/user';
 
 const Onboarding = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   interface Action {
     type:
       | 'UPDATE_BUSINESS_INFO'
@@ -275,14 +275,17 @@ const Onboarding = () => {
       return;
     }
 
-
-
-    if(step === 'next') {
-      console.log(onboardingInputs)
-      dispatch(updateUser(onboardingInputs))
-      dispatch(updateUserOnboarding({
-        
-      }))
+    if (step === 'next') {
+      console.log(onboardingInputs);
+      dispatch(updateUser(onboardingInputs));
+      dispatch(
+        updateUserOnboarding({
+          onboarding: {
+            validating: 'idle',
+            error: [],
+          },
+        })
+      );
     }
     setStep(step);
   };
