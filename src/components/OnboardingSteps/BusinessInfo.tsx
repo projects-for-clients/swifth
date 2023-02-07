@@ -10,18 +10,20 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
-// type UriKeys = 'logoUri' | 'cacUri' | 'licenseUri';
-// interface ImageDetails {
-//   [key as string]: {
+type UriKeys = 'logoUri' | 'cacUri' | 'licenseUri';
+interface KeyProps {
+  error: boolean;
+  message: string | null;
+  size: string;
+  pathName: string;
+}
 
-//     error: boolean;
-//     message: string | null;
-//     size: string;
-//     pathName: string;
-//   }
-// }
-
-const keyProps = { error: false, message: null, size: '', pathName: '' };
+const keyProps = {
+  error: false,
+  message: null,
+  size: '',
+  pathName: '',
+} satisfies KeyProps;
 
 const businessInfo = () => {
   const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
@@ -29,13 +31,13 @@ const businessInfo = () => {
 
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
-  const [imageDetails, setImageDetails] = useState({
+  const [imageDetails, setImageDetails] = useState<Record<UriKeys, KeyProps>>({
     logoUri: keyProps,
     cacUri: keyProps,
     licenseUri: keyProps,
   });
 
-  const [imgUris, setImgUris] = useState({
+  const [imgUris, setImgUris] = useState<Record<UriKeys, string>>({
     logoUri: '',
     cacUri: '',
     licenseUri: '',
@@ -76,16 +78,22 @@ const businessInfo = () => {
 
       setImageDetails((prev) => ({
         ...prev,
-        error: MBSize > 2 ? true : false,
-        message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-        size: `${MBSize.toFixed(1)}MB`,
-        key: [...imageDetails.key, key],
+        [key]: {
+          pathName: name,
+          error: MBSize > 2 ? true : false,
+          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+          size: `${MBSize.toFixed(1)}MB`,
+        },
       }));
     } else {
       setImageDetails((prev) => ({
         ...prev,
-        size: `${KBSize}KB`,
-        key: [...imageDetails.key.filter((item) => item !== key)],
+        [key]: {
+          ...prev[key],
+          error: false,
+          message: null,
+          size: `${KBSize}KB`,
+        },
       }));
     }
   };
@@ -158,9 +166,9 @@ const businessInfo = () => {
               <p className="text-[1.6rem] text-color-primary uppercase">
                 Upload Logo
               </p>
-              {imageDetails.error && imageDetails.key.includes('logoUri') && (
+              {imageDetails.logoUri.error && (
                 <p className="text-red-600 text-[1.2rem]">
-                  {imageDetails.message}
+                  {imageDetails.logoUri.message}
                 </p>
               )}
               {/* {imageDetails.error.logoUri && (
@@ -176,12 +184,12 @@ const businessInfo = () => {
               <label
                 htmlFor={`cacUri`}
                 className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
-                  imageDetails.error && imageDetails.key.includes('cacUri')
+                  imageDetails.cacUri.error
                     ? 'border-red-600 border bg-red-50'
                     : 'border-color-purple-light'
                 }`}
               >
-                {imageDetails.error && imageDetails.key.includes('cacUri') ? (
+                {imageDetails.cacUri.error ? (
                   <img src="/icons/admin/uploadError.svg" alt="" />
                 ) : (
                   <img src="/icons/admin/upload.svg" alt="" />
