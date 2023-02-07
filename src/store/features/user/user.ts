@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type ValidatingPath = 'businessInfo' | 'personalInfo' | 'portsAndTerminal';
 export interface IUser {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
   onboarding: {
     validating: 'idle' | 'pending' | 'succeeded' | 'failed';
@@ -16,8 +15,7 @@ export interface IUser {
 }
 
 const initialState: IUser = {
-  firstName: '',
-  lastName: '',
+  fullName: '',
   email: '',
   onboarding: {
     validating: 'idle',
@@ -37,8 +35,8 @@ export const userSlice = createSlice({
     updateUser: (state, action) => {
       const data = action.payload
 
-      state.firstName = data.PersonalInfo.firstName;
-      state.lastName = data.PersonalInfo.lastName;
+   
+      state.fullName = data.PersonalInfo.fullName;
       state.email = data.PersonalInfo.email;
 
     }

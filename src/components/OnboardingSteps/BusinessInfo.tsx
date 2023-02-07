@@ -119,7 +119,6 @@ const businessInfo = () => {
 
   useEffect(() => {
     const filterValues = Object.values(imageDetails).some((value) => {
-      console.log({ value });
       return value.error === true || value.pathName === '';
     });
 
