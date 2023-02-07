@@ -40,8 +40,11 @@ const businessInfo = () => {
     value: 'licenseUri',
   });
 
-  const [logoUri, setLogoUri] = useState('')
-  
+  const [imgUris, setImgUris] = useState({
+    logoUri: '',
+    cacUri: '',
+    licenseUri: '',
+  });
 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -54,19 +57,10 @@ const businessInfo = () => {
     setIsDisabled(isDisabled);
   }, [onboardingInputs.businessInfo]);
 
-  const uploadUriHandler = async (
-    key: 'logoUri' | 'cacUri' | 'licenseUri'
-  ) => {
+  const uploadUriHandler = async (key: 'logoUri' | 'cacUri' | 'licenseUri') => {
     const getUri = await getPhotoUri(key);
 
-      const data = {
-        target: {
-          name: key,
-          value: getUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'businessInfo');
+    setImgUris((prev) => ({ ...prev, [key]: getUri }));
   };
 
   const formUploadHandler = (
@@ -122,7 +116,6 @@ const businessInfo = () => {
     }
   };
 
-  
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
@@ -241,7 +234,7 @@ const businessInfo = () => {
                 id={`cacUri`}
                 accept="image/*"
                 className="hidden"
-                onClick={() => uploadUriHandler( `cacUri`)}
+                onClick={() => uploadUriHandler(`cacUri`)}
                 onChange={(e) => formUploadHandler(e, `cacUri`)}
               />
             </div>
@@ -282,7 +275,7 @@ const businessInfo = () => {
                 id={`licenseUri`}
                 accept="image/*"
                 className="hidden"
-                onClick={() => uploadUriHandler( `licenseUri`)}
+                onClick={() => uploadUriHandler(`licenseUri`)}
                 onChange={(e) => formUploadHandler(e, `licenseUri`)}
               />
             </div>
