@@ -14,8 +14,8 @@ interface ImageDetails {
   error: boolean;
   message: string | null;
   size: string;
-  name: string;
-  value: 'logoUri' | 'cacUri' | 'licenseUri' | null;
+  pathName: string;
+  key: 'logoUri' | 'cacUri' | 'licenseUri' | null;
 }
 
 const businessInfo = () => {
@@ -28,8 +28,8 @@ const businessInfo = () => {
     error: false,
     message: null,
     size: '',
-    name: '',
-    value: null,
+    pathName: '',
+    key: null,
   });
 
 
@@ -59,7 +59,7 @@ const businessInfo = () => {
 
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    value: 'logoUri' | 'cacUri' | 'licenseUri'
+    key: 'logoUri' | 'cacUri' | 'licenseUri'
   ) => {
     const fileObj = e.target as HTMLInputElement;
 
@@ -78,8 +78,8 @@ const businessInfo = () => {
         error: MBSize > 2 ? true : false,
         message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
         size: `${MBSize.toFixed(1)}MB`,
-        name,
-        value,
+        pathName: name,
+        key,
       }));
 
       
@@ -89,8 +89,8 @@ const businessInfo = () => {
         error: false,
         message: null,
         size: `${KBSize}KB`,
-        name,
-        value,
+        pathName: name,
+        key,
       }));
 
     }
@@ -164,9 +164,9 @@ const businessInfo = () => {
               <p className="text-[1.6rem] text-color-primary uppercase">
                 Upload Logo
               </p>
-              {validationErrors && validationErrors.cacUri && (
+              {imageDetails.error && imageDetails.key === 'logoUri' && (
                 <p className="text-red-600 text-[1.2rem]">
-                  {validationErrors.cacUri}
+                  {imageDetails.message}
                 </p>
               )}
               {/* {imageDetails.error.logoUri && (
