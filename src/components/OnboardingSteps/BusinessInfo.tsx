@@ -46,16 +46,26 @@ const businessInfo = () => {
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
 
+  
   useEffect(() => {
-    console.log(onboardingInputs.businessInfo);
-    const inputValues = Object.values(onboardingInputs.businessInfo);
+    const inputValues = Object.entries(onboardingInputs.businessInfo);
 
-    console.log({inputValues})
+    const filterValues = inputValues.filter((value) => value[1] === '');
 
-    //console.log({ filterValues });
+    if (filterValues.length === 3) {
+      Object.keys(filterValues).forEach((key) => {
+        if (key === 'logoUri' || key === 'cacUri' || key === 'licenseUri') {
+          const isImgUriEmpty = Object.values(imgUris).some(
+            (value) => value === ''
+          );
+
+          console.log({ isImgUriEmpty });
+        }
+      });
+    }
 
     setIsDisabled(isDisabled);
-  }, [onboardingInputs.businessInfo]);
+  }, [onboardingInputs.businessInfo, imgUris]);
 
   const uploadUriHandler = async (key: 'logoUri' | 'cacUri' | 'licenseUri') => {
     const getUri = await getPhotoUri(key);
