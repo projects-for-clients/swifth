@@ -149,10 +149,7 @@ function home() {
 
   const secondStep = (
     <div
-      className="flex items-center gap-8 pt-10"
-      // style={{
-      //   gridTemplateColumns: 'max-content 1fr',
-      // }}
+      className="flex items-center gap-8 pt-12"
     >
       <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
 
@@ -165,13 +162,27 @@ function home() {
       </div>
     </div>
   );
+  const thirdStep = (
+    <div
+      className="flex items-center gap-8 pt-12"
+    >
+      <img src="/icons/success.svg" alt="" className="w-[5rem] h-[5rem]" />
+
+      <div>
+        <p className="text-[2rem] font-medium">Verified!</p>
+        <p>
+          Your details have been verified and approved
+        </p>
+      </div>
+    </div>
+  );
 
   return (
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <section className="grid auto-cols-auto">
+        <section className="grid ">
           <div className="rounded-lg p-4 border border-color-purple-light">
             <h2 className="heading3">Account Setup</h2>
             {secondStep}
@@ -212,7 +223,7 @@ function home() {
             </div>
           </div>
         </section>
-        <section className="grid auto-cols-auto gap-4">
+        <section className="grid  gap-4">
           <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
             <div>
               <h2 className="heading3">Business Analytics</h2>
@@ -232,7 +243,7 @@ function home() {
             <div>
               <h2 className="heading3"> Teams</h2>
 
-              <div className="grid justify-items-center content-center auto-cols-auto gap-8">
+              <div className="grid justify-items-center content-center  gap-8">
                 <TeamsSvg />
                 <p className="text">Your teams would be shown here</p>
               </div>
@@ -244,7 +255,7 @@ function home() {
             <div>
               <h2 className="heading3"> Orders</h2>
 
-              <div className="grid justify-items-center content-center auto-cols-auto gap-8">
+              <div className="grid justify-items-center content-center  gap-8">
                 <Orders fill="" />
                 <p className="text">Your orders would be shown here</p>
               </div>
@@ -256,7 +267,7 @@ function home() {
             <div>
               <h2 className="heading3"> Payout Bank</h2>
 
-              <div className="grid justify-items-center content-center auto-cols-auto gap-8">
+              <div className="grid justify-items-center content-center  gap-8">
                 <Orders fill="" />
                 <p className="text">Your bank details would be shown here</p>
               </div>
