@@ -115,6 +115,9 @@ const businessInfo = () => {
     handleInputChange(changeEvent, 'businessInfo');
   };
 
+  useEffect(() => {
+    console.log(imageDetails);
+  }, [imageDetails]);
 
   return (
     <>
