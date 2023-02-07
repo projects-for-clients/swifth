@@ -15,7 +15,7 @@ interface ImageDetails {
   message: string | null;
   size: string;
   name: string;
-  value: 'logoUri' | 'cacUri' | 'licenseUri';
+  value: 'logoUri' | 'cacUri' | 'licenseUri' | null;
 }
 
 const businessInfo = () => {
@@ -24,21 +24,15 @@ const businessInfo = () => {
 
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
-  const [cacDetails, setCacDetails] = useState<ImageDetails>({
+  const [imageDetails, setImageDetails] = useState<ImageDetails>({
     error: false,
     message: null,
     size: '',
     name: '',
-    value: 'cacUri',
+    value: null,
   });
 
-  const [licenseUri, setLicenseUri] = useState<ImageDetails>({
-    error: false,
-    message: null,
-    size: '',
-    name: '',
-    value: 'licenseUri',
-  });
+ 
 
   const [imgUris, setImgUris] = useState({
     logoUri: '',
@@ -63,6 +57,7 @@ const businessInfo = () => {
     setImgUris((prev) => ({ ...prev, [key]: getUri }));
   };
 
+
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     value: 'logoUri' | 'cacUri' | 'licenseUri'
@@ -79,40 +74,26 @@ const businessInfo = () => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      value === 'licenseUri' &&
-        setLicenseUri((prev) => ({
-          ...prev,
-          error: MBSize > 2 ? true : false,
-          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-          size: `${MBSize.toFixed(1)}MB`,
-          name,
-        }));
+      setImageDetails((prev) => ({
+        ...prev,
+        error: MBSize > 2 ? true : false,
+        message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+        size: `${MBSize.toFixed(1)}MB`,
+        name,
+        value,
+      }));
 
-      value === 'cacUri' &&
-        setCacDetails((prev) => ({
-          ...prev,
-          error: MBSize > 2 ? true : false,
-          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-          size: `${MBSize.toFixed(1)}MB`,
-          name,
-        }));
+      
     } else {
-      value === 'licenseUri' &&
-        setLicenseUri((prev) => ({
-          ...prev,
-          size: `${KBSize}KB`,
-          message: null,
-          error: false,
-          name,
-        }));
-      value === 'cacUri' &&
-        setCacDetails((prev) => ({
-          ...prev,
-          size: `${KBSize}KB`,
-          message: null,
-          error: false,
-          name,
-        }));
+      setImageDetails((prev) => ({
+        ...prev,
+        error: false,
+        message: null,
+        size: `${KBSize}KB`,
+        name,
+        value,
+      }));
+
     }
   };
 
