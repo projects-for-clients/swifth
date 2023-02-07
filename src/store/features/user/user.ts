@@ -1,5 +1,6 @@
 import { AppState } from '../../app/store';
 import { createSlice } from '@reduxjs/toolkit';
+import { OnboardingInputs } from '../../../Context/AppContext';
 
 type ValidatingPath = 'businessInfo' | 'personalInfo' | 'portsAndTerminal';
 export interface IUser {
@@ -35,7 +36,7 @@ export const userSlice = createSlice({
 
     updateUser: (state, action) => {
       
-      const data = action.payload    
+      const data = action.payload as OnboardingInputs;    
 
    
       state.fullName = data.personalInfo.fullName;
