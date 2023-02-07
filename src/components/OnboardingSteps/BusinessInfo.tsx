@@ -18,35 +18,30 @@ interface ImageDetails {
   value: 'logoUri' | 'cacUri' | 'licenseUri';
 }
 
-
-
 const businessInfo = () => {
   const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
 
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
-const [cacDetails, setCacDetails] = useState<ImageDetails>({
-  error: false,
-  message: null,
-  size: '',
-  name: '',
-  value: 'cacUri',
-});
+  const [cacDetails, setCacDetails] = useState<ImageDetails>({
+    error: false,
+    message: null,
+    size: '',
+    name: '',
+    value: 'cacUri',
+  });
 
-const [licenseUri, setLicenseUri] = useState<ImageDetails>({
-  error: false,
-  message: null,
-  size: '',
-  name: '',
-  value: 'licenseUri',
-});
-   const [formUri, setFormUri] = useState({
-     licenseUri: '',
-     cacUri: '',
-      logoUri: '',
-   });
-   
+  const [licenseUri, setLicenseUri] = useState<ImageDetails>({
+    error: false,
+    message: null,
+    size: '',
+    name: '',
+    value: 'licenseUri',
+  });
+
+  const [logoUri, setLogoUri] = useState('')
+  
 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -60,15 +55,18 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
   }, [onboardingInputs.businessInfo]);
 
   const uploadUriHandler = async (
-    e: MouseEvent<HTMLInputElement>,
     key: 'logoUri' | 'cacUri' | 'licenseUri'
   ) => {
     const getUri = await getPhotoUri(key);
 
-    setFormUri((prev) => ({
-      ...prev,
-      [key]: getUri,
-    }));
+      const data = {
+        target: {
+          name: key,
+          value: getUri,
+        },
+      } as ChangeEvent<HTMLInputElement>;
+
+      handleInputChange(data, 'businessInfo');
   };
 
   const formUploadHandler = (
@@ -87,75 +85,44 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      value === 'licenseUri'
-        && setLicenseUri((prev) => ({
-            ...prev,
-            error: MBSize > 2 ? true : false,
-            message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-            size: `${MBSize.toFixed(1)}MB`,
-            name,
-          }))
+      value === 'licenseUri' &&
+        setLicenseUri((prev) => ({
+          ...prev,
+          error: MBSize > 2 ? true : false,
+          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+          size: `${MBSize.toFixed(1)}MB`,
+          name,
+        }));
 
-
-        value === 'cacUri' && setCacDetails((prev) => ({
-            ...prev,
-            error: MBSize > 2 ? true : false,
-            message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-            size: `${MBSize.toFixed(1)}MB`,
-            name,
-          }));
-
-
-          
+      value === 'cacUri' &&
+        setCacDetails((prev) => ({
+          ...prev,
+          error: MBSize > 2 ? true : false,
+          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+          size: `${MBSize.toFixed(1)}MB`,
+          name,
+        }));
     } else {
-      value === 'licenseUri' && 
-      setLicenseUri((prev) => ({
-            ...prev,
-            size: `${KBSize}KB`,
-            message: null,
-            error: false,
-            name,
-          }))
-        value === 'cacUri' && setCacDetails((prev) => ({
-            ...prev,
-            size: `${KBSize}KB`,
-            message: null,
-            error: false,
-            name,
-          }));
+      value === 'licenseUri' &&
+        setLicenseUri((prev) => ({
+          ...prev,
+          size: `${KBSize}KB`,
+          message: null,
+          error: false,
+          name,
+        }));
+      value === 'cacUri' &&
+        setCacDetails((prev) => ({
+          ...prev,
+          size: `${KBSize}KB`,
+          message: null,
+          error: false,
+          name,
+        }));
     }
   };
 
-  useEffect(() => {
-    console.log({ cacDetails, licenseUri });
-
-    if (licenseUri.name && formUri.licenseUri) {
-      const data = {
-        target: {
-          name: 'licenseUri',
-          value: licenseUri.error
-            ? 'File size must not exceed 2MB'
-            : formUri.licenseUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'personalInfo');
-    }
-
-    if (cacDetails.name && formUri.cacUri) {
-      const data = {
-        target: {
-          name: 'cacUri',
-          value: cacDetails.error
-            ? 'File size must not exceed 2MB'
-            : formUri.cacUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'personalInfo');
-    }
-  }, [cacDetails, licenseUri, formUri]);
-
+  
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
@@ -202,12 +169,12 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
           onSubmit={handleFormSubmit}
           onChange={(e) => setInput(e, 'businessInfo')}
         >
-          {/* <label
+          <label
             htmlFor="logoUri"
             className="flex gap-8 items-center cursor-pointer w-max"
           >
             <img
-              src={logoDetails.uri ? logoDetails.uri : '/icons/admin/bag.svg'}
+              src={logoUri ? logoUri : '/icons/admin/bag.svg'}
               alt=""
               className="object-cover w-[9.6rem] h-[9.6rem] rounded-full"
             />
@@ -217,8 +184,8 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
               name="logoUri"
               accept="image/*"
               className="hidden"
-              onChange={(e) => uploadDetailsHandler(e, 'logoUri')}
-              onClick={(e) => uploadUriHandler(e, 'logoUri')}
+              onChange={(e) => formUploadHandler(e, 'logoUri')}
+              onClick={() => uploadUriHandler('logoUri')}
             />
             <div>
               <p className="text-[1.6rem] text-color-primary uppercase">
@@ -229,13 +196,13 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
                   {validationErrors.cacUri}
                 </p>
               )}
-              {imageDetails.error.logoUri && (
+              {/* {imageDetails.error.logoUri && (
                 <p className="text-red-600 text-[1.2rem]">
                   Image size should not exceed 2MB
                 </p>
-              )}
+              )} */}
             </div>
-          </label> */}
+          </label>
 
           <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
             <div>
@@ -274,7 +241,7 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
                 id={`cacUri`}
                 accept="image/*"
                 className="hidden"
-                onClick={(e) => uploadUriHandler(e, `cacUri`)}
+                onClick={() => uploadUriHandler( `cacUri`)}
                 onChange={(e) => formUploadHandler(e, `cacUri`)}
               />
             </div>
@@ -304,7 +271,9 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
                     </p>
                   </div>
                 ) : (
-                  <p className="text-[1.4rem]">Upload Custom License (yearly)</p>
+                  <p className="text-[1.4rem]">
+                    Upload Custom License (yearly)
+                  </p>
                 )}
               </label>
               <input
@@ -313,7 +282,7 @@ const [licenseUri, setLicenseUri] = useState<ImageDetails>({
                 id={`licenseUri`}
                 accept="image/*"
                 className="hidden"
-                onClick={(e) => uploadUriHandler(e, `licenseUri`)}
+                onClick={() => uploadUriHandler( `licenseUri`)}
                 onChange={(e) => formUploadHandler(e, `licenseUri`)}
               />
             </div>
