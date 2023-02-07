@@ -89,9 +89,9 @@ const businessInfo = () => {
       setImageDetails((prev) => ({
         ...prev,
         [key]: {
-          ...prev[key],
           error: false,
           message: null,
+          pathName: name,
           size: `${KBSize}KB`,
         },
       }));
