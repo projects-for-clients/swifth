@@ -178,7 +178,7 @@ const businessInfo = () => {
             </div>
           </label>
 
-          <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
+          {/* <div className="grid grid-cols-2 gap-4 items-center justify-between col-span-full">
             <div>
               <label
                 htmlFor={`cacUri`}
@@ -260,7 +260,7 @@ const businessInfo = () => {
                 onChange={(e) => formUploadHandler(e, `licenseUri`)}
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="grid gap-10 mt-4 max-w-[50rem]">
             <div className="grid gap-4">
