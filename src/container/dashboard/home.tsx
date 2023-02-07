@@ -149,10 +149,10 @@ function home() {
 
   const secondStep = (
     <div
-      className="grid bg-red-500"
-      style={{
-        gridTemplateColumns: 'min-content 1fr',
-      }}
+      className="flex"
+      // style={{
+      //   gridTemplateColumns: 'max-content 1fr',
+      // }}
     >
       <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
 
@@ -172,7 +172,7 @@ function home() {
 
       <div className="dashboard__home">
         <section className="grid auto-cols-auto">
-          <div className="rounded-lg p-4 border border-color-purple-light grid">
+          <div className="rounded-lg p-4 border border-color-purple-light">
             <h2 className="heading3">Account Setup</h2>
             {secondStep}
           </div>
