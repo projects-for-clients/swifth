@@ -44,9 +44,9 @@ const businessInfo = () => {
   });
 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const [isOnboardingError, setIsOnboardingError] = useState(false);
-  const [isImgSizeError, setIsImgSizeError] = useState(false);
+  
 
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.businessInfo);
@@ -54,6 +54,7 @@ const businessInfo = () => {
     const filterValues = inputValues.some((value) => value === '');
 
     setIsOnboardingError(filterValues);
+
   }, [onboardingInputs.businessInfo]);
 
   const uploadUriHandler = async (key: 'logoUri' | 'cacUri' | 'licenseUri') => {
@@ -87,7 +88,6 @@ const businessInfo = () => {
     if (KBSize.length > 3) {
       const MBSize = Number(KBSize) / 1000;
 
-      setIsImgSizeError(true)
 
       setImageDetails((prev) => ({
         ...prev,
@@ -99,7 +99,6 @@ const businessInfo = () => {
         },
       }));
     } else {
-      setIsImgSizeError(false)
       setImageDetails((prev) => ({
         ...prev,
         [key]: {
@@ -115,7 +114,9 @@ const businessInfo = () => {
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    console.log(imageDetails);
+
+    console.log(Object.values(imageDetails))
+
     //handleInputChange(changeEvent, 'businessInfo');
 
     //handleStep('portsAndTerminal');
