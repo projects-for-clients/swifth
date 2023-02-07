@@ -69,7 +69,6 @@ const businessInfo = () => {
     handleInputChange(data, 'businessInfo');
   };
 
-
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
     key: 'logoUri' | 'cacUri' | 'licenseUri'
@@ -120,7 +119,12 @@ const businessInfo = () => {
   const setInput = (e: FormEvent, key: string) => {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 
-    handleInputChange(changeEvent, 'businessInfo');
+    const { name } = changeEvent.target;
+    if (name === 'cacUri' || name === 'licenseUri' || name === 'logoUri') {
+      return;
+    } else {
+      handleInputChange(changeEvent, 'businessInfo');
+    }
   };
 
   return (
