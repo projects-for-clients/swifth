@@ -49,7 +49,7 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { updateUserOnboarding, updateUser } = userSlice.;
+export const { updateUserOnboarding, updateUser } = userSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;
 
