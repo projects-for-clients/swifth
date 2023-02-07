@@ -281,7 +281,7 @@ const Onboarding = () => {
       dispatch(
         updateUserOnboarding({
           onboarding: {
-            validating: 'idle',
+            validating: 'pending',
             error: [],
           },
         })
