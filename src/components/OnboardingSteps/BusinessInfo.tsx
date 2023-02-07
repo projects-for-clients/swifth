@@ -124,7 +124,6 @@ const businessInfo = () => {
     });
 
 
-    console.log({ filterValues, isOnboardingError })
     if(filterValues || isOnboardingError) {
       setIsDisabled(true);
     } else {
