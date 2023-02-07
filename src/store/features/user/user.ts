@@ -29,14 +29,17 @@ export const userSlice = createSlice({
   name: 'userState',
   initialState,
   reducers: {
-    
+
+    updateUserOnboarding: (state, action) => {
+      state.onboarding = action.payload;
+    }
 
   },
 
   extraReducers: (builder) => {},
 });
 
-export const { updateUser } = userSlice.actions;
+export const { updateUserOnboarding } = userSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;
 
