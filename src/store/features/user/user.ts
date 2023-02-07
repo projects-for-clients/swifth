@@ -32,6 +32,15 @@ export const userSlice = createSlice({
 
     updateUserOnboarding: (state, action) => {
       state.onboarding = action.payload;
+    },
+
+    updateUser: (state, action) => {
+      const data = action.payload
+
+      state.firstName = data.PersonalInfo.firstName;
+      state.lastName = data.PersonalInfo.lastName;
+      state.email = data.PersonalInfo.email;
+      
     }
 
   },

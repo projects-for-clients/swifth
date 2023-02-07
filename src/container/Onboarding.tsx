@@ -266,9 +266,6 @@ const Onboarding = () => {
     return true;
   };
 
-  useEffect(() => {
-    console.log(onboardingInputs.portsAndTerminal, 'portsAndTerminal');
-  }, [onboardingInputs.portsAndTerminal]);
 
   const handleStep = (step: Step) => {
     const isValid = formValidate();
