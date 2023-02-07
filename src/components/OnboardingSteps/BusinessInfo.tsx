@@ -166,11 +166,7 @@ const businessInfo = () => {
                   {imageDetails.logoUri.message}
                 </p>
               )}
-              {/* {imageDetails.error.logoUri && (
-                <p className="text-red-600 text-[1.2rem]">
-                  Image size should not exceed 2MB
-                </p>
-              )} */}
+              
             </div>
           </label>
 
