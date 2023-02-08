@@ -10,11 +10,13 @@ import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import DashboardHome from '../container/dashboard/home';
-import { useAppDispatch } from '../store/app/hooks';
+import { useAppDispatch, useAppSelector } from '../store/app/hooks';
 import { updateUser, updateUserOnboarding } from '../store/features/user/user';
+import { selectUser } from '../store/features/user/user';
 
 const Onboarding = () => {
   const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
   interface Action {
     type:
       | 'UPDATE_BUSINESS_INFO'
