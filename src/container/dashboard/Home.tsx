@@ -683,15 +683,10 @@ function SplashHome() {
                 </div>
 
                 <div className="grid gap-8 mt-8">
-                  <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-                    <p className="text-[1.4rem]">Michael Knight</p>
-                    <p>
-                      {' '}
-                      <span className="text-gray-500">NGN</span>{' '}
-                      <span className="text-color-purple-1">780,932</span>{' '}
-                    </p>
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem]">
+                    <p>Michael Knight</p>
+                    <p className="text-gray-500">Admin</p>
                   </div>
-                 
                 </div>
               </>
             ) : (
