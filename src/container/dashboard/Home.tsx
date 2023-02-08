@@ -344,7 +344,7 @@ function SplashHome() {
   );
 
   const notifications = (
-    <section className="flex justify-between order-1 w-full">
+    <section className="grid grid-cols-2 order-1 w-full">
       <div className=" bg-color-green-light-1 border border-color-primary p-8 rounded-3xl">
         <div>
           <p className="text-[2rem]">Jonathan Elegushi</p>
@@ -363,7 +363,9 @@ function SplashHome() {
         </div>
         <div>
           <p className="text-[2.4rem] text-color-purple">AB-3423</p>
-          <p className='text-[1.4rem] max-w-[20rem]'>Here's your Code. Share this with your customers.</p>
+          <p className="text-[1.4rem] max-w-[20rem]">
+            Here's your Code. Share this with your customers.
+          </p>
         </div>
       </div>
     </section>
