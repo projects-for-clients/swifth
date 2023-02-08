@@ -366,7 +366,7 @@ function SplashHome() {
               </div>
             </section>
           )}
-          <section className={`grid gap-4 ${validated ? 'order-1': ''}`}>
+          <section className={`grid gap-4 ${validated ? 'order-5': ''}`}>
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
                 {validated ? (
