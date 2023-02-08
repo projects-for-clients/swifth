@@ -54,7 +54,9 @@ function home() {
     onboarding: { validating, validatingArr },
   } = user;
 
-  console.log(validatingArr.includes('business'));
+  const findIndex = validatingArr.findIndex((item) => item.path === 'businessInfo');
+
+  console.log({findIndex})
 
   const firstStep = (
     <>
