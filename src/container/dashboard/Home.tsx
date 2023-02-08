@@ -368,7 +368,7 @@ function SplashHome() {
                   <>
                     <div className='flex justify-between'>
                     <h2 className="heading3 mb-5">Business Analytics</h2>
-                    <p className='text-[1.6rem]'>See Full Stats</p>
+                    <p className='text-[1.6rem] cursor-pointer'>See Full Stats</p>
                     </div>
                     <AnalyticsChart />
                   </>
