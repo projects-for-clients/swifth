@@ -261,15 +261,17 @@ function SplashHome() {
   const transactions = (
     <section className="grid gap-4 self-baseline order-4">
       <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-        <div className='flex justify-between'>
+        <div className="flex justify-between">
           <h2 className="heading3"> Latest Transactions</h2>
           <p>See All</p>
         </div>
 
-          <div className="grid justify-items-center content-center  gap-8">
-            <Orders fill="" />
-            <p className="text">Your orders would be shown here</p>
-          </div>
+        <div className="grid justify-items-center gap-8">
+        <div className='flex justify-between items-center'>
+          <p>Adewale Joseph</p>
+          <p> <span>NGN</span> <span className='text-color-tertiary'>780,932</span> </p>
+        </div>
+        </div>
       </div>
     </section>
   );
@@ -382,7 +384,7 @@ function SplashHome() {
               </div>
             </section>
           )}
-          <section className={`grid gap-4 ${validated ? 'order-1': ''}`}>
+          <section className={`grid gap-4 ${validated ? 'order-1' : ''}`}>
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
                 {validated ? (
@@ -458,7 +460,7 @@ function SplashHome() {
                 </div>
               </div>
             </div>
-                  {transactions}
+            {transactions}
           </section>
           <section className="grid gap-4 self-baseline">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
