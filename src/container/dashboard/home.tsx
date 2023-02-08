@@ -313,7 +313,7 @@ function home() {
             </div>
           </section>
         </div>
-        <div className="grid gap-4">
+        <div className="grid gap-4 content-baseline">
           <section className="grid gap-4 self-baseline auto-rows-auto">
             <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
