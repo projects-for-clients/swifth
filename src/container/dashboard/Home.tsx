@@ -549,8 +549,8 @@ function SplashHome() {
         openDialog={handleOpen}
       />
       <dialog className="dialog relative " ref={dialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] px-8 py-4">
-          <figure className='flex justify-end'>
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem]  py-4">
+          <figure className='flex justify-end px-8'>
 
           <img src="/icons/close.svg" alt="" className="w-[3rem] cursor-pointer" onClick={() => handleClose()}  />
           </figure>
