@@ -158,7 +158,19 @@ function home() {
 
               {isDropDown.isPortAndTerminalDown && (
                 <p className="text-[1.4rem] font-light">
-                  Your port and terminal details required
+                  {isPortsAndTerminalValid ? (
+                    isPortsAndTerminalValid.error ? (
+                      <span className="text-red-500">
+                        {isPortsAndTerminalValid.message}
+                      </span>
+                    ) : (
+                      <span className="text-green-500">
+                        {isPortsAndTerminalValid.message}
+                      </span>
+                    )
+                  ) : (
+                    <span>Your port and terminal details required</span>
+                  )}
                 </p>
               )}
             </div>
@@ -189,7 +201,19 @@ function home() {
               <p className="text font-medium">Contact information</p>
               {isDropDown.isContactDown && (
                 <p className="text-[1.4rem] font-light">
-                  Your personal Information required
+                  {isPersonalInfoValid ? (
+                    isPersonalInfoValid.error ? (
+                      <span className="text-red-500">
+                        {isPersonalInfoValid.message}
+                      </span>
+                    ) : (
+                      <span className="text-green-500">
+                        {isPersonalInfoValid.message}
+                      </span>
+                    )
+                  ) : (
+                    <span> Your personal Information required</span>
+                  )}
                 </p>
               )}
             </div>
