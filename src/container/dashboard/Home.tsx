@@ -345,7 +345,7 @@ function SplashHome() {
 
   const notifications = (
     <section className="flex justify-between order-1 w-full">
-      <div className="h-[14rem] bg-color-green-light-1 border border-color-primary p-8 rounded-3xl">
+      <div className=" bg-color-green-light-1 border border-color-primary p-8 rounded-3xl">
         <div>
           <p className="text-[2rem]">Jonathan Elegushi</p>
           <p className="text-[1.4rem]"> & 2 more items in waiting</p>
