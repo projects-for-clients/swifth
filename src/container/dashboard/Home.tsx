@@ -383,7 +383,7 @@ function SplashHome() {
       <div className="grid gap-4 mt-10">
         <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
           <div>
-            <p className="text-[1.6rem] text-gray-500">Osojo John</p>
+            <p className="text-[1.6rem] text-gray-600">Osojo John</p>
             <p className="text-[1.4rem] text-gray-400"> Jan 9, 2023 Just now</p>
           </div>
 
@@ -391,7 +391,7 @@ function SplashHome() {
         </div>
         <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
           <div>
-            <p className="text-[1.6rem] text-gray-500">Kayode Isaac</p>
+            <p className="text-[1.6rem] text-gray-600">Kayode Isaac</p>
             <p className="text-[1.4rem] text-gray-400"> Jan 9, 2023 5mins ago</p>
           </div>
 
@@ -500,7 +500,7 @@ function SplashHome() {
               {currentValidation[validating]}
             </div>
           </section>
-          {validating === 'succeeded' && (
+          {/* {validating === 'succeeded' && (
             <section className="grid gap-4 order-3">
               <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
                 <h2 className="heading3">Checklist</h2>
@@ -508,7 +508,7 @@ function SplashHome() {
                 {checklist}
               </div>
             </section>
-          )}
+          )} */}
           <section className={`grid gap-4 ${validated ? 'order-1' : ''}`}>
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
@@ -542,14 +542,28 @@ function SplashHome() {
 
           <section className="grid gap-4 self-baseline order-4">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-              <div>
-                <h2 className="heading3"> Orders</h2>
+              {validated ? (
+                <>
+                 
+                    <div className="flex justify-between">
+                      <h2 className="text-[1.6rem] font-medium text-gray-500">
+                        {' '}
+                        Orders
+                      </h2>
+                      <p>See All</p>
+                    </div>
+           
+                </>
+              ) : (
+                <>
+                  <h2 className="heading3">Orders</h2>
 
-                <div className="grid justify-items-center content-center  gap-8">
-                  <Orders fill="" />
-                  <p className="text">Your orders would be shown here</p>
-                </div>
-              </div>
+                  <div className="grid justify-items-center content-center  gap-8">
+                    <Orders fill="" />
+                    <p className="text">Your orders would be shown here</p>
+                  </div>
+                </>
+              )}
             </div>
           </section>
         </div>
