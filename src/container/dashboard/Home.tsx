@@ -550,12 +550,16 @@ function SplashHome() {
       />
       <dialog className="dialog relative " ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem]  py-4">
-          <figure className='flex justify-end px-8'>
-
-          <img src="/icons/close.svg" alt="" className="w-[3rem] cursor-pointer" onClick={() => handleClose()}  />
+          <figure className="flex justify-end px-8">
+            <img
+              src="/icons/close.svg"
+              alt=""
+              className="w-[3rem] cursor-pointer"
+              onClick={() => handleClose()}
+            />
           </figure>
 
-          <h3 className='text-[2rem] font-me'>Notifications</h3>
+          <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
           <div className="radioBox">
             <input
               type="radio"
@@ -565,9 +569,7 @@ function SplashHome() {
               onChange={() => setCurrentPath('all')}
               defaultChecked
             />
-            <label htmlFor="all">
-              All
-            </label>
+            <label htmlFor="all">All</label>
 
             <input
               type="radio"
@@ -577,8 +579,7 @@ function SplashHome() {
               onChange={() => setCurrentPath('quoteRequests')}
             />
             <label htmlFor="quoteRequests" className="capitalize">
-            Quote Requests
-           
+              Quote Requests
             </label>
           </div>
         </div>
