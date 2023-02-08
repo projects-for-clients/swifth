@@ -23,7 +23,7 @@ const initialState: IUser = {
   fullName: '',
   email: '',
   onboarding: {
-    validating: 'idle',
+    validating: 'succeeded',
     // validatingArr: [
     //   {
     //     path: 'businessInfo',
