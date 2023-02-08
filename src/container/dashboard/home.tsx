@@ -277,7 +277,11 @@ const checklist = (
 
       <div className="dashboard__home">
         <section className="grid">
-          <div className={`rounded-lg p-8 border border-color-purple-light ${validating === 'idle' && 'grid'}`}>
+          <div
+            className={`rounded-lg p-8 border border-color-purple-light ${
+              validating === 'idle' && 'grid'
+            }`}
+          >
             <h2 className="heading3">Account Setup</h2>
             {currentValidation[validating]}
           </div>
@@ -317,6 +321,15 @@ const checklist = (
             </div>
           </div>
         </section>
+
+        {validating === 'succeeded' && (
+          <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light">
+            <h2 className="heading3">Checklist</h2>
+
+            {checklist}
+          </section>
+        )}
+
         <section className="grid  gap-4">
           <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
             <div>
