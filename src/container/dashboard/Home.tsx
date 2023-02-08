@@ -671,6 +671,18 @@ function SplashHome() {
           </section>
           {transactions}
           <section className=" self-baseline rounded-3xl p-8 border border-color-purple-light grid gap-8">
+            {validated ? (
+              <>
+                <div className="flex justify-between">
+                  <h2 className="text-[1.6rem] font-medium text-gray-500">
+                    {' '}
+                    Orders
+                  </h2>
+                  <p>See All</p>
+                </div>
+                
+              </>
+            ) : (
               <div>
                 <h2 className="heading3"> Teams</h2>
 
@@ -679,6 +691,7 @@ function SplashHome() {
                   <p className="text">Your teams would be shown here</p>
                 </div>
               </div>
+            )}
           </section>
 
           <section className="grid gap-4 self-baseline">
