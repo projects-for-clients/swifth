@@ -31,7 +31,12 @@ const initialState: IUser = {
       {
         path: 'personalInfo',
         message: 'Details Validated',
-        error: false,
+        error: true,
+      },
+      {
+        path: 'portsAndTerminal',
+        message: 'Details Validated',
+        error: true,
       },
     ],
   },
