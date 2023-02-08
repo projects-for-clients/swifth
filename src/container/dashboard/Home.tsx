@@ -373,9 +373,28 @@ function SplashHome() {
 
   const quoteRequest = (
     <section className="gap-8 order-1">
-      <div className="flex justify-between">
+      <div className="flex justify-between border-b border-b-color-red-light-2">
         <h2 className="text-[1.6rem] font-medium"> Quote Requests</h2>
         <p>All Requests</p>
+      </div>
+
+      <div className="grid gap-4">
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <div>
+            <p className="text-[1.6rem]">Osojo John</p>
+            <p className="text-[1.4rem]"> Jan 9, 2023 Just now</p>
+          </div>
+
+          <BsArrowRight className="text-[1.8rem]" />
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <div>
+            <p className="text-[1.6rem]">Osojo John</p>
+            <p className="text-[1.4rem]"> Jan 9, 2023 5mins ago</p>
+          </div>
+
+          <BsArrowRight className="text-[1.8rem]" />
+        </div>
       </div>
     </section>
   );
