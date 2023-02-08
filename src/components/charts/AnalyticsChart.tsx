@@ -194,10 +194,11 @@ export default function AnalyticsChart() {
       {dataLabels.map((label) => {
         return (
           <Line
+          dot={false}
             type="monotone"
             dataKey={label.key}
             stroke={label.color}
-            activeDot={{ r: 8 }}
+           
           />
         );
       })}
