@@ -5,15 +5,11 @@
 
   &__container {
     padding: 2rem 4rem;
+    height: 100vh;
+    overflow-y: scroll;
   }
 
-  &__home {
-    display: grid;
-    grid-template-columns: 55% auto;
-    gap: 1rem;
-    //display: contents;
-
-  }
+  
 
   .header {
     display: flex;

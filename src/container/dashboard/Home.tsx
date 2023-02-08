@@ -683,15 +683,15 @@ function SplashHome() {
                 </div>
 
                 <div className="grid gap-8 mt-8">
-                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem]">
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
                     <p>Michael Knight</p>
                     <p className="text-gray-500 font-medium">Admin</p>
                   </div>
-                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem]">
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
                     <p>Rick Wright</p>
                     <p className="font-medium text-red-700">Revoke Invite</p>
                   </div>
-                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem]">
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
                     <p>B.A Baracus</p>
                     <p className="text-gray-500 font-medium">Field Agent</p>
                   </div>
@@ -711,14 +711,28 @@ function SplashHome() {
 
           <section className="grid gap-4 self-baseline">
             <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
-              <div>
-                <h2 className="heading3"> Payout Bank</h2>
+              {validated ? (
+                <>
+                  <div className="flex justify-between  mb-10">
+                    <h2 className="heading3"> Payout Bank</h2>{' '}
+                    <img src="/icons/arrow-right.svg" alt="" />
+                  </div>
+                  <div>
+                    <img src="/icons/payoutBank.svg" alt="" />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="heading3"> Payout Bank</h2>
 
-                <div className="grid justify-items-center content-center  gap-8">
-                  <Orders fill="" />
-                  <p className="text">Your bank details would be shown here</p>
-                </div>
-              </div>
+                  <div className="grid justify-items-center content-center  gap-8">
+                    <Orders fill="" />
+                    <p className="text">
+                      Your bank details would be shown here
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
           </section>
         </div>
