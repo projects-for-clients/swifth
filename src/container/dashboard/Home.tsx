@@ -346,8 +346,10 @@ function SplashHome() {
   const notifications = (
     <>
     <section className="flex justify-between">
-        <div>
-
+        <div className='h-[1.4rem] bg-color-primary-light border border-color-primary p-8 rounded-lg'>
+          <div>
+            <p>Jonathan Elegushi</p>
+          </div>
         </div>
         <div></div>
     </section>
