@@ -186,7 +186,7 @@ function home() {
 
       <div className="dashboard__home">
         <section className="grid ">
-          <div className="rounded-lg p-4 border border-color-purple-light">
+          <div className="rounded-lg p-8 border border-color-purple-light">
             <h2 className="heading3">Account Setup</h2>
             {thirdStep}
           </div>
@@ -227,7 +227,7 @@ function home() {
           </div>
         </section>
         <section className="grid  gap-4">
-          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
             <div>
               <h2 className="heading3">Business Analytics</h2>
 
@@ -242,7 +242,7 @@ function home() {
         </section>
 
         <section className="grid gap-4 self-baseline">
-          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
             <div>
               <h2 className="heading3"> Teams</h2>
 
@@ -254,7 +254,7 @@ function home() {
           </div>
         </section>
         <section className="grid gap-4 self-baseline">
-          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
             <div>
               <h2 className="heading3"> Orders</h2>
 
@@ -266,7 +266,7 @@ function home() {
           </div>
         </section>
         <section className="grid gap-4 self-baseline">
-          <div className="rounded-lg p-4 border border-color-purple-light grid gap-8">
+          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
             <div>
               <h2 className="heading3"> Payout Bank</h2>
 
