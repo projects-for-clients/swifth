@@ -372,7 +372,7 @@ function SplashHome() {
   );
 
   const quoteRequest = (
-    <section className="gap-8 order-1">
+    <section className="gap-8 order-1 grid p-8 border border-gray-300 rounded-lg">
       <div className="flex justify-between border-b border-b-color-red-light-2">
         <h2 className="text-[1.6rem] font-medium"> Quote Requests</h2>
         <p>All Requests</p>
