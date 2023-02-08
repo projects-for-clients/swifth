@@ -90,7 +90,7 @@ function home() {
             onClick={handleBusinessDrop}
           >
             <div>
-              <p className="text">Your business information</p>
+              <p className="text font-medium">Your business information</p>
               {isDropDown.isBusinessDown && (
                 <p className="text-[1.4rem] font-light">
                   Details of your business required
@@ -113,7 +113,7 @@ function home() {
             onClick={handlePAndTDrop}
           >
             <div>
-              <p className="text">Port and terminal Info</p>
+              <p className="text font-medium">Port and terminal Info</p>
 
               {isDropDown.isPortAndTerminalDown && (
                 <p className="text-[1.4rem] font-light">
@@ -138,7 +138,7 @@ function home() {
           >
             {' '}
             <div>
-              <p className="text">Contact information</p>
+              <p className="text font-medium">Contact information</p>
               {isDropDown.isContactDown && (
                 <p className="text-[1.4rem] font-light">
                   Your personal Information required
@@ -193,9 +193,7 @@ function home() {
 
 const checklist = (
   <>
-    <p className="text">
-      A few things to get you going
-    </p>
+    <p className="text">A few things to get you going</p>
 
     <div className="grid gap-4">
       <div className="flex items-center gap-4">
@@ -205,11 +203,9 @@ const checklist = (
           onClick={handleBusinessDrop}
         >
           <div>
-            <p className="text">Create roles</p>
+            <p className="text font-medium">Create roles</p>
             {isDropDown.isBusinessDown && (
-              <p className="text-[1.4rem] font-light">
-                 roles
-              </p>
+              <p className="text-[1.4rem] font-light">roles</p>
             )}
           </div>
           {isDropDown.isBusinessDown ? (
@@ -228,12 +224,10 @@ const checklist = (
           onClick={handlePAndTDrop}
         >
           <div>
-            <p className="text">Invite and assign field agents</p>
+            <p className="text font-medium">Invite and assign field agents</p>
 
             {isDropDown.isPortAndTerminalDown && (
-              <p className="text-[1.4rem] font-light">
-                assign field agents
-              </p>
+              <p className="text-[1.4rem] font-light">assign field agents</p>
             )}
           </div>
           {isDropDown.isPortAndTerminalDown ? (
@@ -253,11 +247,9 @@ const checklist = (
         >
           {' '}
           <div>
-            <p className="text">Set Formulas</p>
+            <p className="text font-medium">Set Formulas</p>
             {isDropDown.isContactDown && (
-              <p className="text-[1.4rem] font-light">
-                formulas
-              </p>
+              <p className="text-[1.4rem] font-light">formulas</p>
             )}
           </div>
           {isDropDown.isContactDown ? (
@@ -276,7 +268,7 @@ const checklist = (
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <section className="grid">
+        <section className="grid gap-4 auto-rows-auto">
           <div
             className={`rounded-lg p-8 border border-color-purple-light ${
               validating === 'idle' && 'grid'
@@ -285,8 +277,16 @@ const checklist = (
             <h2 className="heading3">Account Setup</h2>
             {currentValidation[validating]}
           </div>
+
+          {validating === 'succeeded' && (
+            <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light">
+              <h2 className="heading3">Checklist</h2>
+
+              {checklist}
+            </section>
+          )}
         </section>
-        <section className="grid gap-4 self-baseline">
+        <section className="grid gap-4 self-baseline auto-rows-auto">
           <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
             <FinanceSvg fill={'#957979'} />
 
@@ -321,14 +321,6 @@ const checklist = (
             </div>
           </div>
         </section>
-
-        {validating === 'succeeded' && (
-          <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light">
-            <h2 className="heading3">Checklist</h2>
-
-            {checklist}
-          </section>
-        )}
 
         <section className="grid  gap-4">
           <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
