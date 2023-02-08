@@ -92,15 +92,14 @@ function home() {
       </div>
       <div className="grid gap-4">
         <div className="flex items-center gap-4">
-          {isBusinessInfoValid ? (
+          {isBusinessInfoValid &&
             isBusinessInfoValid.error ? (
               <CancelSvg />
             ) : (
               <CheckmarkSvg />
-            )
-          ) : (
-            <EllipseSvg />
-          )}{' '}
+            ) 
+
+          }{' '}
           <div
             className="flex items-center w-full justify-between cursor-pointer "
             onClick={handleBusinessDrop}
