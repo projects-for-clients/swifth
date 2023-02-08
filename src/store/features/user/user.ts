@@ -8,9 +8,10 @@ export interface IUser {
   email: string;
   onboarding: {
     validating: 'idle' | 'pending' | 'succeeded' ;
-    error: {
+    content: {
       path: ValidatingPath;
       message: string;
+      error: boolean
     }[];
   };
 }
@@ -20,7 +21,18 @@ const initialState: IUser = {
   email: '',
   onboarding: {
     validating: 'idle',
-    error: [],
+    content: [
+      {
+        path: 'businessInfo',
+        message: 'Business info is not valid',
+        error: true
+      },
+      {
+        path: 'personalInfo',
+        message: 'Details Validated',
+        error: false
+      },
+    ],
   },
 };
 
