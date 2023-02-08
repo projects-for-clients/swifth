@@ -539,11 +539,9 @@ function SplashHome() {
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" openDialog={handleOpen} />
       <dialog className="dialog" ref={dialogRef}>
-        <section className="grid place-content-center w-full h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8">
-           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum hic, esse aut, amet similique quibusdam inventore unde eos provident nam quis facilis rem. Nobis quibusdam quas illo, earum delectus est!
-          </div>
-        </section>
+        <div className='bg-white'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, eum ut dolor odit in vero natus sit nostrum corrupti molestiae reprehenderit culpa facere provident cumque dicta, fuga nulla? Modi, totam!
+        </div>
       </dialog>
       <div
         className="grid gap-4 max-w-[120rem] mx-auto"
