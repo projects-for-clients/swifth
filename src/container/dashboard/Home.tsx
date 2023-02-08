@@ -14,6 +14,7 @@ import { useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
+import AnalyticsChart from '../../components/charts/AnalyticsChart';
 
 function SplashHome() {
   interface DropDown {
@@ -365,7 +366,7 @@ function SplashHome() {
               <div>
                 <h2 className="heading3">Business Analytics</h2>
                 {validated ? (
-                  <p>valid</p>
+                  <AnalyticsChart/>
                 ) : (
                   <div className="grid justify-items-center content-center gap-8">
                     <AnalyticsSvg />

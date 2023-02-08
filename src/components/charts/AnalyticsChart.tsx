@@ -121,7 +121,7 @@ const data = [
 
 ];
 
-export default function App() {
+export default function AnalyticsChart() {
   return (
     <LineChart
       width={500}
