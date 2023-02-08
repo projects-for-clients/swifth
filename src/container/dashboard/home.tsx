@@ -13,8 +13,12 @@ import Orders from '../../components/icons/sidebar/orders';
 import PayoutBankSvg from '../../components/icons/sidebar/payoutBankSvg';
 import { useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../store/app/hooks';
+import { selectUser } from '../../store/features/user/user';
 
 function home() {
+  const user = useAppSelector(selectUser);
+
   interface DropDown {
     isContactDown?: boolean;
     isBusinessDown?: boolean;
@@ -148,9 +152,7 @@ function home() {
   );
 
   const secondStep = (
-    <div
-      className="flex items-center gap-8 pt-12"
-    >
+    <div className="flex items-center gap-8 pt-12">
       <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
@@ -163,27 +165,26 @@ function home() {
     </div>
   );
   const thirdStep = (
-    <div
-      className="flex items-center gap-8 pt-12 relative"
-    >
-      <img src="/icons/close.svg" alt="" className='absolute right-4 top-0 cursor-pointer' />
+    <div className="flex items-center gap-8 pt-12 relative">
+      <img
+        src="/icons/close.svg"
+        alt=""
+        className="absolute right-4 top-0 cursor-pointer"
+      />
       <img src="/icons/success.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
         <p className="text-[2rem] font-medium">Verified!</p>
-        <p>
-          Your details have been verified and approved
-        </p>
+        <p>Your details have been verified and approved</p>
       </div>
     </div>
   );
 
-  const currentValidation:Record<string, JSX.Element> = {
+  const currentValidation: Record<string, JSX.Element> = {
     firstStep,
     secondStep,
     thirdStep,
-  }
-
+  };
 
   return (
     <>
