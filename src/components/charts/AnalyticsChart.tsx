@@ -91,7 +91,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Feb',
@@ -99,7 +99,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Mar',
@@ -107,7 +107,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'April',
@@ -115,7 +115,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'May',
@@ -123,7 +123,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Jun',
@@ -131,7 +131,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Jul',
@@ -139,7 +139,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Aug',
@@ -147,7 +147,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Sep',
@@ -155,7 +155,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Oct',
@@ -163,7 +163,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'Nov',
@@ -171,7 +171,7 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
   {
     name: 'December',
@@ -179,35 +179,28 @@ const data = [
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
     deliveries: Math.random() * 500,
-    payments: Math.random() * 500
+    payments: Math.random() * 500,
   },
-
 ];
 
 export default function AnalyticsChart() {
   return (
-    <LineChart
-      width={500}
-      height={300}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
+    <LineChart width={500} height={300} data={data}>
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line
-        type="monotone"
-        dataKey="pv"
-        stroke="#8884d8"
-        activeDot={{ r: 8 }}
-      />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+
+      {dataLabels.map((label) => {
+        return (
+          <Line
+            type="monotone"
+            dataKey={label.key}
+            stroke={label.color}
+            activeDot={{ r: 8 }}
+          />
+        );
+      })}
     </LineChart>
   );
 }
