@@ -383,11 +383,44 @@ function SplashHome() {
         <p>All Requests</p>
       </div>
 
-      <div className="grid gap-4 mt-10">
+      <div className="grid gap-4 mt-10 max-h-[20rem] overflow-y-scroll">
         <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
           <div>
             <p className="text-[1.6rem] text-gray-600">Osojo John</p>
             <p className="text-[1.4rem] text-gray-400"> Jan 9, 2023 Just now</p>
+          </div>
+
+          <BsArrowRight className="text-[1.8rem]" />
+        </div>
+        <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Kayode Isaac</p>
+            <p className="text-[1.4rem] text-gray-400">
+              {' '}
+              Jan 9, 2023 5mins ago
+            </p>
+          </div>
+
+          <BsArrowRight className="text-[1.8rem]" />
+        </div>
+        <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Kayode Isaac</p>
+            <p className="text-[1.4rem] text-gray-400">
+              {' '}
+              Jan 9, 2023 5mins ago
+            </p>
+          </div>
+
+          <BsArrowRight className="text-[1.8rem]" />
+        </div>
+        <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Kayode Isaac</p>
+            <p className="text-[1.4rem] text-gray-400">
+              {' '}
+              Jan 9, 2023 5mins ago
+            </p>
           </div>
 
           <BsArrowRight className="text-[1.8rem]" />
@@ -682,14 +715,26 @@ function SplashHome() {
                   <img src="/icons/arrow-right.svg" alt="" />
                 </div>
 
-                <div className="grid gap-8 mt-8">
-                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
+                <div className="grid gap-8 mt-8 max-h-[20rem] overflow-y-scroll">
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8  ">
                     <p>Michael Knight</p>
                     <p className="text-gray-500 font-medium">Admin</p>
                   </div>
                   <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
                     <p>Rick Wright</p>
                     <p className="font-medium text-red-700">Revoke Invite</p>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
+                    <p>B.A Baracus</p>
+                    <p className="text-gray-500 font-medium">Field Agent</p>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
+                    <p>B.A Baracus</p>
+                    <p className="text-gray-500 font-medium">Field Agent</p>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
+                    <p>B.A Baracus</p>
+                    <p className="text-gray-500 font-medium">Field Agent</p>
                   </div>
                   <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem] pb-8">
                     <p>B.A Baracus</p>
@@ -717,7 +762,7 @@ function SplashHome() {
                     <h2 className="heading3"> Payout Bank</h2>{' '}
                     <img src="/icons/arrow-right.svg" alt="" />
                   </div>
-                  <div className='flex items-center gap-8'>
+                  <div className="flex items-center gap-8">
                     <img src="/icons/payoutBank.svg" alt="" />
                     <div className=" text-gray-500">
                       <p className="text-[1.6rem] font-medium">GTCO</p>
