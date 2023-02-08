@@ -344,7 +344,7 @@ function SplashHome() {
   );
 
   const notifications = (
-    <section className="grid grid-cols-2 gap-8 order-1 w-full">
+    <section className="grid grid-cols-2 gap-8 order-1">
       <div className=" bg-color-green-light-1 border border-color-primary p-8 rounded-3xl flex items-center gap-8 content-center">
         <div>
           <p className="text-[2rem]">Jonathan Elegushi</p>
@@ -372,7 +372,7 @@ function SplashHome() {
   );
 
   const quoteRequest = (
-    <section className="grid grid-cols-2 gap-8 order-1 w-full">
+    <section className="gap-8 order-1">
       <div className=" bg-color-green-light-1 border border-color-primary p-8 rounded-3xl flex items-center gap-8 content-center">
         <div>
           <p className="text-[2rem]">Jonathan Elegushi</p>
