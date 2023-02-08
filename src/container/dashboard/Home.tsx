@@ -11,7 +11,7 @@ import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
@@ -24,6 +24,7 @@ function SplashHome() {
     isPortAndTerminalDown?: boolean;
   }
 
+  const [closeAccountSetup, setCloseAccountSetup] = useState('grid')
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
@@ -373,24 +374,24 @@ function SplashHome() {
 
   const quoteRequest = (
     <section className="gap-8 order-1 grid p-8 border border-gray-300 rounded-lg">
-      <div className="flex justify-between border-b border-b-color-red-light-2">
-        <h2 className="text-[1.6rem] font-medium"> Quote Requests</h2>
+      <div className="flex justify-between border-b border-b-[#FDE9E9] pb-4">
+        <h2 className="text-[1.6rem] font-medium text-gray-500"> Quote Requests</h2>
         <p>All Requests</p>
       </div>
 
       <div className="grid gap-4 mt-10">
-        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+        <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
           <div>
-            <p className="text-[1.6rem]">Osojo John</p>
-            <p className="text-[1.4rem]"> Jan 9, 2023 Just now</p>
+            <p className="text-[1.6rem] text-gray-500">Osojo John</p>
+            <p className="text-[1.4rem] text-gray-400"> Jan 9, 2023 Just now</p>
           </div>
 
           <BsArrowRight className="text-[1.8rem]" />
         </div>
-        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+        <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
           <div>
-            <p className="text-[1.6rem]">Kayode Isaac</p>
-            <p className="text-[1.4rem]"> Jan 9, 2023 5mins ago</p>
+            <p className="text-[1.6rem] text-gray-500">Kayode Isaac</p>
+            <p className="text-[1.4rem] text-gray-400"> Jan 9, 2023 5mins ago</p>
           </div>
 
           <BsArrowRight className="text-[1.8rem]" />
@@ -488,7 +489,7 @@ function SplashHome() {
         }}
       >
         <div className={`grid gap-4 ${validated ? 'order-2' : ''}`}>
-          <section className="grid gap-4 order-2">
+          <section className={`grid gap-4 order-2 ${closeAccountSetup}`}>
             <div
               className={`rounded-lg p-8 border border-color-purple-light ${
                 validating === 'idle' && 'grid gap-8'
