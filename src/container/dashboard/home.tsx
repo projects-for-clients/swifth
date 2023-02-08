@@ -64,6 +64,12 @@ function home() {
     (item) => item.path === 'personalInfo'
   );
 
+  const progressLevel = () => {
+
+    if(validatingArr.length === 0) return 0;
+
+  }
+
   const firstStep = (
     <>
       <p className="text">
@@ -75,8 +81,8 @@ function home() {
         <div className="progressBar">
           <progress
             className="progressBar__item"
-            max="100"
-            value="33"
+            max={100}
+            value={33}
           ></progress>
           <p className="absolute left-4 text-color-tertiary ">
             <span>0%</span> <span>Completed</span>
