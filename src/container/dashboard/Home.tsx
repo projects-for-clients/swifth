@@ -344,14 +344,14 @@ function SplashHome() {
   );
 
   const notifications = (
-    <section className="grid grid-cols-2 order-1 w-full">
+    <section className="grid grid-cols-2 gap-8 order-1 w-full">
       <div className=" bg-color-green-light-1 border border-color-primary p-8 rounded-3xl">
         <div>
           <p className="text-[2rem]">Jonathan Elegushi</p>
           <p className="text-[1.4rem]"> & 2 more items in waiting</p>
         </div>
 
-        <BsArrowRight />
+        <BsArrowRight className='text-[3rem]' />
       </div>
       <div
         className="bg-color-red-light-2 border border-color-red-light-3
