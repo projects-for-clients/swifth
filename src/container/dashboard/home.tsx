@@ -54,6 +54,8 @@ function home() {
     onboarding: { validating, validatingArr },
   } = user;
 
+  console.log(validatingArr.includes('business'));
+
   const firstStep = (
     <>
       <p className="text">
@@ -91,7 +93,7 @@ function home() {
               <p className="text font-medium">Your business information</p>
               {isDropDown.isBusinessDown && (
                 <p className="text-[1.4rem] font-light">
-                  { validatingArr.includes()
+                  {
                     <span>Details of your business required</span>}
                 </p>
               )}
