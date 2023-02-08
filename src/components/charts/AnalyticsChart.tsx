@@ -185,10 +185,8 @@ const data = [
 
 export default function AnalyticsChart() {
   return (
-    <LineChart width={500} height={300} data={data} className=' -ml-14'
-      >
-    
-      <CartesianGrid vertical={false}/>
+    <LineChart width={500} height={300} data={data} className=" -ml-14">
+      <CartesianGrid vertical={false} stroke="#FDE9E9" />
       <Legend />
       <XAxis dataKey="name" />
       <YAxis tickCount={6} />
@@ -197,11 +195,10 @@ export default function AnalyticsChart() {
       {dataLabels.map((label) => {
         return (
           <Line
-          dot={false}
+            dot={false}
             type="monotone"
             dataKey={label.key}
             stroke={label.color}
-           
           />
         );
       })}
