@@ -94,7 +94,7 @@ const data = [
     payments: Math.random() * 500
   },
   {
-    name: 'Jan',
+    name: 'Feb',
     orders: Math.random() * 500,
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
@@ -102,7 +102,7 @@ const data = [
     payments: Math.random() * 500
   },
   {
-    name: 'Jan',
+    name: 'Mar',
     orders: Math.random() * 500,
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
@@ -110,7 +110,7 @@ const data = [
     payments: Math.random() * 500
   },
   {
-    name: 'Jan',
+    name: 'April',
     orders: Math.random() * 500,
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
@@ -118,7 +118,7 @@ const data = [
     payments: Math.random() * 500
   },
   {
-    name: 'Jan',
+    name: 'May',
     orders: Math.random() * 500,
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
@@ -126,7 +126,7 @@ const data = [
     payments: Math.random() * 500
   },
   {
-    name: 'Jan',
+    name: 'Jun',
     orders: Math.random() * 500,
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
@@ -134,7 +134,47 @@ const data = [
     payments: Math.random() * 500
   },
   {
-    name: 'Jan',
+    name: 'Jul',
+    orders: Math.random() * 500,
+    quotes: Math.random() * 500,
+    customers: Math.random() * 500,
+    deliveries: Math.random() * 500,
+    payments: Math.random() * 500
+  },
+  {
+    name: 'Aug',
+    orders: Math.random() * 500,
+    quotes: Math.random() * 500,
+    customers: Math.random() * 500,
+    deliveries: Math.random() * 500,
+    payments: Math.random() * 500
+  },
+  {
+    name: 'Sep',
+    orders: Math.random() * 500,
+    quotes: Math.random() * 500,
+    customers: Math.random() * 500,
+    deliveries: Math.random() * 500,
+    payments: Math.random() * 500
+  },
+  {
+    name: 'Oct',
+    orders: Math.random() * 500,
+    quotes: Math.random() * 500,
+    customers: Math.random() * 500,
+    deliveries: Math.random() * 500,
+    payments: Math.random() * 500
+  },
+  {
+    name: 'Nov',
+    orders: Math.random() * 500,
+    quotes: Math.random() * 500,
+    customers: Math.random() * 500,
+    deliveries: Math.random() * 500,
+    payments: Math.random() * 500
+  },
+  {
+    name: 'December',
     orders: Math.random() * 500,
     quotes: Math.random() * 500,
     customers: Math.random() * 500,
