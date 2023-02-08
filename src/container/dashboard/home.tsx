@@ -48,7 +48,7 @@ function home() {
   };
 
   const firstStep = (
-    <div>
+    <>
       <p className="text">
         It's time to set up your account. We will need a few things to get you
         going
@@ -144,7 +144,7 @@ function home() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 
   const secondStep = (
@@ -191,7 +191,7 @@ function home() {
 
       <div className="dashboard__home">
         <section className="grid">
-          <div className="rounded-lg p-8 border border-color-purple-light">
+          <div className="rounded-lg p-8 border border-color-purple-light grid">
             <h2 className="heading3">Account Setup</h2>
             {currentValidation['firstStep']}
           </div>
