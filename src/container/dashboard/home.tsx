@@ -54,11 +54,17 @@ function home() {
     onboarding: { validating, validatingArr },
   } = user;
 
-  const isBusinessInfoValid = validatingArr.find((item) => item.path === 'businessInfo');
-  const isPortsAndTerminalValid = validatingArr.find((item) => item.path === 'portsAndTerminal');
-  const isPersonalInfoValid = validatingArr.find((item) => item.path === 'personalInfo');
+  const isBusinessInfoValid = validatingArr.find(
+    (item) => item.path === 'businessInfo'
+  );
+  const isPortsAndTerminalValid = validatingArr.find(
+    (item) => item.path === 'portsAndTerminal'
+  );
+  const isPersonalInfoValid = validatingArr.find(
+    (item) => item.path === 'personalInfo'
+  );
 
-  console.log({isBusinessInfoValid, isPortsAndTerminalValid, isPersonalInfoValid})
+ 
 
   const firstStep = (
     <>
@@ -97,8 +103,11 @@ function home() {
               <p className="text font-medium">Your business information</p>
               {isDropDown.isBusinessDown && (
                 <p className="text-[1.4rem] font-light">
-                  {
-                    <span>Details of your business required</span>}
+                  {isBusinessInfoValid && isBusinessInfoValid.message ? (
+                    isBusinessInfoValid.message
+                  ) : (
+                    <span>Details of your business required</span>
+                  )}
                 </p>
               )}
             </div>
