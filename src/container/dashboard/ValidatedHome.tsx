@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
-function SplashHome() {
+function ValidatedHome() {
   interface DropDown {
     isContactDown?: boolean;
     isBusinessDown?: boolean;
@@ -455,4 +455,4 @@ function SplashHome() {
   );
 }
 
-export default SplashHome;
+export default ValidatedHome;

@@ -14,6 +14,7 @@ import Orders from '../container/dashboard/orders';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.css';
 
+const fullyValidated = false
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<Home />} />,
