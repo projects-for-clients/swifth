@@ -366,15 +366,17 @@ function SplashHome() {
               <div>
                 {validated ? (
                   <>
-                    <div className='flex justify-between'>
-                    <h2 className="heading3 mb-5">Business Analytics</h2>
-                    <p className='text-[1.6rem] cursor-pointer'>See Full Stats</p>
+                    <div className="flex justify-between  mb-10">
+                      <h2 className="heading3">Business Analytics</h2>
+                      <p className="text-[1.6rem] cursor-pointer">
+                        See Full Stats
+                      </p>
                     </div>
                     <AnalyticsChart />
                   </>
                 ) : (
                   <>
-                    <h2 className="heading3 mb-5">Business Analytics</h2>
+                    <h2 className="heading3">Business Analytics</h2>
 
                     <div className="grid justify-items-center content-center gap-8">
                       <AnalyticsSvg />
