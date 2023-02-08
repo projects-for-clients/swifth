@@ -11,7 +11,7 @@ import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
-import { useReducer, useRef, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
@@ -534,6 +534,14 @@ function SplashHome() {
       dialogRef.current.showModal();
     }
   };
+
+  useEffect(() => {
+    if (toggleDialog) {
+      handleOpen();
+    } else {
+      handleClose();
+    }
+  }, [setToggleDialog])
 
   return (
     <>
