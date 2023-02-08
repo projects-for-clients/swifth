@@ -166,7 +166,7 @@ function home() {
     <div
       className="flex items-center gap-8 pt-12 relative"
     >
-      <img src="/icons/close.svg" alt="" className='absolute right-4 top-0' />
+      <img src="/icons/close.svg" alt="" className='absolute right-4 top-0 cursor-pointer' />
       <img src="/icons/success.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
@@ -177,6 +177,8 @@ function home() {
       </div>
     </div>
   );
+
+
 
   return (
     <>
