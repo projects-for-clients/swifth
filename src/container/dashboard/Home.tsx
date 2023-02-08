@@ -355,9 +355,9 @@ function SplashHome() {
       </div>
       <div
         className="bg-color-red-light-2 border border-color-red-light-3
-       p-8 rounded-3xl"
+       p-8 rounded-3xl relative"
       >
-        <div>
+        <div className='absolute right-0 flex gap-4 items-center'>
           <img src="/icons/send.svg" alt="" />
           <img src="/icons/copy.svg" alt="" />
         </div>
