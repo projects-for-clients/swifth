@@ -340,10 +340,13 @@ function SplashHome() {
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
-      <div className="grid gap-4" style={{
-        gridTemplateColumns: '55% auto'
-      }}>
-        <div className="grid gap-4">
+      <div
+        className="grid gap-4 max-w-[120rem] mx-auto"
+        style={{
+          gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
+        }}
+      >
+        <div className={`grid gap-4 ${validated ? 'order-1' : ''}`}>
           <section className="grid gap-4">
             <div
               className={`rounded-lg p-8 border border-color-purple-light ${
@@ -363,7 +366,7 @@ function SplashHome() {
               </div>
             </section>
           )}
-          <section className="grid  gap-4">
+          <section className={`grid gap-4 ${validated ? 'order-1': ''}`}>
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
                 {validated ? (
@@ -412,7 +415,7 @@ function SplashHome() {
               <div className="grid justify-items-start content-center gap-4">
                 <h2 className="heading3">Total Earnings</h2>
                 <p className="heading2">
-                  NGN <span>{validated ? 32.350 : 0.0}</span>
+                  NGN <span>{validated ? 32.35 : 0.0}</span>
                 </p>
               </div>
             </div>
