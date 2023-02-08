@@ -76,7 +76,7 @@
         &:hover {
           transition: all 0.2s;
           padding: 1rem 2rem;
-          background-color: $color-grey-2;
+          background-color: $color-green-light;
           color: black;
           transform: translateX(1rem) scale(1.01);
 
@@ -100,7 +100,7 @@
 
       &:hover {
         padding: 1rem 2rem;
-        background-color: $color-grey-2;
+        background-color: $color-green-light;
         color: black;
         transition: all 0.2s;
         transform: translateX(1rem);

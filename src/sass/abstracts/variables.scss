@@ -4,6 +4,8 @@ $color-primary: #40AD6B;
 $color-primary-dark: #338A56;
 $color-primary-light: #8CCEA6;
 
+$color-green-light: #D9EFE1;
+
 
 $color-tertiary: #372768;
 
@@ -13,7 +15,6 @@ $color-dark: #0c1018bf;
 
 $color-grey: #D2D4D8;
 $color-grey-1: #d2d4d84d;
-$color-grey-2: #D9EFE1;
 $color-grey-3: #4B5463;
 
 
@@ -26,8 +27,11 @@ $color-red-light-1: #FDE9E9;
 
 
 
-
 $border-radius: 8px;
 $border-radius-lg: 20px;
 $border: 1px solid $color-purple-light;
 $border-2: 1px solid $color-red-light;
+
+.cor{
+    color: #d9efe1;
+}
