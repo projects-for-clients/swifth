@@ -689,7 +689,7 @@ function SplashHome() {
                   </div>
                   <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem]">
                     <p>Rick Wright</p>
-                    <p className="text-gray-500 font-medium">Admin</p>
+                    <p className="font-medium text-red-700">Revoke Invite</p>
                   </div>
                   <div className="flex justify-between items-center border-b border-b-color-red-light-2 text-[1.4rem]">
                     <p>B.A Baracus</p>
