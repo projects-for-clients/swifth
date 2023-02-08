@@ -66,10 +66,8 @@ function home() {
 
   const progressLevel = ():number => {
 
-    if(validatingArr.length === 1) return 33;
-    if(validatingArr.length === 2) return 66;
-    if(validatingArr.length === 3) return 100;
-
+    const everyValidatedInfo  = validatingArr.every(item => item.error !== false)
+    console.log(everyValidatedInfo)
     return 0
   }
 
@@ -85,7 +83,7 @@ function home() {
           <progress
             className="progressBar__item"
             max={100}
-            value={33}
+            value={progressLevel()}
           ></progress>
           <p className="absolute left-4 text-color-tertiary ">
             <span>0%</span> <span>Completed</span>
