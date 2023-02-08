@@ -187,7 +187,7 @@ export default function AnalyticsChart() {
   return (
     <LineChart width={500} height={300} data={data} className=" -ml-14">
       <CartesianGrid vertical={false} stroke="#FDE9E9" />
-      <Legend fontSize='3rem'/>
+      <Legend/>
       <XAxis dataKey="name" />
       <YAxis tickCount={6}/>
       <Tooltip />
