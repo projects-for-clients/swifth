@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import NotificationSvg from "../icons/notificationSvg";
 import AccountSvg from "../icons/sidebar/accountSvg";
 
@@ -5,7 +6,7 @@ type THeader = {
     title: string
     subTitle: string
     onboarding?: boolean
-    toggleDialog?: () => void
+    setToggleDialog?: Dispatch<SetStateAction<boolean>>
 }
 
 function Header({title, subTitle, onboarding}: THeader) {
