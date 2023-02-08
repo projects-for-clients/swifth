@@ -259,22 +259,55 @@ function SplashHome() {
   );
 
   const transactions = (
-    <section className="grid gap-4 self-baseline order-4">
+    <section className="grid gap-4 self-baseline order-4 max-w-[50rem] overflow-y-scroll">
       <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
         <div className="flex justify-between">
-          <h2 className="heading3"> Latest Transactions</h2>
+          <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
           <p>See All</p>
         </div>
 
-        <div className="grid gap-8">
-          <div className="flex justify-between items-center">
-            <p>Adewale Joseph</p>
+        <div className="grid gap-8 mt-8">
+          <div className="flex justify-between items-center border-b-color-red-light-2">
+            <p className='text-[1.4rem]'>Adewale Joseph</p>
             <p>
               {' '}
               <span className='text-gray-500'>NGN</span>{' '}
               <span className="text-color-purple-1">780,932</span>{' '}
             </p>
           </div>
+          <div className="flex justify-between items-center border-b-color-red-light-2">
+            <p className='text-[1.4rem]'>Adewale Joseph</p>
+            <p>
+              {' '}
+              <span className='text-gray-500'>NGN</span>{' '}
+              <span className="text-color-purple-1">780,932</span>{' '}
+            </p>
+          </div>
+          <div className="flex justify-between items-center border-b-color-red-light-2">
+            <p className='text-[1.4rem]'>Adewale Joseph</p>
+            <p>
+              {' '}
+              <span className='text-gray-500'>NGN</span>{' '}
+              <span className="text-color-purple-1">780,932</span>{' '}
+            </p>
+          </div>
+          <div className="flex justify-between items-center border-b-color-red-light-2">
+            <p className='text-[1.4rem]'>Adewale Joseph</p>
+            <p>
+              {' '}
+              <span className='text-gray-500'>NGN</span>{' '}
+              <span className="text-color-purple-1">780,932</span>{' '}
+            </p>
+          </div>
+          <div className="flex justify-between items-center border-b-color-red-light-2">
+            <p className='text-[1.4rem]'>Adewale Joseph</p>
+            <p>
+              {' '}
+              <span className='text-gray-500'>NGN</span>{' '}
+              <span className="text-color-purple-1">780,932</span>{' '}
+            </p>
+          </div>
+         
         </div>
       </div>
     </section>
