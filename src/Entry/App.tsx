@@ -20,7 +20,7 @@ const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<Home />} />,
     <Route path="/dashboard" element={<Dashboard />}>
-      <Route index element={fullyValidated ? <ValidatedHome/> ? <SplashHome />} />
+      <Route index element={fullyValidated ? <ValidatedHome/> : <SplashHome />} />
       <Route path="orders" element={<Orders />} />
       <Route path="onboarding" element={<OnBoarding />} />
     </Route>,
