@@ -50,6 +50,7 @@ function SplashHome() {
 
   const user = useAppSelector(selectUser);
   const {
+    validated,
     onboarding: { validating, validatingArr },
   } = user;
 
