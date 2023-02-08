@@ -22,23 +22,24 @@ const initialState: IUser = {
   email: '',
   onboarding: {
     validating: 'idle',
-    validatingArr: [
-      {
-        path: 'businessInfo',
-        message: 'Business info is not valid',
-        error: false,
-      },
-      {
-        path: 'personalInfo',
-        message: 'Details Validated',
-        error: false,
-      },
-      {
-        path: 'portsAndTerminal',
-        message: 'Details Validated',
-        error: true,
-      },
-    ],
+    // validatingArr: [
+    //   {
+    //     path: 'businessInfo',
+    //     message: 'Business info is not valid',
+    //     error: false,
+    //   },
+    //   {
+    //     path: 'personalInfo',
+    //     message: 'Details Validated',
+    //     error: false,
+    //   },
+    //   {
+    //     path: 'portsAndTerminal',
+    //     message: 'Details Validated',
+    //     error: true,
+    //   },
+    // ],
+    validatingArr: [],
   },
 };
 
