@@ -717,8 +717,13 @@ function SplashHome() {
                     <h2 className="heading3"> Payout Bank</h2>{' '}
                     <img src="/icons/arrow-right.svg" alt="" />
                   </div>
-                  <div>
+                  <div className='flex items-center gap-8'>
                     <img src="/icons/payoutBank.svg" alt="" />
+                    <div className=" text-gray-500">
+                      <p className="text-[1.6rem] font-medium">GTCO</p>
+                      <p className="text-[1.4rem]">Ore Adesanye</p>
+                      <p className="text-[1.4rem]">0132234423</p>
+                    </div>
                   </div>
                 </>
               ) : (
