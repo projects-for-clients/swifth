@@ -178,6 +178,9 @@ function home() {
     </div>
   );
 
+  const currentValidation:Record<string, JSX.Element> = {
+
+  }
 
 
   return (
