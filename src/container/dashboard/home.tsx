@@ -268,111 +268,113 @@ const checklist = (
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <section className="grid gap-4 auto-rows-auto">
-          <div
-            className={`rounded-lg p-8 border border-color-purple-light ${
-              validating === 'idle' && 'grid'
-            }`}
-          >
-            <h2 className="heading3">Account Setup</h2>
-            {currentValidation[validating]}
-          </div>
-
+        <div>
+          <section className="grid gap-4 auto-rows-auto">
+            <div
+              className={`rounded-lg p-8 border border-color-purple-light ${
+                validating === 'idle' && 'grid'
+              }`}
+            >
+              <h2 className="heading3">Account Setup</h2>
+              {currentValidation[validating]}
+            </div>
+          </section>
           {validating === 'succeeded' && (
-            <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light">
+            <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light h-[28rem]">
               <h2 className="heading3">Checklist</h2>
 
               {checklist}
             </section>
           )}
-        </section>
-        <section className="grid gap-4 self-baseline auto-rows-auto">
-          <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
-            <FinanceSvg fill={'#957979'} />
+          <section className="grid gap-4 self-baseline auto-rows-auto">
+            <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
+              <FinanceSvg fill={'#957979'} />
 
-            <div className="grid justify-items-center content-center gap-4 ">
-              <h2 className="heading3">Total Earnings</h2>
-              <p className="heading2">
-                NGN <span>0.0</span>
-              </p>
-            </div>
-          </div>
-          <div className="home-box2 p-8 grid gap-4 rounded-lg border border-color-purple-light">
-            <div className="flex gap-12">
-              <BoxTimeSvg />
-              <div className="grid justify-items-baseline content-center gap-4 ">
-                <h2 className="heading3 text-color-purple">
-                  Pending Clearance
-                </h2>
-                <p className="heading2">
-                  0 <span>Items</span>
-                </p>
-              </div>
-            </div>
-            <hr className="border-[#7D67BD]" />
-            <div className="flex gap-12">
-              <MoneysSvg />
-              <div className="grid justify-items-baseline content-center gap-4 ">
+              <div className="grid justify-items-center content-center gap-4 ">
                 <h2 className="heading3">Total Earnings</h2>
                 <p className="heading2">
                   NGN <span>0.0</span>
                 </p>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="grid  gap-4">
-          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-            <div>
-              <h2 className="heading3">Business Analytics</h2>
-
-              <div className="grid justify-items-center content-center gap-8">
-                <AnalyticsSvg />
-                <p className="text">
-                  Your business analytics would be shown here
-                </p>
+            <div className="home-box2 p-8 grid gap-4 rounded-lg border border-color-purple-light">
+              <div className="flex gap-12">
+                <BoxTimeSvg />
+                <div className="grid justify-items-baseline content-center gap-4 ">
+                  <h2 className="heading3 text-color-purple">
+                    Pending Clearance
+                  </h2>
+                  <p className="heading2">
+                    0 <span>Items</span>
+                  </p>
+                </div>
+              </div>
+              <hr className="border-[#7D67BD]" />
+              <div className="flex gap-12">
+                <MoneysSvg />
+                <div className="grid justify-items-baseline content-center gap-4 ">
+                  <h2 className="heading3">Total Earnings</h2>
+                  <p className="heading2">
+                    NGN <span>0.0</span>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <section className="grid gap-4 self-baseline">
+            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div>
+                <h2 className="heading3"> Teams</h2>
 
-        <section className="grid gap-4 self-baseline">
-          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-            <div>
-              <h2 className="heading3"> Teams</h2>
-
-              <div className="grid justify-items-center content-center  gap-8">
-                <TeamsSvg />
-                <p className="text">Your teams would be shown here</p>
+                <div className="grid justify-items-center content-center  gap-8">
+                  <TeamsSvg />
+                  <p className="text">Your teams would be shown here</p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section className="grid gap-4 self-baseline">
-          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-            <div>
-              <h2 className="heading3"> Orders</h2>
+          </section>
+        </div>
+        <div>
+          <section className="grid  gap-4">
+            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div>
+                <h2 className="heading3">Business Analytics</h2>
 
-              <div className="grid justify-items-center content-center  gap-8">
-                <Orders fill="" />
-                <p className="text">Your orders would be shown here</p>
+                <div className="grid justify-items-center content-center gap-8">
+                  <AnalyticsSvg />
+                  <p className="text">
+                    Your business analytics would be shown here
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section className="grid gap-4 self-baseline">
-          <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-            <div>
-              <h2 className="heading3"> Payout Bank</h2>
+          </section>
 
-              <div className="grid justify-items-center content-center  gap-8">
-                <Orders fill="" />
-                <p className="text">Your bank details would be shown here</p>
+          <section className="grid gap-4 self-baseline">
+            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div>
+                <h2 className="heading3"> Orders</h2>
+
+                <div className="grid justify-items-center content-center  gap-8">
+                  <Orders fill="" />
+                  <p className="text">Your orders would be shown here</p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+          <section className="grid gap-4 self-baseline">
+            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div>
+                <h2 className="heading3"> Payout Bank</h2>
+
+                <div className="grid justify-items-center content-center  gap-8">
+                  <Orders fill="" />
+                  <p className="text">Your bank details would be shown here</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );
