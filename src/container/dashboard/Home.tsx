@@ -1,4 +1,5 @@
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import {BsArrowRight} from 'react-icons/bs'
 
 import Header from '../../components/dashboard/Header';
 import FinanceSvg from '../../components/icons/sidebar/financeSvg';
@@ -345,7 +346,10 @@ function SplashHome() {
   const notifications = (
     <>
     <section className="flex justify-between">
-      
+        <div>
+
+        </div>
+        <div></div>
     </section>
     </>
   );
