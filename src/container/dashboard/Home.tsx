@@ -355,11 +355,11 @@ function SplashHome() {
       </div>
       <div
         className="bg-color-red-light-2 border border-color-red-light-3
-       p-8 rounded-3xl relative"
+       p-14 rounded-3xl relative"
       >
-        <div className='absolute right-0 flex gap-4 items-center'>
-          <img src="/icons/send.svg" alt="" />
-          <img src="/icons/copy.svg" alt="" />
+        <div className='absolute right-4 top-4 flex gap-4 items-center'>
+          <img src="/icons/send.svg" alt="" className='cursor-pointer'/>
+          <img src="/icons/copy.svg" alt="" className='cursor-pointer'/>
         </div>
         <div>
           <p className="text-[2.4rem] text-color-purple">AB-3423</p>
