@@ -286,6 +286,34 @@ const checklist = (
               {checklist}
             </section>
           )}
+          <section className="grid  gap-4">
+            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div>
+                <h2 className="heading3">Business Analytics</h2>
+
+                <div className="grid justify-items-center content-center gap-8">
+                  <AnalyticsSvg />
+                  <p className="text">
+                    Your business analytics would be shown here
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="grid gap-4 self-baseline">
+            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div>
+                <h2 className="heading3"> Teams</h2>
+
+                <div className="grid justify-items-center content-center  gap-8">
+                  <TeamsSvg />
+                  <p className="text">Your teams would be shown here</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div>
           <section className="grid gap-4 self-baseline auto-rows-auto">
             <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
@@ -316,34 +344,6 @@ const checklist = (
                   <h2 className="heading3">Total Earnings</h2>
                   <p className="heading2">
                     NGN <span>0.0</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="grid gap-4 self-baseline">
-            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-              <div>
-                <h2 className="heading3"> Teams</h2>
-
-                <div className="grid justify-items-center content-center  gap-8">
-                  <TeamsSvg />
-                  <p className="text">Your teams would be shown here</p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div>
-          <section className="grid  gap-4">
-            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
-              <div>
-                <h2 className="heading3">Business Analytics</h2>
-
-                <div className="grid justify-items-center content-center gap-8">
-                  <AnalyticsSvg />
-                  <p className="text">
-                    Your business analytics would be shown here
                   </p>
                 </div>
               </div>
