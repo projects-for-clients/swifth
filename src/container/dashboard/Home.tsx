@@ -260,85 +260,94 @@ function SplashHome() {
 
   const transactions = (
     <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-lg p-8 border border-color-purple-light">
-        <div className="flex justify-between">
-          <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
-          <p>See All</p>
-        </div>
+      <div className="flex justify-between">
+        <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
+        <p>See All</p>
+      </div>
 
-        <div className="grid gap-8 mt-8">
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Adewale Joseph</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">780,932</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Stephen Murtala</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">150,008</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Osojo John</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">250,802</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Jerry Samson</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">40,000</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Eze Benjamin</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">780,932</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Adewale Joseph</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">780,932</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Adewale Joseph</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">780,932</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Adewale Joseph</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">780,932</span>{' '}
-            </p>
-          </div>
-          <div className="flex justify-between items-center border-b border-b-color-red-light-2">
-            <p className="text-[1.4rem]">Adewale Joseph</p>
-            <p>
-              {' '}
-              <span className="text-gray-500">NGN</span>{' '}
-              <span className="text-color-purple-1">780,932</span>{' '}
-            </p>
-          </div>
+      <div className="grid gap-8 mt-8">
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Adewale Joseph</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">780,932</span>{' '}
+          </p>
         </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Stephen Murtala</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">150,008</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Osojo John</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">250,802</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Jerry Samson</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">40,000</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Eze Benjamin</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">780,932</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Adewale Joseph</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">780,932</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Adewale Joseph</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">780,932</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Adewale Joseph</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">780,932</span>{' '}
+          </p>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+          <p className="text-[1.4rem]">Adewale Joseph</p>
+          <p>
+            {' '}
+            <span className="text-gray-500">NGN</span>{' '}
+            <span className="text-color-purple-1">780,932</span>{' '}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+
+  const notifications = (
+    <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-lg p-8 border border-color-purple-light">
+      <div className="flex justify-between">
+        <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
+        <p>See All</p>
+      </div>
     </section>
   );
 
@@ -527,7 +536,7 @@ function SplashHome() {
               </div>
             </div>
           </section>
-            {transactions}
+          {transactions}
           <section className="grid gap-4 self-baseline">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
