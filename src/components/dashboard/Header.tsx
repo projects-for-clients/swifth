@@ -6,13 +6,13 @@ type THeader = {
   title: string;
   subTitle: string;
   onboarding?: boolean;
-  setToggleDialog?: Dispatch<SetStateAction<boolean>>;
+  openDialog?: () => void;
 };
 
-function Header({ title, subTitle, onboarding, setToggleDialog }: THeader) {
+function Header({ title, subTitle, onboarding, openDialog }: THeader) {
 
   const handleToggle = () => {
-    setToggleDialog && setToggleDialog((prev) => !prev);
+    openDialog && openDialog();
   };
   return (
     <div className="header">
