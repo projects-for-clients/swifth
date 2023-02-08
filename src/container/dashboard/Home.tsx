@@ -259,7 +259,7 @@ function SplashHome() {
   );
 
   const transactions = (
-    <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-lg p-8 border border-color-purple-light">
+    <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-lg p-8 border border-color-purple-light scroll scroll">
         <div className="flex justify-between">
           <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
           <p>See All</p>
