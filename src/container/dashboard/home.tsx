@@ -118,11 +118,11 @@ function home() {
                   {isBusinessInfoValid ? (
                     isBusinessInfoValid.error ? (
                       <span className="text-red-500">
-                        isBusinessInfoValid.message
+                        {isBusinessInfoValid.message}
                       </span>
                     ) : (
                       <span className="text-green-500">
-                        isBusinessInfoValid.message
+                        {isBusinessInfoValid.message}
                       </span>
                     )
                   ) : (
