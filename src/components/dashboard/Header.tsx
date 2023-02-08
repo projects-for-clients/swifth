@@ -1,12 +1,11 @@
 import NotificationSvg from "../icons/notificationSvg";
 import AccountSvg from "../icons/sidebar/accountSvg";
 
-
-
 type THeader = {
     title: string
     subTitle: string
     onboarding?: boolean
+    toggleDialog?: () => void
 }
 
 function Header({title, subTitle, onboarding}: THeader) {
