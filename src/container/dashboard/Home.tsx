@@ -423,7 +423,7 @@ function SplashHome() {
           </section>
         </div>
         <div className="grid gap-4 content-baseline">
-          <section className="grid gap-4 self-baseline auto-rows-auto">
+          <section className="grid gap-4 self-baseline">
             <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
 
@@ -457,8 +457,8 @@ function SplashHome() {
                 </div>
               </div>
             </div>
+                  {transactions}
           </section>
-
           <section className="grid gap-4 self-baseline">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
