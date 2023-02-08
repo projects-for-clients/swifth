@@ -670,8 +670,7 @@ function SplashHome() {
             </div>
           </section>
           {transactions}
-          <section className="grid gap-4 self-baseline">
-            <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
+          <section className=" self-baseline rounded-3xl p-8 border border-color-purple-light grid gap-8">
               <div>
                 <h2 className="heading3"> Teams</h2>
 
@@ -680,7 +679,6 @@ function SplashHome() {
                   <p className="text">Your teams would be shown here</p>
                 </div>
               </div>
-            </div>
           </section>
 
           <section className="grid gap-4 self-baseline">
