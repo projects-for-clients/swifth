@@ -64,10 +64,13 @@ function home() {
     (item) => item.path === 'personalInfo'
   );
 
-  const progressLevel = () => {
+  const progressLevel = ():number => {
 
-    if(validatingArr.length === 0) return 0;
+    if(validatingArr.length === 1) return 33;
+    if(validatingArr.length === 2) return 66;
+    if(validatingArr.length === 3) return 100;
 
+    return 0
   }
 
   const firstStep = (
