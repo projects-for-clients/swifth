@@ -528,7 +528,6 @@ function SplashHome() {
   };
 
   const handleOpen = () => {
-   
 
     if (dialogRef.current) {
       dialogRef.current.showModal();
@@ -541,7 +540,7 @@ function SplashHome() {
       <dialog className="dialog" ref={dialogRef}>
         <section className="grid place-content-center w-full h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8">
-           
+           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum hic, esse aut, amet similique quibusdam inventore unde eos provident nam quis facilis rem. Nobis quibusdam quas illo, earum delectus est!
           </div>
         </section>
       </dialog>
