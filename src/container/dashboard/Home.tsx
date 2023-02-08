@@ -354,7 +354,7 @@ function SplashHome() {
         <BsArrowRight />
       </div>
       <div
-        className="bg-color-red-light-2 border border-color-red
+        className="bg-color-red-light-2 border border-color-red-light-3
        p-8 rounded-3xl"
       >
         <div>
