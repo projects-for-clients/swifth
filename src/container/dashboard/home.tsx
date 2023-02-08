@@ -55,7 +55,7 @@ function home() {
   } = user;
 
   const firstStep = (
-    <div>
+    <>
       <p className="text">
         It's time to set up your account. We will need a few things to get you
         going
@@ -151,7 +151,7 @@ function home() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 
   const secondStep = (
