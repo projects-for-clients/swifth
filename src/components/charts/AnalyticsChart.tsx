@@ -61,6 +61,29 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
+export const dataLabels = [
+  {
+    key: 'orders',
+    color: '#F819C7',
+  },
+  {
+    key: 'quotes',
+    color: '#174AFF',
+  },
+  {
+    key: 'customers',
+    color: '#F8B543',
+  },
+  {
+    key: 'Quotes',
+    color: '#F819C7',
+  },
+  {
+    key: 'Quotes',
+    color: '#F819C7',
+  },
+];
+
 const data = [
   {
     name: 'Jan',
