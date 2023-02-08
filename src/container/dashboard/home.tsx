@@ -191,6 +191,86 @@ function home() {
     succeeded: thirdStep,
   };
 
+const checklist = (
+  <>
+    <p className="text">
+      A few things to get you going
+    </p>
+
+    <div className="grid gap-4">
+      <div className="flex items-center gap-4">
+        <EllipseSvg />
+        <div
+          className="flex items-center w-full justify-between cursor-pointer "
+          onClick={handleCreateRoles}
+        >
+          <div>
+            <p className="text">Create roles</p>
+            {isDropDown.isBusinessDown && (
+              <p className="text-[1.4rem] font-light">
+                Details of your business required
+              </p>
+            )}
+          </div>
+          {isDropDown.isBusinessDown ? (
+            <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+          ) : (
+            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+          )}{' '}
+        </div>
+      </div>
+      <div className="flex items-center gap-4">
+        {/* <CheckmarkSvg /> */}
+        <EllipseSvg />
+
+        <div
+          className="flex items-center w-full justify-between cursor-pointer "
+          onClick={handlePAndTDrop}
+        >
+          <div>
+            <p className="text">Port and terminal Info</p>
+
+            {isDropDown.isPortAndTerminalDown && (
+              <p className="text-[1.4rem] font-light">
+                Your port and terminal details required
+              </p>
+            )}
+          </div>
+          {isDropDown.isPortAndTerminalDown ? (
+            <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+          ) : (
+            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+          )}{' '}
+        </div>
+      </div>
+      <div className="flex items-center gap-4">
+        {/* <CancelSvg /> */}
+        <EllipseSvg />
+
+        <div
+          className="flex items-center w-full justify-between cursor-pointer "
+          onClick={handleContactDown}
+        >
+          {' '}
+          <div>
+            <p className="text">Contact information</p>
+            {isDropDown.isContactDown && (
+              <p className="text-[1.4rem] font-light">
+                Your personal Information required
+              </p>
+            )}
+          </div>
+          {isDropDown.isContactDown ? (
+            <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+          ) : (
+            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+          )}
+        </div>
+      </div>
+    </div>
+  </>
+);
+
   return (
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
