@@ -348,7 +348,7 @@ function SplashHome() {
     <section className="flex justify-between">
         <div className='h-[1.4rem] bg-color-primary-light border border-color-primary p-8 rounded-lg'>
           <div>
-            <p>Jonathan Elegushi</p>
+            <p className='text-[2rem]'>Jonathan Elegushi</p>
           </div>
         </div>
         <div></div>
