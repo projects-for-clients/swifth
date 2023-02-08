@@ -197,7 +197,7 @@ function home() {
 
       <div className="dashboard__home">
         <section className="grid">
-          <div className="rounded-lg p-8 border border-color-purple-light grid">
+          <div className={`rounded-lg p-8 border border-color-purple-light ${validating === 'idle' && 'grid'}`}>
             <h2 className="heading3">Account Setup</h2>
             {currentValidation[validating]}
           </div>
