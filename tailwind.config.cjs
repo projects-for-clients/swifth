@@ -28,6 +28,7 @@ module.exports = {
 
         'color-purple-light': '#9D8DCE',
         'color-purple-light-1': '#EEEBF6',
+        'color-purple-light-2': '#DED9EF',
         'color-purple-1': '#5c41ad',
         'color-purple': '#4A348A',
 
@@ -35,6 +36,8 @@ module.exports = {
         'color-red-light-1': '#FDE9E9',
         'color-red-light-2': '#FEF4F4',
         'color-red-light-3': '#F9C9C9',
+
+        'color-orange': '#FAC772',
       },
       gridTemplateColumns: {
         '60-auto': '60% auto',

@@ -24,7 +24,7 @@ function SplashHome() {
     isPortAndTerminalDown?: boolean;
   }
 
-  const [closeAccountSetup, setCloseAccountSetup] = useState('grid')
+  const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
@@ -93,7 +93,7 @@ function SplashHome() {
         </div>
 
         <Link
-          className="text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-lg h-[4.5rem] px-8 flex items-center justify-center"
+          className="text-[1.4rem] font-semibold uppercase text-color-white bg-color-primary rounded-3xl h-[4.5rem] px-8 flex items-center justify-center"
           to="/dashboard/onboarding"
         >
           Get Started
@@ -262,7 +262,7 @@ function SplashHome() {
   );
 
   const transactions = (
-    <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-lg p-8 border border-color-purple-light">
+    <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-3xl p-8 border border-color-purple-light">
       <div className="flex justify-between">
         <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
         <p>See All</p>
@@ -353,15 +353,15 @@ function SplashHome() {
           <p className="text-[1.4rem]"> & 2 more items in waiting</p>
         </div>
 
-        <BsArrowRight className='text-[3rem]' />
+        <BsArrowRight className="text-[3rem]" />
       </div>
       <div
         className="bg-color-red-light-2 border border-color-red-light-3
        p-14 rounded-3xl relative"
       >
-        <div className='absolute right-4 top-4 flex gap-4 items-center'>
-          <img src="/icons/send.svg" alt="" className='cursor-pointer'/>
-          <img src="/icons/copy.svg" alt="" className='cursor-pointer'/>
+        <div className="absolute right-4 top-4 flex gap-4 items-center">
+          <img src="/icons/send.svg" alt="" className="cursor-pointer" />
+          <img src="/icons/copy.svg" alt="" className="cursor-pointer" />
         </div>
         <div>
           <p className="text-[2.4rem] text-color-purple">AB-3423</p>
@@ -374,9 +374,12 @@ function SplashHome() {
   );
 
   const quoteRequest = (
-    <section className="gap-8 order-1 grid p-8 border border-gray-300 rounded-lg">
+    <section className="gap-8 order-1 grid p-8 border border-gray-300 rounded-3xl">
       <div className="flex justify-between border-b border-b-[#FDE9E9] pb-4">
-        <h2 className="text-[1.6rem] font-medium text-gray-500"> Quote Requests</h2>
+        <h2 className="text-[1.6rem] font-medium text-gray-500">
+          {' '}
+          Quote Requests
+        </h2>
         <p>All Requests</p>
       </div>
 
@@ -392,7 +395,10 @@ function SplashHome() {
         <div className="flex justify-between items-center border-b border-b-[#FDE9E9] pb-4">
           <div>
             <p className="text-[1.6rem] text-gray-600">Kayode Isaac</p>
-            <p className="text-[1.4rem] text-gray-400"> Jan 9, 2023 5mins ago</p>
+            <p className="text-[1.4rem] text-gray-400">
+              {' '}
+              Jan 9, 2023 5mins ago
+            </p>
           </div>
 
           <BsArrowRight className="text-[1.8rem]" />
@@ -492,7 +498,7 @@ function SplashHome() {
         <div className={`grid gap-4 ${validated ? 'order-2' : ''}`}>
           <section className={`grid gap-4 order-2 ${closeAccountSetup}`}>
             <div
-              className={`rounded-lg p-8 border border-color-purple-light ${
+              className={`rounded-3xl p-8 border border-color-purple-light ${
                 validating === 'idle' && 'grid gap-8'
               }`}
             >
@@ -502,7 +508,7 @@ function SplashHome() {
           </section>
           {/* {validating === 'succeeded' && (
             <section className="grid gap-4 order-3">
-              <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+              <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
                 <h2 className="heading3">Checklist</h2>
 
                 {checklist}
@@ -510,7 +516,7 @@ function SplashHome() {
             </section>
           )} */}
           <section className={`grid gap-4 ${validated ? 'order-1' : ''}`}>
-            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+            <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
               <div>
                 {validated ? (
                   <>
@@ -540,19 +546,35 @@ function SplashHome() {
           {notifications}
           {quoteRequest}
 
-          <section className="grid gap-4 self-baseline order-4">
-            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+          <section
+            className={`grid gap-4 self-baseline order-4 ${
+              validated && 'bg-gray-100'
+            }`}
+          >
+            <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
               {validated ? (
                 <>
-                 
-                    <div className="flex justify-between">
-                      <h2 className="text-[1.6rem] font-medium text-gray-500">
-                        {' '}
-                        Orders
-                      </h2>
-                      <p>See All</p>
+                  <div className="flex justify-between">
+                    <h2 className="text-[1.6rem] font-medium text-gray-500">
+                      {' '}
+                      Orders
+                    </h2>
+                    <p>See All</p>
+                  </div>
+                  <div className="max-w-[30rem] overflow-x-scroll flex">
+                    <div className="p-8 w-[20rem] bg-white rounded-3xl">
+                      <div>
+                        <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden">
+                          Toyota Camry XLE, V6 2018 with alloy wheels and
+                        </p>
+                      </div>
+
+                      <p className="text-[1.2rem]   rounded-lg text-end flex justify-end justify-items-end">
+                        <span className="bg-color-orange">Docs in review</span>
+                      </p>
                     </div>
-           
+                  </div>
                 </>
               ) : (
                 <>
@@ -569,7 +591,7 @@ function SplashHome() {
         </div>
         <div className="grid gap-4 content-baseline">
           <section className="grid gap-4 self-baseline">
-            <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
+            <div className="p-8 border border-color-red-light rounded-3xl flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
 
               <div className="grid justify-items-start content-center gap-4">
@@ -579,7 +601,7 @@ function SplashHome() {
                 </p>
               </div>
             </div>
-            <div className="home-box2 p-8 grid gap-4 rounded-lg border border-color-purple-light">
+            <div className="home-box2 p-8 grid gap-4 rounded-3xl border border-color-purple-light">
               <div className="flex gap-12">
                 <BoxTimeSvg />
                 <div className="grid justify-items-baseline content-center gap-4 ">
@@ -605,7 +627,7 @@ function SplashHome() {
           </section>
           {transactions}
           <section className="grid gap-4 self-baseline">
-            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+            <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
               <div>
                 <h2 className="heading3"> Teams</h2>
 
@@ -618,7 +640,7 @@ function SplashHome() {
           </section>
 
           <section className="grid gap-4 self-baseline">
-            <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+            <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
               <div>
                 <h2 className="heading3"> Payout Bank</h2>
 
