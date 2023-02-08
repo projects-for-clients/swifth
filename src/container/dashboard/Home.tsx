@@ -552,7 +552,7 @@ function SplashHome() {
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem]">
           <img src="/icons/close.svg" alt="" className="w-[2.5rem]" />
        
-          <div className="flex text-[1.4rem] gap-4">
+          <div className="radioBox">
             <input
               type="radio"
               name="notification"
