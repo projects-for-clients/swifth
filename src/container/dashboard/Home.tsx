@@ -364,16 +364,22 @@ function SplashHome() {
           <section className="grid  gap-4">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
-                <h2 className="heading3">Business Analytics</h2>
                 {validated ? (
-                  <AnalyticsChart/>
+                  <>
+                    <h2 className="heading3 mb-5">Business Analytics</h2>
+                    <AnalyticsChart />
+                  </>
                 ) : (
-                  <div className="grid justify-items-center content-center gap-8">
-                    <AnalyticsSvg />
-                    <p className="text">
-                      Your business analytics would be shown here
-                    </p>
-                  </div>
+                  <>
+                    <h2 className="heading3 mb-5">Business Analytics</h2>
+
+                    <div className="grid justify-items-center content-center gap-8">
+                      <AnalyticsSvg />
+                      <p className="text">
+                        Your business analytics would be shown here
+                      </p>
+                    </div>
+                  </>
                 )}
               </div>
             </div>

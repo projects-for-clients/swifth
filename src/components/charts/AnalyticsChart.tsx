@@ -187,18 +187,19 @@ export default function AnalyticsChart() {
   return (
     <LineChart width={500} height={300} data={data} className=" -ml-14">
       <CartesianGrid vertical={false} stroke="#FDE9E9" />
-      <Legend />
       <XAxis dataKey="name" />
       <YAxis tickCount={6}/>
       <Tooltip />
 
-      {dataLabels.map((label) => {
+      {dataLabels.map((label, i) => {
         return (
           <Line
             dot={false}
             type="monotone"
+            key={i}
             dataKey={label.key}
             stroke={label.color}
+            strokeWidth={1.5}
           />
         );
       })}
