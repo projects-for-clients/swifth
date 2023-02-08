@@ -538,8 +538,8 @@ function SplashHome() {
   return (
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" openDialog={handleOpen} />
-      <dialog className="dialog" ref={dialogRef}>
-        <div className='bg-white'>
+      <dialog className="dialog relative " ref={dialogRef}>
+        <div className='bg-white fixed right-0 h-[100vh] w-[40rem]'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, eum ut dolor odit in vero natus sit nostrum corrupti molestiae reprehenderit culpa facere provident cumque dicta, fuga nulla? Modi, totam!
         </div>
       </dialog>
