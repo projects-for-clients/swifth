@@ -9,7 +9,7 @@ import {
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
-import DashboardHome from './dashboard/SplashHome';
+import DashboardHome from './dashboard/Home';
 import { useAppDispatch } from '../store/app/hooks';
 import { updateUser, updateUserOnboarding } from '../store/features/user/user';
 
