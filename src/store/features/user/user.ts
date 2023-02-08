@@ -19,7 +19,7 @@ const initialState: IUser = {
   fullName: '',
   email: '',
   onboarding: {
-    validating: 'pending',
+    validating: 'idle',
     error: [],
   },
 };
