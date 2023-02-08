@@ -353,14 +353,17 @@ function SplashHome() {
 
         <BsArrowRight />
       </div>
-      <div className='bg-color-red-light-2 border border-color-red
-       p-8 rounded-3xl'>
+      <div
+        className="bg-color-red-light-2 border border-color-red
+       p-8 rounded-3xl"
+      >
         <div>
           <img src="/icons/send.svg" alt="" />
           <img src="/icons/copy.svg" alt="" />
         </div>
         <div>
-      <p className='text-[2.4rem]'></p>
+          <p className="text-[2.4rem] text-color-purple">AB-3423</p>
+          <p className='text-[1.4rem] max-w-[20rem]'>Here's your Code. Share this with your customers.</p>
         </div>
       </div>
     </section>
