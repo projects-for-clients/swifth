@@ -17,8 +17,7 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
 function home() {
-  const user = useAppSelector(selectUser);
-
+  
   interface DropDown {
     isContactDown?: boolean;
     isBusinessDown?: boolean;
@@ -50,6 +49,12 @@ function home() {
   const handlePAndTDrop = () => {
     setIsDropDown({ isPortAndTerminalDown: !isDropDown.isPortAndTerminalDown });
   };
+
+
+  const user = useAppSelector(selectUser);
+  const {
+    onboarding: { validating },
+  } = user;
 
   const firstStep = (
     <>
@@ -180,10 +185,10 @@ function home() {
     </div>
   );
 
-  const currentValidation: Record<string, JSX.Element> = {
-    firstStep,
-    secondStep,
-    thirdStep,
+  const currentValidation: Record<typeof validating, JSX.Element> = {
+    idle: firstStep,
+    pending: secondStep,
+    succeeded: thirdStep,
   };
 
   return (
@@ -194,7 +199,7 @@ function home() {
         <section className="grid">
           <div className="rounded-lg p-8 border border-color-purple-light grid">
             <h2 className="heading3">Account Setup</h2>
-            {currentValidation['secondStep']}
+            {currentValidation[validating]}
           </div>
         </section>
         <section className="grid gap-4 self-baseline">

@@ -7,7 +7,7 @@ export interface IUser {
   fullName: string;
   email: string;
   onboarding: {
-    validating: 'idle' | 'pending' | 'succeeded' | 'failed';
+    validating: 'idle' | 'pending' | 'succeeded' ;
     error: {
       path: ValidatingPath;
       message: string;
