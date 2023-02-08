@@ -51,7 +51,7 @@ function home() {
 
   const user = useAppSelector(selectUser);
   const {
-    onboarding: { validating },
+    onboarding: { validating, content },
   } = user;
 
   const firstStep = (
