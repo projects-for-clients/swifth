@@ -17,7 +17,6 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 
 function home() {
-  
   interface DropDown {
     isContactDown?: boolean;
     isBusinessDown?: boolean;
@@ -49,7 +48,6 @@ function home() {
   const handlePAndTDrop = () => {
     setIsDropDown({ isPortAndTerminalDown: !isDropDown.isPortAndTerminalDown });
   };
-
 
   const user = useAppSelector(selectUser);
   const {
@@ -191,77 +189,77 @@ function home() {
     succeeded: thirdStep,
   };
 
-const checklist = (
-  <>
-    <p className="text">A few things to get you going</p>
+  const checklist = (
+    <>
+      <p className="text">A few things to get you going</p>
 
-    <div className="grid gap-4">
-      <div className="flex items-center gap-4">
-        <EllipseSvg />
-        <div
-          className="flex items-center w-full justify-between cursor-pointer "
-          onClick={handleBusinessDrop}
-        >
-          <div>
-            <p className="text font-medium">Create roles</p>
-            {isDropDown.isBusinessDown && (
-              <p className="text-[1.4rem] font-light">roles</p>
+      <div className="grid gap-4">
+        <div className="flex items-center gap-4">
+          <EllipseSvg />
+          <div
+            className="flex items-center w-full justify-between cursor-pointer "
+            onClick={handleBusinessDrop}
+          >
+            <div>
+              <p className="text font-medium">Create roles</p>
+              {isDropDown.isBusinessDown && (
+                <p className="text-[1.4rem] font-light">roles</p>
+              )}
+            </div>
+            {isDropDown.isBusinessDown ? (
+              <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+            ) : (
+              <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+            )}{' '}
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          {/* <CheckmarkSvg /> */}
+          <EllipseSvg />
+
+          <div
+            className="flex items-center w-full justify-between cursor-pointer "
+            onClick={handlePAndTDrop}
+          >
+            <div>
+              <p className="text font-medium">Invite and assign field agents</p>
+
+              {isDropDown.isPortAndTerminalDown && (
+                <p className="text-[1.4rem] font-light">assign field agents</p>
+              )}
+            </div>
+            {isDropDown.isPortAndTerminalDown ? (
+              <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+            ) : (
+              <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
+            )}{' '}
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          {/* <CancelSvg /> */}
+          <EllipseSvg />
+
+          <div
+            className="flex items-center w-full justify-between cursor-pointer "
+            onClick={handleContactDown}
+          >
+            {' '}
+            <div>
+              <p className="text font-medium">Set Formulas</p>
+              {isDropDown.isContactDown && (
+                <p className="text-[1.4rem] font-light">formulas</p>
+              )}
+            </div>
+            {isDropDown.isContactDown ? (
+              <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
+            ) : (
+              <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
             )}
           </div>
-          {isDropDown.isBusinessDown ? (
-            <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
-          ) : (
-            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
-          )}{' '}
         </div>
       </div>
-      <div className="flex items-center gap-4">
-        {/* <CheckmarkSvg /> */}
-        <EllipseSvg />
-
-        <div
-          className="flex items-center w-full justify-between cursor-pointer "
-          onClick={handlePAndTDrop}
-        >
-          <div>
-            <p className="text font-medium">Invite and assign field agents</p>
-
-            {isDropDown.isPortAndTerminalDown && (
-              <p className="text-[1.4rem] font-light">assign field agents</p>
-            )}
-          </div>
-          {isDropDown.isPortAndTerminalDown ? (
-            <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
-          ) : (
-            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
-          )}{' '}
-        </div>
-      </div>
-      <div className="flex items-center gap-4">
-        {/* <CancelSvg /> */}
-        <EllipseSvg />
-
-        <div
-          className="flex items-center w-full justify-between cursor-pointer "
-          onClick={handleContactDown}
-        >
-          {' '}
-          <div>
-            <p className="text font-medium">Set Formulas</p>
-            {isDropDown.isContactDown && (
-              <p className="text-[1.4rem] font-light">formulas</p>
-            )}
-          </div>
-          {isDropDown.isContactDown ? (
-            <FiChevronUp className="w-[1.6rem] h-[1.6rem]" />
-          ) : (
-            <FiChevronDown className="w-[1.6rem] h-[1.6rem]" />
-          )}
-        </div>
-      </div>
-    </div>
-  </>
-);
+    </>
+  );
 
   return (
     <>
@@ -303,11 +301,11 @@ const checklist = (
           <section className="grid gap-4 self-baseline">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
-                <h2 className="heading3"> Teams</h2>
+                <h2 className="heading3"> Orders</h2>
 
                 <div className="grid justify-items-center content-center  gap-8">
-                  <TeamsSvg />
-                  <p className="text">Your teams would be shown here</p>
+                  <Orders fill="" />
+                  <p className="text">Your orders would be shown here</p>
                 </div>
               </div>
             </div>
@@ -353,15 +351,16 @@ const checklist = (
           <section className="grid gap-4 self-baseline">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
-                <h2 className="heading3"> Orders</h2>
+                <h2 className="heading3"> Teams</h2>
 
                 <div className="grid justify-items-center content-center  gap-8">
-                  <Orders fill="" />
-                  <p className="text">Your orders would be shown here</p>
+                  <TeamsSvg />
+                  <p className="text">Your teams would be shown here</p>
                 </div>
               </div>
             </div>
           </section>
+
           <section className="grid gap-4 self-baseline">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
