@@ -343,12 +343,11 @@ function SplashHome() {
   );
 
   const notifications = (
-    <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-lg p-8 border border-color-purple-light">
-      <div className="flex justify-between">
-        <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
-        <p>See All</p>
-      </div>
+    <>
+    <section className="flex justify-between">
+      
     </section>
+    </>
   );
 
   const currentValidation: Record<typeof validating, JSX.Element> = {
@@ -487,6 +486,8 @@ function SplashHome() {
               </div>
             </div>
           </section>
+          {notifications}
+
           <section className="grid gap-4 self-baseline order-4">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
