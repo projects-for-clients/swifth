@@ -345,7 +345,7 @@ function SplashHome() {
 
   const notifications = (
       <section className="flex justify-between">
-        <div className="h-[14rem] bg-color-primary-light border border-color-primary p-8 rounded-lg">
+        <div className="h-[14rem] bg-color-green-light-1 border border-color-primary p-8 rounded-lg">
           <div>
             <p className="text-[2rem]">Jonathan Elegushi</p>
             <p className="text-[1.4rem]"> & 2 more items in waiting</p>
@@ -353,7 +353,9 @@ function SplashHome() {
 
           <BsArrowRight />
         </div>
-        <div></div>
+        <div>
+          
+        </div>
       </section>
   );
 
