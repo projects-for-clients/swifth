@@ -26,7 +26,7 @@ const initialState: IUser = {
       {
         path: 'businessInfo',
         message: 'Business info is not valid',
-        error: true,
+        error: false,
       },
       {
         path: 'personalInfo',

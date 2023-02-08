@@ -64,12 +64,13 @@ function home() {
     (item) => item.path === 'personalInfo'
   );
 
-  const progressLevel = ():number => {
-
-    const everyValidatedInfo  = validatingArr.every(item => item.error !== false)
-    console.log(everyValidatedInfo)
-    return 0
-  }
+  const progressLevel = (): number => {
+    const everyValidatedInfo = validatingArr.forEach((item) => {
+     console.log({item})
+    });
+    console.log(everyValidatedInfo);
+    return 0;
+  };
 
   const firstStep = (
     <>
