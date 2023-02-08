@@ -346,8 +346,8 @@ function SplashHome() {
           gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
         }}
       >
-        <div className={`grid gap-4 ${validated ? 'order-1' : ''}`}>
-          <section className="grid gap-4">
+        <div className={`grid gap-4 ${validated ? 'order-2' : ''}`}>
+          <section className="grid gap-4 order-2">
             <div
               className={`rounded-lg p-8 border border-color-purple-light ${
                 validating === 'idle' && 'grid gap-8'
@@ -358,7 +358,7 @@ function SplashHome() {
             </div>
           </section>
           {validating === 'succeeded' && (
-            <section className="grid gap-4 ">
+            <section className="grid gap-4 order-3">
               <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
                 <h2 className="heading3">Checklist</h2>
 
@@ -366,7 +366,7 @@ function SplashHome() {
               </div>
             </section>
           )}
-          <section className={`grid gap-4 ${validated ? 'order-5': ''}`}>
+          <section className={`grid gap-4 ${validated ? 'order-1': ''}`}>
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
                 {validated ? (
@@ -394,7 +394,7 @@ function SplashHome() {
               </div>
             </div>
           </section>
-          <section className="grid gap-4 self-baseline">
+          <section className="grid gap-4 self-baseline order-4">
             <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
               <div>
                 <h2 className="heading3"> Orders</h2>
