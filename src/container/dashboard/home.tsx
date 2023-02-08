@@ -76,7 +76,7 @@ function home() {
           <progress
             className="progressBar__item"
             max="100"
-            value="40"
+            value="33"
           ></progress>
           <p className="absolute left-4 text-color-tertiary ">
             <span>0%</span> <span>Completed</span>
