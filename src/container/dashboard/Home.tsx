@@ -561,17 +561,61 @@ function SplashHome() {
                     </h2>
                     <p>See All</p>
                   </div>
-                  <div className="max-w-[30rem] overflow-x-scroll flex">
-                    <div className="p-8 w-[20rem] bg-white rounded-3xl">
+                  <div className="max-w-[60rem] overflow-x-scroll flex gap-8">
+                    <div className="p-8 w-[22rem] bg-white rounded-3xl">
                       <div>
                         <p className="text-[1.6rem]">Jonathan Sunyi</p>
-                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden">
-                          Toyota Camry XLE, V6 2018 with alloy wheels and
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+                          Toyota Camry XLE, 2018 v6 with alloy wheels and
                         </p>
                       </div>
 
-                      <p className="text-[1.2rem]   rounded-lg text-end flex justify-end justify-items-end">
-                        <span className="bg-color-orange">Docs in review</span>
+                      <p className="text-[1.2rem] flex justify-end pt-8">
+                        <span className="bg-color-orange py-1 px-2 rounded-lg">
+                          Docs in review
+                        </span>
+                      </p>
+                    </div>
+                    <div className="p-8 w-[22rem] bg-white rounded-3xl">
+                      <div>
+                        <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+                          Toyota Camry XLE, 2018 v6 with alloy wheels and
+                        </p>
+                      </div>
+
+                      <p className="text-[1.2rem] flex justify-end pt-8">
+                        <span className="bg-color-purple-light-2 py-1 px-2 rounded-lg">
+                          Duty Processing
+                        </span>
+                      </p>
+                    </div>
+                    <div className="p-8 w-[22rem] bg-white rounded-3xl">
+                      <div>
+                        <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+                          Toyota Camry XLE, 2018 v6 with alloy wheels and
+                        </p>
+                      </div>
+
+                      <p className="text-[1.2rem] flex justify-end pt-8">
+                        <span className="bg-color-purple-light-2 py-1 px-2 rounded-lg">
+                          Duty Processing
+                        </span>
+                      </p>
+                    </div>
+                    <div className="p-8 w-[22rem] bg-white rounded-3xl">
+                      <div>
+                        <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+                          Toyota Camry XLE, 2018 v6 with alloy wheels and
+                        </p>
+                      </div>
+
+                      <p className="text-[1.2rem] flex justify-end pt-8">
+                        <span className="bg-color-orange py-1 px-2 rounded-lg">
+                          Docs in review
+                        </span>
                       </p>
                     </div>
                   </div>
