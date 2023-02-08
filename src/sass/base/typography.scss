@@ -109,10 +109,10 @@ p {
   }
 
   input[type='radio']:checked + label {
-    color: #09b47c;
+    color: $color-primary;
     position: relative;
     z-index: 2;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #09b47c;
+    border-bottom: 2px solid $color-primary;
   }
 }
