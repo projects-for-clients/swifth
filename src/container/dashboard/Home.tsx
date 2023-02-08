@@ -247,7 +247,7 @@ function SplashHome() {
       <img
         src="/icons/close.svg"
         alt=""
-        className="absolute right-4 top-0 cursor-pointer"
+        className="absolute right-4 top-[-2rem] cursor-pointer"
       />
       <img src="/icons/success.svg" alt="" className="w-[5rem] h-[5rem]" />
 
