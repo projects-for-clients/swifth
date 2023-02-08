@@ -6,6 +6,7 @@ type ValidatingPath = 'businessInfo' | 'personalInfo' | 'portsAndTerminal';
 
 export interface IUser {
   validated: boolean;
+ 
   fullName: string;
   email: string;
   onboarding: {
@@ -19,6 +20,8 @@ export interface IUser {
 }
 
 const initialState: IUser = {
+ 
+
   validated: true,
   fullName: '',
   email: '',
