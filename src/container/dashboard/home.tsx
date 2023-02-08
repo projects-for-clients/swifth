@@ -266,7 +266,7 @@ function home() {
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <div>
+        <div className='grid gap-4'>
           <section className="grid gap-4 auto-rows-auto">
             <div
               className={`rounded-lg p-8 border border-color-purple-light ${
@@ -278,7 +278,7 @@ function home() {
             </div>
           </section>
           {validating === 'succeeded' && (
-            <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light h-[28rem]">
+            <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light">
               <h2 className="heading3">Checklist</h2>
 
               {checklist}
@@ -311,7 +311,7 @@ function home() {
             </div>
           </section>
         </div>
-        <div>
+        <div className='grid gap-4'>
           <section className="grid gap-4 self-baseline auto-rows-auto">
             <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
