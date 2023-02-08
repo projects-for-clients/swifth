@@ -340,7 +340,9 @@ function SplashHome() {
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
-      <div className="dashboard__home">
+      <div className="grid gap-4" style={{
+        gridTemplateColumns: '55% auto'
+      }}>
         <div className="grid gap-4">
           <section className="grid gap-4">
             <div
