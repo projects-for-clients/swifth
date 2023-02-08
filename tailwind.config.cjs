@@ -10,6 +10,7 @@ module.exports = {
         'color-primary-light': '#8CCEA6',
 
         'color-green-light': '#40AD6B',
+        'color-green-light-1': '#D9EFE1',
 
         'color-tertiary': '#372768',
 
