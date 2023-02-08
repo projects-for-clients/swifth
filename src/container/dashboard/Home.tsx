@@ -373,28 +373,9 @@ function SplashHome() {
 
   const quoteRequest = (
     <section className="gap-8 order-1">
-      <div className=" bg-color-green-light-1 border border-color-primary p-8 rounded-3xl flex items-center gap-8 content-center">
-        <div>
-          <p className="text-[2rem]">Jonathan Elegushi</p>
-          <p className="text-[1.4rem]"> & 2 more items in waiting</p>
-        </div>
-
-        <BsArrowRight className="text-[3rem]" />
-      </div>
-      <div
-        className="bg-color-red-light-2 border border-color-red-light-3
-       p-14 rounded-3xl relative"
-      >
-        <div className="absolute right-4 top-4 flex gap-4 items-center">
-          <img src="/icons/send.svg" alt="" className="cursor-pointer" />
-          <img src="/icons/copy.svg" alt="" className="cursor-pointer" />
-        </div>
-        <div>
-          <p className="text-[2.4rem] text-color-purple">AB-3423</p>
-          <p className="text-[1.4rem] max-w-[20rem]">
-            Here's your Code. Share this with your customers.
-          </p>
-        </div>
+      <div className="flex justify-between">
+        <h2 className="text-[1.6rem] font-medium"> Quote Requests</h2>
+        <p>All Requests</p>
       </div>
     </section>
   );
