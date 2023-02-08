@@ -55,7 +55,7 @@ function home() {
   } = user;
 
   const firstStep = (
-    <>
+    <div>
       <p className="text">
         It's time to set up your account. We will need a few things to get you
         going
@@ -151,7 +151,7 @@ function home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 
   const secondStep = (
@@ -267,7 +267,7 @@ function home() {
 
       <div className="dashboard__home">
         <div className='grid gap-4'>
-          <section className="grid gap-4 auto-rows-auto">
+          <section className="grid gap-4">
             <div
               className={`rounded-lg p-8 border border-color-purple-light ${
                 validating === 'idle' && 'grid'
