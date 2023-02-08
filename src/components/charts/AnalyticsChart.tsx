@@ -75,12 +75,12 @@ export const dataLabels = [
     color: '#F8B543',
   },
   {
-    key: 'Quotes',
-    color: '#F819C7',
+    key: 'deliveries',
+    color: '#570000',
   },
   {
-    key: 'Quotes',
-    color: '#F819C7',
+    key: 'payments',
+    color: '#03CABE',
   },
 ];
 
