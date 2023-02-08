@@ -25,6 +25,7 @@ function SplashHome() {
   }
 
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
+  const [currentPath, setCurrentPath] = useState('');
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
@@ -534,14 +535,49 @@ function SplashHome() {
     }
   };
 
+  const switchPath:Record<'all' | 'quoteRequests', JSX.Element> = {
+    all: <div>hello</div>,
+    quoteRequests: <div>hello</div>
+  }
+
 
   return (
     <>
-      <Header title="Hello, Nachi" subTitle="Welcome to Swifth" openDialog={handleOpen} />
+      <Header
+        title="Hello, Nachi"
+        subTitle="Welcome to Swifth"
+        openDialog={handleOpen}
+      />
       <dialog className="dialog relative " ref={dialogRef}>
-        <div className='bg-white fixed right-0 h-[100vh] w-[50rem]'>
-          <img src="/icons/close.svg" alt="" className='w-[2.5rem]' />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, eum ut dolor odit in vero natus sit nostrum corrupti molestiae reprehenderit culpa facere provident cumque dicta, fuga nulla? Modi, totam!
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem]">
+          <img src="/icons/close.svg" alt="" className="w-[2.5rem]" />
+       
+          <div className="flex text-[1.4rem] gap-4">
+            <input
+              type="radio"
+              name="report"
+              id="additionalResidentUsr"
+              className="hidden"
+              onChange={() => setCurrentPath('all')}
+              defaultChecked
+            />
+            <label htmlFor="additionalResidentUsr">
+              Additional Resident Package
+            </label>
+
+            <input
+              type="radio"
+              name="report"
+              id="residentUserHistory"
+              className="hidden"
+              onChange={() => setCurrentPath('quoteRequests')}
+            />
+            <label htmlFor="residentUserHistory" className="capitalize">
+              Package purchase history
+              {/* //TODO Change the custom select of package to be normal input field
+                    //comma separated in Amount */}
+            </label>
+          </div>
         </div>
       </dialog>
       <div
