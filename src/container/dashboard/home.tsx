@@ -54,9 +54,11 @@ function home() {
     onboarding: { validating, validatingArr },
   } = user;
 
-  const findIndex = validatingArr.findIndex((item) => item.path === 'businessInfo');
+  const isBusinessInfoValid = validatingArr.find((item) => item.path === 'businessInfo');
+  const isPortsAndTerminalValid = validatingArr.find((item) => item.path === 'portsAndTerminal');
+  const isPersonalInfoValid = validatingArr.find((item) => item.path === 'personalInfo');
 
-  console.log({findIndex})
+  console.log({isBusinessInfoValid, isPortsAndTerminalValid, isPersonalInfoValid})
 
   const firstStep = (
     <>
