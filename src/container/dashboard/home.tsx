@@ -202,13 +202,13 @@ const checklist = (
         <EllipseSvg />
         <div
           className="flex items-center w-full justify-between cursor-pointer "
-          onClick={handleCreateRoles}
+          onClick={handleBusinessDrop}
         >
           <div>
             <p className="text">Create roles</p>
             {isDropDown.isBusinessDown && (
               <p className="text-[1.4rem] font-light">
-                Details of your business required
+                 roles
               </p>
             )}
           </div>
@@ -228,11 +228,11 @@ const checklist = (
           onClick={handlePAndTDrop}
         >
           <div>
-            <p className="text">Port and terminal Info</p>
+            <p className="text">Invite and assign field agents</p>
 
             {isDropDown.isPortAndTerminalDown && (
               <p className="text-[1.4rem] font-light">
-                Your port and terminal details required
+                assign field agents
               </p>
             )}
           </div>
@@ -253,10 +253,10 @@ const checklist = (
         >
           {' '}
           <div>
-            <p className="text">Contact information</p>
+            <p className="text">Set Formulas</p>
             {isDropDown.isContactDown && (
               <p className="text-[1.4rem] font-light">
-                Your personal Information required
+                formulas
               </p>
             )}
           </div>
