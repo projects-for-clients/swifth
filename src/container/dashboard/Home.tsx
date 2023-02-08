@@ -25,6 +25,7 @@ function SplashHome() {
   }
 
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
+  const [toggleDialog, setToggleDialog] = useState(false);
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
@@ -536,7 +537,7 @@ function SplashHome() {
 
   return (
     <>
-      <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
+      <Header title="Hello, Nachi" subTitle="Welcome to Swifth" toggleDialog={} />
       <dialog className="dialog" ref={dialogRef}>
         <section className="grid place-content-center w-full h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8">
