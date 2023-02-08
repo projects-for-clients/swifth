@@ -179,7 +179,9 @@ function home() {
   );
 
   const currentValidation:Record<string, JSX.Element> = {
-
+    firstStep,
+    secondStep,
+    thirdStep,
   }
 
 
@@ -188,10 +190,10 @@ function home() {
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <section className="grid ">
-          <div className="rounded-lg p-8 border border-color-purple-light">
+        <section className="grid">
+          <div className="rounded-lg p-8 border border-color-purple-light grid">
             <h2 className="heading3">Account Setup</h2>
-            {thirdStep}
+            {currentValidation['firstStep']}
           </div>
         </section>
         <section className="grid gap-4 self-baseline">
