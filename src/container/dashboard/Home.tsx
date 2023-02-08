@@ -378,7 +378,7 @@ function SplashHome() {
         <p>All Requests</p>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-4 mt-10">
         <div className="flex justify-between items-center border-b border-b-color-red-light-2">
           <div>
             <p className="text-[1.6rem]">Osojo John</p>
@@ -389,7 +389,7 @@ function SplashHome() {
         </div>
         <div className="flex justify-between items-center border-b border-b-color-red-light-2">
           <div>
-            <p className="text-[1.6rem]">Osojo John</p>
+            <p className="text-[1.6rem]">Kayode Isaac</p>
             <p className="text-[1.4rem]"> Jan 9, 2023 5mins ago</p>
           </div>
 
