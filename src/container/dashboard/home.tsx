@@ -266,11 +266,11 @@ function home() {
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
 
       <div className="dashboard__home">
-        <div className='grid gap-4'>
+        <div className="grid gap-4">
           <section className="grid gap-4">
             <div
               className={`rounded-lg p-8 border border-color-purple-light ${
-                validating === 'idle' && 'grid'
+                validating === 'idle' && 'grid gap-8'
               }`}
             >
               <h2 className="heading3">Account Setup</h2>
@@ -278,10 +278,12 @@ function home() {
             </div>
           </section>
           {validating === 'succeeded' && (
-            <section className="grid gap-4 rounded-lg p-8 border border-color-purple-light">
-              <h2 className="heading3">Checklist</h2>
+            <section className="grid gap-4 ">
+              <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
+                <h2 className="heading3">Checklist</h2>
 
-              {checklist}
+                {checklist}
+              </div>
             </section>
           )}
           <section className="grid  gap-4">
@@ -311,7 +313,7 @@ function home() {
             </div>
           </section>
         </div>
-        <div className='grid gap-4'>
+        <div className="grid gap-4">
           <section className="grid gap-4 self-baseline auto-rows-auto">
             <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
