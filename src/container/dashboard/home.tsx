@@ -99,7 +99,7 @@ function home() {
               <CheckmarkSvg />
             ) 
 
-          }{' '}
+          }
           <div
             className="flex items-center w-full justify-between cursor-pointer "
             onClick={handleBusinessDrop}
