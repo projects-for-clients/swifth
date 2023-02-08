@@ -279,7 +279,7 @@ function home() {
           </section>
           {validating === 'succeeded' && (
             <section className="grid gap-4 ">
-              <div className="rounded-lg p-8 border border-color-purple-light grid gap-8 max-h-[25rem]">
+              <div className="rounded-lg p-8 border border-color-purple-light grid gap-8">
                 <h2 className="heading3">Checklist</h2>
 
                 {checklist}
