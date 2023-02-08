@@ -7,11 +7,11 @@ export interface IUser {
   fullName: string;
   email: string;
   onboarding: {
-    validating: 'idle' | 'pending' | 'succeeded' ;
-    content: {
+    validating: 'idle' | 'pending' | 'succeeded';
+    validatingArr: {
       path: ValidatingPath;
       message: string;
-      error: boolean
+      error: boolean;
     }[];
   };
 }
@@ -21,16 +21,16 @@ const initialState: IUser = {
   email: '',
   onboarding: {
     validating: 'idle',
-    content: [
+    validatingArr: [
       {
         path: 'businessInfo',
         message: 'Business info is not valid',
-        error: true
+        error: true,
       },
       {
         path: 'personalInfo',
         message: 'Details Validated',
-        error: false
+        error: false,
       },
     ],
   },

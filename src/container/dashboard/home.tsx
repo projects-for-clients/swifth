@@ -51,7 +51,7 @@ function home() {
 
   const user = useAppSelector(selectUser);
   const {
-    onboarding: { validating, content },
+    onboarding: { validating, validatingArr },
   } = user;
 
   const firstStep = (
@@ -91,7 +91,8 @@ function home() {
               <p className="text font-medium">Your business information</p>
               {isDropDown.isBusinessDown && (
                 <p className="text-[1.4rem] font-light">
-                  Details of your business required
+                  { validatingArr
+                    <span>Details of your business required</span>}
                 </p>
               )}
             </div>
