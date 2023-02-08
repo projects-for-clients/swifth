@@ -678,10 +678,21 @@ function SplashHome() {
                     {' '}
                     Teams
                   </h2>
-                 
-                 <img src="/icons/arrow-right.svg" alt="" />
+
+                  <img src="/icons/arrow-right.svg" alt="" />
                 </div>
-                
+
+                <div className="grid gap-8 mt-8">
+                  <div className="flex justify-between items-center border-b border-b-color-red-light-2">
+                    <p className="text-[1.4rem]">Adewale Joseph</p>
+                    <p>
+                      {' '}
+                      <span className="text-gray-500">NGN</span>{' '}
+                      <span className="text-color-purple-1">780,932</span>{' '}
+                    </p>
+                  </div>
+                 
+                </div>
               </>
             ) : (
               <div>
