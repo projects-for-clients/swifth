@@ -549,9 +549,10 @@ function SplashHome() {
         openDialog={handleOpen}
       />
       <dialog className="dialog relative " ref={dialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] w-[50rem]">
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] px-8 py-4">
           <img src="/icons/close.svg" alt="" className="w-[2.5rem]" />
-       
+
+          <h3 className='text-[2rem] font-me'>Notifications</h3>
           <div className="radioBox">
             <input
               type="radio"
