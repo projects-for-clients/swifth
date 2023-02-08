@@ -266,11 +266,15 @@ function SplashHome() {
           <p>See All</p>
         </div>
 
-        <div className="grid justify-items-center gap-8">
-        <div className='flex justify-between items-center'>
-          <p>Adewale Joseph</p>
-          <p> <span>NGN</span> <span className='text-color-tertiary'>780,932</span> </p>
-        </div>
+        <div className="grid  gap-8">
+          <div className="flex justify-between items-center">
+            <p>Adewale Joseph</p>
+            <p>
+              {' '}
+              <span>NGN</span>{' '}
+              <span className="text-color-tertiary">780,932</span>{' '}
+            </p>
+          </div>
         </div>
       </div>
     </section>
