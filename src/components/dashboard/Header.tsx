@@ -1,24 +1,32 @@
-import { Dispatch, SetStateAction } from "react";
-import NotificationSvg from "../icons/notificationSvg";
-import AccountSvg from "../icons/sidebar/accountSvg";
+import { Dispatch, SetStateAction } from 'react';
+import NotificationSvg from '../icons/notificationSvg';
+import AccountSvg from '../icons/sidebar/accountSvg';
 
 type THeader = {
-    title: string
-    subTitle: string
-    onboarding?: boolean
-    setToggleDialog?: Dispatch<SetStateAction<boolean>>
-}
+  title: string;
+  subTitle: string;
+  onboarding?: boolean;
+  setToggleDialog?: Dispatch<SetStateAction<boolean>>;
+};
 
-function Header({title, subTitle, onboarding}: THeader) {
+function Header({ title, subTitle, onboarding, setToggleDialog }: THeader) {
+
+  const handleToggle = () => {
+    setToggleDialog && setToggleDialog((prev) => !prev);
+  };
   return (
     <div className="header">
       <div className="header__left">
-            <h1 className="font-medium">{title}</h1>
-            <p className={`${onboarding ? 'text-[1.4rem]' : 'font-medium'}`}>{subTitle}</p>
+        <h1 className="font-medium">{title}</h1>
+        <p className={`${onboarding ? 'text-[1.4rem]' : 'font-medium'}`}>
+          {subTitle}
+        </p>
       </div>
       <div className="header__right">
-      <NotificationSvg/>
-      <AccountSvg fill="black"/>
+        <span onClick={handleToggle} className='cursor-pointer'>
+          <NotificationSvg />
+        </span>
+        <AccountSvg fill="black" />
       </div>
     </div>
   );
