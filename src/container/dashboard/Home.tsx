@@ -676,9 +676,10 @@ function SplashHome() {
                 <div className="flex justify-between">
                   <h2 className="text-[1.6rem] font-medium text-gray-500">
                     {' '}
-                    Orders
+                    Teams
                   </h2>
-                  <p>See All</p>
+                 
+                 <img src="/icons/arrow-right.svg" alt="" />
                 </div>
                 
               </>
