@@ -66,7 +66,7 @@ function home() {
 
   const progressLevel = (): number => {
     const everyValidatedInfo = validatingArr.filter((item) => !item.error);
-    
+
     return everyValidatedInfo.length * 33.4;
   };
 
@@ -115,8 +115,16 @@ function home() {
               <p className="text font-medium">Your business information</p>
               {isDropDown.isBusinessDown && (
                 <p className="text-[1.4rem] font-light">
-                  {isBusinessInfoValid && isBusinessInfoValid.message ? (
-                    isBusinessInfoValid.message
+                  {isBusinessInfoValid ? (
+                    isBusinessInfoValid.error ? (
+                      <span className="text-red-500">
+                        isBusinessInfoValid.message
+                      </span>
+                    ) : (
+                      <span className="text-green-500">
+                        isBusinessInfoValid.message
+                      </span>
+                    )
                   ) : (
                     <span>Details of your business required</span>
                   )}
