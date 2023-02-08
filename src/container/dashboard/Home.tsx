@@ -407,10 +407,10 @@ function SplashHome() {
             <div className="p-8 border border-color-red-light rounded-lg flex gap-12 home-box1">
               <FinanceSvg fill={'#957979'} />
 
-              <div className="grid justify-items-center content-center gap-4 ">
+              <div className="grid justify-items-start content-center gap-4">
                 <h2 className="heading3">Total Earnings</h2>
                 <p className="heading2">
-                  NGN <span>0.0</span>
+                  NGN <span>{validated ? 32.350 : 0.0}</span>
                 </p>
               </div>
             </div>
@@ -422,7 +422,7 @@ function SplashHome() {
                     Pending Clearance
                   </h2>
                   <p className="heading2">
-                    0 <span>Items</span>
+                    {validated ? 5 : 0} <span>Items</span>
                   </p>
                 </div>
               </div>
