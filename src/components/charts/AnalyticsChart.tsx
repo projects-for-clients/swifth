@@ -59,7 +59,7 @@
 // }
 
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianAxis, CartesianGrid } from 'recharts';
 
 export const dataLabels = [
   {
@@ -185,11 +185,14 @@ const data = [
 
 export default function AnalyticsChart() {
   return (
-    <LineChart width={500} height={300} data={data}>
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
+    <LineChart width={500} height={300} data={data} className=' -ml-14'
+      >
+    
+      <CartesianGrid vertical={false}/>
       <Legend />
+      <XAxis dataKey="name" />
+      <YAxis tickCount={6} />
+      <Tooltip />
 
       {dataLabels.map((label) => {
         return (
