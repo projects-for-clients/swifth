@@ -64,8 +64,6 @@ function home() {
     (item) => item.path === 'personalInfo'
   );
 
- 
-
   const firstStep = (
     <>
       <p className="text">
@@ -94,7 +92,15 @@ function home() {
       </div>
       <div className="grid gap-4">
         <div className="flex items-center gap-4">
-          <EllipseSvg />
+          {isBusinessInfoValid ? (
+            isBusinessInfoValid.error ? (
+              <CancelSvg />
+            ) : (
+              <CheckmarkSvg />
+            )
+          ) : (
+            <EllipseSvg />
+          )}{' '}
           <div
             className="flex items-center w-full justify-between cursor-pointer "
             onClick={handleBusinessDrop}
@@ -120,8 +126,15 @@ function home() {
         </div>
         <div className="flex items-center gap-4">
           {/* <CheckmarkSvg /> */}
-          
-          <EllipseSvg />
+          {isBusinessInfoValid ? (
+            isBusinessInfoValid.error ? (
+              <CancelSvg />
+            ) : (
+              <CheckmarkSvg />
+            )
+          ) : (
+            <EllipseSvg />
+          )}
 
           <div
             className="flex items-center w-full justify-between cursor-pointer "
