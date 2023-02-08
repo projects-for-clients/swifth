@@ -349,7 +349,10 @@ function SplashHome() {
         <div className='h-[1.4rem] bg-color-primary-light border border-color-primary p-8 rounded-lg'>
           <div>
             <p className='text-[2rem]'>Jonathan Elegushi</p>
+            <p className='text-[1.4rem]'> & 2 more items in waiting</p>
           </div>
+
+          <BsArrowRight/>
         </div>
         <div></div>
     </section>
