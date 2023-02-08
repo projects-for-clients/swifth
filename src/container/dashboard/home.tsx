@@ -66,7 +66,7 @@ function home() {
 
   const progressLevel = (): number => {
     const everyValidatedInfo = validatingArr.filter((item) => !item.error);
-    console.log(everyValidatedInfo);
+    
     return everyValidatedInfo.length * 33.4;
   };
 
