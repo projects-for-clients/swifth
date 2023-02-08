@@ -11,7 +11,7 @@ import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
-import { useReducer, useState } from 'react';
+import { useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
@@ -518,10 +518,33 @@ function SplashHome() {
     </>
   );
 
+
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+
+  const handleClose = () => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+
+  const handleOpen = () => {
+   
+
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+
   return (
     <>
       <Header title="Hello, Nachi" subTitle="Welcome to Swifth" />
-
+      <dialog className="dialog" ref={dialogRef}>
+        <section className="grid place-content-center w-full h-[100vh]">
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8">
+           
+          </div>
+        </section>
+      </dialog>
       <div
         className="grid gap-4 max-w-[120rem] mx-auto"
         style={{
