@@ -555,27 +555,26 @@ function SplashHome() {
           <div className="flex text-[1.4rem] gap-4">
             <input
               type="radio"
-              name="report"
-              id="additionalResidentUsr"
+              name="notification"
+              id="all"
               className="hidden"
               onChange={() => setCurrentPath('all')}
               defaultChecked
             />
-            <label htmlFor="additionalResidentUsr">
-              Additional Resident Package
+            <label htmlFor="all">
+              All
             </label>
 
             <input
               type="radio"
-              name="report"
-              id="residentUserHistory"
+              name="notification"
+              id="quoteRequests"
               className="hidden"
               onChange={() => setCurrentPath('quoteRequests')}
             />
-            <label htmlFor="residentUserHistory" className="capitalize">
-              Package purchase history
-              {/* //TODO Change the custom select of package to be normal input field
-                    //comma separated in Amount */}
+            <label htmlFor="quoteRequests" className="capitalize">
+            Quote Requests
+           
             </label>
           </div>
         </div>
