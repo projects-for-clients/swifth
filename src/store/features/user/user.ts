@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { OnboardingInputs } from '../../../Context/AppContext';
 
 type ValidatingPath = 'businessInfo' | 'personalInfo' | 'portsAndTerminal';
+
 export interface IUser {
   fullName: string;
   email: string;
