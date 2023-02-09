@@ -19,7 +19,7 @@ import AnalyticsChart from '../../components/charts/AnalyticsChart';
 
 
 
-function SplashHome() {
+function DashboardHome() {
   interface DropDown {
     isContactDown?: boolean;
     isBusinessDown?: boolean;
@@ -858,4 +858,4 @@ function SplashHome() {
   );
 }
 
-export default SplashHome;
+export default DashboardHome;
