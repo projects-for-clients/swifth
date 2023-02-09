@@ -237,7 +237,7 @@ export const QuoteRequests:FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({s
           className="flex justify-between items-center border-b border-color-red-light-1 py-4 cursor-pointer"
           key={i}
         >
-          <div className="" onClick={() => showDetailsHandler(item.id)}>
+          <div onClick={() => showDetailsHandler(item.id)}>
             <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
