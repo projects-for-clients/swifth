@@ -151,7 +151,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   return (
     <>
-          <section>
+          <section className='absolute top-0 left-0 bottom-0'>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus voluptatibus repellendus quae corporis illo. Cupiditate et mollitia qui. Quam, non placeat temporibus dolor eum quasi tenetur tempore eius nemo explicabo.
           </section>
 
