@@ -151,14 +151,16 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   return (
     <>
-      <section></section>
+          <section>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus voluptatibus repellendus quae corporis illo. Cupiditate et mollitia qui. Quam, non placeat temporibus dolor eum quasi tenetur tempore eius nemo explicabo.
+          </section>
 
       <div className="px-5 h-full items-baseline ">
         <div className="flex">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
             onClick={goBack}
-          />
+            />
           <p className="text-[1.6rem] text-gray-600 w-full text-center">
             {title}
           </p>
