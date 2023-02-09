@@ -151,15 +151,28 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   return (
     <>
-      <section className="absolute top-0 left-0 bottom-0 grid content-end bg-[#000000ad] ">
-        <div className="bg-white ">
-          <p className="text-[1.6rem] font-bold">Quote Amount</p>
+      <section className="absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ">
+        <div className="bg-white  py-10 px-10 h-[40rem]">
+          <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
 
           <div>
-            <label htmlFor="amount" className="text-[1.2rem] text-[#0e2043cc]">
+            <label htmlFor="amount" className="text-[1.4rem] text-gray-600">
               Enter Amount
             </label>
+            <input
+              type="number"
+              name="amount"
+              placeholder="Enter Amount"
+              id="amount"
+              className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
+            />
           </div>
+
+          <button className="flex w-full h-full items-center ">
+            <span className="bg-color-primary rounded-lg text-white w-full py-4">
+              Send Quote
+            </span>
+          </button>
         </div>
       </section>
 
