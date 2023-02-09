@@ -82,10 +82,10 @@ function orders() {
                   selectFrom={filters}
                   selectedItem={filteredBy}
                   setSelectedItem={setFilteredBy}
-
+                  isFilter
                 />
               
-              <img src="/icons/filter.svg" alt="" className="cursor-pointer" />
+              
             </div>
           </div>
         </section>

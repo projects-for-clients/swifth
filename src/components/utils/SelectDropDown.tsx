@@ -6,13 +6,15 @@ interface ISelectDropDown {
     selectedItem: string;
     setSelectedItem: Dispatch<SetStateAction<string>>;
     label?: string;
+    isFilter?: boolean;
 }
 
 const SelectDropDown:FC<ISelectDropDown> = ({
     selectFrom,
     selectedItem,
     setSelectedItem,
-    label
+    label,
+    isFilter
 }) => {
   
 
@@ -28,12 +30,15 @@ const SelectDropDown:FC<ISelectDropDown> = ({
     
   return (
     <div className="relative flex items-center w-[15rem] justify-items-start cursor-pointer">
-      <p
+        {
+            isFilter ? <img src="/icons/filter.svg" alt="" className="cursor-pointer" /> : <p
         className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointe text-left"
         onClick={sortMenuToggler}
       >
         {selectedItem || label}
       </p>
+        }
+      
 
       {toggleSortMenu && (
         <div className="absolute top-[6rem] w-[15rem] left-0  bg-gray-100 border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
