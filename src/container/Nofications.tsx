@@ -108,7 +108,7 @@ const QUOTE_REQUESTS: AllNofications[] = [
     date: 'Jan 9, 2023  5mins ago',
   },
 ];
-export const QuoteRequestsDetails: FC<QuoteRequestsDetails> = () => {
+export const QuoteRequestsDetails = () => {
   const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails>(
     {} as QuoteRequestsDetails
   );

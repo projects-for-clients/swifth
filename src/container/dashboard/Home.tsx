@@ -11,14 +11,16 @@ import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
-import { ReactElement, useEffect, useReducer, useRef, useState } from 'react';
+import { useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 import AnalyticsChart from '../../components/charts/AnalyticsChart';
-import { AllNofications, QuoteRequests } from '../Nofications';
-
-
+import {
+  AllNofications,
+  QuoteRequests,
+  QuoteRequestsDetails,
+} from '../Nofications';
 
 function DashboardHome() {
   interface DropDown {
@@ -541,12 +543,9 @@ function DashboardHome() {
   };
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
-    all: <AllNofications/>,
-    quoteRequests: <QuoteRequests/>
+    all: <AllNofications />,
+    quoteRequests: <QuoteRequests />,
   };
-
-
-  
 
   return (
     <>
@@ -565,7 +564,7 @@ function DashboardHome() {
               onClick={() => handleClose()}
             />
           </figure>
-
+          {}
           <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
           <div className="radioBox">
             <input
@@ -589,7 +588,9 @@ function DashboardHome() {
               Quote Requests
             </label>
           </div>
-          <section className='px-10'>{switchPath[currentPath]}</section>
+          <section className="px-10">
+            <QuoteRequestsDetails />
+          </section>
         </div>
       </dialog>
       <div
@@ -618,7 +619,9 @@ function DashboardHome() {
               </div>
             </section>
           )} */}
-          <section className={`grid gap-4 ${validated ? 'order-1' : ''}`}>
+          <section
+            className={`grid gap-4 text-[1.4rem] ${validated ? 'order-1' : ''}`}
+          >
             <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
               <div>
                 {validated ? (

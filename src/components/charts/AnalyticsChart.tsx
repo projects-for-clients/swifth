@@ -59,7 +59,16 @@
 // }
 
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianAxis, CartesianGrid } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianAxis,
+  CartesianGrid,
+} from 'recharts';
 
 export const dataLabels = [
   {
@@ -96,7 +105,7 @@ const data = [
   {
     name: 'Feb',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -104,7 +113,7 @@ const data = [
   {
     name: 'Mar',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -112,7 +121,7 @@ const data = [
   {
     name: 'April',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -120,7 +129,7 @@ const data = [
   {
     name: 'May',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -128,7 +137,7 @@ const data = [
   {
     name: 'Jun',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -136,7 +145,7 @@ const data = [
   {
     name: 'Jul',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -144,7 +153,7 @@ const data = [
   {
     name: 'Aug',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -152,7 +161,7 @@ const data = [
   {
     name: 'Sep',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -160,7 +169,7 @@ const data = [
   {
     name: 'Oct',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -168,15 +177,15 @@ const data = [
   {
     name: 'Nov',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
   },
   {
-    name: 'December',
+    name: 'Dec',
     orders: Math.random() * 500,
-   quotes: Math.random() * 300,
+    quotes: Math.random() * 300,
     customers: Math.random() * 200,
     deliveries: Math.random() * 400,
     payments: Math.random() * 500,
@@ -185,11 +194,11 @@ const data = [
 
 export default function AnalyticsChart() {
   return (
-    <LineChart width={500} height={300} data={data} className=" -ml-14">
+    <LineChart width={500} height={300} data={data} className="">
       <CartesianGrid vertical={false} stroke="#FDE9E9" />
-      <Legend/>
+      <Legend />
       <XAxis dataKey="name" />
-      <YAxis tickCount={6}/>
+      <YAxis tickCount={8} />
       <Tooltip />
 
       {dataLabels.map((label, i) => {
