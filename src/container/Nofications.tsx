@@ -1,3 +1,5 @@
+import { BsArrowRight } from 'react-icons/bs';
+
 interface AllNofications {
   id: number;
   title: string;
@@ -103,11 +105,22 @@ export const AllNofications = () => {
         <p className="text-[1.2rem] text-gray-500">{item.date}</p>
       </div>
       {item.amount && (
-        <p className="text-[1.6rem] text-color-red-light-1">
-           <span className="text-gray-500">NGN</span> {item.amount.toLocaleString()}
+        <p className="text-[1.6rem] text-color-purple-1">
+          <span className="text-gray-500">NGN</span>{' '}
+          {item.amount.toLocaleString()}
         </p>
+      )}
+    </div>
+  ));
+};
 
-        )}
+export const QuoteRequests = () => {
+  return QUOTE_REQUESTS.map((item, i) => (
+    <div className="flex justify-between items-center border-b border-color-red-light-1 py-4">
+      <div className="">
+        <p className="text-[1.6rem]">{item.title}</p>
+        <p className="text-[1.2rem] text-gray-500">{item.date}</p>
+      </div>
     </div>
   ));
 };
