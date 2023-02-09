@@ -107,7 +107,7 @@ interface IQuoteRequestsProps {
   setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
 }
 
-export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, setShowDetails}) => {
+export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, setShowDetails, showDetails}) => {
   interface QuoteRequestsDetails {
     id: number;
     title: string;
@@ -125,7 +125,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
 
   useEffect(() => {
     const data = {
-      id: 1,
+      id: showDetails.id!,
       title: 'Jonathan Ogunleye',
       carYear: '2021',
       carModel: 'Toyota Corolla',
