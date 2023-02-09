@@ -4,15 +4,29 @@ import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 
-type FilterBy = 'Docs in Review' | 'Valuating' | 'Duty Processing' | 'Custom Releasing' | 'Delivery Pending' | 'Completed';
+type FilterBy =
+  | 'Docs in Review'
+  | 'Valuating'
+  | 'Duty Processing'
+  | 'Custom Releasing'
+  | 'Delivery Pending'
+  | 'Completed';
 interface OrdersArr {
   id: number;
   name: string;
   description: string;
-  date: Date
+  date: Date;
   tags: FilterBy;
 }
 
+interface FiltersProps {
+
+}
+const filterByColors = [
+{name: 'Docs in Review', text: 'bg-[#F9F9F9]', background: 'bg-[#F9F9F9]'},
+];
+
+//if
 
 const ORDERS: OrdersArr[] = [
   {
@@ -51,12 +65,84 @@ const ORDERS: OrdersArr[] = [
       .toDate(),
     tags: 'Delivery Pending',
   },
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Akpan Sunyi',
+    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Custom Releasing',
+  },
+  {
+    id: Math.random(),
+    name: 'Solomon Henry',
+    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Custom Releasing',
+  },
+  {
+    id: Math.random(),
+    name: 'Joseph Isaac',
+    description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Delivery Pending',
+  },
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Valuating',
+  },
+  {
+    id: Math.random(),
+    name: 'Akpan Sunyi',
+    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Delivery Pending',
+  },
+  {
+    id: Math.random(),
+    name: 'Solomon Henry',
+    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Custom Releasing',
+  },
+  {
+    id: Math.random(),
+    name: 'Joseph Isaac',
+    description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Delivery Pending',
+  },
 ];
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy = ['Most Recent', 'A-Z'];
-  const filters:FilterBy[] = [
+  const filters: FilterBy[] = [
     'Docs in Review',
     'Valuating',
     'Duty Processing',
@@ -141,7 +227,9 @@ function orders() {
             </div>
 
             <div>
-              <div className="p-8 w-[22rem] bg-white rounded-3xl">
+            {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
+
+              <div className="p-8 bg-white rounded-3xl border border-gray-400">
                 <div>
                   <p className="text-[1.6rem]">Jonathan Sunyi</p>
                   <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
@@ -149,7 +237,8 @@ function orders() {
                   </p>
                 </div>
 
-                <p className="text-[1.2rem] flex justify-end pt-8">
+                <div className="text-[1.2rem] flex justify-end pt-8"></div>
+                <p>
                   <span className="bg-color-orange py-1 px-2 rounded-lg">
                     Docs in review
                   </span>
