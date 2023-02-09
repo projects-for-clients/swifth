@@ -142,17 +142,38 @@ export const QuoteRequestsDetails: FC<QuoteRequestsDetails> = () => {
           {title}
         </p>
       </div>
-
-      <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
-        <div className="">
-          <p className="text-[1.6rem] text-gray-600">Car Year</p>
-          <p className="text-[1.2rem] text-gray-500">{carYear}</p>
+      <main className='grid gap-4'>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Car Year</p>
+            <p className="text-[1.2rem] text-gray-500">{carYear}</p>
+          </div>
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Car Brand</p>
+            <p className="text-[1.2rem] text-gray-500">{carBrand}</p>
+          </div>
         </div>
-        <div className="">
-          <p className="text-[1.6rem] text-gray-600">Car Brand</p>
-          <p className="text-[1.2rem] text-gray-500">{carBrand}</p>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Car Model</p>
+            <p className="text-[1.2rem] text-gray-500">{carModel}</p>
+          </div>
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Trim</p>
+            <p className="text-[1.2rem] text-gray-500">{trim}</p>
+          </div>
         </div>
-      </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Port</p>
+            <p className="text-[1.2rem] text-gray-500">{port}</p>
+          </div>
+          <div>
+            <p className="text-[1.6rem] text-gray-600">Terminal</p>
+            <p className="text-[1.2rem] text-gray-500">{terminal}</p>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
