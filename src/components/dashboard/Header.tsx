@@ -4,7 +4,7 @@ import AccountSvg from '../icons/sidebar/accountSvg';
 
 type THeader = {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   onboarding?: boolean;
   openDialog?: () => void;
 };
