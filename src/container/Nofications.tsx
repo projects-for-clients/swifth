@@ -241,7 +241,7 @@ export const QuoteRequests:FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({s
             <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
-          <BsArrowRight className="text-[2.4rem]" onClick={() => showDetailsHandler(item.id)} />
+          <BsArrowRight className="text-[2.4rem]"  />
         </div>
       ))}
     </>
