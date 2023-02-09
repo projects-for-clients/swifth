@@ -108,8 +108,10 @@ const QUOTE_REQUESTS: AllNofications[] = [
     date: 'Jan 9, 2023  5mins ago',
   },
 ];
-export const QuoteRequestsDetails:FC<QuoteRequestsDetails> = () => {
-  const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails>({} as QuoteRequestsDetails);
+export const QuoteRequestsDetails: FC<QuoteRequestsDetails> = () => {
+  const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails>(
+    {} as QuoteRequestsDetails
+  );
 
   useEffect(() => {
     const data = {
@@ -123,30 +125,33 @@ export const QuoteRequestsDetails:FC<QuoteRequestsDetails> = () => {
       terminal: 'Apapa',
     };
     setQuoteDetails(data);
-  })
+  });
 
   const goBack = () => {
     console.log('go back');
   };
 
-
-const {
-    id,
-    title,
-    carYear,
-    carModel,
-    carBrand,
-    trim,
-    port,
-    terminal,
-} = quoteDetails;
-
+  const { id, title, carYear, carModel, carBrand, trim, port, terminal } =
+    quoteDetails;
 
   return (
     <div>
-      <div>
+      <div className="flex ">
         <BsArrowLeft className="text-[2.4rem]" onClick={goBack} />
-        <p className="text-[1.6rem] text-gray-600">{title}</p>
+        <p className="text-[1.6rem] text-gray-600 justify-self-center">
+          {title}
+        </p>
+      </div>
+
+      <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+        <div className="">
+          <p className="text-[1.6rem] text-gray-600">Car Year</p>
+          <p className="text-[1.2rem] text-gray-500">{carYear}</p>
+        </div>
+        <div className="">
+          <p className="text-[1.6rem] text-gray-600">Car Brand</p>
+          <p className="text-[1.2rem] text-gray-500">{carBrand}</p>
+        </div>
       </div>
     </div>
   );
