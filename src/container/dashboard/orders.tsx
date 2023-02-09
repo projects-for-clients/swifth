@@ -26,8 +26,8 @@ function orders() {
           />
         </section>
 
-        <div>
-          <div className="radioBox gap-8">
+        <section>
+          <div className="radioBox gap-16">
             <input
               type="radio"
               name="notification"
@@ -36,7 +36,7 @@ function orders() {
               onChange={() => setCurrentPath('inProgress')}
               checked={currentPath === 'inProgress'}
             />
-            <label htmlFor="inProgress">In Progress</label>
+            <label htmlFor="inProgress" className='capitalize text-[2rem]'>In Progress</label>
 
             <input
               type="radio"
@@ -46,11 +46,18 @@ function orders() {
               checked={currentPath === 'waitlist'}
               onChange={() => setCurrentPath('waitlist')}
             />
-            <label htmlFor="waitlist" className="capitalize">
+            <label htmlFor="waitlist" className="capitalize text-[2rem]">
               Waitlist
             </label>
           </div>
+
+          <div className='flex justify-between items-center'>
+        <div className='flex items-center'>
+          <img src="/icons/history.svg" alt="" />
+          <p>History</p>
         </div>
+          </div>
+        </section>
       </main>
     </>
   );
