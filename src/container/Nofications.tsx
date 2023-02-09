@@ -142,7 +142,7 @@ export const QuoteRequestsDetails: FC<QuoteRequestsDetails> = () => {
           {title}
         </p>
       </div>
-      <main className='grid gap-4'>
+      <main className='grid gap-4 mt-20'>
         <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
           <div>
             <p className="text-[1.6rem] text-gray-600">Car Year</p>
@@ -174,6 +174,10 @@ export const QuoteRequestsDetails: FC<QuoteRequestsDetails> = () => {
           </div>
         </div>
       </main>
+
+      <button className='bg-color-primary rounded-lg text-white'>
+        Send Quote
+      </button>
     </div>
   );
 };
