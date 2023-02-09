@@ -125,6 +125,8 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
     {} as QuoteRequestsDetails
   );
 
+  const [toDisplay, setToDisplay] = useState('hidden');
+
   useEffect(() => {
     const data = {
       id: showDetails.id!,
@@ -139,6 +141,8 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
     setQuoteDetails(data);
   }, [showDetails.id]);
 
+
+
   const goBack = () => {
     setShowDetails({
       show: false,
@@ -149,10 +153,18 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
   const { id, title, carYear, carModel, carBrand, trim, port, terminal } =
     quoteDetails;
 
+  const closeModal = () => {
+    setToDisplay('hidden');
+  };
   return (
     <>
-      <section className="absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ">
-        <div className="bg-white  py-10 px-10 h-[40rem]">
+      <section className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay}`} style={{
+        gridTemplateRows: '1.2fr 1fr'
+      }}>
+        <div onClick={closeModal}>
+            &nbsp;
+        </div>
+        <div className="bg-white  py-10 px-10">
           <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
 
           <div>
@@ -219,7 +231,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
           </div>
         </main>
 
-        <button className="flex w-full h-full items-center ">
+        <button className="flex w-full h-full items-center " onClick={() => setToDisplay('grid')}>
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
             Send Quote
           </span>
