@@ -5,9 +5,21 @@ import SelectDropDown from '../../components/utils/SelectDropDown';
 
 interface OrdersArr {
   id: number;
+  name: string;
+  description: string;
+  date: Date
+  tags: string;
 }
 
-const ORDERS = [];
+const ORDERS = [
+  {
+    id: 1,
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: new Date(),
+    tags: 'Docs in review',
+  },
+];
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
