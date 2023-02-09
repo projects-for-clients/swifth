@@ -24,8 +24,10 @@ function SplashHome() {
     isPortAndTerminalDown?: boolean;
   }
 
+  type SwitchPath = 'all' | 'quoteRequests'
+
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
-  const [currentPath, setCurrentPath] = useState('');
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('all');
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
@@ -535,7 +537,7 @@ function SplashHome() {
     }
   };
 
-  const switchPath:Record<'all' | 'quoteRequests', JSX.Element> = {
+  const switchPath:Record<SwitchPath, JSX.Element> = {
     all: <div>hello</div>,
     quoteRequests: <div>hello</div>
   }
@@ -582,6 +584,9 @@ function SplashHome() {
               Quote Requests
             </label>
           </div>
+          <section>
+            {switchPath[currentPath]}
+          </section>
         </div>
       </dialog>
       <div
