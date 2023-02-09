@@ -175,7 +175,7 @@ export const QuoteRequestsDetails: FC<QuoteRequestsDetails> = () => {
         </div>
       </main>
 
-      <button className='bg-color-primary rounded-lg text-white'>
+      <button className='bg-color-primary rounded-lg text-white mt-auto'>
         Send Quote
       </button>
     </div>

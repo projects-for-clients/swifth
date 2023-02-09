@@ -31,6 +31,8 @@ function DashboardHome() {
 
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('all');
+  const [goBack, setGoBack] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
