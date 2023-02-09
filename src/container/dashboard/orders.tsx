@@ -3,14 +3,26 @@ import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 
+interface OrdersArr {
+  id: number;
+}
+
+const ORDERS = [];
+
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
-  const sortBy = ['Most Recent', 'A-Z'] 
-  const filters = ['Docs in Review', 'Valuating', 'Duty Processing', 'Custom Releasing', 'Delivery Pending', 'Completed']
+  const sortBy = ['Most Recent', 'A-Z'];
+  const filters = [
+    'Docs in Review',
+    'Valuating',
+    'Duty Processing',
+    'Custom Releasing',
+    'Delivery Pending',
+    'Completed',
+  ];
 
   const [filteredBy, setFilteredBy] = useState('Docs in Review');
 
-  
   const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
 
@@ -71,21 +83,34 @@ function orders() {
             </div>
 
             <div className="flex items-center gap-8">
-              
-                <SelectDropDown
-                  selectFrom={sortBy}
-                  selectedItem={selectedSort}
-                  setSelectedItem={setSelectedSort}
+              <SelectDropDown
+                selectFrom={sortBy}
+                selectedItem={selectedSort}
+                setSelectedItem={setSelectedSort}
+              />
+              <SelectDropDown
+                selectFrom={filters}
+                selectedItem={filteredBy}
+                setSelectedItem={setFilteredBy}
+                isFilter
+              />
+            </div>
 
-                />
-                <SelectDropDown
-                  selectFrom={filters}
-                  selectedItem={filteredBy}
-                  setSelectedItem={setFilteredBy}
-                  isFilter
-                />
-              
-              
+            <div>
+              <div className="p-8 w-[22rem] bg-white rounded-3xl">
+                <div>
+                  <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                  <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+                    Toyota Camry XLE, 2018 v6 with alloy wheels and
+                  </p>
+                </div>
+
+                <p className="text-[1.2rem] flex justify-end pt-8">
+                  <span className="bg-color-orange py-1 px-2 rounded-lg">
+                    Docs in review
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </section>

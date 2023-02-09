@@ -36,7 +36,7 @@ const SelectDropDown: FC<ISelectDropDown> = ({
         />
       ) : (
         <p
-          className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointe text-left"
+          className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointer text-left"
           onClick={sortMenuToggler}
         >
           {selectedItem || label}
@@ -56,12 +56,16 @@ const SelectDropDown: FC<ISelectDropDown> = ({
           ))}
         </div>
       )}
-      
-      { isFilter ? toggleSortMenu ? (
-        <GrUp className="absolute right-4 text-[1.3rem]" />
-      ) : (
-        <GrDown className="absolute right-4 text-[1.3rem]" />
-      ): null}
+
+      {!isFilter && (
+        <>
+          {toggleSortMenu ? (
+            <GrUp className="absolute right-4 text-[1.3rem]" />
+          ) : (
+            <GrDown className="absolute right-4 text-[1.3rem]" />
+          )}
+        </>
+      )}
     </div>
   );
 };
