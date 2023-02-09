@@ -22,10 +22,7 @@ function orders() {
         </section>
 
         <div>
-          <div className="radioBox" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-          }}>
+          <div className="radioBox">
             <input
               type="radio"
               name="notification"
