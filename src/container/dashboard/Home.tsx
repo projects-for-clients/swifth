@@ -588,7 +588,8 @@ function DashboardHome() {
                   id="all"
                   className="hidden"
                   onChange={() => setCurrentPath('all')}
-                  defaultChecked
+                  defaultChecked={currentPath === 'all'}
+                  checked={currentPath === 'all'}
                 />
                 <label htmlFor="all">All</label>
 
@@ -597,6 +598,7 @@ function DashboardHome() {
                   name="notification"
                   id="quoteRequests"
                   className="hidden"
+                  checked={currentPath === 'quoteRequests'}
                   onChange={() => setCurrentPath('quoteRequests')}
                 />
                 <label htmlFor="quoteRequests" className="capitalize">
