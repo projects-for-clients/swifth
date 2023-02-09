@@ -1,7 +1,12 @@
 import Header from '../../components/dashboard/Header';
 import { CiSearch } from 'react-icons/ci';
+import { useState } from 'react';
 
 function orders() {
+  type SwitchPath = 'inProgress' | 'waitlist'
+
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
+
   return (
     <>
       <Header title="Orders" />
@@ -22,27 +27,27 @@ function orders() {
         </section>
 
         <div>
-          <div className="radioBox">
+          <div className="radioBox gap-8">
             <input
               type="radio"
               name="notification"
-              id="all"
+              id="inProgress"
               className="hidden"
-              // onChange={() => setCurrentPath('all')}
-              // checked={currentPath === 'all'}
+              onChange={() => setCurrentPath('inProgress')}
+              checked={currentPath === 'inProgress'}
             />
-            <label htmlFor="all">All</label>
+            <label htmlFor="inProgress">In Progress</label>
 
             <input
               type="radio"
               name="notification"
-              id="quoteRequests"
+              id="waitlist"
               className="hidden"
-              // checked={currentPath === 'quoteRequests'}
-              // onChange={() => setCurrentPath('quoteRequests')}
+              checked={currentPath === 'waitlist'}
+              onChange={() => setCurrentPath('waitlist')}
             />
-            <label htmlFor="quoteRequests" className="capitalize">
-              Quote Requests
+            <label htmlFor="waitlist" className="capitalize">
+              Waitlist
             </label>
           </div>
         </div>
