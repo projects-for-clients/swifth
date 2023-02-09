@@ -588,7 +588,6 @@ function DashboardHome() {
                   id="all"
                   className="hidden"
                   onChange={() => setCurrentPath('all')}
-                  defaultChecked={currentPath === 'all'}
                   checked={currentPath === 'all'}
                 />
                 <label htmlFor="all">All</label>
@@ -605,7 +604,7 @@ function DashboardHome() {
                   Quote Requests
                 </label>
               </div>
-              <section className="px-10">{switchPath[currentPath]}</section>{' '}
+              <section className="px-10 mt-10">{switchPath[currentPath]}</section>{' '}
             </>
           )}
         </div>
