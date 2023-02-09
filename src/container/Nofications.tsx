@@ -167,9 +167,19 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   const handleQuoteSubmit = (e: FormEvent) => {
     e.preventDefault();
-
     setToastDisplay('flex');
   };
+
+  useEffect(() => {
+
+    if (toastDisplay === 'flex') {
+      setTimeout(() => {
+        setToastDisplay('hidden');
+      }, 3000);
+    }
+
+  }, [toastDisplay])
+
   return (
     <>
       <section
