@@ -22,6 +22,8 @@ import {
   QuoteRequestsDetails,
 } from '../Nofications';
 
+export type SwitchPath = 'all' | 'quoteRequests';
+
 function DashboardHome() {
   interface DropDown {
     isContactDown?: boolean;
@@ -29,11 +31,9 @@ function DashboardHome() {
     isPortAndTerminalDown?: boolean;
   }
 
-  type SwitchPath = 'all' | 'quoteRequests';
 
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('all');
-  const [goBack, setGoBack] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
@@ -566,7 +566,7 @@ function DashboardHome() {
           </figure>
           {showDetails ? (
             <section className="px-10">
-                <QuoteRequestsDetails />
+                <QuoteRequestsDetails showDetails={setShowDetails} setCurrentPath={setCurrentPath}/>
               </section>
           ) : (
             <>

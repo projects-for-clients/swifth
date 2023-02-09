@@ -1,5 +1,6 @@
-import { FC, useEffect, useState } from 'react';
+import { Dispatch, FC, useEffect, useState, SetStateAction } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+import { SwitchPath } from './dashboard/Home';
 
 interface AllNofications {
   id: number;
@@ -8,16 +9,7 @@ interface AllNofications {
   amount?: number;
 }
 
-interface QuoteRequestsDetails {
-  id: number;
-  title: string;
-  carYear: string;
-  carModel: string;
-  carBrand: string;
-  trim: string;
-  port: string;
-  terminal: string;
-}
+
 
 const ALL_NOTIFICATIONS: AllNofications[] = [
   {
@@ -108,7 +100,24 @@ const QUOTE_REQUESTS: AllNofications[] = [
     date: 'Jan 9, 2023  5mins ago',
   },
 ];
-export const QuoteRequestsDetails = () => {
+
+interface IQuoteRequests {
+  showDetails: Dispatch<SetStateAction<boolean>>,
+  setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
+}
+
+export const QuoteRequestsDetails:FC<IQuoteRequests> = ({setCurrentPath, showDetails}) => {
+  interface QuoteRequestsDetails {
+    id: number;
+    title: string;
+    carYear: string;
+    carModel: string;
+    carBrand: string;
+    trim: string;
+    port: string;
+    terminal: string;
+  }
+
   const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails>(
     {} as QuoteRequestsDetails
   );
@@ -127,9 +136,7 @@ export const QuoteRequestsDetails = () => {
     setQuoteDetails(data);
   });
 
-  const goBack = () => {
-    console.log('go back');
-  };
+ 
 
   const { id, title, carYear, carModel, carBrand, trim, port, terminal } =
     quoteDetails;
@@ -137,7 +144,7 @@ export const QuoteRequestsDetails = () => {
   return (
     <div>
       <div className="flex ">
-        <BsArrowLeft className="text-[2.4rem]" onClick={goBack} />
+        <BsArrowLeft className="text-[2.4rem]" />
         <p className="text-[1.6rem] text-gray-600 justify-self-center">
           {title}
         </p>
