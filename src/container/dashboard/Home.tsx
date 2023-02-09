@@ -565,7 +565,9 @@ function DashboardHome() {
             />
           </figure>
           {showDetails ? (
-            <div>he</div>
+            <section className="px-10">
+                <QuoteRequestsDetails />
+              </section>
           ) : (
             <>
               <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
@@ -592,7 +594,7 @@ function DashboardHome() {
                 </label>
               </div>
               <section className="px-10">
-                <QuoteRequestsDetails />
+                {switchPath[currentPath]}
               </section>{' '}
             </>
           )}
