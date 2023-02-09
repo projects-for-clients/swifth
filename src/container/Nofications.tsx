@@ -100,6 +100,10 @@ export const AllNofications = () => {
     return (
         ALL_NOTIFICATIONS.map((item, i) => (
             <div className="flex justify-between items-center border-b border-color-red-light-1 py-4">
+                <div className="">
+                <p className="text-[1.6rem]">{item.title}</p>
+                <p className="text-[1.2rem] text-gray-500">{item.date}</p>
+                    </div>
                 </div>
         ))
     )
