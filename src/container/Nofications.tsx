@@ -168,6 +168,8 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
       <section className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay}`} style={{
         gridTemplateRows: '1.2fr 1fr'
       }}>
+        <div className='absolute'> 
+        Quote Sent</div>
         <div onClick={closeModal}>
             &nbsp;
         </div>
