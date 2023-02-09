@@ -587,7 +587,7 @@ function DashboardHome() {
               Quote Requests
             </label>
           </div>
-          <section>{switchPath[currentPath]}</section>
+          <section className='px-10'>{switchPath[currentPath]}</section>
         </div>
       </dialog>
       <div

@@ -106,7 +106,7 @@ export const AllNofications = () => {
           key={i}
         >
           <div className="">
-            <p className="text-[1.6rem]">{item.title}</p>
+            <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
           {item.amount && (
@@ -130,7 +130,7 @@ export const QuoteRequests = () => {
           key={i}
         >
           <div className="">
-            <p className="text-[1.6rem]">{item.title}</p>
+            <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
           <BsArrowRight className="text-[2.4rem]" />
