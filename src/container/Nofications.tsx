@@ -102,11 +102,11 @@ const QUOTE_REQUESTS: AllNofications[] = [
 ];
 
 interface IQuoteRequestsProps {
-  showDetails: Dispatch<SetStateAction<ShowDetails>>,
+  setShowDetails: Dispatch<SetStateAction<ShowDetails>>,
   setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
 }
 
-export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, showDetails}) => {
+export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, setShowDetails}) => {
   interface QuoteRequestsDetails {
     id: number;
     title: string;
@@ -138,7 +138,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, sh
 
  
   const goBack = () => {
-    showDetails({
+    setShowDetails({
       show: false,
     });
     setCurrentPath('quoteRequests')
@@ -219,9 +219,10 @@ export const AllNofications = () => {
   );
 };
 
-export const QuoteRequests = () => {
-  const showDetails = (id: number) => {
-    console.log('show details');
+export const QuoteRequests:FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({setShowDetails}) => {
+  const showDetailsHandler = (id: number) => {
+    
+    
   };
 
   return (
@@ -235,7 +236,7 @@ export const QuoteRequests = () => {
             <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
-          <BsArrowRight className="text-[2.4rem]" onClick={() => showDetails(item.id)} />
+          <BsArrowRight className="text-[2.4rem]" onClick={() => showDetailsHandler(item.id)} />
         </div>
       ))}
     </>

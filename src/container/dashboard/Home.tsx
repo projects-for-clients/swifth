@@ -550,7 +550,7 @@ function DashboardHome() {
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
     all: <AllNofications />,
-    quoteRequests: <QuoteRequests />,
+    quoteRequests: <QuoteRequests setShowDetails={setShowDetails}/>,
   };
 
   return (
@@ -573,7 +573,7 @@ function DashboardHome() {
           {showDetails.show ? (
             <section className="px-10">
               <QuoteRequestsDetails
-                showDetails={setShowDetails}
+                setShowDetails={setShowDetails}
                 setCurrentPath={setCurrentPath}
               />
             </section>
