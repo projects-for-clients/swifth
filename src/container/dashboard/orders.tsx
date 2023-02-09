@@ -6,15 +6,15 @@ function orders() {
     <>
       <Header title="Orders" />
 
-      <main>
-        <section className="relative flex items-center">
+      <main className='text-[1.6rem]'>
+        <section className="relative flex items-center max-w-[45rem]">
           <input
             type="text"
-            className="max-w-[45rem] border border-gray-200 rounded-md py-6 pr-3 pl-10"
-            placeholder='search'
+            className=" border border-gray-200 rounded-md py-6 pr-3 pl-10 outline-none"
+            placeholder="search"
           />
 
-          <CiSearch className='absolute left-3'/>
+          <CiSearch className="absolute left-3 text-[1.8rem]" />
         </section>
       </main>
     </>
