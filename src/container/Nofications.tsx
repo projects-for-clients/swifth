@@ -150,55 +150,59 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
     quoteDetails;
 
   return (
-    <div className="px-5 h-full items-baseline ">
-      <div className="flex">
-        <BsArrowLeft
-          className="text-[2.4rem] cursor-pointer"
-          onClick={goBack}
-        />
-        <p className="text-[1.6rem] text-gray-600 w-full text-center">
-          {title}
-        </p>
-      </div>
-      <main className="grid gap-4 mt-20">
-        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
-          <div>
-            <p className="text-[1.4rem] text-gray-400">Car Year</p>
-            <p className="text-[1.6rem] text-gray-600">{carYear}</p>
-          </div>
-          <div>
-            <p className="text-[1.4rem] text-gray-400">Car Brand</p>
-            <p className="text-[1.6rem] text-gray-600">{carBrand}</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
-          <div>
-            <p className="text-[1.4rem] text-gray-400">Car Model</p>
-            <p className="text-[1.6rem] text-gray-600">{carModel}</p>
-          </div>
-          <div>
-            <p className="text-[1.4rem] text-gray-400">Trim</p>
-            <p className="text-[1.6rem] text-gray-600">{trim}</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
-          <div>
-            <p className="text-[1.4rem] text-gray-400">Port</p>
-            <p className="text-[1.6rem] text-gray-600">{port}</p>
-          </div>
-          <div>
-            <p className="text-[1.4rem] text-gray-400">Terminal</p>
-            <p className="text-[1.6rem] text-gray-600">{terminal}</p>
-          </div>
-        </div>
-      </main>
+    <>
+      <section></section>
 
-      <button className="flex w-full h-full items-center ">
-        <span className="bg-color-primary rounded-lg text-white w-full py-4">
-          Send Quote
-        </span>
-      </button>
-    </div>
+      <div className="px-5 h-full items-baseline ">
+        <div className="flex">
+          <BsArrowLeft
+            className="text-[2.4rem] cursor-pointer"
+            onClick={goBack}
+          />
+          <p className="text-[1.6rem] text-gray-600 w-full text-center">
+            {title}
+          </p>
+        </div>
+        <main className="grid gap-4 mt-20">
+          <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Car Year</p>
+              <p className="text-[1.6rem] text-gray-600">{carYear}</p>
+            </div>
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Car Brand</p>
+              <p className="text-[1.6rem] text-gray-600">{carBrand}</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Car Model</p>
+              <p className="text-[1.6rem] text-gray-600">{carModel}</p>
+            </div>
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Trim</p>
+              <p className="text-[1.6rem] text-gray-600">{trim}</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Port</p>
+              <p className="text-[1.6rem] text-gray-600">{port}</p>
+            </div>
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Terminal</p>
+              <p className="text-[1.6rem] text-gray-600">{terminal}</p>
+            </div>
+          </div>
+        </main>
+
+        <button className="flex w-full h-full items-center ">
+          <span className="bg-color-primary rounded-lg text-white w-full py-4">
+            Send Quote
+          </span>
+        </button>
+      </div>
+    </>
   );
 };
 
