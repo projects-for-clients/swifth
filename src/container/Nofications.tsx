@@ -176,7 +176,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
         }}
       >
         <div className="absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0">
-         <span className='w-full'>Quote Sent!</span>
+         <span className='w-full text-center'>Quote Sent!</span>
          <GrClose/>
         </div>
         <div onClick={closeModal}>&nbsp;</div>
