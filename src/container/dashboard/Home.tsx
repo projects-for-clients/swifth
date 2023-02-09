@@ -17,102 +17,7 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 import AnalyticsChart from '../../components/charts/AnalyticsChart';
 
-interface AllNofications {
-  id: number;
-  title: string;
-  date: string;
-  amount?: number;
-}
 
-const ALL_NOTIFICATIONS: AllNofications[] = [
-  {
-    id: 1,
-    title: 'James Ibori  paid',
-    date: 'Jan 9, 2023  Just now',
-    amount: 780_923,
-  },
-  {
-    id: 1,
-    title: 'Kayode Odedele made a quote request ',
-    date: 'Jan 9, 2023  5mins ago',
-  },
-  {
-    id: 1,
-    title: 'Rick Wright has accepted your invite to be field agent',
-    date: 'Jan 9, 2023  Just now',
-  },
-  {
-    id: 1,
-    title: 'Kayode Odedele paid ',
-    date: 'Jan 9, 2023  Just now',
-    amount: 71_000,
-  },
-  {
-    id: 1,
-    title: 'James Ibori  paid',
-    date: 'Jan 9, 2023  Just now',
-    amount: 780_923,
-  },
-  {
-    id: 1,
-    title: 'Kayode Odedele made a quote request ',
-    date: 'Jan 9, 2023  5mins ago',
-  },
-  {
-    id: 1,
-    title: 'Rick Wright has accepted your invite to be field agent',
-    date: 'Jan 9, 2023  Just now',
-  },
-  {
-    id: 1,
-    title: 'James Ibori  paid',
-    date: 'Jan 9, 2023  Just now',
-    amount: 780_923,
-  },
-];
-
-const QUOTE_REQUESTS: AllNofications[] = [
-  {
-    id: 1,
-    title: 'Jonathan Ogunleye',
-    date: 'Jan 9, 2023  Just now',
-  },
-  {
-    id: 1,
-    title: 'David Ogunleye',
-    date: 'Jan 9, 2023  5mins ago',
-  },
-  {
-    id: 1,
-    title: 'Jonathan Ogunleye',
-    date: 'Jan 9, 2023  Just now',
-  },
-  {
-    id: 1,
-    title: 'David Ogunleye',
-    date: 'Jan 9, 2023  5mins ago',
-  },
-  {
-    id: 1,
-    title: 'Jonathan Ogunleye',
-    date: 'Jan 9, 2023  Just now',
-  },
-  {
-    id: 1,
-    title: 'David Ogunleye',
-    date: 'Jan 9, 2023  5mins ago',
-  },
-  {
-    id: 1,
-    title: 'Jonathan Ogunleye',
-    date: 'Jan 9, 2023  Just now',
-  },
-  {
-    id: 1,
-    title: 'David Ogunleye',
-    date: 'Jan 9, 2023  5mins ago',
-  },
-];
 
 function SplashHome() {
   interface DropDown {
@@ -636,6 +541,9 @@ function SplashHome() {
     all: <div>hello</div>,
     quoteRequests: <div>hello</div>,
   };
+
+
+  
 
   return (
     <>
