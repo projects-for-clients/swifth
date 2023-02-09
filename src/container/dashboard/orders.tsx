@@ -16,7 +16,7 @@ interface OrdersArr {
 
 const ORDERS: OrdersArr[] = [
   {
-    id: 1,
+    id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: dayjs()
@@ -25,29 +25,31 @@ const ORDERS: OrdersArr[] = [
     tags: 'Docs in Review',
   },
   {
-    id: 2,
+    id: Math.random(),
     name: 'Akpan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Docs in Review',
+    tags: 'Duty Processing',
   },
   {
     id: 3,
     name: 'Solomon Henry',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Docs in Review',
+    tags: 'Custom Releasing',
   },
   {
     id: 4,
     name: 'Joseph Isaac',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs().subtract(5, 'day').toDate(),
-    tags: 'Docs in Review',
+    description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tags: 'Delivery Pending',
   },
 ];
 
