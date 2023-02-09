@@ -550,7 +550,7 @@ function DashboardHome() {
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
     all: <AllNofications />,
-    quoteRequests: <QuoteRequests setShowDetails={setShowDetails}/>,
+    quoteRequests: <QuoteRequests setShowDetails={setShowDetails} />,
   };
 
   return (
@@ -581,7 +581,13 @@ function DashboardHome() {
           ) : (
             <>
               <h3 className="text-[2rem] font-medium px-8  ">Notifications</h3>
-              <div className="radioBox">
+              <div
+                className="radioBox"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                }}
+              >
                 <input
                   type="radio"
                   name="notification"
@@ -604,7 +610,9 @@ function DashboardHome() {
                   Quote Requests
                 </label>
               </div>
-              <section className="px-10 mt-10">{switchPath[currentPath]}</section>{' '}
+              <section className="px-10 mt-10">
+                {switchPath[currentPath]}
+              </section>{' '}
             </>
           )}
         </div>
