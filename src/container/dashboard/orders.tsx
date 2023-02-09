@@ -79,9 +79,9 @@ function orders() {
 
                 />
                 <SelectDropDown
-                  selectFrom={sortBy}
-                  selectedItem={selectedSort}
-                  setSelectedItem={setSelectedSort}
+                  selectFrom={filters}
+                  selectedItem={filteredBy}
+                  setSelectedItem={setFilteredBy}
 
                 />
               
