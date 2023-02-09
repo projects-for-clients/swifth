@@ -573,6 +573,7 @@ function DashboardHome() {
           {showDetails.show ? (
             <section className="px-10">
               <QuoteRequestsDetails
+                showDetails={showDetails}
                 setShowDetails={setShowDetails}
                 setCurrentPath={setCurrentPath}
               />

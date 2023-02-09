@@ -102,6 +102,7 @@ const QUOTE_REQUESTS: AllNofications[] = [
 ];
 
 interface IQuoteRequestsProps {
+  showDetails: ShowDetails;
   setShowDetails: Dispatch<SetStateAction<ShowDetails>>,
   setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
 }
@@ -222,7 +223,11 @@ export const AllNofications = () => {
 export const QuoteRequests:FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({setShowDetails}) => {
   const showDetailsHandler = (id: number) => {
     
-    
+    setShowDetails({
+      show: true,
+      id
+    })
+
   };
 
   return (
