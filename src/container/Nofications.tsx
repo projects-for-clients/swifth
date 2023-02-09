@@ -101,12 +101,12 @@ const QUOTE_REQUESTS: AllNofications[] = [
   },
 ];
 
-interface IQuoteRequests {
+interface IQuoteRequestsProps {
   showDetails: Dispatch<SetStateAction<boolean>>,
   setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
 }
 
-export const QuoteRequestsDetails:FC<IQuoteRequests> = ({setCurrentPath, showDetails}) => {
+export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, showDetails}) => {
   interface QuoteRequestsDetails {
     id: number;
     title: string;
@@ -137,6 +137,10 @@ export const QuoteRequestsDetails:FC<IQuoteRequests> = ({setCurrentPath, showDet
   });
 
  
+  const goBack = () => {
+    showDetails(false);
+    setCurrentPath('quoteRequests')
+  }
 
   const { id, title, carYear, carModel, carBrand, trim, port, terminal } =
     quoteDetails;
@@ -144,7 +148,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequests> = ({setCurrentPath, showDet
   return (
     <div>
       <div className="flex ">
-        <BsArrowLeft className="text-[2.4rem]" />
+        <BsArrowLeft className="text-[2.4rem]" onClick={goBack}/>
         <p className="text-[1.6rem] text-gray-600 justify-self-center">
           {title}
         </p>
@@ -214,7 +218,7 @@ export const AllNofications = () => {
 };
 
 export const QuoteRequests = () => {
-  const showDetails = () => {
+  const showDetails = (id: number) => {
     console.log('show details');
   };
 
@@ -229,7 +233,7 @@ export const QuoteRequests = () => {
             <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
-          <BsArrowRight className="text-[2.4rem]" onClick={showDetails} />
+          <BsArrowRight className="text-[2.4rem]" onClick={() => showDetails(item.id)} />
         </div>
       ))}
     </>

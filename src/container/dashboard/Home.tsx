@@ -31,10 +31,15 @@ function DashboardHome() {
     isPortAndTerminalDown?: boolean;
   }
 
-
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('all');
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState<{
+    show: boolean;
+    id: number | null;
+  }>({
+    show: false,
+    id: null,
+  });
   const [isDropDown, setIsDropDown] = useReducer(
     (prev: DropDown, next: DropDown): DropDown => {
       return {
@@ -566,8 +571,11 @@ function DashboardHome() {
           </figure>
           {showDetails ? (
             <section className="px-10">
-                <QuoteRequestsDetails showDetails={setShowDetails} setCurrentPath={setCurrentPath}/>
-              </section>
+              <QuoteRequestsDetails
+                showDetails={setShowDetails}
+                setCurrentPath={setCurrentPath}
+              />
+            </section>
           ) : (
             <>
               <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
@@ -593,9 +601,7 @@ function DashboardHome() {
                   Quote Requests
                 </label>
               </div>
-              <section className="px-10">
-                {switchPath[currentPath]}
-              </section>{' '}
+              <section className="px-10">{switchPath[currentPath]}</section>{' '}
             </>
           )}
         </div>
