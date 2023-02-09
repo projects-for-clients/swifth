@@ -1,6 +1,6 @@
 import Header from '../../components/dashboard/Header';
-import { CiSearch } from 'react-icons/ci';
 import { useState } from 'react';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
@@ -54,13 +54,21 @@ function orders() {
           </div>
 
           <div className="flex justify-between items-center mt-10">
-            <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-3xl gap-4 w-[15rem] justify-center cursor-pointer">
-              <img src="/icons/history.svg" alt="" className='w-[1.6rem] h-[1.6rem]' />
+            <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer">
+              <img
+                src="/icons/history.svg"
+                alt=""
+                className="w-[1.6rem] h-[1.6rem]"
+              />
               <p>History</p>
             </div>
-            <div className="flex items-center">
-              <img src="/icons/history.svg" alt="" />
-              <p>History</p>
+
+            <div className="flex items-center gap-8">
+              <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer">
+                <p>Most Recent</p>
+                <FiChevronDown />
+              </div>
+              <img src="/icons/filter.svg" alt="" className="cursor-pointer" />
             </div>
           </div>
         </section>
