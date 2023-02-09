@@ -1,23 +1,28 @@
-import { Dispatch, useState, SetStateAction } from 'react'
+import { Dispatch, useState, SetStateAction, FC } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr';
 
 interface ISelectDropDown {
     selectFrom: string[];
-    selected: string;
-    setSelected: Dispatch<SetStateAction<string>>;
+    selectedItem: string;
+    setSelectedItem: Dispatch<SetStateAction<string>>;
+    label: string;
 }
 
-const SelectDropDown = () => {
-    const sortBy = ['A-Z', 'date'];
+const SelectDropDown:FC<ISelectDropDown> = ({
+    selectFrom,
+    selectedItem,
+    setSelectedItem,
+    label
+}) => {
+  
 
     const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-    const [selectedSort, setSelectedSort] = useState('');
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
 
-    const handleSelectedSort = (item: any) => {
-      setSelectedSort(item);
+    const handleSelectedItem = (item: any) => {
+      setSelectedItem(item);
       setToggleSortMenu(false);
     }
     
@@ -27,7 +32,7 @@ const SelectDropDown = () => {
         className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
         onClick={sortMenuToggler}
       >
-        {selectedSort || 'Today'}
+        {selectedItem || 'Today'}
       </p>
 
       {toggleSortMenu && (
@@ -36,7 +41,7 @@ const SelectDropDown = () => {
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
               key={index}
-              onClick={() => handleSelectedSort(item)}
+              onClick={() => handleSelectedItem(item)}
             >
               {item}
             </p>
