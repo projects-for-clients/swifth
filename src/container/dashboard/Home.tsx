@@ -17,6 +17,103 @@ import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 import AnalyticsChart from '../../components/charts/AnalyticsChart';
 
+interface AllNofications {
+  id: number;
+  title: string;
+  date: string;
+  amount?: number;
+}
+
+const ALL_NOTIFICATIONS: AllNofications[] = [
+  {
+    id: 1,
+    title: 'James Ibori  paid',
+    date: 'Jan 9, 2023  Just now',
+    amount: 780_923,
+  },
+  {
+    id: 1,
+    title: 'Kayode Odedele made a quote request ',
+    date: 'Jan 9, 2023  5mins ago',
+  },
+  {
+    id: 1,
+    title: 'Rick Wright has accepted your invite to be field agent',
+    date: 'Jan 9, 2023  Just now',
+  },
+  {
+    id: 1,
+    title: 'Kayode Odedele paid ',
+    date: 'Jan 9, 2023  Just now',
+    amount: 71_000,
+  },
+  {
+    id: 1,
+    title: 'James Ibori  paid',
+    date: 'Jan 9, 2023  Just now',
+    amount: 780_923,
+  },
+  {
+    id: 1,
+    title: 'Kayode Odedele made a quote request ',
+    date: 'Jan 9, 2023  5mins ago',
+  },
+  {
+    id: 1,
+    title: 'Rick Wright has accepted your invite to be field agent',
+    date: 'Jan 9, 2023  Just now',
+  },
+  {
+    id: 1,
+    title: 'James Ibori  paid',
+    date: 'Jan 9, 2023  Just now',
+    amount: 780_923,
+  },
+];
+
+const QUOTE_REQUESTS: AllNofications[] = [
+  {
+    id: 1,
+    title: 'Jonathan Ogunleye',
+    date: 'Jan 9, 2023  Just now',
+  },
+  {
+    id: 1,
+    title: 'David Ogunleye',
+    date: 'Jan 9, 2023  5mins ago',
+  },
+  {
+    id: 1,
+    title: 'Jonathan Ogunleye',
+    date: 'Jan 9, 2023  Just now',
+  },
+  {
+    id: 1,
+    title: 'David Ogunleye',
+    date: 'Jan 9, 2023  5mins ago',
+  },
+  {
+    id: 1,
+    title: 'Jonathan Ogunleye',
+    date: 'Jan 9, 2023  Just now',
+  },
+  {
+    id: 1,
+    title: 'David Ogunleye',
+    date: 'Jan 9, 2023  5mins ago',
+  },
+  {
+    id: 1,
+    title: 'Jonathan Ogunleye',
+    date: 'Jan 9, 2023  Just now',
+  },
+  {
+    id: 1,
+    title: 'David Ogunleye',
+    date: 'Jan 9, 2023  5mins ago',
+  },
+];
+
 function SplashHome() {
   interface DropDown {
     isContactDown?: boolean;
@@ -24,7 +121,7 @@ function SplashHome() {
     isPortAndTerminalDown?: boolean;
   }
 
-  type SwitchPath = 'all' | 'quoteRequests'
+  type SwitchPath = 'all' | 'quoteRequests';
 
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('all');
@@ -521,7 +618,6 @@ function SplashHome() {
     </>
   );
 
-
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleClose = () => {
@@ -531,17 +627,15 @@ function SplashHome() {
   };
 
   const handleOpen = () => {
-
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
   };
 
-  const switchPath:Record<SwitchPath, JSX.Element> = {
+  const switchPath: Record<SwitchPath, JSX.Element> = {
     all: <div>hello</div>,
-    quoteRequests: <div>hello</div>
-  }
-
+    quoteRequests: <div>hello</div>,
+  };
 
   return (
     <>
@@ -584,9 +678,7 @@ function SplashHome() {
               Quote Requests
             </label>
           </div>
-          <section>
-            {switchPath[currentPath]}
-          </section>
+          <section>{switchPath[currentPath]}</section>
         </div>
       </dialog>
       <div
