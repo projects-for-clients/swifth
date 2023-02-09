@@ -151,20 +151,22 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   return (
     <>
-          <section className='absolute top-0 left-0 bottom-0 bg-red-500'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus voluptatibus repellendus quae corporis illo. Cupiditate et mollitia qui. Quam, non placeat temporibus dolor eum quasi tenetur tempore eius nemo explicabo.
-
-            <div className='bg-white h-[40%]'>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rem aspernatur, temporibus eius ipsa nostrum architecto beatae, id mollitia quaerat accusamus aut nihil ratione. Nobis error necessitatibus laborum voluptate facilis.
-            </div>
-          </section>
+      <section className="absolute top-0 left-0 bottom-0 grid content-end">
+        
+        <div className="bg-white ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rem
+          aspernatur, temporibus eius ipsa nostrum architecto beatae, id
+          mollitia quaerat accusamus aut nihil ratione. Nobis error
+          necessitatibus laborum voluptate facilis.
+        </div>
+      </section>
 
       <div className="px-5 h-full items-baseline ">
         <div className="flex">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
             onClick={goBack}
-            />
+          />
           <p className="text-[1.6rem] text-gray-600 w-full text-center">
             {title}
           </p>
