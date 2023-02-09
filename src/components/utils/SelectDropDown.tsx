@@ -32,7 +32,7 @@ const SelectDropDown:FC<ISelectDropDown> = ({
         className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
         onClick={sortMenuToggler}
       >
-        {selectedItem || 'Today'}
+        {selectedItem || label}
       </p>
 
       {toggleSortMenu && (
