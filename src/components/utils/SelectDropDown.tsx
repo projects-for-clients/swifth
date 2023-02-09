@@ -21,7 +21,7 @@ const SelectDropDown:FC<ISelectDropDown> = ({
 
     const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
 
-    const handleSelectedItem = (item: any) => {
+    const handleSelectedItem = (item: string) => {
       setSelectedItem(item);
       setToggleSortMenu(false);
     }
@@ -37,7 +37,7 @@ const SelectDropDown:FC<ISelectDropDown> = ({
 
       {toggleSortMenu && (
         <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
-          {sortBy.map((item, index) => (
+          {selectFrom.map((item, index) => (
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
               key={index}
