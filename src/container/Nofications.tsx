@@ -130,9 +130,9 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
       carYear: '2021',
       carModel: 'Toyota Corolla',
       carBrand: 'Toyota',
-      trim: 'LE',
+      trim: 'XLE',
       port: 'Lagos',
-      terminal: 'Apapa',
+      terminal: 'Terminal 1',
     };
     setQuoteDetails(data);
   }, [showDetails.id]);
@@ -149,7 +149,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
     quoteDetails;
 
   return (
-    <div>
+    <div className='px-10'>
       <div className="flex">
         <BsArrowLeft className="text-[2.4rem] cursor-pointer" onClick={goBack}/>
         <p className="text-[1.6rem] text-gray-600 w-full text-center">
@@ -157,34 +157,34 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
         </p>
       </div>
       <main className='grid gap-4 mt-20'>
-        <div className="grid grid-cols-2 items-center border-b border-b-color-red-light-1 py-4">
+        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
           <div>
-            <p className="text-[1.6rem] text-gray-600">Car Year</p>
-            <p className="text-[1.2rem] text-gray-500">{carYear}</p>
+            <p className="text-[1.4rem] text-gray-400">Car Year</p>
+            <p className="text-[1.6rem] text-gray-600">{carYear}</p>
           </div>
           <div>
-            <p className="text-[1.6rem] text-gray-600">Car Brand</p>
-            <p className="text-[1.2rem] text-gray-500">{carBrand}</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 items-center border-b border-b-color-red-light-1 py-4">
-          <div>
-            <p className="text-[1.6rem] text-gray-600">Car Model</p>
-            <p className="text-[1.2rem] text-gray-500">{carModel}</p>
-          </div>
-          <div>
-            <p className="text-[1.6rem] text-gray-600">Trim</p>
-            <p className="text-[1.2rem] text-gray-500">{trim}</p>
+            <p className="text-[1.4rem] text-gray-400">Car Brand</p>
+            <p className="text-[1.6rem] text-gray-600">{carBrand}</p>
           </div>
         </div>
-        <div className="grid grid-cols-2 items-center border-b border-b-color-red-light-1 py-4">
+        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
           <div>
-            <p className="text-[1.6rem] text-gray-600">Port</p>
-            <p className="text-[1.2rem] text-gray-500">{port}</p>
+            <p className="text-[1.4rem] text-gray-400">Car Model</p>
+            <p className="text-[1.6rem] text-gray-600">{carModel}</p>
           </div>
           <div>
-            <p className="text-[1.6rem] text-gray-600">Terminal</p>
-            <p className="text-[1.2rem] text-gray-500">{terminal}</p>
+            <p className="text-[1.4rem] text-gray-400">Trim</p>
+            <p className="text-[1.6rem] text-gray-600">{trim}</p>
+          </div>
+        </div>
+        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+          <div>
+            <p className="text-[1.4rem] text-gray-400">Port</p>
+            <p className="text-[1.6rem] text-gray-600">{port}</p>
+          </div>
+          <div>
+            <p className="text-[1.4rem] text-gray-400">Terminal</p>
+            <p className="text-[1.6rem] text-gray-600">{terminal}</p>
           </div>
         </div>
       </main>
@@ -201,7 +201,7 @@ export const AllNofications = () => {
     <>
       {ALL_NOTIFICATIONS.map((item, i) => (
         <div
-          className="grid grid-cols-2 items-center border-b border-color-red-light-1 py-4"
+          className="flex justify-between items-center border-b border-color-red-light-1 py-4"
           key={i}
         >
           <div className="">
