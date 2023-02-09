@@ -1,5 +1,6 @@
 import { Dispatch, FC, useEffect, useState, SetStateAction, FormEvent } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+import { toast, ToastContainer } from 'react-toastify';
 import { ShowDetails, SwitchPath } from './dashboard/Home';
 
 interface AllNofications {
@@ -159,6 +160,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   const handleQuoteSubmit = (e:FormEvent) => {
     e.preventDefault();
+
   
   }
   return (
@@ -169,7 +171,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
         <div onClick={closeModal}>
             &nbsp;
         </div>
-        <form className="bg-white py-10 px-10" onSubmit={handleQuoteSubmit}>
+        <form className="bg-white py-10 px-10 rounded-t-3xl" onSubmit={handleQuoteSubmit}>
           <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
 
           <div>
