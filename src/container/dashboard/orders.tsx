@@ -14,26 +14,32 @@ interface OrdersArr {
 }
 
 
-const ORDERS:OrdersArr[] = [
+const ORDERS: OrdersArr[] = [
   {
     id: 1,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs().subtract(1, 'day').toDate(),
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
     tags: 'Docs in Review',
   },
   {
     id: 2,
     name: 'Akpan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs().subtract(12, 'day').toDate(),
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
     tags: 'Docs in Review',
   },
   {
     id: 3,
     name: 'Solomon Henry',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs().subtract(10, 'day').toDate(),
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
     tags: 'Docs in Review',
   },
   {
@@ -43,7 +49,6 @@ const ORDERS:OrdersArr[] = [
     date: dayjs().subtract(5, 'day').toDate(),
     tags: 'Docs in Review',
   },
- 
 ];
 
 function orders() {
