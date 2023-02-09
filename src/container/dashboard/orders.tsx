@@ -6,6 +6,7 @@ import SelectDropDown from '../../components/utils/SelectDropDown';
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy = ['Most Recent', 'A-Z'] 
+  const filters = ['Docs in Review', 'Valuating', 'Duty Processing', 'Custom Releasing', 'Delivery Pending', 'Completed']
 
   
   const [selectedSort, setSelectedSort] = useState('Most Recent');
@@ -58,7 +59,7 @@ function orders() {
           </div>
 
           <div className="flex justify-between items-center mt-10">
-            <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer">
+            <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]">
               <img
                 src="/icons/history.svg"
                 alt=""
@@ -75,10 +76,13 @@ function orders() {
                   setSelectedItem={setSelectedSort}
 
                 />
-              <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer">
-                <p>Most Recent</p>
-                <FiChevronDown />
-              </div>
+                <SelectDropDown
+                  selectFrom={sortBy}
+                  selectedItem={selectedSort}
+                  setSelectedItem={setSelectedSort}
+
+                />
+              
               <img src="/icons/filter.svg" alt="" className="cursor-pointer" />
             </div>
           </div>
