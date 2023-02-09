@@ -1,12 +1,13 @@
 import Header from '../../components/dashboard/Header';
 import { useState } from 'react';
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { GrUp, GrDown } from 'react-icons/gr';
+import { FiChevronDown } from 'react-icons/fi';
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
-  
+  const sortBy = ['Most Recent', 'A-Z'] as const;
 
+  
+  const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
 
   return (
