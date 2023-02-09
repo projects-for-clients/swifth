@@ -1,9 +1,11 @@
 import Header from '../../components/dashboard/Header';
 import { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { GrUp, GrDown } from 'react-icons/gr';
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
+  
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
 
@@ -64,6 +66,7 @@ function orders() {
             </div>
 
             <div className="flex items-center gap-8">
+              
               <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer">
                 <p>Most Recent</p>
                 <FiChevronDown />
