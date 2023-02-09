@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
 interface AllNofications {
@@ -109,21 +109,44 @@ const QUOTE_REQUESTS: AllNofications[] = [
   },
 ];
 export const QuoteRequestsDetails:FC<QuoteRequestsDetails> = () => {
-  const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails[]>([]);
+  const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails>({} as QuoteRequestsDetails);
+
+  useEffect(() => {
+    const data = {
+      id: 1,
+      title: 'Jonathan Ogunleye',
+      carYear: '2021',
+      carModel: 'Toyota Corolla',
+      carBrand: 'Toyota',
+      trim: 'LE',
+      port: 'Lagos',
+      terminal: 'Apapa',
+    };
+    setQuoteDetails(data);
+  })
 
   const goBack = () => {
     console.log('go back');
   };
 
 
-
+const {
+    id,
+    title,
+    carYear,
+    carModel,
+    carBrand,
+    trim,
+    port,
+    terminal,
+} = quoteDetails;
 
 
   return (
     <div>
       <div>
         <BsArrowLeft className="text-[2.4rem]" onClick={goBack} />
-        <p className="text-[1.6rem] text-gray-600">{item.title}</p>
+        <p className="text-[1.6rem] text-gray-600">{title}</p>
       </div>
     </div>
   );
