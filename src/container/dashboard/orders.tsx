@@ -1,12 +1,19 @@
 import Header from '../../components/dashboard/Header';
+import {CiSearch} from 'react-icons/ci';
 
 function orders() {
   return (
-    <div>
+    <>
       <Header title="Orders" />
 
-      orders
-    </div>
+      <main>
+            <section className='relative'>
+              <input type="text" />
+
+              <CiSearch/>
+            </section>
+      </main>
+    </>
   );
 }
 
