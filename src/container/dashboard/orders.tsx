@@ -3,7 +3,7 @@ import { CiSearch } from 'react-icons/ci';
 import { useState } from 'react';
 
 function orders() {
-  type SwitchPath = 'inProgress' | 'waitlist'
+  type SwitchPath = 'inProgress' | 'waitlist';
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
 
@@ -36,7 +36,9 @@ function orders() {
               onChange={() => setCurrentPath('inProgress')}
               checked={currentPath === 'inProgress'}
             />
-            <label htmlFor="inProgress" className='capitalize text-[2rem]'>In Progress</label>
+            <label htmlFor="inProgress" className="capitalize text-[2rem]">
+              In Progress
+            </label>
 
             <input
               type="radio"
@@ -51,11 +53,15 @@ function orders() {
             </label>
           </div>
 
-          <div className='flex justify-between items-center'>
-        <div className='flex items-center'>
-          <img src="/icons/history.svg" alt="" />
-          <p>History</p>
-        </div>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center bg-gray-100 border-gray-300 py-4 px-8 rounded-3xl">
+              <img src="/icons/history.svg" alt="" className='w-[1.6rem] h-[1.6rem]' />
+              <p>History</p>
+            </div>
+            <div className="flex items-center">
+              <img src="/icons/history.svg" alt="" />
+              <p>History</p>
+            </div>
           </div>
         </section>
       </main>
