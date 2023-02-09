@@ -151,13 +151,15 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   return (
     <>
-      <section className="absolute top-0 left-0 bottom-0 grid content-end">
-        
+      <section className="absolute top-0 left-0 bottom-0 grid content-end bg-[#000000ad] ">
         <div className="bg-white ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rem
-          aspernatur, temporibus eius ipsa nostrum architecto beatae, id
-          mollitia quaerat accusamus aut nihil ratione. Nobis error
-          necessitatibus laborum voluptate facilis.
+          <p className="text-[1.6rem] font-bold">Quote Amount</p>
+
+          <div>
+            <label htmlFor="amount" className="text-[1.2rem] text-[#0e2043cc]">
+              Enter Amount
+            </label>
+          </div>
         </div>
       </section>
 
