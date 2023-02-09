@@ -9,8 +9,6 @@ interface AllNofications {
   amount?: number;
 }
 
-
-
 const ALL_NOTIFICATIONS: AllNofications[] = [
   {
     id: 1,
@@ -103,11 +101,15 @@ const QUOTE_REQUESTS: AllNofications[] = [
 
 interface IQuoteRequestsProps {
   showDetails: ShowDetails;
-  setShowDetails: Dispatch<SetStateAction<ShowDetails>>,
-  setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
+  setShowDetails: Dispatch<SetStateAction<ShowDetails>>;
+  setCurrentPath: Dispatch<SetStateAction<SwitchPath>>;
 }
 
-export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, setShowDetails, showDetails}) => {
+export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
+  setCurrentPath,
+  setShowDetails,
+  showDetails,
+}) => {
   interface QuoteRequestsDetails {
     id: number;
     title: string;
@@ -137,26 +139,28 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
     setQuoteDetails(data);
   }, [showDetails.id]);
 
- 
   const goBack = () => {
     setShowDetails({
       show: false,
     });
-    setCurrentPath('quoteRequests')
-  }
+    setCurrentPath('quoteRequests');
+  };
 
   const { id, title, carYear, carModel, carBrand, trim, port, terminal } =
     quoteDetails;
 
   return (
-    <div className='px-10'>
+    <div className="px-5 bg-red-500">
       <div className="flex">
-        <BsArrowLeft className="text-[2.4rem] cursor-pointer" onClick={goBack}/>
+        <BsArrowLeft
+          className="text-[2.4rem] cursor-pointer"
+          onClick={goBack}
+        />
         <p className="text-[1.6rem] text-gray-600 w-full text-center">
           {title}
         </p>
       </div>
-      <main className='grid gap-4 mt-20'>
+      <main className="grid gap-4 mt-20">
         <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
           <div>
             <p className="text-[1.4rem] text-gray-400">Car Year</p>
@@ -189,8 +193,10 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
         </div>
       </main>
 
-      <button className='bg-color-primary rounded-lg text-white mt-auto'>
-        Send Quote
+      <button className=" mt-auto">
+        <span className="bg-color-primary rounded-lg text-white">
+          Send Quote
+        </span>
       </button>
     </div>
   );
@@ -220,14 +226,14 @@ export const AllNofications = () => {
   );
 };
 
-export const QuoteRequests:FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({setShowDetails}) => {
+export const QuoteRequests: FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({
+  setShowDetails,
+}) => {
   const showDetailsHandler = (id: number) => {
-    
     setShowDetails({
       show: true,
-      id
-    })
-
+      id,
+    });
   };
 
   return (

@@ -571,7 +571,7 @@ function DashboardHome() {
             />
           </figure>
           {showDetails.show ? (
-            <section className="px-10">
+            <section className="px-10 h-full">
               <QuoteRequestsDetails
                 showDetails={showDetails}
                 setShowDetails={setShowDetails}
@@ -580,7 +580,7 @@ function DashboardHome() {
             </section>
           ) : (
             <>
-              <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
+              <h3 className="text-[2rem] font-medium px-8  ">Notifications</h3>
               <div className="radioBox">
                 <input
                   type="radio"
