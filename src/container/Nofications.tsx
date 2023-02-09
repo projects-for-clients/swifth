@@ -150,7 +150,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
     quoteDetails;
 
   return (
-    <div className="px-5 bg-red-500">
+    <div className="px-5">
       <div className="flex">
         <BsArrowLeft
           className="text-[2.4rem] cursor-pointer"
