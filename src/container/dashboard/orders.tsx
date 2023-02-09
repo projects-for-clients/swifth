@@ -1,10 +1,11 @@
 import Header from '../../components/dashboard/Header';
 import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
+import SelectDropDown from '../../components/utils/SelectDropDown';
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
-  const sortBy = ['Most Recent', 'A-Z'] as const;
+  const sortBy = ['Most Recent', 'A-Z'] 
 
   
   const [selectedSort, setSelectedSort] = useState('Most Recent');
@@ -68,6 +69,12 @@ function orders() {
 
             <div className="flex items-center gap-8">
               
+                <SelectDropDown
+                  selectFrom={sortBy}
+                  selectedItem={selectedSort}
+                  setSelectedItem={setSelectedSort}
+
+                />
               <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer">
                 <p>Most Recent</p>
                 <FiChevronDown />

@@ -5,7 +5,7 @@ interface ISelectDropDown {
     selectFrom: string[];
     selectedItem: string;
     setSelectedItem: Dispatch<SetStateAction<string>>;
-    label: string;
+    label?: string;
 }
 
 const SelectDropDown:FC<ISelectDropDown> = ({
@@ -29,14 +29,14 @@ const SelectDropDown:FC<ISelectDropDown> = ({
   return (
     <div className="relative flex items-center w-[20rem] justify-items-start cursor-pointer">
       <p
-        className="border border-color-primary-light p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
+        className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointe text-left"
         onClick={sortMenuToggler}
       >
         {selectedItem || label}
       </p>
 
       {toggleSortMenu && (
-        <div className="absolute top-[5rem]  left-0 border border-color-primary-light w-[10rem] bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize">
+        <div className="absolute top-[6rem] w-[20rem] left-0  bg-gray-100 border border-gray-300 rounded-lg grid gap-2 shadow z-20 capitalize">
           {selectFrom.map((item, index) => (
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
