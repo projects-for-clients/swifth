@@ -10,7 +10,7 @@ function orders() {
         <section className="relative">
           <input
             type="text"
-            className="max-w-[45rem] border border-gray-200 rounded-md py-6 px-3"
+            className="max-w-[45rem] border border-gray-200 rounded-md py-6 pr-3 pl-10"
           />
 
           <CiSearch />
