@@ -8,6 +8,8 @@ function orders() {
   const sortBy = ['Most Recent', 'A-Z'] 
   const filters = ['Docs in Review', 'Valuating', 'Duty Processing', 'Custom Releasing', 'Delivery Pending', 'Completed']
 
+  const [filteredBy, setFilteredBy] = useState('Docs in Review');
+
   
   const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
