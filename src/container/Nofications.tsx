@@ -175,8 +175,8 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
           gridTemplateRows: '1.2fr 1fr',
         }}
       >
-        <div className="absolute rounded-lg bg-green-50 border border-green-300 py-8 px-4 text-green-500 flex">
-         <span>Quote Sent</span>
+        <div className="absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-500 flex w-[36rem] mx-auto top-4 left-0 right-0">
+         <span className='w-full'>Quote Sent!</span>
          <GrClose/>
         </div>
         <div onClick={closeModal}>&nbsp;</div>
