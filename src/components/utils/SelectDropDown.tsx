@@ -1,5 +1,11 @@
-import React, { useState } from 'react'
+import { Dispatch, useState, SetStateAction } from 'react'
 import { GrUp, GrDown } from 'react-icons/gr';
+
+interface ISelectDropDown {
+    selectFrom: string[];
+    selected: string;
+    setSelected: Dispatch<SetStateAction<string>>;
+}
 
 const SelectDropDown = () => {
     const sortBy = ['A-Z', 'date'];
