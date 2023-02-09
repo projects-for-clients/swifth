@@ -150,7 +150,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
     quoteDetails;
 
   return (
-    <div className="px-5">
+    <div className="px-5 h-full items-baseline ">
       <div className="flex">
         <BsArrowLeft
           className="text-[2.4rem] cursor-pointer"
@@ -193,8 +193,8 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
         </div>
       </main>
 
-      <button className=" mt-auto h-full">
-        <span className="bg-color-primary rounded-lg text-white">
+      <button className="flex w-full h-full items-center ">
+        <span className="bg-color-primary rounded-lg text-white w-full py-4">
           Send Quote
         </span>
       </button>
