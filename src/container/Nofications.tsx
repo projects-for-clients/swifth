@@ -1,4 +1,5 @@
-import { BsArrowRight } from 'react-icons/bs';
+import { FC, useState } from 'react';
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
 interface AllNofications {
   id: number;
@@ -15,7 +16,7 @@ interface QuoteRequestsDetails {
   carBrand: string;
   trim: string;
   port: string;
-  terminal: string
+  terminal: string;
 }
 
 const ALL_NOTIFICATIONS: AllNofications[] = [
@@ -107,6 +108,26 @@ const QUOTE_REQUESTS: AllNofications[] = [
     date: 'Jan 9, 2023  5mins ago',
   },
 ];
+export const QuoteRequestsDetails:FC<QuoteRequestsDetails> = () => {
+  const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails[]>([]);
+
+  const goBack = () => {
+    console.log('go back');
+  };
+
+
+
+
+
+  return (
+    <div>
+      <div>
+        <BsArrowLeft className="text-[2.4rem]" onClick={goBack} />
+        <p className="text-[1.6rem] text-gray-600">{item.title}</p>
+      </div>
+    </div>
+  );
+};
 
 export const AllNofications = () => {
   return (
@@ -133,6 +154,10 @@ export const AllNofications = () => {
 };
 
 export const QuoteRequests = () => {
+  const showDetails = () => {
+    console.log('show details');
+  };
+
   return (
     <>
       {QUOTE_REQUESTS.map((item, i) => (
@@ -144,7 +169,7 @@ export const QuoteRequests = () => {
             <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
-          <BsArrowRight className="text-[2.4rem]" />
+          <BsArrowRight className="text-[2.4rem]" onClick={showDetails} />
         </div>
       ))}
     </>
