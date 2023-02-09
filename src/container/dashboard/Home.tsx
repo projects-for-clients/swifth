@@ -553,7 +553,7 @@ function DashboardHome() {
         subTitle="Welcome to Swifth"
         openDialog={handleOpen}
       />
-      <dialog className="dialog relative " ref={dialogRef}>
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem]  py-4">
           <figure className="flex justify-end px-8">
             <img
@@ -591,7 +591,7 @@ function DashboardHome() {
         </div>
       </dialog>
       <div
-        className="grid gap-4 max-w-[120rem] mx-auto"
+        className="grid gap-4 max-w-[120rem] mx-auto text-[1.6rem]"
         style={{
           gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
         }}
