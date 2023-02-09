@@ -53,8 +53,8 @@ function orders() {
             </label>
           </div>
 
-          <div className="flex justify-between items-center">
-            <div className="flex items-center bg-gray-100 border-gray-300 py-4 px-8 rounded-3xl">
+          <div className="flex justify-between items-center mt-10">
+            <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-3xl gap-4 w-[15rem] justify-center cursor-pointer">
               <img src="/icons/history.svg" alt="" className='w-[1.6rem] h-[1.6rem]' />
               <p>History</p>
             </div>
