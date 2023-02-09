@@ -564,33 +564,38 @@ function DashboardHome() {
               onClick={() => handleClose()}
             />
           </figure>
-          {}
-          <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
-          <div className="radioBox">
-            <input
-              type="radio"
-              name="notification"
-              id="all"
-              className="hidden"
-              onChange={() => setCurrentPath('all')}
-              defaultChecked
-            />
-            <label htmlFor="all">All</label>
+          {showDetails ? (
+            <div>he</div>
+          ) : (
+            <>
+              <h3 className="text-[2rem] font-medium px-8">Notifications</h3>
+              <div className="radioBox">
+                <input
+                  type="radio"
+                  name="notification"
+                  id="all"
+                  className="hidden"
+                  onChange={() => setCurrentPath('all')}
+                  defaultChecked
+                />
+                <label htmlFor="all">All</label>
 
-            <input
-              type="radio"
-              name="notification"
-              id="quoteRequests"
-              className="hidden"
-              onChange={() => setCurrentPath('quoteRequests')}
-            />
-            <label htmlFor="quoteRequests" className="capitalize">
-              Quote Requests
-            </label>
-          </div>
-          <section className="px-10">
-            <QuoteRequestsDetails />
-          </section>
+                <input
+                  type="radio"
+                  name="notification"
+                  id="quoteRequests"
+                  className="hidden"
+                  onChange={() => setCurrentPath('quoteRequests')}
+                />
+                <label htmlFor="quoteRequests" className="capitalize">
+                  Quote Requests
+                </label>
+              </div>
+              <section className="px-10">
+                <QuoteRequestsDetails />
+              </section>{' '}
+            </>
+          )}
         </div>
       </dialog>
       <div
