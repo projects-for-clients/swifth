@@ -157,7 +157,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
         </p>
       </div>
       <main className='grid gap-4 mt-20'>
-        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+        <div className="grid grid-cols-2 items-center border-b border-b-color-red-light-1 py-4">
           <div>
             <p className="text-[1.6rem] text-gray-600">Car Year</p>
             <p className="text-[1.2rem] text-gray-500">{carYear}</p>
@@ -167,7 +167,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
             <p className="text-[1.2rem] text-gray-500">{carBrand}</p>
           </div>
         </div>
-        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+        <div className="grid grid-cols-2 items-center border-b border-b-color-red-light-1 py-4">
           <div>
             <p className="text-[1.6rem] text-gray-600">Car Model</p>
             <p className="text-[1.2rem] text-gray-500">{carModel}</p>
@@ -177,7 +177,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
             <p className="text-[1.2rem] text-gray-500">{trim}</p>
           </div>
         </div>
-        <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+        <div className="grid grid-cols-2 items-center border-b border-b-color-red-light-1 py-4">
           <div>
             <p className="text-[1.6rem] text-gray-600">Port</p>
             <p className="text-[1.2rem] text-gray-500">{port}</p>
@@ -201,7 +201,7 @@ export const AllNofications = () => {
     <>
       {ALL_NOTIFICATIONS.map((item, i) => (
         <div
-          className="flex justify-between items-center border-b border-color-red-light-1 py-4"
+          className="grid grid-cols-2 items-center border-b border-color-red-light-1 py-4"
           key={i}
         >
           <div className="">
