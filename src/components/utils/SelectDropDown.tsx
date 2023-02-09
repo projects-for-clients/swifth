@@ -1,44 +1,47 @@
-import { Dispatch, useState, SetStateAction, FC } from 'react'
+import { Dispatch, useState, SetStateAction, FC } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
 
 interface ISelectDropDown {
-    selectFrom: string[];
-    selectedItem: string;
-    setSelectedItem: Dispatch<SetStateAction<string>>;
-    label?: string;
-    isFilter?: boolean;
+  selectFrom: string[];
+  selectedItem: string;
+  setSelectedItem: Dispatch<SetStateAction<string>>;
+  label?: string;
+  isFilter?: boolean;
 }
 
-const SelectDropDown:FC<ISelectDropDown> = ({
-    selectFrom,
-    selectedItem,
-    setSelectedItem,
-    label,
-    isFilter
+const SelectDropDown: FC<ISelectDropDown> = ({
+  selectFrom,
+  selectedItem,
+  setSelectedItem,
+  label,
+  isFilter,
 }) => {
-  
+  const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-    const [toggleSortMenu, setToggleSortMenu] = useState(false);
+  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
 
+  const handleSelectedItem = (item: string) => {
+    setSelectedItem(item);
+    setToggleSortMenu(false);
+  };
 
-    const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
-
-    const handleSelectedItem = (item: string) => {
-      setSelectedItem(item);
-      setToggleSortMenu(false);
-    }
-    
   return (
     <div className="relative flex items-center w-[15rem] justify-items-start cursor-pointer">
-        {
-            isFilter ? <img src="/icons/filter.svg" alt="" className="cursor-pointer" /> : <p
-        className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointe text-left"
-        onClick={sortMenuToggler}
-      >
-        {selectedItem || label}
-      </p>
-        }
-      
+      {isFilter ? (
+        <img
+          src="/icons/filter.svg"
+          alt=""
+          className="cursor-pointer"
+          onClick={sortMenuToggler}
+        />
+      ) : (
+        <p
+          className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointe text-left"
+          onClick={sortMenuToggler}
+        >
+          {selectedItem || label}
+        </p>
+      )}
 
       {toggleSortMenu && (
         <div className="absolute top-[6rem] w-[15rem] left-0  bg-gray-100 border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
@@ -53,13 +56,14 @@ const SelectDropDown:FC<ISelectDropDown> = ({
           ))}
         </div>
       )}
-      {toggleSortMenu ? (
+      
+      { isFilter ? toggleSortMenu ? (
         <GrUp className="absolute right-4 text-[1.3rem]" />
       ) : (
         <GrDown className="absolute right-4 text-[1.3rem]" />
-      )}
+      ): null}
     </div>
   );
-}
+};
 
-export default SelectDropDown
+export default SelectDropDown;
