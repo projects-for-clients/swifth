@@ -193,7 +193,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
         </div>
       </main>
 
-      <button className=" mt-auto">
+      <button className=" mt-auto h-full">
         <span className="bg-color-primary rounded-lg text-white">
           Send Quote
         </span>
