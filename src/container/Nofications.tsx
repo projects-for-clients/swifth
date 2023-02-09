@@ -150,8 +150,8 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
 
   return (
     <div>
-      <div className="flex ">
-        <BsArrowLeft className="text-[2.4rem]" onClick={goBack}/>
+      <div className="flex">
+        <BsArrowLeft className="text-[2.4rem] cursor-pointer" onClick={goBack}/>
         <p className="text-[1.6rem] text-gray-600 justify-self-center">
           {title}
         </p>
@@ -236,8 +236,9 @@ export const QuoteRequests:FC<Pick<IQuoteRequestsProps, 'setShowDetails'>> = ({s
         <div
           className="flex justify-between items-center border-b border-color-red-light-1 py-4 cursor-pointer"
           key={i}
+          onClick={() => showDetailsHandler(item.id)}
         >
-          <div onClick={() => showDetailsHandler(item.id)}>
+          <div>
             <p className="text-[1.6rem] text-gray-600">{item.title}</p>
             <p className="text-[1.2rem] text-gray-500">{item.date}</p>
           </div>
