@@ -34,7 +34,7 @@ const ORDERS: OrdersArr[] = [
     tags: 'Duty Processing',
   },
   {
-    id: 3,
+    id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: dayjs()
@@ -43,7 +43,7 @@ const ORDERS: OrdersArr[] = [
     tags: 'Custom Releasing',
   },
   {
-    id: 4,
+    id: Math.random(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: dayjs()
