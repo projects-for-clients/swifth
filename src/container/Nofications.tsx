@@ -155,7 +155,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus voluptatibus repellendus quae corporis illo. Cupiditate et mollitia qui. Quam, non placeat temporibus dolor eum quasi tenetur tempore eius nemo explicabo.
 
             <div className='bg-white h-[40%]'>
-
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rem aspernatur, temporibus eius ipsa nostrum architecto beatae, id mollitia quaerat accusamus aut nihil ratione. Nobis error necessitatibus laborum voluptate facilis.
             </div>
           </section>
 
