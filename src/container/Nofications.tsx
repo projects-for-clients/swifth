@@ -167,6 +167,8 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
 
   const handleQuoteSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    setToDisplay('flex');
   };
   return (
     <>
