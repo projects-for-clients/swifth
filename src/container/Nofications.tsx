@@ -7,6 +7,17 @@ interface AllNofications {
   amount?: number;
 }
 
+interface QuoteRequestsDetails {
+  id: number;
+  title: string;
+  carYear: string;
+  carModel: string;
+  carBrand: string;
+  trim: string;
+  port: string;
+  terminal: string
+}
+
 const ALL_NOTIFICATIONS: AllNofications[] = [
   {
     id: 1,
