@@ -11,11 +11,12 @@ import BoxTimeSvg from '../../components/icons/boxTimeSvg';
 import MoneysSvg from '../../components/icons/moneysSvg';
 import TeamsSvg from '../../components/icons/teamsSvg';
 import Orders from '../../components/icons/sidebar/orders';
-import { useEffect, useReducer, useRef, useState } from 'react';
+import { ReactElement, useEffect, useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/app/hooks';
 import { selectUser } from '../../store/features/user/user';
 import AnalyticsChart from '../../components/charts/AnalyticsChart';
+import { AllNofications, QuoteRequests } from '../Nofications';
 
 
 
@@ -537,9 +538,9 @@ function DashboardHome() {
     }
   };
 
-  const switchPath: Record<SwitchPath, JSX.Element> = {
-    all: <div>hello</div>,
-    quoteRequests: <div>hello</div>,
+  const switchPath: Record<SwitchPath, ReactElement<any, any>> = {
+    all: <AllNofications/>,
+    quoteRequests: <QuoteRequests/>
   };
 
 

@@ -99,7 +99,7 @@ const QUOTE_REQUESTS: AllNofications[] = [
 
 export const AllNofications = () => {
   return ALL_NOTIFICATIONS.map((item, i) => (
-    <div className="flex justify-between items-center border-b border-color-red-light-1 py-4">
+    <div className="flex justify-between items-center border-b border-color-red-light-1 py-4" key={i}>
       <div className="">
         <p className="text-[1.6rem]">{item.title}</p>
         <p className="text-[1.2rem] text-gray-500">{item.date}</p>
@@ -116,7 +116,7 @@ export const AllNofications = () => {
 
 export const QuoteRequests = () => {
   return QUOTE_REQUESTS.map((item, i) => (
-    <div className="flex justify-between items-center border-b border-color-red-light-1 py-4">
+    <div className="flex justify-between items-center border-b border-color-red-light-1 py-4" key={i}>
       <div className="">
         <p className="text-[1.6rem]">{item.title}</p>
         <p className="text-[1.2rem] text-gray-500">{item.date}</p>
