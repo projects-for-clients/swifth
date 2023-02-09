@@ -569,7 +569,7 @@ function DashboardHome() {
               onClick={() => handleClose()}
             />
           </figure>
-          {showDetails ? (
+          {showDetails.show ? (
             <section className="px-10">
               <QuoteRequestsDetails
                 showDetails={setShowDetails}
