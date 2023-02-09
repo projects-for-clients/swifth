@@ -168,7 +168,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
   const handleQuoteSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    setToDisplay('flex');
+    setToastDisplay('flex');
   };
   return (
     <>
@@ -180,7 +180,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
       >
         <div className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}>
          <span className='w-full text-center'>Quote Sent!</span>
-         <GrClose onClick={() => setToastDisplay('hidden')}/>
+         <GrClose onClick={() => setToastDisplay('hidden')} className='cursor-pointer'/>
         </div>
         <div onClick={closeModal}>&nbsp;</div>
         <form
