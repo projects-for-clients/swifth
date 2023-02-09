@@ -1,6 +1,6 @@
 import { Dispatch, FC, useEffect, useState, SetStateAction } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-import { SwitchPath } from './dashboard/Home';
+import { ShowDetails, SwitchPath } from './dashboard/Home';
 
 interface AllNofications {
   id: number;
@@ -102,7 +102,7 @@ const QUOTE_REQUESTS: AllNofications[] = [
 ];
 
 interface IQuoteRequestsProps {
-  showDetails: Dispatch<SetStateAction<boolean>>,
+  showDetails: Dispatch<SetStateAction<ShowDetails>>,
   setCurrentPath: Dispatch<SetStateAction<SwitchPath>>
 }
 
@@ -138,7 +138,9 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, sh
 
  
   const goBack = () => {
-    showDetails(false);
+    showDetails({
+      show: false,
+    });
     setCurrentPath('quoteRequests')
   }
 

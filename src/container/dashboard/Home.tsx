@@ -23,6 +23,10 @@ import {
 } from '../Nofications';
 
 export type SwitchPath = 'all' | 'quoteRequests';
+export type ShowDetails = {
+  show: boolean;
+  id?: number | null;
+};
 
 function DashboardHome() {
   interface DropDown {
@@ -33,10 +37,7 @@ function DashboardHome() {
 
   const [closeAccountSetup, setCloseAccountSetup] = useState('grid');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('all');
-  const [showDetails, setShowDetails] = useState<{
-    show: boolean;
-    id: number | null;
-  }>({
+  const [showDetails, setShowDetails] = useState<ShowDetails>({
     show: false,
     id: null,
   });
