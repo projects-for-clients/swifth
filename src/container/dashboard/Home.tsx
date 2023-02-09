@@ -538,7 +538,7 @@ function DashboardHome() {
     }
   };
 
-  const switchPath = {
+  const switchPath: Record<SwitchPath, JSX.Element> = {
     all: <AllNofications/>,
     quoteRequests: <QuoteRequests/>
   };
