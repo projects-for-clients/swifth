@@ -135,7 +135,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
       terminal: 'Apapa',
     };
     setQuoteDetails(data);
-  });
+  }, []);
 
  
   const goBack = () => {
@@ -152,7 +152,7 @@ export const QuoteRequestsDetails:FC<IQuoteRequestsProps> = ({setCurrentPath, se
     <div>
       <div className="flex">
         <BsArrowLeft className="text-[2.4rem] cursor-pointer" onClick={goBack}/>
-        <p className="text-[1.6rem] text-gray-600 justify-self-center">
+        <p className="text-[1.6rem] text-gray-600 w-full">
           {title}
         </p>
       </div>
