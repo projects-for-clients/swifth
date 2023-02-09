@@ -1,4 +1,4 @@
-import { Dispatch, FC, useEffect, useState, SetStateAction } from 'react';
+import { Dispatch, FC, useEffect, useState, SetStateAction, FormEvent } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { ShowDetails, SwitchPath } from './dashboard/Home';
 
@@ -156,6 +156,11 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
   const closeModal = () => {
     setToDisplay('hidden');
   };
+
+  const handleQuoteSubmit = (e:FormEvent) => {
+    e.preventDefault();
+  
+  }
   return (
     <>
       <section className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay}`} style={{
@@ -164,7 +169,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
         <div onClick={closeModal}>
             &nbsp;
         </div>
-        <div className="bg-white  py-10 px-10">
+        <form className="bg-white py-10 px-10" onSubmit={handleQuoteSubmit}>
           <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
 
           <div>
@@ -175,6 +180,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
               type="number"
               name="amount"
               placeholder="Enter Amount"
+              required
               id="amount"
               className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
             />
@@ -185,7 +191,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
               Send Quote
             </span>
           </button>
-        </div>
+        </form>
       </section>
 
       <div className="px-5 h-full items-baseline ">
