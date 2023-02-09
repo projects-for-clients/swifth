@@ -2,29 +2,33 @@ import Header from '../../components/dashboard/Header';
 import { useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
+import dayjs from 'dayjs';
 
+type FilterBy = 'Docs in Review' | 'Valuating' | 'Duty Processing' | 'Custom Releasing' | 'Delivery Pending' | 'Completed';
 interface OrdersArr {
   id: number;
   name: string;
   description: string;
   date: Date
-  tags: string;
+  tags: FilterBy;
 }
 
-const ORDERS = [
+
+const ORDERS:OrdersArr[] = [
   {
     id: 1,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: new Date(),
-    tags: 'Docs in review',
+    date: dayjs().subtract(1, 'day').toDate(),
+    tags: 'Docs in Review',
   },
+ 
 ];
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy = ['Most Recent', 'A-Z'];
-  const filters = [
+  const filters:FilterBy[] = [
     'Docs in Review',
     'Valuating',
     'Duty Processing',
