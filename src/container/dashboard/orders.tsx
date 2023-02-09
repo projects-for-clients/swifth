@@ -6,12 +6,12 @@ function orders() {
     <>
       <Header title="Orders" />
 
-      <main className='text-[1.6rem]'>
-        <section className="relative flex items-center max-w-[45rem]">
+      <main className='text-[1.6rem] bg-red-500'>
+        <section className="relative flex items-center w-[45rem] mx-auto">
           <input
             type="text"
-            className=" border border-gray-200 rounded-md py-6 pr-3 pl-10 outline-none"
-            placeholder="search"
+            className=" border border-gray-200 rounded-md py-6 pr-3 pl-14 outline-none w-full"
+            placeholder="Search"
           />
 
           <CiSearch className="absolute left-3 text-[1.8rem]" />
