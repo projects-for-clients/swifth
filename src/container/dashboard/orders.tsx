@@ -401,15 +401,20 @@ function orders() {
 
     console.log({ data });
     if (data.toLowerCase().includes(value.toLowerCase())) {
-      console.log('true', {value, data});
+      console.log('true', { value, data });
     } else {
-      console.log('false', {value, data);
+      console.log('false', { value, data });
     }
-    // setInProgressData((prev) =>
-    //   prev.filter((item) =>
-    //     item.name.toLowerCase().includes(value.toLowerCase())
-    //   )
-    // );
+    let filteredData = [...inProgressData];
+
+    filteredData = filteredData.filter((item) => {
+      console.log('item', value, item.name);
+
+      return item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    });
+
+    console.log({ filteredData });
+    setInProgressData(filteredData);
   };
 
   return (
