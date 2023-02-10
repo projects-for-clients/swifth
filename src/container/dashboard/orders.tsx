@@ -1,5 +1,12 @@
 import Header from '../../components/dashboard/Header';
-import { ChangeEvent, FC, Fragment, useEffect, useState } from 'react';
+import {
+  ChangeEvent,
+  FC,
+  Fragment,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
@@ -422,21 +429,16 @@ function orders() {
     }
   }, [filteredBy]);
 
-  useEffect(() => {
-    console.log(selectedSort);
-    if (selectedSort && currentPath === 'inProgress') {
-      console.log({ selectedSort });
-      if (selectedSort === 'Most Recent') {
-        const sortedDates = INPROGRESS.sort((a, b) => {
-          console.log('sorting');
-          return new Date(a.date).getTime() - new Date(b.date).getTime();
-        });
+  useLayoutEffect(() => {
+   
+    const sortedDates = INPROGRESS.sort((a, b) => {
+      console.log('sorting');
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
 
-        console.log({ sortedDates });
-        setInProgressData(sortedDates);
-      }
-    }
-  }, [selectedSort]);
+    console.log({ sortedDates });
+    setInProgressData(sortedDates);
+  }, []);
 
   return (
     <>
