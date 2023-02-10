@@ -384,17 +384,12 @@ function orders() {
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
-  const [dataList, setDataList] = useState<{
-    inProgress: InProgress[];
-    waitlist: Waitlist[];
-  }>({
-    inProgress: INPROGRESS,
-    waitlist: WAITLIST,
-  });
+  const [inProgressData, setInProgressData] = useState<InProgress[]>(INPROGRESS);
+  const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: <InProgressView inProgressData={dataList.inProgress} />,
-    waitlist: <WaitlistView waitlistData={dataList.waitlist} />,
+    inProgress: <InProgressView inProgressData={inProgressData} />,
+    waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -411,16 +406,8 @@ function orders() {
       //   inProgress: filtered,
       // }));
 
-      const dataToFilter = [...dataList.inProgress];
 
-      const filtered = dataToFilter.filter((item) => {
-        return item.name.toLowerCase().includes(value.toLowerCase());
-      });
-
-      setDataList((prev) => ({
-        ...prev,
-        inProgress: filtered,
-      }));
+    
     }
   };
 
@@ -472,8 +459,8 @@ function orders() {
             </label>
           </div>
 
-          {(currentPath === 'inProgress' && dataList.inProgress.length < 1) ||
-          (currentPath === 'waitlist' && dataList.waitlist.length < 1) ? (
+          {(currentPath === 'inProgress' && inProgressData.length < 1) ||
+          (currentPath === 'waitlist' && waitlistData.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
