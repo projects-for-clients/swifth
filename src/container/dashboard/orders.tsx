@@ -52,117 +52,118 @@ const filterByColors: Record<FilterBy, FiltersProps> = {
   Completed: { text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
 };
 
-const INPROGRESS: InProgress[] = [
-  {
-    id: Math.random(),
-    name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Docs in Review',
-  },
-  {
-    id: Math.random(),
-    name: 'Akpan Sunyi',
-    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Duty Processing',
-  },
-  {
-    id: Math.random(),
-    name: 'Solomon Henry',
-    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Custom Releasing',
-  },
-  {
-    id: Math.random(),
-    name: 'Joseph Isaac',
-    description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Delivery Pending',
-  },
-  {
-    id: Math.random(),
-    name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Completed',
-  },
-  {
-    id: Math.random(),
-    name: 'Akpan Sunyi',
-    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Custom Releasing',
-  },
-  {
-    id: Math.random(),
-    name: 'Solomon Henry',
-    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Custom Releasing',
-  },
-  {
-    id: Math.random(),
-    name: 'Joseph Isaac',
-    description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Delivery Pending',
-  },
-  {
-    id: Math.random(),
-    name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Valuating',
-  },
-  {
-    id: Math.random(),
-    name: 'Akpan Sunyi',
-    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Delivery Pending',
-  },
-  {
-    id: Math.random(),
-    name: 'Solomon Henry',
-    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Custom Releasing',
-  },
-  {
-    id: Math.random(),
-    name: 'Joseph Isaac',
-    description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-    tag: 'Delivery Pending',
-  },
-];
+// const INPROGRESS: InProgress[] = [
+//   {
+//     id: Math.random(),
+//     name: 'Jonathan Sunyi',
+//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Docs in Review',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Akpan Sunyi',
+//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Duty Processing',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Solomon Henry',
+//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Custom Releasing',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Joseph Isaac',
+//     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Delivery Pending',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Jonathan Sunyi',
+//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Akpan Sunyi',
+//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Custom Releasing',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Solomon Henry',
+//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Custom Releasing',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Joseph Isaac',
+//     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Delivery Pending',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Jonathan Sunyi',
+//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Valuating',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Akpan Sunyi',
+//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Delivery Pending',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Solomon Henry',
+//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Custom Releasing',
+//   },
+//   {
+//     id: Math.random(),
+//     name: 'Joseph Isaac',
+//     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
+//     date: dayjs()
+//       .subtract(Math.floor(Math.random() * 20), 'day')
+//       .toDate(),
+//     tag: 'Delivery Pending',
+//   },
+// ];
 
+const INPROGRESS: InProgress[] = []
 const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
@@ -433,8 +434,8 @@ function orders() {
             </label>
           </div>
 
-          {(currentPath === 'inProgress' && INPROGRESS.length < 1) ||
-          (currentPath === 'waitlist' && WAITLIST.length < 1) ? (
+          {( INPROGRESS.length < 1) ||
+          ( WAITLIST.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
