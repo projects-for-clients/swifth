@@ -26,25 +26,23 @@ const SelectDropDown: FC<ISelectDropDown> = ({
   };
 
   return (
-    <div className="relative flex items-center min-w-[15rem] justify-items-start cursor-pointer">
+    <div className="relative flex items-center min-w-[15rem] justify-items-start cursor-pointer bg-red-500">
       {isFilter ? (
         <div
-          className="bg-color-purple-light-1 flex gap-4 p-4 text-[1.6rem] cursor-pointer rounded-xl"
+          className={`bg-color-purple-light-1 gap-4 p-4 text-[1.6rem] cursor-pointer rounded-xl justify-items-center w-[15rem] ${selectedItem ? 'flex' : 'block'}`}
           onClick={sortMenuToggler}
         >
-          <img
-            src="/icons/filter.svg"
-            alt=""
-            className="cursor-pointer"
-          />
-          <p className=" whitespace-nowrap">{selectedItem || label}</p>
+          <img src="/icons/filter.svg" alt="" className="cursor-pointer" />
+          <p className=" whitespace-nowrap text-[1.2rem]">
+            {selectedItem && `: ${selectedItem}`}
+          </p>
         </div>
       ) : (
         <p
-          className=" bg-gray-100 border border-gray-300 p- rounded-xl w-full text-[1.6rem] cursor-pointer text-left"
+          className=" bg-gray-100 border border-gray-300 p-4 rounded-xl w-full text-[1.6rem] cursor-pointer text-left"
           onClick={sortMenuToggler}
         >
-          {selectedItem && `: ${selectedItem}`}
+          {selectedItem || label}
         </p>
       )}
 
