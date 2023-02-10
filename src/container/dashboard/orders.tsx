@@ -396,25 +396,20 @@ function orders() {
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
-    console.log({ value });
-    const data = inProgressData[0].name;
+    
 
-    console.log({ data });
-    if (data.toLowerCase().includes(value.toLowerCase())) {
-      console.log('true', { value, data });
+    if (currentPath === 'inProgress') {
+      const filtered = INPROGRESS.filter((item) =>
+        item.name.toLowerCase().includes(value.toLowerCase())
+      );
+      setInProgressData(filtered);
     } else {
-      console.log('false', { value, data });
+      const filtered = WAITLIST.filter((item) =>
+        item.name.toLowerCase().includes(value.toLowerCase())
+      );
+      setWaitlistData(filtered);
     }
-    let filteredData = [...inProgressData];
-
-    filteredData = filteredData.filter((item) => {
-      console.log('item', value, item.name);
-
-      return item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-    });
-
-    console.log({ filteredData });
-    setInProgressData(filteredData);
+    
   };
 
   return (
