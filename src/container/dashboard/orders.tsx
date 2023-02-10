@@ -18,8 +18,13 @@ interface InProgress {
   date: Date;
   tag: FilterBy;
 }
-
-
+interface Waitlist {
+  id: number;
+  name: string;
+  description: string;
+  date: Date;
+  submitted: boolean;
+}
 
 interface FiltersProps {
   name: FilterBy;
