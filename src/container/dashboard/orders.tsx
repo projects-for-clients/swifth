@@ -427,28 +427,13 @@ function orders() {
     if (selectedSort && currentPath === 'inProgress') {
       console.log({ selectedSort });
       if (selectedSort === 'Most Recent') {
-        const sorted: string[] = [];
-        let oldDate = '2011-01-01';
-
-        INPROGRESS.forEach((item) => {
-          const { date } = item;
-          console.log({ date });
-          // const foundDate = date.toLocaleString('en-GB', {
-          //   day: 'numeric',
-          //   month: 'short',
-          //   year: 'numeric',
-          // });
-
-          //   if (dayjs(foundDate).isAfter(oldDate) || dayjs(foundDate).isSame(oldDate)) {
-          //     sorted.push(foundDate);
-          //     oldDate = foundDate;
-          //   } else {
-          //     sorted.unshift(foundDate);
-          //     oldDate = foundDate;
-          //   }
+        const sortedDates = INPROGRESS.sort((a, b) => {
+          console.log('sorting');
+          return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        console.log({ sorted });
+        console.log({ sortedDates });
+        setInProgressData(sortedDates);
       }
     }
   }, [selectedSort]);
