@@ -25,7 +25,13 @@ interface FiltersProps {
   bg: string;
 }
 const filterByColors: FiltersProps[] = [
-  { name: 'Docs in Review', text: 'bg-[#F9F9F9]', bg: '#FAC772' },
+  { name: 'Docs in Review', text: '#182130', bg: '#FAC772' },
+  { name: 'Delivery Pending', text: '#182130', bg: '#D3EE87' },
+  { name: 'Custom Releasing', text: '#450C3C', bg: '#EDD7ED' },
+  { name: 'Duty Processing', text: '#120D23', bg: '#DED9EF' },
+  { name: 'Valuating', text: '#182130', bg: '#FAC772' },
+  { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
+  
 ];
 
 //if
