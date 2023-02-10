@@ -44,7 +44,7 @@ const SelectDropDown: FC<ISelectDropDown> = ({
       )}
 
       {toggleSortMenu && (
-        <div className="absolute top-[6rem] w-[15rem] left-0  bg-gray-100 border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
+        <div className="absolute top-[6rem] w-[15rem] left-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
           {selectFrom.map((item, index) => (
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
