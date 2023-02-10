@@ -378,9 +378,10 @@ function orders() {
   ];
 
   const [filteredBy, setFilteredBy] = useState('');
-
   const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
+
+  const [search, setSearch] = useState('');
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView />,
@@ -397,6 +398,8 @@ function orders() {
             type="text"
             className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
             placeholder="Search"
+            value={search}
+            onChange={handleSearch}
           />
 
           <img
