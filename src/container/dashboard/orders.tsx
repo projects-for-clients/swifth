@@ -187,7 +187,7 @@ function orders() {
               onChange={() => setCurrentPath('inProgress')}
               checked={currentPath === 'inProgress'}
             />
-            <label htmlFor="inProgress" className="capitalize text-[2rem]">
+            <label htmlFor="inProgress" className="capitalize text-[1.8rem]">
               In Progress
             </label>
 
@@ -199,7 +199,7 @@ function orders() {
               checked={currentPath === 'waitlist'}
               onChange={() => setCurrentPath('waitlist')}
             />
-            <label htmlFor="waitlist" className="capitalize text-[2rem]">
+            <label htmlFor="waitlist" className="capitalize text-[1.8rem]">
               Waitlist
             </label>
           </div>
