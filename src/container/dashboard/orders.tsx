@@ -394,8 +394,7 @@ function orders() {
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
-  const [inProgressData, setInProgressData] =
-    useState<InProgress[]>([]);
+  const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
@@ -430,15 +429,12 @@ function orders() {
   }, [filteredBy]);
 
   useEffect(() => {
-   
     const sortedDates = INPROGRESS.sort((a, b) => {
-      console.log('sorting');
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
-    console.log({ sortedDates });
     setInProgressData(sortedDates);
-  }, []);
+  }, [selectedSort]);
 
   return (
     <>
