@@ -27,33 +27,28 @@ interface Waitlist {
 }
 
 interface FiltersProps {
-  name: FilterBy;
   text: string;
   bg: string;
 }
 const filterByColors: Record<FilterBy, FiltersProps> = {
   'Docs in Review': {
-    name: 'Docs in Review',
     text: 'text-[#182130]',
     bg: 'bg-[#FAC772]',
   },
   'Delivery Pending': {
-    name: 'Delivery Pending',
     text: 'text-[#182130]',
     bg: 'bg-[#D3EE87]',
   },
   'Custom Releasing': {
-    name: 'Custom Releasing',
     text: 'text-[#450C3C]',
     bg: 'bg-[#EDD7ED]',
   },
   'Duty Processing': {
-    name: 'Duty Processing',
     text: 'text-[#120D23]',
     bg: 'bg-[#DED9EF]',
   },
-  Valuating: { name: 'Valuating', text: 'text-[#182130]', bg: 'bg-[#FAC772]' },
-  Completed: { name: 'Completed', text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
+  Valuating: { text: 'text-[#182130]', bg: 'bg-[#FAC772]' },
+  Completed: { text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
 };
 
 const INPROGRESS: InProgress[] = [
