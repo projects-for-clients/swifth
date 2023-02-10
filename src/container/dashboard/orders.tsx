@@ -11,13 +11,15 @@ type FilterBy =
   | 'Custom Releasing'
   | 'Delivery Pending'
   | 'Completed';
-interface OrdersArr {
+interface InProgress {
   id: number;
   name: string;
   description: string;
   date: Date;
   tag: FilterBy;
 }
+
+
 
 interface FiltersProps {
   name: FilterBy;
@@ -49,7 +51,7 @@ const filterByColors: Record<FilterBy, FiltersProps> = {
   Completed: { name: 'Completed', text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
 };
 
-const ORDERS: OrdersArr[] = [
+const INPROGRESS: InProgress[] = [
   {
     id: Math.random(),
     name: 'Jonathan Sunyi',
@@ -254,7 +256,7 @@ function orders() {
               gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
             }}
           >
-            {ORDERS.map((item, i) => {
+            {INPROGRESS.map((item, i) => {
               const { name, description, date, tag } = item;
 
               return (
