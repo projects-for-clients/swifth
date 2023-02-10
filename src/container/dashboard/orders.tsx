@@ -31,7 +31,6 @@ const filterByColors: FiltersProps[] = [
   { name: 'Duty Processing', text: '#120D23', bg: '#DED9EF' },
   { name: 'Valuating', text: '#182130', bg: '#FAC772' },
   { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
-
 ];
 
 //if
@@ -239,21 +238,21 @@ function orders() {
             {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
 
             {ORDERS.map((item, i) => {
+              const { name, description, date, tag } = item;
               return (
                 <div className="p-8 bg-white rounded-3xl border border-gray-400">
                   <div>
-                    <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                    <p className="text-[1.6rem]">{name}</p>
                     <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
-                      Toyota Camry XLE, 2018 v6 with alloy wheels and
+                      {description}
                     </p>
                   </div>
 
-                  <div className="text-[1.2rem] flex justify-end pt-8"></div>
-                  <p>
-                    <span className="bg-color-orange py-1 px-2 rounded-lg">
+                  <div className="text-[1.2rem] flex justify-end pt-8">
+                    <p className="bg-color-orange py-1 px-2 rounded-lg">
                       Docs in review
-                    </span>
-                  </p>
+                    </p>
+                  </div>
                 </div>
               );
             })}
