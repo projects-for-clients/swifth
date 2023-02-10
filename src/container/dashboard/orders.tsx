@@ -318,7 +318,7 @@ const InProgressView: FC<{ inProgressData: InProgress[] }> = ({inProgressData}) 
     })}
   </div>
 );
-const WaitlistView = () => (
+const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({waitlistData}) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
@@ -433,8 +433,8 @@ function orders() {
   }, [search, currentPath, filteredBy, selectedSort]);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: <InProgressView inProgressData={dataList.inProgress}/>,
-    waitlist: <WaitlistView />,
+    inProgress: <InProgressView inProgressData={dataList.inProgress} />,
+    waitlist: <WaitlistView waitlistData={dataList.waitlist} />,
   };
 
   return (
