@@ -20,10 +20,12 @@ interface OrdersArr {
 }
 
 interface FiltersProps {
-
+  name: string;
+  text: string;
+  background: string;
 }
-const filterByColors = [
-{name: 'Docs in Review', text: 'bg-[#F9F9F9]', background: 'bg-[#F9F9F9]'},
+const filterByColors:FiltersProps[] = [
+  { name: 'Docs in Review', text: 'bg-[#F9F9F9]', background: 'bg-[#F9F9F9]' },
 ];
 
 //if
@@ -227,7 +229,7 @@ function orders() {
             </div>
 
             <div>
-            {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
+              {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
 
               <div className="p-8 bg-white rounded-3xl border border-gray-400">
                 <div>
