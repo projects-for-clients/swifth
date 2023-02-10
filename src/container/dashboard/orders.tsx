@@ -22,6 +22,7 @@ interface Waitlist {
   id: number;
   name: string;
   description: string;
+  subDescription?: string;
   date: Date;
   submitted: boolean;
 }
@@ -162,6 +163,201 @@ const INPROGRESS: InProgress[] = [
   },
 ];
 
+const WAITLIST: Waitlist[] = [
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunya',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Robert Sunya',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Tommy Yaun',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    subDescription: 'and 2 more',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: false,
+  },
+  {
+    id: Math.random(),
+    name: 'Daniel Okafor',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunya',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Robert Sunya',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Tommy Yaun',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    subDescription: 'and 2 more',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: false,
+  },
+  {
+    id: Math.random(),
+    name: 'Daniel Okafor',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunya',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Robert Sunya',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+  {
+    id: Math.random(),
+    name: 'Tommy Yaun',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    subDescription: 'and 2 more',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: false,
+  },
+  {
+    id: Math.random(),
+    name: 'Daniel Okafor',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    submitted: true,
+  },
+];
+
+const InProgressView = () => (
+  <div
+    className="grid mt-[5rem] gap-10"
+    style={{
+      gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+    }}
+  >
+    {INPROGRESS.map((item, i) => {
+      const { name, description, date, tag } = item;
+
+      return (
+        <div
+          className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
+          key={i}
+        >
+          <div>
+            <p className="text-[1.6rem]">{name}</p>
+            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+              {description}
+            </p>
+          </div>
+
+          <div className="text-[1.2rem] flex items-center justify-between pt-8">
+            <p className="text-gray-500">
+              {date.toLocaleString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+              })}
+            </p>
+            <p
+              className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
+            >
+              Docs in review
+            </p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+);
+const WaitlistView = () => (
+  <div
+    className="grid mt-[5rem] gap-10"
+    style={{
+      gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+    }}
+  >
+    {WAITLIST.map((item, i) => {
+      const { name, description, date, submitted, subDescription } = item;
+
+      return (
+        <div
+          className="p-8 bg-white rounded-3xl border border-color-purple-light-2 flex justify-between"
+          key={i}
+        >
+          <div>
+            <p className="text-[1.6rem]">{name}</p>
+            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 flex">
+              {description}
+              {subDescription && (
+                <span className="text-gray-400">{subDescription}</span>
+              )}
+            </p>
+          </div>
+
+          <div className="text-[1.2rem] flex items-center justify-between pt-8">
+            <p className="text-gray-500">
+              {date.toLocaleString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+              })}
+            </p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+);
+
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy = ['Most Recent', 'A-Z'];
@@ -178,6 +374,11 @@ function orders() {
 
   const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
+
+  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
+    inProgress: <InProgressView />,
+    waitlist: <WaitlistView />,
+  };
 
   return (
     <>
@@ -248,46 +449,6 @@ function orders() {
                 isFilter
               />
             </div>
-          </div>
-
-          <div
-            className="grid mt-[5rem] gap-10"
-            style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
-            }}
-          >
-            {INPROGRESS.map((item, i) => {
-              const { name, description, date, tag } = item;
-
-              return (
-                <div
-                  className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
-                  key={i}
-                >
-                  <div>
-                    <p className="text-[1.6rem]">{name}</p>
-                    <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
-                      {description}
-                    </p>
-                  </div>
-
-                  <div className="text-[1.2rem] flex items-center justify-between pt-8">
-                    <p className="text-gray-500">
-                      {date.toLocaleString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric',
-                      })}
-                    </p>
-                    <p
-                      className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
-                    >
-                      Docs in review
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </section>
       </main>
