@@ -44,7 +44,7 @@ const SelectDropDown: FC<ISelectDropDown> = ({
           className=" bg-gray-100 border border-gray-300 p- rounded-xl w-full text-[1.6rem] cursor-pointer text-left"
           onClick={sortMenuToggler}
         >
-          {selectedItem || label}
+          {selectedItem && `: ${selectedItem}`}
         </p>
       )}
 

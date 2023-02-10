@@ -377,7 +377,7 @@ function orders() {
     'Completed',
   ];
 
-  const [filteredBy, setFilteredBy] = useState('Docs in Review');
+  const [filteredBy, setFilteredBy] = useState('');
 
   const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
