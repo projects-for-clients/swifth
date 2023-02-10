@@ -28,12 +28,20 @@ const SelectDropDown: FC<ISelectDropDown> = ({
   return (
     <div className="relative flex items-center w-[15rem] justify-items-start cursor-pointer">
       {isFilter ? (
-        <img
-          src="/icons/filter.svg"
-          alt=""
-          className="cursor-pointer"
-          onClick={sortMenuToggler}
-        />
+        <div>
+          <img
+            src="/icons/filter.svg"
+            alt=""
+            className="cursor-pointer"
+            onClick={sortMenuToggler}
+          />
+          <p
+            className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointer text-left"
+            onClick={sortMenuToggler}
+          >
+            {selectedItem || label}
+          </p>
+        </div>
       ) : (
         <p
           className=" bg-gray-100 border border-gray-300 p-4 outline-none rounded-xl w-full text-[1.6rem] cursor-pointer text-left"
