@@ -397,7 +397,8 @@ function orders() {
       const filtered = INPROGRESS.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase())
       );
-      console.log(filtered);
+
+      setDataList((prev) => ({ ...prev, inProgress: filtered }));
     }
 
     if (filteredBy) {
