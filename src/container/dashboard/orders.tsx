@@ -322,7 +322,7 @@ const WaitlistView = () => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
-      gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
     }}
   >
     {WAITLIST.map((item, i) => {
@@ -343,7 +343,7 @@ const WaitlistView = () => (
             </p>
           </div>
 
-          <div className="text-[1.6rem] flex items-center justify-between pt-8">
+          <div className="text-[1.6rem] justify-between pt-8">
             {submitted ? (
               <span className="text-green-500 font-medium">
                 Documents Submitted
@@ -457,6 +457,8 @@ function orders() {
               />
             </div>
           </div>
+
+          {pathToSwitch[currentPath]}
         </section>
       </main>
     </>
