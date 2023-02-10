@@ -252,6 +252,11 @@ function orders() {
                   </div>
 
                   <div className="text-[1.2rem] flex justify-end pt-8">
+                    <p className="text-gray-500">{date.toLocaleString('en-GB', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}</p>
                     <p className="bg-color-orange py-1 px-2 rounded-lg">
                       Docs in review
                     </p>
