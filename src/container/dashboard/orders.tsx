@@ -448,18 +448,29 @@ function orders() {
           return prev.sort((a, b) => {
             return a.name.localeCompare(b.name);
           });
-        })
-
+        });
       } else if ((selectedSort as SortBy) === 'Most Recent') {
         console.log('sort dates');
         const sortedDates = INPROGRESS.sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        return setInProgressData((prev) => [...sortedDates]);
+        return setInProgressData((prev) => {
+          return prev.sort((a, b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+          });
+        });
       }
     }
   }, [selectedSort]);
+
+  useEffect(() => {
+    const sortedDates = INPROGRESS.sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+
+    return setInProgressData((prev) => [...sortedDates]);
+  }, []);
 
   return (
     <>
