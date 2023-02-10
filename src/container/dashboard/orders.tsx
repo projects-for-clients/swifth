@@ -396,16 +396,16 @@ function orders() {
     console.log(search, 'search');
     if (search) {
       console.log(search, 'inner search');
-
       const filtered = dataList.inProgress.filter((item) => {
-        console.log(item.name, 'item.name');
-        console.log(search, 'search');
         return item.name.toLowerCase().includes(search.toLowerCase());
       });
 
       console.log({ filtered });
 
-      setDataList((prev) => ({ ...prev, inProgress: filtered }));
+      setDataList((prev) => ({
+        ...prev,
+        inProgress: filtered,
+      }));
     }
 
     //   if (filteredBy) {
