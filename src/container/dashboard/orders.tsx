@@ -1,5 +1,5 @@
 import Header from '../../components/dashboard/Header';
-import { Fragment, useEffect, useState } from 'react';
+import { FC, Fragment, useEffect, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
@@ -277,14 +277,14 @@ const WAITLIST: Waitlist[] = [
   },
 ];
 
-const InProgressView = () => (
+const InProgressView: FC<{ inProgressData: InProgress[] }> = ({inProgressData}) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
       gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
     }}
   >
-    {INPROGRESS.map((item, i) => {
+    {inProgressData.map((item, i) => {
       const { name, description, date, tag } = item;
 
       return (
@@ -385,7 +385,10 @@ function orders() {
   const [dataList, setDataList] = useState<{
     inProgress: InProgress[];
     waitlist: Waitlist[];
-  }>();
+  }>({
+    inProgress: INPROGRESS,
+    waitlist: WAITLIST,
+  });
 
   useEffect(() => {
     if (search) {
@@ -482,8 +485,8 @@ function orders() {
             </label>
           </div>
 
-          {(currentPath === 'inProgress' && INPROGRESS.length < 1) ||
-          (currentPath === 'waitlist' && WAITLIST.length < 1) ? (
+          {(currentPath === 'inProgress' && dataList.inProgress.length < 1) ||
+          (currentPath === 'waitlist' && dataList.waitlist.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
