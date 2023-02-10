@@ -240,7 +240,10 @@ function orders() {
             {ORDERS.map((item, i) => {
               const { name, description, date, tag } = item;
               return (
-                <div className="p-8 bg-white rounded-3xl border border-gray-400">
+                <div
+                  className="p-8 bg-white rounded-3xl border border-gray-400"
+                  key={i}
+                >
                   <div>
                     <p className="text-[1.6rem]">{name}</p>
                     <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
