@@ -428,22 +428,15 @@ function orders() {
       console.log({ selectedSort });
       if (selectedSort === 'Most Recent') {
         const sorted = INPROGRESS.sort(
-          (a, b) => a.date.getTime() - b.date.getTime()
+          (a, b) => {
+            console.log({ a, b })
+            return b.date.getTime() - a.date.getTime();
+          }
         );
         setInProgressData(sorted);
       }
-
-      if (selectedSort === 'A-Z') {
-        const sorted = INPROGRESS.sort((a, b) => {
-          if (a.name < b.name) {
-            return -1;
-
-          
-
-        }
-        setInProgressData(sorted);
-      }
-    }
+    } 
+    
   }, [selectedSort]);
 
   return (
