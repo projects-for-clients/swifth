@@ -20,12 +20,12 @@ interface OrdersArr {
 }
 
 interface FiltersProps {
-  name: string;
+  name: FilterBy;
   text: string;
-  background: string;
+  bg: string;
 }
-const filterByColors:FiltersProps[] = [
-  { name: 'Docs in Review', text: 'bg-[#F9F9F9]', background: 'bg-[#F9F9F9]' },
+const filterByColors: FiltersProps[] = [
+  { name: 'Docs in Review', text: 'bg-[#F9F9F9]', bg: '#FAC772' },
 ];
 
 //if
