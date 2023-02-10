@@ -384,9 +384,9 @@ function orders() {
   const [search, setSearch] = useState('');
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+    
   };
-  
+
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView />,
@@ -404,7 +404,7 @@ function orders() {
             className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
             placeholder="Search"
             value={search}
-            onChange={handleSearch}
+            onChange={(e) => setSearch(e.target.value)}
           />
 
           <img
