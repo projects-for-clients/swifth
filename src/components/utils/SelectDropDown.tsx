@@ -1,10 +1,11 @@
 import { Dispatch, useState, SetStateAction, FC } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
+import { SortBy } from '../../container/dashboard/orders';
 
 interface ISelectDropDown {
   selectFrom: string[];
   selectedItem: string;
-  setSelectedItem: Dispatch<SetStateAction<string>>;
+  setSelectedItem: Dispatch<SetStateAction<SortBy | string>>;
   label?: string;
   isFilter?: boolean;
 }
