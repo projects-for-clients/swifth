@@ -343,8 +343,15 @@ const WaitlistView = () => (
             </p>
           </div>
 
-          <div className="text-[1.2rem] flex items-center justify-between pt-8">
-            <p className="text-gray-500">
+          <div className="text-[1.6rem] flex items-center justify-between pt-8">
+            {submitted ? (
+              <span className="text-green-500 font-medium">
+                Documents Submitted
+              </span>
+            ) : (
+              <span className="text-[#BEB3DE] font-medium">Quote Sent</span>
+            )}
+            <p className="text-gray-500 text-[1.4rem]">
               {date.toLocaleString('en-GB', {
                 day: 'numeric',
                 month: 'short',
