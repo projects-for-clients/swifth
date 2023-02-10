@@ -56,7 +56,7 @@ const INPROGRESS: InProgress[] = [
   {
     id: Math.random(),
     name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -167,7 +167,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Jonathan Sunya',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -176,7 +176,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Robert Sunya',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -185,7 +185,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Tommy Yaun',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
@@ -195,7 +195,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Daniel Okafor',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -204,7 +204,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Jonathan Sunya',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -213,7 +213,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Robert Sunya',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -222,7 +222,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Tommy Yaun',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
@@ -232,7 +232,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Daniel Okafor',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -241,7 +241,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Jonathan Sunya',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -250,7 +250,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Robert Sunya',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -259,7 +259,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Tommy Yaun',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
@@ -269,7 +269,7 @@ const WAITLIST: Waitlist[] = [
   {
     id: Math.random(),
     name: 'Daniel Okafor',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
@@ -294,7 +294,7 @@ const InProgressView = () => (
         >
           <div>
             <p className="text-[1.6rem]">{name}</p>
-            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
               {description}
             </p>
           </div>
@@ -330,12 +330,12 @@ const WaitlistView = () => (
 
       return (
         <div
-          className="p-8 bg-white rounded-3xl border border-color-purple-light-2 flex justify-between"
+          className="p-8 bg-white rounded-3xl border border-color-purple-light-2 flex justify-between items-center"
           key={i}
         >
           <div>
             <p className="text-[1.6rem]">{name}</p>
-            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 flex">
+            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 flex max-w-[20rem]">
               {description}
               {subDescription && (
                 <span className="text-gray-400">{subDescription}</span>
@@ -343,7 +343,7 @@ const WaitlistView = () => (
             </p>
           </div>
 
-          <div className="text-[1.6rem] justify-between pt-8">
+          <div className="text-[1.6rem] justify-between">
             {submitted ? (
               <span className="text-green-500 font-medium">
                 Documents Submitted
