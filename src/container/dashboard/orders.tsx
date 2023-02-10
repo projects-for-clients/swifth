@@ -438,39 +438,21 @@ function orders() {
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
         console.log('sort A-Z');
-        // const sortedNames = INPROGRESS.sort((a, b) => {
-        //   return a.name.localeCompare(b.name);
-        // });
-
-        // return setInProgressData((prev) => [...sortedNames]);
-
-        setInProgressData((prev) => {
-          return prev.sort((a, b) => {
-            return a.name.localeCompare(b.name);
-          });
+        const sortedNames = INPROGRESS.sort((a, b) => {
+          return a.name.localeCompare(b.name);
         });
+
+        return setInProgressData((prev) => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
         console.log('sort dates');
         const sortedDates = INPROGRESS.sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        return setInProgressData((prev) => {
-          return prev.sort((a, b) => {
-            return new Date(a.date).getTime() - new Date(b.date).getTime();
-          });
-        });
+        return setInProgressData((prev) => [...sortedDates]);
       }
     }
   }, [selectedSort]);
-
-  useEffect(() => {
-    const sortedDates = INPROGRESS.sort((a, b) => {
-      return new Date(a.date).getTime() - new Date(b.date).getTime();
-    });
-
-    return setInProgressData((prev) => [...sortedDates]);
-  }, []);
 
   return (
     <>
