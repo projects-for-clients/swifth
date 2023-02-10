@@ -398,6 +398,8 @@ function orders() {
         item.name.toLowerCase().includes(search.toLowerCase())
       );
 
+      console.log({ filtered })
+
       setDataList((prev) => ({ ...prev, inProgress: filtered }));
     }
 
@@ -433,7 +435,7 @@ function orders() {
   //   console.log(sorted);
 
   //   return;
- }, [ setSearch]);
+ }, [ search]);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView inProgressData={dataList.inProgress} />,
