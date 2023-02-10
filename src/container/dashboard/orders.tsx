@@ -433,7 +433,7 @@ function orders() {
   }, [search, currentPath, filteredBy, selectedSort]);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: <InProgressView />,
+    inProgress: <InProgressView inProgressData={dataList.inProgress}/>,
     waitlist: <WaitlistView />,
   };
 
