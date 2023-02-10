@@ -5,7 +5,7 @@ import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 
 
-type SortBy = 'Most Recent' | 'A-Z'
+export type SortBy = 'Most Recent' | 'A-Z'
 type FilterBy =
   | 'Docs in Review'
   | 'Valuating'
@@ -371,7 +371,7 @@ const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
-  const sortBy = ['Most Recent', 'A-Z'];
+  const sortBy:SortBy[] = ['Most Recent', 'A-Z'];
   const filters: FilterBy[] = [
     'Docs in Review',
     'Valuating',
@@ -382,7 +382,7 @@ function orders() {
   ];
 
   const [filteredBy, setFilteredBy] = useState('');
-  const [selectedSort, setSelectedSort] = useState('Most Recent');
+  const [selectedSort, setSelectedSort] = useState<SortBy>('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
