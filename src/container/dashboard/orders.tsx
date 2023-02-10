@@ -4,6 +4,8 @@ import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 
+
+type SortBy = 'Most Recent' | 'A-Z'
 type FilterBy =
   | 'Docs in Review'
   | 'Valuating'
@@ -411,15 +413,19 @@ function orders() {
   };
 
   useEffect(() => {
-    if (filteredBy) {
-      if (currentPath === 'inProgress') {
-        const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
-        setInProgressData(filtered);
-      } else {
-        setInProgressData(INPROGRESS);
-      }
+    if (filteredBy && currentPath === 'inProgress') {
+      const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
+      setInProgressData(filtered);
+    } else {
+      setInProgressData(INPROGRESS);
     }
   }, [filteredBy]);
+
+  useEffect(() => {
+    if (selectedSort === 'Most' && currentPath === 'inProgress') {
+
+    }
+  }, [selectedSort]);
 
   return (
     <>
