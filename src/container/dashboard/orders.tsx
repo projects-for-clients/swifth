@@ -123,7 +123,7 @@ const INPROGRESS: InProgress[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tag: 'Delivery Pending',
+    tag: 'Completed',
   },
   {
     id: Math.random(),
@@ -141,7 +141,7 @@ const INPROGRESS: InProgress[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tag: 'Delivery Pending',
+    tag: 'Docs in Review',
   },
   {
     id: Math.random(),
@@ -150,7 +150,7 @@ const INPROGRESS: InProgress[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tag: 'Custom Releasing',
+    tag: 'Valuating',
   },
   {
     id: Math.random(),
@@ -312,7 +312,7 @@ const InProgressView: FC<{ inProgressData: InProgress[] }> = ({
             <p
               className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
             >
-              Docs in review
+              {tag}
             </p>
           </div>
         </div>
