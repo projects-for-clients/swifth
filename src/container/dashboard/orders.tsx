@@ -4,8 +4,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 
-
-export type SortBy = 'Most Recent' | 'A-Z'
+export type SortBy = 'Most Recent' | 'A-Z';
 type FilterBy =
   | 'Docs in Review'
   | 'Valuating'
@@ -371,7 +370,7 @@ const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
 
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
-  const sortBy:SortBy[] = ['Most Recent', 'A-Z'];
+  const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
   const filters: FilterBy[] = [
     'Docs in Review',
     'Valuating',
@@ -382,7 +381,9 @@ function orders() {
   ];
 
   const [filteredBy, setFilteredBy] = useState('');
-  const [selectedSort, setSelectedSort] = useState<SortBy | string>('Most Recent');
+  const [selectedSort, setSelectedSort] = useState<SortBy | string>(
+    'Most Recent'
+  );
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
@@ -422,9 +423,26 @@ function orders() {
   }, [filteredBy]);
 
   useEffect(() => {
-    if (selectedSort === 'Most Recent' && currentPath === 'inProgress') {
-      const sorted = INPROGRESS.sort((a, b) => b.date.getTime() - a.date.getTime());
-      setInProgressData(sorted);
+    console.log(selectedSort);
+    if (selectedSort && currentPath === 'inProgress') {
+      console.log({ selectedSort });
+      if (selectedSort === 'Most Recent') {
+        const sorted = INPROGRESS.sort(
+          (a, b) => a.date.getTime() - b.date.getTime()
+        );
+        setInProgressData(sorted);
+      }
+
+      if (selectedSort === 'A-Z') {
+        const sorted = INPROGRESS.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+
+          
+
+        }
+        setInProgressData(sorted);
+      }
     }
   }, [selectedSort]);
 
