@@ -26,15 +26,20 @@ const SelectDropDown: FC<ISelectDropDown> = ({
   };
 
   return (
-    <div className="relative flex items-center min-w-[15rem] justify-items-start cursor-pointer bg-red-500">
+    <div className="relative flex items-center min-w-[16rem] justify-items-start cursor-pointer">
       {isFilter ? (
         <div
-          className={`bg-color-purple-light-1 gap-4 p-4 text-[1.6rem] cursor-pointer rounded-xl justify-items-center w-[15rem] ${selectedItem ? 'flex' : 'block'}`}
+          className={`bg-color-purple-light-1 p-4 gap-2 text-[1.6rem] cursor-pointer rounded-xl justify-items-center items-center  ${
+            selectedItem ? 'flex w-[16rem]' : 'block'
+          }`}
           onClick={sortMenuToggler}
         >
+          <>
           <img src="/icons/filter.svg" alt="" className="cursor-pointer" />
-          <p className=" whitespace-nowrap text-[1.2rem]">
-            {selectedItem && `: ${selectedItem}`}
+          {selectedItem && <span>:</span>}
+          </>
+          <p className=" whitespace-nowrap text-[1.2rem] text-center w-full text-color-purple-1">
+            {selectedItem || label}
           </p>
         </div>
       ) : (
@@ -47,7 +52,7 @@ const SelectDropDown: FC<ISelectDropDown> = ({
       )}
 
       {toggleSortMenu && (
-        <div className="absolute top-[6rem] w-[15rem] left-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
+        <div className="absolute top-[6rem] w-[16rem] left-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
           {selectFrom.map((item, index) => (
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
