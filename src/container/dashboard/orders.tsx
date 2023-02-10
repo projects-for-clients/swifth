@@ -25,27 +25,29 @@ interface FiltersProps {
   bg: string;
 }
 const filterByColors: Record<FilterBy, FiltersProps> = {
-  'Docs in Review': { name: 'Docs in Review', text: '#182130', bg: '#FAC772' },
+  'Docs in Review': {
+    name: 'Docs in Review',
+    text: 'text-[#182130]',
+    bg: 'bg-[#FAC772]',
+  },
   'Delivery Pending': {
     name: 'Delivery Pending',
-    text: '[#182130]',
-    bg: '[#D3EE87]',
+    text: 'text-[#182130]',
+    bg: 'bg-[#D3EE87]',
   },
   'Custom Releasing': {
     name: 'Custom Releasing',
-    text: '#450C3C',
-    bg: '#EDD7ED',
+    text: 'text-[#450C3C]',
+    bg: 'bg-[#EDD7ED]',
   },
   'Duty Processing': {
     name: 'Duty Processing',
-    text: '#120D23',
-    bg: '#DED9EF',
+    text: 'text-[#120D23]',
+    bg: 'bg-[#DED9EF]',
   },
-  Valuating: { name: 'Valuating', text: '#182130', bg: '#FAC772' },
-  Completed: { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
+  Valuating: { name: 'Valuating', text: 'text-[#182130]', bg: 'bg-[#FAC772]' },
+  Completed: { name: 'Completed', text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
 };
-
-
 
 const ORDERS: OrdersArr[] = [
   {
@@ -252,11 +254,9 @@ function orders() {
               gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
             }}
           >
-
             {ORDERS.map((item, i) => {
               const { name, description, date, tag } = item;
 
-         
               return (
                 <div
                   className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
@@ -279,7 +279,6 @@ function orders() {
                     </p>
                     <p
                       className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
-                      
                     >
                       Docs in review
                     </p>
