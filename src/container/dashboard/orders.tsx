@@ -28,8 +28,8 @@ const filterByColors: Record<FilterBy, FiltersProps> = {
   'Docs in Review': { name: 'Docs in Review', text: '#182130', bg: '#FAC772' },
   'Delivery Pending': {
     name: 'Delivery Pending',
-    text: '#182130',
-    bg: '#D3EE87',
+    text: '[#182130]',
+    bg: '[#D3EE87]',
   },
   'Custom Releasing': {
     name: 'Custom Releasing',
@@ -45,7 +45,7 @@ const filterByColors: Record<FilterBy, FiltersProps> = {
   Completed: { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
 };
 
-//if
+
 
 const ORDERS: OrdersArr[] = [
   {
@@ -252,10 +252,11 @@ function orders() {
               gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
             }}
           >
-            {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
 
             {ORDERS.map((item, i) => {
               const { name, description, date, tag } = item;
+
+         
               return (
                 <div
                   className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
@@ -277,7 +278,8 @@ function orders() {
                       })}
                     </p>
                     <p
-                      className={`py-1.5 px-4 rounded-2xl bg-${filterByColors}`}
+                      className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
+                      
                     >
                       Docs in review
                     </p>
