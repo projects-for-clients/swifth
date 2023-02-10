@@ -277,7 +277,9 @@ const WAITLIST: Waitlist[] = [
   },
 ];
 
-const InProgressView: FC<{ inProgressData: InProgress[] }> = ({inProgressData}) => (
+const InProgressView: FC<{ inProgressData: InProgress[] }> = ({
+  inProgressData,
+}) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
@@ -318,14 +320,14 @@ const InProgressView: FC<{ inProgressData: InProgress[] }> = ({inProgressData}) 
     })}
   </div>
 );
-const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({waitlistData}) => (
+const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
       gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
     }}
   >
-    {WAITLIST.map((item, i) => {
+    {waitlistData.map((item, i) => {
       const { name, description, date, submitted, subDescription } = item;
 
       return (
