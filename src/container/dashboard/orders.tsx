@@ -420,33 +420,37 @@ function orders() {
   };
 
   useEffect(() => {
-    if (filteredBy && currentPath === 'inProgress') {
-      const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
-      setInProgressData(filtered);
-    } else {
-      setInProgressData(INPROGRESS);
+    console.log({ selectedSort });
+    if (filteredBy) {
+      if (currentPath === 'inProgress') {
+        const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
+        setInProgressData(filtered);
+      }
     }
-  }, [filteredBy]);
+
+    if (selectedSort) {
+      if ((selectedSort as SortBy) === 'A-Z') {
+        console.log('sort names');
+        const sortedNames = INPROGRESS.sort((a, b) => {
+          return a.name.localeCompare(b.name);
+        });
+
+        console.log({ sortedNames });
+
+        setInProgressData(sortedNames);
+      } else if ((selectedSort as SortBy) === 'Most Recent') {
+        console.log('sort dates');
+        const sortedDates = INPROGRESS.sort((a, b) => {
+          return new Date(a.date).getTime() - new Date(b.date).getTime();
+        });
+
+        setInProgressData(sortedDates);
+      }
+    }
+  }, [selectedSort, filteredBy]);
 
   useEffect(() => {
-    console.log({ selectedSort })
-    if (selectedSort as SortBy === 'A-Z') {
-      console.log('sort names');
-      const sortedNames = INPROGRESS.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      });
-
-      console.log({ sortedNames });
-
-      setInProgressData(sortedNames);
-    } else if( selectedSort as SortBy === 'Most Recent'){
-      console.log('sort dates');
-      const sortedDates = INPROGRESS.sort((a, b) => {
-        return new Date(a.date).getTime() - new Date(b.date).getTime();
-      });
-
-      setInProgressData(sortedDates);
-    }
+    console.log('selected sort',{ selectedSort });
   }, [selectedSort]);
 
   return (
