@@ -16,7 +16,7 @@ interface OrdersArr {
   name: string;
   description: string;
   date: Date;
-  tags: FilterBy;
+  tag: FilterBy;
 }
 
 interface FiltersProps {
@@ -31,7 +31,7 @@ const filterByColors: FiltersProps[] = [
   { name: 'Duty Processing', text: '#120D23', bg: '#DED9EF' },
   { name: 'Valuating', text: '#182130', bg: '#FAC772' },
   { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
-  
+
 ];
 
 //if
@@ -44,7 +44,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Docs in Review',
+    tag: 'Docs in Review',
   },
   {
     id: Math.random(),
@@ -53,7 +53,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Duty Processing',
+    tag: 'Duty Processing',
   },
   {
     id: Math.random(),
@@ -62,7 +62,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Custom Releasing',
+    tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
@@ -71,7 +71,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Delivery Pending',
+    tag: 'Delivery Pending',
   },
   {
     id: Math.random(),
@@ -80,7 +80,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Completed',
+    tag: 'Completed',
   },
   {
     id: Math.random(),
@@ -89,7 +89,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Custom Releasing',
+    tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
@@ -98,7 +98,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Custom Releasing',
+    tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
@@ -107,7 +107,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Delivery Pending',
+    tag: 'Delivery Pending',
   },
   {
     id: Math.random(),
@@ -116,7 +116,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Valuating',
+    tag: 'Valuating',
   },
   {
     id: Math.random(),
@@ -125,7 +125,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Delivery Pending',
+    tag: 'Delivery Pending',
   },
   {
     id: Math.random(),
@@ -134,7 +134,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Custom Releasing',
+    tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
@@ -143,7 +143,7 @@ const ORDERS: OrdersArr[] = [
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tags: 'Delivery Pending',
+    tag: 'Delivery Pending',
   },
 ];
 
@@ -233,26 +233,30 @@ function orders() {
                 isFilter
               />
             </div>
+          </div>
 
-            <div>
-              {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
+          <div>
+            {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
 
-              <div className="p-8 bg-white rounded-3xl border border-gray-400">
-                <div>
-                  <p className="text-[1.6rem]">Jonathan Sunyi</p>
-                  <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
-                    Toyota Camry XLE, 2018 v6 with alloy wheels and
+            {ORDERS.map((item, i) => {
+              return (
+                <div className="p-8 bg-white rounded-3xl border border-gray-400">
+                  <div>
+                    <p className="text-[1.6rem]">Jonathan Sunyi</p>
+                    <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500">
+                      Toyota Camry XLE, 2018 v6 with alloy wheels and
+                    </p>
+                  </div>
+
+                  <div className="text-[1.2rem] flex justify-end pt-8"></div>
+                  <p>
+                    <span className="bg-color-orange py-1 px-2 rounded-lg">
+                      Docs in review
+                    </span>
                   </p>
                 </div>
-
-                <div className="text-[1.2rem] flex justify-end pt-8"></div>
-                <p>
-                  <span className="bg-color-orange py-1 px-2 rounded-lg">
-                    Docs in review
-                  </span>
-                </p>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </section>
       </main>
