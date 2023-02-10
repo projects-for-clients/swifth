@@ -429,6 +429,16 @@ function orders() {
   }, [filteredBy]);
 
   useEffect(() => {
+    if (selectedSort === 'A-Z') {
+      console.log('sort names')
+      const sortedNames = INPROGRESS.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+
+      return setInProgressData(sortedNames);
+    }
+
+    console.log("sort dates")
     const sortedDates = INPROGRESS.sort((a, b) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
