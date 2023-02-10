@@ -384,7 +384,8 @@ function orders() {
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
-  const [inProgressData, setInProgressData] = useState<InProgress[]>(INPROGRESS);
+  const [inProgressData, setInProgressData] =
+    useState<InProgress[]>(INPROGRESS);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
@@ -395,20 +396,13 @@ function orders() {
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
-
-    if (value) {
-      // const filtered = dataList.inProgress.filter((item) => {
-      //   return item.name.toLowerCase().includes(value.toLowerCase());
-      // });
-
-      // setDataList((prev) => ({
-      //   ...prev,
-      //   inProgress: filtered,
-      // }));
-
-
-    
-    }
+    console.log({ value });
+    inProgressData[0].name 
+    setInProgressData((prev) =>
+      prev.filter((item) =>
+        item.name.toLowerCase().includes(value.toLowerCase())
+      )
+    );
   };
 
   return (
