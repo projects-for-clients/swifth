@@ -5,6 +5,7 @@ import {
   Fragment,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useState,
 } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
@@ -287,47 +288,50 @@ const WAITLIST: Waitlist[] = [
 
 const InProgressView: FC<{ inProgressData: InProgress[] }> = ({
   inProgressData,
-}) => (
-  <div
-    className="grid mt-[5rem] gap-10"
-    style={{
-      gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
-    }}
-  >
-    {inProgressData.map((item, i) => {
-      const { name, description, date, tag } = item;
+}) => {
+  console.log({ inProgressData });
+  return (
+    <div
+      className="grid mt-[5rem] gap-10"
+      style={{
+        gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+      }}
+    >
+      {inProgressData.map((item, i) => {
+        const { name, description, date, tag } = item;
 
-      return (
-        <div
-          className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
-          key={i}
-        >
-          <div>
-            <p className="text-[1.6rem]">{name}</p>
-            <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
-              {description}
-            </p>
-          </div>
+        return (
+          <div
+            className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
+            key={i}
+          >
+            <div>
+              <p className="text-[1.6rem]">{name}</p>
+              <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
+                {description}
+              </p>
+            </div>
 
-          <div className="text-[1.2rem] flex items-center justify-between pt-8">
-            <p className="text-gray-500">
-              {date.toLocaleString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric',
-              })}
-            </p>
-            <p
-              className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
-            >
-              {tag}
-            </p>
+            <div className="text-[1.2rem] flex items-center justify-between pt-8">
+              <p className="text-gray-500">
+                {date.toLocaleString('en-GB', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                })}
+              </p>
+              <p
+                className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
+              >
+                {tag}
+              </p>
+            </div>
           </div>
-        </div>
-      );
-    })}
-  </div>
-);
+        );
+      })}
+    </div>
+  );
+};
 const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
   <div
     className="grid mt-[5rem] gap-10"
@@ -419,38 +423,39 @@ function orders() {
     }
   };
 
-  useEffect(() => {
-    console.log({ selectedSort });
+  useMemo(() => {
     if (filteredBy) {
       if (currentPath === 'inProgress') {
+        console.log('filter by', filteredBy)
         const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
-        setInProgressData(filtered);
+        
+        return setInProgressData((prev) => [...filtered]);
       }
     }
 
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        console.log('sort names');
+        console.log('sort A-Z');
         const sortedNames = INPROGRESS.sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
         console.log({ sortedNames });
 
-        setInProgressData(sortedNames);
+        setInProgressData((prev) => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
         console.log('sort dates');
         const sortedDates = INPROGRESS.sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        setInProgressData(sortedDates);
+        setInProgressData((prev) => [...sortedDates]);
       }
     }
   }, [selectedSort, filteredBy]);
 
   useEffect(() => {
-    console.log('selected sort',{ selectedSort });
+    console.log('selected sort', { selectedSort });
   }, [selectedSort]);
 
   return (
