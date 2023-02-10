@@ -1,5 +1,5 @@
 import Header from '../../components/dashboard/Header';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
@@ -380,13 +380,54 @@ function orders() {
   const [filteredBy, setFilteredBy] = useState('');
   const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
-
   const [search, setSearch] = useState('');
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    
-  };
+  const [dataList, setDataList] = useState<{
+    inProgress: InProgress[];
+    waitlist: Waitlist[];
+  }>();
 
+  useEffect(() => {
+    if (search) {
+      const filtered = INPROGRESS.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+      console.log(filtered);
+    }
+
+    if (filteredBy) {
+      const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
+      console.log(filtered);
+    }
+
+    if (selectedSort === 'A-Z') {
+      const sorted = INPROGRESS.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+      console.log(sorted);
+
+      return;
+    }
+
+    const sorted = INPROGRESS.sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    });
+    console.log(sorted);
+
+    return;
+  }, [search, currentPath, filteredBy, selectedSort]);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView />,
