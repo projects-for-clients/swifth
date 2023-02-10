@@ -1,5 +1,5 @@
 import Header from '../../components/dashboard/Header';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
@@ -433,32 +433,41 @@ function orders() {
             </label>
           </div>
 
-          <div className="flex justify-between items-center mt-10">
-            <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]">
-              <img
-                src="/icons/history.svg"
-                alt=""
-                className="w-[1.6rem] h-[1.6rem]"
-              />
-              <p>History</p>
+          {INPROGRESS.length > 1 && currentPath === 'inProgress' ? (
+            <div className='grid place-content-center h-[70vh] text-center'>
+              <p>Nothing to Show here</p>
+              <p className="text-gray-500 text-[1.4rem]">
+                Orders initiated from the waiting list would appear here{' '}
+              </p>
             </div>
-
-            <div className="flex items-center gap-8">
-              <SelectDropDown
-                selectFrom={sortBy}
-                selectedItem={selectedSort}
-                setSelectedItem={setSelectedSort}
-              />
-              <SelectDropDown
-                selectFrom={filters}
-                selectedItem={filteredBy}
-                setSelectedItem={setFilteredBy}
-                isFilter
-              />
-            </div>
-          </div>
-
-          {pathToSwitch[currentPath]}
+          ) : (
+            <Fragment>
+              <div className="flex justify-between items-center mt-10">
+                <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]">
+                  <img
+                    src="/icons/history.svg"
+                    alt=""
+                    className="w-[1.6rem] h-[1.6rem]"
+                  />
+                  <p>History</p>
+                </div>
+                <div className="flex items-center gap-8">
+                  <SelectDropDown
+                    selectFrom={sortBy}
+                    selectedItem={selectedSort}
+                    setSelectedItem={setSelectedSort}
+                  />
+                  <SelectDropDown
+                    selectFrom={filters}
+                    selectedItem={filteredBy}
+                    setSelectedItem={setFilteredBy}
+                    isFilter
+                  />
+                </div>
+              </div>
+              <>{pathToSwitch[currentPath]}</>
+            </Fragment>
+          )}
         </section>
       </main>
     </>
