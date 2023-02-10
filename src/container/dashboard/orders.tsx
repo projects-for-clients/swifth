@@ -1,5 +1,5 @@
 import Header from '../../components/dashboard/Header';
-import { FC, Fragment, useEffect, useState } from 'react';
+import { ChangeEvent, FC, Fragment, useEffect, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
@@ -392,59 +392,36 @@ function orders() {
     waitlist: WAITLIST,
   });
 
-  useEffect(() => {
-    console.log(search, 'search');
-    if (search) {
-      console.log(search, 'inner search');
-      const filtered = dataList.inProgress.filter((item) => {
-        return item.name.toLowerCase().includes(search.toLowerCase());
-      });
+  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
+    inProgress: <InProgressView inProgressData={dataList.inProgress} />,
+    waitlist: <WaitlistView waitlistData={dataList.waitlist} />,
+  };
 
-      console.log({ filtered });
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearch(value);
+
+    if (value) {
+      // const filtered = dataList.inProgress.filter((item) => {
+      //   return item.name.toLowerCase().includes(value.toLowerCase());
+      // });
+
+      // setDataList((prev) => ({
+      //   ...prev,
+      //   inProgress: filtered,
+      // }));
+
+      const dataToFilter = [...dataList.inProgress];
+
+      const filtered = dataToFilter.filter((item) => {
+        return item.name.toLowerCase().includes(value.toLowerCase());
+      });
 
       setDataList((prev) => ({
         ...prev,
         inProgress: filtered,
       }));
     }
-
-    //   if (filteredBy) {
-    //     const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
-    //     console.log(filtered);
-    //   }
-
-    //   if (selectedSort === 'A-Z') {
-    //     const sorted = INPROGRESS.sort((a, b) => {
-    //       if (a.name < b.name) {
-    //         return -1;
-    //       }
-    //       if (a.name > b.name) {
-    //         return 1;
-    //       }
-    //       return 0;
-    //     });
-    //     console.log(sorted);
-
-    //     return;
-    //   }
-
-    //   const sorted = INPROGRESS.sort((a, b) => {
-    //     if (a.date < b.date) {
-    //       return 1;
-    //     }
-    //     if (a.date > b.date) {
-    //       return -1;
-    //     }
-    //     return 0;
-    //   });
-    //   console.log(sorted);
-
-    //   return;
-  }, [search]);
-
-  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: <InProgressView inProgressData={dataList.inProgress} />,
-    waitlist: <WaitlistView waitlistData={dataList.waitlist} />,
   };
 
   return (
@@ -458,7 +435,7 @@ function orders() {
             className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
             placeholder="Search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleSearch}
           />
 
           <img
