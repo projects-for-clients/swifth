@@ -397,12 +397,19 @@ function orders() {
     const { value } = e.target;
     setSearch(value);
     console.log({ value });
-    inProgressData[0].name 
-    setInProgressData((prev) =>
-      prev.filter((item) =>
-        item.name.toLowerCase().includes(value.toLowerCase())
-      )
-    );
+    const data = inProgressData[0].name;
+
+    console.log({ data });
+    if (data.toLowerCase().includes(value.toLowerCase())) {
+      console.log('true', {value, data});
+    } else {
+      console.log('false', {value, data);
+    }
+    // setInProgressData((prev) =>
+    //   prev.filter((item) =>
+    //     item.name.toLowerCase().includes(value.toLowerCase())
+    //   )
+    // );
   };
 
   return (
