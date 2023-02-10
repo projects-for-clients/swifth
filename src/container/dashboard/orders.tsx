@@ -394,48 +394,50 @@ function orders() {
 
   useEffect(() => {
     if (search) {
-      const filtered = dataList.inProgress.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
-      );
+      const filtered = dataList.inProgress.filter((item) => {
+        console.log(item.name, 'item.name')
+        console.log(search, 'search')
+        return item.name.toLowerCase().includes(search.toLowerCase());
+      });
 
-      console.log({ filtered })
+      console.log({ filtered });
 
       setDataList((prev) => ({ ...prev, inProgress: filtered }));
     }
 
-  //   if (filteredBy) {
-  //     const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
-  //     console.log(filtered);
-  //   }
+    //   if (filteredBy) {
+    //     const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
+    //     console.log(filtered);
+    //   }
 
-  //   if (selectedSort === 'A-Z') {
-  //     const sorted = INPROGRESS.sort((a, b) => {
-  //       if (a.name < b.name) {
-  //         return -1;
-  //       }
-  //       if (a.name > b.name) {
-  //         return 1;
-  //       }
-  //       return 0;
-  //     });
-  //     console.log(sorted);
+    //   if (selectedSort === 'A-Z') {
+    //     const sorted = INPROGRESS.sort((a, b) => {
+    //       if (a.name < b.name) {
+    //         return -1;
+    //       }
+    //       if (a.name > b.name) {
+    //         return 1;
+    //       }
+    //       return 0;
+    //     });
+    //     console.log(sorted);
 
-  //     return;
-  //   }
+    //     return;
+    //   }
 
-  //   const sorted = INPROGRESS.sort((a, b) => {
-  //     if (a.date < b.date) {
-  //       return 1;
-  //     }
-  //     if (a.date > b.date) {
-  //       return -1;
-  //     }
-  //     return 0;
-  //   });
-  //   console.log(sorted);
+    //   const sorted = INPROGRESS.sort((a, b) => {
+    //     if (a.date < b.date) {
+    //       return 1;
+    //     }
+    //     if (a.date > b.date) {
+    //       return -1;
+    //     }
+    //     return 0;
+    //   });
+    //   console.log(sorted);
 
-  //   return;
- }, [ search]);
+    //   return;
+  }, [search]);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView inProgressData={dataList.inProgress} />,
