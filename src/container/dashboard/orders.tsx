@@ -396,7 +396,6 @@ function orders() {
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
-    
 
     if (currentPath === 'inProgress') {
       const filtered = INPROGRESS.filter((item) =>
@@ -409,8 +408,18 @@ function orders() {
       );
       setWaitlistData(filtered);
     }
-    
   };
+
+  useEffect(() => {
+    if (filteredBy) {
+      if (currentPath === 'inProgress') {
+        const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
+        setInProgressData(filtered);
+      } else {
+        setInProgressData(INPROGRESS);
+      }
+    }
+  }, [filteredBy]);
 
   return (
     <>
