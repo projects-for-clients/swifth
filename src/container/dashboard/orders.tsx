@@ -24,14 +24,26 @@ interface FiltersProps {
   text: string;
   bg: string;
 }
-const filterByColors: FiltersProps[] = [
-  { name: 'Docs in Review', text: '#182130', bg: '#FAC772' },
-  { name: 'Delivery Pending', text: '#182130', bg: '#D3EE87' },
-  { name: 'Custom Releasing', text: '#450C3C', bg: '#EDD7ED' },
-  { name: 'Duty Processing', text: '#120D23', bg: '#DED9EF' },
-  { name: 'Valuating', text: '#182130', bg: '#FAC772' },
-  { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
-];
+const filterByColors: Record<FilterBy, FiltersProps> = {
+  'Docs in Review': { name: 'Docs in Review', text: '#182130', bg: '#FAC772' },
+  'Delivery Pending': {
+    name: 'Delivery Pending',
+    text: '#182130',
+    bg: '#D3EE87',
+  },
+  'Custom Releasing': {
+    name: 'Custom Releasing',
+    text: '#450C3C',
+    bg: '#EDD7ED',
+  },
+  'Duty Processing': {
+    name: 'Duty Processing',
+    text: '#120D23',
+    bg: '#DED9EF',
+  },
+  Valuating: { name: 'Valuating', text: '#182130', bg: '#FAC772' },
+  Completed: { name: 'Completed', text: '#fffff', bg: '#40AD6B' },
+};
 
 //if
 
@@ -234,9 +246,12 @@ function orders() {
             </div>
           </div>
 
-          <div className='grid mt-[5rem] gap-10' style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
-          }}>
+          <div
+            className="grid mt-[5rem] gap-10"
+            style={{
+              gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+            }}
+          >
             {/* {if item.name === filterByColors.name? bg-[filterByColrs.bg] text-[filterByColors.text] : ''} */}
 
             {ORDERS.map((item, i) => {
@@ -254,12 +269,16 @@ function orders() {
                   </div>
 
                   <div className="text-[1.2rem] flex items-center justify-between pt-8">
-                    <p className="text-gray-500">{date.toLocaleString('en-GB', {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                    })}</p>
-                    <p className="bg-color-orange py-1.5 px-4 rounded-2xl">
+                    <p className="text-gray-500">
+                      {date.toLocaleString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </p>
+                    <p
+                      className={`py-1.5 px-4 rounded-2xl bg-${filterByColors}`}
+                    >
                       Docs in review
                     </p>
                   </div>
