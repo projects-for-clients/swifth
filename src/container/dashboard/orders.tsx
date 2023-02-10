@@ -393,10 +393,13 @@ function orders() {
   });
 
   useEffect(() => {
+    console.log(search, 'search');
     if (search) {
+      console.log(search, 'inner search');
+
       const filtered = dataList.inProgress.filter((item) => {
-        console.log(item.name, 'item.name')
-        console.log(search, 'search')
+        console.log(item.name, 'item.name');
+        console.log(search, 'search');
         return item.name.toLowerCase().includes(search.toLowerCase());
       });
 
