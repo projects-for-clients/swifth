@@ -439,7 +439,7 @@ function orders() {
       console.log({ sortedNames });
 
       setInProgressData(sortedNames);
-    } else {
+    } else if( selectedSort as SortBy === 'Most Recent'){
       console.log('sort dates');
       const sortedDates = INPROGRESS.sort((a, b) => {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
