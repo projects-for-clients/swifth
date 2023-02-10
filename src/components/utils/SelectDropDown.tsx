@@ -4,7 +4,7 @@ import { GrUp, GrDown } from 'react-icons/gr';
 interface ISelectDropDown {
   selectFrom: string[];
   selectedItem: string;
-  setSelectedItem: Dispatch<SetStateAction<unknown>>;
+  setSelectedItem: Dispatch<SetStateAction<string>>;
   label?: string;
   isFilter?: boolean;
 }

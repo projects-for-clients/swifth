@@ -382,7 +382,7 @@ function orders() {
   ];
 
   const [filteredBy, setFilteredBy] = useState('');
-  const [selectedSort, setSelectedSort] = useState<SortBy>('Most Recent');
+  const [selectedSort, setSelectedSort] = useState('Most Recent');
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
@@ -422,7 +422,7 @@ function orders() {
   }, [filteredBy]);
 
   useEffect(() => {
-    if (selectedSort === 'Most' && currentPath === 'inProgress') {
+    if (selectedSort === 'Most Recent' && currentPath === 'inProgress') {
 
     }
   }, [selectedSort]);
