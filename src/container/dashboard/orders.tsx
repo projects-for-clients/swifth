@@ -6,12 +6,20 @@ import {
   useEffect,
   MouseEvent,
   useState,
+  useRef,
 } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 import { GrClose } from 'react-icons/gr';
+import { AllNofications, QuoteRequests, QuoteRequestsDetails } from '../Nofications';
 
 export type SortBy = 'Most Recent' | 'A-Z';
+export type SwitchPath = 'all' | 'quoteRequests';
+export type ShowDetails = {
+  show: boolean;
+  id?: number | null;
+};
+
 type InProgressFilterBy =
   | 'Docs in Review'
   | 'Valuating'
@@ -473,22 +481,92 @@ function orders() {
   }, [selectedSort]);
 
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
-
-    if(toClear === 'inProgress'){
-
+    if (toClear === 'inProgress') {
       setInProgressFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
-    }
-
-    else{
+    } else {
       setWaitlistFilterBy('');
     }
   };
 
+  // const switchPath: Record<SwitchPath, JSX.Element> = {
+  //   all: <AllNofications />,
+  //   quoteRequests: <QuoteRequests setShowDetails={setShowDetails} />,
+  // };
+
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+
+  const handleClose = () => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+
+  const handleOpen = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
   return (
     <>
-      <Header title="Orders" />
+      <Header title="Orders" openDialog={handleOpen} />
+ <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4">
+          <figure className="flex justify-end px-8">
+            <img
+              src="/icons/close.svg"
+              alt=""
+              className="w-[3rem] cursor-pointer"
+              onClick={() => handleClose()}
+            />
+          </figure>
+          {/* {showDetails.show ? (
+            <section className="px-10 h-full">
+              <QuoteRequestsDetails
+                showDetails={showDetails}
+                setShowDetails={setShowDetails}
+                setCurrentPath={setCurrentPath}
+              />
+            </section>
+          ) : (
+            <>
+              <h3 className="text-[2rem] font-medium px-8  ">Notifications</h3>
+              <div
+                className="radioBox"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                }}
+              >
+                <input
+                  type="radio"
+                  name="notification"
+                  id="all"
+                  className="hidden"
+                  onChange={() => setCurrentPath('all')}
+                  checked={currentPath === 'all'}
+                />
+                <label htmlFor="all">All</label>
 
+                <input
+                  type="radio"
+                  name="notification"
+                  id="quoteRequests"
+                  className="hidden"
+                  checked={currentPath === 'quoteRequests'}
+                  onChange={() => setCurrentPath('quoteRequests')}
+                />
+                <label htmlFor="quoteRequests" className="capitalize">
+                  Quote Requests
+                </label>
+              </div> */}
+              {/* <section className="px-10 mt-10">
+                {switchPath[currentPath]}
+              </section>{' '} */}
+            {/* </>
+          )} */}
+        </div>
+      </dialog>
       <main className="text-[1.6rem]">
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input
