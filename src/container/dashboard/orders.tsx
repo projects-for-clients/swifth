@@ -465,6 +465,12 @@ function orders() {
     }
   }, [selectedSort]);
 
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+    console.log({e})
+  }
+
   return (
     <>
       <Header title="Orders" />
@@ -541,7 +547,7 @@ function orders() {
                   />
                   <p>History</p>
                 </div>
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-8" onClickCapture={(e) => console.log(e)}>
                   {currentPath === 'inProgress' && (
                     <SelectDropDown
                       selectFrom={sortBy}
