@@ -6,7 +6,7 @@ interface ISelectDropDown {
   selectFrom: string[];
   selectedItem: string;
   setSelectedItem: Dispatch<SetStateAction<SortBy | string>>;
-  label?: string | 'SortBy' | 'FilterBy';
+  label?: string | 'sortBy' | 'filterBy';
   isFilter?: boolean;
   setDropDownState?: Dispatch<SetStateAction<DropDownState>>;
   dropDownState?: DropDownState;
@@ -28,13 +28,13 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     setToggleSortMenu(!toggleSortMenu);
 
      console.log("sort Menu Toggler", label)
-    if (label === 'SortBy') {
+    if (label && label === 'sortBy') {
       console.log('clicked sortBy', toggleSortMenu);
       setDropDownState &&
         setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
     }
 
-    if (label === 'FilterBy') {
+    if (label && label === 'filterBy') {
       console.log('clicked filterBy', toggleSortMenu);
 
       setDropDownState &&
