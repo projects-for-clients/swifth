@@ -398,6 +398,11 @@ function orders() {
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
   );
+  const [dropDownState, setDropDownState] = useState({
+    sortBy: false,
+    filterBy: false,
+  })
+
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
 
@@ -551,7 +556,9 @@ function orders() {
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
                       setSelectedItem={setSelectedSort}
-                      label='sort by'
+                      label="sort by"
+                      setDropDownState={setDropDownState}
+                      dropDownState={dropDownState}
                     />
                   )}
                   <SelectDropDown
@@ -571,7 +578,9 @@ function orders() {
                         : setWaitlistFilterBy
                     }
                     isFilter
-                    label='filter by'
+                    label="filter by"
+                    setDropDownState={setDropDownState}
+                    dropDownState={dropDownState}
                   />
                 </div>
               </div>
