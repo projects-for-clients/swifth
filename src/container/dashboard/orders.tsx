@@ -506,10 +506,9 @@ function orders() {
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                  <span>
-                    Orders initiated from the waiting list would appear here
-                  </span>
-               
+                <span>
+                  Orders initiated from the waiting list would appear here
+                </span>
               </p>
             </div>
           ) : (
@@ -544,12 +543,10 @@ function orders() {
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-               
-                  <span>
-                    Quotes sent, and customers ready for their clearing process
-                    would appear here
-                  </span>
-             
+                <span>
+                  Quotes sent, and customers ready for their clearing process
+                  would appear here
+                </span>
               </p>
             </div>
           ) : (
@@ -564,7 +561,6 @@ function orders() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
-                 
                   <SelectDropDown
                     selectFrom={filters}
                     selectedItem={filteredBy}

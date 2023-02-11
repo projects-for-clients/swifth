@@ -15,7 +15,7 @@ export interface IUser {
       path: ValidatingPath;
       message: string;
       error: boolean;
-    }[];
+    }[] | [];
   };
 }
 

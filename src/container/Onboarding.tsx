@@ -281,7 +281,7 @@ const Onboarding = () => {
         updateUserOnboarding({
           onboarding: {
             validating: 'pending',
-            error: [],
+            validatingArr: [],
           },
         })
       );
