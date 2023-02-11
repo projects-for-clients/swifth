@@ -6,20 +6,35 @@ interface ISelectDropDown {
   selectFrom: string[];
   selectedItem: string;
   setSelectedItem: Dispatch<SetStateAction<SortBy | string>>;
-  label?: string;
+  label?: string | 'SortBy' | 'FilterBy';
   isFilter?: boolean;
   setDropDownState?: Dispatch<SetStateAction<DropDownState>>;
-  dropDownState?: DropDownState
+  dropDownState?: DropDownState;
 }
 
 const SelectDropDown: FC<ISelectDropDown> = (props) => {
-  const { selectFrom, selectedItem, setSelectedItem, label, isFilter, setDropDownState, dropDownState } = props;
+  const {
+    selectFrom,
+    selectedItem,
+    setSelectedItem,
+    label,
+    isFilter,
+    setDropDownState,
+    dropDownState,
+  } = props;
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
   const sortMenuToggler = () => {
     setToggleSortMenu(!toggleSortMenu);
 
-   
+    if (label === 'SortBy') {
+     setDropDownState &&  setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
+    }
+
+    if (label === 'FilterBy') {
+      setDropDownState && setDropDownState((prev) => ({ ...prev, filterBy: !prev.filterBy }));
+    }
+    
   };
 
   const handleSelectedItem = (item: string) => {

@@ -379,8 +379,8 @@ const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
 );
 
 export interface DropDownState {
-  sortBy: Record<string, boolean>;
-  filterBy: Record<string, boolean>;
+  sortBy: boolean;
+  filterBy: boolean;
 }
 
 function orders() {
@@ -403,12 +403,8 @@ function orders() {
     'Most Recent'
   );
   const [dropDownState, setDropDownState] = useState<DropDownState>({
-    sortBy: {
-      sortBy: false,
-    },
-    filterBy: {
-      filterBy: false,
-    },
+    sortBy: false,
+    filterBy: false,
   });
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
@@ -476,7 +472,9 @@ function orders() {
   }, [selectedSort]);
 
   const handleSelectChange = (e: MouseEvent<HTMLDivElement>) => {
-    console.log({ e });
+    // console.log({ e });
+
+    console.log({dropDownState})
   };
 
   return (
@@ -564,7 +562,7 @@ function orders() {
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
                       setSelectedItem={setSelectedSort}
-                      label="sort by"
+                      label={'sortBy' as const}
                       setDropDownState={setDropDownState}
                       dropDownState={dropDownState}
                     />
@@ -586,7 +584,7 @@ function orders() {
                         : setWaitlistFilterBy
                     }
                     isFilter
-                    label="filter by"
+                    label={'filterBy' as const}
                     setDropDownState={setDropDownState}
                     dropDownState={dropDownState}
                   />
