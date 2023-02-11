@@ -393,10 +393,7 @@ function orders() {
     'Completed',
   ];
 
-  const waitlistFilters: waitlistFilterBy[] = [
-    'Quote Sent',
-    'Submitted',
-  ];
+  const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
 
   const [inProgressFilteredBy, setinProgressFilteredBy] = useState('');
   const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
@@ -432,15 +429,22 @@ function orders() {
   };
 
   useEffect(() => {
-    if (inProgressFilteredBy) {
-      if (currentPath === 'inProgress') {
-        console.log('filter by', inProgressFilteredBy);
-        const filtered = INPROGRESS.filter((item) => item.tag === inProgressFilteredBy);
+    if (inProgressFilteredBy && currentPath === 'inProgress') {
+      const filtered = INPROGRESS.filter(
+        (item) => item.tag === inProgressFilteredBy
+      );
 
-        return setInProgressData((prev) => [...filtered]);
-      }
+      return setInProgressData((prev) => [...filtered]);
     }
-  }, [inProgressFilteredBy]);
+
+    if (waitlistFilterBy && currentPath === 'waitlist') {
+      const filtered = WAITLIST.filter((item) => {
+        return item.submitted === (waitlistFilterBy === 'Submitted');
+      });
+
+      return setWaitlistData((prev) => [...filtered]);
+    }
+  }, [inProgressFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
     if (selectedSort) {
@@ -547,9 +551,21 @@ function orders() {
                     />
                   )}
                   <SelectDropDown
-                    selectFrom={currentPath === 'inProgress' ? InProgressFilters : waitlistFilters}
-                    selectedItem={currentPath === 'inProgress' ? inProgressFilteredBy : waitlistFilterBy}
-                    setSelectedItem={currentPath === 'inProgress' ? setinProgressFilteredBy : setWaitlistFilterBy}
+                    selectFrom={
+                      currentPath === 'inProgress'
+                        ? InProgressFilters
+                        : waitlistFilters
+                    }
+                    selectedItem={
+                      currentPath === 'inProgress'
+                        ? inProgressFilteredBy
+                        : waitlistFilterBy
+                    }
+                    setSelectedItem={
+                      currentPath === 'inProgress'
+                        ? setinProgressFilteredBy
+                        : setWaitlistFilterBy
+                    }
                     isFilter
                   />
                 </div>
