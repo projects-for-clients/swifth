@@ -7,7 +7,6 @@ import {
   MouseEvent,
   useState,
 } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 
