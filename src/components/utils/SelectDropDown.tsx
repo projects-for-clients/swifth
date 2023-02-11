@@ -27,6 +27,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
   const sortMenuToggler = () => {
     setToggleSortMenu(!toggleSortMenu);
 
+     console.log("sort Menu Toggler", label)
     if (label === 'SortBy') {
       console.log('clicked sortBy', toggleSortMenu);
       setDropDownState &&
