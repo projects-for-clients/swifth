@@ -28,7 +28,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     if (label && label === 'sortBy') {
       setDropDownState &&
         setDropDownState((prev) => ({ filterBy: false, sortBy: !prev.sortBy }));
-        console.log('sorBy toggleSortMenu', toggleSortMenu);
+      console.log('sorBy toggleSortMenu', toggleSortMenu);
       return setToggleSortMenu(!toggleSortMenu);
     }
 
@@ -56,6 +56,10 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     console.log('toggleSortMenu useEffect', toggleSortMenu);
   }, [toggleSortMenu]);
 
+  useEffect(() => {
+    console.log('dropDownState useEffect', dropDownState);
+  }, [dropDownState]);
+
   return (
     <div className="relative flex items-center  justify-items-start cursor-pointer">
       {isFilter ? (
@@ -82,7 +86,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
         </p>
       )}
 
-      {dropDownState?.filterBy && label === 'filterBy' && (
+      {dropDownState?.sortBy && label === 'sortBy' && (
         <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
           {selectFrom.map((item, index) => (
             <p
@@ -95,7 +99,8 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
           ))}
         </div>
       )}
-      {dropDownState?.sortBy && label === 'sortBy' && (
+
+      {dropDownState?.filterBy && label === 'filterBy' && (
         <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
           {selectFrom.map((item, index) => (
             <p
@@ -132,7 +137,6 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
           )}
         </>
       )}
-     
     </div>
   );
 };
