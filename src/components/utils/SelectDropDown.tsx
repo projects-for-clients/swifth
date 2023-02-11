@@ -28,13 +28,17 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     setToggleSortMenu(!toggleSortMenu);
 
     if (label === 'SortBy') {
-     setDropDownState &&  setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
+      console.log('clicked sortBy', toggleSortMenu);
+      setDropDownState &&
+        setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
     }
 
     if (label === 'FilterBy') {
-      setDropDownState && setDropDownState((prev) => ({ ...prev, filterBy: !prev.filterBy }));
+      console.log('clicked filterBy', toggleSortMenu);
+
+      setDropDownState &&
+        setDropDownState((prev) => ({ ...prev, filterBy: !prev.filterBy }));
     }
-    
   };
 
   const handleSelectedItem = (item: string) => {

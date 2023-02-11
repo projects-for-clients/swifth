@@ -479,7 +479,7 @@ function orders() {
 
   useEffect(() => {
     console.log('useEffect', { dropDownState });
-  }, [dropDownState]);
+  }, [setDropDownState]);
 
   return (
     <>
