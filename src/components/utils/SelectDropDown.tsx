@@ -50,6 +50,8 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     setToggleSortMenu(false);
+
+    setDropDownState && setDropDownState({ sortBy: false, filterBy: false });
   };
 
   useEffect(() => {
@@ -130,7 +132,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
 
       {!isFilter && (
         <>
-          {toggleSortMenu ? (
+          {toggleSortMenu || (dropDownState?.sortBy) ? (
             <GrUp className="absolute right-4 text-[1.3rem]" />
           ) : (
             <GrDown className="absolute right-4 text-[1.3rem]" />
