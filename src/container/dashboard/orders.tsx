@@ -472,9 +472,17 @@ function orders() {
     }
   }, [selectedSort]);
 
-  const handleClearFilter = () => {
-    setInProgressFilteredBy('');
-    setDropDownState((prev) => ({ ...prev, filterBy: false }));
+  const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
+
+    if(toClear === 'inProgress'){
+
+      setInProgressFilteredBy('');
+      setDropDownState((prev) => ({ ...prev, filterBy: false }));
+    }
+
+    else{
+      setWaitlistFilterBy('');
+    }
   };
 
   return (
@@ -578,7 +586,7 @@ function orders() {
                       {inProgressFilteredBy && (
                         <GrClose
                           className="text-[1.4rem] cursor-pointer"
-                          onClick={handleClearFilter}
+                          onClick={() => handleClearFilter('inProgress')}
                         />
                       )}
                     </>
@@ -590,7 +598,12 @@ function orders() {
                         setSelectedItem={setWaitlistFilterBy}
                         isFilter
                       />
-                      <GrClose />
+                      {waitlistFilterBy && (
+                        <GrClose
+                          className="text-[1.4rem] cursor-pointer"
+                          onClick={() => handleClearFilter('waitlist')}
+                        />
+                      )}
                     </>
                   )}
                 </div>
