@@ -1,4 +1,4 @@
-import { Dispatch, useState, SetStateAction, FC } from 'react';
+import { Dispatch, useState, SetStateAction, FC, useEffect } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
 import { DropDownState, SortBy } from '../../container/dashboard/orders';
 
@@ -25,23 +25,22 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
   const sortMenuToggler = () => {
-    setToggleSortMenu(!toggleSortMenu);
-
-     console.log("sort Menu Toggler", label)
+    
     if (label && label === 'sortBy') {
-      console.log('clicked sortBy', toggleSortMenu);
       setDropDownState &&
-        setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
+      setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
     }
-
+    
     if (label && label === 'filterBy') {
-      console.log('clicked filterBy', toggleSortMenu);
-
+      
       setDropDownState &&
-        setDropDownState((prev) => ({ ...prev, filterBy: !prev.filterBy }));
+      setDropDownState((prev) => ({ ...prev, filterBy: !prev.filterBy }));
+    
     }
+    setToggleSortMenu(!toggleSortMenu);
   };
 
+ 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     setToggleSortMenu(false);
@@ -73,8 +72,35 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
         </p>
       )}
 
-      {toggleSortMenu && (
-        <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
+      {dropDownState?.filterBy && label === 'filterBy' && (
+        <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
+          {selectFrom.map((item, index) => (
+            <p
+              className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+              key={index}
+              onClick={() => handleSelectedItem(item)}
+            >
+              {item}
+            </p>
+          ))}
+        </div>
+      )}
+      {dropDownState?.sortBy && label === 'sortBy' && (
+        <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
+          {selectFrom.map((item, index) => (
+            <p
+              className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+              key={index}
+              onClick={() => handleSelectedItem(item)}
+            >
+              {item}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {!dropDownState && toggleSortMenu && (
+        <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
           {selectFrom.map((item, index) => (
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
