@@ -9,6 +9,7 @@ import {
 } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
+import { GrClose } from 'react-icons/gr';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 type InProgressFilterBy =
@@ -559,22 +560,28 @@ function orders() {
                     />
                   )}
                   {currentPath === 'inProgress' ? (
-                    <SelectDropDown
-                      selectFrom={InProgressFilters}
-                      selectedItem={inProgressFilteredBy}
-                      setSelectedItem={setinProgressFilteredBy}
-                      isFilter
-                      label={'filterBy'}
-                      setDropDownState={setDropDownState}
-                      dropDownState={dropDownState}
-                    />
+                    <>
+                      <SelectDropDown
+                        selectFrom={InProgressFilters}
+                        selectedItem={inProgressFilteredBy}
+                        setSelectedItem={setinProgressFilteredBy}
+                        isFilter
+                        label={'filterBy'}
+                        setDropDownState={setDropDownState}
+                        dropDownState={dropDownState}
+                      />
+                      <GrClose className='text-[1.4rem]'/>
+                    </>
                   ) : (
-                    <SelectDropDown
-                      selectFrom={waitlistFilters}
-                      selectedItem={waitlistFilterBy}
-                      setSelectedItem={setWaitlistFilterBy}
-                      isFilter
-                    />
+                    <>
+                      <SelectDropDown
+                        selectFrom={waitlistFilters}
+                        selectedItem={waitlistFilterBy}
+                        setSelectedItem={setWaitlistFilterBy}
+                        isFilter
+                      />
+                      <GrClose />
+                    </>
                   )}
                 </div>
               </div>
