@@ -502,21 +502,54 @@ function orders() {
             </label>
           </div>
 
-          {(currentPath === 'inProgress' && inProgressData.length < 1) ||
-          (currentPath === 'waitlist' && waitlistData.length < 1) ? (
+          {currentPath === 'inProgress' && inProgressData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                {currentPath === 'inProgress' ? (
                   <span>
                     Orders initiated from the waiting list would appear here
                   </span>
-                ) : (
+               
+              </p>
+            </div>
+          ) : (
+            <Fragment>
+              <div className="flex justify-between items-center mt-10">
+                <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]">
+                  <img
+                    src="/icons/history.svg"
+                    alt=""
+                    className="w-[1.6rem] h-[1.6rem]"
+                  />
+                  <p>History</p>
+                </div>
+                <div className="flex items-center gap-8">
+                  <SelectDropDown
+                    selectFrom={sortBy}
+                    selectedItem={selectedSort}
+                    setSelectedItem={setSelectedSort}
+                  />
+                  <SelectDropDown
+                    selectFrom={filters}
+                    selectedItem={filteredBy}
+                    setSelectedItem={setFilteredBy}
+                    isFilter
+                  />
+                </div>
+              </div>
+              <>{pathToSwitch[currentPath]}</>
+            </Fragment>
+          )}
+          {currentPath === 'waitlist' && waitlistData.length < 1 ? (
+            <div className="grid place-content-center h-[70vh] text-center">
+              <p>Nothing to Show here</p>
+              <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
+               
                   <span>
                     Quotes sent, and customers ready for their clearing process
                     would appear here
                   </span>
-                )}
+             
               </p>
             </div>
           ) : (
