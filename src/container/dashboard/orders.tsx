@@ -398,7 +398,7 @@ function orders() {
 
   const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
 
-  const [inProgressFilteredBy, setinProgressFilteredBy] = useState('');
+  const [inProgressFilteredBy, setInProgressFilteredBy] = useState('');
   const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
@@ -564,13 +564,16 @@ function orders() {
                       <SelectDropDown
                         selectFrom={InProgressFilters}
                         selectedItem={inProgressFilteredBy}
-                        setSelectedItem={setinProgressFilteredBy}
+                        setSelectedItem={setInProgressFilteredBy}
                         isFilter
                         label={'filterBy'}
                         setDropDownState={setDropDownState}
                         dropDownState={dropDownState}
                       />
-                      <GrClose className='text-[1.4rem]'/>
+                      {
+                      inProgressFilteredBy &&
+                      <GrClose className='text-[1.4rem] cursor-pointer' onClick={() => setInProgressFilteredBy('')}/>
+                      }
                     </>
                   ) : (
                     <>
