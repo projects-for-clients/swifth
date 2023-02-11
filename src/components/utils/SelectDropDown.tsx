@@ -28,7 +28,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     if (label && label === 'sortBy') {
       setDropDownState &&
         setDropDownState((prev) => ({ filterBy: false, sortBy: !prev.sortBy }));
-      setToggleSortMenu(false);
+      return setToggleSortMenu(false);
       console.log('sorBy toggleSortMenu', toggleSortMenu);
     }
 
@@ -39,11 +39,11 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
           filterBy: !prev.filterBy,
         }));
 
-      console.log("filterBy toggleSortMenu", toggleSortMenu)
-      setToggleSortMenu(false);
+      console.log('filterBy toggleSortMenu', toggleSortMenu);
+      return setToggleSortMenu(false);
     } else {
       console.log('ToggleItself toggleSortMenu', toggleSortMenu);
-      setToggleSortMenu(!toggleSortMenu);
+      return setToggleSortMenu(!toggleSortMenu);
     }
   };
 
@@ -53,7 +53,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
   };
 
   useEffect(() => {
-    console.log('toggleSortMenu useEffect', toggleSortMenu)
+    console.log('toggleSortMenu useEffect', toggleSortMenu);
   }, [toggleSortMenu]);
 
   return (
