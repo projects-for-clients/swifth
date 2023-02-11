@@ -289,7 +289,6 @@ const WAITLIST: Waitlist[] = [
 const InProgressView: FC<{ inProgressData: InProgress[] }> = ({
   inProgressData,
 }) => {
-  console.log({ inProgressData });
   return (
     <div
       className="grid mt-[5rem] gap-10"
