@@ -393,7 +393,7 @@ function orders() {
     'Completed',
   ];
 
-  const waitlistFilter: waitlistFilterBy[] = [
+  const waitlistFilters: waitlistFilterBy[] = [
     'Quote Sent',
     'Submitted',
   ];
@@ -547,9 +547,9 @@ function orders() {
                     />
                   )}
                   <SelectDropDown
-                    selectFrom={InProgressFilters}
-                    selectedItem={inProgressFilteredBy}
-                    setSelectedItem={setinProgressFilteredBy}
+                    selectFrom={currentPath === 'inProgress' ? InProgressFilters : waitlistFilters}
+                    selectedItem={currentPath === 'inProgress' ? inProgressFilteredBy : waitlistFilterBy}
+                    setSelectedItem={currentPath === 'inProgress' ? setinProgressFilteredBy : setWaitlistFilterBy}
                     isFilter
                   />
                 </div>
