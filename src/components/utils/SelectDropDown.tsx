@@ -28,7 +28,8 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     if (label && label === 'sortBy') {
       setDropDownState &&
         setDropDownState((prev) => ({ filterBy: false, sortBy: !prev.sortBy }));
-       setToggleSortMenu(false);
+      setToggleSortMenu(false);
+      console.log("I'm here")
     }
 
     if (label && label === 'filterBy') {
@@ -38,8 +39,10 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
           filterBy: !prev.filterBy,
         }));
 
+        console.log("I'm here")
       setToggleSortMenu(false);
     } else {
+      console.log("I'm here")
       setToggleSortMenu(!toggleSortMenu);
     }
   };
@@ -48,6 +51,10 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
     setSelectedItem(item);
     setToggleSortMenu(false);
   };
+
+  useEffect(() => {
+    console.log('toggleSortMenu', toggleSortMenu)
+  }, [toggleSortMenu]);
 
   return (
     <div className="relative flex items-center  justify-items-start cursor-pointer">
