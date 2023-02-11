@@ -36,7 +36,7 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
             {selectedItem && <span>:</span>}
           </>
           <p className=" whitespace-nowrap text-[1.2rem] text-center w-full text-color-purple-1">
-            {selectedItem || label}
+            {selectedItem}
           </p>
         </div>
       ) : (

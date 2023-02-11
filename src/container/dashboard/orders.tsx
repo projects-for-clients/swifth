@@ -551,6 +551,7 @@ function orders() {
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
                       setSelectedItem={setSelectedSort}
+                      label='sort by'
                     />
                   )}
                   <SelectDropDown
@@ -570,6 +571,7 @@ function orders() {
                         : setWaitlistFilterBy
                     }
                     isFilter
+                    label='filter by'
                   />
                 </div>
               </div>
