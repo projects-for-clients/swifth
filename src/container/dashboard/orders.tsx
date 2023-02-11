@@ -474,8 +474,12 @@ function orders() {
   const handleSelectChange = (e: MouseEvent<HTMLDivElement>) => {
     // console.log({ e });
 
-    console.log({dropDownState})
+    console.log({ dropDownState });
   };
+
+  useEffect(() => {
+    console.log('useEffect', { dropDownState });
+  }, [dropDownState]);
 
   return (
     <>
