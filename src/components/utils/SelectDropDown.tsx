@@ -25,22 +25,25 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
   const sortMenuToggler = () => {
-    
     if (label && label === 'sortBy') {
       setDropDownState &&
-      setDropDownState((prev) => ({ ...prev, sortBy: !prev.sortBy }));
+        setDropDownState((prev) => ({ filterBy: false, sortBy: !prev.sortBy }));
+       setToggleSortMenu(false);
     }
-    
+
     if (label && label === 'filterBy') {
-      
       setDropDownState &&
-      setDropDownState((prev) => ({ ...prev, filterBy: !prev.filterBy }));
-    
+        setDropDownState((prev) => ({
+          sortBy: false,
+          filterBy: !prev.filterBy,
+        }));
+
+      setToggleSortMenu(false);
+    } else {
+      setToggleSortMenu(!toggleSortMenu);
     }
-    setToggleSortMenu(!toggleSortMenu);
   };
 
- 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     setToggleSortMenu(false);

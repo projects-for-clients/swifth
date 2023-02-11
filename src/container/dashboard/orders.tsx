@@ -471,8 +471,6 @@ function orders() {
     }
   }, [selectedSort]);
 
-
-
   return (
     <>
       <Header title="Orders" />
@@ -549,40 +547,35 @@ function orders() {
                   />
                   <p>History</p>
                 </div>
-                <div
-                  className="flex items-center gap-8"
-                >
+                <div className="flex items-center gap-8">
                   {currentPath === 'inProgress' && (
                     <SelectDropDown
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
                       setSelectedItem={setSelectedSort}
-                      label={'sortBy' as const}
+                      label={'sortBy'}
                       setDropDownState={setDropDownState}
                       dropDownState={dropDownState}
                     />
                   )}
-                  <SelectDropDown
-                    selectFrom={
-                      currentPath === 'inProgress'
-                        ? InProgressFilters
-                        : waitlistFilters
-                    }
-                    selectedItem={
-                      currentPath === 'inProgress'
-                        ? inProgressFilteredBy
-                        : waitlistFilterBy
-                    }
-                    setSelectedItem={
-                      currentPath === 'inProgress'
-                        ? setinProgressFilteredBy
-                        : setWaitlistFilterBy
-                    }
-                    isFilter
-                    label={'filterBy' as const}
-                    setDropDownState={setDropDownState}
-                    dropDownState={dropDownState}
-                  />
+                  {currentPath === 'inProgress' ? (
+                    <SelectDropDown
+                      selectFrom={InProgressFilters}
+                      selectedItem={inProgressFilteredBy}
+                      setSelectedItem={setinProgressFilteredBy}
+                      isFilter
+                      label={'filterBy'}
+                      setDropDownState={setDropDownState}
+                      dropDownState={dropDownState}
+                    />
+                  ) : (
+                    <SelectDropDown
+                      selectFrom={waitlistFilters}
+                      selectedItem={waitlistFilterBy}
+                      setSelectedItem={setWaitlistFilterBy}
+                      isFilter
+                    />
+                  )}
                 </div>
               </div>
               <>{pathToSwitch[currentPath]}</>
