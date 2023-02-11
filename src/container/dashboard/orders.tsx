@@ -471,15 +471,11 @@ function orders() {
     }
   }, [selectedSort]);
 
-  const handleSelectChange = (e: MouseEvent<HTMLDivElement>) => {
-    // console.log({ e });
-
-    console.log({ dropDownState });
-  };
+ 
 
   useEffect(() => {
     console.log('useEffect', { dropDownState });
-  }, [setDropDownState]);
+  }, [dropDownState]);
 
   return (
     <>
@@ -559,7 +555,6 @@ function orders() {
                 </div>
                 <div
                   className="flex items-center gap-8"
-                  onClick={handleSelectChange}
                 >
                   {currentPath === 'inProgress' && (
                     <SelectDropDown
