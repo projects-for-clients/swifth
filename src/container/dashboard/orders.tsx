@@ -13,19 +13,21 @@ import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 
 export type SortBy = 'Most Recent' | 'A-Z';
-type FilterBy =
+type InProgressFilterBy =
   | 'Docs in Review'
   | 'Valuating'
   | 'Duty Processing'
   | 'Custom Releasing'
   | 'Delivery Pending'
   | 'Completed';
+
+type waitlistFilterBy = 'Quote Sent' | 'Submitted';
 interface InProgress {
   id: number;
   name: string;
   description: string;
   date: Date;
-  tag: FilterBy;
+  tag: InProgressFilterBy;
 }
 interface Waitlist {
   id: number;
@@ -40,7 +42,7 @@ interface FiltersProps {
   text: string;
   bg: string;
 }
-const filterByColors: Record<FilterBy, FiltersProps> = {
+const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
   'Docs in Review': {
     text: 'text-[#182130]',
     bg: 'bg-[#FAC772]',
@@ -382,7 +384,7 @@ const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const filters: FilterBy[] = [
+  const InProgressFilters: InProgressFilterBy[] = [
     'Docs in Review',
     'Valuating',
     'Duty Processing',
@@ -391,7 +393,13 @@ function orders() {
     'Completed',
   ];
 
-  const [filteredBy, setFilteredBy] = useState('');
+  const waitlistFilter: waitlistFilterBy[] = [
+    'Quote Sent',
+    'Submitted',
+  ];
+
+  const [inProgressFilteredBy, setinProgressFilteredBy] = useState('');
+  const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
   );
@@ -424,15 +432,15 @@ function orders() {
   };
 
   useEffect(() => {
-    if (filteredBy) {
+    if (inProgressFilteredBy) {
       if (currentPath === 'inProgress') {
-        console.log('filter by', filteredBy);
-        const filtered = INPROGRESS.filter((item) => item.tag === filteredBy);
+        console.log('filter by', inProgressFilteredBy);
+        const filtered = INPROGRESS.filter((item) => item.tag === inProgressFilteredBy);
 
         return setInProgressData((prev) => [...filtered]);
       }
     }
-  }, [filteredBy]);
+  }, [inProgressFilteredBy]);
 
   useEffect(() => {
     if (selectedSort) {
@@ -502,13 +510,21 @@ function orders() {
             </label>
           </div>
 
-          {currentPath === 'inProgress' && inProgressData.length < 1 ? (
+          {(currentPath === 'inProgress' && inProgressData.length < 1) ||
+          (currentPath === 'waitlist' && waitlistData.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                <span>
-                  Orders initiated from the waiting list would appear here
-                </span>
+                {currentPath === 'inProgress' ? (
+                  <span>
+                    Orders initiated from the waiting list would appear here
+                  </span>
+                ) : (
+                  <span>
+                    Quotes sent, and customers ready for their clearing process
+                    would appear here
+                  </span>
+                )}
               </p>
             </div>
           ) : (
@@ -523,48 +539,17 @@ function orders() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
+                  {currentPath === 'inProgress' && (
+                    <SelectDropDown
+                      selectFrom={sortBy}
+                      selectedItem={selectedSort}
+                      setSelectedItem={setSelectedSort}
+                    />
+                  )}
                   <SelectDropDown
-                    selectFrom={sortBy}
-                    selectedItem={selectedSort}
-                    setSelectedItem={setSelectedSort}
-                  />
-                  <SelectDropDown
-                    selectFrom={filters}
-                    selectedItem={filteredBy}
-                    setSelectedItem={setFilteredBy}
-                    isFilter
-                  />
-                </div>
-              </div>
-              <>{pathToSwitch[currentPath]}</>
-            </Fragment>
-          )}
-          {currentPath === 'waitlist' && waitlistData.length < 1 ? (
-            <div className="grid place-content-center h-[70vh] text-center">
-              <p>Nothing to Show here</p>
-              <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                <span>
-                  Quotes sent, and customers ready for their clearing process
-                  would appear here
-                </span>
-              </p>
-            </div>
-          ) : (
-            <Fragment>
-              <div className="flex justify-between items-center mt-10">
-                <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]">
-                  <img
-                    src="/icons/history.svg"
-                    alt=""
-                    className="w-[1.6rem] h-[1.6rem]"
-                  />
-                  <p>History</p>
-                </div>
-                <div className="flex items-center gap-8">
-                  <SelectDropDown
-                    selectFrom={filters}
-                    selectedItem={filteredBy}
-                    setSelectedItem={setFilteredBy}
+                    selectFrom={InProgressFilters}
+                    selectedItem={inProgressFilteredBy}
+                    setSelectedItem={setinProgressFilteredBy}
                     isFilter
                   />
                 </div>
