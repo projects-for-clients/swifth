@@ -472,6 +472,11 @@ function orders() {
     }
   }, [selectedSort]);
 
+  const handleClearFilter = () => {
+    setInProgressFilteredBy('');
+    setDropDownState((prev) => ({ ...prev, filterBy: false }));
+  };
+
   return (
     <>
       <Header title="Orders" />
@@ -570,10 +575,12 @@ function orders() {
                         setDropDownState={setDropDownState}
                         dropDownState={dropDownState}
                       />
-                      {
-                      inProgressFilteredBy &&
-                      <GrClose className='text-[1.4rem] cursor-pointer' onClick={() => setInProgressFilteredBy('')}/>
-                      }
+                      {inProgressFilteredBy && (
+                        <GrClose
+                          className="text-[1.4rem] cursor-pointer"
+                          onClick={handleClearFilter}
+                        />
+                      )}
                     </>
                   ) : (
                     <>
