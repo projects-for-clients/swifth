@@ -1,6 +1,6 @@
 import { Dispatch, useState, SetStateAction, FC } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
-import { SortBy } from '../../container/dashboard/orders';
+import { DropDownState, SortBy } from '../../container/dashboard/orders';
 
 interface ISelectDropDown {
   selectFrom: string[];
@@ -8,21 +8,19 @@ interface ISelectDropDown {
   setSelectedItem: Dispatch<SetStateAction<SortBy | string>>;
   label?: string;
   isFilter?: boolean;
-  setDropDownState?: Dispatch<SetStateAction<{
-    sortBy: boolean,
-    filterBy: boolean
-  }>>;
-  dropDownState?: {
-    sortBy: boolean,
-    filterBy: boolean
-  };
+  setDropDownState?: Dispatch<SetStateAction<DropDownState>>;
+  dropDownState?: DropDownState
 }
 
 const SelectDropDown: FC<ISelectDropDown> = (props) => {
-  const { selectFrom, selectedItem, setSelectedItem, label, isFilter } = props;
+  const { selectFrom, selectedItem, setSelectedItem, label, isFilter, setDropDownState, dropDownState } = props;
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+  const sortMenuToggler = () => {
+    setToggleSortMenu(!toggleSortMenu);
+
+   
+  };
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);

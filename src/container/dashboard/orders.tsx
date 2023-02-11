@@ -378,6 +378,11 @@ const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
   </div>
 );
 
+export interface DropDownState {
+  sortBy: Record<string, boolean>;
+  filterBy: Record<string, boolean>;
+}
+
 function orders() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
@@ -397,10 +402,14 @@ function orders() {
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
   );
-  const [dropDownState, setDropDownState] = useState({
-    sortBy: false,
-    filterBy: false,
-  })
+  const [dropDownState, setDropDownState] = useState<DropDownState>({
+    sortBy: {
+      sortBy: false,
+    },
+    filterBy: {
+      filterBy: false,
+    },
+  });
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
