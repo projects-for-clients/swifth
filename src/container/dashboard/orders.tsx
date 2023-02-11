@@ -434,7 +434,7 @@ function orders() {
         (item) => item.tag === inProgressFilteredBy
       );
 
-      return setInProgressData((prev) => [...filtered]);
+      return setInProgressData(() => [...filtered]);
     }
 
     if (waitlistFilterBy && currentPath === 'waitlist') {
@@ -442,26 +442,25 @@ function orders() {
         return item.submitted === (waitlistFilterBy === 'Submitted');
       });
 
-      return setWaitlistData((prev) => [...filtered]);
+      return setWaitlistData(() => [...filtered]);
     }
   }, [inProgressFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        console.log('sort A-Z');
         const sortedNames = INPROGRESS.sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
-        return setInProgressData((prev) => [...sortedNames]);
+        return setInProgressData(() => [...sortedNames]);
+
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        console.log('sort dates');
         const sortedDates = INPROGRESS.sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        return setInProgressData((prev) => [...sortedDates]);
+        return setInProgressData(() => [...sortedDates]);
       }
     }
   }, [selectedSort]);
