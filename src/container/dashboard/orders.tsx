@@ -4,8 +4,7 @@ import {
   FC,
   Fragment,
   useEffect,
-  useLayoutEffect,
-  useMemo,
+  MouseEvent,
   useState,
 } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
@@ -454,7 +453,6 @@ function orders() {
         });
 
         return setInProgressData(() => [...sortedNames]);
-
       } else if ((selectedSort as SortBy) === 'Most Recent') {
         const sortedDates = INPROGRESS.sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -465,11 +463,9 @@ function orders() {
     }
   }, [selectedSort]);
 
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-
-    console.log({e})
-  }
+  const handleSelectChange = (e: MouseEvent<HTMLDivElement>) => {
+    console.log({ e });
+  };
 
   return (
     <>
@@ -547,7 +543,10 @@ function orders() {
                   />
                   <p>History</p>
                 </div>
-                <div className="flex items-center gap-8" onClickCapture={(e) => console.log(e)}>
+                <div
+                  className="flex items-center gap-8"
+                  onClick={handleSelectChange}
+                >
                   {currentPath === 'inProgress' && (
                     <SelectDropDown
                       selectFrom={sortBy}
