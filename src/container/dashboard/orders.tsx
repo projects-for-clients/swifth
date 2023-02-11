@@ -401,7 +401,7 @@ function orders() {
   const [dropDownState, setDropDownState] = useState({
     sortBy: false,
     filterBy: false,
-  })
+  });
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [search, setSearch] = useState('');
@@ -552,36 +552,36 @@ function orders() {
                   onClick={handleSelectChange}
                 >
                   {currentPath === 'inProgress' && (
-                    <SelectDropDown
-                      selectFrom={sortBy}
-                      selectedItem={selectedSort}
-                      setSelectedItem={setSelectedSort}
-                      label="sort by"
-                      setDropDownState={setDropDownState}
-                      dropDownState={dropDownState}
-                    />
+                    <div onClick={(e) => console.log('clicke sortBy', e)}>
+                      <SelectDropDown
+                        selectFrom={sortBy}
+                        selectedItem={selectedSort}
+                        setSelectedItem={setSelectedSort}
+                        label="sort by"
+                      />
+                    </div>
                   )}
-                  <SelectDropDown
-                    selectFrom={
-                      currentPath === 'inProgress'
-                        ? InProgressFilters
-                        : waitlistFilters
-                    }
-                    selectedItem={
-                      currentPath === 'inProgress'
-                        ? inProgressFilteredBy
-                        : waitlistFilterBy
-                    }
-                    setSelectedItem={
-                      currentPath === 'inProgress'
-                        ? setinProgressFilteredBy
-                        : setWaitlistFilterBy
-                    }
-                    isFilter
-                    label="filter by"
-                    setDropDownState={setDropDownState}
-                    dropDownState={dropDownState}
-                  />
+                  <div onClick={(e) => console.log('clicked filterBy', e)}>
+                    <SelectDropDown
+                      selectFrom={
+                        currentPath === 'inProgress'
+                          ? InProgressFilters
+                          : waitlistFilters
+                      }
+                      selectedItem={
+                        currentPath === 'inProgress'
+                          ? inProgressFilteredBy
+                          : waitlistFilterBy
+                      }
+                      setSelectedItem={
+                        currentPath === 'inProgress'
+                          ? setinProgressFilteredBy
+                          : setWaitlistFilterBy
+                      }
+                      isFilter
+                      label="filter by"
+                    />
+                  </div>
                 </div>
               </div>
               <>{pathToSwitch[currentPath]}</>
