@@ -564,11 +564,7 @@ function orders() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
-                  <SelectDropDown
-                    selectFrom={sortBy}
-                    selectedItem={selectedSort}
-                    setSelectedItem={setSelectedSort}
-                  />
+                 
                   <SelectDropDown
                     selectFrom={filters}
                     selectedItem={filteredBy}
