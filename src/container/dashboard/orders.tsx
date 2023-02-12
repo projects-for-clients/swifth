@@ -1,16 +1,17 @@
 import Header from '../../components/dashboard/Header';
-import {
-  ChangeEvent,
-  FC,
-  Fragment,
-  useEffect,
-  useState,
-  useRef,
-} from 'react';
+import { ChangeEvent, FC, Fragment, useEffect, useState, useRef } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-import { InProgressFilterBy, InProgress, Waitlist, INPROGRESS, InProgressView, WAITLIST, WaitlistView } from '../../components/dashboard/OrdersData';
+import {
+  InProgressFilterBy,
+  InProgress,
+  Waitlist,
+  INPROGRESS,
+  InProgressView,
+  WAITLIST,
+  WaitlistView,
+} from '../../components/dashboard/OrdersData';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -20,9 +21,6 @@ export type ShowDetails = {
 };
 
 type waitlistFilterBy = 'Quote Sent' | 'Submitted';
-
-
-
 
 export interface DropDownState {
   sortBy: boolean;
@@ -63,6 +61,10 @@ function orders() {
     inProgress: <InProgressView inProgressData={inProgressData} />,
     waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
+
+  const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+
+  const dateRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -145,7 +147,7 @@ function orders() {
     }
   };
 
-const [showCalendarIcon, setShowCalendarIcon] = useState(false);
+  useEffect(() => {}, [dateRef]);
 
   return (
     <>
@@ -160,19 +162,17 @@ const [showCalendarIcon, setShowCalendarIcon] = useState(false);
               onClick={() => handleClose()}
             />
           </figure>
-
+          <input type="text" className=''/>
           <div>
             <div className="grid gap-4 w-full">
-              <label className="text-[1.4rem]">
-                From
-              </label>
+              <label className="text-[1.4rem]">From</label>
               <div className="relative flex items-center">
                 <input
                   type="text"
                   ref={dateRef}
                   autoFocus={false}
-                  placeholder="select Date"
-                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full `}
+                  placeholder="Select Date"
+                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
                   name="fromDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
@@ -188,7 +188,6 @@ const [showCalendarIcon, setShowCalendarIcon] = useState(false);
                   />
                 )}
               </div>
-              
             </div>
           </div>
         </div>
