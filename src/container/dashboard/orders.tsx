@@ -159,7 +159,7 @@ function orders() {
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
           <input type="text" ref={dateRef} className="absolute top-0 w-0" />
-          <figure className="flex justify-end px-8">
+          <figure className="flex justify-end">
             <img
               src="/icons/close.svg"
               alt=""
@@ -220,7 +220,7 @@ function orders() {
             </div>
 
             <div
-              className="grid mt-[5rem] gap-10"
+              className="grid mt-[5rem] gap-10 max-h-[60vh] overflow-y-scroll"
               style={{
                 gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
               }}
