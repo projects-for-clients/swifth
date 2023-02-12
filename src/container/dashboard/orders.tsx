@@ -184,7 +184,7 @@ function orders() {
                   <img
                     src="/icons/admin/calendar.svg"
                     alt=""
-                    className="absolute right-4 w-[2rem] h-[2rem]"
+                    className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light"
                   />
                 )}
               </div>
