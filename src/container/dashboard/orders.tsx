@@ -62,7 +62,10 @@ function orders() {
     waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
 
-  const [showCalendarIcon, setShowCalendarIcon] = useState(true);
+  const [showCalendarIcon, setShowCalendarIcon] = useState({
+    to: true,
+    from: true,
+  });
 
   const dateRef = useRef<HTMLInputElement>(null);
 
@@ -155,8 +158,8 @@ function orders() {
   return (
     <>
       <Header title="Orders" />
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef} tabIndex={1}>
-        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4">
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
           <input type="text" ref={dateRef} className='absolute top-0 w-0' />
           <figure className="flex justify-end px-8">
             <img
@@ -166,23 +169,50 @@ function orders() {
               onClick={() => handleClose()}
             />
           </figure>
-          <div>
+          <div className='flex justify-between gap-4'>
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">From</label>
               <div className="relative flex items-center">
                 <input
                   type="text"
-                  autoFocus={false}
                   placeholder="Select Date"
                   className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
                   name="fromDate"
+                  id='fromDate'
                   onFocus={(e) => {
                     e.target.type = 'date';
                     e.target.min = new Date().toISOString().split('T')[0];
-                    setShowCalendarIcon(false);
+                    setShowCalendarIcon((prev) => ({ ...prev, from: false }));
                   }}
                 />
-                {showCalendarIcon && (
+                {showCalendarIcon.from && (
+                  <img
+                    src="/icons/admin/calendar.svg"
+                    alt=""
+                    className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light"
+                  style={{
+                    fill: 'red',
+                    stroke: 'red',
+                  }}/>
+                )}
+              </div>
+            </div>
+            <div className="grid gap-4 w-full">
+              <label className="text-[1.4rem]">To</label>
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  id='toDate'
+                  placeholder="Select Date"
+                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
+                  name="toDate"
+                  onFocus={(e) => {
+                    e.target.type = 'date';
+                    e.target.min = new Date().toISOString().split('T')[0];
+                    setShowCalendarIcon((prev) => ({ ...prev, to: false }));
+                  }}
+                />
+                {showCalendarIcon.to && (
                   <img
                     src="/icons/admin/calendar.svg"
                     alt=""
