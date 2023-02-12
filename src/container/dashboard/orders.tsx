@@ -167,6 +167,8 @@ function orders() {
               onClick={() => handleClose()}
             />
           </figure>
+
+          <h3 className='text-[2.4rem] font-bold mb-4'>Order history</h3>
           <div className="flex justify-between gap-4">
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">From</label>
