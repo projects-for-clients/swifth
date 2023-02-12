@@ -11,7 +11,11 @@ import {
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import dayjs from 'dayjs';
 import { GrClose } from 'react-icons/gr';
-import { AllNofications, QuoteRequests, QuoteRequestsDetails } from '../Nofications';
+import {
+  AllNofications,
+  QuoteRequests,
+  QuoteRequestsDetails,
+} from '../Nofications';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -509,8 +513,8 @@ function orders() {
   };
   return (
     <>
-      <Header title="Orders" openDialog={handleOpen} />
- <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+      <Header title="Orders" />
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4">
           <figure className="flex justify-end px-8">
             <img
@@ -560,10 +564,10 @@ function orders() {
                   Quote Requests
                 </label>
               </div> */}
-              {/* <section className="px-10 mt-10">
+          {/* <section className="px-10 mt-10">
                 {switchPath[currentPath]}
               </section>{' '} */}
-            {/* </>
+          {/* </>
           )} */}
         </div>
       </dialog>
@@ -631,7 +635,7 @@ function orders() {
           ) : (
             <Fragment>
               <div className="flex justify-between items-center mt-10">
-                <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]">
+                <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]" onClick={() => console.log("helllo")}>
                   <img
                     src="/icons/history.svg"
                     alt=""
