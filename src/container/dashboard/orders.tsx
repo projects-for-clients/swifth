@@ -251,7 +251,7 @@ function orders() {
                       <p
                         className={`py-1.5 px-4 rounded-2xl text-white bg-[#40AD6B]`}
                       >
-                        {tag}
+                        Completed
                       </p>
                     </div>
                   </div>
