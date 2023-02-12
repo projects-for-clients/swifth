@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function CalenderSvg({ fill = '#787F8A' }: { fill?: string }) {
+export default function CalenderSvg({ fill = '#787F8A', width = '18', height='18' }: { fill?: string, width?: string, height?: string}) {
   return (
     <svg
-      width="24"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"

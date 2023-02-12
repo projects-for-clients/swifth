@@ -184,8 +184,8 @@ function orders() {
                   }}
                 />
                 {showCalendarIcon.from && (
-                  <span className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light">
-                    <CalenderSvg />
+                  <span className="absolute right-4">
+                    <CalenderSvg fill={'#9D8DCE'} />
                   </span>
                 )}
               </div>
