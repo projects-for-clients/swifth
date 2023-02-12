@@ -12,6 +12,7 @@ import {
   WAITLIST,
   WaitlistView,
 } from '../../components/dashboard/OrdersData';
+import CalenderSvg from '../../components/icons/Calender';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -146,21 +147,18 @@ function orders() {
 
   const handleOpen = () => {
     if (dialogRef.current) {
-      console.log(dialogRef.current.firstChild)
-      
+      console.log(dialogRef.current.firstChild);
+
       dialogRef.current.showModal();
     }
-
   };
-
-
 
   return (
     <>
       <Header title="Orders" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
-          <input type="text" ref={dateRef} className='absolute top-0 w-0' />
+          <input type="text" ref={dateRef} className="absolute top-0 w-0" />
           <figure className="flex justify-end px-8">
             <img
               src="/icons/close.svg"
@@ -169,7 +167,7 @@ function orders() {
               onClick={() => handleClose()}
             />
           </figure>
-          <div className='flex justify-between gap-4'>
+          <div className="flex justify-between gap-4">
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">From</label>
               <div className="relative flex items-center">
@@ -178,7 +176,7 @@ function orders() {
                   placeholder="Select Date"
                   className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
                   name="fromDate"
-                  id='fromDate'
+                  id="fromDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
                     e.target.min = new Date().toISOString().split('T')[0];
@@ -186,14 +184,9 @@ function orders() {
                   }}
                 />
                 {showCalendarIcon.from && (
-                  <img
-                    src="/icons/admin/calendar.svg"
-                    alt=""
-                    className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light"
-                  style={{
-                    fill: 'red',
-                    stroke: 'red',
-                  }}/>
+                  <span className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light">
+                    <CalenderSvg />
+                  </span>
                 )}
               </div>
             </div>
@@ -202,7 +195,7 @@ function orders() {
               <div className="relative flex items-center">
                 <input
                   type="text"
-                  id='toDate'
+                  id="toDate"
                   placeholder="Select Date"
                   className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
                   name="toDate"
@@ -217,10 +210,11 @@ function orders() {
                     src="/icons/admin/calendar.svg"
                     alt=""
                     className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light"
-                  style={{
-                    fill: 'red',
-                    stroke: 'red',
-                  }}/>
+                    style={{
+                      fill: 'red',
+                      stroke: 'red',
+                    }}
+                  />
                 )}
               </div>
             </div>
