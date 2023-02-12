@@ -174,7 +174,7 @@ function orders() {
                 <input
                   type="text"
                   placeholder="Select Date"
-                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
+                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2`}
                   name="fromDate"
                   id="fromDate"
                   onFocus={(e) => {
@@ -197,7 +197,7 @@ function orders() {
                   type="text"
                   id="toDate"
                   placeholder="Select Date"
-                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
+                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2 `}
                   name="toDate"
                   onFocus={(e) => {
                     e.target.type = 'date';
@@ -206,15 +206,9 @@ function orders() {
                   }}
                 />
                 {showCalendarIcon.to && (
-                  <img
-                    src="/icons/admin/calendar.svg"
-                    alt=""
-                    className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light"
-                    style={{
-                      fill: 'red',
-                      stroke: 'red',
-                    }}
-                  />
+                  <span className="absolute right-4">
+                    <CalenderSvg fill={'#9D8DCE'} />
+                  </span>
                 )}
               </div>
             </div>
