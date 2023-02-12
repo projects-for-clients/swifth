@@ -144,16 +144,17 @@ function orders() {
   const handleOpen = () => {
     if (dialogRef.current) {
       console.log(dialogRef.current)
+      
       dialogRef.current.showModal();
     }
+
   };
 
-  useEffect(() => {}, [dateRef]);
 
   return (
     <>
       <Header title="Orders" />
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef} >
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4">
           <figure className="flex justify-end px-8">
             <img
