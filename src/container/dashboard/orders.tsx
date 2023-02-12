@@ -143,7 +143,7 @@ function orders() {
 
   const handleOpen = () => {
     if (dialogRef.current) {
-      console.log(dialogRef.current)
+      console.log(dialogRef.current.firstChild)
       
       dialogRef.current.showModal();
     }
@@ -151,11 +151,13 @@ function orders() {
   };
 
 
+
   return (
     <>
       <Header title="Orders" />
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef} >
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef} tabIndex={1}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4">
+          <input type="text" ref={dateRef} className='absolute top-0 w-0' />
           <figure className="flex justify-end px-8">
             <img
               src="/icons/close.svg"
