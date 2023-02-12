@@ -220,7 +220,7 @@ function orders() {
             </div>
 
             <button className="flex w-full h-full items-start ">
-              <span className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase">
+              <span className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium">
                 Search
               </span>
             </button>
