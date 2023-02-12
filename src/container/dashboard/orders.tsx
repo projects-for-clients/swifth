@@ -143,6 +143,7 @@ function orders() {
 
   const handleOpen = () => {
     if (dialogRef.current) {
+      console.log(dialogRef.current)
       dialogRef.current.showModal();
     }
   };
@@ -162,14 +163,12 @@ function orders() {
               onClick={() => handleClose()}
             />
           </figure>
-          <input type="text" className=''/>
           <div>
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem]">From</label>
               <div className="relative flex items-center">
                 <input
                   type="text"
-                  ref={dateRef}
                   autoFocus={false}
                   placeholder="Select Date"
                   className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light `}
@@ -185,7 +184,10 @@ function orders() {
                     src="/icons/admin/calendar.svg"
                     alt=""
                     className="absolute right-4 w-[2rem] h-[2rem] svg:text-color-purple-light text-color-purple-light"
-                  />
+                  style={{
+                    fill: 'red',
+                    stroke: 'red',
+                  }}/>
                 )}
               </div>
             </div>
