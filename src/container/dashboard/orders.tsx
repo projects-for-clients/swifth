@@ -4,19 +4,13 @@ import {
   FC,
   Fragment,
   useEffect,
-  MouseEvent,
   useState,
   useRef,
 } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
-import dayjs from 'dayjs';
 import { GrClose } from 'react-icons/gr';
-import {
-  AllNofications,
-  QuoteRequests,
-  QuoteRequestsDetails,
-} from '../Nofications';
-import { InProgressFilterBy, InProgress, Waitlist } from '../../components/dashboard/OrdersData';
+
+import { InProgressFilterBy, InProgress, Waitlist, INPROGRESS, InProgressView, WAITLIST, WaitlistView } from '../../components/dashboard/OrdersData';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
