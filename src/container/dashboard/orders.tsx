@@ -168,53 +168,63 @@ function orders() {
             />
           </figure>
 
-          <h3 className='text-[2.4rem] font-bold mb-4'>Order history</h3>
-          <div className="flex justify-between gap-4">
-            <div className="grid gap-4 w-full">
-              <label className="text-[1.4rem]">From</label>
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  placeholder="Select Date"
-                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2`}
-                  name="fromDate"
-                  id="fromDate"
-                  onFocus={(e) => {
-                    e.target.type = 'date';
-                    e.target.min = new Date().toISOString().split('T')[0];
-                    setShowCalendarIcon((prev) => ({ ...prev, from: false }));
-                  }}
-                />
-                {showCalendarIcon.from && (
-                  <span className="absolute right-4">
-                    <CalenderSvg fill={'#9D8DCE'} />
-                  </span>
-                )}
+          <section className='h-full'>
+            <h3 className="text-[2.4rem] font-Satoshi-Medium mb-4">
+              Order history
+            </h3>
+            <div className="flex justify-between gap-4">
+              <div className="grid gap-4 w-full">
+                <label className="text-[1.4rem]">From</label>
+                <div className="relative flex items-center">
+                  <input
+                    type="text"
+                    placeholder="Select Date"
+                    className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2`}
+                    name="fromDate"
+                    id="fromDate"
+                    onFocus={(e) => {
+                      e.target.type = 'date';
+                      e.target.min = new Date().toISOString().split('T')[0];
+                      setShowCalendarIcon((prev) => ({ ...prev, from: false }));
+                    }}
+                  />
+                  {showCalendarIcon.from && (
+                    <span className="absolute right-4">
+                      <CalenderSvg fill={'#9D8DCE'} />
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="grid gap-4 w-full">
+                <label className="text-[1.4rem]">To</label>
+                <div className="relative flex items-center">
+                  <input
+                    type="text"
+                    id="toDate"
+                    placeholder="Select Date"
+                    className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2 `}
+                    name="toDate"
+                    onFocus={(e) => {
+                      e.target.type = 'date';
+                      e.target.min = new Date().toISOString().split('T')[0];
+                      setShowCalendarIcon((prev) => ({ ...prev, to: false }));
+                    }}
+                  />
+                  {showCalendarIcon.to && (
+                    <span className="absolute right-4">
+                      <CalenderSvg fill={'#9D8DCE'} />
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
-            <div className="grid gap-4 w-full">
-              <label className="text-[1.4rem]">To</label>
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  id="toDate"
-                  placeholder="Select Date"
-                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2 `}
-                  name="toDate"
-                  onFocus={(e) => {
-                    e.target.type = 'date';
-                    e.target.min = new Date().toISOString().split('T')[0];
-                    setShowCalendarIcon((prev) => ({ ...prev, to: false }));
-                  }}
-                />
-                {showCalendarIcon.to && (
-                  <span className="absolute right-4">
-                    <CalenderSvg fill={'#9D8DCE'} />
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
+
+            <button className="flex w-full h-full items-start ">
+              <span className="text-color-primary border border-color-primary rounded-lg w-full py-4">
+                Send Quote
+              </span>
+            </button>
+          </section>
         </div>
       </dialog>
       <main className="text-[1.6rem]">
