@@ -511,6 +511,9 @@ function orders() {
       dialogRef.current.showModal();
     }
   };
+
+const [showCalendarIcon, setShowCalendarIcon] = useState(false);
+
   return (
     <>
       <Header title="Orders" />
@@ -524,51 +527,35 @@ function orders() {
               onClick={() => handleClose()}
             />
           </figure>
-          {/* {showDetails.show ? (
-            <section className="px-10 h-full">
-              <QuoteRequestsDetails
-                showDetails={showDetails}
-                setShowDetails={setShowDetails}
-                setCurrentPath={setCurrentPath}
-              />
-            </section>
-          ) : (
-            <>
-              <h3 className="text-[2rem] font-medium px-8  ">Notifications</h3>
-              <div
-                className="radioBox"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                }}
-              >
-                <input
-                  type="radio"
-                  name="notification"
-                  id="all"
-                  className="hidden"
-                  onChange={() => setCurrentPath('all')}
-                  checked={currentPath === 'all'}
-                />
-                <label htmlFor="all">All</label>
 
+          <div>
+            <div className="grid gap-4 w-full">
+              <label className="text-[1.4rem]">
+                From
+              </label>
+              <div className="relative flex items-center">
                 <input
-                  type="radio"
-                  name="notification"
-                  id="quoteRequests"
-                  className="hidden"
-                  checked={currentPath === 'quoteRequests'}
-                  onChange={() => setCurrentPath('quoteRequests')}
+                  type="text"
+                  placeholder="select Date"
+                  className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] bg-color-grey-1 w-full `}
+                  name="fromDate"
+                  onFocus={(e) => {
+                    e.target.type = 'date';
+                    e.target.min = new Date().toISOString().split('T')[0];
+                    setShowCalendarIcon(false);
+                  }}
                 />
-                <label htmlFor="quoteRequests" className="capitalize">
-                  Quote Requests
-                </label>
-              </div> */}
-          {/* <section className="px-10 mt-10">
-                {switchPath[currentPath]}
-              </section>{' '} */}
-          {/* </>
-          )} */}
+                {showCalendarIcon && (
+                  <img
+                    src="/icons/admin/calendar.svg"
+                    alt=""
+                    className="absolute right-4 w-[2rem] h-[2rem]"
+                  />
+                )}
+              </div>
+              
+            </div>
+          </div>
         </div>
       </dialog>
       <main className="text-[1.6rem]">
@@ -635,7 +622,10 @@ function orders() {
           ) : (
             <Fragment>
               <div className="flex justify-between items-center mt-10">
-                <div className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]" onClick={() => console.log("helllo")}>
+                <div
+                  className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
+                  onClick={() => handleOpen()}
+                >
                   <img
                     src="/icons/history.svg"
                     alt=""
