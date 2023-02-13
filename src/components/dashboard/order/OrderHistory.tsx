@@ -6,6 +6,7 @@ import { InProgress, ORDER_HISTORY } from "./OrdersData";
 
 interface Props {
     setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
+    id?: number | null
 }
 
 export const ListOrderHistory:FC<Props> = ({
