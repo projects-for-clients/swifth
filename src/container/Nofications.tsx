@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { toast, ToastContainer } from 'react-toastify';
 import { ShowDetails, SwitchPath } from './dashboard/Home';
 
 interface AllNofications {
@@ -129,7 +128,6 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
     port: string;
     terminal: string;
   }
-
   const [quoteDetails, setQuoteDetails] = useState<QuoteRequestsDetails>(
     {} as QuoteRequestsDetails
   );
@@ -275,6 +273,7 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
       </div>
     </>
   );
+
 };
 
 export const AllNofications = () => {

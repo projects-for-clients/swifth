@@ -1,42 +1,46 @@
-import { useState, useRef, useEffect, Dispatch, SetStateAction, FC } from "react";
-import { GrClose } from "react-icons/gr";
-import { OrderHistoryPath } from "../../../container/dashboard/orders";
-import CalenderSvg from "../../icons/Calender";
-import { InProgress, ORDER_HISTORY } from "./OrdersData";
+import {
+  useState,
+  useRef,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  FC,
+  FormEvent,
+} from 'react';
+import { BsArrowLeft } from 'react-icons/bs';
+import { GrClose } from 'react-icons/gr';
+import { OrderHistoryPath } from '../../../container/dashboard/orders';
+import CalenderSvg from '../../icons/Calender';
+import { InProgress, ORDER_HISTORY } from './OrdersData';
 
 interface Props {
-    setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
-    id?: number | null
+  setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
+  id?: number | null;
 }
 
-export const ListOrderHistory:FC<Props> = ({
-    setOrderHistoryPath,
-}) => {
-      const [orderHistory, setOrderHistory] =
-        useState<InProgress[]>(ORDER_HISTORY);
+export const ListOrderHistory: FC<Props> = ({ setOrderHistoryPath }) => {
+  const [orderHistory, setOrderHistory] = useState<InProgress[]>(ORDER_HISTORY);
 
-         useEffect(() => {
-           const sortedDates = ORDER_HISTORY.sort((a, b) => {
-             return new Date(a.date).getTime() - new Date(b.date).getTime();
-           });
+  useEffect(() => {
+    const sortedDates = ORDER_HISTORY.sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
 
-           setOrderHistory(() => [...sortedDates]);
-         }, []);
-         
-     const [searchDates, setSearchDates] = useState<
-       Record<string, Date | null>
-     >({
-       from: null,
-       to: null,
-     });
+    setOrderHistory(() => [...sortedDates]);
+  }, []);
 
-     const [showCalendarIcon, setShowCalendarIcon] = useState({
-       to: true,
-       from: true,
-     });
+  const [searchDates, setSearchDates] = useState<Record<string, Date | null>>({
+    from: null,
+    to: null,
+  });
 
-     const fromDateRef = useRef<HTMLInputElement>(null);
-     const toDateRef = useRef<HTMLInputElement>(null);
+  const [showCalendarIcon, setShowCalendarIcon] = useState({
+    to: true,
+    from: true,
+  });
+
+  const fromDateRef = useRef<HTMLInputElement>(null);
+  const toDateRef = useRef<HTMLInputElement>(null);
 
   const handleDateSearch = () => {
     const { from, to } = searchDates;
@@ -160,10 +164,12 @@ export const ListOrderHistory:FC<Props> = ({
               <div
                 className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                 key={i}
-                onClick={() => setOrderHistoryPath({
+                onClick={() =>
+                  setOrderHistoryPath({
                     path: 'detail',
-                    id
-                })}
+                    id,
+                  })
+                }
               >
                 <div>
                   <p className="text-[1.6rem]">{name}</p>
@@ -200,11 +206,154 @@ export const ListOrderHistory:FC<Props> = ({
   );
 };
 
-export const OrderHistoryDetail:FC<Props> = ({setOrderHistoryPath}) => {
+export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
+  interface OrderHistoryDetail {
+    id: number;
+    title: string;
+    carYear: string;
+    carModel: string;
+    carBrand: string;
+    trim: string;
+    port: string;
+    terminal: string;
+  }
+  const [orderHistoryDetail, setOrderHistoryDetail] =
+    useState<OrderHistoryDetail>({} as OrderHistoryDetail);
 
-    return (
-        <>
-            lorem 
-        </>
-    )
-}
+  const [toDisplay, setToDisplay] = useState('hidden');
+  const [toastDisplay, setToastDisplay] = useState('hidden');
+
+  useEffect(() => {
+    const data = {
+      id: id!,
+      title: 'Jonathan Ogunleye',
+      carYear: '2021',
+      carModel: 'Toyota Corolla',
+      carBrand: 'Toyota',
+      trim: 'XLE',
+      port: 'Lagos',
+      terminal: 'Terminal 1',
+    };
+    setOrderHistoryDetail(data);
+  }, [id]);
+
+  const goBack = () => {
+    setOrderHistoryPath({
+      path: 'list',
+      id: null,
+    });
+  };
+
+  const { title, carYear, carModel, carBrand, trim, port, terminal } =
+    orderHistoryDetail;
+
+  const closeModal = () => {
+    setToDisplay('hidden');
+  };
+
+  const handleQuoteSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setToastDisplay('flex');
+  };
+
+  return (
+    <>
+      <section
+        className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay}`}
+        style={{
+          gridTemplateRows: '1.2fr 1fr',
+        }}
+      >
+        <div
+          className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}
+        >
+          <span className="w-full text-center">Quote Sent!</span>
+          <GrClose
+            onClick={() => setToastDisplay('hidden')}
+            className="cursor-pointer"
+          />
+        </div>
+        <div onClick={closeModal}>&nbsp;</div>
+        <form
+          className="bg-white py-10 px-10 rounded-t-3xl"
+          onSubmit={handleQuoteSubmit}
+        >
+          <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
+
+          <div>
+            <label htmlFor="amount" className="text-[1.4rem] text-gray-600">
+              Enter Amount
+            </label>
+            <input
+              type="number"
+              name="amount"
+              placeholder="Enter Amount"
+              required
+              id="amount"
+              className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
+            />
+          </div>
+
+          <button className="flex w-full h-full items-center ">
+            <span className="bg-color-primary rounded-lg text-white w-full py-4">
+              Send Quote
+            </span>
+          </button>
+        </form>
+      </section>
+
+      <div className="px-5 h-full items-baseline ">
+        <div className="flex">
+          <BsArrowLeft
+            className="text-[2.4rem] cursor-pointer"
+            onClick={goBack}
+          />
+          <p className="text-[1.6rem] text-gray-600 w-full text-center">
+            {title}
+          </p>
+        </div>
+        <main className="grid gap-4 mt-20">
+          <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Car Year</p>
+              <p className="text-[1.6rem] text-gray-600">{carYear}</p>
+            </div>
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Car Brand</p>
+              <p className="text-[1.6rem] text-gray-600">{carBrand}</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Car Model</p>
+              <p className="text-[1.6rem] text-gray-600">{carModel}</p>
+            </div>
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Trim</p>
+              <p className="text-[1.6rem] text-gray-600">{trim}</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-center border-b border-b-color-red-light-1 py-4">
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Port</p>
+              <p className="text-[1.6rem] text-gray-600">{port}</p>
+            </div>
+            <div>
+              <p className="text-[1.4rem] text-gray-400">Terminal</p>
+              <p className="text-[1.6rem] text-gray-600">{terminal}</p>
+            </div>
+          </div>
+        </main>
+
+        <button
+          className="flex w-full h-full items-center "
+          onClick={() => setToDisplay('grid')}
+        >
+          <span className="bg-color-primary rounded-lg text-white w-full py-4">
+            Send Quote
+          </span>
+        </button>
+      </div>
+    </>
+  );
+};
