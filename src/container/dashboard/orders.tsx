@@ -267,7 +267,7 @@ function orders() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
               }}
             >
-              {orderHistory.length < 0 ? orderHistory.map((item, i) => {
+              {orderHistory.length > 0 ? orderHistory.map((item, i) => {
                 const { name, description, date, tag } = item;
 
                 return (
