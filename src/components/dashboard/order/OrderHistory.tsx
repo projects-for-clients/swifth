@@ -3,6 +3,9 @@ import { GrClose } from "react-icons/gr";
 import CalenderSvg from "../../icons/Calender";
 import { InProgress, ORDER_HISTORY } from "./OrdersData";
 
+interface Props {
+    setOrderHistoryPath: React.Dispatch<React.SetStateAction<string>>;
+}
 
 export const ListOrderHistory = () => {
       const [orderHistory, setOrderHistory] =
