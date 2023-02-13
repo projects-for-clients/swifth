@@ -57,11 +57,10 @@ function orders() {
   const [searchDates, setSearchDates] = useState<Record<string, Date | null>>({
     from: null,
     to: null,
-  })
+  });
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView inProgressData={inProgressData} />,
@@ -187,6 +186,12 @@ function orders() {
                     className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2`}
                     name="fromDate"
                     id="fromDate"
+                    onChange={(e) =>
+                      setSearchDates((prev) => ({
+                        ...prev,
+                        from: new Date(e.target.value),
+                      }))
+                    }
                     onFocus={(e) => {
                       e.target.type = 'date';
                       e.target.min = new Date().toISOString().split('T')[0];
@@ -209,7 +214,12 @@ function orders() {
                     placeholder="Select Date"
                     className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2 `}
                     name="toDate"
-                    
+                    onChange={(e) =>
+                      setSearchDates((prev) => ({
+                        ...prev,
+                        to: new Date(e.target.value),
+                      }))
+                    }
                     onFocus={(e) => {
                       e.target.type = 'date';
                       e.target.min = new Date().toISOString().split('T')[0];
@@ -224,12 +234,10 @@ function orders() {
                 </div>
               </div>
             </div>
-            <button className="flex w-full mt-10">
-              <span className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium">
-                Search
-              </span>
+            <button className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium flex  mt-10">
+              Search
             </button>
-           
+
             <div
               className="grid mt-[5rem] gap-10 max-h-[60vh] overflow-y-scroll"
               style={{
