@@ -1,5 +1,4 @@
-import { FC } from "react";
-
+import { FC } from 'react';
 
 function generateRandomDate() {
   const today = new Date();
@@ -22,7 +21,7 @@ export interface InProgress {
   id: number;
   name: string;
   description: string;
-  date: Date ;
+  date: Date;
   tag: InProgressFilterBy;
 }
 export interface Waitlist {
@@ -151,7 +150,7 @@ export const ORDER_HISTORY: InProgress[] = [
     name: 'Jonathan Sunyi sfsfsf',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     tag: 'Completed',
-    date: generateRandomDate()
+    date: generateRandomDate(),
   },
   {
     id: Math.random(),
@@ -301,10 +300,10 @@ export const WAITLIST: Waitlist[] = [
   },
 ];
 
-export const InProgressView: FC<{ inProgressData: InProgress[], openDialog: any }> = ({
-  inProgressData,
-  openDialog
-}) => {
+export const InProgressView: FC<{
+  inProgressData: InProgress[];
+  openOrderDetail: (item: InProgress) => void;
+}> = ({ inProgressData, openOrderDetail }) => {
   return (
     <div
       className="grid mt-[5rem] gap-10"
@@ -317,8 +316,9 @@ export const InProgressView: FC<{ inProgressData: InProgress[], openDialog: any 
 
         return (
           <div
-            className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
+            className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
             key={i}
+            onClick={() => openOrderDetail(item)}
           >
             <div>
               <p className="text-[1.6rem]">{name}</p>
@@ -347,7 +347,9 @@ export const InProgressView: FC<{ inProgressData: InProgress[], openDialog: any 
     </div>
   );
 };
-export const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({ waitlistData }) => (
+export const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({
+  waitlistData,
+}) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{

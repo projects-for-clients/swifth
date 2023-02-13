@@ -71,6 +71,7 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
+  const [OrderDetail, setOrderDetail] = useState({})
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -156,6 +157,11 @@ function orders() {
     }
   };
 
+  const openOrderDetail = (item: InProgress) => {
+    setOrderDetail(item);
+    handleOpenDialog('eachOrder');
+  };
+
   const orderHistoryPaths: Record<string, JSX.Element> = {
     list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath} />,
     detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath} />,
@@ -165,12 +171,14 @@ function orders() {
     inProgress: (
       <InProgressView
         inProgressData={inProgressData}
-        openDialog={handleOpenDialog('eachOrder')}
+        openOrderDetail={openOrderDetail}
       />
     ),
     waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
 
+  
+  
   return (
     <>
       <Header title="Orders" />
