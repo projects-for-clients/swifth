@@ -252,7 +252,7 @@ function orders() {
                   )}
                 </div>
               </div>
-              hd
+              <GrClose/>
             </div>
             <button
               className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase  mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
