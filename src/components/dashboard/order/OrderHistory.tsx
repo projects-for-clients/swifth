@@ -314,9 +314,9 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
             </div>
           </section>
           <section
-            className="grid gap-10 border border-color-purple-light-1 px-8 rounded-2xl"
+            className="grid gap-10 border border-color-purple-light px-8 rounded-2xl"
             style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
             }}
           >
             <div>
