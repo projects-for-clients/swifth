@@ -1,13 +1,15 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Dispatch, SetStateAction, FC } from "react";
 import { GrClose } from "react-icons/gr";
 import CalenderSvg from "../../icons/Calender";
 import { InProgress, ORDER_HISTORY } from "./OrdersData";
 
 interface Props {
-    setOrderHistoryPath: React.Dispatch<React.SetStateAction<string>>;
+    setOrderHistoryPath: Dispatch<SetStateAction<string>>;
 }
 
-export const ListOrderHistory = () => {
+export const ListOrderHistory:FC<Props> = ({
+    setOrderHistoryPath,
+}) => {
       const [orderHistory, setOrderHistory] =
         useState<InProgress[]>(ORDER_HISTORY);
 
@@ -191,3 +193,12 @@ export const ListOrderHistory = () => {
     </>
   );
 };
+
+export const OrderHistoryDetail:FC<Props> = ({setOrderHistoryPath}) => {
+
+    return (
+        <>
+            lorem 
+        </>
+    )
+}

@@ -14,7 +14,7 @@ import {
   ORDER_HISTORY,
 } from '../../components/dashboard/order/OrdersData';
 import CalenderSvg from '../../components/icons/Calender';
-import { ListOrderHistory } from '../../components/dashboard/order/OrderHistory';
+import { ListOrderHistory, OrderHistoryDetail } from '../../components/dashboard/order/OrderHistory';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -153,7 +153,7 @@ function orders() {
   const orderHistoryPaths: Record<string, JSX.Element> = {
     
     list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath}/>,
-    details: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath}/>
+    details: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath}/>
   }
 
   return (
