@@ -195,7 +195,7 @@ function orders() {
             <h3 className="text-[2.4rem] mb-4">
               Order history
             </h3>
-            <div className="flex justify-between gap-4">
+            <div className="flex justify-between gap-4 items-center">
               <div className="grid gap-4 w-full">
                 <label className="text-[1.4rem]">From</label>
                 <div className="relative flex items-center">
@@ -252,6 +252,7 @@ function orders() {
                   )}
                 </div>
               </div>
+              hd
             </div>
             <button
               className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase  mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
