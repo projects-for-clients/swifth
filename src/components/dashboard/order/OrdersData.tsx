@@ -37,7 +37,7 @@ export interface FiltersProps {
   text: string;
   bg: string;
 }
-const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
+export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
   'Docs in Review': {
     text: 'text-[#182130]',
     bg: 'bg-[#FAC772]',

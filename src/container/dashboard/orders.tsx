@@ -71,7 +71,7 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-  const [OrderDetail, setOrderDetail] = useState({})
+  const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any)
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -158,7 +158,7 @@ function orders() {
   };
 
   const openOrderDetail = (item: InProgress) => {
-    setOrderDetail(item);
+    setOrderDetail(item) ;
     handleOpenDialog('eachOrder');
   };
 
@@ -186,7 +186,7 @@ function orders() {
         className="dialog relative text-[1.6rem]"
         ref={eachOrderDialogRef}
       >
-        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
+        <div className="bg-white fixed right-0 h-[100vh] w-[80rem] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
             <img
@@ -200,6 +200,7 @@ function orders() {
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-10">Order history</h3>
             <EachOrderDetail
+              orderDetail={OrderDetail}
               handleCloseDialog={() => handleCloseDialog('eachOrder')}
             />
           </section>
