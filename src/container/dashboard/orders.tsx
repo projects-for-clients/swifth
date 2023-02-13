@@ -158,7 +158,6 @@ function orders() {
         );
       });
 
-      console.log({ filtered });
       setOrderHistory(() => [...filtered]);
     }
   };
