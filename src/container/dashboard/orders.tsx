@@ -137,7 +137,7 @@ function orders() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (type: DialogType) => {
+  const handleCloseDialog = (type: DialogType): void => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.close();
     }
@@ -191,7 +191,9 @@ function orders() {
 
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-10">Order history</h3>
-            <EachOrderDetail handleCloseDialog={handleCloseDialog('eachOrder')} />
+            <EachOrderDetail
+              handleCloseDialog={() => handleCloseDialog('eachOrder')}
+            />
           </section>
         </div>
       </dialog>
