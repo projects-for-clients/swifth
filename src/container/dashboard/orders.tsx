@@ -250,7 +250,9 @@ function orders() {
                   )}
                 </div>
               </div>
-              {!searchDates.from && !searchDates.to && <GrClose className="text-[1.3rem]" />}
+              {!searchDates.from && !searchDates.to && (
+                <GrClose className="text-[1.4rem] cursor-pointer" />
+              )}
             </div>
             <button
               className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase  mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
