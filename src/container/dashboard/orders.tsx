@@ -177,7 +177,7 @@ function orders() {
           </figure>
 
           <section className="h-full">
-            <h3 className="text-[2.4rem] mb-4">Order history</h3>
+            <h3 className="text-[2.4rem] mb-10">Order history</h3>
             {orderHistoryPaths[orderHistoryPath.path]}
           </section>
         </div>
