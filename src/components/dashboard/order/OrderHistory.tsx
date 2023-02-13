@@ -424,7 +424,9 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
                 {adminName}
               </p>
               <p
-                className={`py-1.5 px-8 rounded-2xl text-white ${filterByColors[tag!].bg} ${filterByColors[tag!].text}`}
+                className={`py-1.5 px-8 rounded-2xl text-white ${
+                  filterByColors[tag!].bg
+                } ${filterByColors[tag!].text}`}
               >
                 {tag}
               </p>{' '}
@@ -432,7 +434,7 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
             <section
               className="grid gap-10"
               style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
               }}
             >
               <div>
@@ -469,7 +471,7 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
               </div>
             </section>
             <section
-              className="grid gap-10 border border-color-purple-light px-8 rounded-2xl"
+              className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
               style={{
                 gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
               }}
@@ -489,6 +491,38 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
               <div>
                 <p className=" text-gray-400">Car Trim</p>
                 <p className=" text-gray-600">{carTrim}</p>
+              </div>
+            </section>
+
+            <section>
+              <div
+                className="radioBox"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                }}
+              >
+                <input
+                  type="radio"
+                  name="notification"
+                  id="all"
+                  className="hidden"
+                  // onChange={() => setCurrentPath('all')}
+                  // checked={currentPath === 'all'}
+                />
+                <label htmlFor="all">All</label>
+
+                <input
+                  type="radio"
+                  name="notification"
+                  id="quoteRequests"
+                  className="hidden"
+                  // checked={currentPath === 'quoteRequests'}
+                  // onChange={() => setCurrentPath('quoteRequests')}
+                />
+                <label htmlFor="quoteRequests" className="capitalize">
+                  Quote Requests
+                </label>
               </div>
             </section>
           </main>
