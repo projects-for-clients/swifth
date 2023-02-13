@@ -275,7 +275,7 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
             </p>{' '}
           </div>
           <section
-            className="grid"
+            className="grid gap-10"
             style={{
               gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
             }}
@@ -284,7 +284,7 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
               <p className=" text-gray-400">Agent</p>
               <p className=" text-gray-600">{agentName}</p>
             </div>
-            <div>
+            <div className="justify-self-end">
               <p className=" text-gray-400">Date</p>
               <p className=" text-gray-600">
                 {date.toLocaleString('en-GB', {
@@ -303,7 +303,7 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
                 })}
               </p>
             </div>
-            <div>
+            <div className="justify-self-end">
               <p className=" text-gray-400">Total Amount</p>
               <p className=" text-gray-600">
                 {totalAmount.toLocaleString('en-GB', {
@@ -323,7 +323,7 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
               <p className=" text-gray-400">Car Brand</p>
               <p className=" text-gray-600">{carBrand}</p>
             </div>
-            <div>
+            <div className="justify-self-end">
               <p className=" text-gray-400">Car Year</p>
               <p className=" text-gray-600">{carYear}</p>
             </div>
@@ -331,7 +331,7 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
               <p className=" text-gray-400">Car Model</p>
               <p className=" text-gray-600">{carModel}</p>
             </div>
-            <div>
+            <div className="justify-self-end">
               <p className=" text-gray-400">Car Trim</p>
               <p className=" text-gray-600">{carTrim}</p>
             </div>
