@@ -134,7 +134,7 @@ function orders() {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
-      setOrderHistory(() => [...sortedDates]);
+    setOrderHistory(() => [...sortedDates]);
   }, []);
 
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
@@ -157,7 +157,7 @@ function orders() {
         );
       });
 
-      console.log({filtered})
+      console.log({ filtered });
       setOrderHistory(() => [...filtered]);
     }
   };
@@ -192,9 +192,7 @@ function orders() {
           </figure>
 
           <section className="h-full">
-            <h3 className="text-[2.4rem] mb-4">
-              Order history
-            </h3>
+            <h3 className="text-[2.4rem] mb-4">Order history</h3>
             <div className="flex justify-between gap-4 items-center">
               <div className="grid gap-4 w-full">
                 <label className="text-[1.4rem]">From</label>
@@ -252,7 +250,7 @@ function orders() {
                   )}
                 </div>
               </div>
-              <GrClose/>
+              {!searchDates.from && !searchDates.to && <GrClose className="text-[1.3rem]" />}
             </div>
             <button
               className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase  mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
@@ -268,42 +266,49 @@ function orders() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
               }}
             >
-              {orderHistory.length > 0 ? orderHistory.map((item, i) => {
-                const { name, description, date, tag } = item;
+              {orderHistory.length > 0 ? (
+                orderHistory.map((item, i) => {
+                  const { name, description, date, tag } = item;
 
-                return (
-                  <div
-                    className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
-                    key={i}
-                  >
-                    <div>
-                      <p className="text-[1.6rem]">{name}</p>
-                      <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
-                        {description}
-                      </p>
-                    </div>
+                  return (
+                    <div
+                      className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
+                      key={i}
+                    >
+                      <div>
+                        <p className="text-[1.6rem]">{name}</p>
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
+                          {description}
+                        </p>
+                      </div>
 
-                    <div className="text-[1.2rem] flex items-center justify-between pt-8">
-                      <p className="text-gray-500">
-                        {date.toLocaleString('en-GB', {
-                          day: 'numeric',
-                          month: 'short',
-                          year: 'numeric',
-                        })}
-                      </p>
-                      <p
-                        className={`py-1.5 px-4 rounded-2xl text-white bg-[#40AD6B]`}
-                      >
-                        {tag}
-                      </p>
+                      <div className="text-[1.2rem] flex items-center justify-between pt-8">
+                        <p className="text-gray-500">
+                          {date.toLocaleString('en-GB', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                          })}
+                        </p>
+                        <p
+                          className={`py-1.5 px-4 rounded-2xl text-white bg-[#40AD6B]`}
+                        >
+                          {tag}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            : (<div className='grid gap-2 justify-center justify-items-center'>
-              <img src="/icons/search-normal.svg" alt="" className='w-[3rem]' />
-                <p className="text-[1.6rem] font-medium">No order found</p>
-            </div>)}
+                  );
+                })
+              ) : (
+                <div className="grid gap-2 justify-center justify-items-center">
+                  <img
+                    src="/icons/search-normal.svg"
+                    alt=""
+                    className="w-[3rem]"
+                  />
+                  <p className="text-[1.6rem] font-medium">No order found</p>
+                </div>
+              )}
             </div>
           </section>
         </div>
