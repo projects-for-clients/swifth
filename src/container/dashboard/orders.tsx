@@ -140,6 +140,19 @@ function orders() {
 
   const handleDateSearch = () => {
     console.log({searchDates});
+
+    const { from, to } = searchDates;
+
+    if (from && to) {
+      const filtered = ORDER_HISTORY.filter((item) => {
+        const date = new Date(item.date);
+        return date.getTime() >= from.getTime() && date.getTime() <= to.getTime();
+      });
+
+      console.log({filtered});
+
+      setOrderHistory(() => [...filtered]);
+    }
   }
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
