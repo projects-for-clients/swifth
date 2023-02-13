@@ -12,12 +12,15 @@ import {
   WAITLIST,
   WaitlistView,
 } from '../../components/dashboard/order/OrdersData';
-import { ListOrderHistory, OrderHistoryDetail } from '../../components/dashboard/order/OrderHistory';
+import {
+  ListOrderHistory,
+  OrderHistoryDetail,
+} from '../../components/dashboard/order/OrderHistory';
 
- export type OrderHistoryPath = {
-   path: 'list' | 'detail';
-   id?: number | null;
- };
+export type OrderHistoryPath = {
+  path: 'list' | 'detail';
+  id?: number | null;
+};
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -57,13 +60,11 @@ function orders() {
     filterBy: false,
   });
 
-
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
     path: 'list',
   });
   const [search, setSearch] = useState('');
- 
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
@@ -72,8 +73,6 @@ function orders() {
     inProgress: <InProgressView inProgressData={inProgressData} />,
     waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
-
- 
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -128,8 +127,6 @@ function orders() {
     }
   }, [selectedSort]);
 
- 
-
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
     if (toClear === 'inProgress') {
       setInProgressFilteredBy('');
@@ -139,31 +136,65 @@ function orders() {
     }
   };
 
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
+
+  type DialogType = 'orderHistory' | 'eachOrder';
+
+  const handleCloseDialog = (type: DialogType) => {
+    if (type === 'orderHistory' && dialogRef.current) {
+        dialogRef.current.close();
+      
+    }
+
+    if (type === 'eachOrder' && eachOrderDialogRef.current) {
+      eachOrderDialogRef.current.close();
+    }
+    
+  };
+  const handleOpenDialog = (type: DialogType) => {
+    if (type === 'orderHistory' && dialogRef.current) {
+        dialogRef.current.showModal();
+      
+    }
+
+    if (type === 'eachOrder' && eachOrderDialogRef.current) {
+      eachOrderDialogRef.current.showModal();
+    }
+
+  };
+
   
 
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
-
-  const handleClose = () => {
-    if (dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-
-  const handleOpen = () => {
-    if (dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-  };
-
   const orderHistoryPaths: Record<string, JSX.Element> = {
-    
-    list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath}/>,
-    detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath}/>
-  }
+    list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath} />,
+    detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath} />,
+  };
 
   return (
     <>
       <Header title="Orders" />
+      <dialog
+        className="dialog relative text-[1.6rem]"
+        ref={eachOrderDialogRef}
+      >
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
+          <input type="text" className="absolute top-0 w-0" />
+          <figure className="flex justify-end">
+            <img
+              src="/icons/close.svg"
+              alt=""
+              className="w-[3rem] cursor-pointer"
+              onClick={() => handleCloseDialog('eachOrder')}
+            />
+          </figure>
+
+          <section className="h-full">
+            <h3 className="text-[2.4rem] mb-10">Order history</h3>
+            {orderHistoryPaths[orderHistoryPath.path]}
+          </section>
+        </div>
+      </dialog>
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
@@ -172,7 +203,7 @@ function orders() {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              onClick={() => handleClose()}
+              onClick={() => handleCloseDialog('orderHistory')}
             />
           </figure>
 
@@ -248,7 +279,7 @@ function orders() {
               <div className="flex justify-between items-center mt-10">
                 <div
                   className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
-                  onClick={() => handleOpen()}
+                  onClick={() => handleOpenDialog('orderHistory')}
                 >
                   <img
                     src="/icons/history.svg"
