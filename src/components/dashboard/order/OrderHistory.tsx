@@ -5,11 +5,10 @@ import {
   Dispatch,
   SetStateAction,
   FC,
-  FormEvent,
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { OrderHistoryPath } from '../../../container/dashboard/orders';
+import { DialogType, OrderHistoryPath } from '../../../container/dashboard/orders';
 import CalenderSvg from '../../icons/Calender';
 import { InProgress, ORDER_HISTORY } from './OrdersData';
 
@@ -341,7 +340,14 @@ export const OrderHistoryDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
     </>
   );
 };
-export const orderDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
+
+interface EachOrderDetail {
+    handleCloseDialog: (type: DialogType) => void;
+}
+
+export const EachOrderDetail: FC<EachOrderDetail> = ({
+    handleCloseDialog
+}) => {
   interface OrderHistoryDetail {
     id: number;
     adminName: string;
@@ -356,7 +362,7 @@ export const orderDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
   }
 
   const data = {
-    id: id!,
+    id: 1,
     adminName: 'Jonathan Ogunleye',
     agentName: 'James Ibori',
     carYear: '2021',
@@ -371,12 +377,7 @@ export const orderDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
   const [orderHistoryDetail, setOrderHistoryDetail] =
     useState<OrderHistoryDetail>(data);
 
-  const goBack = () => {
-    setOrderHistoryPath({
-      path: 'list',
-      id: null,
-    });
-  };
+ 
 
   const {
     adminName,
@@ -396,7 +397,7 @@ export const orderDetail: FC<Props> = ({ setOrderHistoryPath, id }) => {
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
-            onClick={goBack}
+            onClick={() => handleCloseDialog('eachOrder')}
           />
           <p className="text-[2rem] text-gray-600 text-center">Details</p>
         </div>

@@ -13,6 +13,7 @@ import {
   WaitlistView,
 } from '../../components/dashboard/order/OrdersData';
 import {
+  EachOrderDetail,
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../../components/dashboard/order/OrderHistory';
@@ -21,6 +22,8 @@ export type OrderHistoryPath = {
   path: 'list' | 'detail';
   id?: number | null;
 };
+
+export type DialogType = 'orderHistory' | 'eachOrder';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -68,11 +71,6 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-
-  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: <InProgressView inProgressData={inProgressData} />,
-    waitlist: <WaitlistView waitlistData={waitlistData} />,
-  };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -139,36 +137,38 @@ function orders() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
-  type DialogType = 'orderHistory' | 'eachOrder';
-
   const handleCloseDialog = (type: DialogType) => {
     if (type === 'orderHistory' && dialogRef.current) {
-        dialogRef.current.close();
-      
+      dialogRef.current.close();
     }
 
     if (type === 'eachOrder' && eachOrderDialogRef.current) {
       eachOrderDialogRef.current.close();
     }
-    
   };
-  const handleOpenDialog = (type: DialogType) => {
+  const handleOpenDialog = (type: DialogType, id?: number) => {
     if (type === 'orderHistory' && dialogRef.current) {
-        dialogRef.current.showModal();
-      
+      dialogRef.current.showModal();
     }
 
     if (type === 'eachOrder' && eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
     }
-
   };
-
-  
 
   const orderHistoryPaths: Record<string, JSX.Element> = {
     list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath} />,
     detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath} />,
+  };
+
+  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
+    inProgress: (
+      <InProgressView
+        inProgressData={inProgressData}
+        openDialog={handleOpenDialog('eachOrder')}
+      />
+    ),
+    waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
 
   return (
@@ -191,7 +191,7 @@ function orders() {
 
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-10">Order history</h3>
-            {orderHistoryPaths[orderHistoryPath.path]}
+            <EachOrderDetail handleCloseDialog={handleCloseDialog('eachOrder')} />
           </section>
         </div>
       </dialog>

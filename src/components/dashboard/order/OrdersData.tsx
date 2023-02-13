@@ -301,8 +301,9 @@ export const WAITLIST: Waitlist[] = [
   },
 ];
 
-export const InProgressView: FC<{ inProgressData: InProgress[] }> = ({
+export const InProgressView: FC<{ inProgressData: InProgress[], openDialog: any }> = ({
   inProgressData,
+  openDialog
 }) => {
   return (
     <div
