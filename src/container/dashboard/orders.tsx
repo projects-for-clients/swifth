@@ -59,7 +59,7 @@ function orders() {
     from: null,
     to: null,
   });
-  const [openOrderDetails, setOpenOrderDetails] = useState(false)
+  const [openOrderDetail, setOpenOrderDetails] = useState(false)
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
