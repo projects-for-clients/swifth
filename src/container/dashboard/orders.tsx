@@ -59,6 +59,7 @@ function orders() {
     from: null,
     to: null,
   });
+  const [disableDateBtn, setDisableDateBtn] = useState(true);
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
@@ -135,7 +136,7 @@ function orders() {
     });
 
       setOrderHistory(() => [...sortedDates]);
-  }, [orderHistory]);
+  }, []);
 
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
     if (toClear === 'inProgress') {
@@ -253,8 +254,9 @@ function orders() {
               </div>
             </div>
             <button
-              className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center"
+              className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleDateSearch}
+              disabled={!searchDates.from || !searchDates.to}
             >
               Search
             </button>
