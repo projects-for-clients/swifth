@@ -250,10 +250,9 @@ function orders() {
                   )}
                 </div>
               </div>
-              {!searchDates.from && !searchDates.to && (
-                <span className='flex h-full mt-[3rem]'>
-
-                <GrClose className="text-[1.4rem] cursor-pointer font-bold" />
+              {searchDates.from && searchDates.to && (
+                <span className="flex h-full mt-[3rem]">
+                  <GrClose className="text-[1.4rem] cursor-pointer font-bold" />
                 </span>
               )}
             </div>
