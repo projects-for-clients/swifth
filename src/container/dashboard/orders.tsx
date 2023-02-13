@@ -136,10 +136,9 @@ function orders() {
     }
   };
 
-  // const switchPath: Record<SwitchPath, JSX.Element> = {
-  //   all: <AllNofications />,
-  //   quoteRequests: <QuoteRequests setShowDetails={setShowDetails} />,
-  // };
+  const handleDateSearch = () => {
+    console.log(searchDates);
+  }
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -151,8 +150,6 @@ function orders() {
 
   const handleOpen = () => {
     if (dialogRef.current) {
-      console.log(dialogRef.current.firstChild);
-
       dialogRef.current.showModal();
     }
   };
@@ -234,7 +231,7 @@ function orders() {
                 </div>
               </div>
             </div>
-            <button className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center">
+            <button className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center" onChange={handleDateSearch}>
               Search
             </button>
 
