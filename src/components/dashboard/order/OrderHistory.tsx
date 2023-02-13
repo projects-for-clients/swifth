@@ -4,7 +4,7 @@ import CalenderSvg from "../../icons/Calender";
 import { InProgress, ORDER_HISTORY } from "./OrdersData";
 
 
-export const ListOrders = () => {
+export const ListOrderHistory = () => {
       const [orderHistory, setOrderHistory] =
         useState<InProgress[]>(ORDER_HISTORY);
 

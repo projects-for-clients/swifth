@@ -14,6 +14,7 @@ import {
   ORDER_HISTORY,
 } from '../../components/dashboard/order/OrdersData';
 import CalenderSvg from '../../components/icons/Calender';
+import { ListOrderHistory } from '../../components/dashboard/order/OrderHistory';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -147,8 +148,9 @@ function orders() {
     }
   };
 
-  const orderHistoryPaths = {
-    list: 
+  const orderHistoryPaths: Record<string, JSX.Element> = {
+    list: <ListOrderHistory/>
+    detais: <OrderHistoryDetails/>
   }
 
   return (
@@ -168,13 +170,7 @@ function orders() {
 
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-4">Order history</h3>
-            {openOrderDetail ? (
-             sfsfsdfsfdsfsdf
-            ) : (
-              <>
-                lorem
-              </>
-            )}
+            {orderHistoryPaths[currentPath]}
           </section>
         </div>
       </dialog>
