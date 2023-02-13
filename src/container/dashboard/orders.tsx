@@ -234,7 +234,7 @@ function orders() {
                 </div>
               </div>
             </div>
-            <button className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium flex  mt-10">
+            <button className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center">
               Search
             </button>
 
