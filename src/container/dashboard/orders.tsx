@@ -11,10 +11,13 @@ import {
   InProgressView,
   WAITLIST,
   WaitlistView,
-  ORDER_HISTORY,
 } from '../../components/dashboard/order/OrdersData';
-import CalenderSvg from '../../components/icons/Calender';
 import { ListOrderHistory, OrderHistoryDetail } from '../../components/dashboard/order/OrderHistory';
+
+ export type OrderHistoryPath = {
+   path: 'list' | 'detail';
+   id?: number | null;
+ };
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -54,10 +57,6 @@ function orders() {
     filterBy: false,
   });
 
-  type OrderHistoryPath = {
-    path: 'list' | 'detail'
-    id?: number | null;
-  }
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
   const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
