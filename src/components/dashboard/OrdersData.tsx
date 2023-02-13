@@ -1,5 +1,9 @@
 import dayjs from "dayjs";
 import { FC } from "react";
+import dayjsRandom from "dayjs-random";
+
+dayjs.extend(dayjsRandom);
+
 
 export type InProgressFilterBy =
   | 'Docs in Review'
@@ -165,10 +169,14 @@ export const ORDER_HISTORY: InProgress[] = [
     id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+  
+    tag: 'Completed',
+
+    //get random dates that are not less that the present day 
     date: dayjs()
       .subtract(Math.floor(Math.random() * 20), 'day')
       .toDate(),
-    tag: 'Completed',
+
   },
   {
     id: Math.random(),
