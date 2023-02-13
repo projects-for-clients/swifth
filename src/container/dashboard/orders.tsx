@@ -59,7 +59,6 @@ function orders() {
     from: null,
     to: null,
   });
-  const [disableDateBtn, setDisableDateBtn] = useState(true);
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
@@ -158,6 +157,7 @@ function orders() {
         );
       });
 
+      console.log({filtered})
       setOrderHistory(() => [...filtered]);
     }
   };
@@ -192,7 +192,7 @@ function orders() {
           </figure>
 
           <section className="h-full">
-            <h3 className="text-[2.4rem] font-Satoshi-Medium mb-4">
+            <h3 className="text-[2.4rem] mb-4">
               Order history
             </h3>
             <div className="flex justify-between gap-4">
@@ -254,7 +254,7 @@ function orders() {
               </div>
             </div>
             <button
-              className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase  mt-10 text-center disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleDateSearch}
               disabled={!searchDates.from || !searchDates.to}
             >
@@ -267,7 +267,7 @@ function orders() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
               }}
             >
-              {orderHistory.map((item, i) => {
+              {orderHistory.length < 0 ? orderHistory.map((item, i) => {
                 const { name, description, date, tag } = item;
 
                 return (
@@ -298,7 +298,11 @@ function orders() {
                     </div>
                   </div>
                 );
-              })}
+              })
+            : (<div className='grid gap-2 justify-center justify-items-center'>
+              <img src="/icons/search-normal.svg" alt="" className='w-[3rem]' />
+                <p className="text-[1.6rem] font-medium">No order found</p>
+            </div>)}
             </div>
           </section>
         </div>
