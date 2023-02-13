@@ -369,6 +369,7 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
 }) => {
   const [orderHistoryDetail, setOrderHistoryDetail] =
     useState<OrderHistoryDetail | null>(null);
+    const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (orderDetail){
@@ -385,9 +386,13 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
         amountPaid: 1000000,
         totalAmount: 20000000,
       });
+      setLoaded(true);
     }
   }, [orderDetail]);
 
+  if(orderHistoryDetail){
+    
+  }
   const {
     adminName,
     agentName,
@@ -399,7 +404,7 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
     carYear,
     amountPaid,
     totalAmount,
-  } = orderHistoryDetail ;
+  } = orderHistoryDetail || {} ;
 
 
   return (
@@ -412,14 +417,14 @@ export const EachOrderDetail: FC<EachOrderDetail> = ({
           />
           <p className="text-[2rem] text-gray-600 text-center">Details</p>
         </div>
-        {orderHistoryDetail && (
+        {loaded && (
           <main className="grid gap-10 mt-10">
             <div className="grid justify-start justify-items-start gap-4">
               <p className="text-[2rem] text-gray-600 text-center">
                 {adminName}
               </p>
               <p
-                className={`py-1.5 px-8 rounded-2xl text-white ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
+                className={`py-1.5 px-8 rounded-2xl text-white ${filterByColors[tag!].bg} ${filterByColors[tag!].text}`}
               >
                 {tag}
               </p>{' '}
