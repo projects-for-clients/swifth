@@ -4,7 +4,7 @@ import CalenderSvg from "../../icons/Calender";
 import { InProgress, ORDER_HISTORY } from "./OrdersData";
 
 interface Props {
-    setOrderHistoryPath: Dispatch<SetStateAction<string>>;
+    setOrderHistoryPath: Dispatch<SetStateAction<>>;
 }
 
 export const ListOrderHistory:FC<Props> = ({
@@ -152,13 +152,13 @@ export const ListOrderHistory:FC<Props> = ({
       >
         {orderHistory.length > 0 ? (
           orderHistory.map((item, i) => {
-            const { name, description, date, tag } = item;
+            const { name, description, date, tag, id } = item;
 
             return (
               <div
                 className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                 key={i}
-                onClick={() => setOrderHistoryPath('detail')}
+                onClick={() => setOrderHistoryPath('detail', id)}
               >
                 <div>
                   <p className="text-[1.6rem]">{name}</p>

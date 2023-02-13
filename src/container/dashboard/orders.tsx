@@ -54,9 +54,15 @@ function orders() {
     filterBy: false,
   });
 
+  type OrderHistoryPath = {
+    path: 'list' | 'detail'
+    id?: number | null;
+  }
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
-  const [orderHistoryPath, setOrderHistoryPath] = useState('list');
+  const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
+    path: 'list',
+  });
   const [search, setSearch] = useState('');
  
 
@@ -173,7 +179,7 @@ function orders() {
 
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-4">Order history</h3>
-            {orderHistoryPaths[orderHistoryPath]}
+            {orderHistoryPaths[orderHistoryPath.path]}
           </section>
         </div>
       </dialog>
