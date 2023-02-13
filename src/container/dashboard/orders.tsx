@@ -129,6 +129,14 @@ function orders() {
     }
   }, [selectedSort]);
 
+  useEffect(() => {
+    const sortedDates = ORDER_HISTORY.sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+
+      setOrderHistory(() => [...sortedDates]);
+  }, [orderHistory]);
+
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
     if (toClear === 'inProgress') {
       setInProgressFilteredBy('');
@@ -139,21 +147,19 @@ function orders() {
   };
 
   const handleDateSearch = () => {
-    console.log({searchDates});
-
     const { from, to } = searchDates;
 
     if (from && to) {
       const filtered = ORDER_HISTORY.filter((item) => {
         const date = new Date(item.date);
-        return date.getTime() >= from.getTime() && date.getTime() <= to.getTime();
+        return (
+          date.getTime() >= from.getTime() && date.getTime() <= to.getTime()
+        );
       });
-
-      console.log({filtered});
 
       setOrderHistory(() => [...filtered]);
     }
-  }
+  };
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -246,7 +252,10 @@ function orders() {
                 </div>
               </div>
             </div>
-            <button className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center" onClick={handleDateSearch}>
+            <button
+              className="text-color-primary border border-color-primary rounded-lg w-full py-4 uppercase font-Satoshi-Medium mt-10 text-center"
+              onClick={handleDateSearch}
+            >
               Search
             </button>
 
