@@ -74,7 +74,8 @@ function orders() {
     from: true,
   });
 
-  const dateRef = useRef<HTMLInputElement>(null);
+  const fromDateRef = useRef<HTMLInputElement>(null);
+  const toDateRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -162,6 +163,18 @@ function orders() {
     }
   };
 
+  const clearDateInputs = () => {
+    if (fromDateRef.current) {
+      fromDateRef.current.value = '';
+    }
+
+    if (toDateRef.current) {
+      toDateRef.current.value = '';
+    }
+
+    setSearchDates({ from: null, to: null });
+  };
+
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleClose = () => {
@@ -181,7 +194,7 @@ function orders() {
       <Header title="Orders" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
-          <input type="text" ref={dateRef} className="absolute top-0 w-0" />
+          <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
             <img
               src="/icons/close.svg"
@@ -199,6 +212,7 @@ function orders() {
                 <div className="relative flex items-center">
                   <input
                     type="text"
+                    ref={fromDateRef}
                     placeholder="Select Date"
                     className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2`}
                     name="fromDate"
@@ -228,6 +242,7 @@ function orders() {
                   <input
                     type="text"
                     id="toDate"
+                    ref={toDateRef}
                     placeholder="Select Date"
                     className={`rounded-lg py-4 px-4 outline-none text-[1.6rem] w-full bg-color-purple-light-1 placeholder:text-color-purple-light border border-color-purple-light-2 `}
                     name="toDate"
@@ -251,7 +266,10 @@ function orders() {
                 </div>
               </div>
               {searchDates.from && searchDates.to && (
-                <span className="flex h-full mt-[3rem]">
+                <span
+                  className="flex h-full mt-[3rem]"
+                  onClick={clearDateInputs}
+                >
                   <GrClose className="text-[1.4rem] cursor-pointer font-bold" />
                 </span>
               )}
