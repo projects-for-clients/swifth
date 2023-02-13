@@ -54,7 +54,9 @@ function orders() {
     filterBy: false,
   });
 
+
   const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
+  const [orderHistoryPath, setOrderHistoryPath] = useState('list');
   const [search, setSearch] = useState('');
  
 
@@ -149,8 +151,8 @@ function orders() {
   };
 
   const orderHistoryPaths: Record<string, JSX.Element> = {
-    list: <ListOrderHistory/>
-    detais: <OrderHistoryDetails/>
+    list: <ListOrderHistory/>,
+    details: <ListOrderHistory/>
   }
 
   return (
@@ -170,7 +172,7 @@ function orders() {
 
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-4">Order history</h3>
-            {orderHistoryPaths[currentPath]}
+            {orderHistoryPaths[orderHistoryPath]}
           </section>
         </div>
       </dialog>
