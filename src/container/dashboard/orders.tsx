@@ -193,7 +193,7 @@ function orders() {
 
           <section className="h-full">
             <h3 className="text-[2.4rem] mb-4">Order history</h3>
-            <div className="flex justify-between gap-4 items-center">
+            <div className="flex justify-between gap-8 items-center">
               <div className="grid gap-4 w-full">
                 <label className="text-[1.4rem]">From</label>
                 <div className="relative flex items-center">
@@ -251,7 +251,10 @@ function orders() {
                 </div>
               </div>
               {!searchDates.from && !searchDates.to && (
-                <GrClose className="text-[1.4rem] cursor-pointer" />
+                <span className='flex h-full mt-[3rem]'>
+
+                <GrClose className="text-[1.4rem] cursor-pointer font-bold" />
+                </span>
               )}
             </div>
             <button
