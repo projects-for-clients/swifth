@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect, Dispatch, SetStateAction, FC } from "react";
 import { GrClose } from "react-icons/gr";
+import { OrderHistoryPath } from "../../../container/dashboard/orders";
 import CalenderSvg from "../../icons/Calender";
 import { InProgress, ORDER_HISTORY } from "./OrdersData";
 
 interface Props {
-    setOrderHistoryPath: Dispatch<SetStateAction<>>;
+    setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
 }
 
 export const ListOrderHistory:FC<Props> = ({
@@ -158,7 +159,10 @@ export const ListOrderHistory:FC<Props> = ({
               <div
                 className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                 key={i}
-                onClick={() => setOrderHistoryPath('detail', id)}
+                onClick={() => setOrderHistoryPath({
+                    path: 'detail',
+                    id
+                })}
               >
                 <div>
                   <p className="text-[1.6rem]">{name}</p>
