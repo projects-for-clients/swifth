@@ -153,7 +153,7 @@ function orders() {
   const orderHistoryPaths: Record<string, JSX.Element> = {
     
     list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath}/>,
-    details: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath}/>
+    detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath}/>
   }
 
   return (

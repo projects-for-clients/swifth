@@ -156,8 +156,9 @@ export const ListOrderHistory:FC<Props> = ({
 
             return (
               <div
-                className="p-8 bg-white rounded-3xl border border-color-purple-light-2"
+                className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                 key={i}
+                onClick={() => setOrderHistoryPath('detail')}
               >
                 <div>
                   <p className="text-[1.6rem]">{name}</p>
