@@ -11,6 +11,7 @@ import {
   InProgressView,
   WAITLIST,
   WaitlistView,
+  ORDER_HISTORY,
 } from '../../components/dashboard/OrdersData';
 import CalenderSvg from '../../components/icons/Calender';
 
@@ -61,6 +62,7 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
+  const [orderHistory, setOrderHistory] = useState<InProgress[]>(ORDER_HISTORY);
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     inProgress: <InProgressView inProgressData={inProgressData} />,
@@ -137,7 +139,6 @@ function orders() {
   };
 
   const handleDateSearch = () => {
-    console.log('searching');
     console.log({searchDates});
   }
 
@@ -242,7 +243,7 @@ function orders() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
               }}
             >
-              {inProgressData.map((item, i) => {
+              {orderHistory.map((item, i) => {
                 const { name, description, date, tag } = item;
 
                 return (
@@ -268,7 +269,7 @@ function orders() {
                       <p
                         className={`py-1.5 px-4 rounded-2xl text-white bg-[#40AD6B]`}
                       >
-                        Completed
+                        {tag}
                       </p>
                     </div>
                   </div>

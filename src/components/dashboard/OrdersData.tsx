@@ -160,6 +160,90 @@ export const INPROGRESS: InProgress[] = [
     tag: 'Delivery Pending',
   },
 ];
+export const ORDER_HISTORY: InProgress[] = [
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Akpan Sunyi',
+    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Solomon Henry',
+    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Akpan Sunyi',
+    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Solomon Henry',
+    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Akpan Sunyi',
+    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  {
+    id: Math.random(),
+    name: 'Solomon Henry',
+    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+    date: dayjs()
+      .subtract(Math.floor(Math.random() * 20), 'day')
+      .toDate(),
+    tag: 'Completed',
+  },
+  
+];
 
 export const WAITLIST: Waitlist[] = [
   {
