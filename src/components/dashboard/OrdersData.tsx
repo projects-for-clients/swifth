@@ -1,9 +1,14 @@
-import dayjs from "dayjs";
 import { FC } from "react";
-import dayjsRandom from "dayjs-random";
 
-dayjs.extend(dayjsRandom);
 
+function generateRandomDate() {
+  const today = new Date();
+  const nextYear = new Date(today.getFullYear() + 1, 0, 1);
+  const randomDate = new Date(
+    today.getTime() + Math.random() * (nextYear.getTime() - today.getTime())
+  );
+  return randomDate;
+}
 
 export type InProgressFilterBy =
   | 'Docs in Review'
@@ -17,7 +22,7 @@ export interface InProgress {
   id: number;
   name: string;
   description: string;
-  date: Date;
+  date: Date ;
   tag: InProgressFilterBy;
 }
 export interface Waitlist {
@@ -59,198 +64,151 @@ export const INPROGRESS: InProgress[] = [
     id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Docs in Review',
   },
   {
     id: Math.random(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Duty Processing',
   },
   {
     id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Delivery Pending',
   },
   {
     id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
     id: Math.random(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Valuating',
   },
   {
     id: Math.random(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Docs in Review',
   },
   {
     id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Valuating',
   },
   {
     id: Math.random(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Delivery Pending',
   },
 ];
 export const ORDER_HISTORY: InProgress[] = [
   {
     id: Math.random(),
-    name: 'Jonathan Sunyi',
+    name: 'Jonathan Sunyi sfsfsf',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-  
     tag: 'Completed',
-
-    //get random dates that are not less that the present day 
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
-
+    date: generateRandomDate()
   },
   {
     id: Math.random(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
   {
     id: Math.random(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     tag: 'Completed',
   },
-  
 ];
 
 export const WAITLIST: Waitlist[] = [
@@ -258,18 +216,14 @@ export const WAITLIST: Waitlist[] = [
     id: Math.random(),
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
     id: Math.random(),
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
@@ -277,36 +231,28 @@ export const WAITLIST: Waitlist[] = [
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: false,
   },
   {
     id: Math.random(),
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
     id: Math.random(),
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
     id: Math.random(),
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
@@ -314,36 +260,28 @@ export const WAITLIST: Waitlist[] = [
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: false,
   },
   {
     id: Math.random(),
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
     id: Math.random(),
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
     id: Math.random(),
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
   {
@@ -351,18 +289,14 @@ export const WAITLIST: Waitlist[] = [
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: false,
   },
   {
     id: Math.random(),
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: dayjs()
-      .subtract(Math.floor(Math.random() * 20), 'day')
-      .toDate(),
+    date: generateRandomDate(),
     submitted: true,
   },
 ];

@@ -750,11 +750,6 @@ d3-timer@^3.0.1:
   resolved "https://registry.yarnpkg.com/d3-timer/-/d3-timer-3.0.1.tgz#6284d2a2708285b1abb7e201eda4380af35e63b0"
   integrity sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA==
 
-dayjs-random@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dayjs-random/-/dayjs-random-1.0.1.tgz#d6061a44eaf00937730432373f384185b6c274f2"
-  integrity sha512-J6PL4LRnXgah/FPOXGeeePYShyRH779MzaNYKc70J/7tU0I35F1OBV5alke972zZ70grO9SZpASkhUHyHl/qZA==
-
 dayjs@^1.11.7:
   version "1.11.7"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
