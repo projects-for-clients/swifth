@@ -14,7 +14,7 @@ const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 const Clearing = () => {
   return (
     <div>
-      <p className="text-gray-400 font-semibold">RC Docs</p>
+      <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
       <div className="grid gap-4 mt-10">
         {clearingDocs.map((doc) => (
@@ -25,6 +25,10 @@ const Clearing = () => {
           </div>
         ))}
       </div>
+
+      <button className='border p-8 rounded-lg border-color-primary text-color-primary :disabled:opacity-50 :disabled:cursor-not-allowed'>
+            Assign Field Agent
+      </button>
     </div>
   );
 };
@@ -89,7 +93,9 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
 
   return (
     <>
-      <div className=" h-full items-baseline ">
+      <div
+        className=" h-full items-baseline  "
+      >
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
@@ -98,7 +104,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
           <p className="text-[2rem] text-gray-600 text-center">Details</p>
         </div>
         {loaded && (
-          <main className="grid gap-10 mt-10">
+          <main className="grid gap-10 mt-10 ">
             <div className="grid justify-start justify-items-start gap-4">
               <p className="text-[2rem] text-gray-600 text-center">
                 {adminName}
@@ -174,7 +180,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
               </div>
             </section>
 
-            <section>
+            <section className=''>
               <div
                 className="radioBox"
                 style={{
@@ -191,7 +197,9 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
                   onChange={() => setCurrentPath('clearing')}
                   checked={currentPath === 'clearing'}
                 />
-                <label htmlFor="clearing">Review/Clearing</label>
+                <label htmlFor="clearing" className="capitalize text-[1.6rem]">
+                  Review/Clearing
+                </label>
 
                 <input
                   type="radio"
@@ -201,12 +209,12 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
                   checked={currentPath === 'history'}
                   onChange={() => setCurrentPath('history')}
                 />
-                <label htmlFor="history" className="capitalize">
+                <label htmlFor="history" className="capitalize text-[1.6rem]">
                   History
                 </label>
               </div>
 
-              <div className='mt-10'>{switchPaths[currentPath]}</div>
+              <div className="mt-10">{switchPaths[currentPath]}</div>
             </section>
           </main>
         )}
