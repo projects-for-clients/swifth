@@ -9,20 +9,21 @@ interface EachOrderDetail {
   orderDetail: InProgress;
 }
 
-const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA']
+const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 
 const Clearing = () => {
   return (
     <div>
-      <p>RC Docs</p>
+      <p className="text-gray-400 font-semibold">RC Docs</p>
 
-      <div>
+      <div className="grid gap-4 mt-10">
         {clearingDocs.map((doc) => (
-            <div key={doc}>
-                <p className='py-4 px-4 border border-color-purple-light-1 rounded-3xl'>{doc}</p>
-            </div>
+          <div key={doc}>
+            <p className="p-6 border border-color-purple-light-2 rounded-3xl">
+              {doc}
+            </p>
+          </div>
         ))}
-
       </div>
     </div>
   );
@@ -44,7 +45,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
     useState<OrderHistoryDetail | null>(null);
   const [loaded, setLoaded] = useState(false);
 
-type Path = 'clearing' | 'history';
+  type Path = 'clearing' | 'history';
 
   const [currentPath, setCurrentPath] = useState<Path>('clearing');
 
@@ -81,12 +82,10 @@ type Path = 'clearing' | 'history';
     totalAmount,
   } = orderHistoryDetail || {};
 
-
-  const switchPaths:Record<Path, JSX.Element> = {
-
-    'clearing': <Clearing />,
-    'history': <History />,
-  }
+  const switchPaths: Record<Path, JSX.Element> = {
+    clearing: <Clearing />,
+    history: <History />,
+  };
 
   return (
     <>
@@ -207,7 +206,7 @@ type Path = 'clearing' | 'history';
                 </label>
               </div>
 
-                {switchPaths[currentPath]}
+              <div className='mt-10'>{switchPaths[currentPath]}</div>
             </section>
           </main>
         )}

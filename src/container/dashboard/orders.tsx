@@ -186,7 +186,7 @@ function orders() {
         className="dialog relative text-[1.6rem]"
         ref={eachOrderDialogRef}
       >
-        <div className="bg-white fixed right-0 h-[100vh] w-[80rem] py-4 px-12">
+        <div className="bg-white fixed right-0 h-[100vh] w-[80rem] py-4 px-12 overflow-y-scroll">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
             <img
