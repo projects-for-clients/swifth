@@ -1,5 +1,5 @@
 import Header from '../../components/dashboard/Header';
-import { ChangeEvent, FC, Fragment, useEffect, useState, useRef } from 'react';
+import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
@@ -13,10 +13,10 @@ import {
   WaitlistView,
 } from '../../components/dashboard/order/OrdersData';
 import {
-  EachOrderDetail,
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../../components/dashboard/order/OrderHistory';
+import EachOrderDetail from '../../components/dashboard/order/EachOrderDetail';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
