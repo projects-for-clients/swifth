@@ -9,6 +9,22 @@ interface EachOrderDetail {
   orderDetail: InProgress;
 }
 
+const Clearing = () => {
+  return (
+    <div>
+      <p>Clearing</p>
+    </div>
+  );
+};
+
+const History = () => {
+  return (
+    <div>
+      <p>History</p>
+    </div>
+  );
+};
+
 const EachOrderDetail: FC<EachOrderDetail> = ({
   handleCloseDialog,
   orderDetail,
@@ -16,6 +32,10 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
   const [orderHistoryDetail, setOrderHistoryDetail] =
     useState<OrderHistoryDetail | null>(null);
   const [loaded, setLoaded] = useState(false);
+
+type Path = 'clearing' | 'history';
+
+  const [currentPath, setCurrentPath] = useState<Path>('clearing');
 
   useEffect(() => {
     if (orderDetail) {
@@ -49,6 +69,13 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
     amountPaid,
     totalAmount,
   } = orderHistoryDetail || {};
+
+
+  const switchPaths:Record<Path, JSX.Element> = {
+
+    'clearing': <Clearing />,
+    'history': <History />,
+  }
 
   return (
     <>
@@ -151,8 +178,8 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
                   id="clearing"
                   className="hidden"
                   defaultChecked
-                  // onChange={() => setCurrentPath('clearing')}
-                  // checked={currentPath === 'clearing'}
+                  onChange={() => setCurrentPath('clearing')}
+                  checked={currentPath === 'clearing'}
                 />
                 <label htmlFor="clearing">Review/Clearing</label>
 
@@ -161,13 +188,15 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
                   name="order"
                   id="history"
                   className="hidden"
-                  // checked={currentPath === 'history'}
-                  // onChange={() => setCurrentPath('history')}
+                  checked={currentPath === 'history'}
+                  onChange={() => setCurrentPath('history')}
                 />
                 <label htmlFor="history" className="capitalize">
                   History
                 </label>
               </div>
+
+                {switchPaths[currentPath]}
             </section>
           </main>
         )}
