@@ -9,10 +9,21 @@ interface EachOrderDetail {
   orderDetail: InProgress;
 }
 
+const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA']
+
 const Clearing = () => {
   return (
     <div>
-      <p>Clearing</p>
+      <p>RC Docs</p>
+
+      <div>
+        {clearingDocs.map((doc) => (
+            <div key={doc}>
+                <p className='py-4 px-4 border border-color-purple-light-1 rounded-3xl'>{doc}</p>
+            </div>
+        ))}
+
+      </div>
     </div>
   );
 };
