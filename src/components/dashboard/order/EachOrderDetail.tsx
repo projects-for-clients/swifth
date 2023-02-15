@@ -82,7 +82,7 @@ const Clearing = () => {
   };
 
   return (
-    <div className="py-10">
+    <div className="pt-10 pb-20">
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
       <div className="grid gap-4 mt-10 ">
@@ -100,10 +100,7 @@ const Clearing = () => {
                   </span>
                 )}
               </p>
-                {toggleSortMenu.key === doc.name && (
-                  <div>
-                    
-                  </div>
+              {toggleSortMenu.key === doc.name && (
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     {selectFrom.map((item, i) => {
                       return (
@@ -129,7 +126,7 @@ const Clearing = () => {
                       );
                     })}
                   </div>
-                )}
+              )}
             </div>
           </Fragment>
         ))}
