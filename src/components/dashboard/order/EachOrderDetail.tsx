@@ -93,7 +93,7 @@ const Clearing = () => {
                 className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between"
                 onClick={() => sortMenuToggler(doc.name)}
               >
-                {doc}
+                {doc.name}
                 {isBillOfLading && doc.name === 'Bills of Lading' && (
                   <span>
                     <img src="/icons/tick-square.svg" alt="" />
