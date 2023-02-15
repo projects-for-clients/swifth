@@ -14,25 +14,22 @@ const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 const Clearing = () => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
-    const selectFrom = ['Date', 'Name', 'Status'];
-    const label = 'Sort By';
-    
+  const selectFrom = ['Date', 'Name', 'Status'];
+  const label = 'Sort By';
 
   const assignAgentHandler = () => {
     console.log('Assigning Agent');
   };
- 
+
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
   const sortMenuToggler = () => {
-   
-      return setToggleSortMenu(!toggleSortMenu);
+    return setToggleSortMenu(!toggleSortMenu);
   };
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     setToggleSortMenu(false);
-
   };
   return (
     <div className="py-10">
@@ -47,28 +44,20 @@ const Clearing = () => {
           </div>
         ))}
       </div>
-      <div className="relative flex items-center  justify-items-start cursor-pointer">
-        <p
-          className=" bg-gray-100 border border-gray-300 p-4 rounded-xl text-[1.6rem] cursor-pointer text-left w-[16rem]"
-          onClick={sortMenuToggler}
-        >
-          {selectedItem || label}
-        </p>
 
-        {toggleSortMenu && (
-          <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
-            {selectFrom.map((item, index) => (
-              <p
-                className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
-                key={index}
-                onClick={() => handleSelectedItem(item)}
-              >
-                {item}
-              </p>
-            ))}
-          </div>
-        )}
-      </div>
+      {toggleSortMenu && (
+        <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
+          {selectFrom.map((item, index) => (
+            <p
+              className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+              key={index}
+              onClick={() => handleSelectedItem(item)}
+            >
+              {item}
+            </p>
+          ))}
+        </div>
+      )}
 
       <div className=" flex w-full justify-end mt-10">
         <button
