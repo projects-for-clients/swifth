@@ -30,7 +30,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
     setSearch(value);
   };
 
-  const handleSelectAgent = () => {
+  const handleSelectAgent = (agent: string) => {
 
   }
   
@@ -135,7 +135,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
             {agents
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent) => (
-                <button className='border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all' onClick={() => handleSelectAgent (agent)}>
+                <button className='border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all' onClick={() => handleSelectAgent(agent)}>
                   <span>{agent}</span>
                 </button>
               ))}
