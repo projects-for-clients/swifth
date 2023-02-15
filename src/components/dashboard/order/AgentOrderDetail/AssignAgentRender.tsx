@@ -95,17 +95,17 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent, i) => (
                 <div
-                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between cursor-pointer"
+                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
                   key={i}
+                  onChange={() => handleSelectAgent(agent)}
                 >
                   <input
                     type="radio"
                     name="agent"
                     id={agent + i}
                     className="hidden"
-                    onChange={() => handleSelectAgent(agent)}
                   />
-                  <label htmlFor={agent + i}>{agent}</label>
+                  <label htmlFor={agent + i} className='w-full cursor-pointer'>{agent}</label>
 
                   {selected === agent && (
                     <img src="/icons/tick-square.svg" alt="" />
