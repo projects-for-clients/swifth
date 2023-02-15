@@ -23,6 +23,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   const [toDisplay, setToDisplay] = useState('hidden');
   const [toastDisplay, setToastDisplay] = useState('hidden');
   const [search, setSearch] = useState('');
+  const [selected, setSelected] = useState<string | null>(null)
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
