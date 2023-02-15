@@ -432,9 +432,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
     );
   };
 
-
-
-  return <></>;
+  return <div>{isAssignAgent ? <AssignAgentRender /> : <InitialRender />}</div>;
 };
 
 export default EachOrderDetail;
