@@ -129,7 +129,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
             {agents
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent) => (
-                <button className='border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-2 hover:pl-5 transition-all'>
+                <button className='border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all'>
                   <span>{agent}</span>
                 </button>
               ))}
