@@ -83,6 +83,10 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
       setIsBillOfLading(true);
     }
 
+    if (item === 'Decline') {
+      setToDisplay('grid');
+    }
+
     setToggleSortMenu({ key: null });
   };
 
