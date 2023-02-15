@@ -15,6 +15,11 @@ const Clearing = () => {
 
   const selectFrom = [
     {
+      imgUri: '/icons/notification.svg',
+      name: 'Send submission reminder',
+      className: 'text-color-dark-3',
+    },
+    {
       imgUri: '/icons/document-upload.svg',
       name: 'Open',
       className: 'text-color-dark-3',
