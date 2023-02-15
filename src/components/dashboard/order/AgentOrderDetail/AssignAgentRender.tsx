@@ -53,7 +53,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   const agents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
 
   return (
-    <>
+    <div className=' h-screen'>
       <section
         className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay}`}
         style={{
@@ -98,7 +98,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
         </form>
       </section>
 
-      <div className="px-5 h-full items-baseline w-[40rem]">
+      <div className="px-5 items-baseline w-[40rem] bg-blue-500">
         <div className="flex gap-8">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
@@ -108,7 +108,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
             Choose Field Agent
           </p>
         </div>
-        <main className="grid gap-4 mt-20">
+        <main className=" gap-4 mt-20 bg-red-600">
           <section className="relative flex items-center">
             <input
               type="text"
@@ -137,7 +137,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
         </main>
 
         <button
-          className="flex w-full h-full items-center mt-auto"
+          className="flex w-full items-center  bg-red-500"
           onClick={() => setToDisplay('grid')}
         >
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
@@ -145,7 +145,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
           </span>
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
