@@ -95,19 +95,18 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent, i) => (
                 <div
-                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all"
+                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize"
                   key={i}
                 >
                   <input
                     type="radio"
                     name="agent"
                     id={agent + i}
-                    className="hidden"
+                    className=""
                     onChange={() => handleSelectAgent(agent)}
                   />
                   <label
                     htmlFor={agent + i}
-                    className="capitalize text-[1.6rem]"
                   >
                     {agent}
                   </label>
