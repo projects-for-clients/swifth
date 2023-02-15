@@ -47,7 +47,12 @@ const Clearing = () => {
 
   const sortMenuToggler = (item: string) => {
    
-      setToggleSortMenu({ key: item });
+      setToggleSortMenu((prev) => {
+        if (prev.key === item) {
+          return { key: null };
+        }
+        return { key: item };
+      });
  
   };
 
