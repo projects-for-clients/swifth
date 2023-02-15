@@ -9,25 +9,31 @@ interface EachOrderDetail {
   orderDetail: InProgress;
 }
 
-const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
-
 const Clearing = () => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
+  const selectFrom = [
+    {
+      imgUri: '/icons/document-upload.svg',
+      name: 'Open',
+      className: 'text-color-dark-3',
+    },
+  ] as const;
+  const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
   const assignAgentHandler = () => {
     console.log('Assigning Agent');
   };
 
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-  const sortMenuToggler = () =>  setToggleSortMenu(!toggleSortMenu);
-
+  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     setToggleSortMenu(false);
   };
+
   return (
     <div className="py-10">
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
@@ -45,7 +51,10 @@ const Clearing = () => {
       <div className="relative">
         {toggleSortMenu && (
           <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
-            <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
+            <p
+              className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 "
+              onClick={() => handleSelectedItem('item')}
+            >
               <img src="/icons/document-upload.svg" alt="" />
               <span className="font-semibold text-color-dark-3">Open</span>
             </p>
