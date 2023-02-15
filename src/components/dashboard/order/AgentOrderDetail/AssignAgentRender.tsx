@@ -30,17 +30,22 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
     setSearch(value);
   };
 
+  const handleSelectAgent = () => {
+
+  }
+  
+
+  const handleQuoteSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setToastDisplay('flex');
+  };
+
   const goBack = () => {
     setIsAssignAgent(false);
   };
 
   const closeModal = () => {
     setToDisplay('hidden');
-  };
-
-  const handleQuoteSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setToastDisplay('flex');
   };
 
   useEffect(() => {
@@ -130,7 +135,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
             {agents
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent) => (
-                <button className='border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all'>
+                <button className='border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all' onClick={() => handleSelectAgent (agent)}>
                   <span>{agent}</span>
                 </button>
               ))}
