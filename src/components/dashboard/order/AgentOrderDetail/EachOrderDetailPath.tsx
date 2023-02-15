@@ -110,19 +110,12 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
           <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
 
           <div>
-            <label htmlFor="amount" className="text-[1.4rem] text-gray-600">
+            <label htmlFor="comment" className="text-[1.4rem] text-gray-600">
               Comment
             </label>
-            <input
-              type="number"
-              name="amount"
-              placeholder="Enter Amount"
-              required
-              id="amount"
-              className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
-            />
+            
             <textarea
-              name="amount"
+              id='comment'
               placeholder="Enter Comment"
               required
               rows={3}
