@@ -67,12 +67,11 @@ const Clearing = () => {
       <div className="grid gap-4 mt-10 ">
         {clearingDocs.map((doc) => (
           <>
-            <div
-              key={doc}
-              onClick={() => sortMenuToggler(doc)}
-              className="relative cursor-pointer"
-            >
-              <p className="p-6 border border-color-purple-light-2 rounded-3xl">
+            <div key={doc} className="relative">
+              <p
+                className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl"
+                onClick={() => sortMenuToggler(doc)}
+              >
                 {doc}
               </p>
               {toggleSortMenu.key === doc && (
