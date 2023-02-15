@@ -46,6 +46,12 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
     }
   }, [toastDisplay]);
 
+  const agents = [
+    'James Ibori',
+    'Kunle Afolayan',
+    'Femi Adebayo',
+  ]
+
   return (
     <>
       <section
