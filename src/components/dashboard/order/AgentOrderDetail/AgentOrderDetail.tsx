@@ -19,9 +19,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     useState<OrderHistoryDetail | null>(null);
   const [loaded, setLoaded] = useState(false);
 
-  type Path = 'clearing' | 'history';
 
-  const [currentPath, setCurrentPath] = useState<Path>('clearing');
   const [isAssignAgent, setIsAssignAgent] = useState(false);
 
   useEffect(() => {
@@ -42,20 +40,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     }
   }, [orderDetail]);
 
-  if (orderHistoryDetail) {
-  }
-  const {
-    adminName,
-    agentName,
-    carBrand,
-    carModel,
-    date,
-    tag,
-    carTrim,
-    carYear,
-    amountPaid,
-    totalAmount,
-  } = orderHistoryDetail || {};
+ 
 
  
   
@@ -159,7 +144,13 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     );
   };
 
-  return <div>{isAssignAgent ? <AssignAgentRender /> : <InitialRender />}</div>;
+  // return <div>{isAssignAgent ? <AssignAgentRender /> : <InitialRender />}</div>;
+
+  return (
+    <div>
+      {loaded && <InitialRender orderHistoryDetail={orderHistoryDetail!} />}
+    </div>
+  );
 };
 
 export default AgentOrderDetail;

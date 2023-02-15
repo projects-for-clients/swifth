@@ -1,39 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { OrderHistoryDetail } from "../OrderHistory";
 import { filterByColors } from "../OrdersData";
-import { Clearing } from "./EachOrderDetailPath";
+import { AgentClearing, AgentOrderHistory } from "./EachOrderDetailPath";
 
-const InitialRender = () => {
-    const [orderHistoryDetail, setOrderHistoryDetail] =
-      useState<OrderHistoryDetail | null>(null);
-    const [loaded, setLoaded] = useState(false);
 
-    type Path = 'clearing' | 'history';
+interface InitialRender {
+  orderHistoryDetail: OrderHistoryDetail;
+}
 
-    const [currentPath, setCurrentPath] = useState<Path>('clearing');
+const InitialRender:FC<InitialRender> = ({orderHistoryDetail}) => {
+   
+
+    type Path = 'AgentClearing' | 'AgentOrderHistory';
+
+    const [currentPath, setCurrentPath] = useState<Path>('AgentClearing');
     const [isAssignAgent, setIsAssignAgent] = useState(false);
 
-    useEffect(() => {
-      if (orderDetail) {
-        setOrderHistoryDetail({
-          ...orderDetail,
-          date: new Date(orderDetail.date),
-          adminName: orderDetail.name,
-          agentName: 'James Ibori',
-          carYear: '2021',
-          carModel: 'Toyota Corolla',
-          carBrand: 'Toyota',
-          carTrim: 'XLE',
-          amountPaid: 1000000,
-          totalAmount: 20000000,
-        });
-        setLoaded(true);
-      }
-    }, [orderDetail]);
-
-    if (orderHistoryDetail) {
-    }
+  
     const {
       adminName,
       agentName,
@@ -45,11 +29,11 @@ const InitialRender = () => {
       carYear,
       amountPaid,
       totalAmount,
-    } = orderHistoryDetail || {};
+    } = orderHistoryDetail ;
 
     const switchPaths: Record<Path, JSX.Element> = {
-      clearing: <Clearing setIsAssignAgent={setIsAssignAgent} />,
-      history: <History />,
+      AgentClearing: <AgentClearing setIsAssignAgent={setIsAssignAgent} />,
+      AgentOrderHistory: <AgentOrderHistory />,
     };
     
   return (
