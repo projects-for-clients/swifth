@@ -19,6 +19,16 @@ const Clearing = () => {
       name: 'Open',
       className: 'text-color-dark-3',
     },
+    {
+      imgUri: '/icons/tick-square.svg',
+      name: 'Approve',
+      className: 'text-color-primary',
+    },
+    {
+      imgUri: '/icons/close-square.svg',
+      name: 'Decline',
+      className: 'text-red-600',
+    },
   ] as const;
   const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
   const assignAgentHandler = () => {
