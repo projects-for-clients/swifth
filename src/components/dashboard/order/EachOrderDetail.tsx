@@ -127,7 +127,6 @@ const Clearing = () => {
                     })}
                   </div>
                 )}
-              </div>
             </div>
           </Fragment>
         ))}
