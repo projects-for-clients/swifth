@@ -53,7 +53,6 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
 
   return (
     <>
-      
       <div
         className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}
       >
@@ -94,20 +93,30 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
           <section className="grid mt-10">
             {agents
               .filter((agent) => agent.toLowerCase().includes(search))
-              .map((agent) => (
-                <button
+              .map((agent, i) => (
+                <div
                   className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all"
-                  onClick={() => handleSelectAgent(agent)}
+                  key={i}
                 >
-                  <span>{agent}</span>
-                </button>
+                  <input
+                    type="radio"
+                    name="agent"
+                    id={agent + i}
+                    className="hidden"
+                    onChange={() => handleSelectAgent(agent)}
+                  />
+                  <label
+                    htmlFor={agent + i}
+                    className="capitalize text-[1.6rem]"
+                  >
+                    {agent}
+                  </label>
+                </div>
               ))}
           </section>
         </main>
 
-        <button
-          className="flex w-full items-center"
-        >
+        <button className="flex w-full items-center">
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
             Continue
           </span>
