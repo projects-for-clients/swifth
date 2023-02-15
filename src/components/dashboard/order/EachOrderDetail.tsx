@@ -89,7 +89,7 @@ const Clearing = () => {
         {clearingDocs.map((doc, i) => (
           <Fragment key={i}>
             <div className="relative">
-              {/* <p
+              <p
                 className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between"
                 onClick={() => sortMenuToggler(doc.name)}
               >
@@ -99,9 +99,9 @@ const Clearing = () => {
                     <img src="/icons/tick-square.svg" alt="" />
                   </span>
                 )}
-              </p> */}
-              {/* {toggleSortMenu.key === doc.name && (
-                <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize" key={i}>
+              </p>
+              {toggleSortMenu.key === doc.name && (
+                <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize" >
                   {selectFrom.map((item, i) => {
                     console.log(doc.submitted, doc.name, i)
                     return (
@@ -119,7 +119,7 @@ const Clearing = () => {
                     );
                   })}
                 </div>
-              )} */}
+              )}
             </div>
           </Fragment>
         ))}
