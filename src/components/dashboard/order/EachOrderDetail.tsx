@@ -56,7 +56,7 @@ const Clearing = () => {
           </p>
           <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
             <img src="/icons/document-upload.svg" alt="" />
-            <span className="font-semibold text-red-500">Decline</span>
+            <span className="font-semibold text-red-600">Decline</span>
           </p>
         </div>
       )}
