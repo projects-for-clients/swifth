@@ -85,12 +85,12 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
       </section>
 
       <div className="px-5 h-full items-baseline w-[40rem]">
-        <div className="flex">
+        <div className="flex gap-8">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
             onClick={goBack}
           />
-          <p className="text-[1.6rem] text-gray-600 w-full text-center">
+          <p className="text-[1.6rem] text-gray-600 w-full text-left">
             Choose Field Agent
           </p>
         </div>
