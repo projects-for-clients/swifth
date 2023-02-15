@@ -5,7 +5,7 @@ interface ClearingProps {
 }
 
  export const Clearing:FC<ClearingProps> = ({ setIsAssignAgent }) => {
-  
+
    const [isBillOfLading, setIsBillOfLading] = useState(false);
    const [selectedItem, setSelectedItem] = useState('');
 
@@ -52,7 +52,7 @@ interface ClearingProps {
    ] as const;
 
    const assignAgentHandler = () => {
-     console.log('Assigning Agent');
+      setIsAssignAgent(true);
    };
 
    const [toggleSortMenu, setToggleSortMenu] = useState<{ key: string | null }>(
