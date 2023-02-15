@@ -84,7 +84,7 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
         </form>
       </section>
 
-      <div className="px-5 h-full items-baseline ">
+      <div className="px-5 h-full items-baseline w-[40rem]">
         <div className="flex">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
