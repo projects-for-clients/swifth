@@ -143,12 +143,12 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
       </>
     );
   };
-
+  
   // return <div>{isAssignAgent ? <AssignAgentRender /> : <InitialRender />}</div>;
 
   return (
     <div>
-      {loaded && <InitialRender orderHistoryDetail={orderHistoryDetail!} />}
+      {loaded && <InitialRender orderHistoryDetail={orderHistoryDetail!} handleCloseDialog={handleCloseDialog} />}
     </div>
   );
 };

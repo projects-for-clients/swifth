@@ -1,5 +1,6 @@
 import { useState, useEffect, FC } from "react";
 import { BsArrowLeft } from "react-icons/bs";
+import { DialogType } from "../../../../container/dashboard/orders";
 import { OrderHistoryDetail } from "../OrderHistory";
 import { filterByColors } from "../OrdersData";
 import { AgentClearing, AgentOrderHistory } from "./EachOrderDetailPath";
@@ -7,9 +8,10 @@ import { AgentClearing, AgentOrderHistory } from "./EachOrderDetailPath";
 
 interface InitialRender {
   orderHistoryDetail: OrderHistoryDetail;
+  handleCloseDialog: (type: DialogType) => void;
 }
 
-const InitialRender:FC<InitialRender> = ({orderHistoryDetail}) => {
+const InitialRender:FC<InitialRender> = ({orderHistoryDetail, handleCloseDialog}) => {
    
 
     type Path = 'AgentClearing' | 'AgentOrderHistory';
@@ -133,8 +135,8 @@ const InitialRender:FC<InitialRender> = ({orderHistoryDetail}) => {
                 name="order"
                 id="clearing"
                 className="hidden"
-                onChange={() => setCurrentPath('clearing')}
-                checked={currentPath === 'clearing'}
+                onChange={() => setCurrentPath('AgentClearing')}
+                checked={currentPath === 'AgentClearing'}
               />
               <label htmlFor="clearing" className="capitalize text-[1.6rem]">
                 Review/Clearing
@@ -145,8 +147,8 @@ const InitialRender:FC<InitialRender> = ({orderHistoryDetail}) => {
                 name="order"
                 id="history"
                 className="hidden"
-                checked={currentPath === 'history'}
-                onChange={() => setCurrentPath('history')}
+                checked={currentPath === 'AgentOrderHistory'}
+                onChange={() => setCurrentPath('AgentOrderHistory')}
               />
               <label htmlFor="history" className="capitalize text-[1.6rem]">
                 History
