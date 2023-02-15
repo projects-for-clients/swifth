@@ -56,6 +56,10 @@ const Clearing = () => {
     setToggleSortMenu({ key: null });
   };
 
+  useEffect(() => {
+    console.log('selectedItem', toggleSortMenu);
+  }, [toggleSortMenu]);
+
   return (
     <div className="py-10">
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
@@ -66,13 +70,13 @@ const Clearing = () => {
             <div
               key={doc}
               onClick={() => sortMenuToggler(doc)}
-              className="relative"
+              className="relative cursor-pointer"
             >
               <p className="p-6 border border-color-purple-light-2 rounded-3xl">
                 {doc}
               </p>
               {toggleSortMenu.key === doc && (
-                <div className="absolute top-[6rem] w-[25rem] right-0 shadow-dark-50 bg-white rounded-xl grid gap-2 shadow z-20 capitalize">
+                <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                   {selectFrom.map((item) => (
                     <p
                       className="text-[1.4rem] hover:bg-gray-100 p-4 cursor-pointer text-left flex items-center gap-4"
