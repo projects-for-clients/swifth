@@ -47,7 +47,10 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
       {loaded ? (
         <section>
           {isAssignAgent ? (
-            <AssignAgentRender />
+            <AssignAgentRender
+              setIsAssignAgent={setIsAssignAgent}
+              handleCloseDialog={handleCloseDialog}
+            />
           ) : (
             <InitialRender
               setIsAssignAgent={setIsAssignAgent}

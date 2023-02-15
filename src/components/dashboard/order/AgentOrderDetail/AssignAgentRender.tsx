@@ -1,16 +1,24 @@
-import { useState, FormEvent, useEffect } from "react";
+import { useState, FormEvent, useEffect, FC, Dispatch, SetStateAction } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
+import { DialogType } from "../../../../container/dashboard/orders";
 
-const AssignAgentRender = () => {
+
+interface AssignAgentRender {
+  handleCloseDialog: (type: DialogType) => void;
+  setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
+}
+
+const AssignAgentRender:FC<AssignAgentRender> = ({
+    handleCloseDialog,
+    setIsAssignAgent,
+}) => {
   const [toDisplay, setToDisplay] = useState('hidden');
   const [toastDisplay, setToastDisplay] = useState('hidden');
 
   const goBack = () => {
-    // setShowDetails({
-    //   show: false,
-    // });
-    // setCurrentPath('quoteRequests');
+    setIsAssignAgent(false);
+   
   };
 
   const closeModal = () => {
