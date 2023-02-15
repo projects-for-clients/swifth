@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC, Fragment } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { DialogType } from '../../../container/dashboard/orders';
 import { OrderHistoryDetail } from './OrderHistory';
@@ -87,9 +87,9 @@ const Clearing = () => {
 
       <div className="grid gap-4 mt-10 ">
         {clearingDocs.map((doc, i) => (
-          <>
-            <div key={i} className="relative">
-              <p
+          <Fragment key={i}>
+            <div className="relative">
+              {/* <p
                 className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between"
                 onClick={() => sortMenuToggler(doc.name)}
               >
@@ -99,15 +99,15 @@ const Clearing = () => {
                     <img src="/icons/tick-square.svg" alt="" />
                   </span>
                 )}
-              </p>
-              {toggleSortMenu.key === doc.name && (
-                <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
-                  {selectFrom.map((item) => {
-                    console.log(doc.submitted, item.name)
+              </p> */}
+              {/* {toggleSortMenu.key === doc.name && (
+                <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize" key={i}>
+                  {selectFrom.map((item, i) => {
+                    console.log(doc.submitted, doc.name, i)
                     return (
                       <button
                         className="text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed"
-                        key={item.name}
+                        key={i}
                         disabled={!doc.submitted}
                         onClick={() => handleSelectedItem(item.name)}
                       >
@@ -119,9 +119,9 @@ const Clearing = () => {
                     );
                   })}
                 </div>
-              )}
+              )} */}
             </div>
-          </>
+          </Fra>
         ))}
       </div>
 
