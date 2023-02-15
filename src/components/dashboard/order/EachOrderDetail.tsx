@@ -49,11 +49,11 @@ const Clearing = () => {
             <span className="font-semibold text-color-dark-3">Open</span>
           </p>
           <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
-            <img src="/icons/document-upload.svg" alt="" />
+            <img src="/icons/tick-square.svg" alt="" />
             <span className="font-semibold text-color-primary">Approve</span>
           </p>
           <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
-            <img src="/icons/document-upload.svg" alt="" />
+            <img src="/icons/close-square.svg" alt="" />
             <span className="font-semibold text-red-600">Decline</span>
           </p>
         </div>
