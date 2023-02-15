@@ -14,6 +14,11 @@ const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 const Clearing = () => {
     const [isBillOfLading, setIsBillOfLading] = useState(false);
 
+
+    const assignAgentHandler = () => {
+        console.log("Assigning Agent")
+    }
+
   return (
     <div className='py-10'>
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
@@ -29,7 +34,7 @@ const Clearing = () => {
       </div>
 
       <div className=" flex w-full justify-end mt-10">
-        <button className="border p-6 rounded-lg border-color-primary text-color-primary :disabled:opacity-50 :disabled:cursor-not-allowed basis-1/2" disabled={!isBillOfLading}>
+        <button className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary :disabled:opacity-50 :disabled:cursor-not-allowed basis-1/2" disabled={true} onClick={assignAgentHandler}>
           Assign Field Agent
         </button>
       </div>
