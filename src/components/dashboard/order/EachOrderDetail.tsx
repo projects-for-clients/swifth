@@ -12,15 +12,26 @@ interface EachOrderDetail {
 const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 
 const Clearing = () => {
-    const [isBillOfLading, setIsBillOfLading] = useState(false);
+  const [isBillOfLading, setIsBillOfLading] = useState(false);
 
+  const assignAgentHandler = () => {
+    console.log('Assigning Agent');
+  };
+ 
+  const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-    const assignAgentHandler = () => {
-        console.log("Assigning Agent")
-    }
+  const sortMenuToggler = () => {
+   
+      return setToggleSortMenu(!toggleSortMenu);
+  };
 
+  const handleSelectedItem = (item: string) => {
+    setSelectedItem(item);
+    setToggleSortMenu(false);
+
+  };
   return (
-    <div className='py-10'>
+    <div className="py-10">
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
       <div className="grid gap-4 mt-10">
@@ -32,9 +43,35 @@ const Clearing = () => {
           </div>
         ))}
       </div>
+      <div className="relative flex items-center  justify-items-start cursor-pointer">
+        <p
+          className=" bg-gray-100 border border-gray-300 p-4 rounded-xl text-[1.6rem] cursor-pointer text-left w-[16rem]"
+          onClick={sortMenuToggler}
+        >
+          {selectedItem || label}
+        </p>
+
+        {toggleSortMenu && (
+          <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
+            {selectFrom.map((item, index) => (
+              <p
+                className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
+                key={index}
+                onClick={() => handleSelectedItem(item)}
+              >
+                {item}
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
 
       <div className=" flex w-full justify-end mt-10">
-        <button className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 " disabled={!isBillOfLading} onClick={assignAgentHandler}>
+        <button
+          className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+          disabled={!isBillOfLading}
+          onClick={assignAgentHandler}
+        >
           Assign Field Agent
         </button>
       </div>
