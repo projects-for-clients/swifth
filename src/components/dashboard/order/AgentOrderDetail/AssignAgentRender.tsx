@@ -95,7 +95,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent, i) => (
                 <div
-                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
+                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between cursor-pointer"
                   key={i}
                 >
                   <input
