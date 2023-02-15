@@ -123,7 +123,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
             />
             <textarea
               name="amount"
-              placeholder="Enter Amount"
+              placeholder="Enter Comment"
               required
               rows={3}
               className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
