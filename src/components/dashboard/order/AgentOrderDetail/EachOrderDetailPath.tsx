@@ -107,7 +107,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
           className="bg-white py-10 px-10 rounded-t-3xl"
           onSubmit={handleQuoteSubmit}
         >
-          <p className="text-[1.6rem] text-gray-600 mb-8">Quote Amount</p>
+          <p className="text-[1.6rem] text-gray-600 mb-8">Reject BOL - Leave a Comment</p>
 
           <div>
             <label htmlFor="comment" className="text-[1.4rem] text-gray-600">
@@ -124,8 +124,8 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
           </div>
 
           <button className="flex w-full h-full items-center ">
-            <span className="bg-color-primary rounded-lg text-white w-full py-4">
-              Send Quote
+            <span className="text-red-600  border border-red-600 rounded-lg w-full py-4">
+              Reject BOL
             </span>
           </button>
         </form>
