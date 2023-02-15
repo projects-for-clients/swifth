@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC, Dispatch, SetStateAction } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
@@ -8,16 +8,17 @@ import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 interface InitialRender {
   orderHistoryDetail: OrderHistoryDetail;
   handleCloseDialog: (type: DialogType) => void;
+  setIsAssignAgent: Dispatch<SetStateAction<boolean>>
 }
 
 const InitialRender: FC<InitialRender> = ({
   orderHistoryDetail,
   handleCloseDialog,
+  setIsAssignAgent
 }) => {
   type Path = 'AgentClearing' | 'AgentOrderHistory';
 
   const [currentPath, setCurrentPath] = useState<Path>('AgentClearing');
-  const [isAssignAgent, setIsAssignAgent] = useState(false);
 
   const {
     adminName,
