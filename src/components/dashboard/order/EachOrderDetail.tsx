@@ -37,11 +37,24 @@ const Clearing = () => {
   ];
 
   const clearingDocs = [
-    'Bills of Lading',
-    'Releases',
-    'CAC',
-    'Signed POA',
+    {
+      name: 'Bills of Lading',
+      submitted: true,
+    },
+    {
+      name: 'Releases',
+      submitted: true,
+    },
+    {
+      name: 'CAC',
+      submitted: false,
+    },
+    {
+      name: 'Signed POA',
+      submitted: false,
+    },
   ] as const;
+
   const assignAgentHandler = () => {
     console.log('Assigning Agent');
   };
@@ -73,21 +86,21 @@ const Clearing = () => {
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
       <div className="grid gap-4 mt-10 ">
-        {clearingDocs.map((doc) => (
+        {clearingDocs.map((doc, i) => (
           <>
-            <div key={doc} className="relative">
+            <div key={i} className="relative">
               <p
                 className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between"
-                onClick={() => sortMenuToggler(doc)}
+                onClick={() => sortMenuToggler(doc.name)}
               >
                 {doc}
-                {isBillOfLading && doc === 'Bills of Lading' && (
+                {isBillOfLading && doc.name === 'Bills of Lading' && (
                   <span>
                     <img src="/icons/tick-square.svg" alt="" />
                   </span>
                 )}
               </p>
-              {toggleSortMenu.key === doc && (
+              {toggleSortMenu.key === doc.name && (
                 <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                   {selectFrom.map((item) => (
                     <button
