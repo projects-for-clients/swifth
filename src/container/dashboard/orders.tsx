@@ -16,7 +16,7 @@ import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../../components/dashboard/order/OrderHistory';
-import EachOrderDetail from '../../components/dashboard/order/EachOrderDetail';
+import EachOrderDetail from '../../components/dashboard/order/EachOrderDetail/EachOrderDetail';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -71,7 +71,7 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-  const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any)
+  const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -158,7 +158,7 @@ function orders() {
   };
 
   const openOrderDetail = (item: InProgress) => {
-    setOrderDetail(item) ;
+    setOrderDetail(item);
     handleOpenDialog('eachOrder');
   };
 
@@ -177,8 +177,6 @@ function orders() {
     waitlist: <WaitlistView waitlistData={waitlistData} />,
   };
 
-  
-  
   return (
     <>
       <Header title="Orders" />
