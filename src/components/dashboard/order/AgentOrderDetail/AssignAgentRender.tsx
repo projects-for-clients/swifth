@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect, FC, Dispatch, SetStateAction } from "react";
+import { useState, FormEvent, useEffect, FC, Dispatch, SetStateAction, ChangeEvent } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { DialogType } from "../../../../container/dashboard/orders";
@@ -15,6 +15,14 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
 }) => {
   const [toDisplay, setToDisplay] = useState('hidden');
   const [toastDisplay, setToastDisplay] = useState('hidden');
+    const [search, setSearch] = useState('');
+    
+ const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+   const { value } = e.target;
+   setSearch(value);
+
+  
+ };
 
   const goBack = () => {
     setIsAssignAgent(false);
