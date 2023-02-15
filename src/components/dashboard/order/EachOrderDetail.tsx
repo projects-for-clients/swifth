@@ -49,32 +49,32 @@ const Clearing = () => {
     <div className="py-10">
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
-      <div className="grid gap-4 mt-10 relative">
+      <div className="grid gap-4 mt-10 ">
         {clearingDocs.map((doc) => (
           <>
-            <div key={doc} onClick={sortMenuToggler}>
+            <div key={doc} onClick={sortMenuToggler} className='relative'>
               <p className="p-6 border border-color-purple-light-2 rounded-3xl">
                 {doc}
               </p>
+            {toggleSortMenu && (
+              <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
+                {selectFrom.map((item) => (
+                  <p
+                    className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4"
+                    key={item.name}
+                    onClick={() => handleSelectedItem(item.name)}
+                  >
+                    <img src={item.imgUri} alt="" />
+                    <span className={`${item.className} font-semibold`}>
+                      {item.name}
+                    </span>
+                  </p>
+                ))}
+              </div>
+            )}
             </div>
           </>
         ))}
-        {toggleSortMenu && (
-          <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
-            {selectFrom.map((item) => (
-              <p
-                className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4"
-                key={item.name}
-                onClick={() => handleSelectedItem(item.name)}
-              >
-                <img src={item.imgUri} alt="" />
-                <span className={`${item.className} font-semibold`}>
-                  {item.name}
-                </span>
-              </p>
-            ))}
-          </div>
-        )}
       </div>
 
       <div className=" flex w-full justify-end mt-10">
