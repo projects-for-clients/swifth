@@ -43,7 +43,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
   return (
     <>
       {loaded ? (
-        <section>
+        <>
           {isAssignAgent ? (
             <AssignAgentRender
               setIsAssignAgent={setIsAssignAgent}
@@ -56,7 +56,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
               handleCloseDialog={handleCloseDialog}
             />
           )}
-        </section>
+        </>
       ) : null}
     </>
   );

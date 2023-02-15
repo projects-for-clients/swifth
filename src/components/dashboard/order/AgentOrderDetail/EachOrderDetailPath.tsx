@@ -80,7 +80,7 @@ interface AgentClearing {
    };
 
    return (
-     <div className="pt-10 pb-20">
+     <div className="pt-10">
        <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
        <div className="grid gap-4 mt-10 ">

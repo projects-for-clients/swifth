@@ -39,7 +39,7 @@ const InitialRender: FC<InitialRender> = ({
   };
 
   return (
-    <div className=" h-full items-baseline w-[80rem]">
+    <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
       <div className="flex gap-10 items-center">
         <BsArrowLeft
           className="text-[2.4rem] cursor-pointer"
