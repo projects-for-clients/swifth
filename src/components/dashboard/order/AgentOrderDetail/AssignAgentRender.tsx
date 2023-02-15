@@ -124,10 +124,20 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
               className="absolute left-6 text-[1.8rem]"
             />
           </section>
+
+          <section className='grid mt-10'>
+            {agents
+              .filter((agent) => agent.toLowerCase().includes(search))
+              .map((agent) => (
+                <button className='border-b border-b-color-red-light-1 py-4 text-start'>
+                  <span>{agent}</span>
+                </button>
+              ))}
+          </section>
         </main>
 
         <button
-          className="flex w-full h-full items-center "
+          className="flex w-full h-full items-center mt-auto"
           onClick={() => setToDisplay('grid')}
         >
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
