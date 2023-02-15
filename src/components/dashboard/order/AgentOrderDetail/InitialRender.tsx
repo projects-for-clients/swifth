@@ -47,7 +47,6 @@ const InitialRender:FC<InitialRender> = ({orderHistoryDetail, handleCloseDialog}
         />
         <p className="text-[2rem] text-gray-600 text-center">Details</p>
       </div>
-      {loaded && (
         <main className="grid gap-10 mt-10 ">
           <div className="grid justify-start justify-items-start gap-4">
             <p className="text-[2rem] text-gray-600 text-center">{adminName}</p>
@@ -158,7 +157,7 @@ const InitialRender:FC<InitialRender> = ({orderHistoryDetail, handleCloseDialog}
             <div className="mt-10">{switchPaths[currentPath]}</div>
           </section>
         </main>
-      )}
+    
     </div>
   );
 };
