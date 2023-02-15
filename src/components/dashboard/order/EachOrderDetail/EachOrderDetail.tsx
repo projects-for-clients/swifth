@@ -4,16 +4,12 @@ import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress, filterByColors } from '../OrdersData';
-import { Clearing } from './EachPath';
+import { Clearing, History } from './EachPath';
 
 interface EachOrderDetail {
   handleCloseDialog: (type: DialogType) => void;
   orderDetail: InProgress;
 }
-
-
-
-
 
 const EachOrderDetail: FC<EachOrderDetail> = ({
   handleCloseDialog,
