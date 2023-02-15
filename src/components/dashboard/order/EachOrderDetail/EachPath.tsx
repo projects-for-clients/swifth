@@ -1,6 +1,6 @@
 import { useState, Fragment } from "react";
 
- const Clearing = () => {
+ export const Clearing = () => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
@@ -136,4 +136,10 @@ import { useState, Fragment } from "react";
   );
 };
 
-export default Clearing
+export const History = () => {
+  return (
+    <div>
+      <p>History</p>
+    </div>
+  );
+};

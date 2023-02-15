@@ -1,9 +1,10 @@
-import { useState, useEffect, FC, Fragment, FormEvent } from 'react';
+import { useState, useEffect, FC, FormEvent } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress, filterByColors } from '../OrdersData';
+import { Clearing } from './EachPath';
 
 interface EachOrderDetail {
   handleCloseDialog: (type: DialogType) => void;
@@ -12,13 +13,7 @@ interface EachOrderDetail {
 
 
 
-const History = () => {
-  return (
-    <div>
-      <p>History</p>
-    </div>
-  );
-};
+
 
 const EachOrderDetail: FC<EachOrderDetail> = ({
   handleCloseDialog,
