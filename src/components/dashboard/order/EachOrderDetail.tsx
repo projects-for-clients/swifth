@@ -51,11 +51,12 @@ const Clearing = () => {
 
       <div className="grid gap-4 mt-10 ">
         {clearingDocs.map((doc) => (
-          <>
-            <div key={doc} onClick={sortMenuToggler} className='relative'>
+          <div className="relative">
+            <div key={doc} onClick={sortMenuToggler}>
               <p className="p-6 border border-color-purple-light-2 rounded-3xl">
                 {doc}
               </p>
+            </div>
             {toggleSortMenu && (
               <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
                 {selectFrom.map((item) => (
@@ -72,8 +73,7 @@ const Clearing = () => {
                 ))}
               </div>
             )}
-            </div>
-          </>
+          </div>
         ))}
       </div>
 
