@@ -101,6 +101,9 @@ const Clearing = () => {
                 )}
               </p>
                 {toggleSortMenu.key === doc.name && (
+                  <div>
+                    
+                  </div>
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     {selectFrom.map((item, i) => {
                       return (
