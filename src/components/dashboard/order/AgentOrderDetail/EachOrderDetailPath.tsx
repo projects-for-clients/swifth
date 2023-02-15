@@ -1,4 +1,12 @@
-import { useState, Fragment, Dispatch, SetStateAction, FC } from 'react';
+import {
+  useState,
+  Fragment,
+  Dispatch,
+  SetStateAction,
+  FC,
+  FormEvent,
+} from 'react';
+import { GrClose } from 'react-icons/gr';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -7,8 +15,7 @@ interface AgentClearing {
 export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
-    const [toDisplay, setToDisplay] = useState('hidden');
-
+  const [toDisplay, setToDisplay] = useState('hidden');
 
   const selectFrom = [
     {
@@ -83,11 +90,9 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     setToDisplay('hidden');
   };
 
-    const handleQuoteSubmit = (e: FormEvent) => {
-      e.preventDefault();
-      setToastDisplay('flex');
-    };
-
+  const handleQuoteSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -97,15 +102,6 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
           gridTemplateRows: '1.2fr 1fr',
         }}
       >
-        <div
-          className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}
-        >
-          <span className="w-full text-center">{selected} Assigned</span>
-          <GrClose
-            onClick={() => setToastDisplay('hidden')}
-            className="cursor-pointer"
-          />
-        </div>
         <div onClick={closeModal}>&nbsp;</div>
         <form
           className="bg-white py-10 px-10 rounded-t-3xl"
@@ -115,7 +111,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
 
           <div>
             <label htmlFor="amount" className="text-[1.4rem] text-gray-600">
-              Enter Amount
+              Comment
             </label>
             <input
               type="number"
@@ -123,6 +119,13 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
               placeholder="Enter Amount"
               required
               id="amount"
+              className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
+            />
+            <textarea
+              name="amount"
+              placeholder="Enter Amount"
+              required
+              rows={3}
               className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
             />
           </div>

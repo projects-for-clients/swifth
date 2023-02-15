@@ -33,7 +33,6 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
     setSelected(agent)
     setToastDisplay('flex')
   }
-  
 
 
   const goBack = () => {
