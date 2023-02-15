@@ -41,27 +41,23 @@ const Clearing = () => {
     console.log('Assigning Agent');
   };
 
-  const [toggleSortMenu, setToggleSortMenu] = useState<{key: string | null}>({
-    key: null
+  const [toggleSortMenu, setToggleSortMenu] = useState<{ key: string | null }>({
+    key: null,
   });
 
   const sortMenuToggler = (item: string) => {
-   
-      setToggleSortMenu((prev) => {
-        if (prev.key === item) {
-          return { key: null };
-        }
-        return { key: item };
-      });
- 
+    setToggleSortMenu((prev) => {
+      if (prev.key === item) {
+        return { key: null };
+      }
+      return { key: item };
+    });
   };
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     setToggleSortMenu({ key: null });
   };
-
- 
 
   return (
     <div className="py-10">
@@ -76,6 +72,11 @@ const Clearing = () => {
                 onClick={() => sortMenuToggler(doc)}
               >
                 {doc}
+                {doc === 'Bills of Lading' && (
+                  <span>
+                    <img src="/icons/tick-square.svg" alt="" />
+                  </span>
+                )}
               </p>
               {toggleSortMenu.key === doc && (
                 <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
