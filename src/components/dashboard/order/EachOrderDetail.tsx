@@ -14,7 +14,6 @@ const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 const Clearing = () => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
-  const label = 'Sort By';
 
   const assignAgentHandler = () => {
     console.log('Assigning Agent');
@@ -22,9 +21,8 @@ const Clearing = () => {
 
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
-  const sortMenuToggler = () => {
-    return setToggleSortMenu(!toggleSortMenu);
-  };
+  const sortMenuToggler = () =>  setToggleSortMenu(!toggleSortMenu);
+
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
@@ -36,7 +34,7 @@ const Clearing = () => {
 
       <div className="grid gap-4 mt-10">
         {clearingDocs.map((doc) => (
-          <div key={doc}>
+          <div key={doc} onClick={sortMenuToggler}>
             <p className="p-6 border border-color-purple-light-2 rounded-3xl">
               {doc}
             </p>
