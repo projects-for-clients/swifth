@@ -4,14 +4,14 @@ import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress, filterByColors } from '../OrdersData';
-import { Clearing, History } from './EachOrderDetailPath';
+import InitialRender from './InitialRender';
 
-interface EachOrderDetail {
+interface AgentOrderDetail {
   handleCloseDialog: (type: DialogType) => void;
   orderDetail: InProgress;
 }
 
-const EachOrderDetail: FC<EachOrderDetail> = ({
+const AgentOrderDetail: FC<AgentOrderDetail> = ({
   handleCloseDialog,
   orderDetail,
 }) => {
@@ -57,11 +57,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
     totalAmount,
   } = orderHistoryDetail || {};
 
-  const switchPaths: Record<Path, JSX.Element> = {
-    clearing: <Clearing setIsAssignAgent={setIsAssignAgent} />,
-    history: <History />,
-  };
-
+ 
   
 
   const AssignAgentRender = () => {
@@ -166,4 +162,4 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
   return <div>{isAssignAgent ? <AssignAgentRender /> : <InitialRender />}</div>;
 };
 
-export default EachOrderDetail;
+export default AgentOrderDetail;

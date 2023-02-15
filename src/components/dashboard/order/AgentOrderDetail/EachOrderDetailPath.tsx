@@ -1,10 +1,10 @@
 import { useState, Fragment, Dispatch, SetStateAction, FC } from "react";
 
-interface ClearingProps {
+interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>
 }
 
- export const Clearing:FC<ClearingProps> = ({ setIsAssignAgent }) => {
+ export const AgentClearing:FC<AgentClearing> = ({ setIsAssignAgent }) => {
 
    const [isBillOfLading, setIsBillOfLading] = useState(false);
    const [selectedItem, setSelectedItem] = useState('');
@@ -143,7 +143,7 @@ interface ClearingProps {
    );
  };
 
-export const History = () => {
+export const AgentOrderHistory = () => {
   return (
     <div>
       <p>History</p>

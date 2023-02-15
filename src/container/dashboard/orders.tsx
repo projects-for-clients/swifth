@@ -16,7 +16,7 @@ import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../../components/dashboard/order/OrderHistory';
-import EachOrderDetail from '../../components/dashboard/order/EachOrderDetail/EachOrderDetail';
+import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
