@@ -48,7 +48,15 @@ const Clearing = () => {
         <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
           <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
             <img src="/icons/document-upload.svg" alt="" />
-            <span>Open</span>
+            <span className='font-semibold'>Open</span>
+          </p>
+          <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
+            <img src="/icons/document-upload.svg" alt="" />
+            <span className='font-semibold text-color-primary'>Approve</span>
+          </p>
+          <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
+            <img src="/icons/document-upload.svg" alt="" />
+            <span className='font-semibold text-red-500'>Decline</span>
           </p>
         </div>
       )}
