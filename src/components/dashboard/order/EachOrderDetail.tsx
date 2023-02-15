@@ -42,22 +42,24 @@ const Clearing = () => {
         ))}
       </div>
 
-      {toggleSortMenu && (
-        <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
-          <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
-            <img src="/icons/document-upload.svg" alt="" />
-            <span className="font-semibold text-color-dark-3">Open</span>
-          </p>
-          <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
-            <img src="/icons/tick-square.svg" alt="" />
-            <span className="font-semibold text-color-primary">Approve</span>
-          </p>
-          <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
-            <img src="/icons/close-square.svg" alt="" />
-            <span className="font-semibold text-red-600">Decline</span>
-          </p>
-        </div>
-      )}
+      <div className="relative">
+        {toggleSortMenu && (
+          <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
+            <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
+              <img src="/icons/document-upload.svg" alt="" />
+              <span className="font-semibold text-color-dark-3">Open</span>
+            </p>
+            <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
+              <img src="/icons/tick-square.svg" alt="" />
+              <span className="font-semibold text-color-primary">Approve</span>
+            </p>
+            <p className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 ">
+              <img src="/icons/close-square.svg" alt="" />
+              <span className="font-semibold text-red-600">Decline</span>
+            </p>
+          </div>
+        )}
+      </div>
 
       <div className=" flex w-full justify-end mt-10">
         <button
