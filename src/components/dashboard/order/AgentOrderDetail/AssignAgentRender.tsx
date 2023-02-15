@@ -1,32 +1,36 @@
-import { useState, FormEvent, useEffect, FC, Dispatch, SetStateAction, ChangeEvent } from "react";
-import { BsArrowLeft } from "react-icons/bs";
-import { GrClose } from "react-icons/gr";
-import { DialogType } from "../../../../container/dashboard/orders";
-
+import {
+  useState,
+  FormEvent,
+  useEffect,
+  FC,
+  Dispatch,
+  SetStateAction,
+  ChangeEvent,
+} from 'react';
+import { BsArrowLeft } from 'react-icons/bs';
+import { GrClose } from 'react-icons/gr';
+import { DialogType } from '../../../../container/dashboard/orders';
 
 interface AssignAgentRender {
   handleCloseDialog: (type: DialogType) => void;
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
 }
 
-const AssignAgentRender:FC<AssignAgentRender> = ({
-    handleCloseDialog,
-    setIsAssignAgent,
+const AssignAgentRender: FC<AssignAgentRender> = ({
+  handleCloseDialog,
+  setIsAssignAgent,
 }) => {
   const [toDisplay, setToDisplay] = useState('hidden');
   const [toastDisplay, setToastDisplay] = useState('hidden');
-    const [search, setSearch] = useState('');
-    
- const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-   const { value } = e.target;
-   setSearch(value);
+  const [search, setSearch] = useState('');
 
-  
- };
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearch(value);
+  };
 
   const goBack = () => {
     setIsAssignAgent(false);
-   
   };
 
   const closeModal = () => {
@@ -46,11 +50,7 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
     }
   }, [toastDisplay]);
 
-  const agents = [
-    'James Ibori',
-    'Kunle Afolayan',
-    'Femi Adebayo',
-  ]
+  const agents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
 
   return (
     <>
@@ -131,7 +131,7 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
           onClick={() => setToDisplay('grid')}
         >
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
-            Send Quote
+            Continue
           </span>
         </button>
       </div>
@@ -139,4 +139,4 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
   );
 };
 
-export default AssignAgentRender
+export default AssignAgentRender;
