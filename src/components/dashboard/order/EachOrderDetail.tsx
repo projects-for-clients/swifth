@@ -41,13 +41,19 @@ const Clearing = () => {
     console.log('Assigning Agent');
   };
 
-  const [toggleSortMenu, setToggleSortMenu] = useState(false);
+  const [toggleSortMenu, setToggleSortMenu] = useState<{key: string | null}>({
+    key: null
+  });
 
-  const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
+  const sortMenuToggler = (item: string) => {
+   
+      setToggleSortMenu({ key: item });
+ 
+  };
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
-    setToggleSortMenu(false);
+    setToggleSortMenu({ key: null });
   };
 
   return (
@@ -57,11 +63,15 @@ const Clearing = () => {
       <div className="grid gap-4 mt-10 ">
         {clearingDocs.map((doc) => (
           <>
-            <div key={doc} onClick={sortMenuToggler} className="relative">
+            <div
+              key={doc}
+              onClick={() => sortMenuToggler(doc)}
+              className="relative"
+            >
               <p className="p-6 border border-color-purple-light-2 rounded-3xl">
                 {doc}
               </p>
-              {toggleSortMenu && doc === clearingDocs[2] && (
+              {toggleSortMenu.key === doc && (
                 <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize">
                   {selectFrom.map((item) => (
                     <p
