@@ -14,7 +14,6 @@ const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 const Clearing = () => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
-  const selectFrom = ['Date', 'Name', 'Status'];
   const label = 'Sort By';
 
   const assignAgentHandler = () => {
@@ -47,15 +46,13 @@ const Clearing = () => {
 
       {toggleSortMenu && (
         <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize ">
-          {selectFrom.map((item, index) => (
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
-              key={index}
-              onClick={() => handleSelectedItem(item)}
             >
-              {item}
+
+              <img src="/icons/document-upload.svg" alt="" />
+              <span>Open</span>
             </p>
-          ))}
         </div>
       )}
 
