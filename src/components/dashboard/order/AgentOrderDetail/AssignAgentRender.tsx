@@ -29,8 +29,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
     setSearch(value);
   };
 
-  const handleSelectAgent = (agent: string) => {
-    setSelected(agent)
+  const handleSelectAgent = () => {
     setToastDisplay('flex')
   }
 
@@ -97,7 +96,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
                 <div
                   className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
                   key={i}
-                  onChange={() => handleSelectAgent(agent)}
+                  onChange={() => setSelected(agent)}
                 >
                   <input
                     type="radio"
@@ -105,7 +104,9 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
                     id={agent + i}
                     className="hidden"
                   />
-                  <label htmlFor={agent + i} className='w-full cursor-pointer'>{agent}</label>
+                  <label htmlFor={agent + i} className="w-full cursor-pointer">
+                    {agent}
+                  </label>
 
                   {selected === agent && (
                     <img src="/icons/tick-square.svg" alt="" />
@@ -115,7 +116,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
           </section>
         </main>
 
-        <button className="flex w-full items-center">
+        <button className="flex w-full items-center" onClick={handleSelectAgent}>
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
             Continue
           </span>
