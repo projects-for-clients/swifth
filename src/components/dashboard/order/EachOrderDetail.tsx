@@ -61,9 +61,7 @@ const Clearing = () => {
     setToggleSortMenu({ key: null });
   };
 
-  useEffect(() => {
-    console.log('selectedItem', toggleSortMenu);
-  }, [toggleSortMenu]);
+ 
 
   return (
     <div className="py-10">
