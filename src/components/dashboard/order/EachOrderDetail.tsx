@@ -106,6 +106,7 @@ const Clearing = () => {
                     <button
                       className="text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4"
                       key={item.name}
+                      disabled={!doc.submitted}
                       onClick={() => handleSelectedItem(item.name)}
                     >
                       <img src={item.imgUri} alt="" />
