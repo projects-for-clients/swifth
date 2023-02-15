@@ -205,7 +205,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
 
   return (
     <>
-      <div className=" h-full items-baseline  ">
+      <div className=" h-full items-baseline w-[70rem]">
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
