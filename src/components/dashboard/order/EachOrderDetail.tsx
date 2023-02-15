@@ -56,6 +56,10 @@ const Clearing = () => {
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
+
+    if (item === 'Approve') {
+      setIsBillOfLading(true);
+    }
     setToggleSortMenu({ key: null });
   };
 
