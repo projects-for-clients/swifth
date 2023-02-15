@@ -165,6 +165,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
   type Path = 'clearing' | 'history';
 
   const [currentPath, setCurrentPath] = useState<Path>('clearing');
+  const [isAssignAgent, setIsAssignAgent] = useState(false);
 
   useEffect(() => {
     if (orderDetail) {
@@ -432,7 +433,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
   };
 
 
-  
+
   return <></>;
 };
 
