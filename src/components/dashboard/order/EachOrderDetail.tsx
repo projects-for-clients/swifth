@@ -72,7 +72,7 @@ const Clearing = () => {
           <>
             <div key={doc} className="relative">
               <p
-                className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl"
+                className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center"
                 onClick={() => sortMenuToggler(doc)}
               >
                 {doc}
