@@ -31,7 +31,8 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   };
 
   const handleSelectAgent = (agent: string) => {
-
+    setSelected(agent)
+    setToDisplay('grid')
   }
   
 
@@ -69,7 +70,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
         <div
           className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}
         >
-          <span className="w-full text-center">Quote Sent!</span>
+          <span className="w-full text-center">{selected} Assigned</span>
           <GrClose
             onClick={() => setToastDisplay('hidden')}
             className="cursor-pointer"
