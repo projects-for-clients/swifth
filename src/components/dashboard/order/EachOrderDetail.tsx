@@ -66,10 +66,10 @@ const Clearing = () => {
           <div className="absolute top-[6rem] w-[16rem] right-0  bg-white border border-gray-300 rounded-xl grid gap-2 shadow z-20 capitalize" key={item.name}>
             <p
               className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left flex items-center gap-4 "
-              onClick={() => handleSelectedItem('item')}
+              onClick={() => handleSelectedItem(item.name)}
             >
               <img src={item.imgUri} alt="" />
-              <span className="font-semibold text-color-dark-3">{item.name}</span>
+              <span className={`${item.className} font-semibold`}>{item.name}</span>
             </p>
            
           </div>
