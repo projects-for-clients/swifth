@@ -13,6 +13,10 @@ const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 
 const Clearing = () => {
   const [isBillOfLading, setIsBillOfLading] = useState(false);
+  const [selectedItem, setSelectedItem] = useState('');
+    const selectFrom = ['Date', 'Name', 'Status'];
+    const label = 'Sort By';
+    
 
   const assignAgentHandler = () => {
     console.log('Assigning Agent');
