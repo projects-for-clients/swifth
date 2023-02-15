@@ -102,7 +102,23 @@ const AssignAgentRender:FC<AssignAgentRender> = ({
             Choose Field Agent
           </p>
         </div>
-        <main className="grid gap-4 mt-20"></main>
+        <main className="grid gap-4 mt-20">
+          <section className="relative flex items-center">
+            <input
+              type="text"
+              className=" border border-gray-300 py-4 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
+              placeholder="Search"
+              value={search}
+              onChange={handleSearch}
+            />
+
+            <img
+              src="/icons/search-normal.svg"
+              alt=""
+              className="absolute left-6 text-[1.8rem]"
+            />
+          </section>
+        </main>
 
         <button
           className="flex w-full h-full items-center "
