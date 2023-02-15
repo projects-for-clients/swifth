@@ -12,8 +12,10 @@ interface EachOrderDetail {
 const clearingDocs = ['Bills of Lading', 'Releases', 'CAC', 'Signed POA'];
 
 const Clearing = () => {
+    const [isBillOfLading, setIsBillOfLading] = useState(false);
+
   return (
-    <div>
+    <div className='py-10'>
       <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
       <div className="grid gap-4 mt-10">
@@ -26,9 +28,11 @@ const Clearing = () => {
         ))}
       </div>
 
-      <button className='border p-8 rounded-lg border-color-primary text-color-primary :disabled:opacity-50 :disabled:cursor-not-allowed'>
-            Assign Field Agent
-      </button>
+      <div className=" flex w-full justify-end mt-10">
+        <button className="border p-6 rounded-lg border-color-primary text-color-primary :disabled:opacity-50 :disabled:cursor-not-allowed basis-1/2" disabled={!isBillOfLading}>
+          Assign Field Agent
+        </button>
+      </div>
     </div>
   );
 };
@@ -93,9 +97,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
 
   return (
     <>
-      <div
-        className=" h-full items-baseline  "
-      >
+      <div className=" h-full items-baseline  ">
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
@@ -180,7 +182,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
               </div>
             </section>
 
-            <section className=''>
+            <section className="">
               <div
                 className="radioBox"
                 style={{
