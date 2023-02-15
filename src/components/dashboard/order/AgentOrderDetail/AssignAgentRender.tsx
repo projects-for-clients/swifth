@@ -102,7 +102,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
                     type="radio"
                     name="agent"
                     id={agent + i}
-                    className=""
+                    className="hidden"
                     onChange={() => handleSelectAgent(agent)}
                   />
                   <label htmlFor={agent + i}>{agent}</label>
