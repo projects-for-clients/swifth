@@ -1,6 +1,4 @@
 import { useState, useEffect, FC, FormEvent } from 'react';
-import { BsArrowLeft } from 'react-icons/bs';
-import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress, filterByColors } from '../OrdersData';
@@ -43,7 +41,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
   // return <div></div>;
 
   return (
-    <div>
+    <>
       {loaded ? (
         <section>
           {isAssignAgent ? (
@@ -60,7 +58,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
           )}
         </section>
       ) : null}
-    </div>
+    </>
   );
 };
 
