@@ -98,7 +98,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
         </form>
       </section>
 
-      <div className="px-5 items-baseline w-[40rem] bg-blue-500">
+      <div className="px-5 items-baseline w-[40rem] h-3/4">
         <div className="flex gap-8">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
@@ -108,7 +108,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
             Choose Field Agent
           </p>
         </div>
-        <main className=" gap-4 mt-20 bg-red-600">
+        <main className=" gap-4 mt-20 bg-red-600 h-full">
           <section className="relative flex items-center">
             <input
               type="text"
