@@ -96,12 +96,14 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
 
   const handleQuoteSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    setToDisplay('hidden');
   };
 
   return (
     <>
       <section
-        className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay}`}
+        className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay} z-20`}
         style={{
           gridTemplateRows: '1.2fr 1fr',
         }}
@@ -111,15 +113,17 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
           className="bg-white py-10 px-10 rounded-t-3xl"
           onSubmit={handleQuoteSubmit}
         >
-          <p className="text-[1.6rem] text-gray-600 mb-8">Reject BOL - Leave a Comment</p>
+          <p className="text-[1.6rem] text-gray-600 mb-8">
+            Reject BOL - Leave a Comment
+          </p>
 
           <div>
             <label htmlFor="comment" className="text-[1.4rem] text-gray-600">
               Comment
             </label>
-            
+
             <textarea
-              id='comment'
+              id="comment"
               placeholder="Enter Comment"
               required
               rows={3}
@@ -127,8 +131,8 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
             />
           </div>
 
-          <button className="flex w-full h-full items-center ">
-            <span className="text-red-600  border border-red-600 rounded-lg w-full py-4">
+          <button className="flex w-full items-center justify-end mt-10">
+            <span className="text-red-600  border border-red-600 rounded-lg  py-4 basis-1/2">
               Reject BOL
             </span>
           </button>
