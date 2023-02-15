@@ -107,7 +107,9 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
                   />
                   <label htmlFor={agent + i}>{agent}</label>
 
-                  <img src="/icons/tick-square.svg" alt="" />
+                  {selected === agent && (
+                    <img src="/icons/tick-square.svg" alt="" />
+                  )}
                 </div>
               ))}
           </section>
