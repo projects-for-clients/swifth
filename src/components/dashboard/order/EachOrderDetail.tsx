@@ -34,7 +34,7 @@ const Clearing = () => {
       </div>
 
       <div className=" flex w-full justify-end mt-10">
-        <button className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary :disabled:opacity-50 :disabled:cursor-not-allowed basis-1/2" disabled={true} onClick={assignAgentHandler}>
+        <button className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 " disabled={!isBillOfLading} onClick={assignAgentHandler}>
           Assign Field Agent
         </button>
       </div>
@@ -200,7 +200,6 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
                   name="order"
                   id="clearing"
                   className="hidden"
-                  defaultChecked
                   onChange={() => setCurrentPath('clearing')}
                   checked={currentPath === 'clearing'}
                 />
