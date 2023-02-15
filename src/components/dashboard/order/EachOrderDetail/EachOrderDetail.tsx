@@ -58,7 +58,7 @@ const EachOrderDetail: FC<EachOrderDetail> = ({
   } = orderHistoryDetail || {};
 
   const switchPaths: Record<Path, JSX.Element> = {
-    clearing: <Clearing />,
+    clearing: <Clearing setIsAssignAgent={setIsAssignAgent} />,
     history: <History />,
   };
 
