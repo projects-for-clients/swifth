@@ -52,16 +52,14 @@ export const AgentClearing: FC<AgentClearing> = ({
     setIsAssignAgent(true);
   };
 
-  const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
-    key: null,
-  });
+  const [RCDocsItem, setRCDocsItem] = useState<string | null>(null);
 
   const handleRCDocChange = (item: string) => {
     setRCDocsItem((prev) => {
-      if (prev.key === item) {
-        return { key: null };
+      if (prev === item) {
+        return item;
       }
-      return { key: item };
+      return item;
     });
   };
 
@@ -76,7 +74,7 @@ export const AgentClearing: FC<AgentClearing> = ({
       setToDisplay('grid');
     }
 
-    setRCDocsItem({ key: null });
+    setRCDocsItem(null);
   };
 
   const closeModal = () => {
@@ -156,7 +154,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                     </span>
                   ) : null}
                 </p>
-                {RCDocsItem.key === doc.name && (
+                {RCDocsItem === doc.name && (
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     {selectFrom.map((item, i) => {
                       return (
