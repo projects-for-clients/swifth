@@ -35,7 +35,7 @@ const InitialRender: FC<InitialRender> = ({
   } = orderHistoryDetail;
 
   const switchPaths: Record<Path, JSX.Element> = {
-    AgentClearing: <AgentClearing setIsAssignAgent={setIsAssignAgent} orderId={id}/>,
+    AgentClearing: <AgentClearing setIsAssignAgent={setIsAssignAgent}/>,
     AgentOrderHistory: <AgentOrderHistory />,
   };
 

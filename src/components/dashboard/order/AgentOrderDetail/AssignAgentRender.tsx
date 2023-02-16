@@ -14,9 +14,10 @@ import { updateOrdersData } from '../../../../store/features/order/order';
 
 interface AssignAgentRender {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
+  orderId: number;
 }
 
-const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
+const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId }) => {
   const dispatch = useAppDispatch();
 
   const [toastDisplay, setToastDisplay] = useState('hidden');
