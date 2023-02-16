@@ -7,7 +7,7 @@ import {
   FormEvent,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { handleIsBOL, selectOrder } from '../../../../store/features/order/order';
+import {  selectOrder } from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -18,6 +18,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
 
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
+  const [isBOLApproved, setIsBOLApproved] = useState(false);
 
   
   const [selectedItem, setSelectedItem] = useState('');
@@ -69,7 +70,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
 
     if (item === 'Approve') {
 
-      dispatch(handleIsBOL(true));
+      //dispatch(handleIsBOL(true));
     }
 
     if (item === 'Decline') {
@@ -89,7 +90,9 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
     setToDisplay('hidden');
   };
 
-  const { isBOLApproved, RCDocs, ordersData} = orderDetails;
+  const {  RCDocs, ordersData} = orderDetails;
+
+  console.log({RCDocs})
   return (
     <>
       <section
@@ -141,7 +144,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
                 
                 >
                   {doc.name}
-                  {isBOLApproved && (
+                  {isBOLApproved &&(
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>

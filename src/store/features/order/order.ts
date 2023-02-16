@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
 
 type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
-type RCDocsStatus = 'approved' | 'declined' | null;
+type RCDocsStatus = 'Approved' | 'Declined' | null;
 interface RCDocs {
   name: RCDocsKeys;
   status: RCDocsStatus;
@@ -14,7 +14,6 @@ interface OrdersData {
   assignedAgent: string | null
 }
 interface IOrder {
-  isBOLApproved: boolean;
   RCDocs: RCDocs[];
   ordersData: OrdersData | null;
 }
@@ -24,7 +23,7 @@ const RCDocsArr = [
   {
     name: 'Bills of Lading',
     status: null,
-    submitted: true,
+    submitted: false,
   },
   {
     name: 'Releases',
@@ -46,7 +45,6 @@ const RCDocsArr = [
 ] satisfies RCDocs[]
 
 const initialState: IOrder = {
-  isBOLApproved: false,
   RCDocs: RCDocsArr,
   ordersData: null,
 };
@@ -55,9 +53,7 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    handleIsBOL: (state, { payload }: { payload: IOrder['isBOLApproved']}) => {
-      return { ...state, isBOLApproved: payload };
-    },
+   
 
     updateRCDocs: (state, { payload }: { payload: RCDocs[] }) => {
       return { ...state, RCDocs: payload };
@@ -69,7 +65,7 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { handleIsBOL, updateRCDocs, updateOrdersData } = orderSlice.actions;
+export const {  updateRCDocs, updateOrdersData } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 
