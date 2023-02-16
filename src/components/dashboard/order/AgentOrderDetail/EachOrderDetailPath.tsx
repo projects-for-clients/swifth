@@ -141,6 +141,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
                 <p
                   className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between"
                   onClick={() => sortMenuToggler(doc.name)}
+                
                 >
                   {doc.name}
                   {isBOLApproved && (
