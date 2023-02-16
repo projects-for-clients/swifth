@@ -127,6 +127,7 @@ function orders() {
     }
   }, [selectedSort]);
 
+
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
     if (toClear === 'inProgress') {
       setInProgressFilteredBy('');

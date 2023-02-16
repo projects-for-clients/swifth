@@ -305,6 +305,7 @@ export const InProgressView: FC<{
   inProgressData: InProgress[];
   openOrderDetail: (item: InProgress) => void;
 }> = ({ inProgressData, openOrderDetail }) => {
+  console.log({inProgressData})
   return (
     <div
       className="grid mt-[5rem] gap-10"
