@@ -62,7 +62,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   const [openToolTip, setOpenToolTip] = useState(false);
 
   const handleRCDocChange = (item: string) => {
-    console.log()
+    console.log({RCDocsItem, openToolTip})
 
     setRCDocsItem((prev) => {
       if (prev.key === item) {
@@ -112,9 +112,6 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const { RCDocs, ordersData } = orderDetails;
-
-  console.log(RCDocsItem.key, 'RCDocsItem.key');
-  console.log({ RCDocs });
 
   return (
     <>
