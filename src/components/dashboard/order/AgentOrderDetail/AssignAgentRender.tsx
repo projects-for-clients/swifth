@@ -10,10 +10,7 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import {
-  
-  updateOrdersData,
-} from '../../../../store/features/order/order';
+import { updateOrdersData } from '../../../../store/features/order/order';
 
 interface AssignAgentRender {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -32,10 +29,12 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
   };
 
   const handleSelectAgent = () => {
-    dispatch(updateOrdersData({
-      id: '1',
-      assignedAgent: selected,
-    }))
+    dispatch(
+      updateOrdersData({
+        id: '1',
+        assignedAgent: selected,
+      })
+    );
     setToastDisplay('flex');
   };
 
