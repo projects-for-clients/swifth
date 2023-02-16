@@ -23,6 +23,7 @@ export interface InProgress {
   description: string;
   date: Date;
   tag: InProgressFilterBy;
+  assignedAgent?: string 
 }
 export interface Waitlist {
   id: number;

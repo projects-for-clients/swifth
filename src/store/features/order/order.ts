@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
+import { InProgress, INPROGRESS } from '../../../components/dashboard/order/OrdersData';
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
@@ -9,13 +10,10 @@ interface RCDocs {
   submitted: boolean;
 }
 
-interface OrdersData {
-  id: number;
-  assignedAgent: string | null;
-}
+
 interface IOrder {
   RCDocs: RCDocs[];
-  ordersData: OrdersData[] 
+  ordersData: InProgress[];
 }
 
 const RCDocsArr = [
@@ -43,7 +41,7 @@ const RCDocsArr = [
 
 const initialState: IOrder = {
   RCDocs: RCDocsArr,
-  ordersData: [],
+  ordersData: INPROGRESS,
 };
 
 export const orderSlice = createSlice({
@@ -64,7 +62,7 @@ export const orderSlice = createSlice({
       };
     },
 
-    updateOrdersData: (state, { payload }: { payload: OrdersData }) => {
+    updateOrdersData: (state, { payload }: { payload: InProgress }) => {
       return { ...state, ordersData: [...state.ordersData.map((order) => {
         if (order.id === payload.id) {
           return payload;
