@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
-import { InProgress, INPROGRESS } from '../../../components/dashboard/order/OrdersData';
+import {
+  InProgress,
+  INPROGRESS,
+} from '../../../components/dashboard/order/OrdersData';
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
@@ -9,7 +12,6 @@ interface RCDocs {
   status: RCDocsStatus;
   submitted: boolean;
 }
-
 
 interface IOrder {
   RCDocs: RCDocs[];
@@ -62,14 +64,22 @@ export const orderSlice = createSlice({
       };
     },
 
-    updateOrdersData: (state, { payload }: { payload: Pick<InProgress, 'id' | 'assignedAgent'> }) => {
+    updateOrdersData: (
+      state,
+      { payload }: { payload: Pick<InProgress, 'id' | 'assignedAgent'> }
+    ) => {
       const { id, assignedAgent } = payload;
-      return { ...state, ordersData: [...state.ordersData.map((order) => {
-        if (order.id === id) {
-          return { ...order, assignedAgent: assignedAgent};
-        }
-        return order;
-      })] };
+      return {
+        ...state,
+        ordersData: [
+          ...state.ordersData.map((order) => {
+            if (order.id === id) {
+              return { ...order, assignedAgent };
+            }
+            return order;
+          }),
+        ],
+      };
     },
   },
 });
