@@ -9,7 +9,7 @@ function generateRandomDate() {
   return randomDate;
 }
 
-const generateRandomNum = () =>  Math.floor(100000 + Math.random() * 900000);
+const generateRandomNum = () =>  Math.floor(100000000000 + Math.random() * 900000);
 
 export type InProgressFilterBy =
   | 'Docs in Review'
