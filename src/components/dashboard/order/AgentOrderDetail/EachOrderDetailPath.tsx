@@ -98,7 +98,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocs, ordersData } = orderDetails;
 
-  console.log({selectedItem})
+  console.log(RCDocsItem.key, 'RCDocsItem.key')
   console.log({RCDocs})
 
   return (
