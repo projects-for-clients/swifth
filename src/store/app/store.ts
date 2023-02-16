@@ -24,7 +24,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
-  modal: modalReducer
+  modal: modalReducer,
+  order: orderReducer,
 })
 
 
