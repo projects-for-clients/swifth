@@ -73,8 +73,6 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     if (item === 'Decline') {
       setToDisplay('grid');
-           
-
     }
 
     setRCDocsItem({ key: null});
@@ -88,6 +86,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     e.preventDefault();
 
     setToDisplay('hidden');
+    console.log('BOL rejected');
      dispatch(
        updateRCDocs({
          name: RCDocsItem.key as RCDocsKeys,
@@ -99,6 +98,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocs, ordersData } = orderDetails;
 
+  console.log({selectedItem})
   console.log({RCDocs})
 
   return (
