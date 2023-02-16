@@ -15,7 +15,7 @@ interface OrdersData {
 }
 interface IOrder {
   RCDocs: RCDocs[];
-  ordersData: OrdersData | null;
+  ordersData: OrdersData[] 
 }
 
 const RCDocsArr = [
@@ -43,7 +43,7 @@ const RCDocsArr = [
 
 const initialState: IOrder = {
   RCDocs: RCDocsArr,
-  ordersData: null,
+  ordersData: [],
 };
 
 export const orderSlice = createSlice({
@@ -65,7 +65,12 @@ export const orderSlice = createSlice({
     },
 
     updateOrdersData: (state, { payload }: { payload: OrdersData }) => {
-      return { ...state, ordersData: payload };
+      return { ...state, ordersData: [...state.ordersData.map((order) => {
+        if (order.id === payload.id) {
+          return payload;
+        }
+        return order;
+      })] };
     },
   },
 });
