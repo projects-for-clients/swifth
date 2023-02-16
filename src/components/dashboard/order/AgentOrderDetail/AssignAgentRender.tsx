@@ -32,7 +32,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
   const handleSelectAgent = () => {
     dispatch(
       updateOrdersData({
-        id: 1,
+        id: orderId,
         assignedAgent: selected,
       })
     );
