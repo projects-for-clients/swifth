@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
 
 type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
-type RCDocsStatus = 'approved' | 'declined';
+type RCDocsStatus = 'approved' | 'declined' | null;
 interface RCDocs {
   name: RCDocsKeys;
   status: RCDocsStatus;
@@ -17,23 +17,23 @@ interface IOrder {
 const RCDocsArr = [
   {
     name: 'Bills of Lading',
-    status: 'approved',
-    submitted: true,
+    status: null,
+    submitted: false,
   },
   {
     name: 'Releases',
-    status: 'approved',
-    submitted: true,
+    status: null,
+    submitted: false,
   },
   {
     name: 'CAC',
-    status: 'approved',
-    submitted: true,
+    status: null,
+    submitted: false,
   },
   {
     name: 'Signed POA',
-    status: 'approved',
-    submitted: true,
+    status: null,
+    submitted: false,
   },
 
 
