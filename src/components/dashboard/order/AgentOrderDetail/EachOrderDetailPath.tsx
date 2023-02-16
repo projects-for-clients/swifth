@@ -19,7 +19,6 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
   const orderData = useAppSelector(selectOrder);
 
   
-  const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [toDisplay, setToDisplay] = useState('hidden');
 
@@ -70,7 +69,6 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     setSelectedItem(item);
 
     if (item === 'Approve') {
-      setIsBillOfLading(true);
 
       //Work on this
     }
@@ -143,7 +141,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
                   onClick={() => sortMenuToggler(doc.name)}
                 >
                   {doc.name}
-                  {isBillOfLading && doc.name === 'Bills of Lading' && (
+                  {isBOLApproved && (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>
@@ -184,7 +182,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
         <div className=" flex w-full justify-end mt-10">
           <button
             className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
-            disabled={!isBillOfLading}
+            disabled={!isBOLApproved}
             onClick={assignAgentHandler}
           >
             Assign Field Agent
