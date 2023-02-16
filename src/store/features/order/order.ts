@@ -8,6 +8,11 @@ interface RCDocs {
   status: RCDocsStatus;
   submitted: boolean;
 }
+
+interface OrdersData {
+  id: string;
+  assignedAgent: string | null
+}
 interface IOrder {
   isBOLApproved: boolean;
   RCDocs: RCDocs[];
@@ -41,7 +46,8 @@ const RCDocsArr = [
 
 const initialState: IOrder = {
   isBOLApproved: false,
-  RCDocs: RCDocsArr
+  RCDocs: RCDocsArr,
+  orders: [],
 };
 
 export const orderSlice = createSlice({
