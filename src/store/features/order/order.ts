@@ -18,3 +18,9 @@ export const orderSlice = createSlice({
     },
   },
 });
+
+
+export const { updateOrder } = orderSlice.actions;
+
+
+export default orderSlice.reducer;

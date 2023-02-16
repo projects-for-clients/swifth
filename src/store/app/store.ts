@@ -14,6 +14,7 @@ import {
 
 import userReducer from '../features/user/user';
 import modalReducer from '../features/modal';
+import orderReducer from '../features/order/order';
 
 
 const persistConfig = {
