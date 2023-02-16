@@ -16,7 +16,7 @@ interface AgentClearing {
 export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
 
   const dispatch = useAppDispatch();
-  const orderData = useAppSelector(selectOrder);
+  const orderDetails = useAppSelector(selectOrder);
 
   
   const [selectedItem, setSelectedItem] = useState('');
@@ -88,7 +88,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     setToDisplay('hidden');
   };
 
-  const { isBOLApproved, RCDocs} = orderData;
+  const { isBOLApproved, RCDocs, ordersData} = orderDetails;
   return (
     <>
       <section
