@@ -106,6 +106,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     setToDisplay('hidden');
   };
 
+  const { isBOLApproved } = orderData;
   return (
     <>
       <section
@@ -147,7 +148,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
       <div className="pt-10">
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
-        <div className="flex gap-4 mt-10 ">
+        <div className={`flex gap-4 mt-10 `}>
           {clearingDocs.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">
