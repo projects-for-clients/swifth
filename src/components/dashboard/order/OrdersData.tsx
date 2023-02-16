@@ -4,12 +4,12 @@ function generateRandomDate() {
   const today = new Date();
   const nextYear = new Date(today.getFullYear() + 1, 0, 1);
   const randomDate = new Date(
-    today.getTime() + randomNum * (nextYear.getTime() - today.getTime())
+    today.getTime() + Math.random() * (nextYear.getTime() - today.getTime())
   );
   return randomDate;
 }
 
-const randomNum = Math.floor(1000000 + Math.random() * 900000);
+const generateRandomNum = () =>  Math.floor(100000 + Math.random() * 900000);
 
 export type InProgressFilterBy =
   | 'Docs in Review'
@@ -63,84 +63,84 @@ export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
 
 export const INPROGRESS: InProgress[] = [
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Docs in Review',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Duty Processing',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Delivery Pending',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Valuating',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Docs in Review',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Valuating',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
@@ -149,63 +149,63 @@ export const INPROGRESS: InProgress[] = [
 ];
 export const ORDER_HISTORY: InProgress[] = [
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunyi sfsfsf',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     tag: 'Completed',
     date: generateRandomDate(),
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
@@ -215,21 +215,21 @@ export const ORDER_HISTORY: InProgress[] = [
 
 export const WAITLIST: Waitlist[] = [
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
@@ -237,28 +237,28 @@ export const WAITLIST: Waitlist[] = [
     submitted: false,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
@@ -266,28 +266,28 @@ export const WAITLIST: Waitlist[] = [
     submitted: false,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
@@ -295,7 +295,7 @@ export const WAITLIST: Waitlist[] = [
     submitted: false,
   },
   {
-    id: randomNum,
+    id: generateRandomNum(),
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
