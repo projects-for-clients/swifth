@@ -61,11 +61,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   });
   const [openToolTip, setOpenToolTip] = useState(false);
 
-  console.log({ RCDocsItem, openToolTip }, 'before');
-
   const handleRCDocChange = (item: string) => {
-    console.log({ RCDocsItem, openToolTip }, 'after');
-
     setRCDocsItem((prev) => {
       if (prev.key === item) {
         setOpenToolTip(false);
