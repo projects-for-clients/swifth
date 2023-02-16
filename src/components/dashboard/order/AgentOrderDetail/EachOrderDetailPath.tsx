@@ -158,7 +158,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
         <div
           className={`gap-4 mt-10 ${
-            ordersData?.id === orderId ? 'flex' : 'grid'
+            ordersData?.id === orderId ? 'grid' : 'grid'
           }`}
         >
           {RCDocs.map((doc, i) => (
