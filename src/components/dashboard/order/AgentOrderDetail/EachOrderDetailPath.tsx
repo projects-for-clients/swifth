@@ -113,6 +113,10 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocs, ordersData } = orderDetails;
 
+  const checkBOLApproved = RCDocs.filter(
+    (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
+  );
+
   return (
     <>
       <section
