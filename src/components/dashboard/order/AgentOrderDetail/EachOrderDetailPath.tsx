@@ -112,7 +112,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const isBOLApproved = RCDocs.filter(
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
-  );
+  )[0]
 
 
   return (
@@ -214,7 +214,7 @@ export const AgentClearing: FC<AgentClearing> = ({
         <div className=" flex w-full justify-end mt-10">
           <button
             className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
-            disabled={isBOLApproved.length > 0}
+            disabled={!isBOLApproved}
             onClick={assignAgentHandler}
           >
             Assign Field Agent
