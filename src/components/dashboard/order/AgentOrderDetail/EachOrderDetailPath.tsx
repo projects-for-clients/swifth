@@ -7,7 +7,11 @@ import {
   FormEvent,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { RCDocsKeys, selectOrder, updateRCDocs } from '../../../../store/features/order/order';
+import {
+  RCDocsKeys,
+  selectOrder,
+  updateRCDocs,
+} from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -52,7 +56,9 @@ export const AgentClearing: FC<AgentClearing> = ({
     setIsAssignAgent(true);
   };
 
-  const [RCDocsItem, setRCDocsItem] = useState<{key: string | null}>({ key: null });
+  const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
+    key: null,
+  });
   const [openToolTip, setOpenToolTip] = useState(false);
 
   const handleRCDocChange = (item: string) => {
@@ -62,20 +68,25 @@ export const AgentClearing: FC<AgentClearing> = ({
       }
       return { key: item };
     });
+    setOpenToolTip(true);
   };
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
-    setOpenToolTip(prev => !prev);
     if (item === 'Approve' && RCDocsItem.key) {
-      dispatch(updateRCDocs({name: RCDocsItem.key as RCDocsKeys, submitted: true, status: 'Approved'}))
+      dispatch(
+        updateRCDocs({
+          name: RCDocsItem.key as RCDocsKeys,
+          submitted: true,
+          status: 'Approved',
+        })
+      );
       //dispatch(handleIsBOL(true));
     }
-    
+
     if (item === 'Decline') {
       setToDisplay('grid');
     }
-    
   };
 
   const closeModal = () => {
@@ -87,19 +98,19 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     setToDisplay('hidden');
     console.log('BOL rejected');
-     dispatch(
-       updateRCDocs({
-         name: RCDocsItem.key as RCDocsKeys,
-         submitted: true,
-         status: 'Declined',
-       })
-     );
+    dispatch(
+      updateRCDocs({
+        name: RCDocsItem.key as RCDocsKeys,
+        submitted: true,
+        status: 'Declined',
+      })
+    );
   };
 
   const { RCDocs, ordersData } = orderDetails;
 
-  console.log(RCDocsItem.key, 'RCDocsItem.key')
-  console.log({RCDocs})
+  console.log(RCDocsItem.key, 'RCDocsItem.key');
+  console.log({ RCDocs });
 
   return (
     <>
