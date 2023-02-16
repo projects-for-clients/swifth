@@ -10,7 +10,7 @@ interface RCDocs {
 }
 
 interface OrdersData {
-  id: string;
+  id: number;
   assignedAgent: string | null
 }
 interface IOrder {
