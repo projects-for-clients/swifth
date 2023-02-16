@@ -7,7 +7,7 @@ import {
   FormEvent,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { selectOrder } from '../../../../store/features/order/order';
+import { handleIsBOL, selectOrder } from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -71,6 +71,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     if (item === 'Approve') {
 
       //Work on this
+      dispatch(handleIsBOL(true));
     }
 
     if (item === 'Decline') {
