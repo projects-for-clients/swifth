@@ -4,10 +4,12 @@ function generateRandomDate() {
   const today = new Date();
   const nextYear = new Date(today.getFullYear() + 1, 0, 1);
   const randomDate = new Date(
-    today.getTime() + Math.random() * (nextYear.getTime() - today.getTime())
+    today.getTime() + randomNum * (nextYear.getTime() - today.getTime())
   );
   return randomDate;
 }
+
+const randomNum = Math.floor(1000000 + Math.random() * 900000);
 
 export type InProgressFilterBy =
   | 'Docs in Review'
@@ -23,7 +25,7 @@ export interface InProgress {
   description: string;
   date: Date;
   tag: InProgressFilterBy;
-  assignedAgent?: string 
+  assignedAgent?: string;
 }
 export interface Waitlist {
   id: number;
@@ -61,84 +63,84 @@ export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
 
 export const INPROGRESS: InProgress[] = [
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Docs in Review',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Duty Processing',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Delivery Pending',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Custom Releasing',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Valuating',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Docs in Review',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Valuating',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
@@ -147,63 +149,63 @@ export const INPROGRESS: InProgress[] = [
 ];
 export const ORDER_HISTORY: InProgress[] = [
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunyi sfsfsf',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     tag: 'Completed',
     date: generateRandomDate(),
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
     tag: 'Completed',
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
@@ -213,21 +215,21 @@ export const ORDER_HISTORY: InProgress[] = [
 
 export const WAITLIST: Waitlist[] = [
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
@@ -235,28 +237,28 @@ export const WAITLIST: Waitlist[] = [
     submitted: false,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
@@ -264,28 +266,28 @@ export const WAITLIST: Waitlist[] = [
     submitted: false,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Jonathan Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Robert Sunya',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     submitted: true,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Tommy Yaun',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     subDescription: 'and 2 more',
@@ -293,7 +295,7 @@ export const WAITLIST: Waitlist[] = [
     submitted: false,
   },
   {
-    id: Math.random(),
+    id: randomNum,
     name: 'Daniel Okafor',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
@@ -305,7 +307,7 @@ export const InProgressView: FC<{
   inProgressData: InProgress[];
   openOrderDetail: (item: InProgress) => void;
 }> = ({ inProgressData, openOrderDetail }) => {
-  console.log({inProgressData})
+  console.log({ inProgressData });
   return (
     <div
       className="grid mt-[5rem] gap-10"
