@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AppState } from '../../app/store';
 
 interface IOrder {
   isBOLApproved: boolean;
@@ -22,5 +23,6 @@ export const orderSlice = createSlice({
 
 export const { updateOrder } = orderSlice.actions;
 
+export const selectOrder = (state: AppState) => state.order;
 
 export default orderSlice.reducer;
