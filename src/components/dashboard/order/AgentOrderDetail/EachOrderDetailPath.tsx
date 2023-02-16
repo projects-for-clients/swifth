@@ -114,6 +114,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   )
 
+  const getOrderId = ordersData
 
   return (
     <>
@@ -158,7 +159,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
         <div
           className={`gap-4 mt-10 ${
-            ordersData?.id === orderId ? 'flex' : 'grid'
+            ordersData ? 'flex' : 'grid'
           }`}
         >
           {RCDocs.map((doc, i) => (

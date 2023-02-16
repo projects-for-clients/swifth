@@ -30,6 +30,8 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
   };
 
   const handleSelectAgent = () => {
+    if(!selected) return;
+    
     dispatch(
       updateOrdersData({
         id: orderId,
