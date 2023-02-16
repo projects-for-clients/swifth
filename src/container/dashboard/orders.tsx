@@ -119,6 +119,7 @@ function orders() {
       } else if ((selectedSort as SortBy) === 'Most Recent') {
         const sortedDates = INPROGRESS.sort((a, b) => {
           console.log({a, b})
+            console.log(new Date(a.date).getTime() - new Date(b.date).getTime())
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
