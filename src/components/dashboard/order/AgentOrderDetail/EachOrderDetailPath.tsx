@@ -25,7 +25,6 @@ export const AgentClearing: FC<AgentClearing> = ({
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
 
-  const [selectedItem, setSelectedItem] = useState('');
   const [toDisplay, setToDisplay] = useState('hidden');
 
   const selectFrom = [
@@ -72,7 +71,6 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const handleSelectedItem = (item: string) => {
-    setSelectedItem(item);
 
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
