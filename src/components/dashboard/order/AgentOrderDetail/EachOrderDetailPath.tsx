@@ -53,6 +53,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const [RCDocsItem, setRCDocsItem] = useState<{key: string | null}>({ key: null });
+  const [openToolTip, setOpenToolTip] = useState(false);
 
   const handleRCDocChange = (item: string) => {
     setRCDocsItem((prev) => {
@@ -65,17 +66,16 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
-
+    setOpenToolTip(prev => !prev);
     if (item === 'Approve' && RCDocsItem.key) {
       dispatch(updateRCDocs({name: RCDocsItem.key as RCDocsKeys, submitted: true, status: 'Approved'}))
       //dispatch(handleIsBOL(true));
     }
-
+    
     if (item === 'Decline') {
       setToDisplay('grid');
     }
-
-    setRCDocsItem({ key: null});
+    
   };
 
   const closeModal = () => {
@@ -165,7 +165,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                     </span>
                   ) : null}
                 </p>
-                {RCDocsItem.key === doc.name && (
+                {openToolTip && RCDocsItem.key === doc.name && (
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     {selectFrom.map((item, i) => {
                       return (
