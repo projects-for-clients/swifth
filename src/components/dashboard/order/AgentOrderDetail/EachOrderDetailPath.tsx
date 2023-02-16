@@ -71,6 +71,8 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
 
     if (item === 'Approve') {
       setIsBillOfLading(true);
+
+      //Work on this
     }
 
     if (item === 'Decline') {
