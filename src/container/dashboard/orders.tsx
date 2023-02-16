@@ -117,12 +117,13 @@ function orders() {
 
         return setInProgressData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        // const sortedDates = INPROGRESS.sort((a, b) => {
-        //   console.log({a, b})
-        //   return new Date(a.date).getTime() - new Date(b.date).getTime();
-        // });
+        const sortedDates = INPROGRESS.sort((a, b) => {
+          console.log({a, b})
+          return new Date(a.date).getTime() - new Date(b.date).getTime();
+        });
 
-        // return setInProgressData(() => [...sortedDates]);
+        return setInProgressData(() => [...sortedDates]);
+        
       }
     }
   }, [selectedSort]);
