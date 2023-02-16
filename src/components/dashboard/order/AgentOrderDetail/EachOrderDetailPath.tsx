@@ -131,7 +131,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
       <div className="pt-10">
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
-        <div className={` gap-4 mt-10 ${isBOLApproved ? 'flex' : 'grid'}`}>
+        <div className={` gap-4 mt-10 ${ordersData ? 'flex' : 'grid'}`}>
           {RCDocs.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">
