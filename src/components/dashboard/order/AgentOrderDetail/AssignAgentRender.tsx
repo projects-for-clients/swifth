@@ -11,7 +11,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { selectOrder } from '../../../../store/features/order/order';
+import { selectOrder, updateOrder } from '../../../../store/features/order/order';
 
 
 interface AssignAgentRender {
@@ -34,6 +34,9 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   };
 
   const handleSelectAgent = () => {
+
+    dispatch(updateOrder({isBOLApproved: true}))
+
     setToastDisplay('flex')
   }
 
