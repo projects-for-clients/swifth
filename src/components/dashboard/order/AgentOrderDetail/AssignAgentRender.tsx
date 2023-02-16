@@ -13,7 +13,7 @@ import { DialogType } from '../../../../container/dashboard/orders';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
   selectOrder,
-  updateOrder,
+  handleIsBOL,
 } from '../../../../store/features/order/order';
 
 interface AssignAgentRender {
@@ -33,7 +33,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
   };
 
   const handleSelectAgent = () => {
-    dispatch(updateOrder({ isBOLApproved: true }));
+    dispatch(handleIsBOL(true));
 
     setToastDisplay('flex');
   };

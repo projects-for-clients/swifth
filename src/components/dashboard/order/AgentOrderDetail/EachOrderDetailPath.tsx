@@ -46,6 +46,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     },
   ] as const;
 
+
   const clearingDocs = [
     {
       name: 'Bills of Lading',

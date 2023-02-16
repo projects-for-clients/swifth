@@ -48,13 +48,17 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    updateOrder: (state, { payload }: { payload: IOrder }) => {
-      return { ...state, ...payload };
+    handleIsBOL: (state, { payload }: { payload: IOrder['isBOLApproved']}) => {
+      return { ...state, isBOLApproved: payload };
     },
+
+    updateRCDocs: (state, { payload }: { payload: RCDocs[] }) => {
+      return { ...state, RCDocs: payload };
+    }
   },
 });
 
-export const { updateOrder } = orderSlice.actions;
+export const { handleIsBOL, updateRCDocs } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 
