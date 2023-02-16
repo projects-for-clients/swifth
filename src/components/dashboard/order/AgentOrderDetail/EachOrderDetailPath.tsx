@@ -73,8 +73,11 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
+    setOpenToolTip(true)
+
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
+
       dispatch(
         updateRCDocs({
           name: RCDocsItem.key as RCDocsKeys,
@@ -82,7 +85,6 @@ export const AgentClearing: FC<AgentClearing> = ({
           status: 'Approved',
         })
       );
-      //dispatch(handleIsBOL(true));
     }
 
     if (item === 'Decline') {
@@ -99,7 +101,6 @@ export const AgentClearing: FC<AgentClearing> = ({
     e.preventDefault();
 
     setToDisplay('hidden');
-    console.log('BOL rejected');
     dispatch(
       updateRCDocs({
         name: RCDocsItem.key as RCDocsKeys,
