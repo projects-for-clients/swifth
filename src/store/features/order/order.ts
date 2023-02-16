@@ -16,6 +16,7 @@ interface OrdersData {
 interface IOrder {
   isBOLApproved: boolean;
   RCDocs: RCDocs[];
+  ordersData: OrdersData[];
 }
 
 
@@ -47,7 +48,7 @@ const RCDocsArr = [
 const initialState: IOrder = {
   isBOLApproved: false,
   RCDocs: RCDocsArr,
-  orders: [],
+  ordersData: [],
 };
 
 export const orderSlice = createSlice({
@@ -60,11 +61,15 @@ export const orderSlice = createSlice({
 
     updateRCDocs: (state, { payload }: { payload: RCDocs[] }) => {
       return { ...state, RCDocs: payload };
+    },
+
+    updateOrdersData: (state, { payload }: { payload: OrdersData[] }) => {
+      return { ...state, ordersData: payload };
     }
   },
 });
 
-export const { handleIsBOL, updateRCDocs } = orderSlice.actions;
+export const { handleIsBOL, updateRCDocs, updateOrdersData } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 
