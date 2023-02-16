@@ -33,7 +33,6 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
   };
 
   const handleSelectAgent = () => {
-    dispatch(handleIsBOL(true));
 
     setToastDisplay('flex');
   };
