@@ -10,14 +10,14 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
+import { selectOrder } from '../../../../store/features/order/order';
+
 
 interface AssignAgentRender {
-  handleCloseDialog: (type: DialogType) => void;
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
 }
 
 const AssignAgentRender: FC<AssignAgentRender> = ({
-  handleCloseDialog,
   setIsAssignAgent,
 }) => {
   const [toastDisplay, setToastDisplay] = useState('hidden');
