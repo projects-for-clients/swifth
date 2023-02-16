@@ -111,14 +111,14 @@ function orders() {
   useEffect(() => {
     if ( selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = INPROGRESS.sort((a, b) => {
+        const sortedNames = [...INPROGRESS].sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
         return setInProgressData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
         console.log({INPROGRESS})
-        const sortedDates = INPROGRESS.sort((a, b) => {
+        const sortedDates = [...INPROGRESS].sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
