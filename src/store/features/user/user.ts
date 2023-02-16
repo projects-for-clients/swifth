@@ -20,7 +20,6 @@ export interface IUser {
 }
 
 const initialState: IUser = {
- 
 
   validated: true,
   fullName: '',
