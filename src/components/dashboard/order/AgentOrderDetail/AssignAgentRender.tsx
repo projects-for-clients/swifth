@@ -10,6 +10,7 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
+import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import { selectOrder } from '../../../../store/features/order/order';
 
 
@@ -20,6 +21,9 @@ interface AssignAgentRender {
 const AssignAgentRender: FC<AssignAgentRender> = ({
   setIsAssignAgent,
 }) => {
+  const dispatch = useAppDispatch();
+  const orderData = useAppSelector(selectOrder);
+
   const [toastDisplay, setToastDisplay] = useState('hidden');
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState<string | null>(null)
