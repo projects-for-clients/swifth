@@ -47,24 +47,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
   ] as const;
 
 
-  const clearingDocs = [
-    {
-      name: 'Bills of Lading',
-      submitted: true,
-    },
-    {
-      name: 'Releases',
-      submitted: true,
-    },
-    {
-      name: 'CAC',
-      submitted: false,
-    },
-    {
-      name: 'Signed POA',
-      submitted: false,
-    },
-  ] as const;
+  
 
   const assignAgentHandler = () => {
     setIsAssignAgent(true);
@@ -107,7 +90,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
     setToDisplay('hidden');
   };
 
-  const { isBOLApproved } = orderData;
+  const { isBOLApproved, RCDocs} = orderData;
   return (
     <>
       <section
@@ -150,7 +133,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
         <div className={` gap-4 mt-10 ${isBOLApproved ? 'flex' : 'grid'}`}>
-          {clearingDocs.map((doc, i) => (
+          {RCDocs.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">
                 <p
