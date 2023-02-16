@@ -63,8 +63,8 @@ export const orderSlice = createSlice({
       return { ...state, RCDocs: payload };
     },
 
-    updateOrdersData: (state, { payload }: { payload: OrdersData[] }) => {
-      return { ...state, ordersData: payload };
+    updateOrdersData: (state, { payload }: { payload: OrdersData }) => {
+      return { ...state, ordersData: [...state.ordersData, payload] };
     }
   },
 });

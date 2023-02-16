@@ -9,11 +9,10 @@ import {
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { DialogType } from '../../../../container/dashboard/orders';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
-  selectOrder,
-  handleIsBOL,
+  
+  updateOrdersData,
 } from '../../../../store/features/order/order';
 
 interface AssignAgentRender {
@@ -33,7 +32,10 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
   };
 
   const handleSelectAgent = () => {
-
+    dispatch(updateOrdersData({
+      id: '1',
+      assignedAgent: selected,
+    }))
     setToastDisplay('flex');
   };
 
