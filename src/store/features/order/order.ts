@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
 
-type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
+export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
 interface RCDocs {
   name: RCDocsKeys;

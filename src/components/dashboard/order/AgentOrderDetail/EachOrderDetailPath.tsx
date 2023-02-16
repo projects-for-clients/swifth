@@ -7,7 +7,7 @@ import {
   FormEvent,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { selectOrder, updateRCDocs } from '../../../../store/features/order/order';
+import { RCDocsKeys, selectOrder, updateRCDocs } from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -66,9 +66,8 @@ export const AgentClearing: FC<AgentClearing> = ({
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
 
-    if (item === 'Approve') {
-      console.log({RCDocsItem})
-      //dispatch(updateRCDocs({name: RCDocsItem, submitted: true, status: 'Approved'}))
+    if (item === 'Approve' && RCDocsItem.key) {
+      dispatch(updateRCDocs({name: RCDocsItem.key as RCDocsKeys, submitted: true, status: 'Approved'}))
       //dispatch(handleIsBOL(true));
     }
 
