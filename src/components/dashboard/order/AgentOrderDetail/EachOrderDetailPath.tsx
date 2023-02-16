@@ -62,6 +62,8 @@ export const AgentClearing: FC<AgentClearing> = ({
   const [openToolTip, setOpenToolTip] = useState(false);
 
   const handleRCDocChange = (item: string) => {
+    console.log()
+
     setRCDocsItem((prev) => {
       if (prev.key === item) {
         return { key: null };
@@ -73,7 +75,6 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
-    setOpenToolTip(true)
 
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
