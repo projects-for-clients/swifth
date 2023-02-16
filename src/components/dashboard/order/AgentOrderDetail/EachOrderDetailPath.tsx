@@ -47,8 +47,6 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
   ] as const;
 
 
-  
-
   const assignAgentHandler = () => {
     setIsAssignAgent(true);
   };
@@ -71,7 +69,6 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
 
     if (item === 'Approve') {
 
-      //Work on this
       dispatch(handleIsBOL(true));
     }
 
