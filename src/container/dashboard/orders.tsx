@@ -109,7 +109,7 @@ function orders() {
   }, [inProgressFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
-    if (selectedSort) {
+    if ( selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
         const sortedNames = INPROGRESS.sort((a, b) => {
           return a.name.localeCompare(b.name);
@@ -117,12 +117,12 @@ function orders() {
 
         return setInProgressData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = INPROGRESS.sort((a, b) => {
-          console.log({a, b})
-          return new Date(a.date).getTime() - new Date(b.date).getTime();
-        });
+        // const sortedDates = INPROGRESS.sort((a, b) => {
+        //   console.log({a, b})
+        //   return new Date(a.date).getTime() - new Date(b.date).getTime();
+        // });
 
-        return setInProgressData(() => [...sortedDates]);
+        // return setInProgressData(() => [...sortedDates]);
       }
     }
   }, [selectedSort]);
