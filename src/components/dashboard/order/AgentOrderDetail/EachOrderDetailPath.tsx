@@ -11,9 +11,10 @@ import { handleIsBOL, selectOrder } from '../../../../store/features/order/order
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
+  orderId: number;
 }
 
-export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
+export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) => {
 
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
