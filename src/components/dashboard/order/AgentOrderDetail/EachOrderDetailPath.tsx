@@ -90,6 +90,8 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocs, ordersData } = orderDetails;
 
+  console.log({RCDocs})
+
   return (
     <>
       <section
