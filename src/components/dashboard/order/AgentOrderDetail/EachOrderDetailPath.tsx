@@ -24,7 +24,6 @@ export const AgentClearing: FC<AgentClearing> = ({
 }) => {
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
-  const [isBOLApproved, setIsBOLApproved] = useState(false);
 
   const [selectedItem, setSelectedItem] = useState('');
   const [toDisplay, setToDisplay] = useState('hidden');
@@ -113,7 +112,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocs, ordersData } = orderDetails;
 
-  const checkBOLApproved = RCDocs.filter(
+  const isBOLApproved = RCDocs.filter(
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   );
 
