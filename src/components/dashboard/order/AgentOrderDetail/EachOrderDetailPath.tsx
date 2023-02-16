@@ -74,6 +74,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   const handleSelectedItem = (item: string) => {
     setSelectedItem(item);
     if (item === 'Approve' && RCDocsItem.key) {
+      setOpenToolTip(false);
       dispatch(
         updateRCDocs({
           name: RCDocsItem.key as RCDocsKeys,
@@ -86,6 +87,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     if (item === 'Decline') {
       setToDisplay('grid');
+      setOpenToolTip(false);
     }
   };
 
