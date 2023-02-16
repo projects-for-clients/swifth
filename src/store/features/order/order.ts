@@ -11,13 +11,12 @@ interface RCDocs {
 
 interface OrdersData {
   id: number;
-  assignedAgent: string | null
+  assignedAgent: string | null;
 }
 interface IOrder {
   RCDocs: RCDocs[];
   ordersData: OrdersData | null;
 }
-
 
 const RCDocsArr = [
   {
@@ -40,9 +39,7 @@ const RCDocsArr = [
     status: null,
     submitted: false,
   },
-
-
-] satisfies RCDocs[]
+] satisfies RCDocs[];
 
 const initialState: IOrder = {
   RCDocs: RCDocsArr,
@@ -53,19 +50,27 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-   
-
-    updateRCDocs: (state, { payload }: { payload: RCDocs[] }) => {
-      return { ...state, RCDocs: payload };
+    updateRCDocs: (state, { payload }: { payload: RCDocs }) => {
+      return {
+        ...state,
+        RCDocs: [
+          ...state.RCDocs.map((doc) => {
+            if (doc.name === payload.name) {
+              return payload;
+            }
+            return doc;
+          }),
+        ],
+      };
     },
 
     updateOrdersData: (state, { payload }: { payload: OrdersData }) => {
       return { ...state, ordersData: payload };
-    }
+    },
   },
 });
 
-export const {  updateRCDocs, updateOrdersData } = orderSlice.actions;
+export const { updateRCDocs, updateOrdersData } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 

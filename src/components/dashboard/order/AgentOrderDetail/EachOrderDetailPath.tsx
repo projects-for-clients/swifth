@@ -7,7 +7,7 @@ import {
   FormEvent,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { selectOrder } from '../../../../store/features/order/order';
+import { selectOrder, updateRCDocs } from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -52,14 +52,14 @@ export const AgentClearing: FC<AgentClearing> = ({
     setIsAssignAgent(true);
   };
 
-  const [RCDocsItem, setRCDocsItem] = useState<string | null>(null);
+  const [RCDocsItem, setRCDocsItem] = useState<{key: string | null}>({ key: null });
 
   const handleRCDocChange = (item: string) => {
     setRCDocsItem((prev) => {
-      if (prev === item) {
-        return item;
+      if (prev.key === item) {
+        return { key: null };
       }
-      return item;
+      return { key: item };
     });
   };
 
@@ -67,6 +67,8 @@ export const AgentClearing: FC<AgentClearing> = ({
     setSelectedItem(item);
 
     if (item === 'Approve') {
+      console.log({RCDocsItem})
+      //dispatch(updateRCDocs({name: RCDocsItem, submitted: true, status: 'Approved'}))
       //dispatch(handleIsBOL(true));
     }
 
@@ -74,7 +76,7 @@ export const AgentClearing: FC<AgentClearing> = ({
       setToDisplay('grid');
     }
 
-    setRCDocsItem(null);
+    setRCDocsItem({ key: null});
   };
 
   const closeModal = () => {
@@ -154,7 +156,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                     </span>
                   ) : null}
                 </p>
-                {RCDocsItem === doc.name && (
+                {RCDocsItem.key === doc.name && (
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     {selectFrom.map((item, i) => {
                       return (
