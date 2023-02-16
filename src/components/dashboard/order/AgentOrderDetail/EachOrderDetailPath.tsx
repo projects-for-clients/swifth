@@ -6,13 +6,19 @@ import {
   FC,
   FormEvent,
 } from 'react';
-import { GrClose } from 'react-icons/gr';
+import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
+import { selectOrder } from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
+
+  const dispatch = useAppDispatch();
+  const orderData = useAppSelector(selectOrder);
+
+  
   const [isBillOfLading, setIsBillOfLading] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [toDisplay, setToDisplay] = useState('hidden');
@@ -141,7 +147,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent }) => {
       <div className="pt-10">
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
-        <div className="grid gap-4 mt-10 ">
+        <div className="flex gap-4 mt-10 ">
           {clearingDocs.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">

@@ -22,7 +22,6 @@ interface AssignAgentRender {
 
 const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
   const dispatch = useAppDispatch();
-  const orderData = useAppSelector(selectOrder);
 
   const [toastDisplay, setToastDisplay] = useState('hidden');
   const [search, setSearch] = useState('');
