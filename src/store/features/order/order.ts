@@ -18,7 +18,7 @@ const RCDocsArr = [
   {
     name: 'Bills of Lading',
     status: null,
-    submitted: false,
+    submitted: true,
   },
   {
     name: 'Releases',
@@ -41,12 +41,7 @@ const RCDocsArr = [
 
 const initialState: IOrder = {
   isBOLApproved: false,
-  RCDocs: [
-    {
-      name: 'BOL',
-      status: 'approved',
-    },
-  ],
+  RCDocs: RCDocsArr
 };
 
 export const orderSlice = createSlice({
