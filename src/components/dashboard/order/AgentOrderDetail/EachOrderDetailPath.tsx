@@ -7,20 +7,21 @@ import {
   FormEvent,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import {  selectOrder } from '../../../../store/features/order/order';
+import { selectOrder } from '../../../../store/features/order/order';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
   orderId: number;
 }
 
-export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) => {
-
+export const AgentClearing: FC<AgentClearing> = ({
+  setIsAssignAgent,
+  orderId,
+}) => {
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
   const [isBOLApproved, setIsBOLApproved] = useState(false);
 
-  
   const [selectedItem, setSelectedItem] = useState('');
   const [toDisplay, setToDisplay] = useState('hidden');
 
@@ -47,17 +48,16 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
     },
   ] as const;
 
-
   const assignAgentHandler = () => {
     setIsAssignAgent(true);
   };
 
-  const [toggleSortMenu, setToggleSortMenu] = useState<{ key: string | null }>({
+  const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
     key: null,
   });
 
-  const sortMenuToggler = (item: string) => {
-    setToggleSortMenu((prev) => {
+  const handleRCDocChange = (item: string) => {
+    setRCDocsItem((prev) => {
       if (prev.key === item) {
         return { key: null };
       }
@@ -69,7 +69,6 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
     setSelectedItem(item);
 
     if (item === 'Approve') {
-
       //dispatch(handleIsBOL(true));
     }
 
@@ -77,7 +76,7 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
       setToDisplay('grid');
     }
 
-    setToggleSortMenu({ key: null });
+    setRCDocsItem({ key: null });
   };
 
   const closeModal = () => {
@@ -90,9 +89,9 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
     setToDisplay('hidden');
   };
 
-  const {  RCDocs, ordersData} = orderDetails;
+  const { RCDocs, ordersData } = orderDetails;
 
-  console.log({RCDocs})
+  console.log({ RCDocs });
   return (
     <>
       <section
@@ -134,23 +133,30 @@ export const AgentClearing: FC<AgentClearing> = ({ setIsAssignAgent, orderId }) 
       <div className="pt-10">
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
-        <div className={`gap-4 mt-10 ${ordersData?.id === orderId ? 'flex' : 'grid'}`}>
+        <div
+          className={`gap-4 mt-10 ${
+            ordersData?.id === orderId ? 'flex' : 'grid'
+          }`}
+        >
           {RCDocs.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">
                 <p
                   className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between"
-                  onClick={() => sortMenuToggler(doc.name)}
-                
+                  onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
-                  {isBOLApproved &&(
+                  {doc.status === 'Approved' ? (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>
-                  )}
+                  ) : doc.status === 'Declined' ? (
+                    <span>
+                      <img src="/icons/close-square.svg" alt="" />
+                    </span>
+                  ) : null}
                 </p>
-                {toggleSortMenu.key === doc.name && (
+                {RCDocsItem.key === doc.name && (
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     {selectFrom.map((item, i) => {
                       return (
