@@ -11,22 +11,22 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { selectOrder, updateOrder } from '../../../../store/features/order/order';
-
+import {
+  selectOrder,
+  updateOrder,
+} from '../../../../store/features/order/order';
 
 interface AssignAgentRender {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
 }
 
-const AssignAgentRender: FC<AssignAgentRender> = ({
-  setIsAssignAgent,
-}) => {
+const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent }) => {
   const dispatch = useAppDispatch();
   const orderData = useAppSelector(selectOrder);
 
   const [toastDisplay, setToastDisplay] = useState('hidden');
   const [search, setSearch] = useState('');
-  const [selected, setSelected] = useState<string | null>(null)
+  const [selected, setSelected] = useState<string | null>(null);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -34,18 +34,14 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   };
 
   const handleSelectAgent = () => {
+    dispatch(updateOrder({ isBOLApproved: true }));
 
-    dispatch(updateOrder({isBOLApproved: true}))
-
-    setToastDisplay('flex')
-  }
-
+    setToastDisplay('flex');
+  };
 
   const goBack = () => {
     setIsAssignAgent(false);
   };
-
-  
 
   useEffect(() => {
     if (toastDisplay === 'flex') {
@@ -123,7 +119,10 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
           </section>
         </main>
 
-        <button className="flex w-full items-center" onClick={handleSelectAgent}>
+        <button
+          className="flex w-full items-center"
+          onClick={handleSelectAgent}
+        >
           <span className="bg-color-primary rounded-lg text-white w-full py-4">
             Continue
           </span>
