@@ -23,7 +23,7 @@ const RCDocsArr = [
   {
     name: 'Bills of Lading',
     status: null,
-    submitted: false,
+    submitted: true,
   },
   {
     name: 'Releases',
