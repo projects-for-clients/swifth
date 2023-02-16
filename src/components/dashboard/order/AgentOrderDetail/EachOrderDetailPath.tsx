@@ -82,7 +82,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     setToDisplay('hidden');
   };
 
-  const handleQuoteSubmit = (e: FormEvent) => {
+  const handleRejectBOL = (e: FormEvent) => {
     e.preventDefault();
 
     setToDisplay('hidden');
@@ -90,7 +90,6 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocs, ordersData } = orderDetails;
 
-  console.log({ RCDocs });
   return (
     <>
       <section
@@ -102,7 +101,7 @@ export const AgentClearing: FC<AgentClearing> = ({
         <div onClick={closeModal}>&nbsp;</div>
         <form
           className="bg-white py-10 px-10 rounded-t-3xl"
-          onSubmit={handleQuoteSubmit}
+          onSubmit={handleRejectBOL}
         >
           <p className="text-[1.6rem] text-gray-600 mb-8">
             Reject BOL - Leave a Comment
