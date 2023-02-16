@@ -73,6 +73,14 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     if (item === 'Decline') {
       setToDisplay('grid');
+            dispatch(
+              updateRCDocs({
+                name: RCDocsItem.key as RCDocsKeys,
+                submitted: true,
+                status: 'Declined',
+              })
+            );
+
     }
 
     setRCDocsItem({ key: null});

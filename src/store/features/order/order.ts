@@ -56,7 +56,6 @@ export const orderSlice = createSlice({
         RCDocs: [
           ...state.RCDocs.map((doc) => {
             if (doc.name === payload.name) {
-              console.log('update RCDoc', payload)
               return payload;
             }
             return doc;
