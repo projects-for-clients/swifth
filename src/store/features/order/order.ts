@@ -63,9 +63,10 @@ export const orderSlice = createSlice({
     },
 
     updateOrdersData: (state, { payload }: { payload: Pick<InProgress, 'id' | 'assignedAgent'> }) => {
+      const { id, assignedAgent } = payload;
       return { ...state, ordersData: [...state.ordersData.map((order) => {
         if (order.id === payload.id) {
-          return payload;
+          return { ...order, assignedAgent: assignedAgent, id};
         }
         return order;
       })] };
