@@ -125,7 +125,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
-
+console.log({ordersDataId, orderId})
 
   return (
     <>
