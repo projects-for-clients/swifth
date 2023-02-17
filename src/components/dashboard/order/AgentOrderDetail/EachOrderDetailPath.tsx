@@ -65,7 +65,6 @@ export const AgentClearing: FC<AgentClearing> = ({
   const handleRCDocChange = (item: string) => {
     setRCDocsItem((prev) => {
       if (prev.key === item) {
-        setOpenToolTip(false);
         return { key: null };
       }
       return { key: item };
@@ -119,8 +118,9 @@ export const AgentClearing: FC<AgentClearing> = ({
  
   useEffect(() => {
     console.log('mounted', openToolTip);
+    setOpenToolTip(false)
     
-  }, [orderId]) ;
+  }, [orderId, openToolTip]) ;
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
