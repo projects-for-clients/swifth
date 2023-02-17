@@ -122,7 +122,9 @@ export const AgentClearing: FC<AgentClearing> = ({
   }> = ({ doc }) => {
     console.log('mounted OpenToolTip');
 
+    let count = 0;
     function callTooTip() {
+      console.log('inner', count++)
       return (
         <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
           {selectFrom.map((item, i) => {
