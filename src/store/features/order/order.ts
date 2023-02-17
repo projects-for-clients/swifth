@@ -87,7 +87,7 @@ export const orderSlice = createSlice({
         ...state,
         RCDocsArr: [
           ...state.RCDocsArr.map((doc) => {
-            if (doc.name === payload.name) {
+            if (doc.orderId === payload.orderId) {
               return payload;
             }
             return doc;

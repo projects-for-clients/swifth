@@ -79,6 +79,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
       dispatch(
         updateRCDocs({
+          orderId,
           name: RCDocsItem.key as RCDocsKeys,
           submitted: true,
           status: 'Approved',
