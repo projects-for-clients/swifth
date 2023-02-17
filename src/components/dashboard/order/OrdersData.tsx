@@ -15,6 +15,7 @@ const generateRandomNum = () =>
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
 export interface RCDocs {
+  
   name: RCDocsKeys;
   status: RCDocsStatus;
   submitted: boolean;

@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
+  RCDocsKeys,
   selectOrder,
   updateRCDocs,
 } from '../../../../store/features/order/order';
@@ -100,7 +101,6 @@ export const AgentClearing: FC<AgentClearing> = ({
     setToDisplay('hidden');
     dispatch(
       updateRCDocs({
-        orderId,
         name: RCDocsItem.key as RCDocsKeys,
         submitted: true,
         status: 'Declined',
@@ -114,8 +114,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   )
 
-  const ordersDataId = ordersData.find((order) => order.assignedAgent);
-
+const ordersDataId = ordersData.find((order) => order.assignedAgent);  
   return (
     <>
       <section
