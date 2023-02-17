@@ -6,6 +6,7 @@ import {
   FC,
   FormEvent,
   useEffect,
+  EffectCallback,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
@@ -119,7 +120,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   useEffect(() => {
     console.log('mounted 2', openToolTip);
     console.count();
-  }, []);
+  }, []) ;
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
