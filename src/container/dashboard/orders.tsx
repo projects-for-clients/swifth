@@ -117,12 +117,10 @@ function orders() {
 
         return setInProgressData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        console.log({INPROGRESS})
         const sortedDates = [...INPROGRESS].sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        console.log({sortedDates})
 
         return setInProgressData(() => [...sortedDates]);
         
