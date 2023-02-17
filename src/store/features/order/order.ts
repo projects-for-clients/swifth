@@ -18,31 +18,41 @@ interface IOrder {
   ordersData: InProgress[];
 }
 
-const RCDocsArr = [
-  {
-    name: 'Bills of Lading',
-    status: null,
-    submitted: true,
-  },
-  {
-    name: 'Releases',
-    status: null,
-    submitted: false,
-  },
-  {
-    name: 'CAC',
-    status: null,
-    submitted: false,
-  },
-  {
-    name: 'Signed POA',
-    status: null,
-    submitted: false,
-  },
-] satisfies RCDocs[];
+
+const generateRandomNum = () =>
+  Math.floor(100000 + Math.random() * 900000);
+
+const RCDocs = {
+  orderId: generateRandomNum(),
+  docId: generateRandomNum(),
+  content: [
+    {
+      name: 'Bills of Lading',
+      status: null,
+      submitted: true,
+    },
+    {
+      name: 'Releases',
+      status: null,
+      submitted: false,
+    },
+    {
+      name: 'CAC',
+      status: null,
+      submitted: false,
+    },
+    {
+      name: 'Signed POA',
+      status: null,
+      submitted: false,
+    },
+  ],
+};
+
+const RCDocsArr = [RCDocs, RCDocs];
 
 const initialState: IOrder = {
-  RCDocs: RCDocsArr,
+  RCDocsArr,
   ordersData: INPROGRESS,
 };
 
