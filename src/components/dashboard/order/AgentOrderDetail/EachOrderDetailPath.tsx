@@ -117,10 +117,11 @@ export const AgentClearing: FC<AgentClearing> = ({
 
  
   useEffect(() => {
-    console.log('mounted', openToolTip);
     setOpenToolTip(false)
-    
+    setRCDocsItem({ key: null })
   }, [orderId]) ;
+
+ 
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
