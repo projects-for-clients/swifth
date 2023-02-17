@@ -23,6 +23,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   setIsAssignAgent,
   orderId
 }) => {
+  console.log("AgentClearing orderId: ",orderId)
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
 
