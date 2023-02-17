@@ -22,9 +22,8 @@ interface AgentClearing {
 
 export const AgentClearing: FC<AgentClearing> = ({
   setIsAssignAgent,
-  orderId
+  orderId,
 }) => {
-  console.log("AgentClearing orderId: ",orderId)
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
 
@@ -74,7 +73,6 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const handleSelectedItem = (item: string) => {
-
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
       setRCDocsItem({ key: null });
@@ -115,43 +113,45 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const isBOLApproved = RCDocs.some(
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
-  )
-
-const ordersDataId = ordersData.find((order) => order.assignedAgent);  
-
-
-useEffect(() => {
-  console.log("AgentClearing useEffect orderId: ",orderId)
-}, [])
-
-const OpenToolTip:FC<{
-  doc: RCDocs
-}> = ({doc}) => {
-  console.log("mounted OpenToolTip")
-  return (
-    <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
-      {selectFrom.map((item, i) => {
-        return (
-          <button
-            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
-              doc.submitted && item.name === 'Send submission reminder'
-                ? 'hidden'
-                : 'flex'
-            }`}
-            key={i}
-            disabled={
-              !doc.submitted && item.name !== 'Send submission reminder'
-            }
-            onClick={() => handleSelectedItem(item.name)}
-          >
-            <img src={item.imgUri} alt="" />
-            <span className={`${item.className} font-medium`}>{item.name}</span>
-          </button>
-        );
-      })}
-    </div>
   );
-}
+
+  const ordersDataId = ordersData.find((order) => order.assignedAgent);
+
+  const OpenToolTip: FC<{
+    doc: RCDocs;
+  }> = ({ doc }) => {
+    console.log('mounted OpenToolTip');
+
+    function callTooTip() {
+      return (
+        <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
+          {selectFrom.map((item, i) => {
+            return (
+              <button
+                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+                  doc.submitted && item.name === 'Send submission reminder'
+                    ? 'hidden'
+                    : 'flex'
+                }`}
+                key={i}
+                disabled={
+                  !doc.submitted && item.name !== 'Send submission reminder'
+                }
+                onClick={() => handleSelectedItem(item.name)}
+              >
+                <img src={item.imgUri} alt="" />
+                <span className={`${item.className} font-medium`}>
+                  {item.name}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      );
+    }
+
+    return callTooTip()
+  };
   return (
     <>
       <section
@@ -217,7 +217,7 @@ const OpenToolTip:FC<{
                   ) : null}
                 </p>
                 {openToolTip && RCDocsItem.key === doc.name && (
-                  <OpenToolTip doc={doc}/>
+                  <OpenToolTip doc={doc} />
                 )}
               </div>
             </Fragment>
