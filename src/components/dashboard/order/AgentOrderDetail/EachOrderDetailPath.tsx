@@ -260,8 +260,40 @@ export const AgentClearing: FC<AgentClearing> = ({
                   ) : null}
                 </p>
                 {openToolTip && RCDocsItem.key === doc.name && (
-                  <OpenToolTip doc={doc} />
-                  // OpenToolTip({doc})
+                  // <OpenToolTip doc={doc} />
+                  // // OpenToolTip({doc})
+
+                  <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
+                    <input
+                      type="text"
+                      className="border"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                    />
+                    {selectFrom.map((item, i) => {
+                      return (
+                        <button
+                          className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+                            doc.submitted &&
+                            item.name === 'Send submission reminder'
+                              ? 'hidden'
+                              : 'flex'
+                          }`}
+                          key={i}
+                          disabled={
+                            !doc.submitted &&
+                            item.name !== 'Send submission reminder'
+                          }
+                          onClick={() => handleSelectedItem(item.name)}
+                        >
+                          <img src={item.imgUri} alt="" />
+                          <span className={`${item.className} font-medium`}>
+                            {item.name}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
             </Fragment>
