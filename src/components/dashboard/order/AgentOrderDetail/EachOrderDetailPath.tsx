@@ -126,75 +126,75 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const [input, setInput] = useState('');
 
-  const OpenToolTip: FC<{
-    doc: RCDocs;
-  }> = ({ doc }) => {
-    //console.log('mounted OpenToolTip');
+  // const OpenToolTip: FC<{
+  //   doc: RCDocs;
+  // }> = ({ doc }) => {
+  //   //console.log('mounted OpenToolTip');
 
-    // let count = 0;
-    // function callTooTip() {
-    //   console.log('inner', count++)
-    //   return (
-    //     <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
-    //       {selectFrom.map((item, i) => {
-    //         return (
-    //           <button
-    //             className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
-    //               doc.submitted && item.name === 'Send submission reminder'
-    //                 ? 'hidden'
-    //                 : 'flex'
-    //             }`}
-    //             key={i}
-    //             disabled={
-    //               !doc.submitted && item.name !== 'Send submission reminder'
-    //             }
-    //             onClick={() => handleSelectedItem(item.name)}
-    //           >
-    //             <img src={item.imgUri} alt="" />
-    //             <span className={`${item.className} font-medium`}>
-    //               {item.name}
-    //             </span>
-    //           </button>
-    //         );
-    //       })}
-    //     </div>
-    //   );
-    // }
+  //   // let count = 0;
+  //   // function callTooTip() {
+  //   //   console.log('inner', count++)
+  //   //   return (
+  //   //     <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
+  //   //       {selectFrom.map((item, i) => {
+  //   //         return (
+  //   //           <button
+  //   //             className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+  //   //               doc.submitted && item.name === 'Send submission reminder'
+  //   //                 ? 'hidden'
+  //   //                 : 'flex'
+  //   //             }`}
+  //   //             key={i}
+  //   //             disabled={
+  //   //               !doc.submitted && item.name !== 'Send submission reminder'
+  //   //             }
+  //   //             onClick={() => handleSelectedItem(item.name)}
+  //   //           >
+  //   //             <img src={item.imgUri} alt="" />
+  //   //             <span className={`${item.className} font-medium`}>
+  //   //               {item.name}
+  //   //             </span>
+  //   //           </button>
+  //   //         );
+  //   //       })}
+  //   //     </div>
+  //   //   );
+  //   // }
 
-    // return callTooTip()
+  //   // return callTooTip()
 
-    return (
-      <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
-        <input
-          type="text"
-          className="border"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        {selectFrom.map((item, i) => {
-          return (
-            <button
-              className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
-                doc.submitted && item.name === 'Send submission reminder'
-                  ? 'hidden'
-                  : 'flex'
-              }`}
-              key={i}
-              disabled={
-                !doc.submitted && item.name !== 'Send submission reminder'
-              }
-              onClick={() => handleSelectedItem(item.name)}
-            >
-              <img src={item.imgUri} alt="" />
-              <span className={`${item.className} font-medium`}>
-                {item.name}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
+  //       <input
+  //         type="text"
+  //         className="border"
+  //         value={input}
+  //         onChange={(e) => setInput(e.target.value)}
+  //       />
+  //       {selectFrom.map((item, i) => {
+  //         return (
+  //           <button
+  //             className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+  //               doc.submitted && item.name === 'Send submission reminder'
+  //                 ? 'hidden'
+  //                 : 'flex'
+  //             }`}
+  //             key={i}
+  //             disabled={
+  //               !doc.submitted && item.name !== 'Send submission reminder'
+  //             }
+  //             onClick={() => handleSelectedItem(item.name)}
+  //           >
+  //             <img src={item.imgUri} alt="" />
+  //             <span className={`${item.className} font-medium`}>
+  //               {item.name}
+  //             </span>
+  //           </button>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // };
   return (
     <>
       <section
