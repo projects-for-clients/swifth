@@ -120,7 +120,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   useEffect(() => {
     console.log('mounted 2', openToolTip);
     console.count();
-  }, []) ;
+  }, [orderId]) ;
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
