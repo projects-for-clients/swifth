@@ -19,7 +19,7 @@ interface RCDocs {
 }
 
 interface IOrder {
-  RCDocs: RCDocs[];
+  RCDocsArr: RCDocs[];
   ordersData: InProgress[];
 }
 
@@ -58,7 +58,6 @@ const RCDocs = {
 
 const RCDocsArr:RCDocs[] = [];
 
-console.log({ INPROGRESS });
 
 INPROGRESS.forEach((order) => {
   const {id} = order
@@ -86,8 +85,8 @@ export const orderSlice = createSlice({
     updateRCDocs: (state, { payload }: { payload: RCDocs }) => {
       return {
         ...state,
-        RCDocs: [
-          ...state.RCDocs.map((doc) => {
+        RCDocsArr: [
+          ...state.RCDocsArr.map((doc) => {
             if (doc.name === payload.name) {
               return payload;
             }
