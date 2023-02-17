@@ -1,6 +1,5 @@
 import {
   useState,
-  FormEvent,
   useEffect,
   FC,
   Dispatch,
@@ -9,7 +8,7 @@ import {
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
+import { useAppDispatch } from '../../../../store/app/hooks';
 import { assignAgentHandler } from '../../../../store/features/order/order';
 
 interface AssignAgentRender {

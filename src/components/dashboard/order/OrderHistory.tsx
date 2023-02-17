@@ -9,15 +9,13 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import {
-  DialogType,
   OrderHistoryPath,
 } from '../../../container/dashboard/orders';
 import CalenderSvg from '../../icons/Calender';
 import {
-  filterByColors,
+  INPROGRESS,
   InProgress,
   InProgressFilterBy,
-  ORDER_HISTORY,
 } from './OrdersData';
 
 interface Props {
@@ -26,10 +24,10 @@ interface Props {
 }
 
 export const ListOrderHistory: FC<Props> = ({ setOrderHistoryPath }) => {
-  const [orderHistory, setOrderHistory] = useState<InProgress[]>(ORDER_HISTORY);
+  const [orderHistory, setOrderHistory] = useState<InProgress[]>(INPROGRESS);
 
   useEffect(() => {
-    const sortedDates = ORDER_HISTORY.sort((a, b) => {
+    const sortedDates = INPROGRESS.sort((a, b) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
@@ -53,7 +51,7 @@ export const ListOrderHistory: FC<Props> = ({ setOrderHistoryPath }) => {
     const { from, to } = searchDates;
 
     if (from && to) {
-      const filtered = ORDER_HISTORY.filter((item) => {
+      const filtered = INPROGRESS.filter((item) => {
         const date = new Date(item.date);
         return (
           date.getTime() >= from.getTime() && date.getTime() <= to.getTime()

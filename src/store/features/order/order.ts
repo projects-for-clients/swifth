@@ -64,7 +64,7 @@ export const orderSlice = createSlice({
       };
     },
 
-    updateOrdersData: (
+    assignAgentHandler: (
       state,
       { payload }: { payload: Pick<InProgress, 'id' | 'assignedAgent'> }
     ) => {
@@ -84,7 +84,7 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { updateRCDocs, updateOrdersData } = orderSlice.actions;
+export const { updateRCDocs, assignAgentHandler } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 
