@@ -1,52 +1,25 @@
+import { RCDocs } from './../../../components/dashboard/order/OrdersData';
 import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
 import {
   InProgress,
   INPROGRESS,
+  RCDocs,
 } from '../../../components/dashboard/order/OrdersData';
 
 
 
-export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
-type RCDocsStatus = 'Approved' | 'Declined' | null;
-interface RCDocs {
-  name: RCDocsKeys;
-  status: RCDocsStatus;
-  submitted: boolean;
-}
 
 interface IOrder {
-  RCDocs: RCDocs[];
   ordersData: InProgress[];
 }
 
-const RCDocsArr = [
-  {
-    name: 'Bills of Lading',
-    status: null,
-    submitted: true,
-  },
-  {
-    name: 'Releases',
-    status: null,
-    submitted: false,
-  },
-  {
-    name: 'CAC',
-    status: null,
-    submitted: false,
-  },
-  {
-    name: 'Signed POA',
-    status: null,
-    submitted: false,
-  },
-] satisfies RCDocs[];
 
 const initialState: IOrder = {
-  RCDocs: RCDocsArr,
   ordersData: INPROGRESS,
 };
+
+
 
 export const orderSlice = createSlice({
   name: 'order',
@@ -55,18 +28,23 @@ export const orderSlice = createSlice({
     updateRCDocs: (state, { payload }: { payload: RCDocs }) => {
       return {
         ...state,
-        RCDocs: [
-          ...state.RCDocs.map((doc) => {
-            if (doc.name === payload.name) {
-              return payload;
+        ordersData: [
+          ...state.ordersData.map((order) => {
+            if (order.id === payload.id) {
+              return { ...order, RCDocs: [
+                ...order.RCDocs,
+                payload,
+
+              ] };
             }
-            return doc;
+            return order;
           }),
         ],
+
       };
     },
 
-    updateOrdersData: (
+    assignAgentHandler: (
       state,
       { payload }: { payload: Pick<InProgress, 'id' | 'assignedAgent'> }
     ) => {
@@ -86,7 +64,7 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { updateRCDocs, updateOrdersData } = orderSlice.actions;
+export const { updateRCDocs, assignAgentHandler } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 

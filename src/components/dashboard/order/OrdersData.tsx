@@ -9,7 +9,16 @@ function generateRandomDate() {
   return randomDate;
 }
 
-const generateRandomNum = () =>  Math.floor(100000000000 + Math.random() * 900000);
+const generateRandomNum = () =>
+  Math.floor(100000000000 + Math.random() * 900000);
+
+export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
+type RCDocsStatus = 'Approved' | 'Declined' | null;
+export interface RCDocs {
+  name: RCDocsKeys;
+  status: RCDocsStatus;
+  submitted: boolean;
+}
 
 export type InProgressFilterBy =
   | 'Docs in Review'
@@ -26,7 +35,7 @@ export interface InProgress {
   date: Date;
   tag: InProgressFilterBy;
   assignedAgent?: string;
-  RCDocs?: string
+  RCDocs: RCDocs[];
 }
 export interface Waitlist {
   id: number;
@@ -62,6 +71,29 @@ export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
   Completed: { text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
 };
 
+const RCDocsArr = [
+  {
+    name: 'Bills of Lading',
+    status: null,
+    submitted: true,
+  },
+  {
+    name: 'Releases',
+    status: null,
+    submitted: false,
+  },
+  {
+    name: 'CAC',
+    status: null,
+    submitted: false,
+  },
+  {
+    name: 'Signed POA',
+    status: null,
+    submitted: false,
+  },
+] satisfies RCDocs[];
+
 export const INPROGRESS: InProgress[] = [
   {
     id: generateRandomNum(),
@@ -69,12 +101,15 @@ export const INPROGRESS: InProgress[] = [
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Docs in Review',
+    RCDocs: RCDocsArr,
   },
   {
     id: generateRandomNum(),
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Duty Processing',
   },
   {
@@ -82,6 +117,8 @@ export const INPROGRESS: InProgress[] = [
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Custom Releasing',
   },
   {
@@ -89,6 +126,8 @@ export const INPROGRESS: InProgress[] = [
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Delivery Pending',
   },
   {
@@ -96,6 +135,8 @@ export const INPROGRESS: InProgress[] = [
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Completed',
   },
   {
@@ -103,6 +144,8 @@ export const INPROGRESS: InProgress[] = [
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Custom Releasing',
   },
   {
@@ -110,6 +153,8 @@ export const INPROGRESS: InProgress[] = [
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Custom Releasing',
   },
   {
@@ -117,6 +162,7 @@ export const INPROGRESS: InProgress[] = [
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
     tag: 'Completed',
   },
   {
@@ -124,6 +170,7 @@ export const INPROGRESS: InProgress[] = [
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
     tag: 'Valuating',
   },
   {
@@ -131,6 +178,7 @@ export const INPROGRESS: InProgress[] = [
     name: 'Akpan Sunyi',
     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
     tag: 'Docs in Review',
   },
   {
@@ -138,6 +186,7 @@ export const INPROGRESS: InProgress[] = [
     name: 'Solomon Henry',
     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
     tag: 'Valuating',
   },
   {
@@ -145,74 +194,76 @@ export const INPROGRESS: InProgress[] = [
     name: 'Joseph Isaac',
     description: 'Mercedes GLE350, 2022 v6 with alloy wheels and',
     date: generateRandomDate(),
+    RCDocs: RCDocsArr,
+
     tag: 'Delivery Pending',
   },
 ];
-export const ORDER_HISTORY: InProgress[] = [
-  {
-    id: generateRandomNum(),
-    name: 'Jonathan Sunyi sfsfsf',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    tag: 'Completed',
-    date: generateRandomDate(),
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Akpan Sunyi',
-    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Solomon Henry',
-    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Akpan Sunyi',
-    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Solomon Henry',
-    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Akpan Sunyi',
-    description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-  {
-    id: generateRandomNum(),
-    name: 'Solomon Henry',
-    description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-    date: generateRandomDate(),
-    tag: 'Completed',
-  },
-];
+// export const ORDER_HISTORY: InProgress[] = [
+//   {
+//     id: generateRandomNum(),
+//     name: 'Jonathan Sunyi sfsfsf',
+//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+//     tag: 'Completed',
+//     date: generateRandomDate(),
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Akpan Sunyi',
+//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Solomon Henry',
+//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Jonathan Sunyi',
+//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Akpan Sunyi',
+//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Solomon Henry',
+//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Jonathan Sunyi',
+//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Akpan Sunyi',
+//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+//   {
+//     id: generateRandomNum(),
+//     name: 'Solomon Henry',
+//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
+//     date: generateRandomDate(),
+//     tag: 'Completed',
+//   },
+// ];
 
 export const WAITLIST: Waitlist[] = [
   {

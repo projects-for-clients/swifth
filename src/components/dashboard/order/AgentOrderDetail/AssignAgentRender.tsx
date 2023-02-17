@@ -10,7 +10,7 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
-import { updateOrdersData } from '../../../../store/features/order/order';
+import { assignAgentHandler } from '../../../../store/features/order/order';
 
 interface AssignAgentRender {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -31,9 +31,9 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
 
   const handleSelectAgent = () => {
     if(!selected) return;
-    
+
     dispatch(
-      updateOrdersData({
+      assignAgentHandler({
         id: orderId,
         assignedAgent: selected,
       })

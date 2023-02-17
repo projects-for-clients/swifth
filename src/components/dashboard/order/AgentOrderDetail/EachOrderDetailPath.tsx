@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
-  RCDocsKeys,
   selectOrder,
   updateRCDocs,
 } from '../../../../store/features/order/order';
@@ -101,6 +100,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     setToDisplay('hidden');
     dispatch(
       updateRCDocs({
+        orderId,
         name: RCDocsItem.key as RCDocsKeys,
         submitted: true,
         status: 'Declined',
