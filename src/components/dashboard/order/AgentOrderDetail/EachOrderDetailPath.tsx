@@ -260,8 +260,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                   ) : null}
                 </p>
                 {openToolTip && RCDocsItem.key === doc.name && (
-                  // <OpenToolTip doc={doc} />
-                  // // OpenToolTip({doc})
+             
 
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
                     <input
