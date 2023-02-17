@@ -16,7 +16,6 @@ const InitialRender: FC<InitialRender> = ({
   handleCloseDialog,
   setIsAssignAgent
 }) => {
-  console.log("initial render", orderHistoryDetail.agentName)
   type Path = 'AgentClearing' | 'AgentOrderHistory';
 
   const [currentPath, setCurrentPath] = useState<Path>('AgentClearing');

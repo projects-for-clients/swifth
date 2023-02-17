@@ -5,6 +5,7 @@ import {
   SetStateAction,
   FC,
   FormEvent,
+  useEffect,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
@@ -119,9 +120,14 @@ export const AgentClearing: FC<AgentClearing> = ({
 const ordersDataId = ordersData.find((order) => order.assignedAgent);  
 
 
+useEffect(() => {
+  console.log("AgentClearing useEffect orderId: ",orderId)
+}, [])
+
 const OpenToolTip:FC<{
   doc: RCDocs
 }> = ({doc}) => {
+  console.log("mounted OpenToolTip")
   return (
     <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
       {selectFrom.map((item, i) => {
