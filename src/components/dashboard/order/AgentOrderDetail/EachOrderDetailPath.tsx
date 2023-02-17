@@ -114,7 +114,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   )
 
-  const ordersDataId = ordersData.find((order) => order.id === orderId);
+  const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
   return (
     <>
