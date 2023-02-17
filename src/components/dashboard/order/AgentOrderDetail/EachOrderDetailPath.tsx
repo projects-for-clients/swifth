@@ -20,6 +20,7 @@ interface AgentClearing {
 
 export const AgentClearing: FC<AgentClearing> = ({
   setIsAssignAgent,
+  orderId
 }) => {
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
@@ -113,6 +114,8 @@ export const AgentClearing: FC<AgentClearing> = ({
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   )
 
+  const ordersDataId = ordersData.find((order) => order.id === orderId);
+
   return (
     <>
       <section
@@ -156,7 +159,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
         <div
           className={`gap-4 mt-10 ${
-            ordersData ? 'flex' : 'grid'
+            ordersDataId?.id === orderId ? 'flex' : 'grid'
           }`}
         >
           {RCDocs.map((doc, i) => (
