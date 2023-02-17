@@ -20,7 +20,6 @@ interface AgentClearing {
 
 export const AgentClearing: FC<AgentClearing> = ({
   setIsAssignAgent,
-  orderId,
 }) => {
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
@@ -113,8 +112,6 @@ export const AgentClearing: FC<AgentClearing> = ({
   const isBOLApproved = RCDocs.some(
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   )
-
-  const getOrderId = ordersData
 
   return (
     <>
