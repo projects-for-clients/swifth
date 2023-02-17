@@ -116,12 +116,17 @@ export const AgentClearing: FC<AgentClearing> = ({
   );
 
  console.log('mounted', openToolTip)
+ console.count()
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
+
+      const [input, setInput] = useState('');
 
   const OpenToolTip: FC<{
     doc: RCDocs;
   }> = ({ doc }) => {
+
+    
     //console.log('mounted OpenToolTip');
 
     // let count = 0;
@@ -156,8 +161,10 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     // return callTooTip()
 
+
     return (
       <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
+        <input type="text" className='border' value={input} onChange={(e) => setInput(e.target.value) } />
         {selectFrom.map((item, i) => {
           return (
             <button
