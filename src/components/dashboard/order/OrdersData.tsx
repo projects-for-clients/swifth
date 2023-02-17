@@ -26,6 +26,7 @@ export interface InProgress {
   date: Date;
   tag: InProgressFilterBy;
   assignedAgent?: string;
+  RCDocs?: string
 }
 export interface Waitlist {
   id: number;

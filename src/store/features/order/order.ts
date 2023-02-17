@@ -6,8 +6,6 @@ import {
 } from '../../../components/dashboard/order/OrdersData';
 
 
-const generateRandomNum = () =>  Math.floor(100000 + Math.random() * 900000);
-
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
@@ -18,7 +16,6 @@ interface RCDocs {
 }
 
 interface IOrder {
-  id: number;
   RCDocs: RCDocs[];
   ordersData: InProgress[];
 }
@@ -47,7 +44,6 @@ const RCDocsArr = [
 ] satisfies RCDocs[];
 
 const initialState: IOrder = {
-  id: generateRandomNum(),
   RCDocs: RCDocsArr,
   ordersData: INPROGRESS,
 };
