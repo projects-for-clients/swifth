@@ -27,7 +27,7 @@ export const ListOrderHistory: FC<Props> = ({ setOrderHistoryPath }) => {
   const [orderHistory, setOrderHistory] = useState<InProgress[]>(INPROGRESS);
 
   useEffect(() => {
-    const sortedDates = INPROGRESS.sort((a, b) => {
+    const sortedDates = [...INPROGRESS].sort((a, b) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
@@ -51,7 +51,7 @@ export const ListOrderHistory: FC<Props> = ({ setOrderHistoryPath }) => {
     const { from, to } = searchDates;
 
     if (from && to) {
-      const filtered = INPROGRESS.filter((item) => {
+      const filtered = [...INPROGRESS].filter((item) => {
         const date = new Date(item.date);
         return (
           date.getTime() >= from.getTime() && date.getTime() <= to.getTime()
