@@ -115,8 +115,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   );
 
-  console.log('mounted', openToolTip);
-  console.count();
+ 
   useEffect(() => {
     console.log('mounted 2', openToolTip);
     console.count();
