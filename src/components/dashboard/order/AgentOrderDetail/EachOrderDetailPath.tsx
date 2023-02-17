@@ -12,6 +12,7 @@ import {
   selectOrder,
   updateRCDocs,
 } from '../../../../store/features/order/order';
+import { RCDocs } from '../OrdersData';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -115,6 +116,35 @@ export const AgentClearing: FC<AgentClearing> = ({
   )
 
 const ordersDataId = ordersData.find((order) => order.assignedAgent);  
+
+
+const OpenToolTip:FC<{
+  doc: RCDocs
+}> = ({doc}) => {
+  return (
+    <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
+      {selectFrom.map((item, i) => {
+        return (
+          <button
+            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+              doc.submitted && item.name === 'Send submission reminder'
+                ? 'hidden'
+                : 'flex'
+            }`}
+            key={i}
+            disabled={
+              !doc.submitted && item.name !== 'Send submission reminder'
+            }
+            onClick={() => handleSelectedItem(item.name)}
+          >
+            <img src={item.imgUri} alt="" />
+            <span className={`${item.className} font-medium`}>{item.name}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
   return (
     <>
       <section
@@ -169,7 +199,7 @@ const ordersDataId = ordersData.find((order) => order.assignedAgent);
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
-                  {doc.status === 'Approved' ? (
+                  {ordersDataId?.id === orderId && doc.status === 'Approved' ? (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>
@@ -180,31 +210,7 @@ const ordersDataId = ordersData.find((order) => order.assignedAgent);
                   ) : null}
                 </p>
                 {openToolTip && RCDocsItem.key === doc.name && (
-                  <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
-                    {selectFrom.map((item, i) => {
-                      return (
-                        <button
-                          className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
-                            doc.submitted &&
-                            item.name === 'Send submission reminder'
-                              ? 'hidden'
-                              : 'flex'
-                          }`}
-                          key={i}
-                          disabled={
-                            !doc.submitted &&
-                            item.name !== 'Send submission reminder'
-                          }
-                          onClick={() => handleSelectedItem(item.name)}
-                        >
-                          <img src={item.imgUri} alt="" />
-                          <span className={`${item.className} font-medium`}>
-                            {item.name}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                  <OpenToolTip doc={doc}/>
                 )}
               </div>
             </Fragment>
