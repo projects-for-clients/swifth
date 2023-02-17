@@ -31,7 +31,7 @@ const generateRandomNum = () =>
 
 const RCDocs = {
   orderId: generateRandomNum(),
-  docId: generateRandomNum(),
+  docId: 0,
   content: [
     {
       name: 'Bills of Lading',
