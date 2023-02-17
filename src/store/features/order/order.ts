@@ -7,10 +7,15 @@ import {
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
-interface RCDocs {
+type RCDocsContent = {
   name: RCDocsKeys;
   status: RCDocsStatus;
   submitted: boolean;
+};
+interface RCDocs {
+  orderId: number;
+  docId: number;
+  content: RCDocsContent[];
 }
 
 interface IOrder {
@@ -21,6 +26,8 @@ interface IOrder {
 
 const generateRandomNum = () =>
   Math.floor(100000 + Math.random() * 900000);
+
+  
 
 const RCDocs = {
   orderId: generateRandomNum(),
@@ -47,9 +54,25 @@ const RCDocs = {
       submitted: false,
     },
   ],
-};
+} satisfies RCDocs
 
-const RCDocsArr = [RCDocs, RCDocs];
+const RCDocsArr:RCDocs[] = [];
+
+console.log({ INPROGRESS });
+
+INPROGRESS.forEach((order) => {
+  const {id} = order
+
+  const newRCDocs = {
+    ...RCDocs,
+    orderId: id,
+    docId: generateRandomNum(),
+  };
+
+  RCDocsArr.push(newRCDocs);
+
+});
+
 
 const initialState: IOrder = {
   RCDocsArr,
