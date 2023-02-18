@@ -7,34 +7,30 @@ import {
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 export type ClearingKeys = 'Valuating' | 'Duty Processing' | 'Custom Releasing';
-type RCDocsStatus = 'Approved' | 'Declined' | null;
+type DocStatus = 'Approved' | 'Declined' | null;
 
-export type RCDocsContent = {
-  name: RCDocsKeys;
-  status: RCDocsStatus;
+export type DocsContent = {
+  name: RCDocsKeys | ClearingKeys;
+  status: DocStatus;
   submitted: boolean;
 };
 
 interface UpdateRCDocsPayload {
   orderId: number;
-  content: RCDocsContent;
+  content: DocsContent;
 }
-interface RCDocs {
+interface IDocs {
   orderId: number;
   docId: number;
-  content: RCDocsContent[];
+  content: DocsContent[];
 }
 
 interface IOrder {
-  RCDocsArr: RCDocs[];
+  RCDocsArr: IDocs[];
   ordersData: InProgress[];
 }
 
-
-const generateRandomNum = () =>
-  Math.floor(100000 + Math.random() * 900000);
-
-  
+const generateRandomNum = () => Math.floor(100000 + Math.random() * 900000);
 
 const RCDocs = {
   orderId: generateRandomNum(),
@@ -61,24 +57,50 @@ const RCDocs = {
       submitted: false,
     },
   ],
-} satisfies RCDocs
+} satisfies IDocs;
 
-const RCDocsArr:RCDocs[] = [];
+const clearingDocs = {
+  orderId: generateRandomNum(),
+  docId: 0,
+  content: [
+    {
+      name: 'Valuating',
+      status: null,
+      submitted: true,
+    },
+    {
+      name: 'Duty Processing',
+      status: null,
+      submitted: false,
+    },
+    {
+      name: 'Custom Releasing',
+      status: null,
+      submitted: false,
+    },
+  ],
+} satisfies IDocs;
 
+const RCDocsArr: IDocs[] = [];
+const ClearingDocsArr: IDocs[] = [];
 
 INPROGRESS.forEach((order) => {
-  const {id} = order
+  const { id } = order;
 
   const newRCDocs = {
     ...RCDocs,
     orderId: id,
     docId: generateRandomNum(),
   };
+  const newClearingDocs = {
+    ...clearingDocs,
+    orderId: id,
+    docId: generateRandomNum(),
+  };
 
   RCDocsArr.push(newRCDocs);
-
+  ClearingDocsArr.push(newClearingDocs);
 });
-
 
 const initialState: IOrder = {
   RCDocsArr,
