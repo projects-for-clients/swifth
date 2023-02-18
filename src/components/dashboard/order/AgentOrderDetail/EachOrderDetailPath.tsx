@@ -323,7 +323,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
             <button className="flex w-full items-center justify-end mt-10">
               <span className="text-red-600  border border-red-600 rounded-lg  py-4 basis-1/2">
-                Reject BOL
+                Reject Clearing Doc
               </span>
             </button>
           </form>
