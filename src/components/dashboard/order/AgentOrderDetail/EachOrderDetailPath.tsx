@@ -133,14 +133,7 @@ export const AgentClearing: FC<AgentClearing> = ({
       );
     }
   });
-  const isBOLDeclined = RCDocsArr.some((RCDoc) => {
-    if (RCDoc.orderId === orderId) {
-      RCDocContent = RCDoc.content;
-      return RCDoc.content.some(
-        (doc) => doc.name === 'Bills of Lading' && doc.status === 'Declined'
-      );
-    }
-  });
+  
 
   const isOrderAssignedAgent = ordersData.find(
     (order) => order.id === orderId && order.assignedAgent
