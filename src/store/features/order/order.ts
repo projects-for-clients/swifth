@@ -21,6 +21,7 @@ interface UpdateRCDocsPayload {
 interface IDocs {
   orderId: number;
   docId: number;
+  fieldAgent?: string;
   content: DocsContent[];
 }
 
@@ -64,6 +65,7 @@ const clearingDocs = {
   docId: 0,
   content: [
     {
+
       name: 'Valuating',
       status: null,
       submitted: true,
