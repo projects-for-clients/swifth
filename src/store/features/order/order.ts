@@ -6,6 +6,7 @@ import {
 } from '../../../components/dashboard/order/OrdersData';
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
+export type ClearingKeys = 'Valuating' | 'Duty Processing' | 'Custom Releasing';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
 
 export type RCDocsContent = {
