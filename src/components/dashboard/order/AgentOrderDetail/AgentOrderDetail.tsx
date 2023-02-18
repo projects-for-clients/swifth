@@ -1,4 +1,4 @@
-import { useState, useEffect, FC, FormEvent, createContext } from 'react';
+import { useState, useEffect, FC, FormEvent, createContext, Dispatch, SetStateAction } from 'react';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress } from '../OrdersData';
@@ -47,6 +47,14 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
   }, [orderDetail]);
 
   // return <div></div>;
+
+  interface AgentOrderDetailContext {
+    showAssignAgentView: ShowAssignAgentView;
+    setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
+    orderId: string;
+    orderHistoryDetail: OrderHistoryDetail;
+    handleCloseDialog: (type: DialogType) => void;
+  }
 
   const AgentOrderDetailContext = createContext(null as any)
 
