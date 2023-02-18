@@ -10,9 +10,10 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch } from '../../../../store/app/hooks';
 import { assignAgentHandler } from '../../../../store/features/order/order';
+import { ShowAssignAgentView } from './AgentOrderDetail';
 
 interface AssignAgentRender {
-  setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
+  setIsAssignAgent: Dispatch<SetStateAction<ShowAssignAgentView>>;
   orderId: number;
 }
 
@@ -41,7 +42,9 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
   };
 
   const goBack = () => {
-    setIsAssignAgent(false);
+    setIsAssignAgent({
+      show: false
+    });
   };
 
   useEffect(() => {

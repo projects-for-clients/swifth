@@ -12,7 +12,7 @@ interface AgentOrderDetail {
 
 export interface ShowAssignAgentView {
   show: boolean;
-  whichDoc: 'RCDoc' | 'ClearingDoc';
+  whichDoc?: 'RCDoc' | 'ClearingDoc';
 }
 
 const AgentOrderDetail: FC<AgentOrderDetail> = ({

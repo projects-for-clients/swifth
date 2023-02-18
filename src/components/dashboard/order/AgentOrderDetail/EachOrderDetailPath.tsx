@@ -16,15 +16,16 @@ import {
   updateClearingDoc,
   updateRCDocs,
 } from '../../../../store/features/order/order';
+import { ShowAssignAgentView } from './AgentOrderDetail';
 
 
 interface AgentClearing {
-  setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
+  showAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
   orderId: number;
 }
 
 export const AgentClearing: FC<AgentClearing> = ({
-  setIsAssignAgent,
+  showAssignAgentView,
   orderId,
 }) => {
   const dispatch = useAppDispatch();
@@ -100,7 +101,10 @@ export const AgentClearing: FC<AgentClearing> = ({
   ] as const;
 
   const assignRCDocAgent = () => {
-    setIsAssignAgent(true, 'RCDoc');
+    showAssignAgentView({
+      show: true,
+      whichDoc: 'RCDoc',
+    });
   };
 
   useEffect(() => {
