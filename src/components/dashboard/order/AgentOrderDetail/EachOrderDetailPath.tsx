@@ -94,6 +94,16 @@ export const AgentClearing: FC<AgentClearing> = ({
           },
         })
       );
+      dispatch(
+        updateRCDocs({
+          orderId,
+          content: {
+            name: 'CAC',
+            submitted: true,
+            status: 'Approved',
+          },
+        })
+      );
     }
 
     if (item === 'Decline') {
