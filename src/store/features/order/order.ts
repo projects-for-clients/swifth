@@ -149,7 +149,7 @@ export const orderSlice = createSlice({
         },
         []
       );
-      return { ...state, RCDocsArr: updatedClearingDoc };
+      return { ...state, clearingDocsArr: updatedClearingDoc };
     },
 
     assignAgentHandler: (
