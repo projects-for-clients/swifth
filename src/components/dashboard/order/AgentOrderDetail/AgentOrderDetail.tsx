@@ -1,7 +1,7 @@
 import { useState, useEffect, FC, FormEvent } from 'react';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
-import { InProgress, filterByColors } from '../OrdersData';
+import { InProgress } from '../OrdersData';
 import AssignAgentRender from './AssignAgentRender';
 import InitialRender from './InitialRender';
 
