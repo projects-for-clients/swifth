@@ -34,13 +34,16 @@ export const AgentClearing: FC<AgentClearing> = ({
   const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
     key: null,
   });
-  const [clearingDocItem, setclearingDocItem] = useState<{ key: string | null }>({
+  const [clearingDocItem, setclearingDocItem] = useState<{
+    key: string | null;
+  }>({
     key: null,
   });
 
-
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const [selectedClearingItem, setSelectedClearingItem] = useState<string | null>(null);
+  const [selectedClearingItem, setSelectedClearingItem] = useState<
+    string | null
+  >(null);
   const [openToolTip, setOpenToolTip] = useState(false);
   const [openClearingDocToolTip, setOpenClearingDocToolTip] = useState(false);
 
@@ -117,14 +120,14 @@ export const AgentClearing: FC<AgentClearing> = ({
       }
       return { key: item };
     });
-    
+
     setOpenClearingDocToolTip(true);
   };
 
   const handleSelectedClearingDocItem = (item: string) => {
     if (item === 'Approve' && clearingDocItem.key) {
       setOpenClearingDocToolTip(false);
-      setSelectedClearingItem(clearingDocItem.key)
+      setSelectedClearingItem(clearingDocItem.key);
       setclearingDocItem({ key: null });
 
       dispatch(
@@ -143,12 +146,12 @@ export const AgentClearing: FC<AgentClearing> = ({
       setToDisplay('grid');
       setOpenClearingDocToolTip(false);
     }
-  }
+  };
 
   const handleSelectedItem = (item: string) => {
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
-      setSelectedItem(RCDocsItem.key)
+      setSelectedItem(RCDocsItem.key);
       setRCDocsItem({ key: null });
 
       dispatch(
@@ -215,18 +218,15 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   clearingDocsArr.find((clearingDoc) => {
     if (clearingDoc.orderId === orderId) {
-      return clearingDocContent = clearingDoc.content;
+      return (clearingDocContent = clearingDoc.content);
     }
-  })
-  
+  });
 
   const isOrderAssignedAgent = ordersData.find(
     (order) => order.id === orderId && order.assignedAgent
   );
 
-  const handleNextDocAction = () => {
-    
-  }
+  const handleNextDocAction = () => {};
 
   return (
     <>
@@ -332,8 +332,10 @@ export const AgentClearing: FC<AgentClearing> = ({
           ))}
         </div>
         {isOrderAssignedAgent && (
-          <div className='grid gap-4 mt-10 '>
-            <p className="text-gray-400 font-semibold text-[1.8rem]">Clearing</p>
+          <div className="grid gap-4 mt-10 ">
+            <p className="text-gray-400 font-semibold text-[1.8rem]">
+              Clearing
+            </p>
 
             {clearingDocContent.map((doc, i) => (
               <Fragment key={i}>
@@ -344,8 +346,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                   >
                     {doc.name}
 
-                    {(isOrderAssignedAgent && doc.status === 'Approved') ||
-                    selectedItem === doc.name ? (
+                    {doc.status === 'Approved' ? (
                       <span>
                         <img src="/icons/tick-square.svg" alt="" />
                       </span>
@@ -355,28 +356,29 @@ export const AgentClearing: FC<AgentClearing> = ({
                       </span>
                     ) : null}
                   </p>
-                  {openClearingDocToolTip && clearingDocItem.key === doc.name && (
-                    <div
-                      className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize right-0 `}
-                    >
-                      {selectClearingOptions.map((item, i) => {
-                        return (
-                          <button
-                            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
-                            key={i}
-                           
-                            onClick={() => handleSelectedClearingDocItem(item.name)}
-                          >
-                            <img src={item.imgUri} alt="" />
-                            <span className={`${item.className} font-medium`}>
-                              {item.name}
-                            </span>
-                          </button>
-                        );
-                      })}
-                     
-                    </div>
-                  )}
+                  {openClearingDocToolTip &&
+                    clearingDocItem.key === doc.name && (
+                      <div
+                        className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize right-0 `}
+                      >
+                        {selectClearingOptions.map((item, i) => {
+                          return (
+                            <button
+                              className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
+                              key={i}
+                              onClick={() =>
+                                handleSelectedClearingDocItem(item.name)
+                              }
+                            >
+                              <img src={item.imgUri} alt="" />
+                              <span className={`${item.className} font-medium`}>
+                                {item.name}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                 </div>
               </Fragment>
             ))}
