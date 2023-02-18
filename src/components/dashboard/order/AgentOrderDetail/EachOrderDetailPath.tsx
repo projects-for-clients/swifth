@@ -71,7 +71,7 @@ export const AgentClearing: FC<AgentClearing> = ({
       className: 'text-color-dark-3',
     },
     {
-      imgUri: '/icons/document-upload.svg',
+      imgUri: '/icons/user-tick.svg',
       name: 'Assign Field Agent',
       className: 'text-color-dark-3',
     },
@@ -163,6 +163,8 @@ export const AgentClearing: FC<AgentClearing> = ({
   const { RCDocsArr, ordersData, clearingDocsArr } = orderDetails;
 
   let RCDocContent = [] as DocsContent[];
+  let clearingDocContent = [] as DocsContent[];
+
   const isBOLApproved = RCDocsArr.some((RCDoc) => {
     if (RCDoc.orderId === orderId) {
       RCDocContent = RCDoc.content;
@@ -171,6 +173,12 @@ export const AgentClearing: FC<AgentClearing> = ({
       );
     }
   });
+
+  clearingDocsArr.find((clearingDoc) => {
+    if (clearingDoc.orderId === orderId) {
+      return clearingDocContent = clearingDoc.content;
+    }
+  })
   
 
   const isOrderAssignedAgent = ordersData.find(
