@@ -298,35 +298,35 @@ export const AgentClearing: FC<AgentClearing> = ({
               </span>
             </button>
           </form>
-        ): (
-           <form
-          className="bg-white py-10 px-10 rounded-t-3xl"
-          onSubmit={handleRejectClearingDoc}
-        >
-          <p className="text-[1.6rem] text-gray-600 mb-8">
-            Reject Clearing Doc - Leave a Comment
-          </p>
+        ) : (
+          <form
+            className="bg-white py-10 px-10 rounded-t-3xl"
+            onSubmit={handleRejectClearingDoc}
+          >
+            <p className="text-[1.6rem] text-gray-600 mb-8">
+              Reject Clearing Doc - Leave a Comment
+            </p>
 
-          <div>
-            <label htmlFor="comment" className="text-[1.4rem] text-gray-600">
-              Comment
-            </label>
+            <div>
+              <label htmlFor="comment" className="text-[1.4rem] text-gray-600">
+                Comment
+              </label>
 
-            <textarea
-              id="comment"
-              placeholder="Enter Comment"
-              required
-              rows={3}
-              className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
-            />
-          </div>
+              <textarea
+                id="comment"
+                placeholder="Enter Comment"
+                required
+                rows={3}
+                className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
+              />
+            </div>
 
-          <button className="flex w-full items-center justify-end mt-10">
-            <span className="text-red-600  border border-red-600 rounded-lg  py-4 basis-1/2">
-              Reject BOL
-            </span>
-          </button>
-        </form>
+            <button className="flex w-full items-center justify-end mt-10">
+              <span className="text-red-600  border border-red-600 rounded-lg  py-4 basis-1/2">
+                Reject BOL
+              </span>
+            </button>
+          </form>
         )}
       </section>
       <div className="pt-10">
