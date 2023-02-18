@@ -13,11 +13,11 @@ import { assignAgentHandler } from '../../../../store/features/order/order';
 import { ShowAssignAgentView } from './AgentOrderDetail';
 
 interface AssignAgentRender {
-  setIsAssignAgent: Dispatch<SetStateAction<ShowAssignAgentView>>;
+  showAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
   orderId: number;
 }
 
-const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId }) => {
+const AssignAgentRender: FC<AssignAgentRender> = ({ showAssignAgentView, orderId }) => {
   const dispatch = useAppDispatch();
 
   const [toastDisplay, setToastDisplay] = useState('hidden');
@@ -42,7 +42,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
   };
 
   const goBack = () => {
-    setIsAssignAgent({
+    showAssignAgentView({
       show: false
     });
   };
