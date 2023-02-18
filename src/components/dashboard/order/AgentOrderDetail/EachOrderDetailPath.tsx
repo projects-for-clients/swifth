@@ -15,7 +15,6 @@ import {
   selectOrder,
   updateRCDocs,
 } from '../../../../store/features/order/order';
-import { RCDocs } from '../OrdersData';
 
 interface AgentClearing {
   setIsAssignAgent: Dispatch<SetStateAction<boolean>>;
@@ -81,7 +80,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   const handleSelectedItem = (item: string) => {
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
-      setRCDocsItem({ key: null });
+      //setRCDocsItem({ key: null });
 
       dispatch(
         updateRCDocs({
