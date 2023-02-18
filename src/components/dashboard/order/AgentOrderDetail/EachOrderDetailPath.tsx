@@ -355,9 +355,9 @@ export const AgentClearing: FC<AgentClearing> = ({
                       </span>
                     ) : null}
                   </p>
-                  {openToolTip && clearingDocItem.key === doc.name && (
+                  {openClearingDocToolTip && clearingDocItem.key === doc.name && (
                     <div
-                      className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize `}
+                      className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize right-0 `}
                     >
                       {selectClearingOptions.map((item, i) => {
                         return (
