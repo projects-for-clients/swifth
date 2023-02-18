@@ -106,14 +106,17 @@ export const AgentClearing: FC<AgentClearing> = ({
     setToDisplay('hidden');
     dispatch(
       updateRCDocs({
-        name: RCDocsItem.key as RCDocsKeys,
-        submitted: true,
-        status: 'Declined',
+        orderId,
+        content: {
+          name: RCDocsItem.key as RCDocsKeys,
+          submitted: true,
+          status: 'Declined',
+        },
       })
     );
   };
 
-  const { RCDocs, ordersData } = orderDetails;
+  const {RCDocsArr, ordersData } = orderDetails;
 
   const isBOLApproved = RCDocs.some(
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
