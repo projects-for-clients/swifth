@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
+  RCDocsContent,
   RCDocsKeys,
   selectOrder,
   updateRCDocs,
@@ -80,9 +81,11 @@ export const AgentClearing: FC<AgentClearing> = ({
       dispatch(
         updateRCDocs({
           orderId,
-          name: RCDocsItem.key as RCDocsKeys,
-          submitted: true,
-          status: 'Approved',
+          content: {
+            name: RCDocsItem.key as RCDocsKeys,
+            submitted: true,
+            status: 'Approved',
+          }
         })
       );
     }
@@ -116,17 +119,14 @@ export const AgentClearing: FC<AgentClearing> = ({
     (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
   );
 
- 
   useEffect(() => {
-    setOpenToolTip(false)
-    setRCDocsItem({ key: null })
-  }, [orderId]) ;
-
- 
+    setOpenToolTip(false);
+    setRCDocsItem({ key: null });
+  }, [orderId]);
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
-console.log({ordersDataId, orderId})
+  console.log({ ordersDataId, orderId });
 
   return (
     <>
@@ -193,10 +193,7 @@ console.log({ordersDataId, orderId})
                   ) : null}
                 </p>
                 {openToolTip && RCDocsItem.key === doc.name && (
-             
-
                   <div className="absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize">
-                   
                     {selectFrom.map((item, i) => {
                       return (
                         <button

@@ -7,11 +7,17 @@ import {
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
-type RCDocsContent = {
+
+export type RCDocsContent = {
   name: RCDocsKeys;
   status: RCDocsStatus;
   submitted: boolean;
 };
+
+interface UpdateRCDocsPayload {
+  orderId: number;
+  content: RCDocsContent;
+}
 interface RCDocs {
   orderId: number;
   docId: number;
@@ -82,7 +88,7 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    updateRCDocs: (state, { payload }: { payload: RCDocs }) => {
+    updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
       return {
         ...state,
         RCDocsArr: [
