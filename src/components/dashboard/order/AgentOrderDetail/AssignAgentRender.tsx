@@ -107,7 +107,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
           </section>
 
           <section className="grid mt-10">
-            {RCDocAgents.filter((agent) =>
+            {showAssignAgentView.whichDoc === 'RCDoc'? RCDocAgents : clearingDocAgents.filter((agent) =>
               agent.toLowerCase().includes(search)
             ).map((agent, i) => (
               <div
