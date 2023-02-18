@@ -10,7 +10,7 @@ import {
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
-  RCDocsContent,
+  DocsContent,
   RCDocsKeys,
   selectOrder,
   updateRCDocs,
@@ -134,7 +134,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const { RCDocsArr, ordersData } = orderDetails;
 
-  let RCDocContent = [] as RCDocsContent[];
+  let RCDocContent = [] as DocsContent[];
   const isBOLApproved = RCDocsArr.some((RCDoc) => {
     if (RCDoc.orderId === orderId) {
       RCDocContent = RCDoc.content;
