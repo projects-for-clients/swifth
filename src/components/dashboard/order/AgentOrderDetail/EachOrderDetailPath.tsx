@@ -30,7 +30,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   const orderDetails = useAppSelector(selectOrder);
 
   const [toDisplay, setToDisplay] = useState<{
-    docType?: 'RCDoc' | 'ClearingDoc';
+    docType?: 'RCDoc' | 'clearingDoc';
     display: 'hidden' | 'grid'
   }>({
     display: 'hidden',
@@ -149,6 +149,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     if (item === 'Decline') {
       setToDisplay({
+        docType: 'clearingDoc',
         display: 'grid'
       });
       setOpenClearingDocToolTip(false);
@@ -185,7 +186,8 @@ export const AgentClearing: FC<AgentClearing> = ({
 
     if (item === 'Decline') {
       setToDisplay({
-        display: 'grid'
+        docType: 'RCDoc',
+        display: 'grid',
       });
       setOpenToolTip(false);
     }
