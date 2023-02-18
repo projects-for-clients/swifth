@@ -118,9 +118,13 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const {RCDocsArr, ordersData } = orderDetails;
 
-  const isBOLApproved = RCDocs.some(
-    (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
-  );
+
+  const isBOLApproved = RCDocsArr.some((RCDoc) => {
+    if(RCDoc.orderId === orderId) {
+      return RCDoc.content.some((doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved')
+    }
+  }) 
+
 
   useEffect(() => {
     setOpenToolTip(false);
