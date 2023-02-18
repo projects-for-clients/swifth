@@ -1,9 +1,7 @@
 import { useState, useEffect, FC, Dispatch, SetStateAction, useContext } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
-import { DialogType } from '../../../../container/dashboard/orders';
-import { OrderHistoryDetail } from '../OrderHistory';
 import { filterByColors } from '../OrdersData';
-import { AgentOrderDetailContext, ShowAssignAgentView } from './AgentOrderDetail';
+import { AgentOrderDetailContext } from './AgentOrderDetail';
 import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 
 
