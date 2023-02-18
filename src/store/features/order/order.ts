@@ -31,6 +31,11 @@ interface IOrder {
   ordersData: InProgress[];
 }
 
+interface AssignClearingDocFieldAgent {
+  orderId: number;
+  content: DocsContent;
+}
+
 const generateRandomNum = () => Math.floor(100000 + Math.random() * 900000);
 
 const RCDocs = {
@@ -75,7 +80,6 @@ const clearingDocs = {
       name: 'Duty Processing',
       status: null,
       submitted: false,
-
     },
     {
       fieldAgent: null,
@@ -118,8 +122,6 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
-   
-
       const { orderId, content } = payload;
 
       const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
@@ -157,9 +159,24 @@ export const orderSlice = createSlice({
       return { ...state, clearingDocsArr: updatedClearingDoc };
     },
 
-    assignClearingDocFieldAgent: (state, {payload}: {payload: Pick<DocsContent, 'fieldAgent'>}) => {
+    assignClearingDocFieldAgent: (
+      state,
+      { payload }: { payload: AssignClearingDocFieldAgent }
+    ) => {
+      const { orderId, content } = payload;
 
-    }
+      const updatedClearingDoc = state.clearingDocsArr.map((doc) => {
+        if (doc.orderId !== orderId) return doc;
+
+        const updatedContent = doc.content.map((c) =>
+          c.name === content.name ? { ...c, ...content } : c
+        );
+
+        return { ...doc, content: updatedContent };
+      });
+
+      return { ...state, clearingDocsArr: updatedClearingDoc };
+    },
 
     assignAgentHandler: (
       state,
@@ -181,7 +198,8 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { updateRCDocs, updateClearingDoc, assignAgentHandler } = orderSlice.actions;
+export const { updateRCDocs, updateClearingDoc, assignAgentHandler } =
+  orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 
