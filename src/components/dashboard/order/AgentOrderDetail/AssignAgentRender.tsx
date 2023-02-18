@@ -15,11 +15,13 @@ import { ShowAssignAgentView } from './AgentOrderDetail';
 interface AssignAgentRender {
   setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
   orderId: number;
+  showAssignAgentView: ShowAssignAgentView;
 }
 
 const AssignAgentRender: FC<AssignAgentRender> = ({
   setShowAssignAgentView,
   orderId,
+  showAssignAgentView
 }) => {
   const dispatch = useAppDispatch();
 

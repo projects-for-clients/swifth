@@ -54,6 +54,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
         <>
           {showAssignAgentView.show ? (
             <AssignAgentRender
+              showAssignAgentView={showAssignAgentView}
               setShowAssignAgentView={setShowAssignAgentView}
               orderId={orderDetail.id}
             />
