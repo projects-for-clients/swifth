@@ -216,7 +216,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     );
   };
   const handleRejectClearingDoc = (e: FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     setToDisplay({
       display: 'hidden',
