@@ -191,18 +191,21 @@ export const AgentClearing: FC<AgentClearing> = ({
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
         <div
-          className={`gap-4 mt-10 ${!isOrderAssignedAgent ? 'flex w-full bg-red-200' : 'grid'}`}
+          className={`gap-4 mt-10 ${
+            isOrderAssignedAgent ? 'flex w-full' : 'grid'
+          }`}
         >
           {RCDocContent.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">
                 <p
-                  className="p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4"
+                  className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 ${isOrderAssignedAgent ? 'w-[15rem]': ''}`}
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
-                 
-                  {(isOrderAssignedAgent && doc.status === 'Approved') || (selectedItem === doc.name) ? (
+
+                  {(isOrderAssignedAgent && doc.status === 'Approved') ||
+                  selectedItem === doc.name ? (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>
