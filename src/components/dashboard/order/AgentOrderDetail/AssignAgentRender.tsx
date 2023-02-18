@@ -5,12 +5,13 @@ import {
   Dispatch,
   SetStateAction,
   ChangeEvent,
+  useContext,
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch } from '../../../../store/app/hooks';
 import { assignAgentHandler, assignClearingDocFieldAgent } from '../../../../store/features/order/order';
-import { ShowAssignAgentView } from './AgentOrderDetail';
+import { AgentOrderDetailContext, ShowAssignAgentView } from './AgentOrderDetail';
 
 interface AssignAgentRender {
   setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
@@ -23,6 +24,9 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   orderId,
   showAssignAgentView,
 }) => {
+
+  const agentDetailContext = useContext(AgentOrderDetailContext);
+
   const dispatch = useAppDispatch();
 
   const [toastDisplay, setToastDisplay] = useState('hidden');

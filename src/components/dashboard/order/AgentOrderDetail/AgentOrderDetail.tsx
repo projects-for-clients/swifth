@@ -1,4 +1,12 @@
-import { useState, useEffect, FC, FormEvent, createContext, Dispatch, SetStateAction } from 'react';
+import {
+  useState,
+  useEffect,
+  FC,
+  FormEvent,
+  createContext,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress } from '../OrdersData';
@@ -15,6 +23,8 @@ export interface ShowAssignAgentView {
   whichDoc?: 'RCDoc' | 'clearingDoc';
 }
 
+export const AgentOrderDetailContext = createContext(null as any);
+
 const AgentOrderDetail: FC<AgentOrderDetail> = ({
   handleCloseDialog,
   orderDetail,
@@ -23,10 +33,11 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     useState<OrderHistoryDetail | null>(null);
   const [loaded, setLoaded] = useState(false);
 
-  const [showAssignAgentView, setShowAssignAgentView] = useState<ShowAssignAgentView>({
-    show: false,
-    whichDoc: 'RCDoc',
-  });
+  const [showAssignAgentView, setShowAssignAgentView] =
+    useState<ShowAssignAgentView>({
+      show: false,
+      whichDoc: 'RCDoc',
+    });
 
   useEffect(() => {
     if (orderDetail) {
@@ -56,31 +67,19 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     handleCloseDialog: (type: DialogType) => void;
   }
 
-  const AgentOrderDetailContext = createContext(null as any)
-
   return (
-    <AgentOrderDetailContext.Provider value={{
-      showAssignAgentView,
-      setShowAssignAgentView,
-      orderId: orderDetail.id,
-      orderHistoryDetail,
-      handleCloseDialog
-    }}>
+    <AgentOrderDetailContext.Provider
+      value={{
+        showAssignAgentView,
+        setShowAssignAgentView,
+        orderId: orderDetail.id,
+        orderHistoryDetail,
+        handleCloseDialog,
+      }}
+    >
       {loaded ? (
         <>
-          {showAssignAgentView.show ? (
-            <AssignAgentRender
-              showAssignAgentView={showAssignAgentView}
-              setShowAssignAgentView={setShowAssignAgentView}
-              orderId={orderDetail.id}
-            />
-          ) : (
-            <InitialRender
-              setShowAssignAgentView={setShowAssignAgentView}
-              orderHistoryDetail={orderHistoryDetail!}
-              handleCloseDialog={handleCloseDialog}
-            />
-          )}
+          {showAssignAgentView.show ? <AssignAgentRender /> : <InitialRender />}
         </>
       ) : null}
     </AgentOrderDetailContext.Provider>
