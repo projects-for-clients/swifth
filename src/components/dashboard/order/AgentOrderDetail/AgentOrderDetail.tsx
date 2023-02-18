@@ -26,7 +26,7 @@ export interface ShowAssignAgentView {
  interface AgentOrderDetailContext {
    showAssignAgentView: ShowAssignAgentView;
    setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
-   orderId: string;
+   orderId: number;
    orderHistoryDetail: OrderHistoryDetail;
    handleCloseDialog: (type: DialogType) => void;
  }
@@ -74,7 +74,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
         showAssignAgentView,
         setShowAssignAgentView,
         orderId: orderDetail.id,
-        orderHistoryDetail,
+        orderHistoryDetail: orderHistoryDetail! ,
         handleCloseDialog,
       }}
     >

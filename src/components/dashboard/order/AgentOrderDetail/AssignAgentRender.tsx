@@ -10,26 +10,20 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch } from '../../../../store/app/hooks';
-import { assignAgentHandler, assignClearingDocFieldAgent } from '../../../../store/features/order/order';
-import { AgentOrderDetailContext, ShowAssignAgentView } from './AgentOrderDetail';
+import {
+  assignAgentHandler,
+  assignClearingDocFieldAgent,
+} from '../../../../store/features/order/order';
+import {
+  AgentOrderDetailContext,
+} from './AgentOrderDetail';
 
-interface AssignAgentRender {
-  setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
-  orderId: number;
-  showAssignAgentView: ShowAssignAgentView;
-}
-
-const AssignAgentRender: FC<AssignAgentRender> = ({
-  
-}) => {
+const AssignAgentRender = () => {
 
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const {
-    setShowAssignAgentView,
-    orderId,
-    showAssignAgentView
-  } = agentDetailContext;
+  const { setShowAssignAgentView, orderId, showAssignAgentView } =
+    agentDetailContext;
 
   const dispatch = useAppDispatch();
 
@@ -53,14 +47,14 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
         })
       );
     } else {
-      dispatch(
-        assignClearingDocFieldAgent({
-          orderId,
-          content: {
-            name: ''
-          }
-        })
-      );
+     // dispatch(
+        // assignClearingDocFieldAgent({
+        //   orderId,
+        //   content: {
+        //     name: '',
+        //   },
+        // })
+     // );
     }
     setToastDisplay('flex');
   };
