@@ -52,7 +52,8 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
     }
   }, [toastDisplay]);
 
-  const agents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
+  const RCDocAgents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
+  const clearingDocAgents = ['Samson Oluwasegun', 'Tunde Oyekanmi', 'Tunde Babalola']
 
   return (
     <>
@@ -94,7 +95,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ setIsAssignAgent, orderId })
           </section>
 
           <section className="grid mt-10">
-            {agents
+            {RCDocAgents
               .filter((agent) => agent.toLowerCase().includes(search))
               .map((agent, i) => (
                 <div
