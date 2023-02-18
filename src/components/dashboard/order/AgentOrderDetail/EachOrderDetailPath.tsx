@@ -64,6 +64,29 @@ export const AgentClearing: FC<AgentClearing> = ({
     },
   ] as const;
 
+  const selectClearingOptions = [
+    {
+      imgUri: '/icons/document-upload.svg',
+      name: 'Upload clearing Agent',
+      className: 'text-color-dark-3',
+    },
+    {
+      imgUri: '/icons/document-upload.svg',
+      name: 'Assign Field Agent',
+      className: 'text-color-dark-3',
+    },
+    {
+      imgUri: '/icons/tick-square.svg',
+      name: 'Approve',
+      className: 'text-color-primary',
+    },
+    {
+      imgUri: '/icons/close-square.svg',
+      name: 'Decline',
+      className: 'text-red-600',
+    },
+  ] as const;
+
   const assignAgentHandler = () => {
     setIsAssignAgent(true);
   };
