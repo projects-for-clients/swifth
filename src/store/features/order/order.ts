@@ -200,10 +200,6 @@ const RCDocsArr: IDoc[] = Array.from({ length: 20 }, () => {
 
 
 
-console.log({ RCDocsArr })
-
-
-
 const initialState: IState = {
   RCDocsArr,
 };
