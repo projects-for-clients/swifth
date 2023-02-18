@@ -135,7 +135,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const handleSelectedClearingDocItem = (item: string) => {
-    if (item === 'Upload clearing Agent') {
+    if (item === 'Assign Field Agent') {
       setShowAssignAgentView({
         show: true,
         whichDoc: 'clearingDoc',
