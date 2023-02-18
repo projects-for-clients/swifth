@@ -29,7 +29,13 @@ export const AgentClearing: FC<AgentClearing> = ({
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
 
-  const [toDisplay, setToDisplay] = useState('hidden');
+  const [toDisplay, setToDisplay] = useState<{
+    docType?: 'RCDoc' | 'ClearingDoc';
+    display: 'hidden' | 'grid'
+  }>({
+    docType: null,
+    display: 'hidden',
+  });
 
   const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
     key: null,
@@ -143,7 +149,9 @@ export const AgentClearing: FC<AgentClearing> = ({
     }
 
     if (item === 'Decline') {
-      setToDisplay('grid');
+      setToDisplay({
+        display: 'grid'
+      });
       setOpenClearingDocToolTip(false);
     }
   };
@@ -177,19 +185,23 @@ export const AgentClearing: FC<AgentClearing> = ({
     }
 
     if (item === 'Decline') {
-      setToDisplay('grid');
+      setToDisplay({
+        display: 'grid'
+      });
       setOpenToolTip(false);
     }
   };
 
   const closeModal = () => {
-    setToDisplay('hidden');
+    setToDisplay({  display: 'hidden' });
   };
 
   const handleRejectBOL = (e: FormEvent) => {
     e.preventDefault();
 
-    setToDisplay('hidden');
+    setToDisplay({
+      display: 'hidden'
+    });
     dispatch(
       updateRCDocs({
         orderId,
@@ -231,7 +243,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   return (
     <>
       <section
-        className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay} z-20`}
+        className={`absolute top-0 left-0 right-0 bottom-0 grid content-end bg-[#000000ad] ${toDisplay.display} z-20`}
         style={{
           gridTemplateRows: '1.2fr 1fr',
         }}
