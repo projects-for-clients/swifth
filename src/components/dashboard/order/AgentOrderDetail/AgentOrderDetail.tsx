@@ -1,4 +1,4 @@
-import { useState, useEffect, FC, FormEvent } from 'react';
+import { useState, useEffect, FC, FormEvent, createContext } from 'react';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress } from '../OrdersData';
@@ -48,8 +48,16 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
 
   // return <div></div>;
 
+  const AgentOrderDetailContext = createContext(null as any)
+
   return (
-    <>
+    <AgentOrderDetailContext.Provider value={{
+      showAssignAgentView,
+      setShowAssignAgentView,
+      orderId: orderDetail.id,
+      orderHistoryDetail,
+      handleCloseDialog
+    }}>
       {loaded ? (
         <>
           {showAssignAgentView.show ? (
@@ -67,7 +75,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
           )}
         </>
       ) : null}
-    </>
+    </AgentOrderDetailContext.Provider>
   );
 };
 
