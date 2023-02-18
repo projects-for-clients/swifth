@@ -132,7 +132,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   }) 
   
 
-  const ordersDataId = ordersData.find((order) => order.assignedAgent);
+  const isOrderAssignedAgent = ordersData.find((order) => order.id === orderId && order.assignedAgent );
 
 
   return (
@@ -178,7 +178,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
         <div
           className={`gap-4 mt-10 ${
-            ordersDataId?.id === orderId ? 'flex' : 'grid'
+            isOrderAssignedAgent ? 'flex' : 'grid'
           }`}
         >
           {RCDocContent.map((doc, i) => (
@@ -189,7 +189,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
-                  {ordersDataId?.id === orderId && doc.status === 'Approved' ? (
+                  {isOrderAssignedAgent && doc.status === 'Approved' ? (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>
