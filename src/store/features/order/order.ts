@@ -9,27 +9,7 @@ export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 export type ClearingKeys = 'Valuating' | 'Duty Processing' | 'Custom Releasing';
 type DocStatus = 'Approved' | 'Declined' | null;
 
-export type DocsContent = {
-  name: RCDocsKeys | ClearingKeys;
-  status: DocStatus;
-  submitted: boolean;
-};
 
-interface UpdateRCDocsPayload {
-  orderId: number;
-  content: DocsContent;
-}
-interface IDocs {
-  orderId: number;
-  docId: number;
-  content: DocsContent[];
-}
-
-interface IOrder {
-  RCDocsArr: IDocs[];
-  clearingDocsArr: IDocs[];
-  ordersData: InProgress[];
-}
 
 const generateRandomNum = () => Math.floor(100000 + Math.random() * 900000);
 
@@ -103,6 +83,28 @@ INPROGRESS.forEach((order) => {
   clearingDocsArr.push(newClearingDocs);
 });
 
+export type DocsContent = {
+  name: RCDocsKeys | ClearingKeys;
+  status: DocStatus;
+  submitted: boolean;
+};
+
+interface UpdateRCDocsPayload {
+  orderId: number;
+  content: DocsContent;
+}
+interface IDocs {
+  orderId: number;
+  docId: number;
+  content: DocsContent[];
+}
+
+interface IOrder {
+  RCDocsArr: IDocs[];
+  clearingDocsArr: IDocs[];
+  ordersData: InProgress[];
+}
+
 const initialState: IOrder = {
   RCDocsArr,
   clearingDocsArr,
@@ -114,31 +116,30 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
+      return {
+        ...state,
+        RCDocsArr: [
+          ...state.RCDocsArr.map((doc) => {
+            if (doc.orderId === payload.orderId) {
+              return {
+                ...doc,
+                content: doc.content.map((content) => {
+                  if (content.name === payload.content.name) {
+                    return {
+                      ...content,
+                      status: payload.content.status,
+                      submitted: payload.content.submitted,
+                    };
+                  }
+                  return content;
+                }),
+              };
+            }
+            return doc;
+          }),
+        ],
+      };
 
-       return {
-         ...state,
-         RCDocsArr: [
-           ...state.RCDocsArr.map((doc) => {
-             if (doc.orderId === payload.orderId) {
-               return {
-                 ...doc,
-                 content: doc.content.map((content) => {
-                   if (content.name === payload.content.name) {
-                     return {
-                       ...content,
-                       status: payload.content.status,
-                       submitted: payload.content.submitted,
-                     };
-                   }
-                   return content;
-                 }),
-               };
-             }
-             return doc;
-           }),
-         ],
-       };
-      
       //  const { orderId, content } = payload;
 
       // const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
