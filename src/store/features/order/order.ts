@@ -114,35 +114,35 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
-      // const { orderId, content } = payload;
+       const { orderId, content } = payload;
 
-      // const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
-      //   if (doc.orderId !== orderId) return doc;
+      const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
+        if (doc.orderId !== orderId) return doc;
 
-      //   const updatedContent = doc.content.map((c) =>
-      //     c.name === content.name ? { ...c, ...content } : c
-      //   );
+        const updatedContent = doc.content.map((c) =>
+          c.name === content.name ? { ...c, ...content } : c
+        );
 
-      //   return { ...doc, content: updatedContent };
-      // });
-
-      // return { ...state, RCDocsArr: updatedRCDocsArr };
-
-      const { orderId, content } = payload;
-
-      const updatedRCDocsArr = state.RCDocsArr.reduce((acc: IDocs[], doc) => {
-        if (doc.orderId === orderId) {
-          const updatedContent = doc.content.map((c) =>
-            c.name === content.name ? { ...c, ...content } : c
-          );
-          acc.push({ ...doc, content: updatedContent });
-        } else {
-          acc.push(doc);
-        }
-        return acc;
-      }, []);
+        return { ...doc, content: updatedContent };
+      });
 
       return { ...state, RCDocsArr: updatedRCDocsArr };
+
+      // const { orderId, content } = payload;
+
+      // const updatedRCDocsArr = state.RCDocsArr.reduce((acc: IDocs[], doc) => {
+      //   if (doc.orderId === orderId) {
+      //     const updatedContent = doc.content.map((c) =>
+      //       c.name === content.name ? { ...c, ...content } : c
+      //     );
+      //     acc.push({ ...doc, content: updatedContent });
+      //   } else {
+      //     acc.push(doc);
+      //   }
+      //   return acc;
+      // }, []);
+
+      // return { ...state, RCDocsArr: updatedRCDocsArr };
     },
 
     updateClearingDocs: (
