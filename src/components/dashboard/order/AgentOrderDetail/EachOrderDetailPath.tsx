@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
+  ClearingKeys,
   DocsContent,
   RCDocsKeys,
   selectOrder,
@@ -214,6 +215,23 @@ export const AgentClearing: FC<AgentClearing> = ({
       })
     );
   };
+  const handleRejectClearingDoc = (e: FormEvent) => {
+    e.preventDefault();
+
+    setToDisplay({
+      display: 'hidden',
+    });
+    dispatch(
+      updateClearingDoc({
+        orderId,
+        content: {
+          name: clearingDocItem.key as ClearingKeys,
+          submitted: true,
+          status: 'Declined',
+        },
+      })
+    );
+  };
 
   const { RCDocsArr, ordersData, clearingDocsArr } = orderDetails;
 
@@ -250,12 +268,43 @@ export const AgentClearing: FC<AgentClearing> = ({
         }}
       >
         <div onClick={closeModal}>&nbsp;</div>
-        <form
+
+        {toDisplay.docType === 'RCDoc' ? (
+          <form
+            className="bg-white py-10 px-10 rounded-t-3xl"
+            onSubmit={handleRejectBOL}
+          >
+            <p className="text-[1.6rem] text-gray-600 mb-8">
+              Reject BOL - Leave a Comment
+            </p>
+
+            <div>
+              <label htmlFor="comment" className="text-[1.4rem] text-gray-600">
+                Comment
+              </label>
+
+              <textarea
+                id="comment"
+                placeholder="Enter Comment"
+                required
+                rows={3}
+                className="w-full bg-gray-100 rounded-md py-6 px-3 outline-none"
+              />
+            </div>
+
+            <button className="flex w-full items-center justify-end mt-10">
+              <span className="text-red-600  border border-red-600 rounded-lg  py-4 basis-1/2">
+                Reject BOL
+              </span>
+            </button>
+          </form>
+        ): (
+           <form
           className="bg-white py-10 px-10 rounded-t-3xl"
-          onSubmit={handleRejectBOL}
+          onSubmit={handleRejectClearingDoc}
         >
           <p className="text-[1.6rem] text-gray-600 mb-8">
-            Reject BOL - Leave a Comment
+            Reject Clearing Doc - Leave a Comment
           </p>
 
           <div>
@@ -278,6 +327,7 @@ export const AgentClearing: FC<AgentClearing> = ({
             </span>
           </button>
         </form>
+        )}
       </section>
       <div className="pt-10">
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
