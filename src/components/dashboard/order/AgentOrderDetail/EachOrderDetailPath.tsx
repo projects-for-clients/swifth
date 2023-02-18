@@ -33,6 +33,11 @@ export const AgentClearing: FC<AgentClearing> = ({
   const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
     key: null,
   });
+  const [clearingDocItem, setclearingDocItem] = useState<{ key: string | null }>({
+    key: null,
+  });
+
+
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [openToolTip, setOpenToolTip] = useState(false);
 
@@ -132,7 +137,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     );
   };
 
-  const { RCDocsArr, ordersData } = orderDetails;
+  const { RCDocsArr, ordersData, clearingDocsArr } = orderDetails;
 
   let RCDocContent = [] as DocsContent[];
   const isBOLApproved = RCDocsArr.some((RCDoc) => {
@@ -256,6 +261,68 @@ export const AgentClearing: FC<AgentClearing> = ({
             </Fragment>
           ))}
         </div>
+        {isOrderAssignedAgent && (
+          <div>
+            <p className="text-gray-400 font-semibold text-[1.8rem]">Clearing</p>
+
+            {RCDocContent.map((doc, i) => (
+              <Fragment key={i}>
+                <div className="relative">
+                  <p
+                    className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${
+                      isOrderAssignedAgent ? 'w-[18rem]' : ''
+                    }`}
+                    onClick={() => handleRCDocChange(doc.name)}
+                  >
+                    {doc.name}
+
+                    {(isOrderAssignedAgent && doc.status === 'Approved') ||
+                    selectedItem === doc.name ? (
+                      <span>
+                        <img src="/icons/tick-square.svg" alt="" />
+                      </span>
+                    ) : doc.status === 'Declined' ? (
+                      <span>
+                        <img src="/icons/close-square.svg" alt="" />
+                      </span>
+                    ) : null}
+                  </p>
+                  {openToolTip && RCDocsItem.key === doc.name && (
+                    <div
+                      className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${
+                        isOrderAssignedAgent ? 'left-0' : 'right-0 '
+                      }`}
+                    >
+                      {selectFrom.map((item, i) => {
+                        return (
+                          <button
+                            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+                              doc.submitted &&
+                              item.name === 'Send submission reminder'
+                                ? 'hidden'
+                                : 'flex'
+                            }`}
+                            key={i}
+                            disabled={
+                              !doc.submitted &&
+                              item.name !== 'Send submission reminder'
+                            }
+                            onClick={() => handleSelectedItem(item.name)}
+                          >
+                            <img src={item.imgUri} alt="" />
+                            <span className={`${item.className} font-medium`}>
+                              {item.name}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </Fragment>
+            ))}
+          </div>
+        )}
         <div className=" flex w-full justify-end mt-10">
           {isOrderAssignedAgent ? (
             <button

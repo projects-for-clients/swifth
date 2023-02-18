@@ -9,7 +9,6 @@ export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 export type ClearingKeys = 'Valuating' | 'Duty Processing' | 'Custom Releasing';
 type DocStatus = 'Approved' | 'Declined' | null;
 
-
 export type DocsContent = {
   name: RCDocsKeys | ClearingKeys;
   status: DocStatus;
@@ -103,109 +102,76 @@ INPROGRESS.forEach((order) => {
   clearingDocsArr.push(newClearingDocs);
 });
 
-
-
-
-
 const initialState: IOrder = {
   RCDocsArr,
   clearingDocsArr,
   ordersData: INPROGRESS,
 };
 
-
-
-
-
-
-
 export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
     updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
-      return {
-        ...state,
-        RCDocsArr: [
-          ...state.RCDocsArr.map((doc) => {
-            if (doc.orderId === payload.orderId) {
-              return {
-                ...doc,
-                content: doc.content.map((content) => {
-                  if (content.name === payload.content.name) {
-                    return {
-                      ...content,
-                      status: payload.content.status,
-                      submitted: payload.content.submitted,
-                    };
-                  }
-                  return content;
-                }),
-              };
-            }
-            return doc;
-          }),
-        ],
-      };
+      // return {
+      //   ...state,
+      //   RCDocsArr: [
+      //     ...state.RCDocsArr.map((doc) => {
+      //       if (doc.orderId === payload.orderId) {
+      //         return {
+      //           ...doc,
+      //           content: doc.content.map((content) => {
+      //             if (content.name === payload.content.name) {
+      //               return {
+      //                 ...content,
+      //                 status: payload.content.status,
+      //                 submitted: payload.content.submitted,
+      //               };
+      //             }
+      //             return content;
+      //           }),
+      //         };
+      //       }
+      //       return doc;
+      //     }),
+      //   ],
+      // };
 
-      //  const { orderId, content } = payload;
+      const { orderId, content } = payload;
 
-      // const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
-      //   if (doc.orderId !== orderId) return doc;
+      const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
+        if (doc.orderId !== orderId) return doc;
 
-      //   const updatedContent = doc.content.map((c) =>
-      //     c.name === content.name ? { ...c, ...content } : c
-      //   );
+        const updatedContent = doc.content.map((c) =>
+          c.name === content.name ? { ...c, ...content } : c
+        );
 
-      //   return { ...doc, content: updatedContent };
-      // });
+        return { ...doc, content: updatedContent };
+      });
 
-      // return { ...state, RCDocsArr: updatedRCDocsArr };
-
-      // const { orderId, content } = payload;
-
-      // const updatedRCDocsArr = state.RCDocsArr.reduce((acc: IDocs[], doc) => {
-      //   if (doc.orderId === orderId) {
-      //     const updatedContent = doc.content.map((c) =>
-      //       c.name === content.name ? { ...c, ...content } : c
-      //     );
-      //     acc.push({ ...doc, content: updatedContent });
-      //   } else {
-      //     acc.push(doc);
-      //   }
-      //   return acc;
-      // }, []);
-
-      // return { ...state, RCDocsArr: updatedRCDocsArr };
+      return { ...state, RCDocsArr: updatedRCDocsArr };
     },
 
     updateClearingDocs: (
       state,
       { payload }: { payload: UpdateRCDocsPayload }
     ) => {
-      return {
-        ...state,
-        clearingDocsArr: [
-          ...state.clearingDocsArr.map((doc) => {
-            if (doc.orderId === payload.orderId) {
-              return {
-                ...doc,
-                content: doc.content.map((content) => {
-                  if (content.name === payload.content.name) {
-                    return {
-                      ...content,
-                      status: payload.content.status,
-                      submitted: payload.content.submitted,
-                    };
-                  }
-                  return content;
-                }),
-              };
-            }
-            return doc;
-          }),
-        ],
-      };
+      const { orderId, content } = payload;
+      const updatedClearingDoc = state.clearingDocsArr.reduce(
+        (acc: IDocs[], doc) => {
+          if (doc.orderId === orderId) {
+            const updatedContent = doc.content.map((c) =>
+              c.name === content.name ? { ...c, ...content } : c
+            );
+            acc.push({ ...doc, content: updatedContent });
+          } else {
+            acc.push(doc);
+          }
+          return acc;
+        },
+        []
+      );
+      return { ...state, RCDocsArr: updatedClearingDoc };
     },
 
     assignAgentHandler: (
