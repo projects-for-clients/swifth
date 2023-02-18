@@ -99,8 +99,8 @@ export const AgentClearing: FC<AgentClearing> = ({
     },
   ] as const;
 
-  const assignAgentHandler = () => {
-    setIsAssignAgent(true);
+  const assignRCDocAgent = () => {
+    setIsAssignAgent(true, 'RCDoc');
   };
 
   useEffect(() => {
@@ -451,7 +451,6 @@ export const AgentClearing: FC<AgentClearing> = ({
           {isOrderAssignedAgent ? (
             <button
               className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
-              disabled={!isBOLApproved}
               onClick={handleNextDocAction}
             >
               Next
@@ -460,7 +459,7 @@ export const AgentClearing: FC<AgentClearing> = ({
             <button
               className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
               disabled={!isBOLApproved}
-              onClick={assignAgentHandler}
+              onClick={assignRCDocAgent}
             >
               Assign Field Agent
             </button>

@@ -198,7 +198,7 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { updateRCDocs, updateClearingDoc, assignAgentHandler } =
+export const { updateRCDocs, updateClearingDoc, assignAgentHandler, assignClearingDocFieldAgent } =
   orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
