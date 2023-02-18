@@ -123,7 +123,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const {RCDocsArr, ordersData } = orderDetails;
 
-  let RCDocContent = {}
+  let RCDocContent = [] as RCDocsContent[]
   const isBOLApproved = RCDocsArr.some((RCDoc) => {
     if(RCDoc.orderId === orderId) {
       RCDocContent = RCDoc.content
@@ -134,7 +134,6 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
-  console.log({ ordersDataId, orderId });
 
   return (
     <>
@@ -182,7 +181,7 @@ export const AgentClearing: FC<AgentClearing> = ({
             ordersDataId?.id === orderId ? 'flex' : 'grid'
           }`}
         >
-          {RCDocs.map((doc, i) => (
+          {RCDocContent.map((doc, i) => (
             <Fragment key={i}>
               <div className="relative">
                 <p
