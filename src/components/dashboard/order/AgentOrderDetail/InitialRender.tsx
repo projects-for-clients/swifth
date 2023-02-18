@@ -1,22 +1,22 @@
-import { useState, useEffect, FC, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect, FC, Dispatch, SetStateAction, useContext } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { filterByColors } from '../OrdersData';
-import { ShowAssignAgentView } from './AgentOrderDetail';
+import { AgentOrderDetailContext, ShowAssignAgentView } from './AgentOrderDetail';
 import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 
-interface InitialRender {
-  orderHistoryDetail: OrderHistoryDetail;
-  handleCloseDialog: (type: DialogType) => void;
-  setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
-}
 
-const InitialRender: FC<InitialRender> = ({
-  orderHistoryDetail,
-  handleCloseDialog,
-  setShowAssignAgentView
-}) => {
+const InitialRender = () => {
+
+  const agentDetailContext = useContext(AgentOrderDetailContext);
+
+  const {
+    orderHistoryDetail,
+    handleCloseDialog,
+    setShowAssignAgentView,
+  } = agentDetailContext;
+
   type Path = 'AgentClearing' | 'AgentOrderHistory';
 
   const [currentPath, setCurrentPath] = useState<Path>('AgentClearing');
