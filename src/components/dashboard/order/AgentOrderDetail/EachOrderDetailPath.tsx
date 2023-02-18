@@ -123,9 +123,10 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const {RCDocsArr, ordersData } = orderDetails;
 
-
+  let RCDocContent = {}
   const isBOLApproved = RCDocsArr.some((RCDoc) => {
     if(RCDoc.orderId === orderId) {
+      RCDocContent = RCDoc.content
       return RCDoc.content.some((doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved')
     }
   }) 
