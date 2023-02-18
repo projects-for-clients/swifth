@@ -133,6 +133,14 @@ export const AgentClearing: FC<AgentClearing> = ({
       );
     }
   });
+  const isBOLDeclined = RCDocsArr.some((RCDoc) => {
+    if (RCDoc.orderId === orderId) {
+      RCDocContent = RCDoc.content;
+      return RCDoc.content.some(
+        (doc) => doc.name === 'Bills of Lading' && doc.status === 'Declined'
+      );
+    }
+  });
 
   const isOrderAssignedAgent = ordersData.find(
     (order) => order.id === orderId && order.assignedAgent
@@ -190,6 +198,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
+                 
                   {(isOrderAssignedAgent && doc.status === 'Approved') || (selectedItem === doc.name) ? (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
