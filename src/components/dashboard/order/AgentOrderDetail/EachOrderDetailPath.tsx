@@ -81,7 +81,8 @@ export const AgentClearing: FC<AgentClearing> = ({
   const handleSelectedItem = (item: string) => {
     if (item === 'Approve' && RCDocsItem.key) {
       setOpenToolTip(false);
-      //setRCDocsItem({ key: null });
+      setSelectedItem(RCDocsItem.key)
+      setRCDocsItem({ key: null });
 
       dispatch(
         updateRCDocs({
@@ -189,7 +190,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
-                  {isOrderAssignedAgent && doc.status === 'Approved' ? (
+                  {(isOrderAssignedAgent && doc.status === 'Approved') || (selectedItem === doc.name) ? (
                     <span>
                       <img src="/icons/tick-square.svg" alt="" />
                     </span>
