@@ -114,19 +114,44 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
-       const { orderId, content } = payload;
 
-      const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
-        if (doc.orderId !== orderId) return doc;
+       return {
+         ...state,
+         RCDocsArr: [
+           ...state.RCDocsArr.map((doc) => {
+             if (doc.orderId === payload.orderId) {
+               return {
+                 ...doc,
+                 content: doc.content.map((content) => {
+                   if (content.name === payload.content.name) {
+                     return {
+                       ...content,
+                       status: payload.content.status,
+                       submitted: payload.content.submitted,
+                     };
+                   }
+                   return content;
+                 }),
+               };
+             }
+             return doc;
+           }),
+         ],
+       };
+      
+      //  const { orderId, content } = payload;
 
-        const updatedContent = doc.content.map((c) =>
-          c.name === content.name ? { ...c, ...content } : c
-        );
+      // const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
+      //   if (doc.orderId !== orderId) return doc;
 
-        return { ...doc, content: updatedContent };
-      });
+      //   const updatedContent = doc.content.map((c) =>
+      //     c.name === content.name ? { ...c, ...content } : c
+      //   );
 
-      return { ...state, RCDocsArr: updatedRCDocsArr };
+      //   return { ...doc, content: updatedContent };
+      // });
+
+      // return { ...state, RCDocsArr: updatedRCDocsArr };
 
       // const { orderId, content } = payload;
 
