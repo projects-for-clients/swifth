@@ -135,6 +135,16 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const handleSelectedClearingDocItem = (item: string) => {
+
+    if(item === 'Upload clearing Agent'){
+      showAssignAgentView({
+        show: true,
+        whichDoc: 'clearingDoc',
+      });
+    }
+
+    
+
     if (item === 'Approve' && clearingDocItem.key) {
       setOpenClearingDocToolTip(false);
       setSelectedClearingItem(clearingDocItem.key);

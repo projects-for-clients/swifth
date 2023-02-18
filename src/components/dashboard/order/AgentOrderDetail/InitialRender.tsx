@@ -3,18 +3,19 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { DialogType } from '../../../../container/dashboard/orders';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { filterByColors } from '../OrdersData';
+import { ShowAssignAgentView } from './AgentOrderDetail';
 import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 
 interface InitialRender {
   orderHistoryDetail: OrderHistoryDetail;
   handleCloseDialog: (type: DialogType) => void;
-  setIsAssignAgent: Dispatch<SetStateAction<boolean>>
+  showAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
 }
 
 const InitialRender: FC<InitialRender> = ({
   orderHistoryDetail,
   handleCloseDialog,
-  setIsAssignAgent
+  showAssignAgentView
 }) => {
   type Path = 'AgentClearing' | 'AgentOrderHistory';
 
@@ -35,7 +36,7 @@ const InitialRender: FC<InitialRender> = ({
   } = orderHistoryDetail;
 
   const switchPaths: Record<Path, JSX.Element> = {
-    AgentClearing: <AgentClearing setIsAssignAgent={setIsAssignAgent} orderId={id}/>,
+    AgentClearing: <AgentClearing showAssignAgentView={showAssignAgentView} orderId={id}/>,
     AgentOrderHistory: <AgentOrderHistory />,
   };
 

@@ -12,7 +12,7 @@ interface AgentOrderDetail {
 
 export interface ShowAssignAgentView {
   show: boolean;
-  whichDoc?: 'RCDoc' | 'ClearingDoc';
+  whichDoc?: 'RCDoc' | 'clearingDoc';
 }
 
 const AgentOrderDetail: FC<AgentOrderDetail> = ({
@@ -54,12 +54,12 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
         <>
           {showAssignAgentView.show ? (
             <AssignAgentRender
-              showAssignAgentView={showAssignAgentView}
+              setShowAssignAgentView={setShowAssignAgentView}
               orderId={orderDetail.id}
             />
           ) : (
             <InitialRender
-              setIsAssignAgent={setIsAssignAgent}
+              setShowAssignAgentView={setShowAssignAgentView}
               orderHistoryDetail={orderHistoryDetail!}
               handleCloseDialog={handleCloseDialog}
             />
