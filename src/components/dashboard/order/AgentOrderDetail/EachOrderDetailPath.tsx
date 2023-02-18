@@ -332,7 +332,7 @@ export const AgentClearing: FC<AgentClearing> = ({
           ))}
         </div>
         {isOrderAssignedAgent && (
-          <div>
+          <div className='grid gap-4 mt-10 '>
             <p className="text-gray-400 font-semibold text-[1.8rem]">Clearing</p>
 
             {clearingDocContent.map((doc, i) => (
@@ -374,11 +374,7 @@ export const AgentClearing: FC<AgentClearing> = ({
                           </button>
                         );
                       })}
-                      <button
-                            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 uppercase text-red-600 border border-red-600 font-semibold`}
-                            >
-                              Cancel
-                            </button>
+                     
                     </div>
                   )}
                 </div>
