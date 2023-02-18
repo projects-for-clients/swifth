@@ -9,7 +9,7 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch } from '../../../../store/app/hooks';
-import { assignAgentHandler } from '../../../../store/features/order/order';
+import { assignAgentHandler, assignClearingDocFieldAgent } from '../../../../store/features/order/order';
 import { ShowAssignAgentView } from './AgentOrderDetail';
 
 interface AssignAgentRender {
@@ -21,7 +21,7 @@ interface AssignAgentRender {
 const AssignAgentRender: FC<AssignAgentRender> = ({
   setShowAssignAgentView,
   orderId,
-  showAssignAgentView
+  showAssignAgentView,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -37,12 +37,23 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
   const handleSelectAgent = () => {
     if (!selected) return;
 
-    dispatch(
-      assignAgentHandler({
-        id: orderId,
-        assignedAgent: selected,
-      })
-    );
+    if (showAssignAgentView.whichDoc === 'RCDoc') {
+      dispatch(
+        assignAgentHandler({
+          id: orderId,
+          assignedAgent: selected,
+        })
+      );
+    } else {
+      dispatch(
+        assignClearingDocFieldAgent({
+          orderId,
+          content: {
+            name: ''
+          }
+        })
+      );
+    }
     setToastDisplay('flex');
   };
 
@@ -107,29 +118,34 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
           </section>
 
           <section className="grid mt-10">
-            {showAssignAgentView.whichDoc === 'RCDoc'? RCDocAgents : clearingDocAgents.filter((agent) =>
-              agent.toLowerCase().includes(search)
-            ).map((agent, i) => (
-              <div
-                className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
-                key={i}
-                onChange={() => setSelected(agent)}
-              >
-                <input
-                  type="radio"
-                  name="agent"
-                  id={agent + i}
-                  className="hidden"
-                />
-                <label htmlFor={agent + i} className="w-full cursor-pointer">
-                  {agent}
-                </label>
+            {showAssignAgentView.whichDoc === 'RCDoc'
+              ? RCDocAgents
+              : clearingDocAgents
+                  .filter((agent) => agent.toLowerCase().includes(search))
+                  .map((agent, i) => (
+                    <div
+                      className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
+                      key={i}
+                      onChange={() => setSelected(agent)}
+                    >
+                      <input
+                        type="radio"
+                        name="agent"
+                        id={agent + i}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor={agent + i}
+                        className="w-full cursor-pointer"
+                      >
+                        {agent}
+                      </label>
 
-                {selected === agent && (
-                  <img src="/icons/tick-square.svg" alt="" />
-                )}
-              </div>
-            ))}
+                      {selected === agent && (
+                        <img src="/icons/tick-square.svg" alt="" />
+                      )}
+                    </div>
+                  ))}
           </section>
         </main>
 
