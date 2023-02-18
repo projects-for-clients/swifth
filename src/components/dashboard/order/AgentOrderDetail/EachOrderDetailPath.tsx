@@ -13,6 +13,7 @@ import {
   DocsContent,
   RCDocsKeys,
   selectOrder,
+  updateClearingDoc,
   updateRCDocs,
 } from '../../../../store/features/order/order';
 
@@ -39,6 +40,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
 
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [selectedClearingItem, setSelectedClearingItem] = useState<string | null>(null);
   const [openToolTip, setOpenToolTip] = useState(false);
   const [openClearingDocToolTip, setOpenClearingDocToolTip] = useState(false);
 
@@ -118,6 +120,30 @@ export const AgentClearing: FC<AgentClearing> = ({
     
     setOpenClearingDocToolTip(true);
   };
+
+  const handleSelectedClearingDocItem = (item: string) => {
+    if (item === 'Approve' && clearingDocItem.key) {
+      setOpenClearingDocToolTip(false);
+      setSelectedClearingItem(clearingDocItem.key)
+      setclearingDocItem({ key: null });
+
+      dispatch(
+        updateClearingDoc({
+          orderId,
+          content: {
+            name: clearingDocItem.key as RCDocsKeys,
+            submitted: true,
+            status: 'Approved',
+          },
+        })
+      );
+    }
+
+    if (item === 'Decline') {
+      setToDisplay('grid');
+      setOpenClearingDocToolTip(false);
+    }
+  }
 
   const handleSelectedItem = (item: string) => {
     if (item === 'Approve' && RCDocsItem.key) {
@@ -329,27 +355,17 @@ export const AgentClearing: FC<AgentClearing> = ({
                       </span>
                     ) : null}
                   </p>
-                  {openToolTip && RCDocsItem.key === doc.name && (
+                  {openToolTip && clearingDocItem.key === doc.name && (
                     <div
-                      className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${
-                        isOrderAssignedAgent ? 'left-0' : 'right-0 '
-                      }`}
+                      className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize `}
                     >
-                      {selectFrom.map((item, i) => {
+                      {selectClearingOptions.map((item, i) => {
                         return (
                           <button
-                            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
-                              doc.submitted &&
-                              item.name === 'Send submission reminder'
-                                ? 'hidden'
-                                : 'flex'
-                            }`}
+                            className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
                             key={i}
-                            disabled={
-                              !doc.submitted &&
-                              item.name !== 'Send submission reminder'
-                            }
-                            onClick={() => handleSelectedItem(item.name)}
+                           
+                            onClick={() => handleSelectedClearingDocItem(item.name)}
                           >
                             <img src={item.imgUri} alt="" />
                             <span className={`${item.className} font-medium`}>

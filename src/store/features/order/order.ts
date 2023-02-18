@@ -113,29 +113,7 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
-      // return {
-      //   ...state,
-      //   RCDocsArr: [
-      //     ...state.RCDocsArr.map((doc) => {
-      //       if (doc.orderId === payload.orderId) {
-      //         return {
-      //           ...doc,
-      //           content: doc.content.map((content) => {
-      //             if (content.name === payload.content.name) {
-      //               return {
-      //                 ...content,
-      //                 status: payload.content.status,
-      //                 submitted: payload.content.submitted,
-      //               };
-      //             }
-      //             return content;
-      //           }),
-      //         };
-      //       }
-      //       return doc;
-      //     }),
-      //   ],
-      // };
+   
 
       const { orderId, content } = payload;
 
@@ -152,7 +130,7 @@ export const orderSlice = createSlice({
       return { ...state, RCDocsArr: updatedRCDocsArr };
     },
 
-    updateClearingDocs: (
+    updateClearingDoc: (
       state,
       { payload }: { payload: UpdateRCDocsPayload }
     ) => {
@@ -194,7 +172,7 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { updateRCDocs, assignAgentHandler } = orderSlice.actions;
+export const { updateRCDocs, updateClearingDoc, assignAgentHandler } = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 
