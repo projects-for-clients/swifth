@@ -13,11 +13,14 @@ import { assignAgentHandler } from '../../../../store/features/order/order';
 import { ShowAssignAgentView } from './AgentOrderDetail';
 
 interface AssignAgentRender {
-  showAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
+  setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
   orderId: number;
 }
 
-const AssignAgentRender: FC<AssignAgentRender> = ({ showAssignAgentView, orderId }) => {
+const AssignAgentRender: FC<AssignAgentRender> = ({
+  setShowAssignAgentView,
+  orderId,
+}) => {
   const dispatch = useAppDispatch();
 
   const [toastDisplay, setToastDisplay] = useState('hidden');
@@ -30,7 +33,7 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ showAssignAgentView, orderId
   };
 
   const handleSelectAgent = () => {
-    if(!selected) return;
+    if (!selected) return;
 
     dispatch(
       assignAgentHandler({
@@ -42,8 +45,8 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ showAssignAgentView, orderId
   };
 
   const goBack = () => {
-    showAssignAgentView({
-      show: false
+    setShowAssignAgentView({
+      show: false,
     });
   };
 
@@ -56,7 +59,11 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ showAssignAgentView, orderId
   }, [toastDisplay]);
 
   const RCDocAgents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
-  const clearingDocAgents = ['Samson Oluwasegun', 'Tunde Oyekanmi', 'Tunde Babalola']
+  const clearingDocAgents = [
+    'Samson Oluwasegun',
+    'Tunde Oyekanmi',
+    'Tunde Babalola',
+  ];
 
   return (
     <>
@@ -98,29 +105,29 @@ const AssignAgentRender: FC<AssignAgentRender> = ({ showAssignAgentView, orderId
           </section>
 
           <section className="grid mt-10">
-            {RCDocAgents
-              .filter((agent) => agent.toLowerCase().includes(search))
-              .map((agent, i) => (
-                <div
-                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
-                  key={i}
-                  onChange={() => setSelected(agent)}
-                >
-                  <input
-                    type="radio"
-                    name="agent"
-                    id={agent + i}
-                    className="hidden"
-                  />
-                  <label htmlFor={agent + i} className="w-full cursor-pointer">
-                    {agent}
-                  </label>
+            {RCDocAgents.filter((agent) =>
+              agent.toLowerCase().includes(search)
+            ).map((agent, i) => (
+              <div
+                className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
+                key={i}
+                onChange={() => setSelected(agent)}
+              >
+                <input
+                  type="radio"
+                  name="agent"
+                  id={agent + i}
+                  className="hidden"
+                />
+                <label htmlFor={agent + i} className="w-full cursor-pointer">
+                  {agent}
+                </label>
 
-                  {selected === agent && (
-                    <img src="/icons/tick-square.svg" alt="" />
-                  )}
-                </div>
-              ))}
+                {selected === agent && (
+                  <img src="/icons/tick-square.svg" alt="" />
+                )}
+              </div>
+            ))}
           </section>
         </main>
 

@@ -20,12 +20,12 @@ import { ShowAssignAgentView } from './AgentOrderDetail';
 
 
 interface AgentClearing {
-  showAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
+  setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
   orderId: number;
 }
 
 export const AgentClearing: FC<AgentClearing> = ({
-  showAssignAgentView,
+  setShowAssignAgentView,
   orderId,
 }) => {
   const dispatch = useAppDispatch();
@@ -101,7 +101,7 @@ export const AgentClearing: FC<AgentClearing> = ({
   ] as const;
 
   const assignRCDocAgent = () => {
-    showAssignAgentView({
+    setShowAssignAgentView({
       show: true,
       whichDoc: 'RCDoc',
     });
@@ -135,15 +135,12 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const handleSelectedClearingDocItem = (item: string) => {
-
-    if(item === 'Upload clearing Agent'){
-      showAssignAgentView({
+    if (item === 'Upload clearing Agent') {
+      setShowAssignAgentView({
         show: true,
         whichDoc: 'clearingDoc',
       });
     }
-
-    
 
     if (item === 'Approve' && clearingDocItem.key) {
       setOpenClearingDocToolTip(false);
@@ -230,7 +227,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     );
   };
   const handleRejectClearingDoc = (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     setToDisplay({
       display: 'hidden',

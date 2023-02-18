@@ -9,13 +9,13 @@ import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 interface InitialRender {
   orderHistoryDetail: OrderHistoryDetail;
   handleCloseDialog: (type: DialogType) => void;
-  showAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
+  setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
 }
 
 const InitialRender: FC<InitialRender> = ({
   orderHistoryDetail,
   handleCloseDialog,
-  showAssignAgentView
+  setShowAssignAgentView
 }) => {
   type Path = 'AgentClearing' | 'AgentOrderHistory';
 
@@ -36,7 +36,12 @@ const InitialRender: FC<InitialRender> = ({
   } = orderHistoryDetail;
 
   const switchPaths: Record<Path, JSX.Element> = {
-    AgentClearing: <AgentClearing showAssignAgentView={showAssignAgentView} orderId={id}/>,
+    AgentClearing: (
+      <AgentClearing
+        setShowAssignAgentView={setShowAssignAgentView}
+        orderId={id}
+      />
+    ),
     AgentOrderHistory: <AgentOrderHistory />,
   };
 
@@ -156,7 +161,9 @@ const InitialRender: FC<InitialRender> = ({
             </label>
           </div>
 
-          <div className="mt-10 mb-20 h-[50rem]">{switchPaths[currentPath]}</div>
+          <div className="mt-10 mb-20 h-[50rem]">
+            {switchPaths[currentPath]}
+          </div>
         </section>
       </main>
     </div>
