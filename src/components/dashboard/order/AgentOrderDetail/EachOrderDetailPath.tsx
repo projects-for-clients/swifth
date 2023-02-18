@@ -201,7 +201,9 @@ export const AgentClearing: FC<AgentClearing> = ({
             <Fragment key={i}>
               <div className="relative">
                 <p
-                  className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${isOrderAssignedAgent ? 'w-[18rem]': ''}`}
+                  className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${
+                    isOrderAssignedAgent ? 'w-[18rem]' : ''
+                  }`}
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
@@ -218,7 +220,11 @@ export const AgentClearing: FC<AgentClearing> = ({
                   ) : null}
                 </p>
                 {openToolTip && RCDocsItem.key === doc.name && (
-                  <div className={`absolute top-[6rem] w-[25rem] right-0 shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${isOrderAssignedAgent ? '' : ''}`}>
+                  <div
+                    className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${
+                      isOrderAssignedAgent ? 'left-0' : 'right-0 '
+                    }`}
+                  >
                     {selectFrom.map((item, i) => {
                       return (
                         <button
