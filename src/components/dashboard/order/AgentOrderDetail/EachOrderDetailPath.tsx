@@ -31,7 +31,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const [toDisplay, setToDisplay] = useState<{
     docType?: 'RCDoc' | 'clearingDoc';
-    display: 'hidden' | 'grid'
+    display: 'hidden' | 'grid';
   }>({
     display: 'hidden',
   });
@@ -150,7 +150,7 @@ export const AgentClearing: FC<AgentClearing> = ({
     if (item === 'Decline') {
       setToDisplay({
         docType: 'clearingDoc',
-        display: 'grid'
+        display: 'grid',
       });
       setOpenClearingDocToolTip(false);
     }
@@ -194,14 +194,14 @@ export const AgentClearing: FC<AgentClearing> = ({
   };
 
   const closeModal = () => {
-    setToDisplay({  display: 'hidden' });
+    setToDisplay({ display: 'hidden' });
   };
 
   const handleRejectBOL = (e: FormEvent) => {
     e.preventDefault();
 
     setToDisplay({
-      display: 'hidden'
+      display: 'hidden',
     });
     dispatch(
       updateRCDocs({
