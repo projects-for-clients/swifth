@@ -40,6 +40,7 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [openToolTip, setOpenToolTip] = useState(false);
+  const [openClearingDocToolTip, setOpenClearingDocToolTip] = useState(false);
 
   const selectFrom = [
     {
@@ -94,6 +95,8 @@ export const AgentClearing: FC<AgentClearing> = ({
   useEffect(() => {
     setOpenToolTip(false);
     setRCDocsItem({ key: null });
+    setOpenClearingDocToolTip(false);
+    setclearingDocItem({ key: null });
   }, [orderId]);
 
   const handleRCDocChange = (item: string) => {
@@ -104,6 +107,16 @@ export const AgentClearing: FC<AgentClearing> = ({
       return { key: item };
     });
     setOpenToolTip(true);
+  };
+  const handleClearingDocChange = (item: string) => {
+    setclearingDocItem((prev) => {
+      if (prev.key === item) {
+        return { key: null };
+      }
+      return { key: item };
+    });
+    
+    setOpenClearingDocToolTip(true);
   };
 
   const handleSelectedItem = (item: string) => {
@@ -296,14 +309,12 @@ export const AgentClearing: FC<AgentClearing> = ({
           <div>
             <p className="text-gray-400 font-semibold text-[1.8rem]">Clearing</p>
 
-            {RCDocContent.map((doc, i) => (
+            {clearingDocContent.map((doc, i) => (
               <Fragment key={i}>
                 <div className="relative">
                   <p
-                    className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${
-                      isOrderAssignedAgent ? 'w-[18rem]' : ''
-                    }`}
-                    onClick={() => handleRCDocChange(doc.name)}
+                    className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap `}
+                    onClick={() => handleClearingDocChange(doc.name)}
                   >
                     {doc.name}
 
