@@ -145,9 +145,11 @@ export const AgentClearing: FC<AgentClearing> = ({
   });
   
 
-  const isOrderAssignedAgent = ordersData.find(
-    (order) => order.id === orderId && order.assignedAgent
-  );
+  // const isOrderAssignedAgent = ordersData.find(
+  //   (order) => order.id === orderId && order.assignedAgent
+  // );
+
+  const isOrderAssignedAgent = true
 
   return (
     <>
