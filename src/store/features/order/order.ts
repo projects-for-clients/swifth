@@ -27,6 +27,7 @@ interface IDocs {
 
 interface IOrder {
   RCDocsArr: IDocs[];
+  clearingDocsArr: IDocs[];
   ordersData: InProgress[];
 }
 
@@ -82,7 +83,7 @@ const clearingDocs = {
 } satisfies IDocs;
 
 const RCDocsArr: IDocs[] = [];
-const ClearingDocsArr: IDocs[] = [];
+const clearingDocsArr: IDocs[] = [];
 
 INPROGRESS.forEach((order) => {
   const { id } = order;
@@ -99,11 +100,12 @@ INPROGRESS.forEach((order) => {
   };
 
   RCDocsArr.push(newRCDocs);
-  ClearingDocsArr.push(newClearingDocs);
+  clearingDocsArr.push(newClearingDocs);
 });
 
 const initialState: IOrder = {
   RCDocsArr,
+  clearingDocsArr,
   ordersData: INPROGRESS,
 };
 
