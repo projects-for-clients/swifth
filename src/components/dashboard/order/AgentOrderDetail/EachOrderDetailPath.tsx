@@ -33,7 +33,6 @@ export const AgentClearing: FC<AgentClearing> = ({
     docType?: 'RCDoc' | 'ClearingDoc';
     display: 'hidden' | 'grid'
   }>({
-    docType: null,
     display: 'hidden',
   });
 
