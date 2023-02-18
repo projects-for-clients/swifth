@@ -58,6 +58,11 @@ export const AgentClearing: FC<AgentClearing> = ({
     setIsAssignAgent(true);
   };
 
+  useEffect(() => {
+    setOpenToolTip(false);
+    setRCDocsItem({ key: null });
+  }, [orderId]);
+
   const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
     key: null,
   });
@@ -124,12 +129,7 @@ export const AgentClearing: FC<AgentClearing> = ({
       return RCDoc.content.some((doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved')
     }
   }) 
-
-
-  useEffect(() => {
-    setOpenToolTip(false);
-    setRCDocsItem({ key: null });
-  }, [orderId]);
+  
 
   const ordersDataId = ordersData.find((order) => order.assignedAgent);
 
