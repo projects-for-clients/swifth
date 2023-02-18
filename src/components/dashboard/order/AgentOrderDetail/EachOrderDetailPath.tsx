@@ -30,6 +30,12 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const [toDisplay, setToDisplay] = useState('hidden');
 
+  const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
+    key: null,
+  });
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [openToolTip, setOpenToolTip] = useState(false);
+
   const selectFrom = [
     {
       imgUri: '/icons/notification.svg',
@@ -62,11 +68,6 @@ export const AgentClearing: FC<AgentClearing> = ({
     setRCDocsItem({ key: null });
   }, [orderId]);
 
-  const [RCDocsItem, setRCDocsItem] = useState<{ key: string | null }>({
-    key: null,
-  });
-  const [openToolTip, setOpenToolTip] = useState(false);
-
   const handleRCDocChange = (item: string) => {
     setRCDocsItem((prev) => {
       if (prev.key === item) {
@@ -89,7 +90,7 @@ export const AgentClearing: FC<AgentClearing> = ({
             name: RCDocsItem.key as RCDocsKeys,
             submitted: true,
             status: 'Approved',
-          }
+          },
         })
       );
     }
@@ -120,19 +121,21 @@ export const AgentClearing: FC<AgentClearing> = ({
     );
   };
 
-  const {RCDocsArr, ordersData } = orderDetails;
+  const { RCDocsArr, ordersData } = orderDetails;
 
-  let RCDocContent = [] as RCDocsContent[]
+  let RCDocContent = [] as RCDocsContent[];
   const isBOLApproved = RCDocsArr.some((RCDoc) => {
-    if(RCDoc.orderId === orderId) {
-      RCDocContent = RCDoc.content
-      return RCDoc.content.some((doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved')
+    if (RCDoc.orderId === orderId) {
+      RCDocContent = RCDoc.content;
+      return RCDoc.content.some(
+        (doc) => doc.name === 'Bills of Lading' && doc.status === 'Approved'
+      );
     }
-  }) 
-  
+  });
 
-  const isOrderAssignedAgent = ordersData.find((order) => order.id === orderId && order.assignedAgent );
-
+  const isOrderAssignedAgent = ordersData.find(
+    (order) => order.id === orderId && order.assignedAgent
+  );
 
   return (
     <>
@@ -176,9 +179,7 @@ export const AgentClearing: FC<AgentClearing> = ({
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
         <div
-          className={`gap-4 mt-10 ${
-            isOrderAssignedAgent ? 'flex' : 'grid'
-          }`}
+          className={`gap-4 mt-10 ${isOrderAssignedAgent ? 'flex' : 'grid'}`}
         >
           {RCDocContent.map((doc, i) => (
             <Fragment key={i}>
