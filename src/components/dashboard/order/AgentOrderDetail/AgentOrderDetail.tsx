@@ -23,7 +23,15 @@ export interface ShowAssignAgentView {
   whichDoc?: 'RCDoc' | 'clearingDoc';
 }
 
-export const AgentOrderDetailContext = createContext(null as any);
+ interface AgentOrderDetailContext {
+   showAssignAgentView: ShowAssignAgentView;
+   setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
+   orderId: string;
+   orderHistoryDetail: OrderHistoryDetail;
+   handleCloseDialog: (type: DialogType) => void;
+ }
+
+export const AgentOrderDetailContext = createContext<AgentOrderDetailContext>(null as any);
 
 const AgentOrderDetail: FC<AgentOrderDetail> = ({
   handleCloseDialog,
@@ -57,15 +65,8 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     }
   }, [orderDetail]);
 
-  // return <div></div>;
 
-  interface AgentOrderDetailContext {
-    showAssignAgentView: ShowAssignAgentView;
-    setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
-    orderId: string;
-    orderHistoryDetail: OrderHistoryDetail;
-    handleCloseDialog: (type: DialogType) => void;
-  }
+ 
 
   return (
     <AgentOrderDetailContext.Provider

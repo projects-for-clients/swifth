@@ -20,12 +20,15 @@ interface AssignAgentRender {
 }
 
 const AssignAgentRender: FC<AssignAgentRender> = ({
-  setShowAssignAgentView,
-  orderId,
-  showAssignAgentView,
+  
 }) => {
 
   const agentDetailContext = useContext(AgentOrderDetailContext);
+
+  const {
+    setShowAssignAgentView,
+    orderI
+  } = agentDetailContext;
 
   const dispatch = useAppDispatch();
 
