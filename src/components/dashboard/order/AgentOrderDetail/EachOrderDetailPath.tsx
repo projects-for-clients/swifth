@@ -259,11 +259,11 @@ export const AgentClearing: FC<AgentClearing> = ({
         <div className=" flex w-full justify-end mt-10">
           {isOrderAssignedAgent ? (
             <button
-              className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+              className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
               disabled={!isBOLApproved}
               onClick={handleNextDocAction}
             >
-              Assign Field Agent
+              Next
             </button>
           ) : (
             <button
