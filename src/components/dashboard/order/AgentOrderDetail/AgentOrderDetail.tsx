@@ -10,6 +10,11 @@ interface AgentOrderDetail {
   orderDetail: InProgress;
 }
 
+export interface ShowAssignAgentView {
+  show: boolean;
+  whichDoc: 'RCDoc' | 'ClearingDoc';
+}
+
 const AgentOrderDetail: FC<AgentOrderDetail> = ({
   handleCloseDialog,
   orderDetail,
@@ -18,7 +23,10 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     useState<OrderHistoryDetail | null>(null);
   const [loaded, setLoaded] = useState(false);
 
-  const [isAssignAgent, setIsAssignAgent] = useState(false);
+  const [showAssignAgentView, setShowAssignAgentView] = useState<ShowAssignAgentView>({
+    show: false,
+    whichDoc: 'RCDoc',
+  });
 
   useEffect(() => {
     if (orderDetail) {
@@ -44,9 +52,9 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
     <>
       {loaded ? (
         <>
-          {isAssignAgent ? (
+          {showAssignAgentView.show ? (
             <AssignAgentRender
-              setIsAssignAgent={setIsAssignAgent}
+              showAssignAgentView={showAssignAgentView}
               orderId={orderDetail.id}
             />
           ) : (
