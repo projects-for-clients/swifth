@@ -94,7 +94,19 @@ export const orderSlice = createSlice({
         RCDocsArr: [
           ...state.RCDocsArr.map((doc) => {
             if (doc.orderId === payload.orderId) {
-              return payload;
+              return {
+                ...doc,
+                content: doc.content.map((content) => {
+                  if (content.name === payload.content.name) {
+                    return {
+                      ...content,
+                      status: payload.content.status,
+                      submitted: payload.content.submitted,
+                    };
+                  }
+                  return content;
+                }),
+              };
             }
             return doc;
           }),
