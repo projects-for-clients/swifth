@@ -139,6 +139,33 @@ export const orderSlice = createSlice({
       };
     },
 
+    updateClearingDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
+      return {
+        ...state,
+        clearingDocsArr: [
+          ...state.clearingDocsArr.map((doc) => {
+            if (doc.orderId === payload.orderId) {
+              return {
+                ...doc,
+                content: doc.content.map((content) => {
+                  if (content.name === payload.content.name) {
+                    return {
+                      ...content,
+                      status: payload.content.status,
+                      submitted: payload.content.submitted,
+                    };
+                  }
+                  return content;
+                }),
+              };
+            }
+            return doc;
+          }),
+        ],
+      };
+    },
+    
+
     assignAgentHandler: (
       state,
       { payload }: { payload: Pick<InProgress, 'id' | 'assignedAgent'> }
