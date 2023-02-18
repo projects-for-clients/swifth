@@ -73,7 +73,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
       value={{
         showAssignAgentView,
         setShowAssignAgentView,
-        orderId: orderDetail.id,
+        orderId: loaded ? orderDetail.id : 0,
         orderHistoryDetail: orderHistoryDetail! ,
         handleCloseDialog,
       }}

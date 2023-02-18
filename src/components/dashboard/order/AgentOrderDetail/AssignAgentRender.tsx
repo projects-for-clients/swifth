@@ -1,10 +1,4 @@
-import {
-  useState,
-  useEffect,
-
-  ChangeEvent,
-  useContext,
-} from 'react';
+import { useState, useEffect, ChangeEvent, useContext } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { useAppDispatch } from '../../../../store/app/hooks';
@@ -12,12 +6,16 @@ import {
   assignAgentHandler,
   assignClearingDocFieldAgent,
 } from '../../../../store/features/order/order';
-import {
-  AgentOrderDetailContext,
-} from './AgentOrderDetail';
+import { AgentOrderDetailContext } from './AgentOrderDetail';
+
+const RCDocAgents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
+const clearingDocAgents = [
+  'Samson Oluwasegun',
+  'Tunde Oyekanmi',
+  'Tunde Babalola',
+];
 
 const AssignAgentRender = () => {
-
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
   const { setShowAssignAgentView, orderId, showAssignAgentView } =
@@ -26,6 +24,7 @@ const AssignAgentRender = () => {
   const dispatch = useAppDispatch();
 
   const [toastDisplay, setToastDisplay] = useState('hidden');
+  const [docToRender, setDocToRender] = useState<string[]>([]);
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -45,17 +44,25 @@ const AssignAgentRender = () => {
         })
       );
     } else {
-     // dispatch(
-        // assignClearingDocFieldAgent({
-        //   orderId,
-        //   content: {
-        //     name: '',
-        //   },
-        // })
-     // );
+      // dispatch(
+      // assignClearingDocFieldAgent({
+      //   orderId,
+      //   content: {
+      //     name: '',
+      //   },
+      // })
+      // );
     }
     setToastDisplay('flex');
   };
+
+  useEffect(() => {
+    if (showAssignAgentView.whichDoc === 'RCDoc') {
+      setDocToRender(RCDocAgents);
+    } else {
+      setDocToRender(clearingDocAgents);
+    }
+  }, [showAssignAgentView.whichDoc]);
 
   const goBack = () => {
     setShowAssignAgentView({
@@ -71,13 +78,7 @@ const AssignAgentRender = () => {
     }
   }, [toastDisplay]);
 
-  const RCDocAgents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
-  const clearingDocAgents = [
-    'Samson Oluwasegun',
-    'Tunde Oyekanmi',
-    'Tunde Babalola',
-  ];
-
+  console.log('showAssignAgentView', showAssignAgentView);
   return (
     <>
       <div
@@ -118,34 +119,29 @@ const AssignAgentRender = () => {
           </section>
 
           <section className="grid mt-10">
-            {showAssignAgentView.whichDoc === 'RCDoc'
-              ? RCDocAgents
-              : clearingDocAgents
-                  .filter((agent) => agent.toLowerCase().includes(search))
-                  .map((agent, i) => (
-                    <div
-                      className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
-                      key={i}
-                      onChange={() => setSelected(agent)}
-                    >
-                      <input
-                        type="radio"
-                        name="agent"
-                        id={agent + i}
-                        className="hidden"
-                      />
-                      <label
-                        htmlFor={agent + i}
-                        className="w-full cursor-pointer"
-                      >
-                        {agent}
-                      </label>
+            {docToRender
+              .filter((agent) => agent.toLowerCase().includes(search))
+              .map((agent, i) => (
+                <div
+                  className="border-b rounded-lg border-b-color-red-light-1 py-4 text-start hover:bg-gray-100 hover:translate-x-1 hover:pl-4 transition-all capitalize flex items-center justify-between"
+                  key={i}
+                  onChange={() => setSelected(agent)}
+                >
+                  <input
+                    type="radio"
+                    name="agent"
+                    id={agent + i}
+                    className="hidden"
+                  />
+                  <label htmlFor={agent + i} className="w-full cursor-pointer">
+                    {agent}
+                  </label>
 
-                      {selected === agent && (
-                        <img src="/icons/tick-square.svg" alt="" />
-                      )}
-                    </div>
-                  ))}
+                  {selected === agent && (
+                    <img src="/icons/tick-square.svg" alt="" />
+                  )}
+                </div>
+              ))}
           </section>
         </main>
 
