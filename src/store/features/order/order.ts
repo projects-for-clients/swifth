@@ -13,6 +13,7 @@ export type DocsContent = {
   name: RCDocsKeys | ClearingKeys;
   status: DocStatus;
   submitted: boolean;
+  fieldAgent?: string | null;
 };
 interface UpdateRCDocsPayload {
   orderId: number;
@@ -21,7 +22,6 @@ interface UpdateRCDocsPayload {
 interface IDocs {
   orderId: number;
   docId: number;
-  fieldAgent?: string;
   content: DocsContent[];
 }
 
@@ -65,17 +65,20 @@ const clearingDocs = {
   docId: 0,
   content: [
     {
-
+      fieldAgent: null,
       name: 'Valuating',
       status: null,
       submitted: true,
     },
     {
+      fieldAgent: null,
       name: 'Duty Processing',
       status: null,
       submitted: false,
+
     },
     {
+      fieldAgent: null,
       name: 'Custom Releasing',
       status: null,
       submitted: false,
@@ -153,6 +156,10 @@ export const orderSlice = createSlice({
       );
       return { ...state, clearingDocsArr: updatedClearingDoc };
     },
+
+    assignClearingDocFieldAgent: (state, {payload}: {payload: Pick<DocsContent, 'fieldAgent'>}) => {
+
+    }
 
     assignAgentHandler: (
       state,
