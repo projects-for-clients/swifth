@@ -27,7 +27,8 @@ const AssignAgentRender: FC<AssignAgentRender> = ({
 
   const {
     setShowAssignAgentView,
-    orderI
+    orderId,
+    showAssignAgentView
   } = agentDetailContext;
 
   const dispatch = useAppDispatch();
