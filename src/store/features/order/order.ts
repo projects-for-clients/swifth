@@ -127,6 +127,22 @@ export const orderSlice = createSlice({
       // });
 
       // return { ...state, RCDocsArr: updatedRCDocsArr };
+
+      const { orderId, content } = payload;
+
+      const updatedRCDocsArr = state.RCDocsArr.reduce((acc: IDocs[], doc) => {
+        if (doc.orderId === orderId) {
+          const updatedContent = doc.content.map((c) =>
+            c.name === content.name ? { ...c, ...content } : c
+          );
+          acc.push({ ...doc, content: updatedContent });
+        } else {
+          acc.push(doc);
+        }
+        return acc;
+      }, []);
+
+      return { ...state, RCDocsArr: updatedRCDocsArr };
     },
 
     updateClearingDocs: (
