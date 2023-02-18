@@ -201,7 +201,7 @@ export const AgentClearing: FC<AgentClearing> = ({
             <Fragment key={i}>
               <div className="relative">
                 <p
-                  className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 ${isOrderAssignedAgent ? 'w-[15rem]': ''}`}
+                  className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${isOrderAssignedAgent ? 'w-[18rem]': ''}`}
                   onClick={() => handleRCDocChange(doc.name)}
                 >
                   {doc.name}
