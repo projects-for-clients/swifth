@@ -54,7 +54,9 @@ export const AgentClearing = () => {
     'Duty Processing': '',
   });
 
-  const [toUploadCount, setToUploadCount] = useState<ClearingKeys[]>(['Valuating'])
+  const [toUploadCount, setToUploadCount] = useState<ClearingKeys[]>([
+    'Valuating',
+  ]);
 
   const keyProps = {
     error: false,
@@ -344,12 +346,9 @@ export const AgentClearing = () => {
     (order) => order.id === orderId && order.assignedAgent
   );
 
-
-
-
   const handleNextDocAction = () => {};
 
-  console.log({clearingDocContent, toUploadCount})
+  console.log({ clearingDocContent, toUploadCount });
 
   return (
     <>
@@ -508,7 +507,7 @@ export const AgentClearing = () => {
                       }
                       disabled={i >= toUploadCount.length && !doc.submitted}
                     >
-                      {docName} 
+                      {docName}
 
                       {imageDetails[docName].pathName ? (
                         <div className="grid">
@@ -537,49 +536,46 @@ export const AgentClearing = () => {
                         <div
                           className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize right-0 `}
                         >
-                          {selectClearingOptions.map((item, i) => {
-                            return (
-                              <button
-                                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left disabled:opacity-25 disabled:cursor-not-allowed `}
-                                key={i}
-                                onClick={() =>
-                                  handleSelectedClearingDocItem(item.name)
-                                }
-                              >
-                                {item.name === 'Upload clearing Document' ? (
-                                  <div>
-                                    <label
-                                      htmlFor={clearingDocItem.key!}
-                                      className={` ${
-                                        item.className
-                                      } font-medium flex items-center gap-4 cursor-pointer ${
-                                        imageDetails.Valuating.error
-                                          ? 'border-red-600 border bg-red-50'
-                                          : ''
-                                      }`}
-                                    >
-                                      <img src={item.imgUri} alt="" />
+                          {selectClearingOptions.map((item, i) => (
+                            <>
+                              {item.name === 'Upload clearing Document' ? (
+                                <div>
+                                  <label
+                                    htmlFor={clearingDocItem.key!}
+                                    className={` ${
+                                      item.className
+                                    } font-medium flex items-center gap-4 cursor-pointer text-[1.4rem] hover:bg-gray-100 p-4 text-left ${
+                                      imageDetails.Valuating.error
+                                        ? 'border-red-600 border bg-red-50'
+                                        : ''
+                                    }`}
+                                  >
+                                    <img src={item.imgUri} alt="" />
 
-                                      {item.name}
-                                    </label>
-                                    <input
-                                      type="file"
-                                      name={clearingDocItem.key!}
-                                      id={clearingDocItem.key!}
-                                      accept="pdf/*"
-                                      className="hidden"
-                                      onClick={() =>
-                                        uploadUriHandler(clearingDocItem.key!)
-                                      }
-                                      onChange={(e) =>
-                                        formUploadHandler(
-                                          e,
-                                          clearingDocItem.key!
-                                        )
-                                      }
-                                    />
-                                  </div>
-                                ) : (
+                                    {item.name}
+                                  </label>
+                                  <input
+                                    type="file"
+                                    name={clearingDocItem.key!}
+                                    id={clearingDocItem.key!}
+                                    accept="pdf/*"
+                                    className="hidden"
+                                    onClick={() =>
+                                      uploadUriHandler(clearingDocItem.key!)
+                                    }
+                                    onChange={(e) =>
+                                      formUploadHandler(e, clearingDocItem.key!)
+                                    }
+                                  />
+                                </div>
+                              ) : (
+                                <button
+                                  className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left disabled:opacity-25 disabled:cursor-not-allowed `}
+                                  key={i}
+                                  onClick={() =>
+                                    handleSelectedClearingDocItem(item.name)
+                                  }
+                                >
                                   <span
                                     className={`${item.className} font-medium flex items-center gap-4 `}
                                   >
@@ -587,10 +583,10 @@ export const AgentClearing = () => {
                                     <img src={item.imgUri} alt="" />
                                     {item.name}
                                   </span>
-                                )}
-                              </button>
-                            );
-                          })}
+                                </button>
+                              )}
+                            </>
+                          ))}
                         </div>
                       )}
                   </div>
@@ -601,9 +597,31 @@ export const AgentClearing = () => {
         )}
         <div className=" flex w-full justify-end mt-10">
           {isOrderAssignedAgent ? (
-            <div>
-              {/* {toUploadCount.length >} */}
-            </div>
+            <>
+              {toUploadCount.length > clearingDocContent.length ? (
+                <div className="w-full">
+                  <button
+                    className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+                    onClick={handleNextDocAction}
+                  >
+                    Mark as Delivery Ready
+                  </button>
+                  <button
+                    className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+                    onClick={handleNextDocAction}
+                  >
+                    Send Pay Reminder
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+                  onClick={handleNextDocAction}
+                >
+                  Next
+                </button>
+              )}
+            </>
           ) : (
             <button
               className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
