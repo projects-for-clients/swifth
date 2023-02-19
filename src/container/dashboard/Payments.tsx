@@ -33,6 +33,21 @@ export interface Payments {
   amount: number;
 }
 
+interface PaymentHistory {
+  id: number,
+  date: Date,
+  amount: number,
+}
+
+const paymentHistoryArr: PaymentHistory[] = Array.from(
+  { length: 20 },
+  (_, i) => ({
+    id: i,
+    date: generateRandomDate(),
+    amount: generateRandomNum(),
+  })
+);
+
 const paymentsHistoryArr: PaymentsHistory[] = Array.from(
   { length: 20 },
   (_, i) => ({
@@ -239,6 +254,19 @@ function Payments() {
                     <p className="text-color-purple font-semibold">300,000</p>
                   </div>
                 </section>
+
+                <section>
+                  {paymentHistoryArr.map((item, i) => {
+                    return (
+                      <div>
+                        <p className="text-color-purple-1 flex gap-1 font-medium">
+                          <span className="text-gray-500">NGN</span>
+                          {item.amount.toLocaleString()}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </section>
               </main>
             </div>
           </section>
@@ -356,7 +384,7 @@ function Payments() {
                         </div>
 
                         <p className="text-color-purple-1 flex gap-1 font-medium">
-                          <span className="text-gray-700">NGN</span>
+                          <span className="text-gray-500">NGN</span>
                           {amount.toLocaleString()}
                         </p>
                       </div>
