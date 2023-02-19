@@ -108,7 +108,7 @@ function Payments() {
 
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
-    setShowAccordion(true);
+    setShowAccordion(prev => !prev);
   };
 
   return (
