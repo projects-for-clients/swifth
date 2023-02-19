@@ -487,95 +487,105 @@ export const AgentClearing = () => {
               Clearing
             </p>
 
-            {clearingDocContent.map((doc, i) => (
-              <Fragment key={i}>
-                <div className="relative">
-                  <p
-                    className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap `}
-                    onClick={() =>
-                      handleClearingDocChange(doc.name as ClearingKeys)
-                    }
-                  >
-                    {doc.name}
+            {clearingDocContent.map((doc, i) => {
+              const docName = doc.name as ClearingKeys;
+              return (
+                <Fragment key={i}>
+                  <div className="relative">
+                    <p
+                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap `}
+                      onClick={() =>
+                        handleClearingDocChange(doc.name as ClearingKeys)
+                      }
+                    >
+                      {doc.name}
 
-                    {doc.status === 'Approved' ? (
-                      <span>
-                        <img src="/icons/tick-square.svg" alt="" />
-                      </span>
-                    ) : doc.status === 'Declined' ? (
-                      <span>
-                        <img src="/icons/close-square.svg" alt="" />
-                      </span>
-                    ) : null}
-                  </p>
+                      {doc.status === 'Approved' ? (
+                        <span>
+                          <img src="/icons/tick-square.svg" alt="" />
+                        </span>
+                      ) : doc.status === 'Declined' ? (
+                        <span>
+                          <img src="/icons/close-square.svg" alt="" />
+                        </span>
+                      ) : null}
 
-                  {openClearingDocToolTip &&
-                    clearingDocItem.key === doc.name && (
-                      <div
-                        className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize right-0 `}
-                      >
-                        {selectClearingOptions.map((item, i) => {
-                          return (
-                            <button
-                              className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
-                              key={i}
-                              disabled={!doc.submitted}
-                              onClick={() =>
-                                handleSelectedClearingDocItem(item.name)
-                              }
-                            >
-                              <img src={item.imgUri} alt="" />
-                              <span className={`${item.className} font-medium`}>
-                                {item.name === 'Upload clearing Document' ? (
-                                  <div>
-                                    <label
-                                      htmlFor={clearingDocItem.key!}
-                                      className={`  ${
-                                        imageDetails.Valuating.error
-                                          ? 'border-red-600 border bg-red-50'
-                                          : ''
-                                      }`}
-                                    >
-                                      {imageDetails.Valuating.pathName && (
-                                        <div className="grid">
-                                          <p className="text-[1.4rem] font-normal">
-                                            {imageDetails.Valuating.pathName}
-                                          </p>
-                                          <p className="text-color-grey-4 text-[1rem]">
-                                            {imageDetails.Valuating.message
-                                              ? imageDetails.Valuating.message
-                                              : imageDetails.Valuating.size}
-                                          </p>
-                                        </div>
-                                      )}
-                                      {item.name}
-                                    </label>
-                                    <input
-                                      type="file"
-                                      name={clearingDocItem.key!}
-                                      id={clearingDocItem.key!}
-                                      accept="pdf/*"
-                                      className="hidden"
-                                      onClick={() =>
-                                        uploadUriHandler(clearingDocItem.key!)
-                                      }
-                                      onChange={(e) =>
-                                        formUploadHandler(e, clearingDocItem.key!)
-                                      }
-                                    />
-                                  </div>
-                                ) : (
-                                  item.name
-                                )}
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
-                </div>
-              </Fragment>
-            ))}
+                      {imageDetails[docName].pathName && (
+                        <div className="grid">
+                          <p className="text-[1.4rem] font-normal">
+                            {imageDetails.Valuating.pathName}
+                          </p>
+                          <p className="text-color-grey-4 text-[1rem]">
+                            {imageDetails.Valuating.message
+                              ? imageDetails.Valuating.message
+                              : imageDetails.Valuating.size}
+                          </p>
+                        </div>
+                      )}
+                    </p>
+
+                    {openClearingDocToolTip &&
+                      clearingDocItem.key === doc.name && (
+                        <div
+                          className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize right-0 `}
+                        >
+                          {selectClearingOptions.map((item, i) => {
+                            return (
+                              <button
+                                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
+                                key={i}
+                                disabled={!doc.submitted}
+                                onClick={() =>
+                                  handleSelectedClearingDocItem(item.name)
+                                }
+                              >
+                                <img src={item.imgUri} alt="" />
+                                <span
+                                  className={`${item.className} font-medium`}
+                                >
+                                  {item.name === 'Upload clearing Document' ? (
+                                    <div>
+                                      <label
+                                        htmlFor={clearingDocItem.key!}
+                                        className={`  ${
+                                          imageDetails.Valuating.error
+                                            ? 'border-red-600 border bg-red-50'
+                                            : ''
+                                        }`}
+                                      >
+                                        {item.name}
+                                      </label>
+                                      <input
+                                        type="file"
+                                        name={clearingDocItem.key!}
+                                        id={clearingDocItem.key!}
+                                        accept="pdf/*"
+                                        className="hidden"
+                                        onClick={() =>
+                                          uploadUriHandler(clearingDocItem.key!)
+                                        }
+                                        onChange={(e) =>
+                                          formUploadHandler(
+                                            e,
+                                            clearingDocItem.key!
+                                          )
+                                        }
+                                      />
+                                    </div>
+                                  ) : (
+                                    item.name
+                                  )}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                  </div>
+                </Fragment>
+              );
+            }
+           )}
           </div>
         )}
         <div className=" flex w-full justify-end mt-10">
