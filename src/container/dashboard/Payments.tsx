@@ -34,9 +34,9 @@ export interface Payments {
 }
 
 interface PaymentHistory {
-  id: number,
-  date: Date,
-  amount: number,
+  id: number;
+  date: Date;
+  amount: number;
 }
 
 const paymentHistoryArr: PaymentHistory[] = Array.from(
@@ -44,7 +44,7 @@ const paymentHistoryArr: PaymentHistory[] = Array.from(
   (_, i) => ({
     id: i,
     date: generateRandomDate(),
-    amount: Math.floor(Math.random() * 270000 + 40000) ,
+    amount: Math.floor(Math.random() * 270000 + 40000),
   })
 );
 
@@ -121,7 +121,7 @@ function Payments() {
 
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
-    setShowAccordion(prev => !prev);
+    setShowAccordion((prev) => !prev);
   };
 
   return (
@@ -144,7 +144,7 @@ function Payments() {
 
           <section className="h-full">
             <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
-              <main className="grid gap-10  ">
+              <main className="grid gap-16 ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">
                     {paymentDetail?.name}
@@ -254,27 +254,33 @@ function Payments() {
                     <p className="text-color-purple font-semibold">300,000</p>
                   </div>
                 </section>
-
-                <section className='grid' style={{
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
-                }}>
-                  {paymentHistoryArr.map((item, i) => {
-                    return (
-                      <div className='flex justify-between p-8 items-center border border-gray-300 bg-gray-100 rounded-3xl'>
-                        <p>
-                          {item.date.toLocaleString('en-GB', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </p>
-                        <p className="text-color-purple-1 flex gap-1 text-[2rem]">
-                          <span className="text-gray-500">NGN</span>
-                          {item.amount.toLocaleString()}
-                        </p>
-                      </div>
-                    );
-                  })}
+                <section>
+                  <p className='font-medium text-[2rem] mb-10'>Payment History</p>
+                  <div
+                    className="grid gap-8"
+                    style={{
+                      gridTemplateColumns:
+                        'repeat(auto-fit, minmax(35rem, 1fr))',
+                    }}
+                  >
+                    {paymentHistoryArr.map((item, i) => {
+                      return (
+                        <div className="flex justify-between p-8 items-center border border-gray-300 bg-gray-100 rounded-3xl">
+                          <p className="text-[1.2rem] text-[#4B5463]">
+                            {item.date.toLocaleString('en-GB', {
+                              day: 'numeric',
+                              month: 'short',
+                              year: 'numeric',
+                            })}
+                          </p>
+                          <p className="text-color-purple-1 flex gap-1">
+                            <span className="text-gray-500">NGN</span>
+                            {item.amount.toLocaleString()}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </section>
               </main>
             </div>
