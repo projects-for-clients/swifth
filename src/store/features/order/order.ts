@@ -15,7 +15,7 @@ export type DocsContent = {
   submitted: boolean;
   fieldAgent?: string | null;
 };
-interface UpdateRCDocsPayload {
+export interface UpdateRCDocsPayload {
   orderId: number;
   content: DocsContent;
 }
