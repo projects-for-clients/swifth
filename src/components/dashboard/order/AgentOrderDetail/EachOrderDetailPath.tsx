@@ -54,7 +54,7 @@ export const AgentClearing = () => {
     'Duty Processing': '',
   });
 
-  const [toUpload, setToUpload] = useState<ClearingKeys[]>(['Valuating'])
+  const [toUploadCount, setToUploadCount] = useState(0)
 
   const keyProps = {
     error: false,
@@ -307,7 +307,7 @@ export const AgentClearing = () => {
         },
       }));
     } else {
-      setToUpload((prev) => [...prev, key]);
+      setToUploadCount((prev) => prev + 1);
       setImageDetails((prev) => ({
         ...prev,
         [key]: {
@@ -506,7 +506,7 @@ export const AgentClearing = () => {
                       onClick={() =>
                         handleClearingDocChange(doc.name as ClearingKeys)
                       }
-                      disabled={toUpload.indexOf(docName) === -1}
+                      disabled={i >= toUploadCount}
                     >
                       {docName} 
 
