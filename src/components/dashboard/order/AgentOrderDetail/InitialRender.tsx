@@ -7,7 +7,7 @@ import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 const InitialRender = () => {
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const { orderHistoryDetail, handleCloseDialog, setShowAssignAgentView } =
+  const { orderHistoryDetail, handleCloseDialog } =
     agentDetailContext;
 
   type Path = 'AgentClearing' | 'AgentOrderHistory';
