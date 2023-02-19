@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-function generateRandomDate() {
+export function generateRandomDate() {
   const today = new Date();
   const nextYear = new Date(today.getFullYear() + 1, 0, 1);
   const randomDate = new Date(
@@ -9,7 +9,7 @@ function generateRandomDate() {
   return randomDate;
 }
 
-const generateRandomNum = () =>
+export const generateRandomNum = () =>
   Math.floor(100000000000 + Math.random() * 900000);
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';

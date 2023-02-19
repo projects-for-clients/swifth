@@ -39,6 +39,24 @@ export interface DropDownState {
   filterBy: boolean;
 }
 
+export type InProgressFilterBy =
+  | 'Docs in Review'
+  | 'Valuating'
+  | 'Duty Processing'
+  | 'Custom Releasing'
+  | 'Delivery Pending'
+  | 'Completed';
+
+export interface InProgress {
+  id: number;
+  name: string;
+  description: string;
+  date: Date;
+  tag: InProgressFilterBy;
+  assignedAgent?: string;
+  RCDocs: RCDocs[];
+}
+
 
 export const PAYMENTS: InProgress[] = [
   {
