@@ -351,7 +351,6 @@ export const AgentClearing = () => {
 
   const handleNextDocAction = () => {};
 
-
   return (
     <>
       <section
@@ -643,7 +642,6 @@ export const AgentClearing = () => {
   );
 };
 
-
 const clearingDocHistory = [
   {
     docState: 'Document Reviewed',
@@ -660,8 +658,8 @@ const clearingDocHistory = [
   {
     docState: 'Payment Releasing',
     agentName: 'Kayode Kelvin',
-  }
-]
+  },
+];
 
 export const AgentOrderHistory = () => {
   return (
@@ -676,11 +674,11 @@ export const AgentOrderHistory = () => {
         </div>
       ))}
 
-      <button
-        className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 justify-self-end"
-      >
-        Next
-      </button>
+      <div className="flex justify-end">
+        <button className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 ">
+          Next
+        </button>
+      </div>
     </div>
   );
 };
