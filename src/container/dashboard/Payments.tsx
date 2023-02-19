@@ -239,31 +239,7 @@ function Payments() {
         </section>
 
         <section>
-          <div className="radioBox gap-16">
-            <input
-              type="radio"
-              name="notification"
-              id="inProgress"
-              className="hidden"
-              onChange={() => setCurrentPath('inProgress')}
-              checked={currentPath === 'inProgress'}
-            />
-            <label htmlFor="inProgress" className="capitalize text-[1.8rem]">
-              In Progress
-            </label>
-
-            <input
-              type="radio"
-              name="notification"
-              id="waitlist"
-              className="hidden"
-              checked={currentPath === 'waitlist'}
-              onChange={() => setCurrentPath('waitlist')}
-            />
-            <label htmlFor="waitlist" className="capitalize text-[1.8rem]">
-              Waitlist
-            </label>
-          </div>
+          
 
           {(currentPath === 'inProgress' && inProgressData.length < 1) ||
           (currentPath === 'waitlist' && waitlistData.length < 1) ? (
