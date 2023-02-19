@@ -191,7 +191,7 @@ function Payments() {
                     </button>
                     {
                       <div
-                        className={`grid ${
+                        className={`grid transition-all ease-in-out delay-200 ${
                           showAccordion ? 'visible h-auto' : 'invisible h-0'
                         }`}
                       >
