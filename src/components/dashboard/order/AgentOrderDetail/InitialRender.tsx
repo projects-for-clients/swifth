@@ -42,7 +42,7 @@ const InitialRender = () => {
         />
         <p className="text-[2rem] text-gray-600 text-center">Details</p>
       </div>
-      <main className="grid gap-10 mt-10 ">
+      <main className="grid gap-10 mt-10  ">
         <div className="grid justify-start justify-items-start gap-4">
           <p className="text-[2rem] text-gray-600 text-center">{adminName}</p>
           <p

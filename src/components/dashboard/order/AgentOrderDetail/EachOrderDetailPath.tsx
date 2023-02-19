@@ -339,7 +339,7 @@ export const AgentClearing = () => {
           </form>
         )}
       </section>
-      <div className="pt-10">
+      <div className={`pt-10 ${openToolTip || openClearingDocToolTip ? 'pb-[15rem]' : ''}`}>
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
         <div
