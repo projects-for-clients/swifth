@@ -61,7 +61,7 @@ function Payments() {
   const [paymentDetail, setPaymentDetail] = useState<Payments | null>(null);
 
   const [dropDownState, setDropDownState] = useState(false);
-  const [accordionClasses, setAccordionClasses] = useState<string>('invisible h-0')
+  const [showAccordion, setShowAccordion] = useState(false)
 
   const [search, setSearch] = useState('');
 
@@ -108,7 +108,7 @@ function Payments() {
 
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
-    setAccordionClasses('visible h-auto')
+    setShowAccordion('visible h-auto')
   };
 
   return (
@@ -183,7 +183,7 @@ function Payments() {
                       </p>
                     </button>
                       {
-                        <div className={`grid ${accordionClasses}`}>
+                        <div className={`grid ${showAccordion}`}>
                           <div className=" border-b-color-purple-light-2 flex justify-between p-8">
                             <p className="text-[1.4rem] text-color-purple-1">
                               ICOC
