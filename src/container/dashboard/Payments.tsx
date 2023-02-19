@@ -3,36 +3,19 @@ import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-import {
-  ListOrderHistory,
-  OrderHistoryDetail,
-} from '../../components/dashboard/order/OrderHistory';
+
 import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
 import {
   generateRandomDate,
   generateRandomNum,
 } from '../../components/dashboard/order/OrdersData';
 
-export type OrderHistoryPath = {
-  path: 'list' | 'detail';
-  id?: number | null;
-};
 
-export type DialogType = 'orderHistory' | 'eachOrder';
 
-export type SortBy = 'Most Recent' | 'A-Z';
-export type SwitchPath = 'all' | 'quoteRequests';
-export type ShowDetails = {
-  show: boolean;
-  id?: number | null;
-};
 
-type waitlistFilterBy = 'Quote Sent' | 'Submitted';
 
-export interface DropDownState {
-  sortBy: boolean;
-  filterBy: boolean;
-}
+
+
 
 export interface PaymentsHistory {
   id: number;
@@ -74,10 +57,7 @@ function Payments() {
 
   const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
 
-  const [dropDownState, setDropDownState] = useState<DropDownState>({
-    sortBy: false,
-    filterBy: false,
-  });
+  const [dropDownState, setDropDownState] = useState(false);
 
   const [search, setSearch] = useState('');
 
@@ -106,7 +86,7 @@ function Payments() {
 
   const handleClearFilter = () => {
     setPaymentsFilteredBy('');
-    setDropDownState((prev) => ({ ...prev, filterBy: false }));
+    setDropDownState(false);
   };
 
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
