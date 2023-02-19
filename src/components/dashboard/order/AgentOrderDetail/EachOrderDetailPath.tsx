@@ -537,43 +537,48 @@ export const AgentClearing = () => {
                                   handleSelectedClearingDocItem(item.name)
                                 }
                               >
-                                <span
-                                  className={`${item.className} font-medium`}
-                                >
-                                  <img src={item.imgUri} alt="" />
-                                  {item.name === 'Upload clearing Document' ? (
-                                    <div>
-                                      <label
-                                        htmlFor={clearingDocItem.key!}
-                                        className={`  ${
-                                          imageDetails.Valuating.error
-                                            ? 'border-red-600 border bg-red-50'
-                                            : ''
-                                        }`}
-                                      >
-                                        {item.name}
-                                      </label>
-                                      <input
-                                        type="file"
-                                        name={clearingDocItem.key!}
-                                        id={clearingDocItem.key!}
-                                        accept="pdf/*"
-                                        className="hidden"
-                                        onClick={() =>
-                                          uploadUriHandler(clearingDocItem.key!)
-                                        }
-                                        onChange={(e) =>
-                                          formUploadHandler(
-                                            e,
-                                            clearingDocItem.key!
-                                          )
-                                        }
-                                      />
-                                    </div>
-                                  ) : (
-                                    item.name
-                                  )}
-                                </span>
+                                {item.name === 'Upload clearing Document' ? (
+                                  <div>
+                                    <label
+                                      htmlFor={clearingDocItem.key!}
+                                      className={` ${
+                                        item.className
+                                      } font-medium ${
+                                        imageDetails.Valuating.error
+                                          ? 'border-red-600 border bg-red-50'
+                                          : ''
+                                      }`}
+                                    >
+                                      <img src={item.imgUri} alt="" />
+
+                                      {item.name}
+                                    </label>
+                                    <input
+                                      type="file"
+                                      name={clearingDocItem.key!}
+                                      id={clearingDocItem.key!}
+                                      accept="pdf/*"
+                                      className="hidden"
+                                      onClick={() =>
+                                        uploadUriHandler(clearingDocItem.key!)
+                                      }
+                                      onChange={(e) =>
+                                        formUploadHandler(
+                                          e,
+                                          clearingDocItem.key!
+                                        )
+                                      }
+                                    />
+                                  </div>
+                                ) : (
+                                  <span
+                                    className={`${item.className} font-medium`}
+                                  >
+                                    {' '}
+                                    <img src={item.imgUri} alt="" />
+                                    {item.name}
+                                  </span>
+                                )}
                               </button>
                             );
                           })}
