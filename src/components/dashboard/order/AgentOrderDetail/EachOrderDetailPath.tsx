@@ -345,7 +345,6 @@ export const AgentClearing = () => {
   );
 
 
-  
 
 
   const handleNextDocAction = () => {};
@@ -497,7 +496,6 @@ export const AgentClearing = () => {
 
             {clearingDocContent.map((doc, i) => {
               const docName = doc.name as ClearingKeys;
-              console.log({i, toUploadCount})
               return (
                 <Fragment key={i}>
                   <div className="relative">
