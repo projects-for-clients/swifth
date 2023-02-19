@@ -648,6 +648,18 @@ const clearingDocHistory = [
   {
     docState: 'Document Reviewed',
     agentName: 'Kayode Oluwafemi',
+  },
+  {
+    docState: 'Valuation',
+    agentName: 'Kayode Oluwafemi',
+  },
+  {
+    docState: 'Duty Processed',
+    agentName: 'Kayode Oluwafemi',
+  },
+  {
+    docState: 'Payment Releasing',
+    agentName: 'Kayode Oluwafemi',
   }
 ]
 
