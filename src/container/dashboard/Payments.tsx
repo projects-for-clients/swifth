@@ -169,9 +169,12 @@ function Payments() {
                   </div>
                 </section>
 
-                <section className="">
+                <section className="bg-color-red-light-2">
                   <div>
-                    <p className=" text-gray-400">Payment History</p>
+                    <div>
+                      <p className="text-[1.4rem] text-color-purple-1">Total Bill</p>
+                    <p className='text-color-purple'>1,000,000</p>
+                    </div>
                   </div>
                 </section>
               </main>
