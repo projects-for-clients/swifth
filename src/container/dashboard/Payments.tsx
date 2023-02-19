@@ -174,7 +174,9 @@ function Payments() {
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
                   <div>
                     <button
-                      className={`border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full`}
+                      className={`border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full ${
+                        showAccordion ? 'visible h-auto' : 'invisible h-0'
+                      }`}
                       onClick={accordionHandler}
                     >
                       <p className="text-[1.4rem] text-color-purple-1">
@@ -182,7 +184,11 @@ function Payments() {
                       </p>
                       <p className="text-color-purple font-semibold flex items-center gap-4">
                         <span>1,000,000</span>{' '}
-                        <img src="/icons/arrow-circle-down.svg" alt="" />
+                        {showAccordion ? (
+                          <img src="/icons/arrow-circle-up.svg" alt="" />
+                        ) : (
+                          <img src="/icons/arrow-circle-down.svg" alt="" />
+                        )}
                       </p>
                     </button>
                     {
