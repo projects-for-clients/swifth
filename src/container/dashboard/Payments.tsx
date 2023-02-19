@@ -196,10 +196,8 @@ function Payments() {
         <section>
           {paymentsData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
-              <p>Nothing to Show here</p>
-              {/* <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                <span>No Payments yet</span>
-              </p> */}
+              <p>Nothing Found</p>
+             
             </div>
           ) : (
             <Fragment>
