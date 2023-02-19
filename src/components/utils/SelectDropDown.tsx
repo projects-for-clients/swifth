@@ -1,6 +1,6 @@
 import { Dispatch, useState, SetStateAction, FC, useEffect } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
-import { DropDownState, SortBy } from '../../container/dashboard/orders';
+import { DropDownState, SortBy } from '../../container/dashboard/Orders';
 
 interface ISelectDropDown {
   selectFrom: string[];
@@ -36,7 +36,6 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
           sortBy: false,
           filterBy: !prev.filterBy,
         }));
-
     } else {
       return setToggleSortMenu(!toggleSortMenu);
     }
@@ -48,8 +47,6 @@ const SelectDropDown: FC<ISelectDropDown> = (props) => {
 
     setDropDownState && setDropDownState({ sortBy: false, filterBy: false });
   };
-
- 
 
   return (
     <div className="relative flex items-center  justify-items-start cursor-pointer">

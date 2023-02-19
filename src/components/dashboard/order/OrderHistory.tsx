@@ -8,15 +8,9 @@ import {
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import {
-  OrderHistoryPath,
-} from '../../../container/dashboard/orders';
+import { OrderHistoryPath } from '../../../container/dashboard/Orders';
 import CalenderSvg from '../../icons/Calender';
-import {
-  INPROGRESS,
-  InProgress,
-  InProgressFilterBy,
-} from './OrdersData';
+import { INPROGRESS, InProgress, InProgressFilterBy } from './OrdersData';
 
 interface Props {
   setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
@@ -360,5 +354,3 @@ export interface OrderHistoryDetail {
   carModel: string;
   carBrand: string;
 }
-
-
