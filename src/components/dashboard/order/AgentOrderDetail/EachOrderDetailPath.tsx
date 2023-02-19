@@ -498,8 +498,11 @@ export const AgentClearing = () => {
                       onClick={() =>
                         handleClearingDocChange(doc.name as ClearingKeys)
                       }
+                      disabled={
+                      docName !== 'Valuating' && !imgUris[docName]
+                      }
                     >
-                      {doc.name}
+                      {docName}
 
                       {imageDetails[docName].pathName && (
                         <div className="grid">
