@@ -47,7 +47,7 @@ export const AgentClearing = () => {
     "Custom Releasing": '',
     "Duty Processing": '',
   });
-  
+
   const keyProps = {
     error: false,
     message: null,
@@ -265,7 +265,7 @@ export const AgentClearing = () => {
   };
 
    const uploadUriHandler = async (
-     key: 'logoUri' | 'cacUri' | 'licenseUri'
+     key: 'logoUri' | 'Valuating' | 'licenseUri'
    ) => {
      const getUri = await getPhotoUri(key);
 
@@ -276,7 +276,7 @@ export const AgentClearing = () => {
 
    const formUploadHandler = (
      e: ChangeEvent<HTMLInputElement>,
-     key: 'logoUri' | 'cacUri' | 'licenseUri'
+     key: 'logoUri' | 'Valuating' | 'licenseUri'
    ) => {
      const fileObj = e.target as HTMLInputElement;
 
@@ -408,7 +408,11 @@ export const AgentClearing = () => {
           </form>
         )}
       </section>
-      <div className={`pt-10 ${openToolTip || openClearingDocToolTip ? 'pb-[15rem]' : ''}`}>
+      <div
+        className={`pt-10 ${
+          openToolTip || openClearingDocToolTip ? 'pb-[15rem]' : ''
+        }`}
+      >
         <p className="text-gray-400 font-semibold text-[1.8rem]">RC Docs</p>
 
         <div
@@ -484,7 +488,9 @@ export const AgentClearing = () => {
                 <div className="relative">
                   <p
                     className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap `}
-                    onClick={() => handleClearingDocChange(doc.name as ClearingKeys)}
+                    onClick={() =>
+                      handleClearingDocChange(doc.name as ClearingKeys)
+                    }
                   >
                     {doc.name}
 
@@ -498,6 +504,45 @@ export const AgentClearing = () => {
                       </span>
                     ) : null}
                   </p>
+                  <div>
+                    <label
+                      htmlFor={`Valuating`}
+                      className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
+                        imageDetails.Valuating.error
+                          ? 'border-red-600 border bg-red-50'
+                          : 'border-color-purple-light'
+                      }`}
+                    >
+                      {imageDetails.Valuating.error ? (
+                        <img src="/icons/admin/uploadError.svg" alt="" />
+                      ) : (
+                        <img src="/icons/admin/upload.svg" alt="" />
+                      )}
+                      {imageDetails.Valuating.pathName ? (
+                        <div className="grid">
+                          <p className="text-[1.4rem] font-normal">
+                            {imageDetails.Valuating.pathName}
+                          </p>
+                          <p className="text-color-grey-4 text-[1rem]">
+                            {imageDetails.Valuating.message
+                              ? imageDetails.Valuating.message
+                              : imageDetails.Valuating.size}
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-[1.4rem]">Upload CAC Certificate</p>
+                      )}
+                    </label>
+                    <input
+                      type="file"
+                      name={`Valuating`}
+                      id={`Valuating`}
+                      accept="pdf/*"
+                      className="hidden"
+                      onClick={() => uploadUriHandler(`Valuating`)}
+                      onChange={(e) => formUploadHandler(e, `Valuating`)}
+                    />
+                  </div>
                   {openClearingDocToolTip &&
                     clearingDocItem.key === doc.name && (
                       <div
@@ -508,8 +553,7 @@ export const AgentClearing = () => {
                             <button
                               className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
                               key={i}
-                              disabled={
-                                !doc.submitted}
+                              disabled={!doc.submitted}
                               onClick={() =>
                                 handleSelectedClearingDocItem(item.name)
                               }
