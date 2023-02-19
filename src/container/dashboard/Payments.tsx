@@ -3,19 +3,11 @@ import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-
 import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
 import {
   generateRandomDate,
   generateRandomNum,
 } from '../../components/dashboard/order/OrdersData';
-
-
-
-
-
-
-
 
 export interface PaymentsHistory {
   id: number;
@@ -116,15 +108,15 @@ function Payments() {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              onClick={() => handleCloseDialog('eachOrder')}
+              onClick={() => handleCloseDialog()}
             />
           </figure>
 
           <section className="h-full">
-            <EachOrderDetail
-              orderDetail={OrderDetail}
-              handleCloseDialog={() => handleCloseDialog('eachOrder')}
-            />
+              {/* <EachOrderDetail
+                orderDetail={OrderDetail}
+                handleCloseDialog={() => handleCloseDialog()}
+              /> */}
           </section>
         </div>
       </dialog>
@@ -188,7 +180,7 @@ function Payments() {
                     setSelectedItem={setPaymentsFilteredBy}
                     isFilter
                   />
-                  
+
                   {paymentsFilteredBy && (
                     <GrClose
                       className="text-[1.4rem] cursor-pointer"
