@@ -61,6 +61,7 @@ function Payments() {
   const [paymentDetail, setPaymentDetail] = useState<Payments | null>(null);
 
   const [dropDownState, setDropDownState] = useState(false);
+  const [accordionClasses, setAccordionClasses] = useState<string>('invisible')
 
   const [search, setSearch] = useState('');
 
@@ -105,7 +106,7 @@ function Payments() {
     }
   };
 
-  const accordionHandler = (e: SyntheticEvent<HTMLDetailsElement, Event>) => {
+  const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
   };
 
@@ -170,34 +171,36 @@ function Payments() {
                 </section>
 
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-                  <div className="border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer">
-                    <p className="text-[1.4rem] text-color-purple-1">
-                      Total Bill
-                    </p>
-                    <p className="text-color-purple font-semibold flex items-center gap-4">
-                      <span>1,000,000</span>{' '}
-                      <img src="/icons/arrow-circle-down.svg" alt="" />
-                    </p>
-                    {
-                      <div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            ICOC
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            400,000
-                          </p>
+                  <div>
+                    <button className="border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer" onClick={accordionHandler}>
+                      <p className="text-[1.4rem] text-color-purple-1">
+                        Total Bill
+                      </p>
+                      <p className="text-color-purple font-semibold flex items-center gap-4">
+                        <span>1,000,000</span>{' '}
+                        <img src="/icons/arrow-circle-down.svg" alt="" />
+                      </p>
+                    </button>
+                      {
+                        <div className={`grid ${accordionClasses}`}>
+                          <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                            <p className="text-[1.4rem] text-color-purple-1">
+                              ICOC
+                            </p>
+                            <p className="text-color-purple-1 font-semibold">
+                              400,000
+                            </p>
+                          </div>
+                          <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                            <p className="text-[1.4rem] text-color-purple-1">
+                              Loan + (10%) Interest
+                            </p>
+                            <p className="text-color-purple-1 font-semibold">
+                              220,000
+                            </p>
+                          </div>
                         </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Loan + (10%) Interest
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            220,000
-                          </p>
-                        </div>
-                      </div>
-                    }
+                      }
                   </div>
                   <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
                     <p className="text-[1.4rem] text-color-purple-1">Paid</p>
