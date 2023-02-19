@@ -160,16 +160,7 @@ function Payments() {
                 </section>
 
                 <section className="">
-                  <div className="mt-10 mb-20 h-[50rem]">
-                    <details onToggle={accordionHandler} className='details'>
-                      <summary >Epcot Center</summary>
-                      <p>
-                        Epcot is a theme park at Walt Disney World Resort
-                        featuring exciting attractions, international pavilions,
-                        award-winning fireworks and seasonal special events.
-                      </p>
-                    </details>
-                  </div>
+                  
                 </section>
               </main>
             </div>
