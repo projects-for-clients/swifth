@@ -502,7 +502,8 @@ export const AgentClearing = () => {
                     >
                       {docName}
 
-                      {doc.status === 'Approved' ? (
+                      {!imageDetails[docName].pathName &&
+                      doc.status === 'Approved' ? (
                         <span>
                           <img src="/icons/tick-square.svg" alt="" />
                         </span>
