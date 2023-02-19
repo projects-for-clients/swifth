@@ -1,5 +1,13 @@
 import Header from '../../components/dashboard/Header';
-import { ChangeEvent, Fragment, useEffect, useState, useRef, ReactEventHandler, SyntheticEvent } from 'react';
+import {
+  ChangeEvent,
+  Fragment,
+  useEffect,
+  useState,
+  useRef,
+  ReactEventHandler,
+  SyntheticEvent,
+} from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
@@ -24,6 +32,7 @@ export interface Payments {
   date: Date;
   tag: PaymentsFilterBy;
   history: PaymentsHistory[];
+  amount: number;
 }
 
 const paymentsHistoryArr: PaymentsHistory[] = Array.from(
@@ -42,6 +51,7 @@ export const PAYMENTS: Payments[] = Array.from({ length: 20 }, (_, i) => ({
   date: generateRandomDate(),
   tag: Math.random() > 0.5 ? 'Fully Paid' : 'Pending Bill',
   history: paymentsHistoryArr,
+  amount: 50000,
 }));
 
 function Payments() {
@@ -246,7 +256,7 @@ function Payments() {
                 }}
               >
                 {paymentsData.map((item, i) => {
-                  const { name, description, date, tag } = item;
+                  const { name, description, date, tag, amount } = item;
 
                   return (
                     <div
@@ -255,13 +265,6 @@ function Payments() {
                       onClick={() => handleOpenDialog(item)}
                     >
                       <div className="text-[1.2rem] flex items-center justify-between">
-                        <p className="text-gray-500">
-                          {date.toLocaleString('en-GB', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </p>
                         <p
                           className={`py-1.5 px-4 rounded-2xl ${
                             tag === 'Fully Paid'
@@ -271,12 +274,23 @@ function Payments() {
                         >
                           {tag}
                         </p>
-                      </div>
-                      <div>
-                        <p className="text-[1.6rem]">{name}</p>
-                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
-                          {description}
+                        <p className="text-gray-500">
+                          {date.toLocaleString('en-GB', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                          })}
                         </p>
+                      </div>
+                      <div className='flex justify-between'>
+                        <div>
+                          <p className="text-[1.6rem]">{name}</p>
+                          <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
+                            {description}
+                          </p>
+                        </div>
+
+                        <p>{amount.toLocaleString()}</p>
                       </div>
                     </div>
                   );
