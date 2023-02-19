@@ -54,7 +54,7 @@ export const AgentClearing = () => {
     'Duty Processing': '',
   });
 
-  const [toUploadCount, setToUploadCount] = useState(0)
+  const [toUploadCount, setToUploadCount] = useState(1)
 
   const keyProps = {
     error: false,
@@ -507,7 +507,7 @@ export const AgentClearing = () => {
                       onClick={() =>
                         handleClearingDocChange(doc.name as ClearingKeys)
                       }
-                      disabled={i < toUploadCount}
+                      disabled={i >= toUploadCount && !doc.submitted}
                     >
                       {docName} 
 
