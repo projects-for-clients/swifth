@@ -53,8 +53,9 @@ function Payments() {
 
   const [search, setSearch] = useState('');
 
-  const [paymentsData, setPaymentsData] = useState<Payments[]>([]);
-  const [OrderDetail, setOrderDetail] = useState<Payments>(null as any);
+  const [paymentsData, setPaymentsData] = useState<Payments[]>(PAYMENTS);
+
+  console.log({paymentsData, PAYMENTS})
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
