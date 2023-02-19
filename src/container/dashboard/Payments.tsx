@@ -75,19 +75,13 @@ function Payments() {
 
 
   const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
-  const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
-  const [selectedSort, setSelectedSort] = useState<SortBy | string>(
-    'Most Recent'
-  );
+  
   const [dropDownState, setDropDownState] = useState<DropDownState>({
     sortBy: false,
     filterBy: false,
   });
 
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('payments');
-  const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
-    path: 'list',
-  });
+  
   const [search, setSearch] = useState('');
 
   const [paymentsData, setPaymentsData] = useState<Payments[]>([]);
@@ -183,20 +177,9 @@ function Payments() {
     handleOpenDialog('eachOrder');
   };
 
-  const orderHistoryPaths: Record<string, JSX.Element> = {
-    list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath} />,
-    detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath} />,
-  };
+  
 
-  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    payments: (
-      <PaymentsView
-        paymentsData={paymentsData}
-        openOrderDetail={openOrderDetail}
-      />
-    ),
-    waitlist: <WaitlistView waitlistData={waitlistData} />,
-  };
+ 
 
   return (
     <>
