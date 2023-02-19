@@ -348,10 +348,9 @@ export const AgentClearing = () => {
 
   const allUploadedClearingDocs =
     toUploadCount.length > clearingDocContent.length;
-    
+
   const handleNextDocAction = () => {};
 
-  console.log({ clearingDocContent, toUploadCount });
 
   return (
     <>
@@ -600,12 +599,12 @@ export const AgentClearing = () => {
         )}
         <div
           className={`flex w-full mt-10 ${
-            toUploadCount.length > clearingDocContent.length
+            allUploadedClearingDocs ? 'justify-between' : 'justify-end'
           }`}
         >
           {isOrderAssignedAgent ? (
             <>
-              {toUploadCount.length > clearingDocContent.length ? (
+              {allUploadedClearingDocs ? (
                 <div className="w-full">
                   <button
                     className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed "
