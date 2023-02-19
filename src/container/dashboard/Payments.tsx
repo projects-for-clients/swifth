@@ -175,8 +175,21 @@ function Payments() {
                       Total Bill
                     </p>
                     <p className="text-color-purple font-semibold flex items-center gap-4">
-                      <span>1,000,000</span> <img src="/icons/arrow-circle-down.svg" alt="" />
+                      <span>1,000,000</span>{' '}
+                      <img src="/icons/arrow-circle-down.svg" alt="" />
                     </p>
+                    {
+                      <div>
+                        <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
+                          <p className="text-[1.4rem] text-color-purple-1">
+                            ICOC
+                          </p>
+                          <p className="text-color-purple-1 font-semibold">
+                            400,000
+                          </p>
+                        </div>
+                      </div>
+                    }
                   </div>
                   <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
                     <p className="text-[1.4rem] text-color-purple-1">Paid</p>
