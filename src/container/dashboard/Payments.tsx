@@ -44,7 +44,7 @@ const paymentHistoryArr: PaymentHistory[] = Array.from(
   (_, i) => ({
     id: i,
     date: generateRandomDate(),
-    amount: Math.random() * 270000 + 40000 ,
+    amount: Math.floor(Math.random() * 270000 + 40000) ,
   })
 );
 
