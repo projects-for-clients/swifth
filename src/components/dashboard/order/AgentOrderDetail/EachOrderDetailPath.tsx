@@ -345,15 +345,7 @@ export const AgentClearing = () => {
   );
 
 
-  useEffect(() => {
-    console.log({imgUris})
-    console.log("is Available", !imgUris)
-    console.log('available', imgUris)
-  }, [imgUris])
-
-useEffect(() => {
-
-}, [imgUris])
+  
 
 
   const handleNextDocAction = () => {};
