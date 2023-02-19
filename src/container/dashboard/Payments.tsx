@@ -110,31 +110,12 @@ function Payments() {
   
   }, [paymentsFilteredBy]);
 
-  useEffect(() => {
-    if (selectedSort) {
-      if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = [...PAYMENTS].sort((a, b) => {
-          return a.name.localeCompare(b.name);
-        });
+ 
 
-        return setPaymentsData(() => [...sortedNames]);
-      } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = [...PAYMENTS].sort((a, b) => {
-          return new Date(a.date).getTime() - new Date(b.date).getTime();
-        });
-
-        return setPaymentsData(() => [...sortedDates]);
-      }
-    }
-  }, [selectedSort]);
-
-  const handleClearFilter = (toClear: 'payments' | 'waitlist') => {
-    if (toClear === 'payments') {
+  const handleClearFilter = () => {
       setPaymentsFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
-    } else {
-      setWaitlistFilterBy('');
-    }
+    
   };
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
