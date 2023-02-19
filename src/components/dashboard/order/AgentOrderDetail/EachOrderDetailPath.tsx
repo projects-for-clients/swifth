@@ -645,7 +645,10 @@ export const AgentClearing = () => {
 
 
 const clearingDocHistory = [
-  
+  {
+    docState: 'Document Reviewed',
+    agentName: 'Kayode Oluwafemi',
+  }
 ]
 
 export const AgentOrderHistory = () => {
