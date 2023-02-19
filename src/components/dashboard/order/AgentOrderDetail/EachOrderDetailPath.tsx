@@ -1,10 +1,4 @@
-import {
-  useState,
-  Fragment,
-  FormEvent,
-  useEffect,
-  useContext,
-} from 'react';
+import { useState, Fragment, FormEvent, useEffect, useContext } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
   ClearingKeys,
@@ -16,13 +10,13 @@ import {
 } from '../../../../store/features/order/order';
 import { AgentOrderDetailContext } from './AgentOrderDetail';
 
-
 export const AgentClearing = () => {
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const {setShowAssignAgentView, orderId, setUpdateDocsPayload} = agentDetailContext
+  const { setShowAssignAgentView, orderId, setUpdateDocsPayload } =
+    agentDetailContext;
 
   const [toDisplay, setToDisplay] = useState<{
     docType?: 'RCDoc' | 'clearingDoc';
@@ -129,14 +123,14 @@ export const AgentClearing = () => {
 
   const handleSelectedClearingDocItem = (item: string) => {
     if (item === 'Assign Field Agent') {
-
-      setUpdateDocsPayload({
-        orderId,
-        content: {
-          name: 'Valuating',
-          
-        },
-      })
+      if (selectedClearingItem) {
+        setUpdateDocsPayload({
+          orderId,
+          content: {
+            name: selectedClearingItem,
+          },
+        });
+      }
 
       setShowAssignAgentView({
         show: true,
