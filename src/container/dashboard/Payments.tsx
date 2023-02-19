@@ -95,11 +95,8 @@ function Payments() {
     }
   };
 
-  const accordionHandler = (e) => {
-    const accordion = e.target.closest('.accordion');
-    const accordionContent = accordion.querySelector('.accordion-content');
-
-    accordionContent.classList.toggle('hidden');
+  const accordionHandler = (e: HTMLDetailsElement) => {
+    console.log(e)
   }
 
   return (
