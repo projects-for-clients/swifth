@@ -290,7 +290,7 @@ function Payments() {
                           </p>
                         </div>
 
-                        <p>{amount.toLocaleString()}</p>
+                        <p className='text-color-tertiary flex gap-1 font-medium'><span className='text-gray-700'>NGN</span>{amount.toLocaleString()}</p>
                       </div>
                     </div>
                   );
