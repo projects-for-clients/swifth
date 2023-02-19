@@ -665,7 +665,7 @@ const clearingDocHistory = [
 
 export const AgentOrderHistory = () => {
   return (
-    <div className="grid gap-4 mt-10">
+    <div className="grid gap-4 pt-10">
       {clearingDocHistory.map((item, i) => (
         <div className="grid gap-1 bg-color-red-light-2 py-4 px-8 rounded-3xl" key={i}>
           <p>{item.docState}</p>
