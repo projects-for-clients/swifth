@@ -1,9 +1,6 @@
 import {
   useState,
   Fragment,
-  Dispatch,
-  SetStateAction,
-  FC,
   FormEvent,
   useEffect,
   useContext,
@@ -17,7 +14,7 @@ import {
   updateClearingDoc,
   updateRCDocs,
 } from '../../../../store/features/order/order';
-import { AgentOrderDetailContext, ShowAssignAgentView } from './AgentOrderDetail';
+import { AgentOrderDetailContext } from './AgentOrderDetail';
 
 
 export const AgentClearing = () => {
