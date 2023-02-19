@@ -221,11 +221,12 @@ function Payments() {
           />
         </section>
         <section>
-          <div className="bg-color-green-light-1 text-color-primary-dark-2">
+          <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-color-gr">
             <p className="font-semibold">Total Received</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
               <span className="text-color-green-light">NGN</span>{' '}
+              35,923 M
             </p>
           </div>
         </section>
