@@ -271,7 +271,7 @@ export const AgentClearing = () => {
   };
 
   const uploadUriHandler = async (
-    key: 'logoUri' | 'Valuating' | 'licenseUri'
+    key: ClearingKeys
   ) => {
     const getUri = await getPhotoUri(key);
 
@@ -280,7 +280,7 @@ export const AgentClearing = () => {
 
   const formUploadHandler = (
     e: ChangeEvent<HTMLInputElement>,
-    key: 'logoUri' | 'Valuating' | 'licenseUri'
+    key: ClearingKeys
   ) => {
     const fileObj = e.target as HTMLInputElement;
 
@@ -529,7 +529,7 @@ export const AgentClearing = () => {
                                 {item.name === 'Upload clearing Document' ? (
                                   <div>
                                     <label
-                                      htmlFor={`Valuating`}
+                                      htmlFor={clearingDocItem.key!}
                                       className={`  ${
                                         imageDetails.Valuating.error
                                           ? 'border-red-600 border bg-red-50'
@@ -552,15 +552,15 @@ export const AgentClearing = () => {
                                     </label>
                                     <input
                                       type="file"
-                                      name={`Valuating`}
-                                      id={`Valuating`}
+                                      name={clearingDocItem.key!}
+                                      id={clearingDocItem.key!}
                                       accept="pdf/*"
                                       className="hidden"
                                       onClick={() =>
-                                        uploadUriHandler(`Valuating`)
+                                        uploadUriHandler(clearingDocItem.key!)
                                       }
                                       onChange={(e) =>
-                                        formUploadHandler(e, `Valuating`)
+                                        formUploadHandler(e, clearingDocItem.key!)
                                       }
                                     />
                                   </div>
