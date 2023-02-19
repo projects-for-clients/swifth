@@ -99,7 +99,7 @@ function Payments() {
   };
 
   useEffect(() => {
-    if (paymentsFilteredBy && currentPath === 'payments') {
+    if (paymentsFilteredBy) {
       const filtered = PAYMENTS.filter(
         (item) => item.tag === paymentsFilteredBy
       );
@@ -107,14 +107,8 @@ function Payments() {
       return setPaymentsData(() => [...filtered]);
     }
 
-    if (waitlistFilterBy && currentPath === 'waitlist') {
-      const filtered = WAITLIST.filter((item) => {
-        return item.submitted === (waitlistFilterBy === 'Submitted');
-      });
-
-      return setWaitlistData(() => [...filtered]);
-    }
-  }, [paymentsFilteredBy, waitlistFilterBy]);
+  
+  }, [paymentsFilteredBy]);
 
   useEffect(() => {
     if (selectedSort) {
