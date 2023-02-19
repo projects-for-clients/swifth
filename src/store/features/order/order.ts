@@ -11,8 +11,8 @@ type DocStatus = 'Approved' | 'Declined' | null;
 
 export type DocsContent = {
   name: RCDocsKeys | ClearingKeys;
-  status: DocStatus;
-  submitted: boolean;
+  status?: DocStatus;
+  submitted?: boolean;
   fieldAgent?: string | null;
 };
 export interface UpdateDocsPayload {

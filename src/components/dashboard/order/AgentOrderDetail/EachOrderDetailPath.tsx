@@ -22,7 +22,7 @@ export const AgentClearing = () => {
   const orderDetails = useAppSelector(selectOrder);
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const {setShowAssignAgentView, orderId} = agentDetailContext
+  const {setShowAssignAgentView, orderId, setUpdateDocsPayload} = agentDetailContext
 
   const [toDisplay, setToDisplay] = useState<{
     docType?: 'RCDoc' | 'clearingDoc';
@@ -130,6 +130,13 @@ export const AgentClearing = () => {
   const handleSelectedClearingDocItem = (item: string) => {
     if (item === 'Assign Field Agent') {
 
+      setUpdateDocsPayload({
+        orderId,
+        content: {
+          name: 'Valuating',
+          
+        },
+      })
 
       setShowAssignAgentView({
         show: true,
