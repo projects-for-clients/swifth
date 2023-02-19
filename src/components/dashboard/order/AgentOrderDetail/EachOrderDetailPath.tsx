@@ -87,6 +87,9 @@ export const AgentClearing = () => {
     },
   ] as const;
 
+  type ClearingOptionName = typeof selectClearingOptions[number]['name'];
+
+
   const assignRCDocAgent = () => {
     setShowAssignAgentView({
       show: true,
@@ -121,7 +124,7 @@ export const AgentClearing = () => {
     setOpenClearingDocToolTip(true);
   };
 
-  const handleSelectedClearingDocItem = (item: string) => {
+  const handleSelectedClearingDocItem = (item: ClearingOptionName) => {
     if (item === 'Assign Field Agent') {
       if (selectedClearingItem) {
         setUpdateDocsPayload({
