@@ -18,7 +18,7 @@ const clearingDocAgents = [
 const AssignAgentRender = () => {
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const { setShowAssignAgentView, orderId, showAssignAgentView } =
+  const { setShowAssignAgentView, orderId, showAssignAgentView, updateDocsPayload } =
     agentDetailContext;
 
   const dispatch = useAppDispatch();
@@ -44,14 +44,17 @@ const AssignAgentRender = () => {
         })
       );
     } else {
-      // dispatch(
-      // assignClearingDocFieldAgent({
-      //   orderId,
-      //   content: {
-      //     name: '',
-      //   },
-      // })
-      // );
+      dispatch(
+      assignClearingDocFieldAgent({
+        orderId,
+        content: {
+          name: updateDocsPayload.content.name,
+          fieldAgent: selected,
+          submitted: true,
+          status: 'Approved'
+        },
+      })
+      );
     }
     setToastDisplay('flex');
   };
