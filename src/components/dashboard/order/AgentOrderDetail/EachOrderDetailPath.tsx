@@ -493,8 +493,8 @@ export const AgentClearing = () => {
               return (
                 <Fragment key={i}>
                   <div className="relative">
-                    <p
-                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap `}
+                    <button
+                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap w-full`}
                       onClick={() =>
                         handleClearingDocChange(doc.name as ClearingKeys)
                       }
@@ -513,7 +513,7 @@ export const AgentClearing = () => {
                           </p>
                         </div>
                       )}
-                    </p>
+                    </button>
 
                     {openClearingDocToolTip &&
                       clearingDocItem.key === doc.name && (
