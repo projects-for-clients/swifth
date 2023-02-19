@@ -9,6 +9,7 @@ import {
   OrderHistoryDetail,
 } from '../../components/dashboard/order/OrderHistory';
 import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
+import { generateRandomDate, generateRandomNum} from '../../components/dashboard/order/OrdersData';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -57,15 +58,14 @@ const paymentsHistoryArr: PaymentsHistory[] = Array.from(
   })
 );
 
-export const PAYMENTS: Payments[] = [
-  {
-    id: generateRandomNum(),
-    name: 'Jonathan Sunyi',
-    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-    date: generateRandomDate(),
-    tag: 'Docs in Review',
-  },
-];
+export const PAYMENTS: Payments[] = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  name: `Ezekiel Doe ${i + 1}`,
+  description: `Toyota Camry XLE, ${200 +  (i + 1)}`,
+  date: generateRandomDate(),
+  tag: Math.random() > 0.5 ? 'Fully Paid' : 'Pending Bill',
+  history: paymentsHistoryArr,
+}));
 
 function Payments() {
   type SwitchPath = 'payments' | 'waitlist';
