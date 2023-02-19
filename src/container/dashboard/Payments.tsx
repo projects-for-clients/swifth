@@ -260,7 +260,7 @@ function Payments() {
 
                   return (
                     <div
-                      className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
+                      className="p-4 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
                       key={i}
                       onClick={() => handleOpenDialog(item)}
                     >
@@ -282,7 +282,7 @@ function Payments() {
                           })}
                         </p>
                       </div>
-                      <div className='flex justify-between'>
+                      <div className='flex justify-between items-end'>
                         <div>
                           <p className="text-[1.6rem]">{name}</p>
                           <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
@@ -290,7 +290,7 @@ function Payments() {
                           </p>
                         </div>
 
-                        <p className='text-color-tertiary flex gap-1 font-medium'><span className='text-gray-700'>NGN</span>{amount.toLocaleString()}</p>
+                        <p className='text-color-purple-1 flex gap-1 font-medium'><span className='text-gray-700'>NGN</span>{amount.toLocaleString()}</p>
                       </div>
                     </div>
                   );
