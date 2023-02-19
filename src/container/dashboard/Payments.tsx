@@ -170,11 +170,11 @@ function Payments() {
                 </section>
 
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-                  <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
+                  <div className="border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer">
                     <p className="text-[1.4rem] text-color-purple-1">
                       Total Bill
                     </p>
-                    <p className="text-color-purple font-semibold">
+                    <p className="text-color-purple font-semibold flex items-center gap-4">
                       <span>1,000,000</span> <img src="/icons/arrow-circle-down.svg" alt="" />
                     </p>
                   </div>
