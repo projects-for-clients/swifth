@@ -1,4 +1,11 @@
-import { useState, Fragment, FormEvent, useEffect, useContext, ChangeEvent } from 'react';
+import {
+  useState,
+  Fragment,
+  FormEvent,
+  useEffect,
+  useContext,
+  ChangeEvent,
+} from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
   ClearingKeys,
@@ -36,16 +43,15 @@ export const AgentClearing = () => {
   });
 
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const [selectedClearingItem, setSelectedClearingItem] = useState<
-    ClearingKeys | null
-  >(null);
+  const [selectedClearingItem, setSelectedClearingItem] =
+    useState<ClearingKeys | null>(null);
   const [openToolTip, setOpenToolTip] = useState(false);
   const [openClearingDocToolTip, setOpenClearingDocToolTip] = useState(false);
 
   const [imgUris, setImgUris] = useState<Record<ClearingKeys, string>>({
     Valuating: '',
-    "Custom Releasing": '',
-    "Duty Processing": '',
+    'Custom Releasing': '',
+    'Duty Processing': '',
   });
 
   const keyProps = {
@@ -53,14 +59,15 @@ export const AgentClearing = () => {
     message: null,
     size: '',
     pathName: '',
-  } 
+  };
 
-  const [imageDetails, setImageDetails] = useState<Record<ClearingKeys, typeof keyProps>>({
+  const [imageDetails, setImageDetails] = useState<
+    Record<ClearingKeys, typeof keyProps>
+  >({
     Valuating: keyProps,
     'Custom Releasing': keyProps,
     'Duty Processing': keyProps,
   });
-
 
   const selectFrom = [
     {
@@ -110,7 +117,6 @@ export const AgentClearing = () => {
 
   type ClearingOptionName = typeof selectClearingOptions[number]['name'];
 
-
   const assignRCDocAgent = () => {
     setShowAssignAgentView({
       show: true,
@@ -135,7 +141,7 @@ export const AgentClearing = () => {
     setOpenToolTip(true);
   };
   const handleClearingDocChange = (item: ClearingKeys) => {
-    setclearingDocItem(({key}) => {
+    setclearingDocItem(({ key }) => {
       if (key === item) {
         return { key: null };
       }
@@ -264,53 +270,51 @@ export const AgentClearing = () => {
     );
   };
 
-   const uploadUriHandler = async (
-     key: 'logoUri' | 'Valuating' | 'licenseUri'
-   ) => {
-     const getUri = await getPhotoUri(key);
+  const uploadUriHandler = async (
+    key: 'logoUri' | 'Valuating' | 'licenseUri'
+  ) => {
+    const getUri = await getPhotoUri(key);
 
-     setImgUris((prev) => ({ ...prev, [key]: getUri }));
+    setImgUris((prev) => ({ ...prev, [key]: getUri }));
+  };
 
+  const formUploadHandler = (
+    e: ChangeEvent<HTMLInputElement>,
+    key: 'logoUri' | 'Valuating' | 'licenseUri'
+  ) => {
+    const fileObj = e.target as HTMLInputElement;
 
-   };
+    const { name } = fileObj.files![0];
+    const path = fileObj.files![0];
 
-   const formUploadHandler = (
-     e: ChangeEvent<HTMLInputElement>,
-     key: 'logoUri' | 'Valuating' | 'licenseUri'
-   ) => {
-     const fileObj = e.target as HTMLInputElement;
+    const size = path.size / 1000;
 
-     const { name } = fileObj.files![0];
-     const path = fileObj.files![0];
+    const KBSize = size.toString().split('.')[0];
 
-     const size = path.size / 1000;
+    if (KBSize.length > 3) {
+      const MBSize = Number(KBSize) / 1000;
 
-     const KBSize = size.toString().split('.')[0];
-
-     if (KBSize.length > 3) {
-       const MBSize = Number(KBSize) / 1000;
-
-       setImageDetails((prev) => ({
-         ...prev,
-         [key]: {
-           pathName: name,
-           error: MBSize > 2 ? true : false,
-           message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
-           size: `${MBSize.toFixed(1)}MB`,
-         },
-       }));
-     } else {
-       setImageDetails((prev) => ({
-         ...prev,
-         [key]: {
-           error: false,
-           message: null,
-           pathName: name,
-           size: `${KBSize}KB`,
-         },
-       }));
-     }
-   };
+      setImageDetails((prev) => ({
+        ...prev,
+        [key]: {
+          pathName: name,
+          error: MBSize > 2 ? true : false,
+          message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+          size: `${MBSize.toFixed(1)}MB`,
+        },
+      }));
+    } else {
+      setImageDetails((prev) => ({
+        ...prev,
+        [key]: {
+          error: false,
+          message: null,
+          pathName: name,
+          size: `${KBSize}KB`,
+        },
+      }));
+    }
+  };
 
   const { RCDocsArr, ordersData, clearingDocsArr } = orderDetails;
 
@@ -504,39 +508,7 @@ export const AgentClearing = () => {
                       </span>
                     ) : null}
                   </p>
-                  <div>
-                    <label
-                      htmlFor={`Valuating`}
-                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap  ${
-                        imageDetails.Valuating.error
-                          ? 'border-red-600 border bg-red-50'
-                          : ''
-                      }`}
-                    >
-                      
-                      {imageDetails.Valuating.pathName && (
-                        <div className="grid">
-                          <p className="text-[1.4rem] font-normal">
-                            {imageDetails.Valuating.pathName}
-                          </p>
-                          <p className="text-color-grey-4 text-[1rem]">
-                            {imageDetails.Valuating.message
-                              ? imageDetails.Valuating.message
-                              : imageDetails.Valuating.size}
-                          </p>
-                        </div>
-                      ) }
-                    </label>
-                    <input
-                      type="file"
-                      name={`Valuating`}
-                      id={`Valuating`}
-                      accept="pdf/*"
-                      className="hidden"
-                      onClick={() => uploadUriHandler(`Valuating`)}
-                      onChange={(e) => formUploadHandler(e, `Valuating`)}
-                    />
-                  </div>
+
                   {openClearingDocToolTip &&
                     clearingDocItem.key === doc.name && (
                       <div
@@ -553,9 +525,51 @@ export const AgentClearing = () => {
                               }
                             >
                               <img src={item.imgUri} alt="" />
-                              <span className={`${item.className} font-medium`}>
-                                {item.name}
-                              </span>
+
+                              {item.name === 'Upload clearing Document' ? (
+                                <div>
+                                  <label
+                                    htmlFor={`Valuating`}
+                                    className={`  ${
+                                      imageDetails.Valuating.error
+                                        ? 'border-red-600 border bg-red-50'
+                                        : ''
+                                    }`}
+                                  >
+                                    {imageDetails.Valuating.pathName && (
+                                      <div className="grid">
+                                        <p className="text-[1.4rem] font-normal">
+                                          {imageDetails.Valuating.pathName}
+                                        </p>
+                                        <p className="text-color-grey-4 text-[1rem]">
+                                          {imageDetails.Valuating.message
+                                            ? imageDetails.Valuating.message
+                                            : imageDetails.Valuating.size}
+                                        </p>
+                                      </div>
+                                    )}
+                                  </label>
+                                  <input
+                                    type="file"
+                                    name={`Valuating`}
+                                    id={`Valuating`}
+                                    accept="pdf/*"
+                                    className="hidden"
+                                    onClick={() =>
+                                      uploadUriHandler(`Valuating`)
+                                    }
+                                    onChange={(e) =>
+                                      formUploadHandler(e, `Valuating`)
+                                    }
+                                  />
+                                </div>
+                              ) : (
+                                <span
+                                  className={`${item.className} font-medium`}
+                                >
+                                  {item.name}
+                                </span>
+                              )}
                             </button>
                           );
                         })}
