@@ -220,29 +220,26 @@ function Payments() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-        <section className='grid'>
+        <section className="grid">
           <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 p-8">
             <p className="font-semibold">Total Received</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
-              <span className="text-color-green-light">NGN</span>{' '}
-              35,923 M
+              <span className="text-color-green-light">NGN</span> 35,923 M
             </p>
           </div>
-          <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 p-8">
-            <p className="font-semibold">Total Received</p>
+          <div className="bg-color-red-light-2 text-color-tertiary rounded-3xl border border-red-300 p-8">
+            <p className="font-semibold"> Received Today</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
-              <span className="text-color-green-light">NGN</span>{' '}
-              35,923 M
+              <span className="text-color-purple-light">NGN</span> 1.85 M
             </p>
           </div>
-          <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 p-8">
-            <p className="font-semibold">Total Received</p>
+          <div className="bg-[#FDECD0] text-[#312004] rounded-3xl border border-green-600 p-8">
+            <p className="font-semibold">Pending Payments</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
-              <span className="text-color-green-light">NGN</span>{' '}
-              35,923 M
+              <span className="text-orange-500">NGN</span> 690,000
             </p>
           </div>
         </section>
