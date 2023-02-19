@@ -118,13 +118,10 @@ function Payments() {
     
   };
 
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = (type: DialogType): void => {
-    if (type === 'orderHistory' && dialogRef.current) {
-      dialogRef.current.close();
-    }
+    
 
     if (type === 'eachOrder' && eachOrderDialogRef.current) {
       eachOrderDialogRef.current.close();
