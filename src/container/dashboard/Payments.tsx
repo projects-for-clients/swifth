@@ -3,18 +3,7 @@ import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-import {
-  paymentsFilterBy,
-  InProgress,
-  Waitlist,
-  INPROGRESS,
-  InProgressView,
-  WAITLIST,
-  WaitlistView,
-  generateRandomDate,
-  generateRandomNum,
-  RCDocs,
-} from '../../components/dashboard/order/OrdersData';
+
 import {
   ListOrderHistory,
   OrderHistoryDetail,
@@ -48,32 +37,40 @@ export interface PaymentsHistory {
   amount: number;
 }
 
-export type PaymentsFilterBy = 'Fully Paid' | 'Pending Bill'
+export type PaymentsFilterBy = 'Fully Paid' | 'Pending Bill';
 
-export interface InProgress {
+export interface Payments {
   id: number;
   name: string;
   description: string;
   date: Date;
   tag: PaymentsFilterBy;
-  history: PaymentsHistory[]
+  history: PaymentsHistory[];
 }
 
+const paymentsHistoryArr: PaymentsHistory[] = Array.from(
+  { length: 20 },
+  (_, i) => ({
+    id: i,
+    date: generateRandomDate(),
+    amount: generateRandomNum(),
+  })
+);
 
-export const PAYMENTS: InProgress[] = [
+export const PAYMENTS: Payments[] = [
   {
     id: generateRandomNum(),
     name: 'Jonathan Sunyi',
     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
     date: generateRandomDate(),
     tag: 'Docs in Review',
-    RCDocs: RCDocsArr,
   },
+];
 
 function Payments() {
-  type SwitchPath = 'inProgress' | 'waitlist';
+  type SwitchPath = 'payments' | 'waitlist';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const InProgressFilters: paymentsFilterBy[] = [
+  const PaymentsFilters: paymentsFilterBy[] = [
     'Docs in Review',
     'Valuating',
     'Duty Processing',
@@ -84,7 +81,7 @@ function Payments() {
 
   const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
 
-  const [inProgressFilteredBy, setInProgressFilteredBy] = useState('');
+  const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
   const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
@@ -94,25 +91,25 @@ function Payments() {
     filterBy: false,
   });
 
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('payments');
   const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
     path: 'list',
   });
   const [search, setSearch] = useState('');
 
-  const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
+  const [paymentsData, setPaymentsData] = useState<Payments[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-  const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any);
+  const [OrderDetail, setOrderDetail] = useState<Payments>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
 
-    if (currentPath === 'inProgress') {
-      const filtered = INPROGRESS.filter((item) =>
+    if (currentPath === 'payments') {
+      const filtered = PAYMENTS.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
-      setInProgressData(filtered);
+      setPaymentsData(filtered);
     } else {
       const filtered = WAITLIST.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
@@ -122,12 +119,12 @@ function Payments() {
   };
 
   useEffect(() => {
-    if (inProgressFilteredBy && currentPath === 'inProgress') {
-      const filtered = INPROGRESS.filter(
-        (item) => item.tag === inProgressFilteredBy
+    if (paymentsFilteredBy && currentPath === 'payments') {
+      const filtered = PAYMENTS.filter(
+        (item) => item.tag === paymentsFilteredBy
       );
 
-      return setInProgressData(() => [...filtered]);
+      return setPaymentsData(() => [...filtered]);
     }
 
     if (waitlistFilterBy && currentPath === 'waitlist') {
@@ -137,29 +134,29 @@ function Payments() {
 
       return setWaitlistData(() => [...filtered]);
     }
-  }, [inProgressFilteredBy, waitlistFilterBy]);
+  }, [paymentsFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = [...INPROGRESS].sort((a, b) => {
+        const sortedNames = [...PAYMENTS].sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
-        return setInProgressData(() => [...sortedNames]);
+        return setPaymentsData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = [...INPROGRESS].sort((a, b) => {
+        const sortedDates = [...PAYMENTS].sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        return setInProgressData(() => [...sortedDates]);
+        return setPaymentsData(() => [...sortedDates]);
       }
     }
   }, [selectedSort]);
 
-  const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
-    if (toClear === 'inProgress') {
-      setInProgressFilteredBy('');
+  const handleClearFilter = (toClear: 'payments' | 'waitlist') => {
+    if (toClear === 'payments') {
+      setPaymentsFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
     } else {
       setWaitlistFilterBy('');
@@ -188,7 +185,7 @@ function Payments() {
     }
   };
 
-  const openOrderDetail = (item: InProgress) => {
+  const openOrderDetail = (item: Payments) => {
     setOrderDetail(item);
     handleOpenDialog('eachOrder');
   };
@@ -199,9 +196,9 @@ function Payments() {
   };
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: (
-      <InProgressView
-        inProgressData={inProgressData}
+    payments: (
+      <PaymentsView
+        paymentsData={paymentsData}
         openOrderDetail={openOrderDetail}
       />
     ),
@@ -251,9 +248,12 @@ function Payments() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-        <section className="grid gap-8" style={{
-          gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))'
-        }}>
+        <section
+          className="grid gap-8"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+          }}
+        >
           <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 p-8">
             <p className="font-semibold">Total Received</p>
             <p className="text-[2.4rem] font-semibold">
@@ -277,7 +277,7 @@ function Payments() {
           </div>
         </section>
         <section>
-          {inProgressData.length < 1 ? (
+          {paymentsData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               {/* <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
@@ -289,18 +289,18 @@ function Payments() {
               <div className="flex items-center gap-8 justify-end">
                 <>
                   <SelectDropDown
-                    selectFrom={InProgressFilters}
-                    selectedItem={inProgressFilteredBy}
-                    setSelectedItem={setInProgressFilteredBy}
+                    selectFrom={PaymentsFilters}
+                    selectedItem={paymentsFilteredBy}
+                    setSelectedItem={setPaymentsFilteredBy}
                     isFilter
                     label={'filterBy'}
                     setDropDownState={setDropDownState}
                     dropDownState={dropDownState}
                   />
-                  {inProgressFilteredBy && (
+                  {paymentsFilteredBy && (
                     <GrClose
                       className="text-[1.4rem] cursor-pointer"
-                      onClick={() => handleClearFilter('inProgress')}
+                      onClick={() => handleClearFilter('payments')}
                     />
                   )}
                 </>
