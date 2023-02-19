@@ -1,4 +1,4 @@
-import { useState, Fragment, FormEvent, useEffect, useContext } from 'react';
+import { useState, Fragment, FormEvent, useEffect, useContext, ChangeEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
   ClearingKeys,
@@ -8,6 +8,7 @@ import {
   updateClearingDoc,
   updateRCDocs,
 } from '../../../../store/features/order/order';
+import { getPhotoUri } from '../../../../utils/getPhotoUri';
 import { AgentOrderDetailContext } from './AgentOrderDetail';
 
 export const AgentClearing = () => {
@@ -40,6 +41,26 @@ export const AgentClearing = () => {
   >(null);
   const [openToolTip, setOpenToolTip] = useState(false);
   const [openClearingDocToolTip, setOpenClearingDocToolTip] = useState(false);
+
+  const [imgUris, setImgUris] = useState<Record<ClearingKeys, string>>({
+    Valuating: '',
+    "Custom Releasing": '',
+    "Duty Processing": '',
+  });
+  
+  const keyProps = {
+    error: false,
+    message: null,
+    size: '',
+    pathName: '',
+  } 
+
+  const [imageDetails, setImageDetails] = useState<Record<ClearingKeys, typeof keyProps>>({
+    Valuating: keyProps,
+    'Custom Releasing': keyProps,
+    'Duty Processing': keyProps,
+  });
+
 
   const selectFrom = [
     {
@@ -242,6 +263,54 @@ export const AgentClearing = () => {
       })
     );
   };
+
+   const uploadUriHandler = async (
+     key: 'logoUri' | 'cacUri' | 'licenseUri'
+   ) => {
+     const getUri = await getPhotoUri(key);
+
+     setImgUris((prev) => ({ ...prev, [key]: getUri }));
+
+
+   };
+
+   const formUploadHandler = (
+     e: ChangeEvent<HTMLInputElement>,
+     key: 'logoUri' | 'cacUri' | 'licenseUri'
+   ) => {
+     const fileObj = e.target as HTMLInputElement;
+
+     const { name } = fileObj.files![0];
+     const path = fileObj.files![0];
+
+     const size = path.size / 1000;
+
+     const KBSize = size.toString().split('.')[0];
+
+     if (KBSize.length > 3) {
+       const MBSize = Number(KBSize) / 1000;
+
+       setImageDetails((prev) => ({
+         ...prev,
+         [key]: {
+           pathName: name,
+           error: MBSize > 2 ? true : false,
+           message: MBSize > 2 ? 'File size must not exceed 2MB' : null,
+           size: `${MBSize.toFixed(1)}MB`,
+         },
+       }));
+     } else {
+       setImageDetails((prev) => ({
+         ...prev,
+         [key]: {
+           error: false,
+           message: null,
+           pathName: name,
+           size: `${KBSize}KB`,
+         },
+       }));
+     }
+   };
 
   const { RCDocsArr, ordersData, clearingDocsArr } = orderDetails;
 
