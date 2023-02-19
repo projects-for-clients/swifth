@@ -4,16 +4,11 @@ import { filterByColors } from '../OrdersData';
 import { AgentOrderDetailContext } from './AgentOrderDetail';
 import { AgentClearing, AgentOrderHistory } from './EachOrderDetailPath';
 
-
 const InitialRender = () => {
-
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const {
-    orderHistoryDetail,
-    handleCloseDialog,
-    setShowAssignAgentView,
-  } = agentDetailContext;
+  const { orderHistoryDetail, handleCloseDialog, setShowAssignAgentView } =
+    agentDetailContext;
 
   type Path = 'AgentClearing' | 'AgentOrderHistory';
 
@@ -34,12 +29,7 @@ const InitialRender = () => {
   } = orderHistoryDetail;
 
   const switchPaths: Record<Path, JSX.Element> = {
-    AgentClearing: (
-      <AgentClearing
-        setShowAssignAgentView={setShowAssignAgentView}
-        orderId={id}
-      />
-    ),
+    AgentClearing: <AgentClearing />,
     AgentOrderHistory: <AgentOrderHistory />,
   };
 
