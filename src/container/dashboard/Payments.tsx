@@ -239,8 +239,7 @@ function Payments() {
         </section>
 
         <section>
-          {(currentPath === 'inProgress' && inProgressData.length < 1) ||
-          (currentPath === 'waitlist' && waitlistData.length < 1) ? (
+          {inProgressData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
@@ -258,26 +257,24 @@ function Payments() {
             </div>
           ) : (
             <Fragment>
-              <div className="flex justify-between items-center mt-10">
-                <div className="flex items-center gap-8 justify-end">
-                  <>
-                    <SelectDropDown
-                      selectFrom={InProgressFilters}
-                      selectedItem={inProgressFilteredBy}
-                      setSelectedItem={setInProgressFilteredBy}
-                      isFilter
-                      label={'filterBy'}
-                      setDropDownState={setDropDownState}
-                      dropDownState={dropDownState}
+              <div className="flex items-center gap-8 justify-end">
+                <>
+                  <SelectDropDown
+                    selectFrom={InProgressFilters}
+                    selectedItem={inProgressFilteredBy}
+                    setSelectedItem={setInProgressFilteredBy}
+                    isFilter
+                    label={'filterBy'}
+                    setDropDownState={setDropDownState}
+                    dropDownState={dropDownState}
+                  />
+                  {inProgressFilteredBy && (
+                    <GrClose
+                      className="text-[1.4rem] cursor-pointer"
+                      onClick={() => handleClearFilter('inProgress')}
                     />
-                    {inProgressFilteredBy && (
-                      <GrClose
-                        className="text-[1.4rem] cursor-pointer"
-                        onClick={() => handleClearFilter('inProgress')}
-                      />
-                    )}
-                  </>
-                </div>
+                  )}
+                </>
               </div>
               <>{pathToSwitch[currentPath]}</>
             </Fragment>
