@@ -439,6 +439,8 @@ export const AgentClearing = () => {
                             <button
                               className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
                               key={i}
+                              disabled={
+                                !doc.submitted}
                               onClick={() =>
                                 handleSelectedClearingDocItem(item.name)
                               }
