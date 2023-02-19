@@ -55,6 +55,7 @@ export const AgentClearing = () => {
   });
 
   const [toUploadCount, setToUploadCount] = useState(1)
+  const [allUploaded, setAllUploaded] = useState(false)
 
   const keyProps = {
     error: false,
@@ -347,8 +348,15 @@ export const AgentClearing = () => {
 
   useEffect(() => {
     console.log({imgUris})
-    console.log({clearingDocContent})
+    console.log("is Available", !imgUris)
+    console.log('available', imgUris)
   }, [imgUris])
+
+useEffect(() => {
+  
+}, [imgUris])
+
+
   const handleNextDocAction = () => {};
 
   return (
