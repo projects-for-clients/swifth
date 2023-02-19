@@ -95,6 +95,13 @@ function Payments() {
     }
   };
 
+  const accordionHandler = (e) => {
+    const accordion = e.target.closest('.accordion');
+    const accordionContent = accordion.querySelector('.accordion-content');
+
+    accordionContent.classList.toggle('hidden');
+  }
+
   return (
     <>
       <Header title="Payments" />
@@ -157,8 +164,14 @@ function Payments() {
 
                 <section className="">
                   <div className="mt-10 mb-20 h-[50rem]">
-
-                    
+                    <details onToggle={accordionHandler}>
+                      <summary>Epcot Center</summary>
+                      <p>
+                        Epcot is a theme park at Walt Disney World Resort
+                        featuring exciting attractions, international pavilions,
+                        award-winning fireworks and seasonal special events.
+                      </p>
+                    </details>
                   </div>
                 </section>
               </main>
@@ -244,7 +257,6 @@ function Payments() {
               >
                 {paymentsData.map((item, i) => {
                   const { name, description, date, tag } = item;
-
 
                   return (
                     <div
