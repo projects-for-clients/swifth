@@ -15,7 +15,7 @@ export type DocsContent = {
   submitted: boolean;
   fieldAgent?: string | null;
 };
-export interface UpdateRCDocsPayload {
+export interface UpdateDocsPayload {
   orderId: number;
   content: DocsContent;
 }
@@ -121,7 +121,7 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    updateRCDocs: (state, { payload }: { payload: UpdateRCDocsPayload }) => {
+    updateRCDocs: (state, { payload }: { payload: UpdateDocsPayload }) => {
       const { orderId, content } = payload;
 
       const updatedRCDocsArr = state.RCDocsArr.map((doc) => {
@@ -139,7 +139,7 @@ export const orderSlice = createSlice({
 
     updateClearingDoc: (
       state,
-      { payload }: { payload: UpdateRCDocsPayload }
+      { payload }: { payload: UpdateDocsPayload }
     ) => {
       const { orderId, content } = payload;
       const updatedClearingDoc = state.clearingDocsArr.reduce(

@@ -8,6 +8,7 @@ import {
   SetStateAction,
 } from 'react';
 import { DialogType } from '../../../../container/dashboard/orders';
+import { UpdateDocsPayload } from '../../../../store/features/order/order';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress } from '../OrdersData';
 import AssignAgentRender from './AssignAgentRender';
@@ -29,6 +30,8 @@ export interface ShowAssignAgentView {
    orderId: number;
    orderHistoryDetail: OrderHistoryDetail;
    handleCloseDialog: (type: DialogType) => void;
+   updateDocsPayload: UpdateDocsPayload;
+   setUpdateDocsPayload: Dispatch<SetStateAction<UpdateDocsPayload>>;
  }
 
 export const AgentOrderDetailContext = createContext<AgentOrderDetailContext>(null as any);
@@ -40,6 +43,7 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
   const [orderHistoryDetail, setOrderHistoryDetail] =
     useState<OrderHistoryDetail | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [updateDocsPayload, setUpdateDocsPayload] = useState<UpdateDocsPayload>(null as any)
 
   const [showAssignAgentView, setShowAssignAgentView] =
     useState<ShowAssignAgentView>({
@@ -76,6 +80,8 @@ const AgentOrderDetail: FC<AgentOrderDetail> = ({
         orderId: loaded ? orderDetail.id : 0,
         orderHistoryDetail: orderHistoryDetail! ,
         handleCloseDialog,
+        updateDocsPayload,
+        setUpdateDocsPayload
       }}
     >
       {loaded ? (
