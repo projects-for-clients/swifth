@@ -172,9 +172,9 @@ function Payments() {
                 </section>
 
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-                  <div>
+                  <div className="border-b border-b-color-purple-light-2 ">
                     <button
-                      className={`border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full `}
+                      className={`flex justify-between p-8 cursor-pointer w-full `}
                       onClick={accordionHandler}
                     >
                       <p className="text-[1.4rem] text-color-purple-1">
@@ -209,6 +209,22 @@ function Payments() {
                           </p>
                           <p className="text-color-purple-1 font-semibold">
                             220,000
+                          </p>
+                        </div>
+                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                          <p className="text-[1.4rem] text-color-purple-1">
+                            Security charge as at: 3/6/23
+                          </p>
+                          <p className="text-color-purple-1 font-semibold">
+                            80,000
+                          </p>
+                        </div>
+                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                          <p className="text-[1.4rem] text-color-purple-1">
+                            Telex Charge
+                          </p>
+                          <p className="text-color-purple-1 font-semibold">
+                            300,000
                           </p>
                         </div>
                       </div>
