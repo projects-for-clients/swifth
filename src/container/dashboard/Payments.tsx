@@ -127,7 +127,7 @@ function Payments() {
       eachOrderDialogRef.current.close();
     }
   };
-  const handleOpenDialog = (type: DialogType) => {
+  const handleOpenDialog = () => {
     
 
     if ( eachOrderDialogRef.current) {
@@ -137,7 +137,7 @@ function Payments() {
 
   const openOrderDetail = (item: Payments) => {
     setOrderDetail(item);
-    handleOpenDialog('eachOrder');
+    handleOpenDialog();
   };
 
   
