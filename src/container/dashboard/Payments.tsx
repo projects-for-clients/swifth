@@ -68,18 +68,11 @@ export const PAYMENTS: Payments[] = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 function Payments() {
-  type SwitchPath = 'payments' | 'waitlist';
-  const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const PaymentsFilters: paymentsFilterBy[] = [
-    'Docs in Review',
-    'Valuating',
-    'Duty Processing',
-    'Custom Releasing',
-    'Delivery Pending',
-    'Completed',
+  const PaymentsFilters: PaymentsFilterBy[] = [
+    'Fully Paid',
+    'Pending Bill',
   ];
 
-  const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
 
   const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
   const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
