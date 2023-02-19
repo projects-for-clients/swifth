@@ -494,7 +494,7 @@ export const AgentClearing = () => {
                 <Fragment key={i}>
                   <div className="relative">
                     <button
-                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap w-full`}
+                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap w-full disabled:opacity-25 disabled:cursor-not-allowed `}
                       onClick={() =>
                         handleClearingDocChange(doc.name as ClearingKeys)
                       }
@@ -502,18 +502,9 @@ export const AgentClearing = () => {
                     >
                       {docName}
 
-                      {!imageDetails[docName].pathName &&
-                      doc.status === 'Approved' ? (
-                        <span>
-                          <img src="/icons/tick-square.svg" alt="" />
-                        </span>
-                      ) : doc.status === 'Declined' ? (
-                        <span>
-                          <img src="/icons/close-square.svg" alt="" />
-                        </span>
-                      ) : null}
+                     
 
-                      {imageDetails[docName].pathName && (
+                      {imageDetails[docName].pathName ? (
                         <div className="grid">
                           <p className="text-[1.4rem] font-normal">
                             {imageDetails[docName].pathName}
@@ -524,7 +515,15 @@ export const AgentClearing = () => {
                               : imageDetails[docName].size}
                           </p>
                         </div>
-                      )}
+                      ) : doc.status === 'Approved' ? (
+                        <span>
+                          <img src="/icons/tick-square.svg" alt="" />
+                        </span>
+                      ) : doc.status === 'Declined' ? (
+                        <span>
+                          <img src="/icons/close-square.svg" alt="" />
+                        </span>
+                      ) : null}
                     </button>
 
                     {openClearingDocToolTip &&
