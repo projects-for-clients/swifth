@@ -599,13 +599,13 @@ export const AgentClearing = () => {
         )}
         <div
           className={`flex w-full mt-10 ${
-            allUploadedClearingDocs ? 'justify-between' : 'justify-end'
+            allUploadedClearingDocs ? '' : 'justify-end'
           }`}
         >
           {isOrderAssignedAgent ? (
             <>
               {allUploadedClearingDocs ? (
-                <div className="w-full">
+                <div className="w-full flex justify-between">
                   <button
                     className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed "
                     onClick={handleNextDocAction}
