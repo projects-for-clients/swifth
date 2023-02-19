@@ -85,24 +85,17 @@ function Payments() {
   const [search, setSearch] = useState('');
 
   const [paymentsData, setPaymentsData] = useState<Payments[]>([]);
-  const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
   const [OrderDetail, setOrderDetail] = useState<Payments>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
 
-    if (currentPath === 'payments') {
       const filtered = PAYMENTS.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
       setPaymentsData(filtered);
-    } else {
-      const filtered = WAITLIST.filter((item) =>
-        item.name.toLowerCase().includes(value.toLowerCase())
-      );
-      setWaitlistData(filtered);
-    }
+   
   };
 
   useEffect(() => {
