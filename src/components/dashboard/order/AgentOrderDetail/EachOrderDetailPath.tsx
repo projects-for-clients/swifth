@@ -643,6 +643,11 @@ export const AgentClearing = () => {
   );
 };
 
+
+const clearingDocHistory = [
+  
+]
+
 export const AgentOrderHistory = () => {
   return (
     <div>
