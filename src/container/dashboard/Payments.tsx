@@ -204,7 +204,7 @@ function Payments() {
         </div>
       </dialog>
 
-      <main className="text-[1.6rem]">
+      <main className="text-[1.6rem] grid gap-10">
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input
             type="text"
@@ -221,7 +221,7 @@ function Payments() {
           />
         </section>
         <section>
-          <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 py-">
+          <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 p-8">
             <p className="font-semibold">Total Received</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
