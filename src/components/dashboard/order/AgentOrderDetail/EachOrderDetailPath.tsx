@@ -507,17 +507,13 @@ export const AgentClearing = () => {
                   <div>
                     <label
                       htmlFor={`Valuating`}
-                      className={`flex border  rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem] ${
+                      className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap  ${
                         imageDetails.Valuating.error
                           ? 'border-red-600 border bg-red-50'
                           : 'border-color-purple-light'
                       }`}
                     >
-                      {imageDetails.Valuating.error ? (
-                        <img src="/icons/admin/uploadError.svg" alt="" />
-                      ) : (
-                        <img src="/icons/admin/upload.svg" alt="" />
-                      )}
+                      
                       {imageDetails.Valuating.pathName ? (
                         <div className="grid">
                           <p className="text-[1.4rem] font-normal">
