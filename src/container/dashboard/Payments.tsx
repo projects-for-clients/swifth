@@ -3,13 +3,15 @@ import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-
 import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../../components/dashboard/order/OrderHistory';
 import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
-import { generateRandomDate, generateRandomNum} from '../../components/dashboard/order/OrdersData';
+import {
+  generateRandomDate,
+  generateRandomNum,
+} from '../../components/dashboard/order/OrdersData';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -61,27 +63,22 @@ const paymentsHistoryArr: PaymentsHistory[] = Array.from(
 export const PAYMENTS: Payments[] = Array.from({ length: 20 }, (_, i) => ({
   id: i,
   name: `Ezekiel Doe ${i + 1}`,
-  description: `Toyota Camry XLE, ${200 +  (i + 1)}`,
+  description: `Toyota Camry XLE, ${200 + (i + 1)}`,
   date: generateRandomDate(),
   tag: Math.random() > 0.5 ? 'Fully Paid' : 'Pending Bill',
   history: paymentsHistoryArr,
 }));
 
 function Payments() {
-  const PaymentsFilters: PaymentsFilterBy[] = [
-    'Fully Paid',
-    'Pending Bill',
-  ];
-
+  const PaymentsFilters: PaymentsFilterBy[] = ['Fully Paid', 'Pending Bill'];
 
   const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
-  
+
   const [dropDownState, setDropDownState] = useState<DropDownState>({
     sortBy: false,
     filterBy: false,
   });
 
-  
   const [search, setSearch] = useState('');
 
   const [paymentsData, setPaymentsData] = useState<Payments[]>([]);
@@ -91,11 +88,10 @@ function Payments() {
     const { value } = e.target;
     setSearch(value);
 
-      const filtered = PAYMENTS.filter((item) =>
-        item.name.toLowerCase().includes(value.toLowerCase())
-      );
-      setPaymentsData(filtered);
-   
+    const filtered = PAYMENTS.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setPaymentsData(filtered);
   };
 
   useEffect(() => {
@@ -106,39 +102,25 @@ function Payments() {
 
       return setPaymentsData(() => [...filtered]);
     }
-
-  
   }, [paymentsFilteredBy]);
 
- 
-
   const handleClearFilter = () => {
-      setPaymentsFilteredBy('');
-      setDropDownState((prev) => ({ ...prev, filterBy: false }));
-    
+    setPaymentsFilteredBy('');
+    setDropDownState((prev) => ({ ...prev, filterBy: false }));
   };
 
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = (): void => {
-    
-
-    if ( eachOrderDialogRef.current) {
+    if (eachOrderDialogRef.current) {
       eachOrderDialogRef.current.close();
     }
   };
   const handleOpenDialog = () => {
-
-    if ( eachOrderDialogRef.current) {
+    if (eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
     }
   };
-
-
-
-  
-
- 
 
   return (
     <>
@@ -235,12 +217,11 @@ function Payments() {
                   {paymentsFilteredBy && (
                     <GrClose
                       className="text-[1.4rem] cursor-pointer"
-                      onClick={() => handleClearFilter('payments')}
+                      onClick={() => handleClearFilter()}
                     />
                   )}
                 </>
               </div>
-              <>{pathToSwitch[currentPath]}</>
             </Fragment>
           )}
         </section>
