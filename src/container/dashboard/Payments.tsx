@@ -266,7 +266,7 @@ function Payments() {
                     {paymentHistoryArr.map((item, i) => {
                       return (
                         <div className="flex justify-between p-8 items-center border border-gray-300 bg-gray-100 rounded-3xl">
-                          <p className="text-[1.2rem] text-[#4B5463]">
+                          <p className="text-[1.4rem] text-[#4B5463]">
                             {item.date.toLocaleString('en-GB', {
                               day: 'numeric',
                               month: 'short',
