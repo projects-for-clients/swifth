@@ -44,7 +44,7 @@ const paymentHistoryArr: PaymentHistory[] = Array.from(
   (_, i) => ({
     id: i,
     date: generateRandomDate(),
-    amount: generateRandomNum(),
+    amount: Math.random() > .5 ? 25000 : 50000,
   })
 );
 
@@ -255,7 +255,9 @@ function Payments() {
                   </div>
                 </section>
 
-                <section>
+                <section className='grid' style={{
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
+                }}>
                   {paymentHistoryArr.map((item, i) => {
                     return (
                       <div className='flex justify-between p-8 items-center'>
