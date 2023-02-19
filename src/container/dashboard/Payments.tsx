@@ -123,16 +123,14 @@ function Payments() {
   const handleCloseDialog = (type: DialogType): void => {
     
 
-    if (type === 'eachOrder' && eachOrderDialogRef.current) {
+    if ( eachOrderDialogRef.current) {
       eachOrderDialogRef.current.close();
     }
   };
   const handleOpenDialog = (type: DialogType, id?: number) => {
-    if (type === 'orderHistory' && dialogRef.current) {
-      dialogRef.current.showModal();
-    }
+    
 
-    if (type === 'eachOrder' && eachOrderDialogRef.current) {
+    if ( eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
     }
   };
