@@ -270,9 +270,7 @@ export const AgentClearing = () => {
     );
   };
 
-  const uploadUriHandler = async (
-    key: ClearingKeys
-  ) => {
+  const uploadUriHandler = async (key: ClearingKeys) => {
     const getUri = await getPhotoUri(key);
 
     setImgUris((prev) => ({ ...prev, [key]: getUri }));
@@ -539,10 +537,10 @@ export const AgentClearing = () => {
                                   handleSelectedClearingDocItem(item.name)
                                 }
                               >
-                                <img src={item.imgUri} alt="" />
                                 <span
                                   className={`${item.className} font-medium`}
                                 >
+                                  <img src={item.imgUri} alt="" />
                                   {item.name === 'Upload clearing Document' ? (
                                     <div>
                                       <label
@@ -584,8 +582,7 @@ export const AgentClearing = () => {
                   </div>
                 </Fragment>
               );
-            }
-           )}
+            })}
           </div>
         )}
         <div className=" flex w-full justify-end mt-10">
