@@ -48,6 +48,7 @@ function Payments() {
   const PaymentsFilters: PaymentsFilterBy[] = ['Fully Paid', 'Pending Bill'];
 
   const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
+  const [paymentDetail, setPaymentDetail] = useState<Payments | null>(null);
 
   const [dropDownState, setDropDownState] = useState(false);
 
@@ -87,7 +88,8 @@ function Payments() {
       eachOrderDialogRef.current.close();
     }
   };
-  const handleOpenDialog = () => {
+  const handleOpenDialog = (item: Payments) => {
+    setPaymentDetail(item);
     if (eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
     }
@@ -113,18 +115,19 @@ function Payments() {
 
           <section className="h-full">
             <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
-            
               <main className="grid gap-10 mt-10  ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">
-                    {adminName}
+                    {paymentDetail?.name}
                   </p>
                   <p
-                    className={`py-1.5 px-8 rounded-2xl text-white ${
-                      filterByColors[tag!].bg
-                    } ${filterByColors[tag!].text}`}
+                    className={`py-1.5 px-8 rounded-2xl ${
+                      paymentDetail?.tag === 'Fully Paid'
+                        ? 'bg-color-primary text-white'
+                        : 'text-black bg-[#FAC772]'
+                    }`}
                   >
-                    {tag}
+                    {paymentDetail?.tag}
                   </p>{' '}
                 </div>
                 <section
@@ -191,11 +194,7 @@ function Payments() {
                 </section>
 
                 <section className="">
-                
-
-                  <div className="mt-10 mb-20 h-[50rem]">
-                    
-                  </div>
+                  <div className="mt-10 mb-20 h-[50rem]"></div>
                 </section>
               </main>
             </div>
@@ -285,7 +284,7 @@ function Payments() {
                     <div
                       className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                       key={i}
-                      onClick={() => handleOpenDialog()}
+                      onClick={() => handleOpenDialog(item)}
                     >
                       <div>
                         <p className="text-[1.6rem]">{name}</p>
