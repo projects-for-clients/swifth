@@ -665,15 +665,13 @@ const clearingDocHistory = [
 
 export const AgentOrderHistory = () => {
   return (
-    <div className='grid gap-4'>
-      {
-        clearingDocHistory.map((item, i) => (
-          <div className='grid gap-1 bg-color-red-light-1' key={i}> 
-            <p>{item.docState}</p>
-            <p>{item.agentName}</p>
-          </div>
-        ))  
-      }
+    <div className="grid gap-4">
+      {clearingDocHistory.map((item, i) => (
+        <div className="grid gap-1 bg-color-red-light-2 py-4 px-8" key={i}>
+          <p>{item.docState}</p>
+          <p className="text-color-dark-1">{item.agentName}</p>
+        </div>
+      ))}
     </div>
   );
 };
