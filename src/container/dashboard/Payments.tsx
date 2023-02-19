@@ -4,13 +4,16 @@ import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
 import {
-  InProgressFilterBy,
+  paymentsFilterBy,
   InProgress,
   Waitlist,
   INPROGRESS,
   InProgressView,
   WAITLIST,
   WaitlistView,
+  generateRandomDate,
+  generateRandomNum,
+  RCDocs,
 } from '../../components/dashboard/order/OrdersData';
 import {
   ListOrderHistory,
@@ -39,22 +42,21 @@ export interface DropDownState {
   filterBy: boolean;
 }
 
-export type InProgressFilterBy =
-  | 'Docs in Review'
-  | 'Valuating'
-  | 'Duty Processing'
-  | 'Custom Releasing'
-  | 'Delivery Pending'
-  | 'Completed';
+export interface PaymentsHistory {
+  id: number;
+  date: Date;
+  amount: number;
+}
+
+export type PaymentsFilterBy = 'Fully Paid' | 'Pending Bill'
 
 export interface InProgress {
   id: number;
   name: string;
   description: string;
   date: Date;
-  tag: InProgressFilterBy;
-  assignedAgent?: string;
-  RCDocs: RCDocs[];
+  tag: PaymentsFilterBy;
+  history: PaymentsHistory[]
 }
 
 
@@ -71,7 +73,7 @@ export const PAYMENTS: InProgress[] = [
 function Payments() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const InProgressFilters: InProgressFilterBy[] = [
+  const InProgressFilters: paymentsFilterBy[] = [
     'Docs in Review',
     'Valuating',
     'Duty Processing',
