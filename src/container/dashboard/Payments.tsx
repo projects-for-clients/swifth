@@ -61,7 +61,7 @@ function Payments() {
   const [paymentDetail, setPaymentDetail] = useState<Payments | null>(null);
 
   const [dropDownState, setDropDownState] = useState(false);
-  const [accordionClasses, setAccordionClasses] = useState<string>('invisible')
+  const [accordionClasses, setAccordionClasses] = useState<string>('invisible h-0')
 
   const [search, setSearch] = useState('');
 
@@ -108,6 +108,7 @@ function Payments() {
 
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
+    setAccordionClasses('visible h-auto')
   };
 
   return (
@@ -172,7 +173,7 @@ function Payments() {
 
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
                   <div>
-                    <button className="border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer" onClick={accordionHandler}>
+                    <button className="border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full" onClick={accordionHandler}>
                       <p className="text-[1.4rem] text-color-purple-1">
                         Total Bill
                       </p>
