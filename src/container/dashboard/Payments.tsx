@@ -243,16 +243,7 @@ function Payments() {
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                {currentPath === 'inProgress' ? (
-                  <span>
-                    Orders initiated from the waiting list would appear here
-                  </span>
-                ) : (
-                  <span>
-                    Quotes sent, and customers ready for their clearing process
-                    would appear here
-                  </span>
-                )}
+                <span>No Payments yet</span>
               </p>
             </div>
           ) : (
