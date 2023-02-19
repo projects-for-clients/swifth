@@ -607,13 +607,13 @@ export const AgentClearing = () => {
               {allUploadedClearingDocs ? (
                 <div className="w-full flex justify-between">
                   <button
-                    className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed "
+                    className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2"
                     onClick={handleNextDocAction}
                   >
                     Mark as Delivery Ready
                   </button>
                   <button
-                    className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed "
+                    className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2"
                     onClick={handleNextDocAction}
                   >
                     Send Pay Reminder
