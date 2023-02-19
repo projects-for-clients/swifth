@@ -191,8 +191,8 @@ function Payments() {
                     </button>
                     {
                       <div
-                        className={`grid transition-all ease-in-out delay-200 ${
-                          showAccordion ? 'visible h-auto' : 'invisible h-0'
+                        className={`grid  ${
+                          showAccordion ? 'visible h-auto' : 'invisible translate-y-full'
                         }`}
                       >
                         <div className=" border-b-color-purple-light-2 flex justify-between p-8">
