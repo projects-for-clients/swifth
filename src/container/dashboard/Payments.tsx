@@ -44,7 +44,7 @@ const paymentHistoryArr: PaymentHistory[] = Array.from(
   (_, i) => ({
     id: i,
     date: generateRandomDate(),
-    amount: Math.random() > .5 ? 25000 : 50000,
+    amount: Math.random() * 270000 + 40000 ,
   })
 );
 
@@ -260,7 +260,7 @@ function Payments() {
                 }}>
                   {paymentHistoryArr.map((item, i) => {
                     return (
-                      <div className='flex justify-between p-8 items-center'>
+                      <div className='flex justify-between p-8 items-center border border-gray-300 bg-gray-100 rounded-3xl'>
                         <p>
                           {item.date.toLocaleString('en-GB', {
                             day: 'numeric',
