@@ -128,17 +128,13 @@ function Payments() {
     }
   };
   const handleOpenDialog = () => {
-    
 
     if ( eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
     }
   };
 
-  const openOrderDetail = (item: Payments) => {
-    setOrderDetail(item);
-    handleOpenDialog();
-  };
+
 
   
 
