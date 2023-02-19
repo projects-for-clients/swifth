@@ -282,7 +282,7 @@ export const AgentClearing = () => {
   ) => {
     setOpenClearingDocToolTip(false);
     setclearingDocItem({ key: null });
-    
+
     const fileObj = e.target as HTMLInputElement;
 
     const { name } = fileObj.files![0];
@@ -500,16 +500,6 @@ export const AgentClearing = () => {
                       }
                     >
                       {doc.name}
-
-                      {doc.status === 'Approved' ? (
-                        <span>
-                          <img src="/icons/tick-square.svg" alt="" />
-                        </span>
-                      ) : doc.status === 'Declined' ? (
-                        <span>
-                          <img src="/icons/close-square.svg" alt="" />
-                        </span>
-                      ) : null}
 
                       {imageDetails[docName].pathName && (
                         <div className="grid">
