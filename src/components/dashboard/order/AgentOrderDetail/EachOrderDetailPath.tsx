@@ -525,51 +525,49 @@ export const AgentClearing = () => {
                               }
                             >
                               <img src={item.imgUri} alt="" />
-
-                              {item.name === 'Upload clearing Document' ? (
-                                <div>
-                                  <label
-                                    htmlFor={`Valuating`}
-                                    className={`  ${
-                                      imageDetails.Valuating.error
-                                        ? 'border-red-600 border bg-red-50'
-                                        : ''
-                                    }`}
-                                  >
-                                    {imageDetails.Valuating.pathName && (
-                                      <div className="grid">
-                                        <p className="text-[1.4rem] font-normal">
-                                          {imageDetails.Valuating.pathName}
-                                        </p>
-                                        <p className="text-color-grey-4 text-[1rem]">
-                                          {imageDetails.Valuating.message
-                                            ? imageDetails.Valuating.message
-                                            : imageDetails.Valuating.size}
-                                        </p>
-                                      </div>
-                                    )}
-                                  </label>
-                                  <input
-                                    type="file"
-                                    name={`Valuating`}
-                                    id={`Valuating`}
-                                    accept="pdf/*"
-                                    className="hidden"
-                                    onClick={() =>
-                                      uploadUriHandler(`Valuating`)
-                                    }
-                                    onChange={(e) =>
-                                      formUploadHandler(e, `Valuating`)
-                                    }
-                                  />
-                                </div>
-                              ) : (
-                                <span
-                                  className={`${item.className} font-medium`}
-                                >
-                                  {item.name}
-                                </span>
-                              )}
+                              <span className={`${item.className} font-medium`}>
+                                {item.name === 'Upload clearing Document' ? (
+                                  <div>
+                                    <label
+                                      htmlFor={`Valuating`}
+                                      className={`  ${
+                                        imageDetails.Valuating.error
+                                          ? 'border-red-600 border bg-red-50'
+                                          : ''
+                                      }`}
+                                    >
+                                      {imageDetails.Valuating.pathName && (
+                                        <div className="grid">
+                                          <p className="text-[1.4rem] font-normal">
+                                            {imageDetails.Valuating.pathName}
+                                          </p>
+                                          <p className="text-color-grey-4 text-[1rem]">
+                                            {imageDetails.Valuating.message
+                                              ? imageDetails.Valuating.message
+                                              : imageDetails.Valuating.size}
+                                          </p>
+                                        </div>
+                                      )}
+                                      {item.name}
+                                    </label>
+                                    <input
+                                      type="file"
+                                      name={`Valuating`}
+                                      id={`Valuating`}
+                                      accept="pdf/*"
+                                      className="hidden"
+                                      onClick={() =>
+                                        uploadUriHandler(`Valuating`)
+                                      }
+                                      onChange={(e) =>
+                                        formUploadHandler(e, `Valuating`)
+                                      }
+                                    />
+                                  </div>
+                                ) : (
+                                  item.name
+                                )}
+                              </span>
                             </button>
                           );
                         })}
