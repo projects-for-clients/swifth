@@ -130,7 +130,7 @@ function Payments() {
                     {paymentDetail?.tag}
                   </p>{' '}
                 </div>
-                
+
                 <section
                   className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
                   style={{
@@ -143,15 +143,15 @@ function Payments() {
                   </div>
                   <div>
                     <p className=" text-gray-400">Car Year</p>
-                    <p className=" text-gray-600">{carYear}</p>
+                    <p className=" text-gray-600">2022</p>
                   </div>
                   <div>
                     <p className=" text-gray-400">Car Model</p>
-                    <p className=" text-gray-600">{carModel}</p>
+                    <p className=" text-gray-600">Camry</p>
                   </div>
                   <div>
                     <p className=" text-gray-400">Car Trim</p>
-                    <p className=" text-gray-600">{carTrim}</p>
+                    <p className=" text-gray-600">XLE</p>
                   </div>
                 </section>
 
