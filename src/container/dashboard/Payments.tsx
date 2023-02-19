@@ -5,13 +5,11 @@ import {
   useEffect,
   useState,
   useRef,
-  ReactEventHandler,
   SyntheticEvent,
 } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
 import {
   generateRandomDate,
   generateRandomNum,
