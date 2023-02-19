@@ -29,14 +29,14 @@ export const AgentClearing = () => {
     key: null,
   });
   const [clearingDocItem, setclearingDocItem] = useState<{
-    key: string | null;
+    key: ClearingKeys | null;
   }>({
     key: null,
   });
 
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [selectedClearingItem, setSelectedClearingItem] = useState<
-    string | null
+    ClearingKeys | null
   >(null);
   const [openToolTip, setOpenToolTip] = useState(false);
   const [openClearingDocToolTip, setOpenClearingDocToolTip] = useState(false);
@@ -110,9 +110,9 @@ export const AgentClearing = () => {
     });
     setOpenToolTip(true);
   };
-  const handleClearingDocChange = (item: string) => {
-    setclearingDocItem((prev) => {
-      if (prev.key === item) {
+  const handleClearingDocChange = (item: ClearingKeys) => {
+    setclearingDocItem(({key}) => {
+      if (key === item) {
         return { key: null };
       }
       return { key: item };
@@ -412,7 +412,7 @@ export const AgentClearing = () => {
                 <div className="relative">
                   <p
                     className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap `}
-                    onClick={() => handleClearingDocChange(doc.name)}
+                    onClick={() => handleClearingDocChange(doc.name as ClearingKeys)}
                   >
                     {doc.name}
 
