@@ -346,6 +346,9 @@ export const AgentClearing = () => {
     (order) => order.id === orderId && order.assignedAgent
   );
 
+  const allUploadedClearingDocs =
+    toUploadCount.length > clearingDocContent.length;
+    
   const handleNextDocAction = () => {};
 
   console.log({ clearingDocContent, toUploadCount });
@@ -595,19 +598,23 @@ export const AgentClearing = () => {
             })}
           </div>
         )}
-        <div className=" flex w-full justify-end mt-10">
+        <div
+          className={`flex w-full mt-10 ${
+            toUploadCount.length > clearingDocContent.length
+          }`}
+        >
           {isOrderAssignedAgent ? (
             <>
               {toUploadCount.length > clearingDocContent.length ? (
                 <div className="w-full">
                   <button
-                    className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+                    className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed "
                     onClick={handleNextDocAction}
                   >
                     Mark as Delivery Ready
                   </button>
                   <button
-                    className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+                    className="border p-6 rounded-lg cursor-pointer border-color-primary text-color-primary disabled:opacity-50 disabled:cursor-not-allowed "
                     onClick={handleNextDocAction}
                   >
                     Send Pay Reminder
@@ -615,7 +622,7 @@ export const AgentClearing = () => {
                 </div>
               ) : (
                 <button
-                  className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 "
+                  className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 self-end "
                   onClick={handleNextDocAction}
                 >
                   Next
