@@ -39,6 +39,17 @@ export interface DropDownState {
   filterBy: boolean;
 }
 
+
+export const PAYMENTS: InProgress[] = [
+  {
+    id: generateRandomNum(),
+    name: 'Jonathan Sunyi',
+    description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
+    date: generateRandomDate(),
+    tag: 'Docs in Review',
+    RCDocs: RCDocsArr,
+  },
+
 function Payments() {
   type SwitchPath = 'inProgress' | 'waitlist';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
