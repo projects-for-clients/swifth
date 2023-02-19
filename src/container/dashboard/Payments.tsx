@@ -177,7 +177,6 @@ function Payments() {
           {paymentsData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing Found</p>
-             
             </div>
           ) : (
             <Fragment>
@@ -188,10 +187,8 @@ function Payments() {
                     selectedItem={paymentsFilteredBy}
                     setSelectedItem={setPaymentsFilteredBy}
                     isFilter
-                    label={'filterBy'}
-                    setDropDownState={setDropDownState}
-                    dropDownState={dropDownState}
                   />
+                  
                   {paymentsFilteredBy && (
                     <GrClose
                       className="text-[1.4rem] cursor-pointer"
