@@ -160,7 +160,9 @@ function Payments() {
                 </section>
 
                 <section className="">
-                  
+                  <div>
+                    <p className=" text-gray-400">Payment History</p>
+                  </div>
                 </section>
               </main>
             </div>
@@ -252,14 +254,7 @@ function Payments() {
                       key={i}
                       onClick={() => handleOpenDialog(item)}
                     >
-                      <div>
-                        <p className="text-[1.6rem]">{name}</p>
-                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
-                          {description}
-                        </p>
-                      </div>
-
-                      <div className="text-[1.2rem] flex items-center justify-between pt-8">
+                      <div className="text-[1.2rem] flex items-center justify-between">
                         <p className="text-gray-500">
                           {date.toLocaleString('en-GB', {
                             day: 'numeric',
@@ -275,6 +270,12 @@ function Payments() {
                           }`}
                         >
                           {tag}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[1.6rem]">{name}</p>
+                        <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
+                          {description}
                         </p>
                       </div>
                     </div>
