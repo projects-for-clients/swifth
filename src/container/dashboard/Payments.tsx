@@ -192,7 +192,7 @@ function Payments() {
                     {
                       <div
                         className={`grid  ${
-                          showAccordion ? 'visible h-auto' : 'invisible translate-y-full'
+                          showAccordion ? 'visible h-auto' : 'invisible translate-y-[-100rem]'
                         }`}
                       >
                         <div className=" border-b-color-purple-light-2 flex justify-between p-8">
