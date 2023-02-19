@@ -61,7 +61,7 @@ function Payments() {
   const [paymentDetail, setPaymentDetail] = useState<Payments | null>(null);
 
   const [dropDownState, setDropDownState] = useState(false);
-  const [showAccordion, setShowAccordion] = useState(false)
+  const [showAccordion, setShowAccordion] = useState(false);
 
   const [search, setSearch] = useState('');
 
@@ -108,7 +108,7 @@ function Payments() {
 
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
-    setShowAccordion('visible h-auto')
+    setShowAccordion(true);
   };
 
   return (
@@ -173,7 +173,10 @@ function Payments() {
 
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
                   <div>
-                    <button className="border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full" onClick={accordionHandler}>
+                    <button
+                      className={`border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full`}
+                      onClick={accordionHandler}
+                    >
                       <p className="text-[1.4rem] text-color-purple-1">
                         Total Bill
                       </p>
@@ -182,26 +185,26 @@ function Payments() {
                         <img src="/icons/arrow-circle-down.svg" alt="" />
                       </p>
                     </button>
-                      {
-                        <div className={`grid ${showAccordion}`}>
-                          <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                            <p className="text-[1.4rem] text-color-purple-1">
-                              ICOC
-                            </p>
-                            <p className="text-color-purple-1 font-semibold">
-                              400,000
-                            </p>
-                          </div>
-                          <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                            <p className="text-[1.4rem] text-color-purple-1">
-                              Loan + (10%) Interest
-                            </p>
-                            <p className="text-color-purple-1 font-semibold">
-                              220,000
-                            </p>
-                          </div>
+                    {
+                      <div className={`grid ${showAccordion}`}>
+                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                          <p className="text-[1.4rem] text-color-purple-1">
+                            ICOC
+                          </p>
+                          <p className="text-color-purple-1 font-semibold">
+                            400,000
+                          </p>
                         </div>
-                      }
+                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                          <p className="text-[1.4rem] text-color-purple-1">
+                            Loan + (10%) Interest
+                          </p>
+                          <p className="text-color-purple-1 font-semibold">
+                            220,000
+                          </p>
+                        </div>
+                      </div>
+                    }
                   </div>
                   <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
                     <p className="text-[1.4rem] text-color-purple-1">Paid</p>
