@@ -23,6 +23,7 @@ const router = createBrowserRouter(
         element={ <DashboardHome />}
       />
       <Route path="orders" element={<Orders />} />
+      <Route path="payments" element={<Orders />} />
       <Route path="onboarding" element={<OnBoarding />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
