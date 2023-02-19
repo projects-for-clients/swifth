@@ -242,6 +242,8 @@ function Payments() {
                 {paymentsData.map((item, i) => {
                   const { name, description, date, tag } = item;
 
+                  console.log({tag})
+
                   return (
                     <div
                       className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
@@ -263,7 +265,15 @@ function Payments() {
                             year: 'numeric',
                           })}
                         </p>
-                        <p className={`py-1.5 px-4 rounded-2xl `}>{tag}</p>
+                        <p
+                          className={`py-1.5 px-4 rounded-2xl ${
+                            tag === 'Fully Paid'
+                              ? 'bg-color-primary text-white'
+                              : 'text-black bg-[#FAC772]'
+                          }`}
+                        >
+                          {tag}
+                        </p>
                       </div>
                     </div>
                   );
