@@ -203,7 +203,7 @@ function Payments() {
           </section>
         </div>
       </dialog>
-      
+
       <main className="text-[1.6rem]">
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input
@@ -220,7 +220,15 @@ function Payments() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-
+        <section>
+          <div className="bg-color-green-light-1 text-color-primary-dark-2">
+            <p>Total Received</p>
+            <p className="text-[2.4rem]">
+              {' '}
+              <span></span>{' '}
+            </p>
+          </div>
+        </section>
         <section>
           {inProgressData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
