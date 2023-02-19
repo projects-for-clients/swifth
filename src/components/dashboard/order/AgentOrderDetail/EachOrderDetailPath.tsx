@@ -667,11 +667,20 @@ export const AgentOrderHistory = () => {
   return (
     <div className="grid gap-4 pt-10">
       {clearingDocHistory.map((item, i) => (
-        <div className="grid gap-1 bg-color-red-light-2 py-4 px-8 rounded-3xl" key={i}>
+        <div
+          className="grid gap-1 bg-color-red-light-2 py-4 px-8 rounded-3xl"
+          key={i}
+        >
           <p>{item.docState}</p>
           <p className="text-color-dark-1">{item.agentName}</p>
         </div>
       ))}
+
+      <button
+        className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 self-end "
+      >
+        Next
+      </button>
     </div>
   );
 };
