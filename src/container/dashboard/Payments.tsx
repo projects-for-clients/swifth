@@ -222,10 +222,10 @@ function Payments() {
         </section>
         <section>
           <div className="bg-color-green-light-1 text-color-primary-dark-2">
-            <p className='font-semibold'>Total Received</p>
+            <p className="font-semibold">Total Received</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
-              <span></span>{' '}
+              <span className="text-color-green-light">NGN</span>{' '}
             </p>
           </div>
         </section>
