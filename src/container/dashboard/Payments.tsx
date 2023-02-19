@@ -258,7 +258,14 @@ function Payments() {
                 <section>
                   {paymentHistoryArr.map((item, i) => {
                     return (
-                      <div>
+                      <div className='flex justify-between p-8 items-center'>
+                        <p>
+                          {item.date.toLocaleString('en-GB', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                          })}
+                        </p>
                         <p className="text-color-purple-1 flex gap-1 font-medium">
                           <span className="text-gray-500">NGN</span>
                           {item.amount.toLocaleString()}
