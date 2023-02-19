@@ -156,7 +156,10 @@ function Payments() {
                 </section>
 
                 <section className="">
-                  <div className="mt-10 mb-20 h-[50rem]"></div>
+                  <div className="mt-10 mb-20 h-[50rem]">
+
+                    
+                  </div>
                 </section>
               </main>
             </div>
@@ -234,7 +237,7 @@ function Payments() {
               </div>
 
               <div
-                className="grid mt-[5rem] gap-10"
+                className="grid mt-10 gap-10"
                 style={{
                   gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
                 }}
@@ -242,7 +245,6 @@ function Payments() {
                 {paymentsData.map((item, i) => {
                   const { name, description, date, tag } = item;
 
-                  console.log({tag})
 
                   return (
                     <div
