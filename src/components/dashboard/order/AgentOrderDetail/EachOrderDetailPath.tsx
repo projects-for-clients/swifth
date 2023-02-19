@@ -6,6 +6,7 @@ import {
   FC,
   FormEvent,
   useEffect,
+  useContext,
 } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
 import {
@@ -16,20 +17,15 @@ import {
   updateClearingDoc,
   updateRCDocs,
 } from '../../../../store/features/order/order';
-import { ShowAssignAgentView } from './AgentOrderDetail';
+import { AgentOrderDetailContext, ShowAssignAgentView } from './AgentOrderDetail';
 
 
-interface AgentClearing {
-  setShowAssignAgentView: Dispatch<SetStateAction<ShowAssignAgentView>>;
-  orderId: number;
-}
-
-export const AgentClearing: FC<AgentClearing> = ({
-  setShowAssignAgentView,
-  orderId,
-}) => {
+export const AgentClearing = () => {
   const dispatch = useAppDispatch();
   const orderDetails = useAppSelector(selectOrder);
+  const agentDetailContext = useContext(AgentOrderDetailContext);
+
+  const {setShowAssignAgentView, orderId} = agentDetailContext
 
   const [toDisplay, setToDisplay] = useState<{
     docType?: 'RCDoc' | 'clearingDoc';
@@ -136,6 +132,8 @@ export const AgentClearing: FC<AgentClearing> = ({
 
   const handleSelectedClearingDocItem = (item: string) => {
     if (item === 'Assign Field Agent') {
+
+
       setShowAssignAgentView({
         show: true,
         whichDoc: 'clearingDoc',
