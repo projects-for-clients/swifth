@@ -510,11 +510,11 @@ export const AgentClearing = () => {
                       className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap  ${
                         imageDetails.Valuating.error
                           ? 'border-red-600 border bg-red-50'
-                          : 'border-color-purple-light'
+                          : ''
                       }`}
                     >
                       
-                      {imageDetails.Valuating.pathName ? (
+                      {imageDetails.Valuating.pathName && (
                         <div className="grid">
                           <p className="text-[1.4rem] font-normal">
                             {imageDetails.Valuating.pathName}
@@ -525,9 +525,7 @@ export const AgentClearing = () => {
                               : imageDetails.Valuating.size}
                           </p>
                         </div>
-                      ) : (
-                        <p className="text-[1.4rem]">Upload CAC Certificate</p>
-                      )}
+                      ) }
                     </label>
                     <input
                       type="file"
