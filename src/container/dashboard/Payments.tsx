@@ -131,7 +131,7 @@ function Payments() {
 
           <section className="h-full">
             <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
-              <main className="grid gap-10 mt-10  ">
+              <main className="grid gap-10  ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">
                     {paymentDetail?.name}
@@ -234,7 +234,7 @@ function Payments() {
                     <p className="text-[1.4rem] text-color-purple-1">Paid</p>
                     <p className="text-color-purple font-semibold">7,000,000</p>
                   </div>
-                  <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
+                  <div className="flex justify-between p-8">
                     <p className="text-[1.4rem] text-color-purple-1">
                       Outstanding
                     </p>
