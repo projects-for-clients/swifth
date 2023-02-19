@@ -280,6 +280,9 @@ export const AgentClearing = () => {
     e: ChangeEvent<HTMLInputElement>,
     key: ClearingKeys
   ) => {
+    setOpenClearingDocToolTip(false);
+    setclearingDocItem({ key: null });
+    
     const fileObj = e.target as HTMLInputElement;
 
     const { name } = fileObj.files![0];
