@@ -268,7 +268,7 @@ function Payments() {
                             year: 'numeric',
                           })}
                         </p>
-                        <p className="text-color-purple-1 flex gap-1 font-medium">
+                        <p className="text-color-purple-1 flex gap-1 text-[2rem]">
                           <span className="text-gray-500">NGN</span>
                           {item.amount.toLocaleString()}
                         </p>
