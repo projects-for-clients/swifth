@@ -174,9 +174,7 @@ function Payments() {
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
                   <div>
                     <button
-                      className={`border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full ${
-                        showAccordion ? 'visible h-auto' : 'invisible h-0'
-                      }`}
+                      className={`border-b border-b-color-purple-light-2 flex justify-between p-8 cursor-pointer w-full `}
                       onClick={accordionHandler}
                     >
                       <p className="text-[1.4rem] text-color-purple-1">
@@ -192,7 +190,11 @@ function Payments() {
                       </p>
                     </button>
                     {
-                      <div className={`grid ${showAccordion}`}>
+                      <div
+                        className={`grid ${
+                          showAccordion ? 'visible h-auto' : 'invisible h-0'
+                        }`}
+                      >
                         <div className=" border-b-color-purple-light-2 flex justify-between p-8">
                           <p className="text-[1.4rem] text-color-purple-1">
                             ICOC
