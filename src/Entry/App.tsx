@@ -13,6 +13,7 @@ import OnBoarding from '../container/Onboarding';
 import Orders from '../container/dashboard/Orders';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.css';
+import Payments from '../container/dashboard/Payments';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -20,7 +21,7 @@ const router = createBrowserRouter(
     <Route path="/dashboard" element={<Dashboard />}>
       <Route index element={<DashboardHome />} />
       <Route path="orders" element={<Orders />} />
-      <Route path="payments" element={<Orders />} />
+      <Route path="payments" element={<Payments />} />
       <Route path="onboarding" element={<OnBoarding />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
