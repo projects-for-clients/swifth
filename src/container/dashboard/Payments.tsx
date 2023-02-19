@@ -130,45 +130,7 @@ function Payments() {
                     {paymentDetail?.tag}
                   </p>{' '}
                 </div>
-                <section
-                  className="grid gap-10"
-                  style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
-                  }}
-                >
-                  <div>
-                    <p className=" text-gray-400">Agent</p>
-                    <p className=" text-gray-600">{agentName}</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Date</p>
-                    <p className=" text-gray-600">
-                      {date?.toLocaleString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric',
-                      })}
-                    </p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Amount Paid</p>
-                    <p className=" text-gray-600">
-                      {amountPaid?.toLocaleString('en-GB', {
-                        style: 'currency',
-                        currency: 'NGN',
-                      })}
-                    </p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Total Amount</p>
-                    <p className=" text-gray-600">
-                      {totalAmount?.toLocaleString('en-GB', {
-                        style: 'currency',
-                        currency: 'NGN',
-                      })}
-                    </p>{' '}
-                  </div>
-                </section>
+                
                 <section
                   className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
                   style={{
@@ -177,7 +139,7 @@ function Payments() {
                 >
                   <div>
                     <p className=" text-gray-400">Car Brand</p>
-                    <p className=" text-gray-600">{carBrand}</p>
+                    <p className=" text-gray-600">Toyota</p>
                   </div>
                   <div>
                     <p className=" text-gray-400">Car Year</p>
