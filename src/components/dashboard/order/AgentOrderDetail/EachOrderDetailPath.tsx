@@ -341,6 +341,10 @@ export const AgentClearing = () => {
     (order) => order.id === orderId && order.assignedAgent
   );
 
+
+  useEffect(() => {
+    console.log({imgUris})
+  }, [imgUris])
   const handleNextDocAction = () => {};
 
   return (
