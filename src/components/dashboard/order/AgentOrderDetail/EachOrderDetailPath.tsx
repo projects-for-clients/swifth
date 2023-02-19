@@ -659,7 +659,7 @@ const clearingDocHistory = [
   },
   {
     docState: 'Payment Releasing',
-    agentName: 'Kayode Oluwafemi',
+    agentName: 'Kayode Kelvin',
   }
 ]
 
