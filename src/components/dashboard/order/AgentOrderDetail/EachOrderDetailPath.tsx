@@ -66,7 +66,7 @@ export const AgentClearing = () => {
 
   const selectClearingOptions = [
     {
-      imgUri: '/icons/document-upload.svg',
+      imgUri: '/icons/document-upload2.svg',
       name: 'Upload clearing Agent',
       className: 'text-color-dark-3',
     },
