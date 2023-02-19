@@ -1,5 +1,5 @@
 import Header from '../../components/dashboard/Header';
-import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
+import { ChangeEvent, Fragment, useEffect, useState, useRef, ReactEventHandler } from 'react';
 import SelectDropDown from '../../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
@@ -95,7 +95,7 @@ function Payments() {
     }
   };
 
-  const accordionHandler = (e: HTMLDetailsElement) => {
+  const accordionHandler = (e: ReactEventHandler<HTMLDetailsElement>) => {
     console.log(e)
   }
 
