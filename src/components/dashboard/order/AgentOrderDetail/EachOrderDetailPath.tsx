@@ -530,7 +530,7 @@ export const AgentClearing = () => {
                           {selectClearingOptions.map((item, i) => {
                             return (
                               <button
-                                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed `}
+                                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left disabled:opacity-25 disabled:cursor-not-allowed `}
                                 key={i}
                                 disabled={!doc.submitted}
                                 onClick={() =>
@@ -543,7 +543,7 @@ export const AgentClearing = () => {
                                       htmlFor={clearingDocItem.key!}
                                       className={` ${
                                         item.className
-                                      } font-medium ${
+                                      } font-medium flex items-center gap-4 cursor-pointer ${
                                         imageDetails.Valuating.error
                                           ? 'border-red-600 border bg-red-50'
                                           : ''
@@ -572,7 +572,7 @@ export const AgentClearing = () => {
                                   </div>
                                 ) : (
                                   <span
-                                    className={`${item.className} font-medium`}
+                                    className={`${item.className} font-medium flex items-center gap-4 `}
                                   >
                                     {' '}
                                     <img src={item.imgUri} alt="" />
