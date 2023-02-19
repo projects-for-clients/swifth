@@ -513,12 +513,12 @@ export const AgentClearing = () => {
                       {imageDetails[docName].pathName && (
                         <div className="grid">
                           <p className="text-[1.4rem] font-normal">
-                            {imageDetails.Valuating.pathName}
+                            {imageDetails[docName].pathName}
                           </p>
                           <p className="text-color-grey-4 text-[1rem]">
-                            {imageDetails.Valuating.message
-                              ? imageDetails.Valuating.message
-                              : imageDetails.Valuating.size}
+                            {imageDetails[docName].message
+                              ? imageDetails[docName].message
+                              : imageDetails[docName].size}
                           </p>
                         </div>
                       )}
