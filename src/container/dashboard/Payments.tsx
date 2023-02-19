@@ -239,8 +239,6 @@ function Payments() {
         </section>
 
         <section>
-          
-
           {(currentPath === 'inProgress' && inProgressData.length < 1) ||
           (currentPath === 'waitlist' && waitlistData.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
@@ -261,62 +259,24 @@ function Payments() {
           ) : (
             <Fragment>
               <div className="flex justify-between items-center mt-10">
-                <div
-                  className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
-                  onClick={() => handleOpenDialog('orderHistory')}
-                >
-                  <img
-                    src="/icons/history.svg"
-                    alt=""
-                    className="w-[1.6rem] h-[1.6rem]"
-                  />
-                  <p>History</p>
-                </div>
-                <div className="flex items-center gap-8">
-                  {currentPath === 'inProgress' && (
+                <div className="flex items-center gap-8 justify-end">
+                  <>
                     <SelectDropDown
-                      selectFrom={sortBy}
-                      selectedItem={selectedSort}
-                      setSelectedItem={setSelectedSort}
-                      label={'sortBy'}
+                      selectFrom={InProgressFilters}
+                      selectedItem={inProgressFilteredBy}
+                      setSelectedItem={setInProgressFilteredBy}
+                      isFilter
+                      label={'filterBy'}
                       setDropDownState={setDropDownState}
                       dropDownState={dropDownState}
                     />
-                  )}
-                  {currentPath === 'inProgress' ? (
-                    <>
-                      <SelectDropDown
-                        selectFrom={InProgressFilters}
-                        selectedItem={inProgressFilteredBy}
-                        setSelectedItem={setInProgressFilteredBy}
-                        isFilter
-                        label={'filterBy'}
-                        setDropDownState={setDropDownState}
-                        dropDownState={dropDownState}
+                    {inProgressFilteredBy && (
+                      <GrClose
+                        className="text-[1.4rem] cursor-pointer"
+                        onClick={() => handleClearFilter('inProgress')}
                       />
-                      {inProgressFilteredBy && (
-                        <GrClose
-                          className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('inProgress')}
-                        />
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      <SelectDropDown
-                        selectFrom={waitlistFilters}
-                        selectedItem={waitlistFilterBy}
-                        setSelectedItem={setWaitlistFilterBy}
-                        isFilter
-                      />
-                      {waitlistFilterBy && (
-                        <GrClose
-                          className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('waitlist')}
-                        />
-                      )}
-                    </>
-                  )}
+                    )}
+                  </>
                 </div>
               </div>
               <>{pathToSwitch[currentPath]}</>
