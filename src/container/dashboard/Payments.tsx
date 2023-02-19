@@ -120,14 +120,14 @@ function Payments() {
 
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (type: DialogType): void => {
+  const handleCloseDialog = (): void => {
     
 
     if ( eachOrderDialogRef.current) {
       eachOrderDialogRef.current.close();
     }
   };
-  const handleOpenDialog = (type: DialogType, id?: number) => {
+  const handleOpenDialog = (type: DialogType) => {
     
 
     if ( eachOrderDialogRef.current) {
