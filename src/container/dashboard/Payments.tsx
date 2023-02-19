@@ -220,7 +220,9 @@ function Payments() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-        <section className="grid">
+        <section className="grid gap-8" style={{
+          gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))'
+        }}>
           <div className="bg-color-green-light-1 text-color-primary-dark-2 rounded-3xl border border-green-600 p-8">
             <p className="font-semibold">Total Received</p>
             <p className="text-[2.4rem] font-semibold">
@@ -235,11 +237,11 @@ function Payments() {
               <span className="text-color-purple-light">NGN</span> 1.85 M
             </p>
           </div>
-          <div className="bg-[#FDECD0] text-[#312004] rounded-3xl border border-green-600 p-8">
+          <div className="bg-[#FDECD0] text-[#312004] rounded-3xl border border-[#94610c] p-8">
             <p className="font-semibold">Pending Payments</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
-              <span className="text-orange-500">NGN</span> 690,000
+              <span className="text-[#94610c]">NGN</span> 690,000
             </p>
           </div>
         </section>
