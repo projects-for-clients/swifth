@@ -54,6 +54,8 @@ export const AgentClearing = () => {
     'Duty Processing': '',
   });
 
+  const [toUpload, setToUpload] = useState<ClearingKeys[]>(['Valuating'])
+
   const keyProps = {
     error: false,
     message: null,
@@ -344,6 +346,7 @@ export const AgentClearing = () => {
 
   useEffect(() => {
     console.log({imgUris})
+    console.log({clearingDocContent})
   }, [imgUris])
   const handleNextDocAction = () => {};
 
