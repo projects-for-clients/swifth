@@ -605,7 +605,7 @@ export const AgentClearing = () => {
           {isOrderAssignedAgent ? (
             <>
               {allUploadedClearingDocs ? (
-                <div className="w-full flex justify-between">
+                <div className="w-full flex justify-between gap-4">
                   <button
                     className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2"
                     onClick={handleNextDocAction}
