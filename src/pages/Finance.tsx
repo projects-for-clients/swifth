@@ -83,18 +83,26 @@ function Finance() {
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem] w-[60rem] px-10">
-            <p className='text-[2.4rem] font-semibold'>Set interest rate</p>
+            <p className="text-[2.4rem] font-semibold">Set interest rate</p>
             <p>
               Set the interest rate you want to be attached to registered
               customers’ approved loans
             </p>
 
-            <div className='relative grid justify-items-start items-center'>
-              <label htmlFor='interestRate' className=''>Interest Rate</label>
-            
-              <input id='interestRate' type="text" className='bg-gray-100 py-4 pl-6 pr-16' />
+            <div className="">
+              <label htmlFor="interestRate" className="">
+                Interest Rate
+              </label>
 
-              <span className='absolute right-6 top-6'>%</span>
+              <div className="flex items-center relative w-full">
+                <input
+                  id="interestRate"
+                  type="text"
+                  className="bg-gray-100 py-4 pl-6 pr-16 outline-none w-full"
+                />
+
+                <span className="absolute right-6 top-6">%</span>
+              </div>
             </div>
           </div>
         </section>
