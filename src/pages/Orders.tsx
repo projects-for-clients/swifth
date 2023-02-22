@@ -247,6 +247,7 @@ function orders() {
                 </section>
 
                 <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+                  <p className='text-gray-500 font-semibold text-[1.8rem]'>Documents Submitted</p>
                   <div className="border-b border-b-color-purple-light-2 ">
                     <button
                       className={`flex justify-between p-8 cursor-pointer w-full `}
