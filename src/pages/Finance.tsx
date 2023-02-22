@@ -79,10 +79,8 @@ type SwitchPath = 'appliedLoans' | 'loanRequests';
 export const CreateFinanceContext = createContext<FinanceContext>(null as any);
 
 function Finance() {
-  const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
   const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
-  const [financeFilteredBy, setFinanceFilteredBy] = useState('');
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
 
   const [showAccordion, setShowAccordion] = useState(false);
