@@ -47,9 +47,9 @@ function PayoutBank() {
   const BankDetailsForm = (
     <form onSubmit={submitBankDetails}>
       <div
-        className="grid"
+        className="grid gap-8"
         style={{
-          gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
         }}
       >
         <SelectInput
