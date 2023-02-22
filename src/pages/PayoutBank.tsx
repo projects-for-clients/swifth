@@ -1,4 +1,4 @@
-import { createContext, Fragment, useRef, useState } from 'react';
+import { createContext, FormEvent, Fragment, useRef, useState } from 'react';
 import Header from '../components/dashboard/Header';
 import SelectInput from '../components/utils/SelectInput';
 
@@ -23,6 +23,12 @@ function PayoutBank() {
     }
   };
 
+  const submitBankDetails = (e:FormEvent) => {
+    e.preventDefault();
+    setAddedBank(true);
+    handleCloseDialog();
+  }
+
   const FirstPath = (
     <Fragment>
       <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
@@ -39,7 +45,7 @@ function PayoutBank() {
   );
 
   const BankDetailsForm = (
-    <section>
+    <form onSubmit={submitBankDetails}>
       <div
         className="grid"
         style={{
@@ -74,10 +80,10 @@ function PayoutBank() {
           />
         </div>
       </div>
-      <button className='uppercase btn bg-color-primary text-white'>
+      <button className="uppercase btn bg-color-primary text-white">
         Submit
       </button>
-    </section>
+    </form>
   );
 
   const SwitchPath: Record<Path, JSX.Element> = {
