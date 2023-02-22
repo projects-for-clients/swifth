@@ -44,18 +44,16 @@ function PayoutBank() {
     </Fragment>
   );
   const ThirdPath = (
-    <Fragment>
-      <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
-        <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
-        <button
-          className=" text-gray-500 flex items-center gap-4"
-          onClick={() => setCurrentPath('second')}
-        >
-          <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
-          <p className="text-[1.4rem]">Add Payout Bank</p>
-        </button>
+    <div className="flex items-center gap-8 pt-12">
+      <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
+
+      <div>
+        <p className="text-[2rem] font-medium">Bank details submitted</p>
+        <p>
+          Your details has been submitted and will be saved after verification
+        </p>
       </div>
-    </Fragment>
+    </div>
   );
 
   const BankDetailsForm = (
