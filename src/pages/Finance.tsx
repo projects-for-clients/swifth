@@ -108,8 +108,8 @@ function Finance() {
                 <p className="absolute right-6 flex items-center gap-6"> <img src="/icons/line.svg" alt="" />  <img src="/icons/percent.svg" alt="" /> </p>
               </div>
 
-              <div>
-                <button>
+              <div className='w-full flex justify-between gap-8'>
+                <button className='w-full btn border border-gray-200 bg-gray-100'>
 
                 </button>
               </div>
