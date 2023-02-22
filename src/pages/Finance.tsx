@@ -1,5 +1,12 @@
 import Header from '../components/dashboard/Header';
-import { ChangeEvent, Fragment, useState, createContext, useRef, FormEvent } from 'react';
+import {
+  ChangeEvent,
+  Fragment,
+  useState,
+  createContext,
+  useRef,
+  FormEvent,
+} from 'react';
 
 import { generateRandomDate } from '../components/dashboard/order/OrdersData';
 import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
@@ -73,9 +80,9 @@ function Finance() {
     loanRequests: <LoanRequests />,
   };
 
-  const submitInterestRate = (e:FormEvent) => {
-    e.preventDefault()
-  }
+  const submitInterestRate = (e: FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <CreateFinanceContext.Provider
@@ -88,7 +95,7 @@ function Finance() {
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 text-[1.6rem] w-[60rem] p-10">
             <p className="text-[2.4rem] font-medium">Set interest rate</p>
-            <p className='font-medium'>
+            <p className="font-medium">
               Set the interest rate you want to be attached to registered
               customers’ approved loans
             </p>
@@ -105,12 +112,19 @@ function Finance() {
                   className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
                 />
 
-                <p className="absolute right-6 flex items-center gap-6"> <img src="/icons/line.svg" alt="" />  <img src="/icons/percent.svg" alt="" /> </p>
+                <p className="absolute right-6 flex items-center gap-6">
+                  {' '}
+                  <img src="/icons/line.svg" alt="" />{' '}
+                  <img src="/icons/percent.svg" alt="" />{' '}
+                </p>
               </div>
 
-              <div className='w-full flex justify-between gap-8'>
-                <button className='w-full btn border border-gray-200 bg-gray-100'>
-
+              <div className="w-full flex justify-between gap-8">
+                <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-3xl">
+                  Cancel
+                </button>
+                <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-3xl">
+                  Cancel
                 </button>
               </div>
             </form>
