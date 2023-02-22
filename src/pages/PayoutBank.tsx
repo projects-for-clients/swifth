@@ -56,6 +56,7 @@ function PayoutBank() {
           label="Choose Bank"
           items={['Access Bank', 'Zenith Bank', 'GTBank', 'First Bank', 'UBA']}
           placeholder={'Select Bank'}
+          fullWidth
         />
 
         <div className="grid gap-4">
