@@ -1,5 +1,6 @@
 import { createContext, Fragment, useRef, useState } from 'react';
 import Header from '../components/dashboard/Header';
+import SelectInput from '../components/utils/SelectInput';
 
 export const CreateFinanceContext = createContext(null as any);
 
@@ -44,9 +45,10 @@ function PayoutBank() {
         gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
       }}
     >
-
       <SelectInput
-        label="Bank"
+        label="Choose Bank"
+        items={['Access Bank', 'Zenith Bank', 'GTBank', 'First Bank', 'UBA']}
+        placeholder={'Select Bank'}
       />
 
       <div className="grid gap-4">
