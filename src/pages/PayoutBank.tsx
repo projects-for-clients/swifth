@@ -45,7 +45,7 @@ function PayoutBank() {
   );
 
   const BankDetailsForm = (
-    <form onSubmit={submitBankDetails}>
+    <form onSubmit={submitBankDetails} className='my-20'>
       <div
         className="grid gap-8"
         style={{
@@ -80,7 +80,7 @@ function PayoutBank() {
           />
         </div>
       </div>
-      <button className="uppercase btn bg-color-primary text-white">
+      <button className="uppercase py-4 px-6 bg-color-primary text-white w-[20rem] rounded-2xl">
         Submit
       </button>
     </form>
