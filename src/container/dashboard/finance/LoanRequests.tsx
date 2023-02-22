@@ -71,31 +71,31 @@ const LoanRequests = () => {
               </div>
             </section>
 
-            <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+            <section className=" grid gap-4 rounded-2xl">
               <div>
                 <p>Requesting a loan of:</p>
-                <p className="text-[3.2rem] text-color-purple-2">
+                <p className="text-[3.2rem] text-color-purple">
                   {' '}
                   <span className="text-color-purple-light">N</span>{' '}
                   {detailsData?.wantsToLoan?.toLocaleString()}
                 </p>
               </div>
-              <div>
-                <div>
+              <div className='border p-10 rounded-3xl'>
+                <div className='flex items-center justify-between'>
                   <span className="text-color-grey-4">
                     Interest to be added (10%)
                   </span>
-                  <p className=" text-color-purple-2">
+                  <p className=" text-color-purple">
                     {' '}
                     <span className="text-color-purple-light">N</span>{' '}
                     {wantsToLoan?.toLocaleString()}
                   </p>{' '}
                 </div>
-                <div>
+                <div className='flex items-center justify-between'>
                   <span className="text-color-grey-4">
                     Total to be paid back
                   </span>
-                  <p className=" text-color-purple-2">
+                  <p className=" text-color-purple">
                     {' '}
                     <span className="text-color-purple-light">N</span>{' '}
                     {totalPaidBack?.toLocaleString()}
