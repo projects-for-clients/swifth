@@ -4,7 +4,9 @@ import { CreateFinanceContext } from '../../../pages/Finance';
 const LoanRequests = () => {
   const financeDetails = useContext(CreateFinanceContext);
 
-  const { financeData, handleOpenDialog } = financeDetails;
+  const { financeData,handleOpenDialog } = financeDetails;
+
+  
 
   return (
     <div
