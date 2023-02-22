@@ -68,13 +68,16 @@ const LoanRequests = () => {
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl"></section>
           </main>
           <div className="flex w-full absolute justify-center left-0 right-0 bottom-[3rem] px-[3rem]">
-            <p>
+            <p className='flex items-center gap-2'>
               <img src="/icons/info-circle.svg" alt="" />
               Approving loan immediately applies loan amount to registered
               user's bill
             </p>
-            <button className="border border-color-primary text-color-primary rounded-lg w-full py-4">
-              Continue
+            <button className="btn border border-red-600 text-red-600 rounded-lg">
+              Reject Loan
+            </button>
+            <button className="btn bg-green-600 text-white rounded-lg ">
+              Reject Loan
             </button>
           </div>
         </div>
