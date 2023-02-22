@@ -68,10 +68,10 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
-const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
 function Finance() {
   const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
   const [financeFilteredBy, setFinanceFilteredBy] = useState('');
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
