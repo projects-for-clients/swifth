@@ -5,9 +5,7 @@ export const CreateFinanceContext = createContext(null as any);
 
 function PayoutBank() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-type Path = 'first' | 'second'
-
-
+  type Path = 'first' | 'second';
 
   const [currentPath, setCurrentPath] = useState<Path>('first');
   const [addedBank, setAddedBank] = useState(true);
@@ -26,20 +24,20 @@ type Path = 'first' | 'second'
 
   const FirstPath = (
     <Fragment>
-         <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
-            <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
-            <div className=" text-gray-500 flex items-center gap-4">
-              <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
-              <p className="text-[1.4rem]">Add Payout Bank</p>
-            </div>
-          </div>
-        </Fragment>
-  )
+      <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
+        <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
+        <div className=" text-gray-500 flex items-center gap-4">
+          <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
+          <p className="text-[1.4rem]">Add Payout Bank</p>
+        </div>
+      </div>
+    </Fragment>
+  );
 
   const SwitchPath: Record<Path, JSX.Element> = {
     first: FirstPath,
     second: <Fragment>dsd</Fragment>,
-  }
+  };
 
   return (
     <CreateFinanceContext.Provider value={null}>
@@ -103,7 +101,7 @@ type Path = 'first' | 'second'
             </div>
           </div>
         ) : (
-         {SwitchPath[currentPath]}
+          <>{SwitchPath[currentPath]}</>
         )}
       </main>
     </CreateFinanceContext.Provider>
