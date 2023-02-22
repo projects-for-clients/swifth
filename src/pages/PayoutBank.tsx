@@ -26,7 +26,7 @@ function PayoutBank() {
       <Header title="Payout Bank" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center gap-8 w-[60rem] py-20 px-10">
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-start gap-8 w-[60rem]">
             <div>
               <p className="text-[2.4rem] font-medium text-left flex w-full">
                 Delete bank
@@ -39,7 +39,6 @@ function PayoutBank() {
             <div className=" flex gap-8 w-[40rem] justify-self-end items-center">
               <button
                 className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl"
-                type="reset"
                 onClick={() => handleCloseDialog()}
               >
                 Cancel
