@@ -63,7 +63,7 @@ function Finance() {
       dialogRef.current.close();
     }
   };
-  const handleOpenDialog = (item: Finance) => {
+  const handleOpenDialog = () => {
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -102,7 +102,7 @@ function Finance() {
           />
         </section>
         <section className="flex justify-end">
-          <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer" onClick={() => }>
+          <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer" onClick={() => handleOpenDialog() }>
             <img src="/icons/percentage-circle.svg" alt="" />
             <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
           </button>
