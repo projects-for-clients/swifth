@@ -26,7 +26,11 @@ function PayoutBank() {
       <Header title="Payout Bank" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] py-20 px-10"></div>
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-center gap-8 w-[60rem] py-20 px-10">
+            <p className='text-[2rem]'>Delete bank</p>
+            <p>Do you want to delete bank details?</p>
+
+          </div>
         </section>
       </dialog>
       <main>
