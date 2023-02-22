@@ -101,17 +101,17 @@ function Finance() {
 
   
 
-  const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = (): void => {
-    if (eachOrderDialogRef.current) {
-      eachOrderDialogRef.current.close();
+    if (dialogRef.current) {
+      dialogRef.current.close();
     }
   };
   const handleOpenDialog = (item: Finance) => {
     setPaymentDetail(item);
-    if (eachOrderDialogRef.current) {
-      eachOrderDialogRef.current.showModal();
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
     }
   };
 
@@ -136,7 +136,7 @@ function Finance() {
       <Header title="Finance" />
       <dialog
         className="dialog relative text-[1.6rem]"
-        ref={eachOrderDialogRef}
+        ref={dialogRef}
       >
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
@@ -254,36 +254,10 @@ function Finance() {
                     <p className="text-color-purple font-semibold">300,000</p>
                   </div>
                 </section>
-                <section>
-                  <p className="font-medium text-[2rem] mb-10">
-                    Payment History
-                  </p>
-                  <div
-                    className="grid gap-8"
-                    style={{
-                      gridTemplateColumns:
-                        'repeat(auto-fit, minmax(35rem, 1fr))',
-                    }}
-                  >
-                    {paymentHistoryArr.map((item, i) => {
-                      return (
-                        <div className="flex justify-between p-8 items-center border border-gray-300 bg-gray-100 rounded-3xl">
-                          <p className="text-[1.4rem] text-[#4B5463]">
-                            {item.date.toLocaleString('en-GB', {
-                              day: 'numeric',
-                              month: 'short',
-                              year: 'numeric',
-                            })}
-                          </p>
-                          <p className="text-color-purple-1 flex gap-1">
-                            <span className="text-gray-500">NGN</span>
-                            {item.amount.toLocaleString()}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </section>
+               
+               <button>
+
+               </button>
               </main>
             </div>
           </section>
