@@ -26,7 +26,10 @@ function PayoutBank() {
     <Fragment>
       <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
         <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
-        <button className=" text-gray-500 flex items-center gap-4" onClick={() => setCurrentPath('second')}>
+        <button
+          className=" text-gray-500 flex items-center gap-4"
+          onClick={() => setCurrentPath('second')}
+        >
           <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
           <p className="text-[1.4rem]">Add Payout Bank</p>
         </button>
@@ -35,11 +38,35 @@ function PayoutBank() {
   );
 
   const BankDetailsForm = (
-    <Fragment>
+    <div
+      className="grid"
+      style={{
+        gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+      }}
+    >
+      <div className="grid gap-4">
+        <label className="text-[1.4rem]">Account Number</label>
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Enter full name"
+          className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+          required
+        />
+      </div>
 
-
-        </Fragment>
-  )
+      <div className="grid gap-4">
+        <label className="text-[1.4rem]">Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Enter full name"
+          className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+          required
+        />
+      </div>
+    </div>
+  );
 
   const SwitchPath: Record<Path, JSX.Element> = {
     first: FirstPath,
@@ -48,7 +75,10 @@ function PayoutBank() {
 
   return (
     <CreateFinanceContext.Provider value={null}>
-      <Header title="Payout Bank" subTitle={currentPath === 'second' ? 'Enter your bank details' : ''} />
+      <Header
+        title="Payout Bank"
+        subTitle={currentPath === 'second' ? 'Enter your bank details' : ''}
+      />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid justify-items-start gap-8 w-[60rem] p-10">
