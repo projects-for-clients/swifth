@@ -101,7 +101,7 @@ function Finance() {
                   className="bg-gray-100 py-4 pl-6 pr-16 outline-none w-full rounded-lg"
                 />
 
-                <span className="absolute right-6 top-6">%</span>
+                <p className="absolute right-6"> <span>|</span> %</p>
               </div>
             </div>
           </div>
