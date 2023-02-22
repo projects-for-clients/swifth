@@ -1,148 +1,16 @@
+import { createContext, Fragment } from 'react';
 import Header from '../components/dashboard/Header';
-import {
-  ChangeEvent,
-  Fragment,
-  useState,
-  createContext,
-  useRef,
-  FormEvent,
-} from 'react';
 
-import { generateRandomDate } from '../components/dashboard/order/OrdersData';
-import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
-import LoanRequests from '../container/dashboard/finance/LoanRequests';
-
-export interface FinanceHistory {
-  id: number;
-  date: Date;
-  amount: number;
-}
-
-export type FinanceFilterBy = 'Fully Paid' | 'Pending Bill';
-
-export interface Finance {
-  id: number;
-  name: string;
-  date: Date;
-  wantsToLoan?: number;
-  amountPaid?: number;
-  loanAndInterest?: number;
-}
-
-export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  name: `Ezekiel Doe ${i + 1}`,
-  description: `Toyota Camry XLE, ${200 + (i + 1)}`,
-  date: generateRandomDate(),
-  amountPaid: Math.floor(Math.random() * 900000 + 500000),
-  wantsToLoan: Math.floor(Math.random() * 900000 + 500000),
-  loanAndInterest: Math.floor(Math.random() * 2000000 + 900000),
-}));
-
-export interface FinanceContext {
-  financeData: Finance[];
-}
-
-type SwitchPath = 'appliedLoans' | 'loanRequests';
-export const CreateFinanceContext = createContext<FinanceContext>(null as any);
+export const CreateFinanceContext = createContext(null as any);
+const dialogRef = useRef<HTMLDialogElement>(null);
 
 function PayoutBank() {
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
-
-  const [search, setSearch] = useState('');
-
-  const [financeData, setFinanceData] = useState<Finance[]>(FINANCE);
-
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearch(value);
-
-    const filtered = FINANCE.filter((item) =>
-      item.name.toLowerCase().includes(value.toLowerCase())
-    );
-    setFinanceData(filtered);
-  };
-
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
-
-  const handleCloseDialog = (): void => {
-    if (dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-  const handleOpenDialog = () => {
-    if (dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-  };
-  const switchPath: Record<SwitchPath, JSX.Element> = {
-    appliedLoans: <AppliedLoans />,
-    loanRequests: <LoanRequests />,
-  };
-
-  const submitInterestRate = (e: FormEvent) => {
-    e.preventDefault();
-  };
-
   return (
-    <CreateFinanceContext.Provider
-      value={{
-        financeData,
-      }}
-    >
+    <CreateFinanceContext.Provider value={null}>
       <Header title="Finance" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] py-20 px-10">
-            <div>
-              <p className="text-[2.4rem] font-medium text-left flex w-full">
-                Set interest rate
-              </p>
-              <p className="font-medium text-left">
-                Set the interest rate you want to be attached to registered
-                customers approved loans
-              </p>
-            </div>
-
-            <form className="grid w-full gap-16" onSubmit={submitInterestRate}>
-              <div>
-                <label htmlFor="interestRate" className="">
-                  Interest Rate
-                </label>
-
-                <div className="flex items-center relative w-full">
-                  <input
-                    id="interestRate"
-                    type="text"
-                    required
-                    className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
-                  />
-
-                  <p className="absolute right-6 flex items-center gap-6">
-                    {' '}
-                    <img src="/icons/line.svg" alt="" />{' '}
-                    <img src="/icons/percent.svg" alt="" />{' '}
-                  </p>
-                </div>
-              </div>
-
-              <div className=" flex gap-8 w-[40rem] justify-self-end items-center">
-                <button
-                  className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl"
-                  type="reset"
-                  onClick={() => handleCloseDialog()}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="w-full btn border border-color-primary text-color-primary rounded-2xl"
-                  onClick={() => handleCloseDialog()}
-                >
-                  Save
-                </button>
-              </div>
-            </form>
-          </div>
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] py-20 px-10"></div>
         </section>
       </dialog>
       <main className="text-[1.6rem] grid gap-10">
