@@ -170,8 +170,8 @@ function Finance() {
 
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
               <div className="border-b border-b-color-purple-light-2 ">
-                <button
-                  className={`flex justify-between p-8 cursor-pointer w-full `}
+                <div
+                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
                 >
                   <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
                     <span>Dec 3, 2023</span>
@@ -180,16 +180,33 @@ function Finance() {
                   <p className="text-color-purple font-semibold flex items-center gap-4">
                     <span>1,000,000</span>{' '}
                   </p>
-                </button>
+                </div>
+                <div
+                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
+                >
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                    <span>Dec 3, 2023</span>
+                    <span className='text-color-purple-2'>Interest added (10%)</span>
+                  </p>
+                  <p className="text-color-purple font-semibold flex items-center gap-4">
+                    <span>100,000</span>{' '}
+                  </p>
+                </div>
+                <div
+                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
+                >
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                    <span>Total to be paid:</span>
+                    <span className='text-color-purple text-[1.4rem]'>Loan applied</span>
+                  </p>
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                    <span>Paid:</span>
+                    <span className='text-color-purple text-[1.4rem]'>740,000</span>
+                  </p>
+                  
+                </div>
               </div>
-              <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
-                <p className="text-[1.4rem] text-color-purple-1">Paid</p>
-                <p className="text-color-purple font-semibold">7,000,000</p>
-              </div>
-              <div className="flex justify-between p-8">
-                <p className="text-[1.4rem] text-color-purple-1">Outstanding</p>
-                <p className="text-color-purple font-semibold">300,000</p>
-              </div>
+             
             </section>
 
             <button className="flex h-full items-center mt-auto">
