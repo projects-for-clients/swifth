@@ -184,60 +184,16 @@ function Finance() {
                   <div className="border-b border-b-color-purple-light-2 ">
                     <button
                       className={`flex justify-between p-8 cursor-pointer w-full `}
-                      onClick={accordionHandler}
                     >
                       <p className="text-[1.4rem] text-color-purple-1">
                         Total Bill
                       </p>
                       <p className="text-color-purple font-semibold flex items-center gap-4">
                         <span>1,000,000</span>{' '}
-                        {showAccordion ? (
-                          <img src="/icons/arrow-circle-up.svg" alt="" />
-                        ) : (
-                          <img src="/icons/arrow-circle-down.svg" alt="" />
-                        )}
+                        
                       </p>
                     </button>
-                    {
-                      <div
-                        className={`grid  ${
-                          showAccordion ? 'visible h-auto' : 'invisible h-0'
-                        }`}
-                      >
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            ICOC
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            400,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Loan + (10%) Interest
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            220,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Security charge as at: 3/6/23
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            80,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Telex Charge
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            300,000
-                          </p>
-                        </div>
-                      </div>
-                    }
+                    
                   </div>
                   <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
                     <p className="text-[1.4rem] text-color-purple-1">Paid</p>
