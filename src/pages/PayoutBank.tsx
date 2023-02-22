@@ -21,8 +21,8 @@ function PayoutBank() {
         </div>
         <div className="flex items-center gap-8">
           <img src="/icons/payoutBank.svg" alt="" />
-          <div className=" text-gray-500">
-                <img src="/icons/add-circle.svg" alt="" />
+          <div className=" text-gray-500 flex items-center gap-4">
+                <img src="/icons/add-circle.svg" alt="" className='text-[1.4rem]' />
             <p className="text-[1.4rem]">Ore Adesanye</p>
           </div>
         </div>
