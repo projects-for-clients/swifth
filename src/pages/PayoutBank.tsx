@@ -23,11 +23,11 @@ function PayoutBank() {
     }
   };
 
-  const submitBankDetails = (e:FormEvent) => {
+  const submitBankDetails = (e: FormEvent) => {
     e.preventDefault();
     setAddedBank(true);
-    setCurrentPath('first')
-  }
+    setCurrentPath('third');
+  };
 
   const FirstPath = (
     <Fragment>
@@ -57,7 +57,7 @@ function PayoutBank() {
   );
 
   const BankDetailsForm = (
-    <form onSubmit={submitBankDetails} className='my-20'>
+    <form onSubmit={submitBankDetails} className="my-20">
       <div
         className="grid gap-8"
         style={{
@@ -141,7 +141,7 @@ function PayoutBank() {
           </div>
         </section>
       </dialog>
-      <main className='overflow-hidden'>
+      <main className="overflow-hidden">
         {addedBank ? (
           <div className="flex border border-[#BEB3DE] p-8 rounded-3xl w-full justify-between">
             <div className="flex items-center gap-8">
