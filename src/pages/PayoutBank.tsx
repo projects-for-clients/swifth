@@ -19,7 +19,7 @@ function PayoutBank() {
       </dialog>
       <main>
         {addedBank ? (
-          <div className="flex items-center border border-[#BEB3DE] p-8 rounded-3xl justify-between">
+          <div className="flex border border-[#BEB3DE] p-8 rounded-3xl w-full">
             <div className="flex items-center gap-8">
               <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
               <div className=" text-gray-500 grid items-center gap-4">
@@ -34,7 +34,7 @@ function PayoutBank() {
               </div>
             </div>
 
-            <div className='flex w-full gap-8 items-center'>
+            <div className='flex gap-8 items-center'>
                 <button className='btn rounded-3xl text-white bg-color-primary capitalize'>Edit Bank details</button>
                 <button className='btn rounded-3xl text-red-600 border border-red-600 capitalize'>Delete</button>
             </div>
