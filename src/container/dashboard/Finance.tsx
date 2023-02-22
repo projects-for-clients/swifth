@@ -67,8 +67,14 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   amount: 50000,
 }));
 
+  type SwitchPath = 'appliedLoans' | 'loanRequests';
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
+
+
 function Finance() {
   const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
+
+  
 
   const [financeFilteredBy, setFinanceFilteredBy] = useState('');
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
@@ -291,20 +297,32 @@ function Finance() {
       </dialog>
 
       <main className="text-[1.6rem] grid gap-10">
-        <section className="relative flex items-center w-[45rem] mx-auto">
-          <input
-            type="text"
-            className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
-            placeholder="Search"
-            value={search}
-            onChange={handleSearch}
-          />
+        <section>
+          <div className="radioBox gap-16">
+            <input
+              type="radio"
+              name="notification"
+              id="appliedLoans"
+              className="hidden"
+              onChange={() => setCurrentPath('appliedLoans')}
+              checked={currentPath === 'appliedLoans'}
+            />
+            <label htmlFor="appliedLoans" className="capitalize text-[1.8rem]">
+              Applied Loans
+            </label>
 
-          <img
-            src="/icons/search-normal.svg"
-            alt=""
-            className="absolute left-6 text-[1.8rem]"
-          />
+            <input
+              type="radio"
+              name="notification"
+              id="loanRequests"
+              className="hidden"
+              checked={currentPath === 'loanRequests'}
+              onChange={() => setCurrentPath('loanRequests')}
+            />
+            <label htmlFor="loanRequests" className="capitalize text-[1.8rem]">
+              Loan Requests
+            </label>
+          </div>
         </section>
         <section
           className="grid gap-8"
