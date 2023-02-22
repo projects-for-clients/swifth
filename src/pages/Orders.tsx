@@ -218,7 +218,6 @@ function orders() {
                     {waitlistItemDetails?.name}
                   </p>
                 </div>
-
                 <section
                   className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
                   style={{
@@ -242,7 +241,6 @@ function orders() {
                     <p className=" text-gray-600">XLE</p>
                   </div>
                 </section>
-
                 <section className="grid gap-4 rounded-2xl">
                   <p className="text-gray-500 font-semibold text-[1.8rem]">
                     Documents Submitted
@@ -269,8 +267,13 @@ function orders() {
                     </div>
                   </div>
                 </section>
-
-                <button></button>
+                <button
+                  className="flex w-full items-center"
+                >
+                  <span className="bg-color-primary rounded-lg text-white w-full py-4">
+                    Create Order
+                  </span>
+                </button>{' '}
               </main>
             </div>
           </section>
