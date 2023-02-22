@@ -15,7 +15,7 @@ const AppliedLoans = () => {
       }}
     >
       {financeData.map((item, i) => {
-        const { name, description, date, loanInterest, amountPaid } = item;
+        const { name, date, loanAndInterest, amountPaid } = item;
 
         return (
           <div
@@ -27,7 +27,7 @@ const AppliedLoans = () => {
               <div>
                 <p className="text-[1.6rem]">{name}</p>
                 <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
-                  {description}
+                  {loanAndInterest.toLocaleString()}
                 </p>
               </div>
 
@@ -41,7 +41,7 @@ const AppliedLoans = () => {
                 </p>
                 <p className="text-color-purple-1 flex gap-1 font-medium">
                   <span className="text-gray-500">NGN</span>
-                  {amount.toLocaleString()}
+                  {amountPaid.toLocaleString()}
                 </p>
               </div>
             </div>
