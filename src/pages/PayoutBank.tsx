@@ -44,6 +44,11 @@ function PayoutBank() {
         gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
       }}
     >
+
+      <SelectInput
+        label="Bank"
+      />
+
       <div className="grid gap-4">
         <label className="text-[1.4rem]">Account Number</label>
         <input
