@@ -82,7 +82,7 @@ function Finance() {
       <Header title="Finance" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-16 text-[1.6rem] w-[60rem] px-10">
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 text-[1.6rem] w-[60rem] p-10">
             <p className="text-[2.4rem] font-medium">Set interest rate</p>
             <p className='font-medium'>
               Set the interest rate you want to be attached to registered
