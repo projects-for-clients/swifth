@@ -25,7 +25,6 @@ function PayoutBank() {
 
   const submitBankDetails = (e: FormEvent) => {
     e.preventDefault();
-    setAddedBank(true);
     setCurrentPath('third');
 
    const id = setTimeout(() => {
@@ -148,7 +147,7 @@ function PayoutBank() {
         </section>
       </dialog>
       <main>
-        {addedBank ? (
+        {addedBank? (
           <div className="flex border border-[#BEB3DE] p-8 rounded-3xl w-full justify-between">
             <div className="flex items-center gap-8">
               <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
