@@ -23,8 +23,8 @@ function PayoutBank() {
             <div className="flex items-center gap-8">
               <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
               <div className=" text-gray-500 flex items-center gap-4">
-                <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
-                <p className="text-[1.4rem]">Add Payout Bank</p>
+                <p className='text-[2.4rem]'>0128232349</p>
+                <p className="">Add Payout Bank</p>
               </div>
             </div>
           </div>
