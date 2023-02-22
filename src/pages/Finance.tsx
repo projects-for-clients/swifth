@@ -125,7 +125,7 @@ function Finance() {
                 </div>
               </div>
 
-              <div className="w-full flex justify-between gap-8">
+              <div className=" flex justify-between gap-8 basis-1/2">
                 <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl">
                   Cancel
                 </button>
