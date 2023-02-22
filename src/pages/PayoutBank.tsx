@@ -26,7 +26,7 @@ function PayoutBank() {
   const submitBankDetails = (e:FormEvent) => {
     e.preventDefault();
     setAddedBank(true);
-  
+    setCurrentPath('first')
   }
 
   const FirstPath = (
