@@ -23,7 +23,7 @@ export type OrderHistoryPath = {
   id?: number | null;
 };
 
-export type DialogType = 'orderHistory' | 'eachOrder';
+export type DialogType = 'orderHistory' | 'eachOrder' | 'waitlist';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type SwitchPath = 'all' | 'quoteRequests';
@@ -141,17 +141,6 @@ function orders() {
 
   const waitListDialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (): void => {
-    if (dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-  const handleOpenDialog = (item: Finance) => {
-    setPaymentDetail(item);
-    if (dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-  };
 
   const handleCloseDialog = (type: DialogType): void => {
     if (type === 'orderHistory' && dialogRef.current) {
@@ -161,14 +150,24 @@ function orders() {
     if (type === 'eachOrder' && eachOrderDialogRef.current) {
       eachOrderDialogRef.current.close();
     }
+
+    if (type === 'waitlist' && waitListDialogRef.current) {
+      
+         waitListDialogRef.current.close();
+       
+    }
   };
-  const handleOpenDialog = (type: DialogType, id?: number) => {
+  const handleOpenDialog = (type: DialogType, item) => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.showModal();
     }
 
     if (type === 'eachOrder' && eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
+    }
+
+    if(type === 'waitlist' && waitListDialogRef.current) {
+      waitListDialogRef.current.showModal();
     }
   };
 
@@ -195,7 +194,7 @@ function orders() {
   return (
     <>
       <Header title="Orders" />
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+      <dialog className="dialog relative text-[1.6rem]" ref={waitListDialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
@@ -203,7 +202,7 @@ function orders() {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              onClick={() => handleCloseDialog()}
+              onClick={() => handleCloseDialog('waitlist')}
             />
           </figure>
 
@@ -212,7 +211,7 @@ function orders() {
               <main className="grid gap-16 ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">
-                    {paymentDetail?.name}
+                    {?.name}
                   </p>
                 </div>
 
@@ -244,25 +243,18 @@ function orders() {
                   <div className="border-b border-b-color-purple-light-2 ">
                     <button
                       className={`flex justify-between p-8 cursor-pointer w-full `}
-                      onClick={accordionHandler}
                     >
                       <p className="text-[1.4rem] text-color-purple-1">
                         Total Bill
                       </p>
                       <p className="text-color-purple font-semibold flex items-center gap-4">
                         <span>1,000,000</span>{' '}
-                        {showAccordion ? (
-                          <img src="/icons/arrow-circle-up.svg" alt="" />
-                        ) : (
-                          <img src="/icons/arrow-circle-down.svg" alt="" />
-                        )}
+                        
                       </p>
                     </button>
                     {
                       <div
-                        className={`grid  ${
-                          showAccordion ? 'visible h-auto' : 'invisible h-0'
-                        }`}
+                        className={`grid`}
                       >
                         <div className=" border-b-color-purple-light-2 flex justify-between p-8">
                           <p className="text-[1.4rem] text-color-purple-1">
