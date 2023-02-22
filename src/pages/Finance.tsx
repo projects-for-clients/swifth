@@ -114,6 +114,7 @@ function Finance() {
                   <input
                     id="interestRate"
                     type="text"
+                    required
                     className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
                   />
 
