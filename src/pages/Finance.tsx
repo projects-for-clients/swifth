@@ -150,7 +150,7 @@ function Finance() {
           </figure>
 
           <section className="h-full">
-            <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
+            <div className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10">
               <main className="grid gap-16 ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">

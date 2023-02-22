@@ -18,7 +18,7 @@ const LoanRequests = () => {
 
         return (
           <div
-            className="p-4 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
+            className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
             key={i}
             onClick={() => handleOpenDialog(item)}
           >
