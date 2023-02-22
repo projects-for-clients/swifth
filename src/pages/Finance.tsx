@@ -120,10 +120,10 @@ function Finance() {
               </div>
 
               <div className="w-full flex justify-between gap-8">
-                <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-3xl">
+                <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl">
                   Cancel
                 </button>
-                <button className="w-full btn border border-color-primary text-color-primary rounded-3xl">
+                <button className="w-full btn border border-color-primary text-color-primary rounded-2xl">
                   Save
                 </button>
               </div>
