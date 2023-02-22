@@ -201,7 +201,7 @@ function Finance() {
                   </p>
                   <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
                     <span>Paid:</span>
-                    <span className='text-color-purple text-[1.6rem]'>740,000</span>
+                    <span className='text-color-purple text-[1.6rem] font-semibold'>740,000</span>
                   </p>
                   
                 </div>
