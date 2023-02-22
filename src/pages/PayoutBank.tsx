@@ -6,7 +6,7 @@ export const CreateFinanceContext = createContext(null as any);
 
 function PayoutBank() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  type Path = 'first' | 'second';
+  type Path = 'first' | 'second' | 'third';
 
   const [currentPath, setCurrentPath] = useState<Path>('first');
   const [addedBank, setAddedBank] = useState(false);
@@ -30,6 +30,20 @@ function PayoutBank() {
   }
 
   const FirstPath = (
+    <Fragment>
+      <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
+        <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
+        <button
+          className=" text-gray-500 flex items-center gap-4"
+          onClick={() => setCurrentPath('second')}
+        >
+          <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
+          <p className="text-[1.4rem]">Add Payout Bank</p>
+        </button>
+      </div>
+    </Fragment>
+  );
+  const ThirdPath = (
     <Fragment>
       <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
         <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
@@ -90,6 +104,7 @@ function PayoutBank() {
   const SwitchPath: Record<Path, JSX.Element> = {
     first: FirstPath,
     second: BankDetailsForm,
+    third: ThirdPath,
   };
 
   return (
