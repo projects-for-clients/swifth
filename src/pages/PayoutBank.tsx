@@ -147,7 +147,7 @@ function PayoutBank() {
           </div>
         </section>
       </dialog>
-      <main className="overflow-hidden">
+      <main>
         {addedBank ? (
           <div className="flex border border-[#BEB3DE] p-8 rounded-3xl w-full justify-between">
             <div className="flex items-center gap-8">
