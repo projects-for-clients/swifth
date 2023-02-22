@@ -30,6 +30,7 @@ export interface Finance {
   history: FinanceHistory[];
   amountPaid: number;
   loanAndInterest: number;
+
 }
 
 interface PaymentHistory {
@@ -70,6 +71,8 @@ export interface FinanceContext {
   financeData: Finance[];
   setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
   handleOpenDialog: (item: Finance) => void;
+  paymentDetail: Finance | null;
+  setPaymentDetail: React.Dispatch<React.SetStateAction<Finance | null>>;
 }
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
