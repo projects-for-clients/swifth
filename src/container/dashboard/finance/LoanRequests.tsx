@@ -68,13 +68,33 @@ const LoanRequests = () => {
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
               <div>
                 <p>Requesting a loan of:</p>
-                <p className='text-[3.2rem] text-color-purple-2'> <span className='text-color-purple-light'>N</span> {detailsData?.wantsToLoan}</p>
+                <p className="text-[3.2rem] text-color-purple-2">
+                  {' '}
+                  <span className="text-color-purple-light">N</span>{' '}
+                  {detailsData?.wantsToLoan}
+                </p>
               </div>
               <div>
-                <p>
-                  <span></span>
-                  <span></span>
-                </p>
+                <div>
+                  <span className="text-color-grey-4">
+                    Interest to be added (10%)
+                  </span>
+                  <p className=" text-color-purple-2">
+                    {' '}
+                    <span className="text-color-purple-light">N</span>{' '}
+                    {detailsData?.wantsToLoan?.toLocaleString()}
+                  </p>{' '}
+                </div>
+                <div>
+                  <span className="text-color-grey-4">
+                    Total to be paid back
+                  </span>
+                  <p className=" text-color-purple-2">
+                    {' '}
+                    <span className="text-color-purple-light">N</span>{' '}
+                    {detailsData?.wantsToLoan?.toLocaleString()}
+                  </p>{' '}
+                </div>
               </div>
             </section>
           </main>
@@ -84,7 +104,7 @@ const LoanRequests = () => {
               Approving loan immediately applies loan amount to registered
               user's bill
             </p>
-            <div className='flex items-center w-full justify-between'>
+            <div className="flex items-center w-full justify-between">
               <button className="btn border border-red-600 text-red-600 rounded-lg">
                 Reject Loan
               </button>
