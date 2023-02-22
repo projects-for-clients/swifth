@@ -81,7 +81,7 @@ function PayoutBank() {
           />
         </div>
       </div>
-      <button className="uppercase py-4 px-6 bg-color-primary text-white w-[20rem] rounded-2xl absolute bottom-[2rem] right-[2rem]">
+      <button className="uppercase py-4 px-6 bg-color-primary text-white w-[30rem] rounded-2xl absolute bottom-[5rem] right-[2rem]">
         Submit
       </button>
     </form>
