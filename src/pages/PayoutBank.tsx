@@ -22,9 +22,8 @@ function PayoutBank() {
         <div className="flex items-center gap-8">
           <img src="/icons/payoutBank.svg" alt="" />
           <div className=" text-gray-500">
-            <p className="text-[1.6rem] font-medium">GTCO</p>
+                <img src="/icons/add-circle.svg" alt="" />
             <p className="text-[1.4rem]">Ore Adesanye</p>
-            <p className="text-[1.4rem]">0132234423</p>
           </div>
         </div>
       </main>
