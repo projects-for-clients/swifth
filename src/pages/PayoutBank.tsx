@@ -8,7 +8,7 @@ function PayoutBank() {
   type Path = 'first' | 'second';
 
   const [currentPath, setCurrentPath] = useState<Path>('first');
-  const [addedBank, setAddedBank] = useState(true);
+  const [addedBank, setAddedBank] = useState(false);
 
   const openDialog = () => {
     if (dialogRef.current) {
