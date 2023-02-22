@@ -28,9 +28,11 @@ function PayoutBank() {
     setAddedBank(true);
     setCurrentPath('third');
 
-    setTimeout(() => {
+   const id = setTimeout(() => {
         setCurrentPath('first');
     }, 3000)
+
+    return () => clearTimeout(id)
   };
 
   const FirstPath = (
