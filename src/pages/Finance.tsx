@@ -326,6 +326,11 @@ function Finance() {
           />
         </section>
         <section>
+          <div>
+            <img src="/icons/percentage-circle.svg" alt="" />
+          </div>
+        </section>
+        <section>
           <div className="radioBox gap-16">
             <input
               type="radio"
