@@ -68,8 +68,13 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   amount: 50000,
 }));
 
+export interface FinanceContext {
+  financeData: Finance[];
+  setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
+}
+
 type SwitchPath = 'appliedLoans' | 'loanRequests';
-export const CreateFinanceContext = createContext<Finance | null>(null);
+export const CreateFinanceContext = createContext<FinanceContext | null>(null);
 
 function Finance() {
   const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
@@ -128,7 +133,10 @@ function Finance() {
   };
 
   return (
-    <>
+    <CreateFinanceContext.Provider value={{
+      financeData,
+      setFinanceData
+    }}>
       <Header title="Finance" />
       <dialog
         className="dialog relative text-[1.6rem]"
@@ -361,7 +369,7 @@ function Finance() {
           )}
         </section>
       </main>
-    </>
+    </CreateFinanceContext.Provider>
   );
 }
 
