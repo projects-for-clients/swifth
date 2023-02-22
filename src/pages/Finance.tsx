@@ -31,7 +31,7 @@ export interface Finance {
   date: Date;
   history: FinanceHistory[];
   amountPaid: number;
-  loanInterest: number;
+  loanAndInterest: number;
 }
 
 interface PaymentHistory {
@@ -64,7 +64,8 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   description: `Toyota Camry XLE, ${200 + (i + 1)}`,
   date: generateRandomDate(),
   history: financeHistoryArr,
-  amount: 50000,
+  amountPaid: Math.floor(Math.random() * 900000 + 500000),
+  loanAndInterest: Math.floor(Math.random() * 2000000 + 900000),
 }));
 
 export interface FinanceContext {
@@ -100,13 +101,7 @@ function Finance() {
     setFinanceData(filtered);
   };
 
-  useEffect(() => {
-    if (financeFilteredBy) {
-      const filtered = FINANCE.filter((item) => item.tag === financeFilteredBy);
-
-      return setFinanceData(() => [...filtered]);
-    }
-  }, [financeFilteredBy]);
+  
 
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
