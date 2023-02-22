@@ -29,11 +29,10 @@ function PayoutBank() {
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center gap-8 w-[60rem] py-20 px-10">
             <div>
               <p className="text-[2.4rem] font-medium text-left flex w-full">
-                Set interest rate
+               Delete bank
               </p>
               <p className="font-medium text-left">
-                Set the interest rate you want to be attached to registered
-                customers approved loans
+                Do you want to delete bank details?
               </p>
             </div>
 
