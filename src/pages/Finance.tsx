@@ -16,6 +16,7 @@ import {
   generateRandomNum,
 } from '../components/dashboard/order/OrdersData';
 import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
+import LoanRequests from '../container/dashboard/finance/LoanRequests';
 
 export interface FinanceHistory {
   id: number;
@@ -121,7 +122,7 @@ function Finance() {
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
     appliedLoans: <AppliedLoans />,
-    loanRequests: <AppliedLoans />,
+    loanRequests: <LoanRequests />,
   };
 
   return (
