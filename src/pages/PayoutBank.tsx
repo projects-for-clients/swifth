@@ -49,7 +49,7 @@ function PayoutBank() {
     </Fragment>
   );
   const ThirdPath = (
-    <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl ">
+    <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-max ">
       <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
