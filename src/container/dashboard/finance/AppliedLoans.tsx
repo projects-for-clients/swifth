@@ -4,7 +4,7 @@ import { CreateFinanceContext } from '../../../pages/Finance';
 const AppliedLoans = () => {
   const financeDetails = useContext(CreateFinanceContext);
 
-  const { financeData, setFinanceData, handleOpenDialog, handleSearch } =
+  const { financeData, handleOpenDialog, handleSearch } =
     financeDetails;
 
   return (
@@ -15,7 +15,7 @@ const AppliedLoans = () => {
       }}
     >
       {financeData.map((item, i) => {
-        const { name, description, date, tag, amount } = item;
+        const { name, description, date, loanInterest, amountPaid } = item;
 
         return (
           <div

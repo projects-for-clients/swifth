@@ -28,11 +28,10 @@ export type FinanceFilterBy = 'Fully Paid' | 'Pending Bill';
 export interface Finance {
   id: number;
   name: string;
-  description: string;
   date: Date;
-  tag: FinanceFilterBy;
   history: FinanceHistory[];
-  amount: number;
+  amountPaid: number;
+  loanInterest: number;
 }
 
 interface PaymentHistory {
@@ -64,7 +63,6 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   name: `Ezekiel Doe ${i + 1}`,
   description: `Toyota Camry XLE, ${200 + (i + 1)}`,
   date: generateRandomDate(),
-  tag: Math.random() > 0.5 ? 'Fully Paid' : 'Pending Bill',
   history: financeHistoryArr,
   amount: 50000,
 }));
@@ -110,8 +108,6 @@ function Finance() {
     }
   }, [financeFilteredBy]);
 
- 
-
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = (): void => {
@@ -132,8 +128,8 @@ function Finance() {
   };
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
-    appliedLoans: <AppliedLoans/>,
-    loanRequests: <AppliedLoans/>,
+    appliedLoans: <AppliedLoans />,
+    loanRequests: <AppliedLoans />,
   };
 
   return (
@@ -325,10 +321,10 @@ function Finance() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-        <section className='flex justify-end'>
-          <div className='flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer'>
+        <section className="flex justify-end">
+          <div className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer">
             <img src="/icons/percentage-circle.svg" alt="" />
-            <p className='text-color-purple-1 font-medium'>Set Interest Rate</p>
+            <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
           </div>
         </section>
         <section>
