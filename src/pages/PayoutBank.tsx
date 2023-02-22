@@ -19,7 +19,7 @@ function PayoutBank() {
     if (dialogRef.current) {
       dialogRef.current.close();
     }
-  }
+  };
 
   return (
     <CreateFinanceContext.Provider value={null}>
@@ -29,29 +29,28 @@ function PayoutBank() {
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center gap-8 w-[60rem] py-20 px-10">
             <div>
               <p className="text-[2.4rem] font-medium text-left flex w-full">
-               Delete bank
+                Delete bank
               </p>
               <p className="font-medium text-left">
                 Do you want to delete bank details?
               </p>
             </div>
 
-           
-              <div className=" flex gap-8 w-[40rem] justify-self-end items-center">
-                <button
-                  className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl"
-                  type="reset"
-                  onClick={() => handleCloseDialog()}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="w-full btn border border-color-primary text-color-primary rounded-2xl"
-                  onClick={() => handleCloseDialog()}
-                >
-                  Save
-                </button>
-              </div>
+            <div className=" flex gap-8 w-[40rem] justify-self-end items-center">
+              <button
+                className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl"
+                type="reset"
+                onClick={() => handleCloseDialog()}
+              >
+                Cancel
+              </button>
+              <button
+                className="w-full btn border border-red-600 text-red-600 rounded-2xl"
+                onClick={() => handleCloseDialog()}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </section>
       </dialog>
