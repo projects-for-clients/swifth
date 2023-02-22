@@ -208,13 +208,13 @@ function Finance() {
               </>
              
             </section>
-
-          </main>
-            <button className="flex">
+            <button className="flex w-full absolute justify-center ">
               <span className="border border-color-primary text-color-primary rounded-lg w-full py-4">
                 Continue
               </span>
             </button>
+
+          </main>
         </div>
       </dialog>
 
