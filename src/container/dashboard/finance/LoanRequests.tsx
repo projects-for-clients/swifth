@@ -20,6 +20,12 @@ const LoanRequests = () => {
     }
   };
 
+
+  const wantsToLoan = detailsData?.wantsToLoan && Math.floor(detailsData.wantsToLoan * 0.1) 
+
+  const totalPaidBack = (detailsData?.wantsToLoan && wantsToLoan) && detailsData.wantsToLoan + wantsToLoan
+
+
   return (
     <>
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
@@ -71,7 +77,7 @@ const LoanRequests = () => {
                 <p className="text-[3.2rem] text-color-purple-2">
                   {' '}
                   <span className="text-color-purple-light">N</span>{' '}
-                  {detailsData?.wantsToLoan}
+                  {detailsData?.wantsToLoan?.toLocaleString()}
                 </p>
               </div>
               <div>
@@ -82,7 +88,7 @@ const LoanRequests = () => {
                   <p className=" text-color-purple-2">
                     {' '}
                     <span className="text-color-purple-light">N</span>{' '}
-                    {detailsData?.wantsToLoan?.toLocaleString()}
+                    {wantsToLoan?.toLocaleString()}
                   </p>{' '}
                 </div>
                 <div>
@@ -92,7 +98,7 @@ const LoanRequests = () => {
                   <p className=" text-color-purple-2">
                     {' '}
                     <span className="text-color-purple-light">N</span>{' '}
-                    {detailsData?.wantsToLoan?.toLocaleString()}
+                    {totalPaidBack?.toLocaleString()}
                   </p>{' '}
                 </div>
               </div>
