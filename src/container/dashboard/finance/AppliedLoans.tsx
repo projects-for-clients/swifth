@@ -129,7 +129,7 @@ const AppliedLoans = () => {
             <div
               className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
               key={i}
-              // onClick={() => handleOpenDialog(item)}
+              onClick={() => handleOpenDialog()}
             >
               <div className="text-[1.2rem] flex items-center justify-between">
                 <div className="grid gap-4">

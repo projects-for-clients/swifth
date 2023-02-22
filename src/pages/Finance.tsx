@@ -104,8 +104,7 @@ function Finance() {
       dialogRef.current.close();
     }
   };
-  const handleOpenDialog = (item: Finance) => {
-    setPaymentDetail(item);
+  const handleOpenDialog = () => {
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -122,6 +121,8 @@ function Finance() {
         financeData,
         setFinanceData,
         handleOpenDialog,
+        paymentDetail,
+        setPaymentDetail
       }}
     >
       <Header title="Finance" />
