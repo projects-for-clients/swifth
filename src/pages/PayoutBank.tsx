@@ -38,7 +38,7 @@ type Path = 'first' | 'second'
 
   const SwitchPath: Record<Path, JSX.Element> = {
     first: FirstPath,
-    second: <Fragment></Fragment>,
+    second: <Fragment>dsd</Fragment>,
   }
 
   return (
