@@ -48,7 +48,7 @@ function PayoutBank() {
 
   return (
     <CreateFinanceContext.Provider value={null}>
-      <Header title="Payout Bank" subTitle={currentPath === 'second' ? 'Enter your bank details' : null} />
+      <Header title="Payout Bank" subTitle={currentPath === 'second' ? 'Enter your bank details' : ''} />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid justify-items-start gap-8 w-[60rem] p-10">
