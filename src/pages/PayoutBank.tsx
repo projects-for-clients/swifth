@@ -80,8 +80,8 @@ function PayoutBank() {
         <div className="grid gap-4">
           <label className="text-[1.4rem]">Account Number</label>
           <input
-            type="text"
-            name="fullName"
+            type="number"
+            name="accountNumber"
             placeholder="Enter full name"
             className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
             required
