@@ -17,7 +17,7 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   return (
     <div className="header">
       <div className="header__left">
-        <h1 className="font-medium">{title}</h1>
+        <p className="font-medium text-[2.4rem]">{title}</p>
         <p className={`${onboarding ? 'text-[1.4rem]' : 'font-medium'}`}>
           {subTitle}
         </p>
