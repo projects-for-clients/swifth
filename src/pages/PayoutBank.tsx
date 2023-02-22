@@ -27,11 +27,11 @@ function PayoutBank() {
     e.preventDefault();
     setCurrentPath('third');
 
-   const id = setTimeout(() => {
-        setCurrentPath('first');
-    }, 3000)
+    const id = setTimeout(() => {
+      setCurrentPath('first');
+    }, 3000);
 
-    return () => clearTimeout(id)
+    return () => clearTimeout(id);
   };
 
   const FirstPath = (
@@ -49,7 +49,7 @@ function PayoutBank() {
     </Fragment>
   );
   const ThirdPath = (
-    <div className="flex items-center gap-8 pt-12">
+    <div className="flex items-center gap-8 pt-12 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem] ">
       <img src="/icons/loader.svg" alt="" className="w-[5rem] h-[5rem]" />
 
       <div>
@@ -147,7 +147,7 @@ function PayoutBank() {
         </section>
       </dialog>
       <main>
-        {addedBank? (
+        {addedBank ? (
           <div className="flex border border-[#BEB3DE] p-8 rounded-3xl w-full justify-between">
             <div className="flex items-center gap-8">
               <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
