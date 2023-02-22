@@ -173,7 +173,7 @@ function Finance() {
                 <button
                   className={`flex justify-between p-8 cursor-pointer w-full `}
                 >
-                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                  <p className="text-[1.4rem]  grid justify-items-start">
                     <span>Dec 3, 2023</span>
                     <span className='text-color-purple-2'>Loan applied</span>
                   </p>
