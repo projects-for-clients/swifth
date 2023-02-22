@@ -73,6 +73,10 @@ function Finance() {
     loanRequests: <LoanRequests />,
   };
 
+  const submitInterestRate = () => {
+    
+  }
+
   return (
     <CreateFinanceContext.Provider
       value={{
@@ -89,7 +93,7 @@ function Finance() {
               customers’ approved loans
             </p>
 
-            <form className="grid w-full gap-4">
+            <form className="grid w-full gap-4" onSubmit={submitInterestRate}>
               <label htmlFor="interestRate" className="">
                 Interest Rate
               </label>
@@ -105,7 +109,9 @@ function Finance() {
               </div>
 
               <div>
-                
+                <button>
+
+                </button>
               </div>
             </form>
           </div>
