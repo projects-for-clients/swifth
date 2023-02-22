@@ -71,7 +71,7 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
 export interface FinanceContext {
   financeData: Finance[];
   setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
-  handleOpenDialog: () => void;
+  handleOpenDialog: (item: Finance) => void;
   handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -133,7 +133,9 @@ function Finance() {
   return (
     <CreateFinanceContext.Provider value={{
       financeData,
-      setFinanceData
+      setFinanceData,
+      handleOpenDialog,
+      handleSearch
     }}>
       <Header title="Finance" />
       <dialog
