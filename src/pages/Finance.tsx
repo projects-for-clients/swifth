@@ -89,7 +89,7 @@ function Finance() {
               customers’ approved loans
             </p>
 
-            <div className="grid w-full">
+            <div className="grid w-full gap-4">
               <label htmlFor="interestRate" className="">
                 Interest Rate
               </label>
@@ -98,7 +98,7 @@ function Finance() {
                 <input
                   id="interestRate"
                   type="text"
-                  className="bg-gray-100 py-10 pl-6 pr-16 outline-none w-full rounded-lg"
+                  className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
                 />
 
                 <p className="absolute right-6 flex items-center gap-6"> <img src="/icons/line.svg" alt="" />  <img src="/icons/percent.svg" alt="" /> </p>
