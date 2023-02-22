@@ -325,10 +325,10 @@ function Finance() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-        <section>
-          <div>
+        <section className='flex justify-end'>
+          <div className='flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer'>
             <img src="/icons/percentage-circle.svg" alt="" />
-            <p className='text-color-purple-1 font-bold'>Set Interest Rate</p>
+            <p className='text-color-purple-1 font-medium'>Set Interest Rate</p>
           </div>
         </section>
         <section>
