@@ -73,7 +73,7 @@ const LoanRequests = () => {
               Approving loan immediately applies loan amount to registered
               user's bill
             </p>
-            <div className='flex items-center w-full'>
+            <div className='flex items-center w-full justify-between'>
               <button className="btn border border-red-600 text-red-600 rounded-lg">
                 Reject Loan
               </button>
