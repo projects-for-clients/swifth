@@ -3,12 +3,23 @@ import { CreateFinanceContext } from '../../../pages/Finance';
 
 const LoanRequests = () => {
   const financeDetails = useContext(CreateFinanceContext);
+  const dialogRef = React.useRef<HTMLDialogElement | null>(null);
 
-  const { financeData,handleOpenDialog } = financeDetails;
+  const { financeData } = financeDetails;
 
-  
+  const handleCloseDialog = (): void => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+  const handleOpenDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
 
   return (
+    
     <div
       className="grid mt-10 gap-10"
       style={{
@@ -22,7 +33,7 @@ const LoanRequests = () => {
           <div
             className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
             key={i}
-            onClick={() => handleOpenDialog(item)}
+            onClick={() => handleOpenDialog()}
           >
             <div className="text-[1.2rem] flex items-center justify-between">
               <div className="grid gap-4">
