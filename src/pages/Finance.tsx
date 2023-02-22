@@ -71,6 +71,8 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
 export interface FinanceContext {
   financeData: Finance[];
   setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
+  handleOpenDialog: () => void;
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
@@ -83,7 +85,6 @@ function Finance() {
   const [financeFilteredBy, setFinanceFilteredBy] = useState('');
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
 
-  const [dropDownState, setDropDownState] = useState(false);
   const [showAccordion, setShowAccordion] = useState(false);
 
   const [search, setSearch] = useState('');
@@ -108,10 +109,7 @@ function Finance() {
     }
   }, [financeFilteredBy]);
 
-  const handleClearFilter = () => {
-    setFinanceFilteredBy('');
-    setDropDownState(false);
-  };
+ 
 
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
