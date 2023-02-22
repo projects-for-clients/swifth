@@ -94,7 +94,7 @@ function Finance() {
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] p-10">
-            <p className="text-[2.4rem] font-medium text-left">Set interest rate</p>
+            <p className="text-[2.4rem] font-medium text-left flex w-full">Set interest rate</p>
             <p className="font-medium text-left">
               Set the interest rate you want to be attached to registered
               customers approved loans
