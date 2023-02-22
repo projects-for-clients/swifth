@@ -130,10 +130,7 @@ function Finance() {
       }}
     >
       <Header title="Finance" />
-      <dialog
-        className="dialog relative text-[1.6rem]"
-        ref={dialogRef}
-      >
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
@@ -152,8 +149,6 @@ function Finance() {
                   <p className="text-[2rem] text-gray-600 text-center">
                     {paymentDetail?.name}
                   </p>
-                  
-                
                 </div>
 
                 <section
@@ -190,10 +185,8 @@ function Finance() {
                       </p>
                       <p className="text-color-purple font-semibold flex items-center gap-4">
                         <span>1,000,000</span>{' '}
-                        
                       </p>
                     </button>
-                    
                   </div>
                   <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
                     <p className="text-[1.4rem] text-color-purple-1">Paid</p>
@@ -206,10 +199,14 @@ function Finance() {
                     <p className="text-color-purple font-semibold">300,000</p>
                   </div>
                 </section>
-               
-               <button>
 
-               </button>
+                <button
+                  className="flex w-full items-center"
+                >
+                  <span className="bg-color-primary rounded-lg text-white w-full py-4">
+                    Continue
+                  </span>
+                </button>
               </main>
             </div>
           </section>
