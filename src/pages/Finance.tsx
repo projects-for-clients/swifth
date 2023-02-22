@@ -74,7 +74,7 @@ export interface FinanceContext {
 }
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
-export const CreateFinanceContext = createContext<FinanceContext | null>(null);
+export const CreateFinanceContext = createContext<FinanceContext>(null as any);
 
 function Finance() {
   const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
