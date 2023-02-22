@@ -27,6 +27,10 @@ function PayoutBank() {
     e.preventDefault();
     setAddedBank(true);
     setCurrentPath('third');
+
+    setTimeout(() => {
+        setCurrentPath('first');
+    }, 3000)
   };
 
   const FirstPath = (
