@@ -94,7 +94,7 @@ function Finance() {
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] py-20 px-10">
-            <>
+            <div>
               <p className="text-[2.4rem] font-medium text-left flex w-full">
                 Set interest rate
               </p>
@@ -102,25 +102,27 @@ function Finance() {
                 Set the interest rate you want to be attached to registered
                 customers approved loans
               </p>
-            </>
+            </div>
 
             <form className="grid w-full gap-4" onSubmit={submitInterestRate}>
-              <label htmlFor="interestRate" className="">
-                Interest Rate
-              </label>
+              <div>
+                <label htmlFor="interestRate" className="">
+                  Interest Rate
+                </label>
 
-              <div className="flex items-center relative w-full">
-                <input
-                  id="interestRate"
-                  type="text"
-                  className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
-                />
+                <div className="flex items-center relative w-full">
+                  <input
+                    id="interestRate"
+                    type="text"
+                    className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
+                  />
 
-                <p className="absolute right-6 flex items-center gap-6">
-                  {' '}
-                  <img src="/icons/line.svg" alt="" />{' '}
-                  <img src="/icons/percent.svg" alt="" />{' '}
-                </p>
+                  <p className="absolute right-6 flex items-center gap-6">
+                    {' '}
+                    <img src="/icons/line.svg" alt="" />{' '}
+                    <img src="/icons/percent.svg" alt="" />{' '}
+                  </p>
+                </div>
               </div>
 
               <div className="w-full flex justify-between gap-8">
