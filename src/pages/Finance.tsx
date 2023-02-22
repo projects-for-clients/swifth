@@ -89,9 +89,12 @@ function Finance() {
               customers’ approved loans
             </p>
 
-            <div className='relative'>
+            <div className='relative grid justify-items-start items-center'>
               <label htmlFor='interestRate' className=''>Interest Rate</label>
-              <input type="text" className='bg-gray-100 py-4 pl-6 pr-16' />
+            
+              <input id='interestRate' type="text" className='bg-gray-100 py-4 pl-6 pr-16' />
+
+              <span className='absolute right-6 top-6'>%</span>
             </div>
           </div>
         </section>
