@@ -29,19 +29,26 @@ function PayoutBank() {
         <button className=" text-gray-500 flex items-center gap-4" onClick={() => setCurrentPath('second')}>
           <img src="/icons/add-circle.svg" alt="" className="w-[3rem]" />
           <p className="text-[1.4rem]">Add Payout Bank</p>
-        </but>
+        </button>
       </div>
     </Fragment>
   );
 
+  const BankDetailsForm = (
+    <Fragment>
+
+
+        </Fragment>
+  )
+
   const SwitchPath: Record<Path, JSX.Element> = {
     first: FirstPath,
-    second: <Fragment>dsd</Fragment>,
+    second: BankDetailsForm,
   };
 
   return (
     <CreateFinanceContext.Provider value={null}>
-      <Header title="Payout Bank" />
+      <Header title="Payout Bank" subTitle={currentPath === 'second' ? 'Enter your bank details' : null} />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid justify-items-start gap-8 w-[60rem] p-10">
