@@ -39,40 +39,45 @@ function PayoutBank() {
   );
 
   const BankDetailsForm = (
-    <div
-      className="grid"
-      style={{
-        gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
-      }}
-    >
-      <SelectInput
-        label="Choose Bank"
-        items={['Access Bank', 'Zenith Bank', 'GTBank', 'First Bank', 'UBA']}
-        placeholder={'Select Bank'}
-      />
-
-      <div className="grid gap-4">
-        <label className="text-[1.4rem]">Account Number</label>
-        <input
-          type="text"
-          name="fullName"
-          placeholder="Enter full name"
-          className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
-          required
+    <section>
+      <div
+        className="grid"
+        style={{
+          gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+        }}
+      >
+        <SelectInput
+          label="Choose Bank"
+          items={['Access Bank', 'Zenith Bank', 'GTBank', 'First Bank', 'UBA']}
+          placeholder={'Select Bank'}
         />
-      </div>
 
-      <div className="grid gap-4">
-        <label className="text-[1.4rem]">Full Name</label>
-        <input
-          type="text"
-          name="fullName"
-          placeholder="Enter full name"
-          className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
-          required
-        />
+        <div className="grid gap-4">
+          <label className="text-[1.4rem]">Account Number</label>
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Enter full name"
+            className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+            required
+          />
+        </div>
+
+        <div className="grid gap-4">
+          <label className="text-[1.4rem]">Full Name</label>
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Enter full name"
+            className=" rounded-lg py-4 px-4 outline-none border-none text-[1.6rem] bg-color-grey-1 w-full"
+            required
+          />
+        </div>
       </div>
-    </div>
+      <button className='uppercase btn bg-color-primary text-white'>
+        Submit
+      </button>
+    </section>
   );
 
   const SwitchPath: Record<Path, JSX.Element> = {
