@@ -15,6 +15,7 @@ import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.css';
 import Payments from '../pages/Payments';
 import Finance from '../pages/Finance';
+import PayoutBank from '../pages/PayoutBank';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="orders" element={<Orders />} />
       <Route path="payments" element={<Payments />} />
       <Route path="finance" element={<Finance />} />
+      <Route path="payoutBank" element={<PayoutBank />} />
       <Route path="onboarding" element={<OnBoarding />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
