@@ -359,23 +359,7 @@ function Finance() {
             </div>
           ) : (
             <Fragment>
-              <div className="flex items-center gap-8 justify-end">
-                <>
-                  <SelectDropDown
-                    selectFrom={FinanceFilters}
-                    selectedItem={financeFilteredBy}
-                    setSelectedItem={setFinanceFilteredBy}
-                    isFilter
-                  />
-
-                  {financeFilteredBy && (
-                    <GrClose
-                      className="text-[1.4rem] cursor-pointer"
-                      onClick={() => handleClearFilter()}
-                    />
-                  )}
-                </>
-              </div>
+              
 
               <div
                 className="grid mt-10 gap-10"
