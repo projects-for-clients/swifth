@@ -71,6 +71,7 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
+  const [waitlistItemDetails, setWaitlistItemDetails] = useState<Waitlist | null>(null)
   const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -157,7 +158,7 @@ function orders() {
        
     }
   };
-  const handleOpenDialog = (type: DialogType, item) => {
+  const handleOpenDialog = (type: DialogType, item?:Waitlist) => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -168,6 +169,7 @@ function orders() {
 
     if(type === 'waitlist' && waitListDialogRef.current) {
       waitListDialogRef.current.showModal();
+      setWaitlistItemDetails(item)
     }
   };
 
