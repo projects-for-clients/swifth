@@ -177,7 +177,7 @@ function Finance() {
                     <span>Dec 3, 2023</span>
                     <span className='text-color-purple-2'>Loan applied</span>
                   </p>
-                  <p className="text-color-purple font-semibold flex items-center gap-4">
+                  <p className="text-color-purple font-semibold ">
                     <span>1,000,000</span>{' '}
                   </p>
                 </div>
@@ -188,7 +188,7 @@ function Finance() {
                     <span>Dec 3, 2023</span>
                     <span className='text-color-purple-2'>Interest added (10%)</span>
                   </p>
-                  <p className="text-color-purple font-semibold flex items-center gap-4">
+                  <p className="text-color-purple font-semibold ">
                     <span>100,000</span>{' '}
                   </p>
                 </div>
@@ -197,11 +197,11 @@ function Finance() {
                 >
                   <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
                     <span>Total to be paid:</span>
-                    <span className='text-color-purple text-[1.4rem]'>Loan applied</span>
+                    <span className='text-color-purple text-[1.6rem]'>Loan applied</span>
                   </p>
                   <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
                     <span>Paid:</span>
-                    <span className='text-color-purple text-[1.4rem]'>740,000</span>
+                    <span className='text-color-purple text-[1.6rem]'>740,000</span>
                   </p>
                   
                 </div>
