@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import { CreateFinanceContext } from '../../../pages/Finance';
+import React, { useContext, useState } from 'react';
+import { CreateFinanceContext, Finance } from '../../../pages/Finance';
 
 const AppliedLoans = () => {
   const financeDetails = useContext(CreateFinanceContext);
   const dialogRef = React.useRef<HTMLDialogElement | null>(null);
+  const [detailsData, setDetailsData] = useState<Finance | null>(null);
 
   const { financeData } = financeDetails;
 
@@ -12,7 +13,7 @@ const AppliedLoans = () => {
       dialogRef.current.close();
     }
   };
-  const handleOpenDialog = () => {
+  const handleOpenDialog = (item: Finance) => {
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -129,7 +130,7 @@ const AppliedLoans = () => {
             <div
               className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
               key={i}
-              onClick={() => handleOpenDialog()}
+              onClick={() => handleOpenDialog(item)}
             >
               <div className="text-[1.2rem] flex items-center justify-between">
                 <div className="grid gap-4">
