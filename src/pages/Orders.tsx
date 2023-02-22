@@ -246,66 +246,30 @@ function orders() {
                   </div>
                 </section>
 
-                <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+                <section className="grid gap-4 rounded-2xl">
                   <p className='text-gray-500 font-semibold text-[1.8rem]'>Documents Submitted</p>
                   <div className="border-b border-b-color-purple-light-2 ">
-                    <button
-                      className={`flex justify-between p-8 cursor-pointer w-full `}
-                    >
-                      <p className="text-[1.4rem] text-color-purple-1">
-                        Total Bill
-                      </p>
-                      <p className="text-color-purple font-semibold flex items-center gap-4">
-                        <span>1,000,000</span>{' '}
-                      </p>
-                    </button>
-                    {
+                   
                       <div className={`grid`}>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            ICOC
+                          <p className="text-[1.4rem] ">
+                            Bills of Lading
                           </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            400,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Loan + (10%) Interest
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            220,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Security charge as at: 3/6/23
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            80,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Telex Charge
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            300,000
-                          </p>
-                        </div>
+                          
                       </div>
-                    }
+                 
                   </div>
-                  <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
-                    <p className="text-[1.4rem] text-color-purple-1">Paid</p>
-                    <p className="text-color-purple font-semibold">7,000,000</p>
+                  
+                </section>
+                <section className="grid gap-4 rounded-2xl">
+                  <p className='text-gray-500 font-semibold text-[1.8rem]'>Payments</p>
+                  <div className="border-b border-b-gray-400 ">
+                   
+                     <p className='text-[1.8rem]'>ICOC</p>
+                 <div>
+                  
+                 </div>
                   </div>
-                  <div className="flex justify-between p-8">
-                    <p className="text-[1.4rem] text-color-purple-1">
-                      Outstanding
-                    </p>
-                    <p className="text-color-purple font-semibold">300,000</p>
-                  </div>
+                  
                 </section>
 
                 <button></button>
