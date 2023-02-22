@@ -1,5 +1,5 @@
 import Header from '../components/dashboard/Header';
-import { ChangeEvent, Fragment, useState, createContext, useRef } from 'react';
+import { ChangeEvent, Fragment, useState, createContext, useRef, FormEvent } from 'react';
 
 import { generateRandomDate } from '../components/dashboard/order/OrdersData';
 import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
@@ -73,8 +73,8 @@ function Finance() {
     loanRequests: <LoanRequests />,
   };
 
-  const submitInterestRate = () => {
-    
+  const submitInterestRate = (e:FormEvent) => {
+    e.preventDefault()
   }
 
   return (
