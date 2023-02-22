@@ -119,8 +119,7 @@ function Finance() {
       value={{
         financeData,
         setFinanceData,
-        paymentDetail,
-        setPaymentDetail
+        paymentDetail
       }}
     >
       <Header title="Finance" />
