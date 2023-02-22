@@ -23,7 +23,7 @@ function PayoutBank() {
             <div className="flex items-center gap-8">
               <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
               <div className=" text-gray-500 grid items-center gap-4">
-                <p className="uppercase text-[#144024] bg-[#D6ECDE] rounded-3xl p-4">
+                <p className="uppercase text-[#144024] bg-[#D6ECDE] rounded-3xl py-2 px-4 justify-self-start">
                   verified
                 </p>
                 <div>
@@ -34,9 +34,9 @@ function PayoutBank() {
               </div>
             </div>
 
-            <div className='flex gap-8 items-center self-end'>
-                <button className='btn rounded-3xl text-white bg-color-primary capitalize'>Edit Bank details</button>
-                <button className='btn rounded-3xl text-red-600 border border-red-600 capitalize'>Delete</button>
+            <div className='grid grid-cols-2 gap-8 items-center self-end'>
+                <button className='btn rounded-2xl text-white bg-color-primary capitalize'>Edit Bank details</button>
+                <button className='btn rounded-2xl text-red-600 border border-red-600 capitalize'>Delete</button>
             </div>
           </div>
         ) : (
