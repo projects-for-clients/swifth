@@ -15,6 +15,7 @@ import {
   generateRandomDate,
   generateRandomNum,
 } from '../components/dashboard/order/OrdersData';
+import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
 
 export interface FinanceHistory {
   id: number;
@@ -128,6 +129,11 @@ function Finance() {
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
     console.log(e);
     setShowAccordion((prev) => !prev);
+  };
+
+  const switchPath: Record<SwitchPath, JSX.Element> = {
+    appliedLoans: <AppliedLoans/>,
+    loanRequests: <AppliedLoans/>,
   };
 
   return (
