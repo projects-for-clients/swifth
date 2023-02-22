@@ -1,10 +1,17 @@
-import { createContext, Fragment, useRef } from 'react';
+import { createContext, Fragment, useRef, useState } from 'react';
 import Header from '../components/dashboard/Header';
 
 export const CreateFinanceContext = createContext(null as any);
 
+
+
 function PayoutBank() {
   const dialogRef = useRef<HTMLDialogElement>(null);
+
+  const [currentPath, setCurrentPath] = useState()
+
+
+
 
   return (
     <CreateFinanceContext.Provider value={null}>
