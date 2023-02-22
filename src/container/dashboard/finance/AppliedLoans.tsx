@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { CreateFinanceContext } from '../../../pages/Finance';
 
-
 const AppliedLoans = () => {
-    const financeDetails = useContext(CreateFinanceContext);
+  const financeDetails = useContext(CreateFinanceContext);
 
-    const {financeData, setFinanceData} = financeDetails
+  const { financeData, setFinanceData, handleOpenDialog, handleSearch } =
+    financeDetails;
 
   return (
     <div
@@ -59,6 +59,6 @@ const AppliedLoans = () => {
       })}
     </div>
   );
-}
+};
 
-export default AppliedLoans
+export default AppliedLoans;
