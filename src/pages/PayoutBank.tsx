@@ -95,6 +95,7 @@ function PayoutBank() {
     <CreateFinanceContext.Provider value={null}>
       <Header
         title="Payout Bank"
+        onboarding
         subTitle={currentPath === 'second' ? 'Enter your bank details' : ''}
       />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
