@@ -9,6 +9,18 @@ function PayoutBank() {
   const [currentPath, setCurrentPath] = useState();
   const [addedBank, setAddedBank] = useState(true);
 
+  const openDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+
+  const handleCloseDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  }
+
   return (
     <CreateFinanceContext.Provider value={null}>
       <Header title="Payout Bank" />
@@ -34,9 +46,16 @@ function PayoutBank() {
               </div>
             </div>
 
-            <div className='grid grid-cols-2 gap-8 items-center self-end'>
-                <button className='btn rounded-2xl text-white bg-color-primary capitalize'>Edit Bank details</button>
-                <button className='btn rounded-2xl text-red-600 border border-red-600 capitalize'>Delete</button>
+            <div className="grid grid-cols-2 gap-8 items-center self-end">
+              <button className="btn rounded-2xl text-white bg-color-primary capitalize">
+                Edit Bank details
+              </button>
+              <button
+                className="btn rounded-2xl text-red-600 border border-red-600 capitalize"
+                onClick={() => openDialog()}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ) : (
