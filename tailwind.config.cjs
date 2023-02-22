@@ -16,14 +16,14 @@ module.exports = {
 
         'color-white': '#fff',
         'color-black': '#000',
-        'color-dark': '#0c1018bf',  
+        'color-dark': '#0c1018bf',
         'color-dark-1': '#0e2043cc',
         'color-dark-2': '#0E2043',
         'color-dark-3': '#182130',
 
         'color-grey': '#D2D4D8',
         'color-grey-1': '#d2d4d84d',
-        'color-grey-2': '#D9EFE1', 
+        'color-grey-2': '#D9EFE1',
         'color-grey-3': '#4B5463',
         'color-grey-4': '#787F8A',
 
