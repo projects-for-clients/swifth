@@ -106,7 +106,7 @@ const LoanRequests = () => {
           </main>
           <div className="grid w-full absolute justify-center left-0 right-0 bottom-[3rem] px-[3rem] gap-8">
             <p className="flex items-center gap-2">
-              <img src="/icons/info-circle.svg" alt="" className='text-[2rem]'/>
+              <img src="/icons/info-circle.svg" alt="" className='text='/>
               <span className='text-[1.4rem]'>
 
               Approving loan immediately applies loan amount to registered
