@@ -14,6 +14,7 @@ const AppliedLoans = () => {
     }
   };
   const handleOpenDialog = (item: Finance) => {
+    setDetailsData(item);
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -36,7 +37,7 @@ const AppliedLoans = () => {
           <main className="w-[40rem] overflow-y-scroll pb-10 grid gap-10 h-full content-start ">
             <div className="grid justify-start justify-items-start gap-4">
               <p className="text-[2rem] text-gray-600 text-center">
-                {/* {paymentDetail?.name} */}
+                {detailsData?.name}
               </p>
             </div>
 
