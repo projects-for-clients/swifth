@@ -203,7 +203,7 @@ function Finance() {
                 <button
                   className="flex w-full items-center"
                 >
-                  <span className="bg-color-primary rounded-lg text-white w-full py-4">
+                  <span className="border-color-primary text-color-primary rounded-lg w-full py-4">
                     Continue
                   </span>
                 </button>
