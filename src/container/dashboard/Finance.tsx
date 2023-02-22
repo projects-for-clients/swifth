@@ -15,21 +15,21 @@ import {
   generateRandomNum,
 } from '../../components/dashboard/order/OrdersData';
 
-export interface PaymentsHistory {
+export interface FinanceHistory {
   id: number;
   date: Date;
   amount: number;
 }
 
-export type PaymentsFilterBy = 'Fully Paid' | 'Pending Bill';
+export type FinanceFilterBy = 'Fully Paid' | 'Pending Bill';
 
-export interface Payments {
+export interface Finance {
   id: number;
   name: string;
   description: string;
   date: Date;
-  tag: PaymentsFilterBy;
-  history: PaymentsHistory[];
+  tag: FinanceFilterBy;
+  history: FinanceHistory[];
   amount: number;
 }
 
@@ -48,7 +48,7 @@ const paymentHistoryArr: PaymentHistory[] = Array.from(
   })
 );
 
-const paymentsHistoryArr: PaymentsHistory[] = Array.from(
+const financeHistoryArr: FinanceHistory[] = Array.from(
   { length: 20 },
   (_, i) => ({
     id: i,
@@ -57,51 +57,51 @@ const paymentsHistoryArr: PaymentsHistory[] = Array.from(
   })
 );
 
-export const PAYMENTS: Payments[] = Array.from({ length: 20 }, (_, i) => ({
+export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   id: i,
   name: `Ezekiel Doe ${i + 1}`,
   description: `Toyota Camry XLE, ${200 + (i + 1)}`,
   date: generateRandomDate(),
   tag: Math.random() > 0.5 ? 'Fully Paid' : 'Pending Bill',
-  history: paymentsHistoryArr,
+  history: financeHistoryArr,
   amount: 50000,
 }));
 
-function Payments() {
-  const PaymentsFilters: PaymentsFilterBy[] = ['Fully Paid', 'Pending Bill'];
+function Finance() {
+  const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
 
-  const [paymentsFilteredBy, setPaymentsFilteredBy] = useState('');
-  const [paymentDetail, setPaymentDetail] = useState<Payments | null>(null);
+  const [financeFilteredBy, setFinanceFilteredBy] = useState('');
+  const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
 
   const [dropDownState, setDropDownState] = useState(false);
   const [showAccordion, setShowAccordion] = useState(false);
 
   const [search, setSearch] = useState('');
 
-  const [paymentsData, setPaymentsData] = useState<Payments[]>(PAYMENTS);
+  const [financeData, setFinanceData] = useState<Finance[]>(FINANCE);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
 
-    const filtered = PAYMENTS.filter((item) =>
+    const filtered = FINANCE.filter((item) =>
       item.name.toLowerCase().includes(value.toLowerCase())
     );
-    setPaymentsData(filtered);
+    setFinanceData(filtered);
   };
 
   useEffect(() => {
-    if (paymentsFilteredBy) {
-      const filtered = PAYMENTS.filter(
-        (item) => item.tag === paymentsFilteredBy
+    if (financeFilteredBy) {
+      const filtered = FINANCE.filter(
+        (item) => item.tag === financeFilteredBy
       );
 
-      return setPaymentsData(() => [...filtered]);
+      return setFinanceData(() => [...filtered]);
     }
-  }, [paymentsFilteredBy]);
+  }, [financeFilteredBy]);
 
   const handleClearFilter = () => {
-    setPaymentsFilteredBy('');
+    setFinanceFilteredBy('');
     setDropDownState(false);
   };
 
@@ -112,7 +112,7 @@ function Payments() {
       eachOrderDialogRef.current.close();
     }
   };
-  const handleOpenDialog = (item: Payments) => {
+  const handleOpenDialog = (item: Finance) => {
     setPaymentDetail(item);
     if (eachOrderDialogRef.current) {
       eachOrderDialogRef.current.showModal();
@@ -126,7 +126,7 @@ function Payments() {
 
   return (
     <>
-      <Header title="Payments" />
+      <Header title="Finance" />
       <dialog
         className="dialog relative text-[1.6rem]"
         ref={eachOrderDialogRef}
@@ -327,7 +327,7 @@ function Payments() {
             </p>
           </div>
           <div className="bg-[#FDECD0] text-[#312004] rounded-3xl border border-[#94610c] p-8">
-            <p className="font-semibold">Pending Payments</p>
+            <p className="font-semibold">Pending Finance</p>
             <p className="text-[2.4rem] font-semibold">
               {' '}
               <span className="text-[#94610c]">NGN</span> 690,000
@@ -335,7 +335,7 @@ function Payments() {
           </div>
         </section>
         <section>
-          {paymentsData.length < 1 ? (
+          {financeData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing Found</p>
             </div>
@@ -344,13 +344,13 @@ function Payments() {
               <div className="flex items-center gap-8 justify-end">
                 <>
                   <SelectDropDown
-                    selectFrom={PaymentsFilters}
-                    selectedItem={paymentsFilteredBy}
-                    setSelectedItem={setPaymentsFilteredBy}
+                    selectFrom={FinanceFilters}
+                    selectedItem={financeFilteredBy}
+                    setSelectedItem={setFinanceFilteredBy}
                     isFilter
                   />
 
-                  {paymentsFilteredBy && (
+                  {financeFilteredBy && (
                     <GrClose
                       className="text-[1.4rem] cursor-pointer"
                       onClick={() => handleClearFilter()}
@@ -365,7 +365,7 @@ function Payments() {
                   gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
                 }}
               >
-                {paymentsData.map((item, i) => {
+                {financeData.map((item, i) => {
                   const { name, description, date, tag, amount } = item;
 
                   return (
@@ -417,4 +417,4 @@ function Payments() {
   );
 }
 
-export default Payments;
+export default Finance;
