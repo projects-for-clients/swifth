@@ -370,7 +370,7 @@ function Finance() {
             </div>
           ) : (
             <Fragment>
-             
+             {switchPath[currentPath]}
             </Fragment>
           )}
         </section>
