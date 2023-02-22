@@ -200,71 +200,7 @@ export const INPROGRESS: InProgress[] = [
     tag: 'Delivery Pending',
   },
 ];
-// export const ORDER_HISTORY: InProgress[] = [
-//   {
-//     id: generateRandomNum(),
-//     name: 'Jonathan Sunyi sfsfsf',
-//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-//     tag: 'Completed',
-//     date: generateRandomDate(),
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Akpan Sunyi',
-//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Solomon Henry',
-//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Jonathan Sunyi',
-//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Akpan Sunyi',
-//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Solomon Henry',
-//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Jonathan Sunyi',
-//     description: 'Toyota Camry XLE, 2018 v6 with alloy wheels',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Akpan Sunyi',
-//     description: 'Lexus ES350, 2017 v6 with alloy wheels and',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-//   {
-//     id: generateRandomNum(),
-//     name: 'Solomon Henry',
-//     description: 'Lexus RX350, 2017 v6 with alloy wheels and',
-//     date: generateRandomDate(),
-//     tag: 'Completed',
-//   },
-// ];
+
 
 export const WAITLIST: Waitlist[] = [
   {
