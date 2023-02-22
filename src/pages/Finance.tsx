@@ -104,7 +104,7 @@ function Finance() {
               </p>
             </div>
 
-            <form className="grid w-full gap-4" onSubmit={submitInterestRate}>
+            <form className="grid w-full gap-16" onSubmit={submitInterestRate}>
               <div>
                 <label htmlFor="interestRate" className="">
                   Interest Rate
