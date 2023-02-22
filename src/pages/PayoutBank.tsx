@@ -5,7 +5,7 @@ export const CreateFinanceContext = createContext(null as any);
 
 function PayoutBank() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  
+
   return (
     <CreateFinanceContext.Provider value={null}>
       <Header title="Payout Bank" />
@@ -14,7 +14,20 @@ function PayoutBank() {
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] py-20 px-10"></div>
         </section>
       </dialog>
-      Payout Bank
+      <main>
+        <div className="flex justify-between  mb-10">
+          <h2 className="heading3"> Payout Bank</h2>{' '}
+          <img src="/icons/arrow-right.svg" alt="" />
+        </div>
+        <div className="flex items-center gap-8">
+          <img src="/icons/payoutBank.svg" alt="" />
+          <div className=" text-gray-500">
+            <p className="text-[1.6rem] font-medium">GTCO</p>
+            <p className="text-[1.4rem]">Ore Adesanye</p>
+            <p className="text-[1.4rem]">0132234423</p>
+          </div>
+        </div>
+      </main>
     </CreateFinanceContext.Provider>
   );
 }
