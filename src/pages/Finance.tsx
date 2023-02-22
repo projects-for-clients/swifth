@@ -39,23 +39,8 @@ interface PaymentHistory {
   amount: number;
 }
 
-const paymentHistoryArr: PaymentHistory[] = Array.from(
-  { length: 20 },
-  (_, i) => ({
-    id: i,
-    date: generateRandomDate(),
-    amount: Math.floor(Math.random() * 270000 + 40000),
-  })
-);
 
-const financeHistoryArr: FinanceHistory[] = Array.from(
-  { length: 20 },
-  (_, i) => ({
-    id: i,
-    date: generateRandomDate(),
-    amount: generateRandomNum(),
-  })
-);
+
 
 export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   id: i,
@@ -78,7 +63,6 @@ export const CreateFinanceContext = createContext<FinanceContext>(null as any);
 function Finance() {
   const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
-  const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
 
   const [search, setSearch] = useState('');
 
@@ -94,18 +78,7 @@ function Finance() {
     setFinanceData(filtered);
   };
 
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (): void => {
-    if (dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-  const handleOpenDialog = () => {
-    if (dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-  };
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
     appliedLoans: <AppliedLoans />,
@@ -116,7 +89,6 @@ function Finance() {
     <CreateFinanceContext.Provider
       value={{
         financeData,
-        paymentDetail
       }}
     >
       <Header title="Finance" />
