@@ -247,9 +247,11 @@ function orders() {
                   <p className="text-gray-500 font-semibold text-[1.8rem]">
                     Documents Submitted
                   </p>
-                    <div className={`grid`}>
-                      <p className=" text-gray-500">Bills of Lading</p>
-                
+                  <div className={`grid gap-4`}>
+                    <p className=" text-gray-500">Bills of Lading</p>
+                    <p className=" text-gray-500">Releases</p>
+                    <p className=" text-gray-500">CAC</p>
+                    <p className=" text-gray-500">Signed POA</p>
                   </div>
                 </section>
                 <section className="grid gap-4 rounded-2xl">
@@ -260,9 +262,7 @@ function orders() {
                     <p className="text-[1.8rem] text-gray-500">ICOC</p>
                     <div>
                       <p className="text-color-purple-1 flex gap-1 font-medium items-center">
-                        <span className="text-gray-500">
-                          NGN
-                        </span>
+                        <span className="text-gray-500">NGN</span>
                         {`230000`.toLocaleString()}
                       </p>
                       <p className="text-[1.4rem] text-gray-500">Dec 9, 2023</p>
