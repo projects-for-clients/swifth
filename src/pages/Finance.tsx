@@ -126,7 +126,7 @@ function Finance() {
     >
       <Header title="Finance" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
+        <div className="bg-white fixed right-0 h-[100vh] py-4 px-12 grid">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
             <img
@@ -137,7 +137,7 @@ function Finance() {
             />
           </figure>
 
-          <main className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10 grid ">
+          <main className="w-[40rem] overflow-y-scroll pb-10 grid gap-10 h-full content-start ">
             <div className="grid justify-start justify-items-start gap-4">
               <p className="text-[2rem] text-gray-600 text-center">
                 {paymentDetail?.name}
@@ -145,7 +145,7 @@ function Finance() {
             </div>
 
             <section
-              className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
+              className="grid gap-10 border border-color-purple-light p-8 rounded-2xl self-start"
               style={{
                 gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
               }}
@@ -169,7 +169,7 @@ function Finance() {
             </section>
 
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-              <div className="border-b border-b-color-purple-light-2 ">
+              <>
                 <div
                   className={`flex justify-between p-8 cursor-pointer w-full items-center `}
                 >
@@ -197,7 +197,7 @@ function Finance() {
                 >
                   <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
                     <span>Total to be paid:</span>
-                    <span className='text-color-purple text-[1.6rem]'>Loan applied</span>
+                    <span className='text-color-purple text-[1.6rem] font-semibold'>Loan applied</span>
                   </p>
                   <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
                     <span>Paid:</span>
@@ -205,16 +205,16 @@ function Finance() {
                   </p>
                   
                 </div>
-              </div>
+              </>
              
             </section>
 
-            <button className="flex h-full items-center mt-auto">
+          </main>
+            <button className="flex">
               <span className="border border-color-primary text-color-primary rounded-lg w-full py-4">
                 Continue
               </span>
             </button>
-          </main>
         </div>
       </dialog>
 
