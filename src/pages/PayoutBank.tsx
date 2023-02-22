@@ -6,6 +6,7 @@ export const CreateFinanceContext = createContext(null as any);
 function PayoutBank() {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
+
   const [currentPath, setCurrentPath] = useState();
   const [addedBank, setAddedBank] = useState(true);
 
