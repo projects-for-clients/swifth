@@ -56,19 +56,18 @@ function Finance() {
     setFinanceData(filtered);
   };
 
-   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-
-   const handleCloseDialog = (): void => {
-     if (dialogRef.current) {
-       dialogRef.current.close();
-     }
-   };
-   const handleOpenDialog = (item: Finance) => {
-     if (dialogRef.current) {
-       dialogRef.current.showModal();
-     }
-   };
+  const handleCloseDialog = (): void => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+  const handleOpenDialog = (item: Finance) => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
   const switchPath: Record<SwitchPath, JSX.Element> = {
     appliedLoans: <AppliedLoans />,
     loanRequests: <LoanRequests />,
@@ -82,7 +81,9 @@ function Finance() {
     >
       <Header title="Finance" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-        
+        <section className="grid place-content-center w-full h-[100vh]">
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]"></div>
+        </section>
       </dialog>
       <main className="text-[1.6rem] grid gap-10">
         <section className="relative flex items-center w-[45rem] mx-auto">
@@ -101,10 +102,10 @@ function Finance() {
           />
         </section>
         <section className="flex justify-end">
-          <div className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer">
+          <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer" onClick={() => }>
             <img src="/icons/percentage-circle.svg" alt="" />
             <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
-          </div>
+          </button>
         </section>
         <section>
           <div className="radioBox gap-16">
