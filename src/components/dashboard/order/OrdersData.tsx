@@ -1,4 +1,5 @@
 import { Dispatch, FC, SetStateAction } from 'react';
+import { DialogType } from '../../../pages/Orders';
 
 export function generateRandomDate() {
   const today = new Date();
@@ -15,7 +16,6 @@ export const generateRandomNum = () =>
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 type RCDocsStatus = 'Approved' | 'Declined' | null;
 export interface RCDocs {
-  
   name: RCDocsKeys;
   status: RCDocsStatus;
   submitted: boolean;
@@ -201,7 +201,6 @@ export const INPROGRESS: InProgress[] = [
   },
 ];
 
-
 export const WAITLIST: Waitlist[] = [
   {
     id: generateRandomNum(),
@@ -341,8 +340,8 @@ export const InProgressView: FC<{
 };
 export const WaitlistView: FC<{
   waitlistData: Waitlist[];
-  setWaitlistItemDetails: Dispatch<SetStateAction<Waitlist | null>>
-}> = ({ waitlistData }) => (
+  handleOpenDialog: (dialogType: DialogType, item: Waitlist) => void;
+}> = ({ waitlistData, handleOpenDialog }) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
@@ -356,6 +355,7 @@ export const WaitlistView: FC<{
         <div
           className="p-8 bg-white rounded-3xl border border-color-purple-light-2 flex justify-between items-center"
           key={i}
+          onClick={() => handleOpenDialog('waitlist', item)}
         >
           <div>
             <p className="text-[1.6rem]">{name}</p>

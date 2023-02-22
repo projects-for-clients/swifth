@@ -190,8 +190,12 @@ function orders() {
         openOrderDetail={openOrderDetail}
       />
     ),
-    waitlist: <WaitlistView waitlistData={waitlistData} setWaitlistItemDetails={setWaitlistItemDetails}/>,
-       
+    waitlist: (
+      <WaitlistView
+        waitlistData={waitlistData}
+        handleOpenDialog={handleOpenDialog}
+      />
+    ),
   };
 
   return (
@@ -214,7 +218,7 @@ function orders() {
               <main className="grid gap-16 ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">
-                    {?.name}
+                    {waitlistItemDetails?.name}
                   </p>
                 </div>
 
@@ -252,13 +256,10 @@ function orders() {
                       </p>
                       <p className="text-color-purple font-semibold flex items-center gap-4">
                         <span>1,000,000</span>{' '}
-                        
                       </p>
                     </button>
                     {
-                      <div
-                        className={`grid`}
-                      >
+                      <div className={`grid`}>
                         <div className=" border-b-color-purple-light-2 flex justify-between p-8">
                           <p className="text-[1.4rem] text-color-purple-1">
                             ICOC
