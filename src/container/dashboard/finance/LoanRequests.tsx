@@ -33,16 +33,13 @@ const LoanRequests = () => {
                 </p>
               </div>
 
-              <div className="grid gap-4">
-                <p className="text-gray-500">
-                  {date.toLocaleString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
-                </p>
-                
-              </div>
+              <p className="text-gray-500 self-start">
+                {date.toLocaleString('en-GB', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                })}
+              </p>
             </div>
           </div>
         );
