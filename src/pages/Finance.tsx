@@ -328,6 +328,7 @@ function Finance() {
         <section>
           <div>
             <img src="/icons/percentage-circle.svg" alt="" />
+            <p className='text-color-purple-1 font-bold'>Set Interest Rate</p>
           </div>
         </section>
         <section>
