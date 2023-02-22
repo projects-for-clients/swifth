@@ -1,18 +1,21 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
 
-
 interface ISelectInput {
-    items: string[]
-    placeholder: string
-    label: string
-    fullWidth?: boolean
-    setIsTerminal?: Dispatch<SetStateAction<boolean>>
+  items: string[];
+  placeholder: string;
+  label: string;
+  fullWidth?: boolean;
+  setIsTerminal?: Dispatch<SetStateAction<boolean>>;
 }
 
-const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setIsTerminal, fullWidth}) => {
-
-
+const SelectInput: FC<ISelectInput> = ({
+  items,
+  placeholder,
+  label,
+  setIsTerminal,
+  fullWidth,
+}) => {
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
@@ -21,9 +24,8 @@ const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setIsTerminal,
   const handleSelectedSort = (item: typeof selectedSort) => {
     setSelectedSort(item);
     setToggleSortMenu(false);
-   
 
-    setIsTerminal && setIsTerminal(true)
+    setIsTerminal && setIsTerminal(true);
   };
 
   return (
