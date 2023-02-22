@@ -5,7 +5,7 @@ import { CreateFinanceContext } from '../../../pages/Finance';
 const AppliedLoans = () => {
     const financeDetails = useContext(CreateFinanceContext);
 
-    const {fina} = financeDetails
+    const {financeData, setFinanceData} = financeDetails
 
   return (
     <div
