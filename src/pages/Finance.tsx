@@ -69,9 +69,7 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
 
 export interface FinanceContext {
   financeData: Finance[];
-  setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
   paymentDetail: Finance | null;
-  setPaymentDetail: React.Dispatch<React.SetStateAction<Finance | null>>;
 }
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
@@ -118,7 +116,6 @@ function Finance() {
     <CreateFinanceContext.Provider
       value={{
         financeData,
-        setFinanceData,
         paymentDetail
       }}
     >
