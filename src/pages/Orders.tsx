@@ -248,7 +248,7 @@ function orders() {
                     Documents Submitted
                   </p>
                     <div className={`grid`}>
-                      <p className="text-[1.4rem] ">Bills of Lading</p>
+                      <p className=" text-gray-500">Bills of Lading</p>
                 
                   </div>
                 </section>

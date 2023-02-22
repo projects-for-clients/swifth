@@ -353,7 +353,7 @@ export const WaitlistView: FC<{
 
       return (
         <div
-          className="p-8 bg-white rounded-3xl border border-color-purple-light-2 flex justify-between items-center"
+          className="p-8 bg-white rounded-3xl border border-color-purple-light-2 flex justify-between items-center cursor-pointer"
           key={i}
           onClick={() => handleOpenDialog('waitlist', item)}
         >
