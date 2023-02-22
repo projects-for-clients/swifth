@@ -126,7 +126,7 @@ function Finance() {
     >
       <Header title="Finance" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] py-4 px-12 grid">
+        <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
             <img
