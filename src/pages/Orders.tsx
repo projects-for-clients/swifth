@@ -247,14 +247,13 @@ function orders() {
                   <p className="text-gray-500 font-semibold text-[1.8rem]">
                     Documents Submitted
                   </p>
-                  <div className="border-b border-b-color-purple-light-2 ">
                     <div className={`grid`}>
                       <p className="text-[1.4rem] ">Bills of Lading</p>
-                    </div>
+                
                   </div>
                 </section>
                 <section className="grid gap-4 rounded-2xl">
-                  <p className="text-gray-500 font-semibold text-[1.8rem]">
+                  <p className="text-gray-500 font-medium text-[1.8rem]">
                     Payments
                   </p>
                   <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
