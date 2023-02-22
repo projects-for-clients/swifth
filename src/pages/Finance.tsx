@@ -83,7 +83,6 @@ function Finance() {
 
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
 
-
   const [search, setSearch] = useState('');
 
   const [financeData, setFinanceData] = useState<Finance[]>(FINANCE);
@@ -98,8 +97,6 @@ function Finance() {
     setFinanceData(filtered);
   };
 
-  
-
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = (): void => {
@@ -113,8 +110,6 @@ function Finance() {
       dialogRef.current.showModal();
     }
   };
-
- 
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
     appliedLoans: <AppliedLoans />,
@@ -142,74 +137,67 @@ function Finance() {
             />
           </figure>
 
-          <section className="h-full">
-            <div className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10">
-              <main className="grid gap-16 ">
-                <div className="grid justify-start justify-items-start gap-4">
-                  <p className="text-[2rem] text-gray-600 text-center">
-                    {paymentDetail?.name}
-                  </p>
-                </div>
-
-                <section
-                  className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
-                  style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
-                  }}
-                >
-                  <div>
-                    <p className=" text-gray-400">Car Brand</p>
-                    <p className=" text-gray-600">Toyota</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Car Year</p>
-                    <p className=" text-gray-600">2022</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Car Model</p>
-                    <p className=" text-gray-600">Camry</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Car Trim</p>
-                    <p className=" text-gray-600">XLE</p>
-                  </div>
-                </section>
-
-                <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-                  <div className="border-b border-b-color-purple-light-2 ">
-                    <button
-                      className={`flex justify-between p-8 cursor-pointer w-full `}
-                    >
-                      <p className="text-[1.4rem] text-color-purple-1">
-                        Total Bill
-                      </p>
-                      <p className="text-color-purple font-semibold flex items-center gap-4">
-                        <span>1,000,000</span>{' '}
-                      </p>
-                    </button>
-                  </div>
-                  <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
-                    <p className="text-[1.4rem] text-color-purple-1">Paid</p>
-                    <p className="text-color-purple font-semibold">7,000,000</p>
-                  </div>
-                  <div className="flex justify-between p-8">
-                    <p className="text-[1.4rem] text-color-purple-1">
-                      Outstanding
-                    </p>
-                    <p className="text-color-purple font-semibold">300,000</p>
-                  </div>
-                </section>
-
-                <button
-                  className="flex w-full items-center"
-                >
-                  <span className="border-color-primary text-color-primary rounded-lg w-full py-4">
-                    Continue
-                  </span>
-                </button>
-              </main>
+          <main className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10 grid ">
+            <div className="grid justify-start justify-items-start gap-4">
+              <p className="text-[2rem] text-gray-600 text-center">
+                {paymentDetail?.name}
+              </p>
             </div>
-          </section>
+
+            <section
+              className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
+              style={{
+                gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
+              }}
+            >
+              <div>
+                <p className=" text-gray-400">Car Brand</p>
+                <p className=" text-gray-600">Toyota</p>
+              </div>
+              <div>
+                <p className=" text-gray-400">Car Year</p>
+                <p className=" text-gray-600">2022</p>
+              </div>
+              <div>
+                <p className=" text-gray-400">Car Model</p>
+                <p className=" text-gray-600">Camry</p>
+              </div>
+              <div>
+                <p className=" text-gray-400">Car Trim</p>
+                <p className=" text-gray-600">XLE</p>
+              </div>
+            </section>
+
+            <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+              <div className="border-b border-b-color-purple-light-2 ">
+                <button
+                  className={`flex justify-between p-8 cursor-pointer w-full `}
+                >
+                  <p className="text-[1.4rem] text-color-purple-1 grid justify-start">
+                    <span>Dec 3, 2023</span>
+                    <span>Loan applied</span>
+                  </p>
+                  <p className="text-color-purple font-semibold flex items-center gap-4">
+                    <span>1,000,000</span>{' '}
+                  </p>
+                </button>
+              </div>
+              <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
+                <p className="text-[1.4rem] text-color-purple-1">Paid</p>
+                <p className="text-color-purple font-semibold">7,000,000</p>
+              </div>
+              <div className="flex justify-between p-8">
+                <p className="text-[1.4rem] text-color-purple-1">Outstanding</p>
+                <p className="text-color-purple font-semibold">300,000</p>
+              </div>
+            </section>
+
+            <button className="flex h-full items-center mt-auto">
+              <span className="border border-color-primary text-color-primary rounded-lg w-full py-4">
+                Continue
+              </span>
+            </button>
+          </main>
         </div>
       </dialog>
 
