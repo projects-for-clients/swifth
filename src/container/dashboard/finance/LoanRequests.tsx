@@ -14,7 +14,7 @@ const LoanRequests = () => {
       }}
     >
       {financeData.map((item, i) => {
-        const { name, date, loanAndInterest, amountPaid } = item;
+        const { name, date, loanAndInterest } = item;
 
         return (
           <div
