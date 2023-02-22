@@ -17,7 +17,7 @@ export interface Finance {
   id: number;
   name: string;
   date: Date;
-  wantsToLoan?: boolean;
+  wantsToLoan?: number;
   amountPaid?: number;
   loanAndInterest?: number;
 }

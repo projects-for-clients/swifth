@@ -68,7 +68,7 @@ const LoanRequests = () => {
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
               <div>
                 <p>Requesting a loan of:</p>
-                <p>{detailsData?.loanAndInterest}</p>
+                <p>{detailsData?.wantsToLoan}</p>
               </div>
             </section>
           </main>
@@ -97,7 +97,7 @@ const LoanRequests = () => {
         }}
       >
         {financeData.map((item, i) => {
-          const { name, date, loanAndInterest } = item;
+          const { name, date, wantsToLoan } = item;
 
           return (
             <div
@@ -112,7 +112,7 @@ const LoanRequests = () => {
                     <span className="text-gray-500 text-[1.4rem] font-normal">
                       Wants to Loan :
                     </span>
-                    {loanAndInterest.toLocaleString()}
+                    {wantsToLoan?.toLocaleString()}
                   </p>
                 </div>
 
