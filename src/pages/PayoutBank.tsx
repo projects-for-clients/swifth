@@ -15,12 +15,11 @@ function PayoutBank() {
         </section>
       </dialog>
       <main>
-       
         <div className="flex items-center gap-8">
-          <img src="/icons/payoutBank.svg" alt="" className='w-[8rem]' />
+          <img src="/icons/payoutBank.svg" alt="" className="w-[8rem] h-[9rem]" />
           <div className=" text-gray-500 flex items-center gap-4">
-                <img src="/icons/add-circle.svg" alt="" className='text-[1.4rem]' />
-            <p className="text-[1.4rem]">Add Payout bannk</p>
+            <img src="/icons/add-circle.svg" alt="" className="text-[1.4rem]" />
+            <p className="text-[1.4rem]">Add Payout Bank</p>
           </div>
         </div>
       </main>
