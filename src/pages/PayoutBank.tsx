@@ -5,9 +5,9 @@ export const CreateFinanceContext = createContext(null as any);
 
 function PayoutBank() {
   const dialogRef = useRef<HTMLDialogElement>(null);
+type Path = 'first' | 'second'
 
-
-  const [currentPath, setCurrentPath] = useState();
+  const [currentPath, setCurrentPath] = useState<Path>('first');
   const [addedBank, setAddedBank] = useState(true);
 
   const openDialog = () => {
@@ -21,6 +21,8 @@ function PayoutBank() {
       dialogRef.current.close();
     }
   };
+
+  const SwitchPath: Record<Path, JSX.Element> = {}
 
   return (
     <CreateFinanceContext.Provider value={null}>
