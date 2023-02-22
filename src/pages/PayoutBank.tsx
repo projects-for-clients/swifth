@@ -22,9 +22,13 @@ function PayoutBank() {
           <div className="flex items-center border border-[#BEB3DE] p-8 rounded-3xl justify-between">
             <div className="flex items-center gap-8">
               <img src="/icons/payoutBank.svg" alt="" className="w-[8rem]" />
-              <div className=" text-gray-500 flex items-center gap-4">
-                <p className='text-[2.4rem]'>0128232349</p>
-                <p className="">Add Payout Bank</p>
+              <div className=" text-gray-500 grid items-center gap-4">
+                <p className="uppercase text-[#144024]">verified</p>
+                <div>
+                  <p className="text-[2.4rem]">0128232349</p>
+                  <p className="">Guaranty Trust Bank</p>
+                  <p>James Bori</p>
+                </div>
               </div>
             </div>
           </div>
