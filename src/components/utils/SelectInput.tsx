@@ -28,7 +28,7 @@ const SelectInput:FC<ISelectInput> = ({items, placeholder, label, setIsTerminal}
   return (
     <div className="grid gap-4 min-w-[30rem] items-center">
       <label className="text-[1.4rem] text-color-dark-1">{label}</label>
-      <div className="relative flex items-center w-[33rem] justify-items-start cursor-pointer text-black">
+      <div className="relative flex items-center  justify-items-start cursor-pointer text-black">
 
         
         <p
