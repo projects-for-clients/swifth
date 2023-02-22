@@ -72,7 +72,6 @@ export interface FinanceContext {
   financeData: Finance[];
   setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
   handleOpenDialog: (item: Finance) => void;
-  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
@@ -131,7 +130,6 @@ function Finance() {
         financeData,
         setFinanceData,
         handleOpenDialog,
-        handleSearch,
       }}
     >
       <Header title="Finance" />
