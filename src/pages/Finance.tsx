@@ -157,15 +157,8 @@ function Finance() {
                   <p className="text-[2rem] text-gray-600 text-center">
                     {paymentDetail?.name}
                   </p>
-                  <p
-                    className={`py-1.5 px-8 rounded-2xl ${
-                      paymentDetail?.tag === 'Fully Paid'
-                        ? 'bg-color-primary text-white'
-                        : 'text-black bg-[#FAC772]'
-                    }`}
-                  >
-                    {paymentDetail?.tag}
-                  </p>{' '}
+                  
+                
                 </div>
 
                 <section
