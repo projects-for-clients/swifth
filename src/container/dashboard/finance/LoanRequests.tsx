@@ -4,8 +4,7 @@ import { CreateFinanceContext, Finance } from '../../../pages/Finance';
 const LoanRequests = () => {
   const financeDetails = useContext(CreateFinanceContext);
   const dialogRef = React.useRef<HTMLDialogElement | null>(null);
-    const [detailsData, setDetailsData] = useState<Finance | null>(null);
-
+  const [detailsData, setDetailsData] = useState<Finance | null>(null);
 
   const { financeData } = financeDetails;
 
@@ -67,48 +66,7 @@ const LoanRequests = () => {
             </section>
 
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-              <>
-                <div
-                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
-                >
-                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
-                    <span>Dec 3, 2023</span>
-                    <span className="text-color-purple-2">Loan applied</span>
-                  </p>
-                  <p className="text-color-purple font-semibold ">
-                    <span>1,000,000</span>{' '}
-                  </p>
-                </div>
-                <div
-                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
-                >
-                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
-                    <span>Dec 3, 2023</span>
-                    <span className="text-color-purple-2">
-                      Interest added (10%)
-                    </span>
-                  </p>
-                  <p className="text-color-purple font-semibold ">
-                    <span>100,000</span>{' '}
-                  </p>
-                </div>
-                <div
-                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
-                >
-                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
-                    <span>Total to be paid:</span>
-                    <span className="text-color-purple text-[1.6rem] font-semibold">
-                      Loan applied
-                    </span>
-                  </p>
-                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-end">
-                    <span>Paid:</span>
-                    <span className="text-color-purple text-[1.6rem] font-semibold">
-                      740,000
-                    </span>
-                  </p>
-                </div>
-              </>
+              
             </section>
           </main>
           <button className="flex w-full absolute justify-center left-0 right-0 bottom-[3rem] px-[3rem]">
