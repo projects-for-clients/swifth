@@ -71,7 +71,8 @@ function orders() {
 
   const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-  const [waitlistItemDetails, setWaitlistItemDetails] = useState<Waitlist | null>(null)
+  const [waitlistItemDetails, setWaitlistItemDetails] =
+    useState<Waitlist | null>(null);
   const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -139,9 +140,7 @@ function orders() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
-
   const waitListDialogRef = useRef<HTMLDialogElement | null>(null);
-
 
   const handleCloseDialog = (type: DialogType): void => {
     if (type === 'orderHistory' && dialogRef.current) {
@@ -153,12 +152,10 @@ function orders() {
     }
 
     if (type === 'waitlist' && waitListDialogRef.current) {
-      
-         waitListDialogRef.current.close();
-       
+      waitListDialogRef.current.close();
     }
   };
-  const handleOpenDialog = (type: DialogType, item?:Waitlist) => {
+  const handleOpenDialog = (type: DialogType, item?: Waitlist) => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -167,9 +164,9 @@ function orders() {
       eachOrderDialogRef.current.showModal();
     }
 
-    if(type === 'waitlist' && waitListDialogRef.current) {
+    if (type === 'waitlist' && waitListDialogRef.current) {
       waitListDialogRef.current.showModal();
-      item && setWaitlistItemDetails(item)
+      item && setWaitlistItemDetails(item);
     }
   };
 
@@ -247,29 +244,31 @@ function orders() {
                 </section>
 
                 <section className="grid gap-4 rounded-2xl">
-                  <p className='text-gray-500 font-semibold text-[1.8rem]'>Documents Submitted</p>
+                  <p className="text-gray-500 font-semibold text-[1.8rem]">
+                    Documents Submitted
+                  </p>
                   <div className="border-b border-b-color-purple-light-2 ">
-                   
-                      <div className={`grid`}>
-                          <p className="text-[1.4rem] ">
-                            Bills of Lading
-                          </p>
-                          
-                      </div>
-                 
+                    <div className={`grid`}>
+                      <p className="text-[1.4rem] ">Bills of Lading</p>
+                    </div>
                   </div>
-                  
                 </section>
                 <section className="grid gap-4 rounded-2xl">
-                  <p className='text-gray-500 font-semibold text-[1.8rem]'>Payments</p>
-                  <div className="border-b border-b-gray-400 ">
-                   
-                     <p className='text-[1.8rem]'>ICOC</p>
-                 <div>
-                  
-                 </div>
+                  <p className="text-gray-500 font-semibold text-[1.8rem]">
+                    Payments
+                  </p>
+                  <div className="border-b border-b-gray-400 flex justify-between items-center ">
+                    <p className="text-[1.8rem]">ICOC</p>
+                    <div>
+                      <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                        <span className="text-gray-500">
+                          NGN
+                        </span>
+                        {`230000`.toLocaleString()}
+                      </p>
+                      <p className="text-[1.4rem]">Dec 9, 2023</p>
+                    </div>
                   </div>
-                  
                 </section>
 
                 <button></button>
