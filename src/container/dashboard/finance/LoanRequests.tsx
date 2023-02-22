@@ -68,7 +68,13 @@ const LoanRequests = () => {
             <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
               <div>
                 <p>Requesting a loan of:</p>
-                <p>{detailsData?.wantsToLoan}</p>
+                <p className='text-[3.2rem] text-color-purple-2'> <span className='text-color-purple-light'>N</span> {detailsData?.wantsToLoan}</p>
+              </div>
+              <div>
+                <p>
+                  <span></span>
+                  <span></span>
+                </p>
               </div>
             </section>
           </main>
