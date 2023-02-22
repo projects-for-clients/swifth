@@ -169,7 +169,7 @@ function orders() {
 
     if(type === 'waitlist' && waitListDialogRef.current) {
       waitListDialogRef.current.showModal();
-      setWaitlistItemDetails(item)
+      item && setWaitlistItemDetails(item)
     }
   };
 
@@ -190,7 +190,8 @@ function orders() {
         openOrderDetail={openOrderDetail}
       />
     ),
-    waitlist: <WaitlistView waitlistData={waitlistData} />,
+    waitlist: <WaitlistView waitlistData={waitlistData} setWaitlistItemDetails={setWaitlistItemDetails}/>,
+       
   };
 
   return (

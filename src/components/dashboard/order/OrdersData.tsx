@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 
 export function generateRandomDate() {
   const today = new Date();
@@ -339,9 +339,10 @@ export const InProgressView: FC<{
     </div>
   );
 };
-export const WaitlistView: FC<{ waitlistData: Waitlist[] }> = ({
-  waitlistData,
-}) => (
+export const WaitlistView: FC<{
+  waitlistData: Waitlist[];
+  setWaitlistItemDetails: Dispatch<SetStateAction<Waitlist | null>>
+}> = ({ waitlistData }) => (
   <div
     className="grid mt-[5rem] gap-10"
     style={{
