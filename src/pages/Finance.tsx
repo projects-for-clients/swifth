@@ -70,7 +70,6 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
 export interface FinanceContext {
   financeData: Finance[];
   setFinanceData: React.Dispatch<React.SetStateAction<Finance[]>>;
-  handleOpenDialog: (item: Finance) => void;
   paymentDetail: Finance | null;
   setPaymentDetail: React.Dispatch<React.SetStateAction<Finance | null>>;
 }
@@ -120,7 +119,6 @@ function Finance() {
       value={{
         financeData,
         setFinanceData,
-        handleOpenDialog,
         paymentDetail,
         setPaymentDetail
       }}
