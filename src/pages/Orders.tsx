@@ -138,6 +138,21 @@ function orders() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
+
+  const waitListDialogRef = useRef<HTMLDialogElement | null>(null);
+
+  const handleCloseDialog = (): void => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+  const handleOpenDialog = (item: Finance) => {
+    setPaymentDetail(item);
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+
   const handleCloseDialog = (type: DialogType): void => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.close();
