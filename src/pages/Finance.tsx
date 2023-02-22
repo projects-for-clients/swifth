@@ -123,8 +123,8 @@ function Finance() {
                 <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-3xl">
                   Cancel
                 </button>
-                <button className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-3xl">
-                  Cancel
+                <button className="w-full btn border border-color-primary text-color-primary rounded-3xl">
+                  Save
                 </button>
               </div>
             </form>
