@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CreateFinanceContext } from '../../../pages/Finance';
+
 
 const AppliedLoans = () => {
+    const financeDetails = useContext(CreateFinanceContext);
+
+    const {fina} = financeDetails
+
   return (
     <div
       className="grid mt-10 gap-10"
