@@ -65,7 +65,12 @@ const LoanRequests = () => {
               </div>
             </section>
 
-            <section className="bg-color-red-light-2 grid gap-4 rounded-2xl"></section>
+            <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+              <div>
+                <p>Requesting a loan of:</p>
+                <p>{detailsData?.loanAndInterest}</p>
+              </div>
+            </section>
           </main>
           <div className="grid w-full absolute justify-center left-0 right-0 bottom-[3rem] px-[3rem]">
             <p className="flex items-center gap-2">

@@ -17,8 +17,9 @@ export interface Finance {
   id: number;
   name: string;
   date: Date;
-  amountPaid: number;
-  loanAndInterest: number;
+  wantsToLoan?: boolean;
+  amountPaid?: number;
+  loanAndInterest?: number;
 }
 
 export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
@@ -27,6 +28,7 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   description: `Toyota Camry XLE, ${200 + (i + 1)}`,
   date: generateRandomDate(),
   amountPaid: Math.floor(Math.random() * 900000 + 500000),
+  wantsToLoan: Math.floor(Math.random() * 900000 + 500000),
   loanAndInterest: Math.floor(Math.random() * 2000000 + 900000),
 }));
 
