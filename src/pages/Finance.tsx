@@ -1,4 +1,4 @@
-import Header from '../../components/dashboard/Header';
+import Header from '../components/dashboard/Header';
 import {
   ChangeEvent,
   Fragment,
@@ -7,13 +7,13 @@ import {
   useRef,
   SyntheticEvent,
 } from 'react';
-import SelectDropDown from '../../components/utils/SelectDropDown';
+import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
 import {
   generateRandomDate,
   generateRandomNum,
-} from '../../components/dashboard/order/OrdersData';
+} from '../components/dashboard/order/OrdersData';
 
 export interface FinanceHistory {
   id: number;
@@ -67,14 +67,11 @@ export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   amount: 50000,
 }));
 
-  type SwitchPath = 'appliedLoans' | 'loanRequests';
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
-
+type SwitchPath = 'appliedLoans' | 'loanRequests';
+const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
 function Finance() {
   const FinanceFilters: FinanceFilterBy[] = ['Fully Paid', 'Pending Bill'];
-
-  
 
   const [financeFilteredBy, setFinanceFilteredBy] = useState('');
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
@@ -98,9 +95,7 @@ function Finance() {
 
   useEffect(() => {
     if (financeFilteredBy) {
-      const filtered = FINANCE.filter(
-        (item) => item.tag === financeFilteredBy
-      );
+      const filtered = FINANCE.filter((item) => item.tag === financeFilteredBy);
 
       return setFinanceData(() => [...filtered]);
     }
@@ -359,8 +354,6 @@ function Finance() {
             </div>
           ) : (
             <Fragment>
-              
-
               <div
                 className="grid mt-10 gap-10"
                 style={{

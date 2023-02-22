@@ -1,6 +1,6 @@
 import { Dispatch, useState, SetStateAction, FC, useEffect } from 'react';
 import { GrUp, GrDown } from 'react-icons/gr';
-import { DropDownState, SortBy } from '../../container/dashboard/Orders';
+import { DropDownState, SortBy } from '../../pages/Orders';
 
 interface ISelectDropDown {
   selectFrom: string[];

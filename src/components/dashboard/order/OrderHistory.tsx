@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { OrderHistoryPath } from '../../../container/dashboard/Orders';
+import { OrderHistoryPath } from '../../../pages/Orders';
 import CalenderSvg from '../../icons/Calender';
 import { INPROGRESS, InProgress, InProgressFilterBy } from './OrdersData';
 

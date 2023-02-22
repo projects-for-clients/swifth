@@ -7,7 +7,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import { DialogType } from '../../../../container/dashboard/Orders';
+import { DialogType } from '../../../../pages/Orders';
 import { UpdateDocsPayload } from '../../../../store/features/order/order';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress } from '../OrdersData';

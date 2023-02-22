@@ -10,11 +10,11 @@ import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 import DashboardHome from '../container/dashboard/Home';
 import OnBoarding from '../container/Onboarding';
-import Orders from '../container/dashboard/Orders';
+import Orders from '../pages/Orders';
 import 'animate.css/animate.css';
 import 'react-toastify/dist/ReactToastify.css';
-import Payments from '../container/dashboard/Payments';
-import Finance from '../container/dashboard/Finance';
+import Payments from '../pages/Payments';
+import Finance from '../pages/Finance';
 
 const router = createBrowserRouter(
   createRoutesFromElements([

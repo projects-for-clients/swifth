@@ -1,4 +1,4 @@
-import Header from '../../components/dashboard/Header';
+import Header from '../components/dashboard/Header';
 import {
   ChangeEvent,
   Fragment,
@@ -7,13 +7,13 @@ import {
   useRef,
   SyntheticEvent,
 } from 'react';
-import SelectDropDown from '../../components/utils/SelectDropDown';
+import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
 import {
   generateRandomDate,
   generateRandomNum,
-} from '../../components/dashboard/order/OrdersData';
+} from '../components/dashboard/order/OrdersData';
 
 export interface PaymentsHistory {
   id: number;
@@ -255,7 +255,9 @@ function Payments() {
                   </div>
                 </section>
                 <section>
-                  <p className='font-medium text-[2rem] mb-10'>Payment History</p>
+                  <p className="font-medium text-[2rem] mb-10">
+                    Payment History
+                  </p>
                   <div
                     className="grid gap-8"
                     style={{

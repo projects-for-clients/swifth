@@ -1,6 +1,6 @@
-import Header from '../../components/dashboard/Header';
+import Header from '../components/dashboard/Header';
 import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
-import SelectDropDown from '../../components/utils/SelectDropDown';
+import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
 import {
@@ -11,12 +11,12 @@ import {
   InProgressView,
   WAITLIST,
   WaitlistView,
-} from '../../components/dashboard/order/OrdersData';
+} from '../components/dashboard/order/OrdersData';
 import {
   ListOrderHistory,
   OrderHistoryDetail,
-} from '../../components/dashboard/order/OrderHistory';
-import EachOrderDetail from '../../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
+} from '../components/dashboard/order/OrderHistory';
+import EachOrderDetail from '../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -109,7 +109,7 @@ function orders() {
   }, [inProgressFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
-    if ( selectedSort) {
+    if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
         const sortedNames = [...INPROGRESS].sort((a, b) => {
           return a.name.localeCompare(b.name);
@@ -121,13 +121,10 @@ function orders() {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-
         return setInProgressData(() => [...sortedDates]);
-        
       }
     }
   }, [selectedSort]);
-
 
   const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
     if (toClear === 'inProgress') {
