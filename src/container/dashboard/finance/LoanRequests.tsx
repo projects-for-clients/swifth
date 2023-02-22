@@ -20,11 +20,13 @@ const LoanRequests = () => {
     }
   };
 
+  const wantsToLoan =
+    detailsData?.wantsToLoan && Math.floor(detailsData.wantsToLoan * 0.1);
 
-  const wantsToLoan = detailsData?.wantsToLoan && Math.floor(detailsData.wantsToLoan * 0.1) 
-
-  const totalPaidBack = (detailsData?.wantsToLoan && wantsToLoan) && detailsData.wantsToLoan + wantsToLoan
-
+  const totalPaidBack =
+    detailsData?.wantsToLoan &&
+    wantsToLoan &&
+    detailsData.wantsToLoan + wantsToLoan;
 
   return (
     <>
@@ -76,30 +78,28 @@ const LoanRequests = () => {
                 <p>Requesting a loan of:</p>
                 <p className="text-[3.2rem] text-color-purple">
                   {' '}
-                  <span className="text-color-purple-light">N</span>{' '}
+                  <span className="text-color-purple-light">N</span>
                   {detailsData?.wantsToLoan?.toLocaleString()}
                 </p>
               </div>
-              <div className='border p-10 rounded-3xl'>
-                <div className='flex items-center justify-between'>
+              <div className="border p-8 rounded-3xl bg-gray-100">
+                <div className="flex items-center justify-between">
                   <span className="text-color-grey-4">
                     Interest to be added (10%)
                   </span>
                   <p className=" text-color-purple">
-                    {' '}
-                    <span className="text-color-purple-light">N</span>{' '}
+                    <span className="text-color-purple-light">N</span>
                     {wantsToLoan?.toLocaleString()}
-                  </p>{' '}
+                  </p>
                 </div>
-                <div className='flex items-center justify-between'>
+                <div className="flex items-center justify-between">
                   <span className="text-color-grey-4">
                     Total to be paid back
                   </span>
                   <p className=" text-color-purple">
-                    {' '}
-                    <span className="text-color-purple-light">N</span>{' '}
+                    <span className="text-color-purple-light">N</span>
                     {totalPaidBack?.toLocaleString()}
-                  </p>{' '}
+                  </p>
                 </div>
               </div>
             </section>
