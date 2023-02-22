@@ -83,7 +83,6 @@ function Finance() {
 
   const [paymentDetail, setPaymentDetail] = useState<Finance | null>(null);
 
-  const [showAccordion, setShowAccordion] = useState(false);
 
   const [search, setSearch] = useState('');
 
@@ -115,10 +114,7 @@ function Finance() {
     }
   };
 
-  const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
-    console.log(e);
-    setShowAccordion((prev) => !prev);
-  };
+ 
 
   const switchPath: Record<SwitchPath, JSX.Element> = {
     appliedLoans: <AppliedLoans />,
