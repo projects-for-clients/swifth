@@ -24,14 +24,17 @@ const AppliedLoans = () => {
             onClick={() => handleOpenDialog(item)}
           >
             <div className="text-[1.2rem] flex items-center justify-between">
-              <div>
+              <div className="grid gap-4">
                 <p className="text-[1.6rem]">{name}</p>
-                <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
+                <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                  <span className="text-gray-500 text-[1.4rem] font-normal">
+                    Loan + Int :
+                  </span>
                   {loanAndInterest.toLocaleString()}
                 </p>
               </div>
 
-              <div className=" justify-between items-end">
+              <div className="grid gap-4">
                 <p className="text-gray-500">
                   {date.toLocaleString('en-GB', {
                     day: 'numeric',
@@ -39,8 +42,10 @@ const AppliedLoans = () => {
                     year: 'numeric',
                   })}
                 </p>
-                <p className="text-color-purple-1 flex gap-1 font-medium">
-                  <span className="text-gray-500">NGN</span>
+                <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                  <span className="text-gray-500 text-[1.4rem] font-normal">
+                    Paid :
+                  </span>
                   {amountPaid.toLocaleString()}
                 </p>
               </div>
