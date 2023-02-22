@@ -82,7 +82,13 @@ function Finance() {
       <Header title="Finance" />
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-full h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center w-[64rem] h-[30rem] gap-8 text-[1.6rem]"></div>
+          <div className="bg-white rounded-2xl grid place-content-center justify-items-center h-[30rem] gap-8 text-[1.6rem]">
+            <p>Set interest rate</p>
+            <p>
+              Set the interest rate you want to be attached to registered
+              customers’ approved loans
+            </p>
+          </div>
         </section>
       </dialog>
       <main className="text-[1.6rem] grid gap-10">
@@ -102,7 +108,10 @@ function Finance() {
           />
         </section>
         <section className="flex justify-end">
-          <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer" onClick={() => handleOpenDialog() }>
+          <button
+            className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
+            onClick={() => handleOpenDialog()}
+          >
             <img src="/icons/percentage-circle.svg" alt="" />
             <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
           </button>
