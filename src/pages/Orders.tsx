@@ -257,8 +257,8 @@ function orders() {
                   <p className="text-gray-500 font-semibold text-[1.8rem]">
                     Payments
                   </p>
-                  <div className="border-b border-b-gray-400 flex justify-between items-center ">
-                    <p className="text-[1.8rem]">ICOC</p>
+                  <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
+                    <p className="text-[1.8rem] text-gray-500">ICOC</p>
                     <div>
                       <p className="text-color-purple-1 flex gap-1 font-medium items-center">
                         <span className="text-gray-500">
@@ -266,7 +266,7 @@ function orders() {
                         </span>
                         {`230000`.toLocaleString()}
                       </p>
-                      <p className="text-[1.4rem]">Dec 9, 2023</p>
+                      <p className="text-[1.4rem] text-gray-500">Dec 9, 2023</p>
                     </div>
                   </div>
                 </section>
