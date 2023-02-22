@@ -41,7 +41,7 @@ function IconsBox() {
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/dashboard/payout-bank">
+        <Link to="/dashboard/payoutBank">
           <PayoutBankSvg fill="white" />
           <span>Payout Bank</span>
         </Link>
