@@ -140,7 +140,7 @@ const AppliedLoans = () => {
                     <span className="text-gray-500 text-[1.4rem] font-normal">
                       Loan + Int :
                     </span>
-                    {loanAndInterest.toLocaleString()}
+                    {loanAndInterest?.toLocaleString()}
                   </p>
                 </div>
 
@@ -156,7 +156,7 @@ const AppliedLoans = () => {
                     <span className="text-gray-500 text-[1.4rem] font-normal">
                       Paid :
                     </span>
-                    {amountPaid.toLocaleString()}
+                    {amountPaid?.toLocaleString()}
                   </p>
                 </div>
               </div>
