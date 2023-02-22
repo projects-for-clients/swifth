@@ -27,9 +27,32 @@ function PayoutBank() {
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <section className="grid place-content-center w-screen h-[100vh]">
           <div className="bg-white rounded-2xl grid place-content-center justify-items-center gap-8 w-[60rem] py-20 px-10">
-            <p className='text-[2rem]'>Delete bank</p>
-            <p>Do you want to delete bank details?</p>
+            <div>
+              <p className="text-[2.4rem] font-medium text-left flex w-full">
+                Set interest rate
+              </p>
+              <p className="font-medium text-left">
+                Set the interest rate you want to be attached to registered
+                customers approved loans
+              </p>
+            </div>
 
+           
+              <div className=" flex gap-8 w-[40rem] justify-self-end items-center">
+                <button
+                  className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl"
+                  type="reset"
+                  onClick={() => handleCloseDialog()}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="w-full btn border border-color-primary text-color-primary rounded-2xl"
+                  onClick={() => handleCloseDialog()}
+                >
+                  Save
+                </button>
+              </div>
           </div>
         </section>
       </dialog>

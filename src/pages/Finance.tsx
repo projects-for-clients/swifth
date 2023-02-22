@@ -137,7 +137,7 @@ function Finance() {
                 <button
                   className="w-full btn border border-color-primary text-color-primary rounded-2xl"
                   onClick={() => handleCloseDialog()}
-                  
+
                 >
                   Save
                 </button>
