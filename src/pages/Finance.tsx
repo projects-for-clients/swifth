@@ -1,17 +1,7 @@
 import Header from '../components/dashboard/Header';
-import {
-  ChangeEvent,
-  Fragment,
-  useState,
-  useRef,
-  createContext,
-} from 'react';
+import { ChangeEvent, Fragment, useState, createContext } from 'react';
 
-
-import {
-  generateRandomDate,
-  generateRandomNum,
-} from '../components/dashboard/order/OrdersData';
+import { generateRandomDate } from '../components/dashboard/order/OrdersData';
 import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
 import LoanRequests from '../container/dashboard/finance/LoanRequests';
 
@@ -27,34 +17,21 @@ export interface Finance {
   id: number;
   name: string;
   date: Date;
-  history: FinanceHistory[];
   amountPaid: number;
   loanAndInterest: number;
-
 }
-
-interface PaymentHistory {
-  id: number;
-  date: Date;
-  amount: number;
-}
-
-
-
 
 export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
   id: i,
   name: `Ezekiel Doe ${i + 1}`,
   description: `Toyota Camry XLE, ${200 + (i + 1)}`,
   date: generateRandomDate(),
-  history: financeHistoryArr,
   amountPaid: Math.floor(Math.random() * 900000 + 500000),
   loanAndInterest: Math.floor(Math.random() * 2000000 + 900000),
 }));
 
 export interface FinanceContext {
   financeData: Finance[];
-  paymentDetail: Finance | null;
 }
 
 type SwitchPath = 'appliedLoans' | 'loanRequests';
@@ -62,7 +39,6 @@ export const CreateFinanceContext = createContext<FinanceContext>(null as any);
 
 function Finance() {
   const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
-
 
   const [search, setSearch] = useState('');
 
@@ -78,8 +54,6 @@ function Finance() {
     setFinanceData(filtered);
   };
 
-
-
   const switchPath: Record<SwitchPath, JSX.Element> = {
     appliedLoans: <AppliedLoans />,
     loanRequests: <LoanRequests />,
@@ -92,7 +66,6 @@ function Finance() {
       }}
     >
       <Header title="Finance" />
-      
 
       <main className="text-[1.6rem] grid gap-10">
         <section className="relative flex items-center w-[45rem] mx-auto">
