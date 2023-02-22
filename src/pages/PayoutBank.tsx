@@ -33,6 +33,11 @@ function PayoutBank() {
                 </div>
               </div>
             </div>
+
+            <div>
+                <button className='btn rounded-3xl text-white bg-color-primary capitalize'>Edit Bank details</button>
+                <button className='btn rounded-3xl text-red-600 border border-red-600 capitalize'>Delete</button>
+            </div>
           </div>
         ) : (
           <div className="flex items-center gap-8 border border-[#BEB3DE] p-8 rounded-3xl w-[40rem]">
