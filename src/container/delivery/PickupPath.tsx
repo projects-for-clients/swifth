@@ -50,7 +50,7 @@ export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
 });
 
 export const PickupPath = () => {
-  const { pickupData } = useContext(DeliveryContext);
+  //const { pickupData } = useContext(DeliveryContext);
 
   return (
     <></>

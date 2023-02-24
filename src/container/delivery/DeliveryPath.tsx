@@ -54,7 +54,7 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
 );
 
 export const DeliveryPath = () => {
-  const { deliveryData } = useContext(DeliveryContext);
+ //const { deliveryData } = useContext(DeliveryContext);
 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
