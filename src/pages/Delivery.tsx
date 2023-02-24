@@ -333,9 +333,9 @@ function Delivery() {
                       dropDownState={dropDownState}
                     />
                     <SelectDropDown
-                      selectFrom={currentPath === 'delivery' ? DeliveryFilters : pickupFilters}
+                      selectFrom={currentPath === 'delivery' ? deliveryFilters : pickupFilters}
                       selectedItem={currentPath === 'delivery' ? deliveryFilteredBy : pickupFilteredBy}
-                      setSelectedItem={setDeliveryFilteredBy}
+                      setSelectedItem={currentPath === 'delivery' ? setDeliveryFilteredBy : setPickupFilteredBy}
                       isFilter
                       label={'filterBy'}
                       setDropDownState={setDropDownState}
