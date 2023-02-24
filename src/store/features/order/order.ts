@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AppState } from '../../app/store';
-import {
-  InProgress,
-  INPROGRESS,
-} from '../../../components/dashboard/order/OrdersData';
+import { InProgress, INPROGRESS } from '../../../container/order/OrdersData';
 
 export type RCDocsKeys = 'Bills of Lading' | 'Releases' | 'CAC' | 'Signed POA';
 export type ClearingKeys = 'Valuating' | 'Duty Processing' | 'Custom Releasing';
@@ -137,10 +134,7 @@ export const orderSlice = createSlice({
       return { ...state, RCDocsArr: updatedRCDocsArr };
     },
 
-    updateClearingDoc: (
-      state,
-      { payload }: { payload: UpdateDocsPayload }
-    ) => {
+    updateClearingDoc: (state, { payload }: { payload: UpdateDocsPayload }) => {
       const { orderId, content } = payload;
       const updatedClearingDoc = state.clearingDocsArr.reduce(
         (acc: IDocs[], doc) => {
@@ -198,8 +192,12 @@ export const orderSlice = createSlice({
   },
 });
 
-export const { updateRCDocs, updateClearingDoc, assignAgentHandler, assignClearingDocFieldAgent } =
-  orderSlice.actions;
+export const {
+  updateRCDocs,
+  updateClearingDoc,
+  assignAgentHandler,
+  assignClearingDocFieldAgent,
+} = orderSlice.actions;
 
 export const selectOrder = (state: AppState) => state.order;
 

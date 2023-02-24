@@ -13,7 +13,7 @@ import { GrClose } from 'react-icons/gr';
 import {
   generateRandomDate,
   generateRandomNum,
-} from '../components/dashboard/order/OrdersData';
+} from '../container/order/OrdersData';
 
 export interface PaymentsHistory {
   id: number;

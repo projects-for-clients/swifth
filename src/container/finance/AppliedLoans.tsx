@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { CreateFinanceContext, Finance } from '../../../pages/Finance';
+import { CreateFinanceContext, Finance } from '../../pages/Finance';
 
-const LoanRequests = () => {
+const AppliedLoans = () => {
   const financeDetails = useContext(CreateFinanceContext);
   const dialogRef = React.useRef<HTMLDialogElement | null>(null);
   const [detailsData, setDetailsData] = useState<Finance | null>(null);
@@ -19,14 +19,6 @@ const LoanRequests = () => {
       dialogRef.current.showModal();
     }
   };
-
-  const wantsToLoan =
-    detailsData?.wantsToLoan && Math.floor(detailsData.wantsToLoan * 0.1);
-
-  const totalPaidBack =
-    detailsData?.wantsToLoan &&
-    wantsToLoan &&
-    detailsData.wantsToLoan + wantsToLoan;
 
   return (
     <>
@@ -73,55 +65,56 @@ const LoanRequests = () => {
               </div>
             </section>
 
-            <section className=" grid gap-4 rounded-2xl">
-              <div>
-                <p>Requesting a loan of:</p>
-                <p className="text-[3.2rem] text-color-purple">
-                  {' '}
-                  <span className="text-color-purple-light">N</span>
-                  {detailsData?.wantsToLoan?.toLocaleString()}
-                </p>
-              </div>
-              <div className="border p-8 rounded-3xl bg-gray-100">
-                <div className="flex items-center justify-between">
-                  <span className="text-color-grey-4">
-                    Interest to be added (10%)
-                  </span>
-                  <p className=" text-color-purple">
-                    <span className="text-color-purple-light">N</span>
-                    {wantsToLoan?.toLocaleString()}
+            <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+              <>
+                <div
+                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
+                >
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                    <span>Dec 3, 2023</span>
+                    <span className="text-color-purple-2">Loan applied</span>
+                  </p>
+                  <p className="text-color-purple font-semibold ">
+                    <span>1,000,000</span>{' '}
                   </p>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-color-grey-4">
-                    Total to be paid back
-                  </span>
-                  <p className=" text-color-purple">
-                    <span className="text-color-purple-light">N</span>
-                    {totalPaidBack?.toLocaleString()}
+                <div
+                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
+                >
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                    <span>Dec 3, 2023</span>
+                    <span className="text-color-purple-2">
+                      Interest added (10%)
+                    </span>
+                  </p>
+                  <p className="text-color-purple font-semibold ">
+                    <span>100,000</span>{' '}
                   </p>
                 </div>
-              </div>
+                <div
+                  className={`flex justify-between p-8 cursor-pointer w-full items-center `}
+                >
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-start">
+                    <span>Total to be paid:</span>
+                    <span className="text-color-purple text-[1.6rem] font-semibold">
+                      Loan applied
+                    </span>
+                  </p>
+                  <p className="text-[1.4rem] text-color-purple-light grid justify-items-end">
+                    <span>Paid:</span>
+                    <span className="text-color-purple text-[1.6rem] font-semibold">
+                      740,000
+                    </span>
+                  </p>
+                </div>
+              </>
             </section>
           </main>
-          <div className="grid w-full absolute justify-center left-0 right-0 bottom-[3rem] px-[3rem] gap-8">
-            <p className="flex items-center gap-4">
-              <img src="/icons/info-circle.svg" alt=""/>
-              <span className='text-[1.4rem]'>
-
-              Approving loan immediately applies loan amount to registered
-              user's bill
-              </span>
-            </p>
-            <div className="flex items-center w-full justify-between gap-4">
-              <button className="btn border border-red-600 text-red-600 rounded-lg w-full">
-                Reject Loan
-              </button>
-              <button className="btn bg-green-600 text-white rounded-lg w-full">
-                Approve loan
-              </button>
-            </div>
-          </div>
+          <button className="flex w-full absolute justify-center left-0 right-0 bottom-[3rem] px-[3rem]">
+            <span className="border border-color-primary text-color-primary rounded-lg w-full py-4">
+              Continue
+            </span>
+          </button>
         </div>
       </dialog>
 
@@ -132,7 +125,7 @@ const LoanRequests = () => {
         }}
       >
         {financeData.map((item, i) => {
-          const { name, date, wantsToLoan } = item;
+          const { name, date, loanAndInterest, amountPaid } = item;
 
           return (
             <div
@@ -145,19 +138,27 @@ const LoanRequests = () => {
                   <p className="text-[1.6rem]">{name}</p>
                   <p className="text-color-purple-1 flex gap-1 font-medium items-center">
                     <span className="text-gray-500 text-[1.4rem] font-normal">
-                      Wants to Loan :
+                      Loan + Int :
                     </span>
-                    {wantsToLoan?.toLocaleString()}
+                    {loanAndInterest?.toLocaleString()}
                   </p>
                 </div>
 
-                <p className="text-gray-500 self-start">
-                  {date.toLocaleString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
-                </p>
+                <div className="grid gap-4">
+                  <p className="text-gray-500">
+                    {date.toLocaleString('en-GB', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </p>
+                  <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                    <span className="text-gray-500 text-[1.4rem] font-normal">
+                      Paid :
+                    </span>
+                    {amountPaid?.toLocaleString()}
+                  </p>
+                </div>
               </div>
             </div>
           );
@@ -167,4 +168,4 @@ const LoanRequests = () => {
   );
 };
 
-export default LoanRequests;
+export default AppliedLoans;

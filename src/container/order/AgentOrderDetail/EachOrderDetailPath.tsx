@@ -6,7 +6,7 @@ import {
   useContext,
   ChangeEvent,
 } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../store/app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../store/app/hooks';
 import {
   ClearingKeys,
   DocsContent,
@@ -14,8 +14,8 @@ import {
   selectOrder,
   updateClearingDoc,
   updateRCDocs,
-} from '../../../../store/features/order/order';
-import { getPhotoUri } from '../../../../utils/getPhotoUri';
+} from '../../../store/features/order/order';
+import { getPhotoUri } from '../../../utils/getPhotoUri';
 import { AgentOrderDetailContext } from './AgentOrderDetail';
 
 export const AgentClearing = () => {

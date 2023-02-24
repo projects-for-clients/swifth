@@ -8,8 +8,8 @@ import {
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { OrderHistoryPath } from '../../../pages/Orders';
-import CalenderSvg from '../../icons/Calender';
+import { OrderHistoryPath } from '../../pages/Orders';
+import CalenderSvg from '../../components/icons/Calender';
 import { INPROGRESS, InProgress, InProgressFilterBy } from './OrdersData';
 
 interface Props {

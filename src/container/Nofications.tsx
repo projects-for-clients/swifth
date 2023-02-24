@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { ShowDetails, SwitchPath } from './dashboard/Home';
+import { ShowDetails, SwitchPath } from './Home';
 
 interface AllNofications {
   id: number;
@@ -169,14 +169,12 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
   };
 
   useEffect(() => {
-
     if (toastDisplay === 'flex') {
       setTimeout(() => {
         setToastDisplay('hidden');
       }, 3000);
     }
-
-  }, [toastDisplay])
+  }, [toastDisplay]);
 
   return (
     <>
@@ -186,9 +184,14 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
           gridTemplateRows: '1.2fr 1fr',
         }}
       >
-        <div className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}>
-         <span className='w-full text-center'>Quote Sent!</span>
-         <GrClose onClick={() => setToastDisplay('hidden')} className='cursor-pointer'/>
+        <div
+          className={`absolute rounded-3xl bg-green-50 border border-green-300 py-8 px-4 text-green-700 flex items-center w-[36rem] mx-auto top-4 left-0 right-0 ${toastDisplay}`}
+        >
+          <span className="w-full text-center">Quote Sent!</span>
+          <GrClose
+            onClick={() => setToastDisplay('hidden')}
+            className="cursor-pointer"
+          />
         </div>
         <div onClick={closeModal}>&nbsp;</div>
         <form
@@ -273,7 +276,6 @@ export const QuoteRequestsDetails: FC<IQuoteRequestsProps> = ({
       </div>
     </>
   );
-
 };
 
 export const AllNofications = () => {

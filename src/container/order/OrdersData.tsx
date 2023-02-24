@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction } from 'react';
-import { DialogType } from '../../../pages/Orders';
+import { DialogType } from '../../pages/Orders';
 
 export function generateRandomDate() {
   const today = new Date();

@@ -11,12 +11,12 @@ import {
   InProgressView,
   WAITLIST,
   WaitlistView,
-} from '../components/dashboard/order/OrdersData';
+} from '../container/order/OrdersData';
 import {
   ListOrderHistory,
   OrderHistoryDetail,
-} from '../components/dashboard/order/OrderHistory';
-import EachOrderDetail from '../components/dashboard/order/AgentOrderDetail/AgentOrderDetail';
+} from '../container/order/OrderHistory';
+import EachOrderDetail from '../container/order/AgentOrderDetail/AgentOrderDetail';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -267,9 +267,7 @@ function orders() {
                     </div>
                   </div>
                 </section>
-                <button
-                  className="flex w-full items-center"
-                >
+                <button className="flex w-full items-center">
                   <span className="bg-color-primary rounded-lg text-white w-full py-4">
                     Create Order
                   </span>

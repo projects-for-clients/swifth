@@ -7,8 +7,8 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import { DialogType } from '../../../../pages/Orders';
-import { UpdateDocsPayload } from '../../../../store/features/order/order';
+import { DialogType } from '../../../pages/Orders';
+import { UpdateDocsPayload } from '../../../store/features/order/order';
 import { OrderHistoryDetail } from '../OrderHistory';
 import { InProgress } from '../OrdersData';
 import AssignAgentRender from './AssignAgentRender';

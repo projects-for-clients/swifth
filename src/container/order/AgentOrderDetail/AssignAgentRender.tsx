@@ -1,11 +1,11 @@
 import { useState, useEffect, ChangeEvent, useContext } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { useAppDispatch } from '../../../../store/app/hooks';
+import { useAppDispatch } from '../../../store/app/hooks';
 import {
   assignAgentHandler,
   assignClearingDocFieldAgent,
-} from '../../../../store/features/order/order';
+} from '../../../store/features/order/order';
 import { AgentOrderDetailContext } from './AgentOrderDetail';
 
 const RCDocAgents = ['James Ibori', 'Kunle Afolayan', 'Femi Adebayo'];
@@ -18,8 +18,12 @@ const clearingDocAgents = [
 const AssignAgentRender = () => {
   const agentDetailContext = useContext(AgentOrderDetailContext);
 
-  const { setShowAssignAgentView, orderId, showAssignAgentView, updateDocsPayload } =
-    agentDetailContext;
+  const {
+    setShowAssignAgentView,
+    orderId,
+    showAssignAgentView,
+    updateDocsPayload,
+  } = agentDetailContext;
 
   const dispatch = useAppDispatch();
 
@@ -45,15 +49,15 @@ const AssignAgentRender = () => {
       );
     } else {
       dispatch(
-      assignClearingDocFieldAgent({
-        orderId,
-        content: {
-          name: updateDocsPayload.content.name,
-          fieldAgent: selected,
-          submitted: true,
-          status: 'Approved'
-        },
-      })
+        assignClearingDocFieldAgent({
+          orderId,
+          content: {
+            name: updateDocsPayload.content.name,
+            fieldAgent: selected,
+            submitted: true,
+            status: 'Approved',
+          },
+        })
       );
     }
     setToastDisplay('flex');

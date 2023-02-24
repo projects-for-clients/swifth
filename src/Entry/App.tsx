@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
-import DashboardHome from '../container/dashboard/Home';
+import DashboardHome from '../container/Home';
 import OnBoarding from '../container/Onboarding';
 import Orders from '../pages/Orders';
 import Payments from '../pages/Payments';
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <div className='text-[1.6rem]'>
+    <div className="text-[1.6rem]">
       <RouterProvider router={router} />;
     </div>
   );

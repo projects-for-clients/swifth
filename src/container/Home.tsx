@@ -1,26 +1,26 @@
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { BsArrowRight } from 'react-icons/bs';
 
-import Header from '../../components/dashboard/Header';
-import FinanceSvg from '../../components/icons/sidebar/financeSvg';
-import EllipseSvg from '../../components/icons/ellipseSvg';
-import CancelSvg from '../../components/icons/cancelSvg';
-import CheckmarkSvg from '../../components/icons/checkmarkSvg';
-import AnalyticsSvg from '../../components/icons/analyticsSvg';
-import BoxTimeSvg from '../../components/icons/boxTimeSvg';
-import MoneysSvg from '../../components/icons/moneysSvg';
-import TeamsSvg from '../../components/icons/teamsSvg';
-import Orders from '../../components/icons/sidebar/orders';
+import Header from '../components/dashboard/Header';
+import FinanceSvg from '../components/icons/sidebar/financeSvg';
+import EllipseSvg from '../components/icons/ellipseSvg';
+import CancelSvg from '../components/icons/cancelSvg';
+import CheckmarkSvg from '../components/icons/checkmarkSvg';
+import AnalyticsSvg from '../components/icons/analyticsSvg';
+import BoxTimeSvg from '../components/icons/boxTimeSvg';
+import MoneysSvg from '../components/icons/moneysSvg';
+import TeamsSvg from '../components/icons/teamsSvg';
+import Orders from '../components/icons/sidebar/orders';
 import { useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../store/app/hooks';
-import { selectUser } from '../../store/features/user/user';
-import AnalyticsChart from '../../components/charts/AnalyticsChart';
+import { useAppSelector } from '../store/app/hooks';
+import { selectUser } from '../store/features/user/user';
+import AnalyticsChart from '../components/charts/AnalyticsChart';
 import {
   AllNofications,
   QuoteRequests,
   QuoteRequestsDetails,
-} from '../Nofications';
+} from './Nofications';
 
 export type SwitchPath = 'all' | 'quoteRequests';
 export type ShowDetails = {

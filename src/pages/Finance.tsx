@@ -8,9 +8,9 @@ import {
   FormEvent,
 } from 'react';
 
-import { generateRandomDate } from '../components/dashboard/order/OrdersData';
-import AppliedLoans from '../container/dashboard/finance/AppliedLoans';
-import LoanRequests from '../container/dashboard/finance/LoanRequests';
+import { generateRandomDate } from '../container/order/OrdersData';
+import AppliedLoans from '../container/finance/AppliedLoans';
+import LoanRequests from '../container/finance/LoanRequests';
 
 export interface FinanceHistory {
   id: number;
@@ -137,7 +137,6 @@ function Finance() {
                 <button
                   className="w-full btn border border-color-primary text-color-primary rounded-2xl"
                   onClick={() => handleCloseDialog()}
-
                 >
                   Save
                 </button>
