@@ -50,48 +50,47 @@ export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
 });
 
 export const PickupPath = () => {
-  //const { pickupData } = useContext(DeliveryContext);
+  const { pickupData } = useContext(DeliveryContext);
 
   return (
-    <></>
-    // <div
-    //   className="grid mt-[5rem] gap-10"
-    //   style={{
-    //     gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
-    //   }}
-    // >
-    //   {pickupData.map((item, i) => {
-    //     const { name, description, date, tag } = item;
+    <div
+      className="grid mt-[5rem] gap-10"
+      style={{
+        gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+      }}
+    >
+      {pickupData.map((item, i) => {
+        const { name, description, date, tag } = item;
 
-    //     return (
-    //       <div
-    //         className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
-    //         key={i}
-    //       >
-    //         <div>
-    //           <p className="text-[1.6rem]">{name}</p>
-    //           <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
-    //             {description}
-    //           </p>
-    //         </div>
+        return (
+          <div
+            className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
+            key={i}
+          >
+            <div>
+              <p className="text-[1.6rem]">{name}</p>
+              <p className="text-[1.4rem] whitespace-nowrap text-ellipsis overflow-hidden text-gray-500 max-w-[20rem]">
+                {description}
+              </p>
+            </div>
 
-    //         <div className="text-[1.2rem] flex items-center justify-between pt-8">
-    //           <p className="text-gray-500">
-    //             {date.toLocaleString('en-GB', {
-    //               day: 'numeric',
-    //               month: 'short',
-    //               year: 'numeric',
-    //             })}
-    //           </p>
-    //           <p
-    //             className={`py-1.5 px-4 rounded-2xl capitalize ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
-    //           >
-    //             {tag}
-    //           </p>
-    //         </div>
-    //       </div>
-    //     );
-    //   })}
-    // </div>
+            <div className="text-[1.2rem] flex items-center justify-between pt-8">
+              <p className="text-gray-500">
+                {date.toLocaleString('en-GB', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                })}
+              </p>
+              <p
+                className={`py-1.5 px-4 rounded-2xl capitalize ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
+              >
+                {tag}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 };

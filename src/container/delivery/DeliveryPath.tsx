@@ -54,11 +54,13 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
 );
 
 function DeliveryPath () {
-// const { deliveryData } = useContext(DeliveryContext);
+const { deliveryData } = useContext(DeliveryContext);
 
-//const {name} = useContext(DeliveryContext);
 
-  console.log("sdfsdfh")
+
+  useEffect(() => {
+    console.log({ deliveryData })
+  }, [deliveryData])
 
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
@@ -100,7 +102,7 @@ function DeliveryPath () {
             </section>
           </div>
         </dialog>
-        {DELIVERY_DATA.map((item, i) => {
+        {deliveryData.map((item, i) => {
           const { name, description, date, tag } = item;
 
           return (
