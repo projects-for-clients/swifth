@@ -154,11 +154,10 @@ function Delivery() {
     pickup: <PickupPath />,
   };
 
-  
 
   return (
     <>
-      
+
       <DeliveryContext.Provider
         value={{
           openHistoryDialog,
@@ -167,7 +166,7 @@ function Delivery() {
         }}
       >
         <Header title="Delivery" />
-        
+
         <main className="text-[1.6rem]">
           <section className="relative flex items-center w-[45rem] mx-auto">
             <input
