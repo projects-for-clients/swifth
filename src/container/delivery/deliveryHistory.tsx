@@ -98,18 +98,18 @@ const DeliveryHistory = () => {
     setSearchDates({ from: null, to: null });
   };
 
-   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-   const handleCloseDialog = (): void => {
-     if ( dialogRef.current) {
-       dialogRef.current.close();
-     }
-   };
-   const handleOpenDialog = () => {
-     if ( dialogRef.current) {
-       dialogRef.current.showModal();
-     }
-   };
+  const handleCloseDialog = (): void => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+  const handleOpenDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
 
   return (
     <>
@@ -223,12 +223,7 @@ const DeliveryHistory = () => {
               <div
                 className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                 key={i}
-                onClick={() =>
-                  setDeliveryHistoryPath({
-                    path: 'detail',
-                    id,
-                  })
-                }
+                onClick={() => handleOpenDialog()}
               >
                 <div>
                   <p className="text-[1.6rem]">{name}</p>
