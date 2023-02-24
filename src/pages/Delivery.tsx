@@ -178,9 +178,7 @@ function Delivery() {
     handleOpenDialog('eachOrder');
   };
 
-  const orderHistoryPaths: Record<string, JSX.Element> = {
-    list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath} />,
-  };
+
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     delivery: <DeliveryPath />,
@@ -199,24 +197,7 @@ function Delivery() {
       <Header title="Delivery" />
 
       
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
-          <input type="text" className="absolute top-0 w-0" />
-          <figure className="flex justify-end">
-            <img
-              src="/icons/close.svg"
-              alt=""
-              className="w-[3rem] cursor-pointer"
-              onClick={() => handleCloseDialog('orderHistory')}
-            />
-          </figure>
-
-          <section className="h-full">
-            <h3 className="text-[2.4rem] mb-10">Order history</h3>
-            {orderHistoryPaths[orderHistoryPath.path]}
-          </section>
-        </div>
-      </dialog>
+     
       <main className="text-[1.6rem]">
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input

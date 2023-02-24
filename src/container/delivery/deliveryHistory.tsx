@@ -101,6 +101,23 @@ const DeliveryHistory = () => {
 
   return (
     <>
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
+          <input type="text" className="absolute top-0 w-0" />
+          <figure className="flex justify-end">
+            <img
+              src="/icons/close.svg"
+              alt=""
+              className="w-[3rem] cursor-pointer"
+              onClick={() => handleCloseDialog('orderHistory')}
+            />
+          </figure>
+
+          <section className="h-full">
+            <h3 className="text-[2.4rem] mb-10">Order history</h3>
+          </section>
+        </div>
+      </dialog>
       <div className="flex justify-between gap-8 items-center">
         <div className="grid gap-4 w-full">
           <label className="text-[1.4rem]">From</label>
