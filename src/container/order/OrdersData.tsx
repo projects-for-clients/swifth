@@ -304,7 +304,6 @@ export const InProgressView: FC<{
         gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
       }}
     >
-      <DeliveryHistory />
 
       {inProgressData.map((item, i) => {
         const { name, description, date, tag } = item;
