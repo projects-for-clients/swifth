@@ -15,17 +15,16 @@ import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
-import EachOrderDetail from '../container/order/AgentOrderDetail/AgentOrderDetail';
-import { Delivery, DeliveryData, DeliveryFilterBy, DeliveryView, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
-import { Waitlist, WAITLIST, WaitlistView } from '../container/order/OrdersData';
-import { PickupData } from '../container/delivery/PickupPath';
+import EachDeliveryDetail from '../container/order/AgentDeliveryDetail/AgentDeliveryDetail';
+import { DeliveryData, DeliveryFilterBy, DeliveryView, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
+import { PickupData, PICKUP_DATA } from '../container/delivery/PickupPath';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
   id?: number | null;
 };
 
-export type DialogType = 'orderHistory' | 'eachOrder' | 'waitlist';
+export type DialogType = 'orderHistory' | 'eachOrder' | 'pickup';
 
 export type SortBy = 'Most Recent' | 'A-Z';
 export type ShowDetails = {
@@ -33,7 +32,7 @@ export type ShowDetails = {
   id?: number | null;
 };
 
-type waitlistFilterBy = 'Quote Sent' | 'Submitted';
+type pickupFilterBy = 'Quote Sent' | 'Submitted';
 
 export interface DropDownState {
   sortBy: boolean;
@@ -41,7 +40,8 @@ export interface DropDownState {
 }
 
 export interface DeliveryContext {
-  openDeliveryDetail: (item: Delivery) => void;
+  openDeliveryDetail: (item: DeliveryData[]) => void;
+  openPickupDetail: (item: PickupData[]) => void;
   deliveryData: DeliveryData[];
   pickupData: PickupData[]
 }
@@ -56,10 +56,10 @@ function Delivery() {
     'delivery Pending',
   ];
 
-  const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
+  const pickupFilters: pickupFilterBy[] = ['Quote Sent', 'Submitted'];
 
   const [deliveryFilteredBy, setDeliveryFilteredBy] = useState('');
-  const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
+  const [pickupFilterBy, setPickupFilterBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
   );
@@ -74,11 +74,11 @@ function Delivery() {
   });
   const [search, setSearch] = useState('');
 
-  const [deliveryData, setDeliveryData] = useState<Delivery[]>([]);
-  const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
-  const [waitlistItemDetails, setWaitlistItemDetails] =
-    useState<Waitlist | null>(null);
-  const [OrderDetail, setOrderDetail] = useState<Delivery>(null as any);
+  const [deliveryData, setDeliveryData] = useState<DeliveryData[]>([]);
+  const [pickupData, setPickupData] = useState<PickupData[]>([]);
+  const [pickupDetail, setPickupDetail] =
+    useState<PickupData | null>(null);
+  const [DeliveryDetail, setDeliveryDetail] = useState<DeliveryData>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -90,10 +90,10 @@ function Delivery() {
       );
       setDeliveryData(filtered);
     } else {
-      const filtered = WAITLIST.filter((item) =>
+      const filtered = PICKUP_DATA.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
-      setWaitlistData(filtered);
+      setPickupData(filtered);
     }
   };
 
@@ -106,25 +106,25 @@ function Delivery() {
       return setDeliveryData(() => [...filtered]);
     }
 
-    if (waitlistFilterBy && currentPath === 'waitlist') {
-      const filtered = WAITLIST.filter((item) => {
-        return item.submitted === (waitlistFilterBy === 'Submitted');
+    if (pickupFilterBy && currentPath === 'pickup') {
+      const filtered = PICKUP_DATA.filter((item) => {
+        return item.submitted === (pickupFilterBy === 'Submitted');
       });
 
-      return setWaitlistData(() => [...filtered]);
+      return setPickupData(() => [...filtered]);
     }
-  }, [deliveryFilteredBy, waitlistFilterBy]);
+  }, [deliveryFilteredBy, pickupFilterBy]);
 
   useEffect(() => {
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = [...Delivery].sort((a, b) => {
+        const sortedNames = [...deliveryData].sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
         return setDeliveryData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = [...Delivery].sort((a, b) => {
+        const sortedDates = [...deliveryData].sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
@@ -133,19 +133,19 @@ function Delivery() {
     }
   }, [selectedSort]);
 
-  const handleClearFilter = (toClear: 'delivery' | 'waitlist') => {
+  const handleClearFilter = (toClear: 'delivery' | 'pickup') => {
     if (toClear === 'delivery') {
       setDeliveryFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
     } else {
-      setWaitlistFilterBy('');
+      setPickupFilterBy('');
     }
   };
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const waitListDialogRef = useRef<HTMLDialogElement | null>(null);
+  const pickupDialogRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = (type: DialogType): void => {
     if (type === 'orderHistory' && dialogRef.current) {
@@ -156,11 +156,11 @@ function Delivery() {
       eachOrderDialogRef.current.close();
     }
 
-    if (type === 'waitlist' && waitListDialogRef.current) {
-      waitListDialogRef.current.close();
+    if (type === 'pickup' && pickupDialogRef.current) {
+      pickupDialogRef.current.close();
     }
   };
-  const handleOpenDialog = (type: DialogType, item?: Waitlist) => {
+  const handleOpenDialog = (type: DialogType) => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.showModal();
     }
@@ -169,14 +169,18 @@ function Delivery() {
       eachOrderDialogRef.current.showModal();
     }
 
-    if (type === 'waitlist' && waitListDialogRef.current) {
-      waitListDialogRef.current.showModal();
-      item && setWaitlistItemDetails(item);
+    if (type === 'pickup' && pickupDialogRef.current) {
+      pickupDialogRef.current.showModal();
     }
   };
 
-  const openDeliveryDetail = (item: Delivery) => {
-    setOrderDetail(item);
+  const openDeliveryDetail = (item: DeliveryData) => {
+    setDeliveryDetail(item);
+    handleOpenDialog('eachOrder');
+  };
+
+  const openPickupDetail = (item: PickupData) => {
+    setPickupDetail(item);
     handleOpenDialog('eachOrder');
   };
 
@@ -188,8 +192,8 @@ function Delivery() {
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     delivery: <DeliveryView />,
     pickup: (
-      <WaitlistView
-        waitlistData={waitlistData}
+      <PickupView
+        pickupData={pickupData}
         handleOpenDialog={handleOpenDialog}
       />
     ),
@@ -198,10 +202,12 @@ function Delivery() {
   return (
     <DeliveryContext.Provider value={{
       openDeliveryDetail,
+      openPickupDetail,
+      pickupData,
       deliveryData
     }}>
       <Header title="Delivery" />
-      <dialog className="dialog relative text-[1.6rem]" ref={waitListDialogRef}>
+      <dialog className="dialog relative text-[1.6rem]" ref={pickupDialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
@@ -209,7 +215,7 @@ function Delivery() {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              onClick={() => handleCloseDialog('waitlist')}
+              onClick={() => handleCloseDialog('pickup')}
             />
           </figure>
 
@@ -218,7 +224,7 @@ function Delivery() {
               <main className="grid gap-16 ">
                 <div className="grid justify-start justify-items-start gap-4">
                   <p className="text-[2rem] text-gray-600 text-center">
-                    {waitlistItemDetails?.name}
+                    {pickupDetail?.name}
                   </p>
                 </div>
                 <section
@@ -296,8 +302,8 @@ function Delivery() {
           </figure>
 
           <section className="h-full">
-            <EachOrderDetail
-              orderDetail={OrderDetail}
+            <EachDeliveryDetail
+              deliveryDetail={DeliveryDetail}
               handleCloseDialog={() => handleCloseDialog('eachOrder')}
             />
           </section>
@@ -355,18 +361,18 @@ function Delivery() {
             <input
               type="radio"
               name="notification"
-              id="waitlist"
+              id="pickup"
               className="hidden"
-              checked={currentPath === 'waitlist'}
-              onChange={() => setCurrentPath('waitlist')}
+              checked={currentPath === 'pickup'}
+              onChange={() => setCurrentPath('pickup')}
             />
-            <label htmlFor="waitlist" className="capitalize text-[1.8rem]">
-              Waitlist
+            <label htmlFor="pickup" className="capitalize text-[1.8rem]">
+              Pickup
             </label>
           </div>
 
           {(currentPath === 'delivery' && deliveryData.length < 1) ||
-          (currentPath === 'waitlist' && waitlistData.length < 1) ? (
+          (currentPath === 'pickup' && pickupData.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
@@ -428,15 +434,15 @@ function Delivery() {
                   ) : (
                     <>
                       <SelectDropDown
-                        selectFrom={waitlistFilters}
-                        selectedItem={waitlistFilterBy}
-                        setSelectedItem={setWaitlistFilterBy}
+                        selectFrom={pickupFilters}
+                        selectedItem={pickupFilterBy}
+                        setSelectedItem={setPickupFilterBy}
                         isFilter
                       />
-                      {waitlistFilterBy && (
+                      {pickupFilterBy && (
                         <GrClose
                           className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('waitlist')}
+                          onClick={() => handleClearFilter('pickup')}
                         />
                       )}
                     </>
