@@ -16,7 +16,7 @@ import { InProgress, INPROGRESS } from '../order/OrdersData';
 import { DeliveryData } from './DeliveryPath';
 
 
-export const ListOrderHistory = () => {
+const DeliveryHistory = () => {
 
     const { deliveryData } = useContext(DeliveryContext);
 
