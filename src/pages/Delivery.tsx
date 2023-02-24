@@ -145,9 +145,6 @@ function Delivery() {
     }
   };
 
- 
-
-
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     delivery: <DeliveryPath />,
     pickup: <PickupPath />,

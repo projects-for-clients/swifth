@@ -14,7 +14,6 @@ import CalenderSvg from '../../components/icons/Calender';
 import { DeliveryContext } from '../../pages/Delivery';
 import { nanoid } from 'nanoid';
 
-
 export function generateRandomDate() {
   const today = new Date();
   const nextYear = new Date(today.getFullYear() + 1, 0, 1);
@@ -47,9 +46,9 @@ export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
 );
 
 const DeliveryHistory = () => {
-    
-
-    const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(DELIVERY_HISTORY_DATA);
+  const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
+    DELIVERY_HISTORY_DATA
+  );
 
   useEffect(() => {
     const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
@@ -98,6 +97,19 @@ const DeliveryHistory = () => {
 
     setSearchDates({ from: null, to: null });
   };
+
+   const dialogRef = useRef<HTMLDialogElement | null>(null);
+
+   const handleCloseDialog = (): void => {
+     if ( dialogRef.current) {
+       dialogRef.current.close();
+     }
+   };
+   const handleOpenDialog = () => {
+     if ( dialogRef.current) {
+       dialogRef.current.showModal();
+     }
+   };
 
   return (
     <>
@@ -253,6 +265,4 @@ const DeliveryHistory = () => {
   );
 };
 
-
 export default DeliveryHistory;
-
