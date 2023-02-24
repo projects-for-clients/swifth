@@ -47,10 +47,7 @@ export const DELIVERY: Delivery[] = Array.from({ length: 10 }, (_, i) => {
   };
 });
 
-export const DeliveryView: FC<{
-  deliveryData: Delivery[];
-  openOrderDetail: (item: Delivery) => void;
-}> = ({ deliveryData, openOrderDetail }) => {
+export const DeliveryView = () => {
   return (
     <div
       className="grid mt-[5rem] gap-10"

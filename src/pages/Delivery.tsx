@@ -55,7 +55,7 @@ function Delivery() {
 
   const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
 
-  const [deliveryDeliveryFilteredBy, setDeliveryFilteredBy] = useState('');
+  const [deliveryFilteredBy, setDeliveryFilteredBy] = useState('');
   const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
@@ -65,13 +65,13 @@ function Delivery() {
     filterBy: false,
   });
 
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('delivered');
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('delivery');
   const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
     path: 'list',
   });
   const [search, setSearch] = useState('');
 
-  const [deliveryDeliveryData, setDeliveryData] = useState<Delivery[]>([]);
+  const [deliveryData, setDeliveryData] = useState<Delivery[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
   const [waitlistItemDetails, setWaitlistItemDetails] =
     useState<Waitlist | null>(null);
@@ -81,8 +81,8 @@ function Delivery() {
     const { value } = e.target;
     setSearch(value);
 
-    if (currentPath === 'deliveryDelivery') {
-      const filtered = DELIVERYDelivery.filter((item) =>
+    if (currentPath === 'delivery') {
+      const filtered = delivery.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
       setDeliveryData(filtered);
@@ -95,9 +95,9 @@ function Delivery() {
   };
 
   useEffect(() => {
-    if (deliveryDeliveryFilteredBy && currentPath === 'deliveryDelivery') {
-      const filtered = DELIVERYDelivery.filter(
-        (item) => item.tag === deliveryDeliveryFilteredBy
+    if (deliveryFilteredBy && currentPath === 'delivery') {
+      const filtered = delivery.filter(
+        (item) => item.tag === deliveryFilteredBy
       );
 
       return setDeliveryData(() => [...filtered]);
@@ -110,18 +110,18 @@ function Delivery() {
 
       return setWaitlistData(() => [...filtered]);
     }
-  }, [deliveryDeliveryFilteredBy, waitlistFilterBy]);
+  }, [deliveryFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = [...DELIVERYDelivery].sort((a, b) => {
+        const sortedNames = [...Delivery].sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
         return setDeliveryData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = [...DELIVERYDelivery].sort((a, b) => {
+        const sortedDates = [...Delivery].sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
@@ -130,8 +130,8 @@ function Delivery() {
     }
   }, [selectedSort]);
 
-  const handleClearFilter = (toClear: 'deliveryDelivery' | 'waitlist') => {
-    if (toClear === 'deliveryDelivery') {
+  const handleClearFilter = (toClear: 'delivery' | 'waitlist') => {
+    if (toClear === 'delivery') {
       setDeliveryFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
     } else {
@@ -339,12 +339,12 @@ function Delivery() {
             <input
               type="radio"
               name="notification"
-              id="deliveryDelivery"
+              id="delivery"
               className="hidden"
-              onChange={() => setCurrentPath('deliveryDelivery')}
-              checked={currentPath === 'deliveryDelivery'}
+              onChange={() => setCurrentPath('delivery')}
+              checked={currentPath === 'delivery'}
             />
-            <label htmlFor="deliveryDelivery" className="capitalize text-[1.8rem]">
+            <label htmlFor="delivery" className="capitalize text-[1.8rem]">
               In Progress
             </label>
 
@@ -361,12 +361,12 @@ function Delivery() {
             </label>
           </div>
 
-          {(currentPath === 'deliveryDelivery' && deliveryDeliveryData.length < 1) ||
+          {(currentPath === 'delivery' && deliveryData.length < 1) ||
           (currentPath === 'waitlist' && waitlistData.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                {currentPath === 'deliveryDelivery' ? (
+                {currentPath === 'delivery' ? (
                   <span>
                     Delivery initiated from the waiting list would appear here
                   </span>
@@ -393,7 +393,7 @@ function Delivery() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
-                  {currentPath === 'deliveryDelivery' && (
+                  {currentPath === 'delivery' && (
                     <SelectDropDown
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
@@ -403,21 +403,21 @@ function Delivery() {
                       dropDownState={dropDownState}
                     />
                   )}
-                  {currentPath === 'deliveryDelivery' ? (
+                  {currentPath === 'delivery' ? (
                     <>
                       <SelectDropDown
                         selectFrom={DeliveryFilters}
-                        selectedItem={deliveryDeliveryFilteredBy}
+                        selectedItem={deliveryFilteredBy}
                         setSelectedItem={setDeliveryFilteredBy}
                         isFilter
                         label={'filterBy'}
                         setDropDownState={setDropDownState}
                         dropDownState={dropDownState}
                       />
-                      {deliveryDeliveryFilteredBy && (
+                      {deliveryFilteredBy && (
                         <GrClose
                           className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('deliveryDelivery')}
+                          onClick={() => handleClearFilter('delivery')}
                         />
                       )}
                     </>
