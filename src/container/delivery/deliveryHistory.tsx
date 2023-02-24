@@ -121,7 +121,7 @@ const DeliveryHistory = () => {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              onClick={() => handleCloseDialog('orderHistory')}
+              onClick={() => handleCloseDialog()}
             />
           </figure>
 
