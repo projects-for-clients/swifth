@@ -86,6 +86,11 @@ function Delivery() {
     null as any
   );
 
+  useEffect(() => {
+    setDeliveryData(() => [...DELIVERY_DATA]);
+    setPickupData(() => [...PICKUP_DATA]);
+  }, [])
+
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
@@ -149,7 +154,7 @@ function Delivery() {
   };
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
-  const eachOrderDialogRef = useRef<HTMLDialogElement | null>(null);
+  const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
   const pickupDialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -158,8 +163,8 @@ function Delivery() {
       dialogRef.current.close();
     }
 
-    if (type === 'eachOrder' && eachOrderDialogRef.current) {
-      eachOrderDialogRef.current.close();
+    if (type === 'eachOrder' && dialogDetailRef.current) {
+      dialogDetailRef.current.close();
     }
 
     if (type === 'pickup' && pickupDialogRef.current) {
@@ -171,8 +176,8 @@ function Delivery() {
       dialogRef.current.showModal();
     }
 
-    if (type === 'eachOrder' && eachOrderDialogRef.current) {
-      eachOrderDialogRef.current.showModal();
+    if (type === 'eachOrder' && dialogDetailRef.current) {
+      dialogDetailRef.current.showModal();
     }
 
     if (type === 'pickup' && pickupDialogRef.current) {
@@ -200,6 +205,7 @@ function Delivery() {
     pickup: <PickupPath />,
   };
 
+  console.log({deliveryData})
   return (
     <DeliveryContext.Provider
       value={{
@@ -210,88 +216,10 @@ function Delivery() {
       }}
     >
       <Header title="Delivery" />
-      <dialog className="dialog relative text-[1.6rem]" ref={pickupDialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
-          <input type="text" className="absolute top-0 w-0" />
-          <figure className="flex justify-end">
-            <img
-              src="/icons/close.svg"
-              alt=""
-              className="w-[3rem] cursor-pointer"
-              onClick={() => handleCloseDialog('pickup')}
-            />
-          </figure>
-
-          <section className="h-full">
-            <div className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10">
-              <main className="grid gap-16 ">
-                <div className="grid justify-start justify-items-start gap-4">
-                  <p className="text-[2rem] text-gray-600 text-center">
-                    {pickupDetail?.name}
-                  </p>
-                </div>
-                <section
-                  className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
-                  style={{
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
-                  }}
-                >
-                  <div>
-                    <p className=" text-gray-400">Car Brand</p>
-                    <p className=" text-gray-600">Toyota</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Car Year</p>
-                    <p className=" text-gray-600">2022</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Car Model</p>
-                    <p className=" text-gray-600">Camry</p>
-                  </div>
-                  <div>
-                    <p className=" text-gray-400">Car Trim</p>
-                    <p className=" text-gray-600">XLE</p>
-                  </div>
-                </section>
-                <section className="grid gap-4 rounded-2xl">
-                  <p className="text-gray-500 font-semibold text-[1.8rem]">
-                    Documents Submitted
-                  </p>
-                  <div className={`grid gap-4`}>
-                    <p className=" text-gray-500">Bills of Lading</p>
-                    <p className=" text-gray-500">Releases</p>
-                    <p className=" text-gray-500">CAC</p>
-                    <p className=" text-gray-500">Signed POA</p>
-                  </div>
-                </section>
-                <section className="grid gap-4 rounded-2xl">
-                  <p className="text-gray-500 font-medium text-[1.8rem]">
-                    Payments
-                  </p>
-                  <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
-                    <p className="text-[1.8rem] text-gray-500">ICOC</p>
-                    <div>
-                      <p className="text-color-purple-1 flex gap-1 font-medium items-center">
-                        <span className="text-gray-500">NGN</span>
-                        {`230000`.toLocaleString()}
-                      </p>
-                      <p className="text-[1.4rem] text-gray-500">Dec 9, 2023</p>
-                    </div>
-                  </div>
-                </section>
-                <button className="flex w-full items-center">
-                  <span className="bg-color-primary rounded-lg text-white w-full py-4">
-                    Create Order
-                  </span>
-                </button>{' '}
-              </main>
-            </div>
-          </section>
-        </div>
-      </dialog>
+     
       <dialog
         className="dialog relative text-[1.6rem]"
-        ref={eachOrderDialogRef}
+        ref={dialogDetailRef}
       >
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
