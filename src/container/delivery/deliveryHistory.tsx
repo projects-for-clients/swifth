@@ -46,6 +46,8 @@ export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
 );
 
 const DeliveryHistory = () => {
+    const { openHistoryDialog } = useContext(DeliveryContext);
+
   const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
     DELIVERY_HISTORY_DATA
   );
@@ -110,6 +112,12 @@ const DeliveryHistory = () => {
       dialogRef.current.showModal();
     }
   };
+
+  useEffect(() => {
+    if (openHistoryDialog) {
+      handleOpenDialog();
+    }
+  }, [openHistoryDialog])
 
   return (
     <>
