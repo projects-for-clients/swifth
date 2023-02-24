@@ -61,6 +61,7 @@ function Delivery() {
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
   );
+  const [openHistoryDialog, setOpenHistoryDialog] = useState(false);
   const [dropDownState, setDropDownState] = useState<DropDownState>({
     sortBy: false,
     filterBy: false,
