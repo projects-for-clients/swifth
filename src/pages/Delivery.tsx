@@ -51,6 +51,7 @@ export interface DeliveryContext {
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
 
+
 function Delivery() {
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
@@ -77,10 +78,10 @@ function Delivery() {
   const [pickupData, setPickupData] = useState<PickupData[]>([]);
 
 
-  useEffect(() => {
-    setDeliveryData(() => [...DELIVERY_DATA]);
-    setPickupData(() => [...PICKUP_DATA]);
-  }, []);
+  // useEffect(() => {
+  //   setDeliveryData(() => [...DELIVERY_DATA]);
+  //   setPickupData(() => [...PICKUP_DATA]);
+  // }, []);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -161,7 +162,8 @@ function Delivery() {
     >
       <Header title="Delivery" />
 
-      <DeliveryHistory/>
+
+      {/* <DeliveryHistory/> */}
      
       <main className="text-[1.6rem]">
         <section className="relative flex items-center w-[45rem] mx-auto">

@@ -124,6 +124,7 @@ function Payments() {
     setShowAccordion((prev) => !prev);
   };
 
+
   return (
     <>
       <Header title="Payments" />
