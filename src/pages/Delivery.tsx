@@ -145,6 +145,10 @@ function Delivery() {
     }
   };
 
+  const openHistoryDialog = () => {
+    
+  }
+
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     delivery: <DeliveryPath />,
     pickup: <PickupPath />,
