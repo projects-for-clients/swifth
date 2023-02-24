@@ -55,6 +55,35 @@ export const DeliveryPath = () => {
 
   const {deliveryData, openDeliveryDetail} = useContext(DeliveryContext)
 
+  const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
+
+  const handleCloseDialog = (type: DialogType): void => {
+    if (type === 'orderHistory' && dialogRef.current) {
+      dialogRef.current.close();
+    }
+
+    if (type === 'eachOrder' && dialogDetailRef.current) {
+      dialogDetailRef.current.close();
+    }
+
+    if (type === 'pickup' && pickupDialogRef.current) {
+      pickupDialogRef.current.close();
+    }
+  };
+  const handleOpenDialog = (type: DialogType) => {
+    if (type === 'orderHistory' && dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+
+    if (type === 'eachOrder' && dialogDetailRef.current) {
+      dialogDetailRef.current.showModal();
+    }
+
+    if (type === 'pickup' && pickupDialogRef.current) {
+      pickupDialogRef.current.showModal();
+    }
+  };
+
   return (
     <div
       className="grid mt-[5rem] gap-10"
@@ -62,6 +91,23 @@ export const DeliveryPath = () => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
       }}
     >
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogDetailRef}>
+        <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
+          <input type="text" className="absolute top-0 w-0" />
+          <figure className="flex justify-end">
+            <img
+              src="/icons/close.svg"
+              alt=""
+              className="w-[3rem] cursor-pointer"
+              //onClick={() => handleCloseDialog('eachOrder')}
+            />
+          </figure>
+
+          <section className="h-full">
+            {/* <DialogDetails /> */}
+          </section>
+        </div>
+      </dialog>
       {deliveryData.map((item, i) => {
         const { name, description, date, tag } = item;
 
