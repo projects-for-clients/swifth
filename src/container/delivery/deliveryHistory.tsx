@@ -49,10 +49,10 @@ export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
 const DeliveryHistory = () => {
     
 
-    const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>([De]);
+    const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(DELIVERY_HISTORY_DATA);
 
   useEffect(() => {
-    const sortedDates = [...INPROGRESS].sort((a, b) => {
+    const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
@@ -76,7 +76,7 @@ const DeliveryHistory = () => {
     const { from, to } = searchDates;
 
     if (from && to) {
-      const filtered = [...INPROGRESS].filter((item) => {
+      const filtered = [...DELIVERY_HISTORY_DATA].filter((item) => {
         const date = new Date(item.date);
         return (
           date.getTime() >= from.getTime() && date.getTime() <= to.getTime()
@@ -186,8 +186,8 @@ const DeliveryHistory = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
         }}
       >
-        {orderHistory.length > 0 ? (
-          orderHistory.map((item, i) => {
+        {deliveryHistory.length > 0 ? (
+          deliveryHistory.map((item, i) => {
             const { name, description, date, tag, id } = item;
 
             return (
