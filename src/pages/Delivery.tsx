@@ -155,8 +155,6 @@ function Delivery() {
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const pickupDialogRef = useRef<HTMLDialogElement | null>(null);
-
   const handleCloseDialog = (type: DialogType): void => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.close();
@@ -167,7 +165,7 @@ function Delivery() {
       dialogRef.current.showModal();
     }
 
-      
+
   };
 
   const openDeliveryDetail = (item: DeliveryData) => {

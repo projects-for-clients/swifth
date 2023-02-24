@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { DeliveryContext } from '../../pages/Delivery';
 
 export interface FiltersProps {
@@ -57,12 +57,12 @@ export const DeliveryPath = () => {
 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (type: DialogType): void => {
+  const handleCloseDialog = (): void => {
     if (type === 'orderHistory' && dialogRef.current) {
       dialogRef.current.close();
     }
 
-    if (type === 'eachOrder' && dialogDetailRef.current) {
+    if ( dialogDetailRef.current) {
       dialogDetailRef.current.close();
     }
 
