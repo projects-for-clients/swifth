@@ -153,31 +153,7 @@ function Delivery() {
     }
   };
 
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
-
-  const handleCloseDialog = (type: DialogType): void => {
-    if (type === 'orderHistory' && dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-  const handleOpenDialog = (type: DialogType) => {
-    if (type === 'orderHistory' && dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-
-
-  };
-
-  const openDeliveryDetail = (item: DeliveryData) => {
-    setDeliveryDetail(item);
-    handleOpenDialog('eachOrder');
-  };
-
-  const openPickupDetail = (item: PickupData) => {
-    setPickupDetail(item);
-    handleOpenDialog('eachOrder');
-  };
-
+ 
 
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
@@ -188,8 +164,7 @@ function Delivery() {
   return (
     <DeliveryContext.Provider
       value={{
-        openDeliveryDetail,
-        openPickupDetail,
+      
         pickupData,
         deliveryData,
       }}
