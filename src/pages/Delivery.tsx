@@ -10,13 +10,21 @@ import {
 import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-
 import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
-import { DeliveryData, DeliveryFilterBy, DeliveryPath, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
-import { PickupData, PickupPath, PICKUP_DATA } from '../container/delivery/PickupPath';
+import {
+  DeliveryData,
+  DeliveryFilterBy,
+  DeliveryPath,
+  DELIVERY_DATA,
+} from '../container/delivery/DeliveryPath';
+import {
+  PickupData,
+  PickupPath,
+  PICKUP_DATA,
+} from '../container/delivery/PickupPath';
 import DialogDetails from '../container/delivery/DialogDetails';
 
 export type OrderHistoryPath = {
@@ -43,7 +51,7 @@ export interface DeliveryContext {
   openDeliveryDetail: (item: DeliveryData) => void;
   openPickupDetail: (item: PickupData) => void;
   deliveryData: DeliveryData[];
-  pickupData: PickupData[]
+  pickupData: PickupData[];
 }
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
@@ -51,10 +59,7 @@ export const DeliveryContext = createContext<DeliveryContext>(null as any);
 function Delivery() {
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const DeliveryFilters: DeliveryFilterBy[] = [
-    'delivered',
-    'delivery Pending',
-  ];
+  const DeliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
 
   const pickupFilters: pickupFilterBy[] = ['Quote Sent', 'Submitted'];
 
@@ -76,9 +81,10 @@ function Delivery() {
 
   const [deliveryData, setDeliveryData] = useState<DeliveryData[]>([]);
   const [pickupData, setPickupData] = useState<PickupData[]>([]);
-  const [pickupDetail, setPickupDetail] =
-    useState<PickupData | null>(null);
-  const [DeliveryDetail, setDeliveryDetail] = useState<DeliveryData>(null as any);
+  const [pickupDetail, setPickupDetail] = useState<PickupData | null>(null);
+  const [DeliveryDetail, setDeliveryDetail] = useState<DeliveryData>(
+    null as any
+  );
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -191,20 +197,18 @@ function Delivery() {
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     delivery: <DeliveryPath />,
-    pickup: (
-      <PickupPath
-        
-      />
-    ),
+    pickup: <PickupPath />,
   };
 
   return (
-    <DeliveryContext.Provider value={{
-      openDeliveryDetail,
-      openPickupDetail,
-      pickupData,
-      deliveryData
-    }}>
+    <DeliveryContext.Provider
+      value={{
+        openDeliveryDetail,
+        openPickupDetail,
+        pickupData,
+        deliveryData,
+      }}
+    >
       <Header title="Delivery" />
       <dialog className="dialog relative text-[1.6rem]" ref={pickupDialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
@@ -301,7 +305,7 @@ function Delivery() {
           </figure>
 
           <section className="h-full">
-            <DialogDetails/>
+            <DialogDetails />
           </section>
         </div>
       </dialog>
@@ -373,14 +377,9 @@ function Delivery() {
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
                 {currentPath === 'delivery' ? (
-                  <span>
-                    Delivery initiated from the waiting list would appear here
-                  </span>
+                  <span>Delivery initiated would appear here</span>
                 ) : (
-                  <span>
-                    Quotes sent, and customers ready for their clearing process
-                    would appear here
-                  </span>
+                  <span>Pickup initiated would appear here</span>
                 )}
               </p>
             </div>
@@ -399,7 +398,7 @@ function Delivery() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
-                  {currentPath === 'delivery' && (
+                  {currentPath === 'pickup' && (
                     <SelectDropDown
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
