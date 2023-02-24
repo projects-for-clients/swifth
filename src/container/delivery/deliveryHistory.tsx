@@ -5,20 +5,23 @@ import {
   Dispatch,
   SetStateAction,
   FC,
+  useContext,
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 import { OrderHistoryPath } from '../../pages/Orders';
 import CalenderSvg from '../../components/icons/Calender';
-import { INPROGRESS, InProgress, InProgressFilterBy } from './OrdersData';
+import { DeliveryContext } from '../../pages/Delivery';
+import { InProgress, INPROGRESS } from '../order/OrdersData';
 
 interface Props {
   setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
   id?: number | null;
 }
 
-export const ListOrderHistory: FC<Props> = ({ setOrderHistoryPath }) => {
-  const [orderHistory, setOrderHistory] = useState<InProgress[]>(INPROGRESS);
+export const ListOrderHistory = () => {
+
+    const { deliveryData } = useContext(DeliveryContext);
 
   useEffect(() => {
     const sortedDates = [...INPROGRESS].sort((a, b) => {
