@@ -53,9 +53,14 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
   }
 );
 
-export const DeliveryPath = () => {
- //const { deliveryData } = useContext(DeliveryContext);
+const DeliveryPath = () => {
+// const { deliveryData } = useContext(DeliveryContext);
 
+const {name} = useContext(DeliveryContext);
+
+console.log({name}, 'sdf')
+
+ 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = () => {
@@ -132,3 +137,5 @@ export const DeliveryPath = () => {
 
   );
 };
+
+export default DeliveryPath;

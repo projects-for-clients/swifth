@@ -45,7 +45,7 @@ export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
   }
 );
 
-const DeliveryHistory = () => {
+function DeliveryHistory () {
 //     const { openHistoryDialog } = useContext(DeliveryContext);
 
 //   const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(

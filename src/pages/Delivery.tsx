@@ -6,14 +6,15 @@ import {
   useState,
   useRef,
   createContext,
+  useMemo,
 } from 'react';
 import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-import {
+import DeliveryPath, {
   DeliveryData,
   DeliveryFilterBy,
-  DeliveryPath,
+  // DeliveryPath,
   DELIVERY_DATA,
 } from '../container/delivery/DeliveryPath';
 import {
@@ -150,14 +151,19 @@ function Delivery() {
     pickup: <PickupPath />,
   };
 
+  const memoizedValue = useMemo(() => {
+    return {
+      openHistoryDialog,
+      pickupData,
+      deliveryData,
+    };
+  }, [])
   
 
   return (
     <DeliveryContext.Provider
-      value={{
-        openHistoryDialog,
-        pickupData,
-        deliveryData,
+      value= {{
+        name: 0
       }}
     >
       <Header title="Delivery" />
