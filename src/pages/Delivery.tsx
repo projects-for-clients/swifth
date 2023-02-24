@@ -11,10 +11,6 @@ import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
 import {
-  ListOrderHistory,
-  OrderHistoryDetail,
-} from '../container/order/OrderHistory';
-import {
   DeliveryData,
   DeliveryFilterBy,
   DeliveryPath,
@@ -145,8 +141,8 @@ function Delivery() {
     }
   };
 
-  const openHistoryDialog = () => {
-    
+  const openHistoryDialog = (cb:() => void) => {
+    cb()
   }
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
@@ -227,7 +223,7 @@ function Delivery() {
               <div className="flex justify-between items-center mt-10">
                 <div
                   className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
-                  onClick={() => openHistoryDialog()}
+                  onClick={() => setOpenHistoryDialog(true)}
                 >
                   <img
                     src="/icons/history.svg"
