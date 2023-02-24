@@ -147,29 +147,22 @@ function Delivery() {
 
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    delivery: <DeliveryPath />,
-    pickup: <PickupPath />,
+    delivery: <DeliveryPath deliveryData={deliveryData} />,
+    pickup: <PickupPath pickupData={pickupData} />,
   };
 
-  const memoizedValue = useMemo(() => {
-    return {
-      openHistoryDialog,
-      pickupData,
-      deliveryData,
-    };
-  }, [])
   
 
   return (
     <>
       
-      <DeliveryContext.Provider
+      {/* <DeliveryContext.Provider
         value={{
           openHistoryDialog,
           pickupData,
           deliveryData,
         }}
-      >
+      > */}
         <Header title="Delivery" />
 
         <main className="text-[1.6rem]">
@@ -288,7 +281,7 @@ function Delivery() {
             )}
           </section>
         </main>
-      </DeliveryContext.Provider>
+      {/* </DeliveryContext.Provider> */}
     </>
   );
 }

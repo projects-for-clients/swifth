@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useContext, useEffect, useMemo, useRef } from 'react';
+import { FC, useContext, useEffect, useMemo, useRef } from 'react';
 import { DeliveryContext } from '../../pages/Delivery';
 import DialogDetails from './DialogDetails';
 
@@ -53,9 +53,11 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
   }
 );
 
-function DeliveryPath () {
-const { deliveryData } = useContext(DeliveryContext);
+interface DeliveryPathProps {
+  deliveryData: DeliveryData[];
+}
 
+const DeliveryPath:FC<DeliveryPathProps> = ({ deliveryData}) => {
 
 
   useEffect(() => {
