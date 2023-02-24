@@ -15,8 +15,7 @@ import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
-import EachDeliveryDetail from '../container/order/AgentDeliveryDetail/AgentDeliveryDetail';
-import { DeliveryData, DeliveryFilterBy, DeliveryPath, DeliveryView, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
+import { DeliveryData, DeliveryFilterBy, DeliveryPath, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
 import { PickupData, PickupPath, PICKUP_DATA } from '../container/delivery/PickupPath';
 
 export type OrderHistoryPath = {
