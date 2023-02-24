@@ -1,5 +1,5 @@
 import Header from '../components/dashboard/Header';
-import { ChangeEvent, Fragment, useEffect, useState, useRef } from 'react';
+import { ChangeEvent, Fragment, useEffect, useState, useRef, createContext } from 'react';
 import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
@@ -17,6 +17,7 @@ import {
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
 import EachOrderDetail from '../container/order/AgentOrderDetail/AgentOrderDetail';
+import { DeliveryView } from '../container/delivery/DeliveryPath';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -38,8 +39,11 @@ export interface DropDownState {
   filterBy: boolean;
 }
 
-const export 
+export interface DeliveryContext {
+        openOrderDetail: (item: InProgress) => void;
+}
 
+export const DeliveryContext = createContext<DeliveryContext>(null as any)
 
 
 
@@ -188,13 +192,12 @@ function Delivery() {
   };
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    inProgress: (
-      <InProgressView
-        inProgressData={inProgressData}
-        openOrderDetail={openOrderDetail}
+    delivery: (
+      <DeliveryView
+       
       />
     ),
-    waitlist: (
+    pickup: (
       <WaitlistView
         waitlistData={waitlistData}
         handleOpenDialog={handleOpenDialog}
