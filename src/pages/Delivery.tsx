@@ -1,5 +1,12 @@
 import Header from '../components/dashboard/Header';
-import { ChangeEvent, Fragment, useEffect, useState, useRef, createContext } from 'react';
+import {
+  ChangeEvent,
+  Fragment,
+  useEffect,
+  useState,
+  useRef,
+  createContext,
+} from 'react';
 import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
@@ -40,15 +47,10 @@ export interface DropDownState {
 }
 
 export interface DeliveryContext {
-        openOrderDetail: (item: InProgress) => void;
+  openOrderDetail: (item: InProgress) => void;
 }
 
-export const DeliveryContext = createContext<DeliveryContext>(null as any)
-
-
-
-
-
+export const DeliveryContext = createContext<DeliveryContext>(null as any);
 
 function Delivery() {
   type SwitchPath = 'delivery' | 'pickup';
@@ -192,11 +194,7 @@ function Delivery() {
   };
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    delivery: (
-      <DeliveryView
-       
-      />
-    ),
+    delivery: <DeliveryView />,
     pickup: (
       <WaitlistView
         waitlistData={waitlistData}
@@ -206,7 +204,9 @@ function Delivery() {
   };
 
   return (
-    <>
+    <DeliveryContext.Provider value={{
+      openOrderDetail
+    }}>
       <Header title="Delivery" />
       <dialog className="dialog relative text-[1.6rem]" ref={waitListDialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
@@ -455,7 +455,7 @@ function Delivery() {
           )}
         </section>
       </main>
-    </>
+    </DeliveryContext.Provider>
   );
 }
 
