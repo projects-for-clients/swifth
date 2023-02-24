@@ -91,6 +91,8 @@ function Delivery() {
     setPickupData(() => [...PICKUP_DATA]);
   }, [])
 
+  console.log({ deliveryData, pickupData })
+
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
@@ -205,7 +207,6 @@ function Delivery() {
     pickup: <PickupPath />,
   };
 
-  console.log({deliveryData})
   return (
     <DeliveryContext.Provider
       value={{
