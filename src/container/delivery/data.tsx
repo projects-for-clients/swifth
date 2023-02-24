@@ -31,30 +31,8 @@ export interface Waitlist {
   submitted: boolean;
 }
 
-export interface FiltersProps {
-  text: string;
-  bg: string;
-}
-export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
-  'Docs in Review': {
-    text: 'text-[#182130]',
-    bg: 'bg-[#FAC772]',
-  },
-  'Delivery Pending': {
-    text: 'text-[#182130]',
-    bg: 'bg-[#D3EE87]',
-  },
-  'Custom Releasing': {
-    text: 'text-[#450C3C]',
-    bg: 'bg-[#EDD7ED]',
-  },
-  'Duty Processing': {
-    text: 'text-[#120D23]',
-    bg: 'bg-[#DED9EF]',
-  },
-  Valuating: { text: 'text-[#182130]', bg: 'bg-[#FAC772]' },
-  Completed: { text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
-};
+
+
 
 const RCDocsArr = [
   {

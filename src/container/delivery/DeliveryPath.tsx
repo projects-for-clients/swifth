@@ -1,3 +1,31 @@
+import { nanoid } from 'nanoid';
+
+export interface FiltersProps {
+  text: string;
+  bg: string;
+}
+
+export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
+  'Docs in Review': {
+    text: 'text-[#182130]',
+    bg: 'bg-[#FAC772]',
+  },
+  'Delivery Pending': {
+    text: 'text-[#182130]',
+    bg: 'bg-[#D3EE87]',
+  },
+  'Custom Releasing': {
+    text: 'text-[#450C3C]',
+    bg: 'bg-[#EDD7ED]',
+  },
+  'Duty Processing': {
+    text: 'text-[#120D23]',
+    bg: 'bg-[#DED9EF]',
+  },
+  Valuating: { text: 'text-[#182130]', bg: 'bg-[#FAC772]' },
+  Completed: { text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
+};
+
 export function generateRandomDate() {
   const today = new Date();
   const nextYear = new Date(today.getFullYear() + 1, 0, 1);
@@ -7,9 +35,8 @@ export function generateRandomDate() {
   return randomDate;
 }
 
-export const generateRandomNum = () =>
-  Math.floor(100000000000 + Math.random() * 900000);
-  
+
+
 export type InProgressFilterBy =
   | 'Docs in Review'
   | 'Valuating'
