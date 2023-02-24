@@ -4,26 +4,19 @@ export interface FiltersProps {
   text: string;
   bg: string;
 }
+export type DeliveryFilterBy = 'Delivered' | 'Delivery Pending';
 
-export const filterByColors: Record<InProgressFilterBy, FiltersProps> = {
-  'Docs in Review': {
-    text: 'text-[#182130]',
-    bg: 'bg-[#FAC772]',
+
+export const filterByColors: Record<DeliveryFilterBy, FiltersProps> = {
+  Delivered: {
+    text: 'text-[#fff]',
+    bg: 'bg-[#40AD6B]',
   },
+
   'Delivery Pending': {
     text: 'text-[#182130]',
     bg: 'bg-[#D3EE87]',
   },
-  'Custom Releasing': {
-    text: 'text-[#450C3C]',
-    bg: 'bg-[#EDD7ED]',
-  },
-  'Duty Processing': {
-    text: 'text-[#120D23]',
-    bg: 'bg-[#DED9EF]',
-  },
-  Valuating: { text: 'text-[#182130]', bg: 'bg-[#FAC772]' },
-  Completed: { text: 'text-[#ffffff]', bg: 'bg-[#40AD6B]' },
 };
 
 export function generateRandomDate() {
@@ -37,25 +30,18 @@ export function generateRandomDate() {
 
 
 
-export type InProgressFilterBy =
-  | 'Docs in Review'
-  | 'Valuating'
-  | 'Duty Processing'
-  | 'Custom Releasing'
-  | 'Delivery Pending'
-  | 'Completed';
 
-export interface InProgress {
+
+export interface Delivery {
   id: number;
   name: string;
   description: string;
   date: Date;
-  tag: InProgressFilterBy;
+  tag: DeliveryFilterBy;
   assignedAgent?: string;
-  RCDocs: RCDocs[];
 }
 
-export const INPROGRESS: InProgress[] = [
+export const DELIVERY: Delivery[] = [
   {
     id: generateRandomNum(),
     name: 'Jonathan Sunyi',
@@ -161,10 +147,10 @@ export const INPROGRESS: InProgress[] = [
   },
 ];
 
-export const InProgressView: FC<{
-  inProgressData: InProgress[];
-  openOrderDetail: (item: InProgress) => void;
-}> = ({ inProgressData, openOrderDetail }) => {
+export const DeliveryView: FC<{
+  deliveryData: Delivery[];
+  openOrderDetail: (item: Delivery) => void;
+}> = ({ deliveryData, openOrderDetail }) => {
   return (
     <div
       className="grid mt-[5rem] gap-10"
@@ -172,7 +158,7 @@ export const InProgressView: FC<{
         gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
       }}
     >
-      {inProgressData.map((item, i) => {
+      {deliveryData.map((item, i) => {
         const { name, description, date, tag } = item;
 
         return (
