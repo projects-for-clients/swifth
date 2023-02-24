@@ -40,7 +40,7 @@ export type ShowDetails = {
   id?: number | null;
 };
 
-type PickupFilterBy = 'Picked Up' | 'Pick up';
+type PickupFilterBy = 'Picked Up' | 'Pick Up pending';
 
 export interface DropDownState {
   sortBy: boolean;
@@ -59,12 +59,12 @@ export const DeliveryContext = createContext<DeliveryContext>(null as any);
 function Delivery() {
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const DeliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
+  const deliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
 
-  const pickupFilters: pickupFilterBy[] = ['Quote Sent', 'Submitted'];
+  const pickupFilters: PickupFilterBy[] = ['Picked Up', 'Pick Up pending'];
 
   const [deliveryFilteredBy, setDeliveryFilteredBy] = useState('');
-  const [pickupFilterBy, setPickupFilterBy] = useState('');
+  const [pickupFilteredBy, setPickupFilteredBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
   );
@@ -117,14 +117,14 @@ function Delivery() {
       return setDeliveryData(() => [...filtered]);
     }
 
-    if (pickupFilterBy && currentPath === 'pickup') {
+    if (pickupFilteredBy && currentPath === 'pickup') {
       const filtered = PICKUP_DATA.filter(
-        (item) => item.tag === pickupFilterBy
+        (item) => item.tag === pickupFilteredBy
       );
 
       return setPickupData(() => [...filtered]);
     }
-  }, [deliveryFilteredBy, pickupFilterBy]);
+  }, [deliveryFilteredBy, pickupFilteredBy]);
 
   useEffect(() => {
     if (selectedSort) {
@@ -150,7 +150,7 @@ function Delivery() {
       setDeliveryFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
     } else {
-      setPickupFilterBy('');
+      setPickupFilteredBy('');
     }
   };
 
@@ -333,8 +333,8 @@ function Delivery() {
                       dropDownState={dropDownState}
                     />
                     <SelectDropDown
-                      selectFrom={DeliveryFilters}
-                      selectedItem={deliveryFilteredBy}
+                      selectFrom={currentPath === 'delivery' ? DeliveryFilters : pickupFilters}
+                      selectedItem={currentPath === 'delivery' ? deliveryFilteredBy : pickupFilteredBy}
                       setSelectedItem={setDeliveryFilteredBy}
                       isFilter
                       label={'filterBy'}
