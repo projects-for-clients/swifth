@@ -28,7 +28,7 @@ export function generateRandomDate() {
 }
 
 export interface Delivery {
-  id: number;
+  id: string;
   name: string;
   description: string;
   date: Date;
