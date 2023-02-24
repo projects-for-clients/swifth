@@ -58,7 +58,11 @@ function DeliveryPath () {
 
 const {name} = useContext(DeliveryContext);
 
-console.log({name}, 'sdf')
+const memoizedValue = useMemo(() => {
+  return name
+}, [name])
+
+console.log({name}, 'sd dssdf')
 
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
