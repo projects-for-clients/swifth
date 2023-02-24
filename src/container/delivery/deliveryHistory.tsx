@@ -12,15 +12,44 @@ import { GrClose } from 'react-icons/gr';
 import { OrderHistoryPath } from '../../pages/Orders';
 import CalenderSvg from '../../components/icons/Calender';
 import { DeliveryContext } from '../../pages/Delivery';
-import { InProgress, INPROGRESS } from '../order/OrdersData';
-import { DeliveryData } from './DeliveryPath';
+import { nanoid } from 'nanoid';
 
+
+export function generateRandomDate() {
+  const today = new Date();
+  const nextYear = new Date(today.getFullYear() + 1, 0, 1);
+  const randomDate = new Date(
+    today.getTime() + Math.random() * (nextYear.getTime() - today.getTime())
+  );
+  return randomDate;
+}
+
+export interface DeliveryHistory {
+  id: string;
+  name: string;
+  description: string;
+  date: Date;
+  tag: string;
+  assignedAgent?: string;
+}
+
+export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
+  { length: 10 },
+  (_, i) => {
+    return {
+      id: nanoid(),
+      name: `Jonathan Sunyi ${i}`,
+      description: `Toyota Camry XLE, 2018 v6 with alloy wheels ${i}`,
+      date: generateRandomDate(),
+      tag: 'completed',
+    };
+  }
+);
 
 const DeliveryHistory = () => {
+    
 
-    const { deliveryData } = useContext(DeliveryContext);
-
-    const [deliveryHistory, setDeliveryHistory] = useState<DeliveryData[]>([]);
+    const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>([De]);
 
   useEffect(() => {
     const sortedDates = [...INPROGRESS].sort((a, b) => {
@@ -208,4 +237,5 @@ const DeliveryHistory = () => {
 };
 
 
+export default DeliveryHistory;
 
