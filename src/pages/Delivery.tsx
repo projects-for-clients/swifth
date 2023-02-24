@@ -16,8 +16,8 @@ import {
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
 import EachDeliveryDetail from '../container/order/AgentDeliveryDetail/AgentDeliveryDetail';
-import { DeliveryData, DeliveryFilterBy, DeliveryView, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
-import { PickupData, PICKUP_DATA } from '../container/delivery/PickupPath';
+import { DeliveryData, DeliveryFilterBy, DeliveryPath, DeliveryView, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
+import { PickupData, PickupPath, PICKUP_DATA } from '../container/delivery/PickupPath';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -40,8 +40,8 @@ export interface DropDownState {
 }
 
 export interface DeliveryContext {
-  openDeliveryDetail: (item: DeliveryData[]) => void;
-  openPickupDetail: (item: PickupData[]) => void;
+  openDeliveryDetail: (item: DeliveryData) => void;
+  openPickupDetail: (item: PickupData) => void;
   deliveryData: DeliveryData[];
   pickupData: PickupData[]
 }
@@ -190,11 +190,10 @@ function Delivery() {
   };
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    delivery: <DeliveryView />,
+    delivery: <DeliveryPath />,
     pickup: (
-      <PickupView
-        pickupData={pickupData}
-        handleOpenDialog={handleOpenDialog}
+      <PickupPath
+        
       />
     ),
   };

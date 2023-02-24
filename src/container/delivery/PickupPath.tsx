@@ -49,7 +49,7 @@ export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
   };
 });
 
-export const PickupView = () => {
+export const PickupPath = () => {
   const { pickupData, openPickupDetail } = useContext(DeliveryContext);
 
   return (
