@@ -45,6 +45,7 @@ export interface DropDownState {
 export interface DeliveryContext {
   deliveryData: DeliveryData[];
   pickupData: PickupData[];
+  openHistoryDialog: boolean;
 }
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
@@ -142,9 +143,7 @@ function Delivery() {
     }
   };
 
-  const openHistoryDialog = (cb:() => void) => {
-    cb()
-  }
+
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
     delivery: <DeliveryPath />,
@@ -154,7 +153,7 @@ function Delivery() {
   return (
     <DeliveryContext.Provider
       value={{
-      
+        openHistoryDialog,
         pickupData,
         deliveryData,
       }}
