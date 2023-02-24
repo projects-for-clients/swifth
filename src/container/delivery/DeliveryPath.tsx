@@ -38,41 +38,34 @@ export interface DeliveryData {
   assignedAgent?: string;
 }
 
-export const DELIVERY_DATA: DeliveryData[] = Array.from({ length: 10 }, (_, i) => {
-  return {
-    id: nanoid(),
-    name: `Jonathan Sunyi ${i}`,
-    description: `Toyota Camry XLE, 2018 v6 with alloy wheels ${i}`,
-    date: generateRandomDate(),
-    tag: Math.random() > 0.5 ? 'delivered' : 'delivery Pending',
-    assignedAgent: Math.random() > 0.5 ? 'Solomon Henry' : 'Joseph Isaac',
-  };
-});
-
-
+export const DELIVERY_DATA: DeliveryData[] = Array.from(
+  { length: 10 },
+  (_, i) => {
+    return {
+      id: nanoid(),
+      name: `Jonathan Sunyi ${i}`,
+      description: `Toyota Camry XLE, 2018 v6 with alloy wheels ${i}`,
+      date: generateRandomDate(),
+      tag: Math.random() > 0.5 ? 'delivered' : 'delivery Pending',
+      assignedAgent: Math.random() > 0.5 ? 'Solomon Henry' : 'Joseph Isaac',
+    };
+  }
+);
 
 export const DeliveryPath = () => {
-
-  const {deliveryData, openDeliveryDetail} = useContext(DeliveryContext)
+  const { deliveryData, openDeliveryDetail } = useContext(DeliveryContext);
 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
-  
-const handleCloseDialog = () => {
-    if ( dialogDetailRef.current) {
+  const handleCloseDialog = () => {
+    if (dialogDetailRef.current) {
       dialogDetailRef.current.close();
     }
-
- 
   };
   const handleOpenDialog = () => {
-
-
-    if ( dialogDetailRef.current) {
+    if (dialogDetailRef.current) {
       dialogDetailRef.current.showModal();
     }
-
-  
   };
 
   return (
@@ -90,13 +83,11 @@ const handleCloseDialog = () => {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              //onClick={() => handleCloseDialog('eachOrder')}
+            onClick={() => handleCloseDialog()}
             />
           </figure>
 
-          <section className="h-full">
-            {/* <DialogDetails /> */}
-          </section>
+          <section className="h-full">{/* <DialogDetails /> */}</section>
         </div>
       </dialog>
       {deliveryData.map((item, i) => {
