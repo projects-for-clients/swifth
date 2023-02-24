@@ -161,8 +161,6 @@ function Delivery() {
     >
       <Header title="Delivery" />
 
-      sdfsfsfsdfff
-
      
       <main className="text-[1.6rem]">
       <DeliveryHistory/>
