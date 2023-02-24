@@ -49,7 +49,7 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from({ length: 10 }, (_, i) =
   };
 });
 
-export const DeliveryView = () => {
+export const DeliveryPath = () => {
 
   const {deliveryData, openDeliveryDetail} = useContext(DeliveryContext)
 

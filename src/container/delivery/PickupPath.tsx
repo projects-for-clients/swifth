@@ -38,7 +38,7 @@ export interface PickupData {
   assignedAgent?: string;
 }
 
-export const PICKUP_DATA: Pickup[] = Array.from({ length: 10 }, (_, i) => {
+export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
   return {
     id: nanoid(),
     name: `Jonathan Sunyi ${i}`,
