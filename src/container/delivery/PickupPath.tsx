@@ -84,7 +84,7 @@ export const PickupPath = () => {
                 })}
               </p>
               <p
-                className={`py-1.5 px-4 rounded-2xl ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
+                className={`py-1.5 px-4 rounded-2xl capitalize ${filterByColors[tag].bg} ${filterByColors[tag].text}`}
               >
                 {tag}
               </p>

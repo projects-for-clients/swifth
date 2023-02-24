@@ -61,7 +61,7 @@ function Delivery() {
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
   const deliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
 
-  const pickupFilters: PickupFilterBy[] = ['picked up', 'pickedUp pending'];
+  const pickupFilters: PickupFilterBy[] = ['picked up', 'pick up pending'];
 
   const [deliveryFilteredBy, setDeliveryFilteredBy] = useState('');
   const [pickupFilteredBy, setPickupFilteredBy] = useState('');
