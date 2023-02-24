@@ -53,6 +53,8 @@ export const DeliveryPath = () => {
 
   const {deliveryData, openDeliveryDetail} = useContext(DeliveryContext)
 
+  console.log({deliveryData})
+
 
   return (
     <div
