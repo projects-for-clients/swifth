@@ -16,7 +16,7 @@ import {
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
 import EachOrderDetail from '../container/order/AgentOrderDetail/AgentOrderDetail';
-import { Delivery, DeliveryFilterBy, DeliveryView } from '../container/delivery/DeliveryPath';
+import { Delivery, DeliveryFilterBy, DeliveryView, DELIVERY_DATA } from '../container/delivery/DeliveryPath';
 import { Waitlist, WAITLIST, WaitlistView } from '../container/order/OrdersData';
 
 export type OrderHistoryPath = {
@@ -83,7 +83,7 @@ function Delivery() {
     setSearch(value);
 
     if (currentPath === 'delivery') {
-      const filtered = delivery.filter((item) =>
+      const filtered = DELIVERY_DATA.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
       setDeliveryData(filtered);
@@ -97,7 +97,7 @@ function Delivery() {
 
   useEffect(() => {
     if (deliveryFilteredBy && currentPath === 'delivery') {
-      const filtered = delivery.filter(
+      const filtered = DELIVERY_DATA.filter(
         (item) => item.tag === deliveryFilteredBy
       );
 
