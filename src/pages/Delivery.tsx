@@ -160,11 +160,12 @@ function Delivery() {
       }}
     >
       <Header title="Delivery" />
-sdff
 
-      {/* <DeliveryHistory/> */}
+      sdfsfsfsdfff
+
      
       <main className="text-[1.6rem]">
+      <DeliveryHistory/>
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input
             type="text"
