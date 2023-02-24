@@ -26,7 +26,6 @@ import {
   PickupPath,
   PICKUP_DATA,
 } from '../container/delivery/PickupPath';
-import DialogDetails from '../container/delivery/DialogDetails';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -48,8 +47,6 @@ export interface DropDownState {
 }
 
 export interface DeliveryContext {
-  openDeliveryDetail: (item: DeliveryData) => void;
-  openPickupDetail: (item: PickupData) => void;
   deliveryData: DeliveryData[];
   pickupData: PickupData[];
 }
@@ -74,17 +71,12 @@ function Delivery() {
   });
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('delivery');
-  const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
-    path: 'list',
-  });
+ 
   const [search, setSearch] = useState('');
 
   const [deliveryData, setDeliveryData] = useState<DeliveryData[]>([]);
   const [pickupData, setPickupData] = useState<PickupData[]>([]);
-  const [pickupDetail, setPickupDetail] = useState<PickupData | null>(null);
-  const [DeliveryDetail, setDeliveryDetail] = useState<DeliveryData>(
-    null as any
-  );
+
 
   useEffect(() => {
     setDeliveryData(() => [...DELIVERY_DATA]);
