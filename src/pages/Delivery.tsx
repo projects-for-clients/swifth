@@ -81,10 +81,10 @@ function Delivery() {
   const [pickupData, setPickupData] = useState<PickupData[]>([]);
 
 
-  // useEffect(() => {
-  //   setDeliveryData(() => [...DELIVERY_DATA]);
-  //   setPickupData(() => [...PICKUP_DATA]);
-  // }, []);
+  useEffect(() => {
+    setDeliveryData(() => [...DELIVERY_DATA]);
+    setPickupData(() => [...PICKUP_DATA]);
+  }, []);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
