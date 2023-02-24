@@ -62,7 +62,7 @@ useEffect(() => {
    console.log({name})
 }, [name])
 
-console.log({name}, 'sd dssdf fdsf')
+console.log({name}, 'sd dssdf fd ufffffsf')
 
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);

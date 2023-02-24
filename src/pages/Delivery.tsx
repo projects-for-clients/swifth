@@ -161,11 +161,13 @@ function Delivery() {
   
 
   return (
-    <DeliveryContext.Provider
+    <>
+
+    {/* <DeliveryContext.Provider
       value= {{
         name: 0
       }}
-    >
+    > */}
       <Header title="Delivery" />
 
      
@@ -273,7 +275,8 @@ function Delivery() {
           )}
         </section>
       </main>
-    </DeliveryContext.Provider>
+    {/* </DeliveryContext.Provider> */}
+    </>
   );
 }
 
