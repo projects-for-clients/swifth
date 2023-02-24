@@ -86,12 +86,7 @@ function Delivery() {
     null as any
   );
 
-  useEffect(() => {
-    setDeliveryData(() => [...DELIVERY_DATA]);
-    setPickupData(() => [...PICKUP_DATA]);
-  }, [])
-
-  console.log({ deliveryData, pickupData })
+ 
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -130,6 +125,7 @@ function Delivery() {
 
   useEffect(() => {
     if (selectedSort) {
+      console.log({ selectedSort });
       if ((selectedSort as SortBy) === 'A-Z') {
         const sortedNames = [...deliveryData].sort((a, b) => {
           return a.name.localeCompare(b.name);
@@ -217,11 +213,8 @@ function Delivery() {
       }}
     >
       <Header title="Delivery" />
-     
-      <dialog
-        className="dialog relative text-[1.6rem]"
-        ref={dialogDetailRef}
-      >
+
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogDetailRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
