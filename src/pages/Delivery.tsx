@@ -162,12 +162,12 @@ function Delivery() {
 
   return (
     <>
-
-    {/* <DeliveryContext.Provider
+  sfsfs
+    <DeliveryContext.Provider
       value= {{
         name: 0
       }}
-    > */}
+    >
       <Header title="Delivery" />
 
      

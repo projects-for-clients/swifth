@@ -56,13 +56,9 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
 function DeliveryPath () {
 // const { deliveryData } = useContext(DeliveryContext);
 
-const {name} = useContext(DeliveryContext);
+//const {name} = useContext(DeliveryContext);
 
-useEffect(() => {
-   console.log({name})
-}, [name])
-
-console.log({name}, 'sd dssdf fd ufffffsf')
+  console.log("sdfsdf")
 
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
