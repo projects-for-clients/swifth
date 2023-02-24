@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useMemo, useRef } from 'react';
 import { DeliveryContext } from '../../pages/Delivery';
 import DialogDetails from './DialogDetails';
 
@@ -58,11 +58,11 @@ function DeliveryPath () {
 
 const {name} = useContext(DeliveryContext);
 
-const memoizedValue = useMemo(() => {
-  return name
+useEffect(() => {
+   console.log({name})
 }, [name])
 
-console.log({name}, 'sd dssdf')
+console.log({name}, 'sd dssdf fdsf')
 
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
