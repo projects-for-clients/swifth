@@ -58,7 +58,7 @@ function DeliveryPath () {
 
 //const {name} = useContext(DeliveryContext);
 
-  console.log("sdfsdf")
+  console.log("sdfsdfh")
 
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
