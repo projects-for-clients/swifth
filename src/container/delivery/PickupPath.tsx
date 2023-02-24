@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 import { DeliveryContext } from '../../pages/Delivery';
 
 export interface FiltersProps {
@@ -49,8 +49,11 @@ export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
   };
 });
 
-export const PickupPath = () => {
-  const { pickupData } = useContext(DeliveryContext);
+interface PickupPathProps {
+  pickupData: PickupData[];
+}
+
+export const PickupPath:FC<PickupPathProps> = ({pickupData}) => {
 
   return (
     <div
