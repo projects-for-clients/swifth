@@ -121,7 +121,6 @@ function Delivery() {
       const filtered = PICKUP_DATA.filter(
         (item) => item.tag.toLowerCase() === pickupFilteredBy.toLowerCase()
       );
-      console.log({filtered, pickupFilteredBy})
 
       return setPickupData(() => [...filtered]);
     }
