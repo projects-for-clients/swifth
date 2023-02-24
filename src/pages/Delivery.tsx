@@ -40,7 +40,7 @@ export type ShowDetails = {
   id?: number | null;
 };
 
-type pickupFilterBy = 'Quote Sent' | 'Submitted';
+type PickupFilterBy = 'Picked Up' | 'Pick up';
 
 export interface DropDownState {
   sortBy: boolean;
