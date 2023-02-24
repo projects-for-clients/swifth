@@ -121,7 +121,7 @@ function Delivery() {
       const filtered = PICKUP_DATA.filter(
         (item) => item.tag === pickupFilteredBy
       );
-      console.log({filtered})
+      console.log({filtered, pickupFilteredBy})
 
       return setPickupData(() => [...filtered]);
     }
