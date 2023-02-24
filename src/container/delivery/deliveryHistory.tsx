@@ -113,12 +113,6 @@ const DeliveryHistory = () => {
     }
   };
 
-  useEffect(() => {
-    console.log({openHistoryDialog})
-    if (openHistoryDialog) {
-      handleOpenDialog();
-    }
-  }, [openHistoryDialog])
 
   return (
     <>
