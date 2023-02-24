@@ -6,7 +6,7 @@ export interface FiltersProps {
   text: string;
   bg: string;
 }
-export type PickupFilterBy = 'picked up' | 'pick up Pending';
+export type PickupFilterBy = 'picked up' | 'pick up pending';
 
 export const filterByColors: Record<PickupFilterBy, FiltersProps> = {
   'picked up': {
@@ -14,7 +14,7 @@ export const filterByColors: Record<PickupFilterBy, FiltersProps> = {
     bg: 'bg-[#40AD6B]',
   },
 
-  'pick up Pending': {
+  'pick up pending': {
     text: 'text-[#182130]',
     bg: 'bg-[#D3EE87]',
   },
@@ -44,7 +44,7 @@ export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
     name: `Jonathan Sunyi ${i}`,
     description: `Toyota Camry XLE, 2018 v6 with alloy wheels ${i}`,
     date: generateRandomDate(),
-    tag: Math.random() > 0.5 ?  'picked up' : 'pick up Pending',
+    tag: Math.random() > 0.5 ?  'picked up' : 'pick up pending',
     assignedAgent: Math.random() > 0.5 ? 'Solomon Henry' : 'Joseph Isaac',
   };
 });
