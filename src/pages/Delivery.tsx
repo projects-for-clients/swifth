@@ -344,19 +344,19 @@ function Delivery() {
           <div className="radioBox gap-16">
             <input
               type="radio"
-              name="notification"
+              name="delivery"
               id="delivery"
               className="hidden"
               onChange={() => setCurrentPath('delivery')}
               checked={currentPath === 'delivery'}
             />
             <label htmlFor="delivery" className="capitalize text-[1.8rem]">
-              In Progress
+              Delivery
             </label>
 
             <input
               type="radio"
-              name="notification"
+              name="delivery"
               id="pickup"
               className="hidden"
               checked={currentPath === 'pickup'}

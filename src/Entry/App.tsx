@@ -17,6 +17,7 @@ import Orders from '../pages/Orders';
 import Payments from '../pages/Payments';
 import Finance from '../pages/Finance';
 import PayoutBank from '../pages/PayoutBank';
+import Delivery from '../pages/Delivery';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="orders" element={<Orders />} />
       <Route path="payments" element={<Payments />} />
       <Route path="finance" element={<Finance />} />
-      <Route path="delivery" element={<Orders />} />
+      <Route path="delivery" element={<Delivery />} />
       <Route path="payoutBank" element={<PayoutBank />} />
       <Route path="onboarding" element={<OnBoarding />} />
     </Route>,
