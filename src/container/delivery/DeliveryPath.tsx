@@ -4,15 +4,15 @@ export interface FiltersProps {
   text: string;
   bg: string;
 }
-export type DeliveryFilterBy = 'Delivered' | 'Delivery Pending';
+export type DeliveryFilterBy = 'delivered' | 'delivery Pending';
 
 export const filterByColors: Record<DeliveryFilterBy, FiltersProps> = {
-  Delivered: {
+  delivered: {
     text: 'text-[#fff]',
     bg: 'bg-[#40AD6B]',
   },
 
-  'Delivery Pending': {
+  'delivery Pending': {
     text: 'text-[#182130]',
     bg: 'bg-[#D3EE87]',
   },
@@ -42,7 +42,7 @@ export const DELIVERY: Delivery[] = Array.from({ length: 10 }, (_, i) => {
     name: `Jonathan Sunyi ${i}`,
     description: `Toyota Camry XLE, 2018 v6 with alloy wheels ${i}`,
     date: generateRandomDate(),
-    tag: Math.random() > 0.5 ? 'Delivered' : 'Delivery Pending',
+    tag: Math.random() > 0.5 ? 'delivered' : 'delivery Pending',
     assignedAgent: Math.random() > 0.5 ? 'Solomon Henry' : 'Joseph Isaac',
   };
 });

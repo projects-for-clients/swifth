@@ -10,21 +10,14 @@ import {
 import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
 
-import {
-  InProgressFilterBy,
-  InProgress,
-  Waitlist,
-  INPROGRESS,
-  InProgressView,
-  WAITLIST,
-  WaitlistView,
-} from '../container/order/OrdersData';
+
 import {
   ListOrderHistory,
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
 import EachOrderDetail from '../container/order/AgentOrderDetail/AgentOrderDetail';
-import { DeliveryView } from '../container/delivery/DeliveryPath';
+import { Delivery, DeliveryFilterBy, DeliveryView } from '../container/delivery/DeliveryPath';
+import { Waitlist, WAITLIST, WaitlistView } from '../container/order/OrdersData';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -47,7 +40,7 @@ export interface DropDownState {
 }
 
 export interface DeliveryContext {
-  openOrderDetail: (item: InProgress) => void;
+  openOrderDetail: (item: Delivery) => void;
 }
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
@@ -55,18 +48,14 @@ export const DeliveryContext = createContext<DeliveryContext>(null as any);
 function Delivery() {
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
-  const InProgressFilters: InProgressFilterBy[] = [
-    'Docs in Review',
-    'Valuating',
-    'Duty Processing',
-    'Custom Releasing',
-    'Delivery Pending',
-    'Completed',
+  const DeliveryFilters: DeliveryFilterBy[] = [
+    'delivered',
+    'delivery Pending',
   ];
 
   const waitlistFilters: waitlistFilterBy[] = ['Quote Sent', 'Submitted'];
 
-  const [inProgressFilteredBy, setInProgressFilteredBy] = useState('');
+  const [deliveryDeliveryFilteredBy, setDeliveryFilteredBy] = useState('');
   const [waitlistFilterBy, setWaitlistFilterBy] = useState('');
   const [selectedSort, setSelectedSort] = useState<SortBy | string>(
     'Most Recent'
@@ -76,27 +65,27 @@ function Delivery() {
     filterBy: false,
   });
 
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('inProgress');
+  const [currentPath, setCurrentPath] = useState<SwitchPath>('delivered');
   const [orderHistoryPath, setOrderHistoryPath] = useState<OrderHistoryPath>({
     path: 'list',
   });
   const [search, setSearch] = useState('');
 
-  const [inProgressData, setInProgressData] = useState<InProgress[]>([]);
+  const [deliveryDeliveryData, setDeliveryData] = useState<Delivery[]>([]);
   const [waitlistData, setWaitlistData] = useState<Waitlist[]>(WAITLIST);
   const [waitlistItemDetails, setWaitlistItemDetails] =
     useState<Waitlist | null>(null);
-  const [OrderDetail, setOrderDetail] = useState<InProgress>(null as any);
+  const [OrderDetail, setOrderDetail] = useState<Delivery>(null as any);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
 
-    if (currentPath === 'inProgress') {
-      const filtered = INPROGRESS.filter((item) =>
+    if (currentPath === 'deliveryDelivery') {
+      const filtered = DELIVERYDelivery.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
-      setInProgressData(filtered);
+      setDeliveryData(filtered);
     } else {
       const filtered = WAITLIST.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
@@ -106,12 +95,12 @@ function Delivery() {
   };
 
   useEffect(() => {
-    if (inProgressFilteredBy && currentPath === 'inProgress') {
-      const filtered = INPROGRESS.filter(
-        (item) => item.tag === inProgressFilteredBy
+    if (deliveryDeliveryFilteredBy && currentPath === 'deliveryDelivery') {
+      const filtered = DELIVERYDelivery.filter(
+        (item) => item.tag === deliveryDeliveryFilteredBy
       );
 
-      return setInProgressData(() => [...filtered]);
+      return setDeliveryData(() => [...filtered]);
     }
 
     if (waitlistFilterBy && currentPath === 'waitlist') {
@@ -121,29 +110,29 @@ function Delivery() {
 
       return setWaitlistData(() => [...filtered]);
     }
-  }, [inProgressFilteredBy, waitlistFilterBy]);
+  }, [deliveryDeliveryFilteredBy, waitlistFilterBy]);
 
   useEffect(() => {
     if (selectedSort) {
       if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = [...INPROGRESS].sort((a, b) => {
+        const sortedNames = [...DELIVERYDelivery].sort((a, b) => {
           return a.name.localeCompare(b.name);
         });
 
-        return setInProgressData(() => [...sortedNames]);
+        return setDeliveryData(() => [...sortedNames]);
       } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = [...INPROGRESS].sort((a, b) => {
+        const sortedDates = [...DELIVERYDelivery].sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
 
-        return setInProgressData(() => [...sortedDates]);
+        return setDeliveryData(() => [...sortedDates]);
       }
     }
   }, [selectedSort]);
 
-  const handleClearFilter = (toClear: 'inProgress' | 'waitlist') => {
-    if (toClear === 'inProgress') {
-      setInProgressFilteredBy('');
+  const handleClearFilter = (toClear: 'deliveryDelivery' | 'waitlist') => {
+    if (toClear === 'deliveryDelivery') {
+      setDeliveryFilteredBy('');
       setDropDownState((prev) => ({ ...prev, filterBy: false }));
     } else {
       setWaitlistFilterBy('');
@@ -183,7 +172,7 @@ function Delivery() {
     }
   };
 
-  const openOrderDetail = (item: InProgress) => {
+  const openOrderDetail = (item: Delivery) => {
     setOrderDetail(item);
     handleOpenDialog('eachOrder');
   };
@@ -350,12 +339,12 @@ function Delivery() {
             <input
               type="radio"
               name="notification"
-              id="inProgress"
+              id="deliveryDelivery"
               className="hidden"
-              onChange={() => setCurrentPath('inProgress')}
-              checked={currentPath === 'inProgress'}
+              onChange={() => setCurrentPath('deliveryDelivery')}
+              checked={currentPath === 'deliveryDelivery'}
             />
-            <label htmlFor="inProgress" className="capitalize text-[1.8rem]">
+            <label htmlFor="deliveryDelivery" className="capitalize text-[1.8rem]">
               In Progress
             </label>
 
@@ -372,12 +361,12 @@ function Delivery() {
             </label>
           </div>
 
-          {(currentPath === 'inProgress' && inProgressData.length < 1) ||
+          {(currentPath === 'deliveryDelivery' && deliveryDeliveryData.length < 1) ||
           (currentPath === 'waitlist' && waitlistData.length < 1) ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing to Show here</p>
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                {currentPath === 'inProgress' ? (
+                {currentPath === 'deliveryDelivery' ? (
                   <span>
                     Delivery initiated from the waiting list would appear here
                   </span>
@@ -404,7 +393,7 @@ function Delivery() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
-                  {currentPath === 'inProgress' && (
+                  {currentPath === 'deliveryDelivery' && (
                     <SelectDropDown
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
@@ -414,21 +403,21 @@ function Delivery() {
                       dropDownState={dropDownState}
                     />
                   )}
-                  {currentPath === 'inProgress' ? (
+                  {currentPath === 'deliveryDelivery' ? (
                     <>
                       <SelectDropDown
-                        selectFrom={InProgressFilters}
-                        selectedItem={inProgressFilteredBy}
-                        setSelectedItem={setInProgressFilteredBy}
+                        selectFrom={DeliveryFilters}
+                        selectedItem={deliveryDeliveryFilteredBy}
+                        setSelectedItem={setDeliveryFilteredBy}
                         isFilter
                         label={'filterBy'}
                         setDropDownState={setDropDownState}
                         dropDownState={dropDownState}
                       />
-                      {inProgressFilteredBy && (
+                      {deliveryDeliveryFilteredBy && (
                         <GrClose
                           className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('inProgress')}
+                          onClick={() => handleClearFilter('deliveryDelivery')}
                         />
                       )}
                     </>
