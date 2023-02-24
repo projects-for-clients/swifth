@@ -51,7 +51,6 @@ export interface DeliveryContext {
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
 
-
 function Delivery() {
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
@@ -153,6 +152,8 @@ function Delivery() {
   };
 
   return (
+    <>
+  
     <DeliveryContext.Provider
       value={{
         openHistoryDialog,
@@ -269,6 +270,7 @@ function Delivery() {
         </section>
       </main>
     </DeliveryContext.Provider>
+      </>
   );
 }
 
