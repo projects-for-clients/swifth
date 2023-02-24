@@ -86,7 +86,11 @@ function Delivery() {
     null as any
   );
 
- 
+  useEffect(() => {
+    setDeliveryData(() => [...DELIVERY_DATA]);
+
+    setPickupData(() => [...PICKUP_DATA]);
+  }, []);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
