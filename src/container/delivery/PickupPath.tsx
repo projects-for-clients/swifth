@@ -66,7 +66,6 @@ export const PickupPath = () => {
           <div
             className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
             key={i}
-            onClick={() => openPickupDetail(item)}
           >
             <div>
               <p className="text-[1.6rem]">{name}</p>
