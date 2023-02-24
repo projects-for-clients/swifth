@@ -26,7 +26,6 @@ export type OrderHistoryPath = {
 export type DialogType = 'orderHistory' | 'eachOrder' | 'waitlist';
 
 export type SortBy = 'Most Recent' | 'A-Z';
-export type SwitchPath = 'all' | 'quoteRequests';
 export type ShowDetails = {
   show: boolean;
   id?: number | null;
@@ -39,8 +38,16 @@ export interface DropDownState {
   filterBy: boolean;
 }
 
-function orders() {
-  type SwitchPath = 'inProgress' | 'waitlist';
+const export 
+
+
+
+
+
+
+
+function Delivery() {
+  type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
   const InProgressFilters: InProgressFilterBy[] = [
     'Docs in Review',
@@ -197,7 +204,7 @@ function orders() {
 
   return (
     <>
-      <Header title="Orders" />
+      <Header title="Delivery" />
       <dialog className="dialog relative text-[1.6rem]" ref={waitListDialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
@@ -369,7 +376,7 @@ function orders() {
               <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
                 {currentPath === 'inProgress' ? (
                   <span>
-                    Orders initiated from the waiting list would appear here
+                    Delivery initiated from the waiting list would appear here
                   </span>
                 ) : (
                   <span>
@@ -449,4 +456,4 @@ function orders() {
   );
 }
 
-export default orders;
+export default Delivery;
