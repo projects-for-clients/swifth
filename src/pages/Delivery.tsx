@@ -119,7 +119,7 @@ function Delivery() {
 
     if (pickupFilteredBy && currentPath === 'pickup') {
       const filtered = PICKUP_DATA.filter(
-        (item) => item.tag === pickupFilteredBy
+        (item) => item.tag.toLowerCase() === pickupFilteredBy.toLowerCase()
       );
       console.log({filtered, pickupFilteredBy})
 
