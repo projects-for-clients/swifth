@@ -180,7 +180,6 @@ function Delivery() {
 
   const orderHistoryPaths: Record<string, JSX.Element> = {
     list: <ListOrderHistory setOrderHistoryPath={setOrderHistoryPath} />,
-    detail: <OrderHistoryDetail setOrderHistoryPath={setOrderHistoryPath} />,
   };
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {

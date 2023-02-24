@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useContext, useRef } from 'react';
 import { DeliveryContext } from '../../pages/Delivery';
+import DialogDetails from './DialogDetails';
 
 export interface FiltersProps {
   text: string;
@@ -83,11 +84,13 @@ export const DeliveryPath = () => {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-            onClick={() => handleCloseDialog()}
+              onClick={() => handleCloseDialog()}
             />
           </figure>
 
-          <section className="h-full">{/* <DialogDetails /> */}</section>
+          <section className="h-full">
+            <DialogDetails />
+          </section>
         </div>
       </dialog>
       {deliveryData.map((item, i) => {
