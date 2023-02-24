@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useContext } from 'react';
-import { PickupContext } from '../../pages/Pickup';
+import { DeliveryContext } from '../../pages/Delivery';
 
 export interface FiltersProps {
   text: string;
@@ -29,7 +29,7 @@ export function generateRandomDate() {
   return randomDate;
 }
 
-export interface Pickup {
+export interface PickupData {
   id: string;
   name: string;
   description: string;
@@ -50,7 +50,7 @@ export const PICKUP_DATA: Pickup[] = Array.from({ length: 10 }, (_, i) => {
 });
 
 export const PickupView = () => {
-  const { pickupData, openPickupDetail } = useContext(PickupContext);
+  const { pickupData, openPickupDetail } = useContext(DeliveryContext);
 
   return (
     <div

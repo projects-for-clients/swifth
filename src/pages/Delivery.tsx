@@ -41,7 +41,8 @@ export interface DropDownState {
 
 export interface DeliveryContext {
   openDeliveryDetail: (item: Delivery) => void;
-  deliveryData: Delivery[];
+  deliveryData: DeliveryData[];
+  pickupData: PickupData[]
 }
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);

@@ -29,7 +29,7 @@ export function generateRandomDate() {
   return randomDate;
 }
 
-export interface Delivery {
+export interface DeliveryData {
   id: string;
   name: string;
   description: string;
@@ -38,7 +38,7 @@ export interface Delivery {
   assignedAgent?: string;
 }
 
-export const DELIVERY_DATA: Delivery[] = Array.from({ length: 10 }, (_, i) => {
+export const DELIVERY_DATA: DeliveryData[] = Array.from({ length: 10 }, (_, i) => {
   return {
     id: nanoid(),
     name: `Jonathan Sunyi ${i}`,
