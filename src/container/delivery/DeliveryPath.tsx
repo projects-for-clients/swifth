@@ -57,31 +57,22 @@ export const DeliveryPath = () => {
 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (): void => {
-    if (type === 'orderHistory' && dialogRef.current) {
-      dialogRef.current.close();
-    }
-
+  
+const handleCloseDialog = () => {
     if ( dialogDetailRef.current) {
       dialogDetailRef.current.close();
     }
 
-    if (type === 'pickup' && pickupDialogRef.current) {
-      pickupDialogRef.current.close();
-    }
+ 
   };
-  const handleOpenDialog = (type: DialogType) => {
-    if (type === 'orderHistory' && dialogRef.current) {
-      dialogRef.current.showModal();
-    }
+  const handleOpenDialog = () => {
 
-    if (type === 'eachOrder' && dialogDetailRef.current) {
+
+    if ( dialogDetailRef.current) {
       dialogDetailRef.current.showModal();
     }
 
-    if (type === 'pickup' && pickupDialogRef.current) {
-      pickupDialogRef.current.showModal();
-    }
+  
   };
 
   return (
