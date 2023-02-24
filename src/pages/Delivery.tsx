@@ -7,6 +7,7 @@ import {
   useRef,
   createContext,
   useMemo,
+  useContext,
 } from 'react';
 import SelectDropDown from '../components/utils/SelectDropDown';
 import { GrClose } from 'react-icons/gr';
@@ -24,6 +25,7 @@ import {
   PICKUP_DATA,
 } from '../container/delivery/PickupPath';
 import DeliveryHistory from '../container/delivery/deliveryHistory';
+import { AgentOrderDetailContext } from '../container/order/AgentOrderDetail/AgentOrderDetail';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -53,6 +55,7 @@ export interface DeliveryContext {
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
 
 function Delivery() {
+  const data = useContext(AgentOrderDetailContext)
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
   const deliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
@@ -147,8 +150,8 @@ function Delivery() {
 
 
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    delivery: <DeliveryPath deliveryData={deliveryData} />,
-    pickup: <PickupPath pickupData={pickupData} />,
+    delivery: <DeliveryPath />,
+    pickup: <PickupPath />,
   };
 
   
@@ -156,17 +159,17 @@ function Delivery() {
   return (
     <>
       
-      {/* <DeliveryContext.Provider
+      <DeliveryContext.Provider
         value={{
           openHistoryDialog,
           pickupData,
           deliveryData,
         }}
-      > */}
+      >
         <Header title="Delivery" />
 
         <main className="text-[1.6rem]">
-          <DeliveryHistory />
+          {/* <DeliveryHistory /> */}
           <section className="relative flex items-center w-[45rem] mx-auto">
             <input
               type="text"
@@ -281,7 +284,7 @@ function Delivery() {
             )}
           </section>
         </main>
-      {/* </DeliveryContext.Provider> */}
+      </DeliveryContext.Provider>
     </>
   );
 }

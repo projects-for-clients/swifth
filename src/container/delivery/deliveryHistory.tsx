@@ -46,78 +46,77 @@ export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
 );
 
 const DeliveryHistory = () => {
-//     const { openHistoryDialog } = useContext(DeliveryContext);
+    const  openHistoryDialog = useContext(DeliveryContext);
 
-//   const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
-//     DELIVERY_HISTORY_DATA
-//   );
+  const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
+    DELIVERY_HISTORY_DATA
+  );
 
-// //   useEffect(() => {
-// //     const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
-// //       return new Date(a.date).getTime() - new Date(b.date).getTime();
-// //     });
+  useEffect(() => {
+    const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
 
-// //     setDeliveryHistory(() => [...sortedDates]);
-// //   }, []);
+    setDeliveryHistory(() => [...sortedDates]);
+  }, []);
 
-//   const [searchDates, setSearchDates] = useState<Record<string, Date | null>>({
-//     from: null,
-//     to: null,
-//   });
+  const [searchDates, setSearchDates] = useState<Record<string, Date | null>>({
+    from: null,
+    to: null,
+  });
 
-//   const [showCalendarIcon, setShowCalendarIcon] = useState({
-//     to: true,
-//     from: true,
-//   });
+  const [showCalendarIcon, setShowCalendarIcon] = useState({
+    to: true,
+    from: true,
+  });
 
-//   const fromDateRef = useRef<HTMLInputElement>(null);
-//   const toDateRef = useRef<HTMLInputElement>(null);
+  const fromDateRef = useRef<HTMLInputElement>(null);
+  const toDateRef = useRef<HTMLInputElement>(null);
 
-//   const handleDateSearch = () => {
-//     const { from, to } = searchDates;
+  const handleDateSearch = () => {
+    const { from, to } = searchDates;
 
-//     if (from && to) {
-//       const filtered = [...DELIVERY_HISTORY_DATA].filter((item) => {
-//         const date = new Date(item.date);
-//         return (
-//           date.getTime() >= from.getTime() && date.getTime() <= to.getTime()
-//         );
-//       });
+    if (from && to) {
+      const filtered = [...DELIVERY_HISTORY_DATA].filter((item) => {
+        const date = new Date(item.date);
+        return (
+          date.getTime() >= from.getTime() && date.getTime() <= to.getTime()
+        );
+      });
 
-//       setDeliveryHistory(() => [...filtered]);
-//     }
-//   };
+      setDeliveryHistory(() => [...filtered]);
+    }
+  };
 
-//   const clearDateInputs = () => {
-//     if (fromDateRef.current) {
-//       fromDateRef.current.value = '';
-//     }
+  const clearDateInputs = () => {
+    if (fromDateRef.current) {
+      fromDateRef.current.value = '';
+    }
 
-//     if (toDateRef.current) {
-//       toDateRef.current.value = '';
-//     }
+    if (toDateRef.current) {
+      toDateRef.current.value = '';
+    }
 
-//     setSearchDates({ from: null, to: null });
-//   };
+    setSearchDates({ from: null, to: null });
+  };
 
-//   const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-//   const handleCloseDialog = (): void => {
-//     if (dialogRef.current) {
-//       dialogRef.current.close();
-//     }
-//   };
-//   const handleOpenDialog = () => {
-//     if (dialogRef.current) {
-//       dialogRef.current.showModal();
-//     }
-//   };
+  const handleCloseDialog = (): void => {
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+  const handleOpenDialog = () => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
 
-  console.log("hds sdfs")
 
   return (
-    <>
-      {/* <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+    
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
@@ -269,8 +268,8 @@ const DeliveryHistory = () => {
             </div>
           </>
         </div>
-      </dialog> */}
-    </>
+      </dialog>
+
   );
 };
 

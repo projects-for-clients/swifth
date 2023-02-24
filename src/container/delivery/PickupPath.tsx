@@ -44,17 +44,16 @@ export const PICKUP_DATA: PickupData[] = Array.from({ length: 10 }, (_, i) => {
     name: `Jonathan Sunyi ${i}`,
     description: `Toyota Camry XLE, 2018 v6 with alloy wheels ${i}`,
     date: generateRandomDate(),
-    tag: Math.random() > 0.5 ?  'picked up' : 'pick up pending',
+    tag: Math.random() > 0.5 ? 'picked up' : 'pick up pending',
     assignedAgent: Math.random() > 0.5 ? 'Solomon Henry' : 'Joseph Isaac',
   };
 });
 
-interface PickupPathProps {
-  pickupData: PickupData[];
-}
 
-export const PickupPath:FC<PickupPathProps> = ({pickupData}) => {
 
+export const PickupPath = () => {
+    const { pickupData } = useContext(DeliveryContext);
+   
   return (
     <div
       className="grid mt-[5rem] gap-10"
