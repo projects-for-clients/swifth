@@ -1,5 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import { DialogType } from '../../pages/Orders';
+import DeliveryHistory from '../delivery/deliveryHistory';
 
 export function generateRandomDate() {
   const today = new Date();
@@ -302,6 +303,7 @@ export const InProgressView: FC<{
         gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
       }}
     >
+
       {inProgressData.map((item, i) => {
         const { name, description, date, tag } = item;
 

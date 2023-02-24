@@ -17,6 +17,7 @@ import {
   OrderHistoryDetail,
 } from '../container/order/OrderHistory';
 import EachOrderDetail from '../container/order/AgentOrderDetail/AgentOrderDetail';
+import DeliveryHistory from '../container/delivery/deliveryHistory';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -292,7 +293,7 @@ function orders() {
               onClick={() => handleCloseDialog('eachOrder')}
             />
           </figure>
-
+                  
           <section className="h-full">
             <EachOrderDetail
               orderDetail={OrderDetail}
