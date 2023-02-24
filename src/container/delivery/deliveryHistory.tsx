@@ -45,7 +45,7 @@ export const DELIVERY_HISTORY_DATA: DeliveryHistory[] = Array.from(
   }
 );
 
-function DeliveryHistory () {
+const DeliveryHistory = () => {
 //     const { openHistoryDialog } = useContext(DeliveryContext);
 
 //   const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
@@ -113,7 +113,7 @@ function DeliveryHistory () {
 //     }
 //   };
 
-  console.log("hds sdfs hh")
+  console.log("hds sdfs")
 
   return (
     <>

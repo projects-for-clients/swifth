@@ -53,7 +53,7 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
   }
 );
 
-const DeliveryPath = () => {
+function DeliveryPath () {
 // const { deliveryData } = useContext(DeliveryContext);
 
 const {name} = useContext(DeliveryContext);
