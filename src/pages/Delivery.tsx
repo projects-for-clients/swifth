@@ -26,6 +26,7 @@ import {
 } from '../container/delivery/PickupPath';
 import DeliveryHistory from '../container/delivery/deliveryHistory';
 import { AgentOrderDetailContext } from '../container/order/AgentOrderDetail/AgentOrderDetail';
+import DialogDetails from '../container/delivery/DialogDetails';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -39,7 +40,6 @@ export type ShowDetails = {
   show: boolean;
   id?: number | null;
 };
-
 
 export interface DropDownState {
   sortBy: boolean;
@@ -55,7 +55,7 @@ export interface DeliveryContext {
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
 
 function Delivery() {
-  const data = useContext(AgentOrderDetailContext)
+  const data = useContext(AgentOrderDetailContext);
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
   const deliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
@@ -74,12 +74,11 @@ function Delivery() {
   });
 
   const [currentPath, setCurrentPath] = useState<SwitchPath>('delivery');
- 
+
   const [search, setSearch] = useState('');
 
   const [deliveryData, setDeliveryData] = useState<DeliveryData[]>([]);
   const [pickupData, setPickupData] = useState<PickupData[]>([]);
-
 
   useEffect(() => {
     setDeliveryData(() => [...DELIVERY_DATA]);
@@ -148,16 +147,15 @@ function Delivery() {
     }
   };
 
-
   const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    delivery: <DeliveryPath />,
-    pickup: <PickupPath />,
+    delivery: <DeliveryPath deliveryData={deliveryData} />,
+    pickup: <PickupPath pickupData={pickupData} />,
   };
 
+  console.log('dsfasdf');
 
   return (
     <>
-
       <DeliveryContext.Provider
         value={{
           openHistoryDialog,

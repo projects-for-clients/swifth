@@ -56,10 +56,13 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
 );
 
 
+interface DeliveryPathProps {
+  deliveryData: DeliveryData[];
+}
 
-const DeliveryPath = () => {
+export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
 
-  const { deliveryData } = useContext(DeliveryContext);
+  //const { deliveryData } = useContext(DeliveryContext);
  
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
@@ -101,7 +104,7 @@ const DeliveryPath = () => {
           </section>
         </div>
       </dialog>
-      {deliveryData.map((item, i) => {
+      {DELIVERY_DATA.map((item, i) => {
         const { name, description, date, tag } = item;
 
         return (
