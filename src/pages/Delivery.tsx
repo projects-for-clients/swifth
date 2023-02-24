@@ -121,6 +121,7 @@ function Delivery() {
       const filtered = PICKUP_DATA.filter(
         (item) => item.tag === pickupFilteredBy
       );
+      console.log({filtered})
 
       return setPickupData(() => [...filtered]);
     }
@@ -128,7 +129,6 @@ function Delivery() {
 
   useEffect(() => {
     if (selectedSort) {
-      console.log({ selectedSort });
       if ((selectedSort as SortBy) === 'A-Z') {
         const sortedNames = [...DELIVERY_DATA].sort((a, b) => {
           return a.name.localeCompare(b.name);
