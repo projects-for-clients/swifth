@@ -88,7 +88,6 @@ function Delivery() {
 
   useEffect(() => {
     setDeliveryData(() => [...DELIVERY_DATA]);
-
     setPickupData(() => [...PICKUP_DATA]);
   }, []);
 
