@@ -324,7 +324,7 @@ function Delivery() {
                   <p>History</p>
                 </div>
                 <div className="flex items-center gap-8">
-                  {currentPath === 'pickup' && (
+                  <>
                     <SelectDropDown
                       selectFrom={sortBy}
                       selectedItem={selectedSort}
@@ -333,41 +333,22 @@ function Delivery() {
                       setDropDownState={setDropDownState}
                       dropDownState={dropDownState}
                     />
-                  )}
-                  {currentPath === 'delivery' ? (
-                    <>
-                      <SelectDropDown
-                        selectFrom={DeliveryFilters}
-                        selectedItem={deliveryFilteredBy}
-                        setSelectedItem={setDeliveryFilteredBy}
-                        isFilter
-                        label={'filterBy'}
-                        setDropDownState={setDropDownState}
-                        dropDownState={dropDownState}
+                    <SelectDropDown
+                      selectFrom={DeliveryFilters}
+                      selectedItem={deliveryFilteredBy}
+                      setSelectedItem={setDeliveryFilteredBy}
+                      isFilter
+                      label={'filterBy'}
+                      setDropDownState={setDropDownState}
+                      dropDownState={dropDownState}
+                    />
+                    {deliveryFilteredBy && (
+                      <GrClose
+                        className="text-[1.4rem] cursor-pointer"
+                        onClick={() => handleClearFilter('delivery')}
                       />
-                      {deliveryFilteredBy && (
-                        <GrClose
-                          className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('delivery')}
-                        />
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      <SelectDropDown
-                        selectFrom={pickupFilters}
-                        selectedItem={pickupFilterBy}
-                        setSelectedItem={setPickupFilterBy}
-                        isFilter
-                      />
-                      {pickupFilterBy && (
-                        <GrClose
-                          className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('pickup')}
-                        />
-                      )}
-                    </>
-                  )}
+                    )}
+                  </>
                 </div>
               </div>
               <>{pathToSwitch[currentPath]}</>
