@@ -152,125 +152,127 @@ function Delivery() {
   };
 
   return (
-    <>
-  
-    <DeliveryContext.Provider
-      value={{
-        openHistoryDialog,
-        pickupData,
-        deliveryData,
-      }}
-    >
-      <Header title="Delivery" />
+  <>
+        <Header title="Delivery" />
 
+        {/* <DeliveryHistory/> */}
 
-      {/* <DeliveryHistory/> */}
-     
-      <main className="text-[1.6rem]">
-        <section className="relative flex items-center w-[45rem] mx-auto">
-          <input
-            type="text"
-            className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
-            placeholder="Search"
-            value={search}
-            onChange={handleSearch}
-          />
-
-          <img
-            src="/icons/search-normal.svg"
-            alt=""
-            className="absolute left-6 text-[1.8rem]"
-          />
-        </section>
-
-        <section>
-          <div className="radioBox gap-16">
+        <main className="text-[1.6rem]">
+          <section className="relative flex items-center w-[45rem] mx-auto">
             <input
-              type="radio"
-              name="delivery"
-              id="delivery"
-              className="hidden"
-              onChange={() => setCurrentPath('delivery')}
-              checked={currentPath === 'delivery'}
+              type="text"
+              className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
+              placeholder="Search"
+              value={search}
+              onChange={handleSearch}
             />
-            <label htmlFor="delivery" className="capitalize text-[1.8rem]">
-              Delivery
-            </label>
 
-            <input
-              type="radio"
-              name="delivery"
-              id="pickup"
-              className="hidden"
-              checked={currentPath === 'pickup'}
-              onChange={() => setCurrentPath('pickup')}
+            <img
+              src="/icons/search-normal.svg"
+              alt=""
+              className="absolute left-6 text-[1.8rem]"
             />
-            <label htmlFor="pickup" className="capitalize text-[1.8rem]">
-              Pickup
-            </label>
-          </div>
+          </section>
 
-          {(currentPath === 'delivery' && deliveryData.length < 1) ||
-          (currentPath === 'pickup' && pickupData.length < 1) ? (
-            <div className="grid place-content-center h-[70vh] text-center">
-              <p>Nothing to Show here</p>
-              <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
-                {currentPath === 'delivery' ? (
-                  <span>Delivery initiated would appear here</span>
-                ) : (
-                  <span>Pickup initiated would appear here</span>
-                )}
-              </p>
+          <section>
+            <div className="radioBox gap-16">
+              <input
+                type="radio"
+                name="delivery"
+                id="delivery"
+                className="hidden"
+                onChange={() => setCurrentPath('delivery')}
+                checked={currentPath === 'delivery'}
+              />
+              <label htmlFor="delivery" className="capitalize text-[1.8rem]">
+                Delivery
+              </label>
+
+              <input
+                type="radio"
+                name="delivery"
+                id="pickup"
+                className="hidden"
+                checked={currentPath === 'pickup'}
+                onChange={() => setCurrentPath('pickup')}
+              />
+              <label htmlFor="pickup" className="capitalize text-[1.8rem]">
+                Pickup
+              </label>
             </div>
-          ) : (
-            <Fragment>
-              <div className="flex justify-between items-center mt-10">
-                <div
-                  className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
-                  onClick={() => setOpenHistoryDialog(true)}
-                >
-                  <img
-                    src="/icons/history.svg"
-                    alt=""
-                    className="w-[1.6rem] h-[1.6rem]"
-                  />
-                  <p>History</p>
-                </div>
-                <div className="flex items-center gap-8">
-                  <>
-                    <SelectDropDown
-                      selectFrom={sortBy}
-                      selectedItem={selectedSort}
-                      setSelectedItem={setSelectedSort}
-                      label={'sortBy'}
-                      setDropDownState={setDropDownState}
-                      dropDownState={dropDownState}
-                    />
-                    <SelectDropDown
-                      selectFrom={currentPath === 'delivery' ? deliveryFilters : pickupFilters}
-                      selectedItem={currentPath === 'delivery' ? deliveryFilteredBy : pickupFilteredBy}
-                      setSelectedItem={currentPath === 'delivery' ? setDeliveryFilteredBy : setPickupFilteredBy}
-                      isFilter
-                      label={'filterBy'}
-                      setDropDownState={setDropDownState}
-                      dropDownState={dropDownState}
-                    />
-                    {deliveryFilteredBy && (
-                      <GrClose
-                        className="text-[1.4rem] cursor-pointer"
-                        onClick={() => handleClearFilter('delivery')}
-                      />
-                    )}
-                  </>
-                </div>
+
+            {(currentPath === 'delivery' && deliveryData.length < 1) ||
+            (currentPath === 'pickup' && pickupData.length < 1) ? (
+              <div className="grid place-content-center h-[70vh] text-center">
+                <p>Nothing to Show here</p>
+                <p className="text-gray-500 text-[1.4rem] max-w-[35rem]">
+                  {currentPath === 'delivery' ? (
+                    <span>Delivery initiated would appear here</span>
+                  ) : (
+                    <span>Pickup initiated would appear here</span>
+                  )}
+                </p>
               </div>
-              <>{pathToSwitch[currentPath]}</>
-            </Fragment>
-          )}
-        </section>
-      </main>
-    </DeliveryContext.Provider>
-      </>
+            ) : (
+              <Fragment>
+                <div className="flex justify-between items-center mt-10">
+                  <div
+                    className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
+                    onClick={() => setOpenHistoryDialog(true)}
+                  >
+                    <img
+                      src="/icons/history.svg"
+                      alt=""
+                      className="w-[1.6rem] h-[1.6rem]"
+                    />
+                    <p>History</p>
+                  </div>
+                  <div className="flex items-center gap-8">
+                    <>
+                      <SelectDropDown
+                        selectFrom={sortBy}
+                        selectedItem={selectedSort}
+                        setSelectedItem={setSelectedSort}
+                        label={'sortBy'}
+                        setDropDownState={setDropDownState}
+                        dropDownState={dropDownState}
+                      />
+                      <SelectDropDown
+                        selectFrom={
+                          currentPath === 'delivery'
+                            ? deliveryFilters
+                            : pickupFilters
+                        }
+                        selectedItem={
+                          currentPath === 'delivery'
+                            ? deliveryFilteredBy
+                            : pickupFilteredBy
+                        }
+                        setSelectedItem={
+                          currentPath === 'delivery'
+                            ? setDeliveryFilteredBy
+                            : setPickupFilteredBy
+                        }
+                        isFilter
+                        label={'filterBy'}
+                        setDropDownState={setDropDownState}
+                        dropDownState={dropDownState}
+                      />
+                      {deliveryFilteredBy && (
+                        <GrClose
+                          className="text-[1.4rem] cursor-pointer"
+                          onClick={() => handleClearFilter('delivery')}
+                        />
+                      )}
+                    </>
+                  </div>
+                </div>
+                <>{pathToSwitch[currentPath]}</>
+              </Fragment>
+            )}
+          </section>
+        </main>
+    </>
   );
 }
 
