@@ -107,9 +107,9 @@ function Delivery() {
     }
 
     if (pickupFilterBy && currentPath === 'pickup') {
-      const filtered = PICKUP_DATA.filter((item) => {
-        return item.submitted === (pickupFilterBy === 'Submitted');
-      });
+      const filtered = PICKUP_DATA.filter(
+        (item) => item.tag === pickupFilterBy
+      );
 
       return setPickupData(() => [...filtered]);
     }
