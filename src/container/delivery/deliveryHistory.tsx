@@ -13,22 +13,21 @@ import { OrderHistoryPath } from '../../pages/Orders';
 import CalenderSvg from '../../components/icons/Calender';
 import { DeliveryContext } from '../../pages/Delivery';
 import { InProgress, INPROGRESS } from '../order/OrdersData';
+import { DeliveryData } from './DeliveryPath';
 
-interface Props {
-  setOrderHistoryPath: Dispatch<SetStateAction<OrderHistoryPath>>;
-  id?: number | null;
-}
 
 export const ListOrderHistory = () => {
 
     const { deliveryData } = useContext(DeliveryContext);
+
+    const [deliveryHistory, setDeliveryHistory] = useState<DeliveryData[]>([]);
 
   useEffect(() => {
     const sortedDates = [...INPROGRESS].sort((a, b) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
-    setOrderHistory(() => [...sortedDates]);
+    setDeliveryHistory(() => [...sortedDates]);
   }, []);
 
   const [searchDates, setSearchDates] = useState<Record<string, Date | null>>({
@@ -55,7 +54,7 @@ export const ListOrderHistory = () => {
         );
       });
 
-      setOrderHistory(() => [...filtered]);
+      setDeliveryHistory(() => [...filtered]);
     }
   };
 
@@ -167,7 +166,7 @@ export const ListOrderHistory = () => {
                 className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
                 key={i}
                 onClick={() =>
-                  setOrderHistoryPath({
+                  setDeliveryHistoryPath({
                     path: 'detail',
                     id,
                   })
