@@ -226,7 +226,7 @@ function Delivery() {
               <div className="flex justify-between items-center mt-10">
                 <div
                   className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
-                  onClick={() => handleOpenDialog('orderHistory')}
+                  onClick={() => openHistoryDialog()}
                 >
                   <img
                     src="/icons/history.svg"
