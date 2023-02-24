@@ -1,4 +1,6 @@
 import { nanoid } from 'nanoid';
+import { useContext } from 'react';
+import { DeliveryContext } from '../../pages/Delivery';
 
 export interface FiltersProps {
   text: string;
@@ -48,6 +50,10 @@ export const DELIVERY: Delivery[] = Array.from({ length: 10 }, (_, i) => {
 });
 
 export const DeliveryView = () => {
+
+  const {deliveryData, openDeliveryDetail} = useContext(DeliveryContext)
+
+
   return (
     <div
       className="grid mt-[5rem] gap-10"
@@ -62,7 +68,7 @@ export const DeliveryView = () => {
           <div
             className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
             key={i}
-            onClick={() => openOrderDetail(item)}
+            onClick={() => openDeliveryDetail(item)}
           >
             <div>
               <p className="text-[1.6rem]">{name}</p>

@@ -40,7 +40,8 @@ export interface DropDownState {
 }
 
 export interface DeliveryContext {
-  openOrderDetail: (item: Delivery) => void;
+  openDeliveryDetail: (item: Delivery) => void;
+  deliveryData: Delivery[];
 }
 
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
@@ -172,7 +173,7 @@ function Delivery() {
     }
   };
 
-  const openOrderDetail = (item: Delivery) => {
+  const openDeliveryDetail = (item: Delivery) => {
     setOrderDetail(item);
     handleOpenDialog('eachOrder');
   };
@@ -194,7 +195,8 @@ function Delivery() {
 
   return (
     <DeliveryContext.Provider value={{
-      openOrderDetail
+      openDeliveryDetail,
+      deliveryData
     }}>
       <Header title="Delivery" />
       <dialog className="dialog relative text-[1.6rem]" ref={waitListDialogRef}>
