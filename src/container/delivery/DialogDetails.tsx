@@ -1,6 +1,6 @@
 import { FC, Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
-import { DeliveryData } from './DeliveryPath';
+import { DeliveryData, filterByColors } from './DeliveryPath';
 
 
 interface DialogDetailsProps {
@@ -50,7 +50,10 @@ const DialogDetails: FC<DialogDetailsProps> = ({
             <p className="text-[2rem] text-gray-600 text-center">
               {deliveryData.name}
             </p>
-            <p className="bg-color-primary text-white rounded-3xl py-2 px-6">
+            <p
+              className={`py-1.5 px-4 rounded-2xl ${filterByColors[deliveryData.tag].bg} ${filterByColors[deliveryData.tag].text}`}
+            >
+              {' '}
               {deliveryData.tag}
             </p>
           </div>
