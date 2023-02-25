@@ -99,7 +99,10 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           </figure>
 
           <section className="h-full">
-            <DialogDetails deliveryData={deliveryData} />
+            <DialogDetails
+              deliveryData={deliveryData}
+              handleCloseDialog={handleCloseDialog}
+            />
           </section>
         </div>
       </dialog>

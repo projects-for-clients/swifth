@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 
 
-const DialogDetails = ({ deliveryData }) => {
+const DialogDetails = ({ deliveryData, handleCloseDialog }) => {
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
@@ -32,20 +32,20 @@ const DialogDetails = ({ deliveryData }) => {
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
-            onClick={() => setIsIndividualDetail(false)}
+            onClick={() => handleCloseDialog()}
           />
           <p className="text-[2rem] text-gray-600 text-center">Details</p>
         </div>
         <main className="grid gap-16 mt-10  ">
           <div className="grid justify-start justify-items-start gap-4">
             <p className="text-[2rem] text-gray-600 text-center">
-              {individualHistory?.name}
+              {deliveryData?.name}
             </p>
             <p className="bg-color-primary text-white rounded-3xl py-2 px-6">
-              {individualHistory?.tag}
+              {deliveryData?.tag}
             </p>
           </div>
-          
+
           <section className="grid gap-[2rem]">
             {keys.map((doc, i) => (
               <Fragment key={doc}>
