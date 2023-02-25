@@ -267,7 +267,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   }
                 </div>
                 <div className="grid gap-8 relative">
-                  <button className={` w-full `} onClick={accordionHandler}>
+                  <button className={` w-full relative`} onClick={accordionHandler}>
                     <div className="flex justify-between cursor-pointer">
                       <p className=" text-color-purple-1 flex items-center gap-6">
                         <div>
