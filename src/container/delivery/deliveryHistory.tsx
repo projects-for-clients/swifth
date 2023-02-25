@@ -198,7 +198,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   <p className=" text-gray-600">XLE</p>
                 </div>
               </section>
-              <section className="">
+              <section className="grid gap-8">
               
                   <div className="grid relative">
                     <button className={` w-full `} onClick={accordionHandler}>
