@@ -142,6 +142,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     setShowAccordion((prev) => !prev);
   };
 
+  type Keys = 'delivery ready' | 'all documents submitted' | 'payments completed' | 'delivered'
+
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
       <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
@@ -199,77 +201,131 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                 </div>
               </section>
               <section className="grid gap-[2rem]">
-              
-                  <div className="grid relative">
-                    <button className={` w-full `} onClick={accordionHandler}>
-                      <div className="flex justify-between cursor-pointer">
-                        <p className=" text-color-purple-1 flex items-center gap-6">
-                          <div>
-                            <img
-                              src="/icons/check-success.svg"
-                              alt=""
-                              className="w-[2.4rem] relative z-[2]"
-                            />
-                            <span className="accordion__line"></span>
-                          </div>
-                          <span>Delivery ready</span>
-                        </p>
-                        <p className="text-color-purple flex items-center gap-4">
-                          <span className="text-gray-600 text-[1.4rem]">
-                            Dec 3, 2023
-                          </span>{' '}
-                          {showAccordion ? (
-                            <img src="/icons/arrow-circle-up.svg" alt="" />
-                          ) : (
-                            <img src="/icons/arrow-circle-down.svg" alt="" />
-                          )}
-                        </p>
-                      </div>
-                    </button>
-                    {
-                      <div
-                        className={`grid   ${
-                          showAccordion ? 'visible h-auto' : 'invisible h-0'
+                {RCDocContent.map((doc, i) => (
+                  <Fragment key={i}>
+                    <div className="relative">
+                      <p
+                        className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${
+                          isOrderAssignedAgent ? 'w-[18rem]' : ''
                         }`}
+                        onClick={() => handleRCDocChange(doc.name)}
                       >
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            ICOC
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            400,000
-                          </p>
+                        {doc.name}
+
+                        {(isOrderAssignedAgent && doc.status === 'Approved') ||
+                        selectedItem === doc.name ? (
+                          <span>
+                            <img src="/icons/tick-square.svg" alt="" />
+                          </span>
+                        ) : doc.status === 'Declined' ? (
+                          <span>
+                            <img src="/icons/close-square.svg" alt="" />
+                          </span>
+                        ) : null}
+                      </p>
+                      {openToolTip && RCDocsItem.key === doc.name && (
+                        <div
+                          className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${
+                            isOrderAssignedAgent ? 'left-0' : 'right-0 '
+                          }`}
+                        >
+                          {selectFrom.map((item, i) => {
+                            return (
+                              <button
+                                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
+                                  doc.submitted &&
+                                  item.name === 'Send submission reminder'
+                                    ? 'hidden'
+                                    : 'flex'
+                                }`}
+                                key={i}
+                                disabled={
+                                  !doc.submitted &&
+                                  item.name !== 'Send submission reminder'
+                                }
+                                onClick={() => handleSelectedItem(item.name)}
+                              >
+                                <img src={item.imgUri} alt="" />
+                                <span
+                                  className={`${item.className} font-medium`}
+                                >
+                                  {item.name}
+                                </span>
+                              </button>
+                            );
+                          })}
                         </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Loan + (10%) Interest
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            220,000
-                          </p>
+                      )}
+                    </div>
+                  </Fragment>
+                ))}
+                <div className="grid relative">
+                  <button className={` w-full `} onClick={accordionHandler}>
+                    <div className="flex justify-between cursor-pointer">
+                      <p className=" text-color-purple-1 flex items-center gap-6">
+                        <div>
+                          <img
+                            src="/icons/check-success.svg"
+                            alt=""
+                            className="w-[2.4rem] relative z-[2]"
+                          />
+                          <span className="accordion__line"></span>
                         </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Security charge as at: 3/6/23
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            80,000
-                          </p>
-                        </div>
-                        <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                          <p className="text-[1.4rem] text-color-purple-1">
-                            Telex Charge
-                          </p>
-                          <p className="text-color-purple-1 font-semibold">
-                            300,000
-                          </p>
-                        </div>
+                        <span>Delivery ready</span>
+                      </p>
+                      <p className="text-color-purple flex items-center gap-4">
+                        <span className="text-gray-600 text-[1.4rem]">
+                          Dec 3, 2023
+                        </span>{' '}
+                        {showAccordion ? (
+                          <img src="/icons/arrow-circle-up.svg" alt="" />
+                        ) : (
+                          <img src="/icons/arrow-circle-down.svg" alt="" />
+                        )}
+                      </p>
+                    </div>
+                  </button>
+                  {
+                    <div
+                      className={`grid   ${
+                        showAccordion ? 'visible h-auto' : 'invisible h-0'
+                      }`}
+                    >
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          ICOC
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          400,000
+                        </p>
                       </div>
-                    }
-                  </div>
-                 
-                
-             
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          Loan + (10%) Interest
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          220,000
+                        </p>
+                      </div>
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          Security charge as at: 3/6/23
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          80,000
+                        </p>
+                      </div>
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          Telex Charge
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          300,000
+                        </p>
+                      </div>
+                    </div>
+                  }
+                </div>
               </section>
               <section className="grid gap-4 rounded-2xl">
                 <p className="text-gray-500 font-medium text-[1.8rem]">
@@ -286,7 +342,6 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   </div>
                 </div>
               </section>
-              
             </main>
           </>
         ) : (
