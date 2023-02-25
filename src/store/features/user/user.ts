@@ -6,45 +6,55 @@ type ValidatingPath = 'businessInfo' | 'personalInfo' | 'portsAndTerminal';
 
 export interface IUser {
   validated: boolean;
- 
+
   fullName: string;
   email: string;
   onboarding: {
     validating: 'idle' | 'pending' | 'succeeded';
-    validatingArr: {
-      path: ValidatingPath;
-      message: string;
-      error: boolean;
-    }[] | [];
+    validatingArr:
+      | {
+          path: ValidatingPath;
+          message: string;
+          error: boolean;
+        }[]
+      | [];
   };
 }
 
 const initialState: IUser = {
-
-  validated: false,
+  validated: true,
   fullName: '',
   email: '',
   onboarding: {
-    validating: 'idle',
-    validatingArr: [
-      {
-        path: 'businessInfo',
-        message: 'Business info is not valid',
-        error: false,
-      },
-      {
-        path: 'personalInfo',
-        message: 'Details Validated',
-        error: false,
-      },
-      {
-        path: 'portsAndTerminal',
-        message: 'Details Validated',
-        error: true,
-      },
-    ],
-   // validatingArr: [],
+    validating: 'succeeded',
+    validatingArr: [],
   },
+
+  // validated: false,
+  // fullName: '',
+  // email: '',
+  // onboarding: {
+  //   validating: 'idle',
+
+  //   validatingArr: [
+  //     {
+  //       path: 'businessInfo',
+  //       message: 'Business info is not valid',
+  //       error: false,
+  //     },
+  //     {
+  //       path: 'personalInfo',
+  //       message: 'Details Validated',
+  //       error: false,
+  //     },
+  //     {
+  //       path: 'portsAndTerminal',
+  //       message: 'Details Validated',
+  //       error: true,
+  //     },
+  //   ],
+  // },
+
 };
 
 export const userSlice = createSlice({

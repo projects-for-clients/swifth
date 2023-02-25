@@ -624,7 +624,11 @@ function DashboardHome() {
         }}
       >
         <div className={`grid gap-4 ${validated ? 'order-2' : ''}`}>
-          <section className={`grid gap-4 order-2 ${closeAccountSetup}`}>
+          <section
+            className={`grid gap-4 ${
+              validated ? 'order-2' : ''
+            } ${closeAccountSetup}`}
+          >
             <div
               className={`rounded-3xl p-8 border border-color-purple-light ${
                 validating === 'idle' && 'grid gap-8'
