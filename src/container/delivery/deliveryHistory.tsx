@@ -7,6 +7,7 @@ import {
   useContext,
   SetStateAction,
   SyntheticEvent,
+  Fragment,
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
@@ -138,9 +139,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     }
   }, [openHistoryDialog]);
 
-  const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
-    setShowAccordion((prev) => !prev);
-  };
+//   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
+//     setShowAccordion((prev) => !prev);
+//   };
 
   type Keys = 'Delivery ready' | 'All documents submitted' | 'Payments completed' | 'Delivered'
 
@@ -154,7 +155,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
     key: null,
   });
-  const handleRCDocChange = (item: string) => {
+  const accordianHandler = (item: string) => {
     setkeyItem((prev) => {
       if (prev.key === item) {
         return { key: null };
@@ -221,9 +222,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               </section>
               <section className="grid gap-[2rem]">
                 {keys.map((doc, i) => (
-                  <>
+                  <Fragment key={doc}>
                     <div className="grid relative">
-                      <button className={` w-full `} onClick={accordionHandler}>
+                      <button className={` w-full `} onClick={() => accordianHandler(doc)}>
                         <div className="flex justify-between cursor-pointer">
                           <p className=" text-color-purple-1 flex items-center gap-6">
                             <div>
@@ -289,7 +290,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                         </div>
                       }
                     </div>
-                  </>
+                  </Fra>
                 ))}
               </section>
               <section className="grid gap-4 rounded-2xl">
