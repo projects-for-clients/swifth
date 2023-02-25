@@ -161,12 +161,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
   //   });
   const [keyItem, setkeyItem] = useState<Keys | null>(null);
   const accordianHandler = (item: Keys) => {
-    // setkeyItem((prev) => {
-    //   if (prev.key === item) {
-    //     return { key: null };
-    //   }
-    //   return { key: item };
-    // });
+    
 
     setkeyItem((prev) => {
       if (prev === item) {
