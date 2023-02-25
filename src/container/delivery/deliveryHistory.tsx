@@ -198,8 +198,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   <p className=" text-gray-600">XLE</p>
                 </div>
               </section>
-              <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
-                <div className="border-b border-b-color-purple-light-2 ">
+              <section className="">
+                <div className=" ">
                   <button
                     className={`flex justify-between p-8 cursor-pointer w-full `}
                     onClick={accordionHandler}
