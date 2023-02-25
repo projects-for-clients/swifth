@@ -201,7 +201,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               <section className="grid gap-[2rem]">
               
                   <div className="grid relative">
-                    <button className={` w-full `} onClick={accordionHandler}>
+                    <label htmlFor='deliveryReady' onClick={accordionHandler}>
                       <div className="flex justify-between cursor-pointer">
                         <p className=" text-color-purple-1 flex items-center gap-6">
                           <div>
@@ -225,7 +225,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           )}
                         </p>
                       </div>
-                    </button>
+                    </label>
+                    <input type="radio" name='accordion' id='deliveryReady' />
                     {
                       <div
                         className={`grid   ${
