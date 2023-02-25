@@ -673,8 +673,12 @@ function DashboardHome() {
               </div>
             </div>
           </section>
-          {notifications}
-          {quoteRequest}
+          {validated && (
+            <>
+              {notifications}
+              {quoteRequest}
+            </>
+          )}
 
           <section
             className={`grid gap-4 self-baseline order-4 ${

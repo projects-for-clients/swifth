@@ -21,11 +21,11 @@ export interface IUser {
 
 const initialState: IUser = {
 
-  validated: true,
+  validated: false,
   fullName: '',
   email: '',
   onboarding: {
-    validating: 'succeeded',
+    validating: 'idle',
     validatingArr: [
       {
         path: 'businessInfo',
