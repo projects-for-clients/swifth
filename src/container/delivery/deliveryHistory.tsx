@@ -265,7 +265,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                  // onClick={accordionHandler}
                 >
                   <p className=" text-color-purple-1 flex items-center gap-6">
-                    <img src="/icons/check-success.svg" alt="" />
+                    <img src="/icons/check-success.svg" alt="" className='w-[2.4rem]' />
                     <span>All documents submitted</span>
                   </p>
                   <p className="text-color-purple flex items-center gap-4">
