@@ -263,7 +263,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                       </button>
                       { keyItem === doc &&
                         <div
-                          className={`grid mt-10 gap-16 px-8 ${
+                          className={`grid mt-10 gap-8 px-16 ${
                             keyItem === doc
                               ? 'visible h-auto'
                               : 'invisible h-0'
