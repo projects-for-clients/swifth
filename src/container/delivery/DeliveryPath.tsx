@@ -86,7 +86,6 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
       }}
     >
-
       <dialog className="dialog relative text-[1.6rem]" ref={dialogDetailRef}>
         <div className="bg-white fixed right-0 h-[100vh] py-4 px-12">
           <input type="text" className="absolute top-0 w-0" />
@@ -100,7 +99,7 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           </figure>
 
           <section className="h-full">
-            <DialogDetails />
+            <DialogDetails deliveryData={deliveryData} />
           </section>
         </div>
       </dialog>

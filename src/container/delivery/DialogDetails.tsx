@@ -2,32 +2,29 @@ import { Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 
 
-const DialogDetails = () => {
+const DialogDetails = ({ deliveryData }) => {
+  type Keys =
+    | 'Delivery ready'
+    | 'All documents submitted'
+    | 'Payments completed'
+    | 'Delivered';
 
+  const keys: Keys[] = [
+    'All documents submitted',
+    'Delivery ready',
+    'Payments completed',
+    'Delivered',
+  ];
 
-  
-type Keys =
-  | 'Delivery ready'
-  | 'All documents submitted'
-  | 'Payments completed'
-  | 'Delivered';
-
-const keys: Keys[] = [
-  'All documents submitted',
-  'Delivery ready',
-  'Payments completed',
-  'Delivered',
-];
-
-const [keyItem, setkeyItem] = useState<Keys | null>(null);
-const accordianHandler = (item: Keys) => {
-  setkeyItem((prev) => {
-    if (prev === item) {
-      return null;
-    }
-    return item;
-  });
-};
+  const [keyItem, setkeyItem] = useState<Keys | null>(null);
+  const accordianHandler = (item: Keys) => {
+    setkeyItem((prev) => {
+      if (prev === item) {
+        return null;
+      }
+      return item;
+    });
+  };
 
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
@@ -48,29 +45,7 @@ const accordianHandler = (item: Keys) => {
               {individualHistory?.tag}
             </p>
           </div>
-          <section
-            className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
-            style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
-            }}
-          >
-            <div>
-              <p className=" text-gray-400">Car Brand</p>
-              <p className=" text-gray-600">Toyota</p>
-            </div>
-            <div>
-              <p className=" text-gray-400">Car Year</p>
-              <p className=" text-gray-600">2022</p>
-            </div>
-            <div>
-              <p className=" text-gray-400">Car Model</p>
-              <p className=" text-gray-600">Camry</p>
-            </div>
-            <div>
-              <p className=" text-gray-400">Car Trim</p>
-              <p className=" text-gray-600">XLE</p>
-            </div>
-          </section>
+          
           <section className="grid gap-[2rem]">
             {keys.map((doc, i) => (
               <Fragment key={doc}>
