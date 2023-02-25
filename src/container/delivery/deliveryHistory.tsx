@@ -284,8 +284,36 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           </div>
                         </div>
                       ) : keyItem === doc && i === keys.length - 1 ? (
-                        <div className='grid gap-8'>
-                            <p>James Ibori marked {individualHistory?.name} item as delivered</p>
+                        <div className="grid gap-8">
+                          <p>
+                            James Ibori marked {individualHistory?.name} item as
+                            delivered
+                          </p>
+
+                          <p
+                            className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
+                              `}
+                          >
+                            
+                              <img src="/icons/admin/upload.svg" alt="" />
+                        
+                            {imageDetails.cacUri.pathName ? (
+                              <div className="grid">
+                                <p className="text-[1.4rem] font-normal">
+                                  {imageDetails.cacUri.pathName}
+                                </p>
+                                <p className="text-color-grey-4 text-[1rem]">
+                                  {imageDetails.cacUri.message
+                                    ? imageDetails.cacUri.message
+                                    : imageDetails.cacUri.size}
+                                </p>
+                              </div>
+                            ) : (
+                              <p className="text-[1.4rem]">
+                                Upload CAC Certificate
+                              </p>
+                            )}
+                          </p>
                         </div>
                       ) : null}
                     </div>
