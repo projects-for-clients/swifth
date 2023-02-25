@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { FC, useContext, useEffect, useMemo, useRef } from 'react';
+import { FC, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DeliveryContext } from '../../pages/Delivery';
 import { AgentOrderDetailContext } from '../order/AgentOrderDetail/AgentOrderDetail';
 import DeliveryHistory from './deliveryHistory';
@@ -63,6 +63,7 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
   //const { deliveryData } = useContext(DeliveryContext);
 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
+  const [individualDeliveryData, setIndividualDeliveryData] = useState<DeliveryData | null>(null)
 
   const handleCloseDialog = () => {
     if (dialogDetailRef.current) {
@@ -74,6 +75,11 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
       dialogDetailRef.current.showModal();
     }
   };
+
+  const handleDeliveryItem = (item: DeliveryData) => {
+    setIndividualDeliveryData(item)
+    handleOpenDialog()
+  }
 
   return (
     <div
@@ -111,7 +117,7 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           <div
             className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
             key={i}
-            onClick={() => handleOpenDialog()}
+            onClick={() => handleDeliveryItem(item)}
           >
             <div>
               <p className="text-[1.6rem]">{name}</p>
