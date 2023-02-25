@@ -266,7 +266,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           </p>
                         </div>
                       </button>
-                      {keyItem === doc && (
+                      {keyItem === doc && i !== keys.length - 1 ? (
                         <div
                           className={`grid mt-10 gap-8 px-16 ${
                             keyItem === doc ? 'visible h-auto' : 'invisible h-0'
@@ -283,7 +283,10 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                             </p>
                           </div>
                         </div>
-                      )}
+                      ) : keyItem === doc && i === keys.length - 1 ? (
+                        <>
+                        </>
+                      ) : null}
                     </div>
                   </Fragment>
                 ))}
