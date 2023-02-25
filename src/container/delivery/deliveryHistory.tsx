@@ -144,6 +144,13 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
 
   type Keys = 'delivery ready' | 'all documents submitted' | 'payments completed' | 'delivered'
 
+  const keys:Keys[] = [
+    'all documents submitted',
+    'delivery ready',
+    'payments completed',
+    'delivered'
+  ]
+
   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
     key: null,
   });
@@ -224,50 +231,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                       >
                         {doc.name}
 
-                        {(isOrderAssignedAgent && doc.status === 'Approved') ||
-                        selectedItem === doc.name ? (
-                          <span>
-                            <img src="/icons/tick-square.svg" alt="" />
-                          </span>
-                        ) : doc.status === 'Declined' ? (
-                          <span>
-                            <img src="/icons/close-square.svg" alt="" />
-                          </span>
-                        ) : null}
-                      </p>
-                      {openToolTip && keyItem.key === doc.name && (
-                        <div
-                          className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${
-                            isOrderAssignedAgent ? 'left-0' : 'right-0 '
-                          }`}
-                        >
-                          {selectFrom.map((item, i) => {
-                            return (
-                              <button
-                                className={`text-[1.4rem] hover:bg-gray-100 p-4 text-left flex items-center gap-4 disabled:opacity-25 disabled:cursor-not-allowed ${
-                                  doc.submitted &&
-                                  item.name === 'Send submission reminder'
-                                    ? 'hidden'
-                                    : 'flex'
-                                }`}
-                                key={i}
-                                disabled={
-                                  !doc.submitted &&
-                                  item.name !== 'Send submission reminder'
-                                }
-                                onClick={() => handleSelectedItem(item.name)}
-                              >
-                                <img src={item.imgUri} alt="" />
-                                <span
-                                  className={`${item.className} font-medium`}
-                                >
-                                  {item.name}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      )}
+                        
+                     
                     </div>
                   </Fragment>
                 ))}
