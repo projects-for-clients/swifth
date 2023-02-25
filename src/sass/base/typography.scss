@@ -118,14 +118,14 @@ p {
 }
 
 .accordion__line{
-  position: relative;
+  //position: relative;
   &::after{
     content: '';
     width: 2px;
     height: 100%;
     background-color: red;
     position: absolute;
-    left: 1.2rem;
+    // left: 1.2rem;
   }
 }
 

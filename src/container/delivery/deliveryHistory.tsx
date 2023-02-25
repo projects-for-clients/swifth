@@ -200,28 +200,28 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               </section>
               <section className="relative">
                 <div className="grid gap-8 ">
-                  <button
-                    className={`flex justify-between cursor-pointer w-full accordion__line `}
-                    onClick={accordionHandler}
-                  >
-                    <p className=" text-color-purple-1 flex items-center gap-6">
-                      <img
-                        src="/icons/check-success.svg"
-                        alt=""
-                        className="w-[2.4rem]"
-                      />
-                      <span>Delivery ready</span>
-                    </p>
-                    <p className="text-color-purple flex items-center gap-4">
-                      <span className="text-gray-600 text-[1.4rem]">
-                        Dec 3, 2023
-                      </span>{' '}
-                      {showAccordion ? (
-                        <img src="/icons/arrow-circle-up.svg" alt="" />
-                      ) : (
-                        <img src="/icons/arrow-circle-down.svg" alt="" />
-                      )}
-                    </p>
+                  <button className={` w-full  `} onClick={accordionHandler}>
+                    <div className="flex justify-between cursor-pointer">
+                      <p className=" text-color-purple-1 flex items-center gap-6">
+                        <img
+                          src="/icons/check-success.svg"
+                          alt=""
+                          className="w-[2.4rem]"
+                        />
+                        <span>Delivery ready</span>
+                      </p>
+                      <p className="text-color-purple flex items-center gap-4">
+                        <span className="text-gray-600 text-[1.4rem]">
+                          Dec 3, 2023
+                        </span>{' '}
+                        {showAccordion ? (
+                          <img src="/icons/arrow-circle-up.svg" alt="" />
+                        ) : (
+                          <img src="/icons/arrow-circle-down.svg" alt="" />
+                        )}
+                      </p>
+                    </div>
+                    <span className="accordion__line"></span>
                   </button>
                   {
                     <div
