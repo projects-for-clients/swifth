@@ -149,12 +149,12 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
           />
         </figure>
 
-        <section className="">
+        <section className="mb-10">
           <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
         </section>
 
         {isIndividualDetail ? (
-          <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
+          <>
             <div className="flex gap-10 items-center">
               <BsArrowLeft
                 className="text-[2.4rem] cursor-pointer"
@@ -162,12 +162,12 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
-            <section className="h-full">
                 <main className="grid gap-16 ">
                   <div className="grid justify-start justify-items-start gap-4">
                     <p className="text-[2rem] text-gray-600 text-center">
                       {individualHistory?.name}
                     </p>
+                    <p className='bg-color-primary text-white rounded-3xl py-2 px-6'>{individualHistory?.tag}</p>
                   </div>
                   <section
                     className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
@@ -228,8 +228,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   </button>{' '}
                 </main>
          
-            </section>
-          </div>
+          </>
         ) : (
           <>
             <div className="flex justify-between gap-8 items-center">
