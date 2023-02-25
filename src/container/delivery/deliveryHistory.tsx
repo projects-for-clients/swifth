@@ -144,7 +144,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({ openHistoryDialog, setOpenH
           <h3 className="text-[2.4rem] mb-10">Delivery Report</h3>
         </section>
 
-        <>
+
           <div className="flex justify-between gap-8 items-center">
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem] bg-red-600">From Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius architecto corrupti beatae praesentium iusto. Voluptatum recusandae ea aperiam aliquam corporis dolorum voluptatibus, deleniti ducimus exercitationem repudiandae modi est? Exercitationem, optio!</label>
