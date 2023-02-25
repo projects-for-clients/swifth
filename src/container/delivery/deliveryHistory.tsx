@@ -204,10 +204,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                     className={`flex justify-between p-8 cursor-pointer w-full `}
                     onClick={accordionHandler}
                   >
-                    <p className="text-[1.4rem] text-color-purple-1">
+                    <p className="text-[1.4rem] text-color-purple-1 flex items-center gap-2">
                         <img src="/icons/check-success.svg" alt="" />
-                        <span>Delivery Read</span>
-                      Total Bill
+                        <span>Delivery ready</span>
                     </p>
                     <p className="text-color-purple font-semibold flex items-center gap-4">
                       <span>1,000,000</span>{' '}
