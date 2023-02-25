@@ -346,7 +346,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                             />
                             <span className="accordion__line"></span>
                           </div>
-                          <span>All documents ready</span>
+                          <span>Payments completed</span>
                         </p>
                         <p className="text-color-purple flex items-center gap-4">
                           <span className="text-gray-600 text-[1.4rem]">
@@ -411,9 +411,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                               alt=""
                               className="w-[2.4rem] relative z-[2]"
                             />
-                            <span className="accordion__line"></span>
                           </div>
-                          <span>All documents ready</span>
+                          <span>All documents </span>
                         </p>
                         <p className="text-color-purple flex items-center gap-4">
                           <span className="text-gray-600 text-[1.4rem]">
