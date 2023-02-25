@@ -200,7 +200,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               </section>
               <section className="">
               
-                  <div className="grid gap-8 relative">
+                  <div className="grid relative">
                     <button className={` w-full `} onClick={accordionHandler}>
                       <div className="flex justify-between cursor-pointer">
                         <p className=" text-color-purple-1 flex items-center gap-6">
@@ -267,7 +267,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                       </div>
                     }
                   </div>
-                  <div className="grid gap-8 relative">
+                  <div className="grid  relative">
                     <button className={` w-full `} onClick={accordionHandler}>
                       <div className="flex justify-between cursor-pointer">
                         <p className=" text-color-purple-1 flex items-center gap-6">
