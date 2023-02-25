@@ -205,11 +205,13 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                     onClick={accordionHandler}
                   >
                     <p className=" text-color-purple-1 flex items-center gap-6">
-                        <img src="/icons/check-success.svg" alt="" />
-                        <span>Delivery ready</span>
+                      <img src="/icons/check-success.svg" alt="" />
+                      <span>Delivery ready</span>
                     </p>
                     <p className="text-color-purple flex items-center gap-4">
-                      <span className='text-gray-600 text-[1.4rem]'>Dec 3, 2023</span>{' '}
+                      <span className="text-gray-600 text-[1.4rem]">
+                        Dec 3, 2023
+                      </span>{' '}
                       {showAccordion ? (
                         <img src="/icons/arrow-circle-up.svg" alt="" />
                       ) : (
@@ -258,16 +260,25 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                     </div>
                   }
                 </div>
-                <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
-                  <p className="text-[1.4rem] text-color-purple-1">Paid</p>
-                  <p className="text-color-purple font-semibold">7,000,000</p>
-                </div>
-                <div className="flex justify-between p-8">
-                  <p className="text-[1.4rem] text-color-purple-1">
-                    Outstanding
+                <button
+                  className={`flex justify-between cursor-pointer w-full `}
+                 // onClick={accordionHandler}
+                >
+                  <p className=" text-color-purple-1 flex items-center gap-6">
+                    <img src="/icons/check-success.svg" alt="" />
+                    <span>All documents submitted</span>
                   </p>
-                  <p className="text-color-purple font-semibold">300,000</p>
-                </div>
+                  <p className="text-color-purple flex items-center gap-4">
+                    <span className="text-gray-600 text-[1.4rem]">
+                      Dec 3, 2023
+                    </span>{' '}
+                    {showAccordion ? (
+                      <img src="/icons/arrow-circle-up.svg" alt="" />
+                    ) : (
+                      <img src="/icons/arrow-circle-down.svg" alt="" />
+                    )}
+                  </p>
+                </button>
               </section>
               <section className="grid gap-4 rounded-2xl">
                 <p className="text-gray-500 font-medium text-[1.8rem]">
