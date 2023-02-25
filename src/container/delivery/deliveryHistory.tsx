@@ -198,7 +198,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   <p className=" text-gray-600">XLE</p>
                 </div>
               </section>
-              <section className="">
+              <section className="relative">
                 <div className="grid gap-8 accordion__line">
                   <button
                     className={`flex justify-between cursor-pointer w-full `}
