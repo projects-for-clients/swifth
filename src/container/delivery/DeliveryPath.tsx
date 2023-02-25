@@ -55,15 +55,13 @@ export const DELIVERY_DATA: DeliveryData[] = Array.from(
   }
 );
 
-
 interface DeliveryPathProps {
   deliveryData: DeliveryData[];
 }
 
 export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
-
   //const { deliveryData } = useContext(DeliveryContext);
- 
+
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseDialog = () => {
@@ -76,8 +74,6 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
       dialogDetailRef.current.showModal();
     }
   };
-
-
 
   return (
     <div
@@ -99,10 +95,12 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           </figure>
 
           <section className="h-full">
-            <DialogDetails
-              deliveryData={deliveryData}
-              handleCloseDialog={handleCloseDialog}
-            />
+            {deliveryData && deliveryData.length > 0 && (
+              <DialogDetails
+                deliveryData={deliveryData}
+                handleCloseDialog={handleCloseDialog}
+              />
+            )}
           </section>
         </div>
       </dialog>

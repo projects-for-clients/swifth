@@ -1,6 +1,12 @@
 import { Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import { DeliveryData } from './DeliveryPath';
 
+
+interface DialogDetailsProps {
+  deliveryData: DeliveryData;
+  handleCloseDialog: () => void;
+}
 
 const DialogDetails = ({ deliveryData, handleCloseDialog }) => {
   type Keys =
@@ -39,10 +45,10 @@ const DialogDetails = ({ deliveryData, handleCloseDialog }) => {
         <main className="grid gap-16 mt-10  ">
           <div className="grid justify-start justify-items-start gap-4">
             <p className="text-[2rem] text-gray-600 text-center">
-              {deliveryData?.name}
+              {deliveryData.name}
             </p>
             <p className="bg-color-primary text-white rounded-3xl py-2 px-6">
-              {deliveryData?.tag}
+              {deliveryData.tag}
             </p>
           </div>
 
