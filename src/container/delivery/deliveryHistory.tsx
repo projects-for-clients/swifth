@@ -224,7 +224,10 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                 {keys.map((doc, i) => (
                   <Fragment key={doc}>
                     <div className="grid relative">
-                      <button className={` w-full `} onClick={() => accordianHandler(doc)}>
+                      <button
+                        className={` w-full `}
+                        onClick={() => accordianHandler(doc)}
+                      >
                         <div className="flex justify-between cursor-pointer">
                           <p className=" text-color-purple-1 flex items-center gap-6">
                             <div>
@@ -241,7 +244,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                             <span className="text-gray-600 text-[1.4rem]">
                               Dec 3, 2023
                             </span>{' '}
-                            {showAccordion ? (
+                            {keyItem.key === doc ? (
                               <img src="/icons/arrow-circle-up.svg" alt="" />
                             ) : (
                               <img src="/icons/arrow-circle-down.svg" alt="" />
@@ -252,7 +255,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                       {
                         <div
                           className={`grid   ${
-                            showAccordion ? 'visible h-auto' : 'invisible h-0'
+                            keyItem.key === doc
+                              ? 'visible h-auto'
+                              : 'invisible h-0'
                           }`}
                         >
                           <div className=" border-b-color-purple-light-2 flex justify-between p-8">
