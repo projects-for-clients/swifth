@@ -248,7 +248,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                                 alt=""
                                 className="w-[2.4rem] relative z-[2]"
                               />
-                              <span className="accordion__line"></span>
+                              {i !== keys.length - 1 && (
+                                <span className="accordion__line"></span>
+                              )}
                             </div>
                             <span>{doc}</span>
                           </p>
