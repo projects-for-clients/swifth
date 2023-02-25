@@ -59,7 +59,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     DELIVERY_HISTORY_DATA
   );
   const [isIndividualDetail, setIsIndividualDetail] = useState(false);
-  const [individualHistory, setIndividualHistory] = useState<DeliveryHistory | null>(null)
+  const [individualHistory, setIndividualHistory] =
+    useState<DeliveryHistory | null>(null);
 
   useEffect(() => {
     const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
@@ -126,8 +127,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
 
   const openIndividualHistoryHandler = (item: DeliveryHistory) => {
     setIsIndividualDetail(true);
-    setIndividualHistory(item)
-  }
+    setIndividualHistory(item);
+  };
 
   useEffect(() => {
     if (openHistoryDialog) {
@@ -162,7 +163,6 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
             <section className="h-full">
-              <div className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10">
                 <main className="grid gap-16 ">
                   <div className="grid justify-start justify-items-start gap-4">
                     <p className="text-[2rem] text-gray-600 text-center">
@@ -227,7 +227,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                     </span>
                   </button>{' '}
                 </main>
-              </div>
+         
             </section>
           </div>
         ) : (
