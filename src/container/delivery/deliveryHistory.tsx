@@ -285,8 +285,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                         </div>
                       ) : keyItem === doc && i === keys.length - 1 ? (
                         <div className="grid gap-8 px-16 my-8">
-                          <p>
-                            James Ibori marked {individualHistory?.name} item as
+                          <p className='text-[1.4rem] text-gray-500'>
+                            James Ibori marked {individualHistory?.name}'s item as
                             delivered
                           </p>
 
