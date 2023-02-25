@@ -263,26 +263,19 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                       </button>
                       {
                         <div
-                          className={`grid   ${
+                          className={`grid  ${
                             keyItem === doc
                               ? 'visible h-auto'
                               : 'invisible h-0'
                           }`}
                         >
-                          <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                          <div className=" border-b-color-purple-light-2 flex justify-between py-8 px-16">
                             <p className="text-[1.4rem] text-color-purple-1">
                               All Documents
                             </p>
                             
                           </div>
-                          <div className=" border-b-color-purple-light-2 flex justify-between p-8">
-                            <p className="text-[1.4rem] text-color-purple-1">
-                              All Documents
-                            </p>
-                            <p className="text-color-purple-1 font-semibold">
-                              220,000
-                            </p>
-                          </div>
+                          
                           
                         </div>
                       }
