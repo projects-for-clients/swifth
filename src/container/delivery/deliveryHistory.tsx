@@ -139,23 +139,27 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     }
   }, [openHistoryDialog]);
 
-//   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
-//     setShowAccordion((prev) => !prev);
-//   };
+  //   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
+  //     setShowAccordion((prev) => !prev);
+  //   };
 
-  type Keys = 'Delivery ready' | 'All documents submitted' | 'Payments completed' | 'Delivered'
+  type Keys =
+    | 'Delivery ready'
+    | 'All documents submitted'
+    | 'Payments completed'
+    | 'Delivered';
 
-  const keys:Keys[] = [
+  const keys: Keys[] = [
     'All documents submitted',
     'Delivery ready',
     'Payments completed',
-    'Delivered'
-  ]
+    'Delivered',
+  ];
 
-//   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
-//     key: null,
-//   });
-  const [keyItem, setkeyItem] = useState<Keys | null>(null)
+  //   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
+  //     key: null,
+  //   });
+  const [keyItem, setkeyItem] = useState<Keys | null>(null);
   const accordianHandler = (item: Keys) => {
     // setkeyItem((prev) => {
     //   if (prev.key === item) {
@@ -165,12 +169,11 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     // });
 
     setkeyItem((prev) => {
-        if (prev === item) {
-            return null
-        }
-        return item
-        }
-    )
+      if (prev === item) {
+        return null;
+      }
+      return item;
+    });
   };
 
   return (
@@ -261,30 +264,24 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           </p>
                         </div>
                       </button>
-                      { keyItem === doc &&
+                      {keyItem === doc && (
                         <div
                           className={`grid mt-10 gap-8 px-16 ${
-                            keyItem === doc
-                              ? 'visible h-auto'
-                              : 'invisible h-0'
+                            keyItem === doc ? 'visible h-auto' : 'invisible h-0'
                           }`}
                         >
                           <div className=" border-b-color-purple-light-2 flex justify-between">
                             <p className="text-[1.4rem] text-color-purple-1">
                               All Documents
                             </p>
-                            
                           </div>
                           <div className=" border-b-color-purple-light-2 flex justify-between">
                             <p className="text-[1.4rem] text-color-purple-1">
                               All Documents
                             </p>
-                            
                           </div>
-                          
-                          
                         </div>
-                      }
+                      )}
                     </div>
                   </Fragment>
                 ))}
