@@ -155,14 +155,22 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
 //   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
 //     key: null,
 //   });
-  const [keyItem, setkeyItem] = useState()
-  const accordianHandler = (item: string) => {
+  const [keyItem, setkeyItem] = useState<Keys | null>(null)
+  const accordianHandler = (item: Keys) => {
+    // setkeyItem((prev) => {
+    //   if (prev.key === item) {
+    //     return { key: null };
+    //   }
+    //   return { key: item };
+    // });
+
     setkeyItem((prev) => {
-      if (prev.key === item) {
-        return { key: null };
-      }
-      return { key: item };
-    });
+        if (prev === item) {
+            return null
+        }
+        return item
+        }
+    )
   };
 
   return (
@@ -245,7 +253,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                             <span className="text-gray-600 text-[1.4rem]">
                               Dec 3, 2023
                             </span>{' '}
-                            {keyItem.key === doc ? (
+                            {keyItem === doc ? (
                               <img src="/icons/arrow-circle-up.svg" alt="" />
                             ) : (
                               <img src="/icons/arrow-circle-down.svg" alt="" />
