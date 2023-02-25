@@ -152,9 +152,10 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     'Delivered'
   ]
 
-  const [keyItem, setkeyItem] = useState<{ key: string | null }>({
-    key: null,
-  });
+//   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
+//     key: null,
+//   });
+  const [keyItem, setkeyItem] = useState()
   const accordianHandler = (item: string) => {
     setkeyItem((prev) => {
       if (prev.key === item) {
@@ -255,7 +256,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                       {
                         <div
                           className={`grid   ${
-                            keyItem.key === doc
+                            keyItem === doc
                               ? 'visible h-auto'
                               : 'invisible h-0'
                           }`}
