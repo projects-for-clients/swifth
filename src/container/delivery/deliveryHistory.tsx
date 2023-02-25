@@ -207,9 +207,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           <img
                             src="/icons/check-success.svg"
                             alt=""
-                            className="w-[2.4rem]"
+                            className="w-[2.4rem] relative z-20"
                           />
-                          <span className="accordion__line"></span>
+                          <span className="accordion__line relative z-10"></span>
                         </div>
                         <span>Delivery ready</span>
                       </p>
