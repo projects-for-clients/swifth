@@ -149,9 +149,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
           />
         </figure>
 
-        <section className="mb-10">
+    
           <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
-        </section>
+     
 
         {isIndividualDetail ? (
           <>
@@ -162,7 +162,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
-                <main className="grid gap-16 ">
+                <main className="grid gap-16 mt-10 ">
                   <div className="grid justify-start justify-items-start gap-4">
                     <p className="text-[2rem] text-gray-600 text-center">
                       {individualHistory?.name}
