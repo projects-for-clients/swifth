@@ -220,22 +220,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                 </div>
               </section>
               <section className="grid gap-[2rem]">
-                {RCDocContent.map((doc, i) => (
-                  <Fragment key={i}>
-                    <div className="relative">
-                      <p
-                        className={`p-6 border cursor-pointer border-color-purple-light-2 rounded-3xl flex items-center justify-between gap-4 whitespace-nowrap ${
-                          isOrderAssignedAgent ? 'w-[18rem]' : ''
-                        }`}
-                        onClick={() => handleRCDocChange(doc.name)}
-                      >
-                        {doc.name}
-
-                        
-                     
-                    </div>
-                  </Fragment>
-                ))}
+                {keys.map((doc, i) => (
+                  
                 <div className="grid relative">
                   <button className={` w-full `} onClick={accordionHandler}>
                     <div className="flex justify-between cursor-pointer">
@@ -303,6 +289,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                     </div>
                   }
                 </div>
+                ))}
               </section>
               <section className="grid gap-4 rounded-2xl">
                 <p className="text-gray-500 font-medium text-[1.8rem]">
