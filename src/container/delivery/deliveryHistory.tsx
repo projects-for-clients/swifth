@@ -199,7 +199,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                 </div>
               </section>
               <section className="">
-                <div className="grid gap-8">
+                <div className="grid gap-8 accordion__line">
                   <button
                     className={`flex justify-between cursor-pointer w-full `}
                     onClick={accordionHandler}
