@@ -162,7 +162,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
-                <main className="grid gap-16 mt-10 ">
+                <main className="grid gap-16 mt-10 overflow-y-scroll ">
                   <div className="grid justify-start justify-items-start gap-4">
                     <p className="text-[2rem] text-gray-600 text-center">
                       {individualHistory?.name}
