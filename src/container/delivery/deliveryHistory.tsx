@@ -58,7 +58,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
   const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
     DELIVERY_HISTORY_DATA
   );
-  const [isIndividualDeatil, setIsIndividualDeatil] = useState(false);
+  const [isIndividualDetail, setIsIndividualDetail] = useState(false);
 
   useEffect(() => {
     const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
@@ -124,8 +124,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
   };
 
   const openIndividualHistoryHandler = (item: DeliveryHistory) => {
-    setIsIndividualDeatil(true);
-    
+    setIsIndividualDetail(true);
+
   }
 
   useEffect(() => {
@@ -143,7 +143,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
             src="/icons/close.svg"
             alt=""
             className="w-[3rem] cursor-pointer"
-            onClick={() => handleCloseDialog()}
+            onClick={() => setIsIndividualDetail(false)}
           />
         </figure>
 
@@ -151,7 +151,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
           <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
         </section>
 
-        {isIndividualDeatil ? (
+        {isIndividualDetail ? (
           <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
             <div className="flex gap-10 items-center">
               <BsArrowLeft
