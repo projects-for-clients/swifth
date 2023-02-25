@@ -144,7 +144,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({ openHistoryDialog, setOpenH
           <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
         </section>
 
-
+        <>
           <div className="flex justify-between gap-8 items-center">
             <div className="grid gap-4 w-full">
               <label className="text-[1.4rem] ">From</label>
@@ -275,7 +275,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({ openHistoryDialog, setOpenH
               </div>
             )}
           </div>
-      
+        </>
       </div>
     </dialog>
   );
