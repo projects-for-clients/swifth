@@ -290,7 +290,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                         </div>
                       }
                     </div>
-                  </Fra>
+                  </Fragment>
                 ))}
               </section>
               <section className="grid gap-4 rounded-2xl">
