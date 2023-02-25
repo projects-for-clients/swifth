@@ -138,7 +138,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
 
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-      <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12">
+      <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
         <input type="text" className="absolute top-0 w-0" />
         <figure className="flex justify-end">
           <img
@@ -162,7 +162,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
-                <main className="grid gap-16 mt-10 overflow-y-scroll ">
+                <main className="grid gap-16 mt-10  ">
                   <div className="grid justify-start justify-items-start gap-4">
                     <p className="text-[2rem] text-gray-600 text-center">
                       {individualHistory?.name}
