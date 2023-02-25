@@ -201,15 +201,15 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               <section className="">
                 <div className=" ">
                   <button
-                    className={`flex justify-between p-8 cursor-pointer w-full `}
+                    className={`flex justify-between cursor-pointer w-full `}
                     onClick={accordionHandler}
                   >
-                    <p className="text-[1.4rem] text-color-purple-1 flex items-center gap-2">
+                    <p className=" text-color-purple-1 flex items-center gap-6">
                         <img src="/icons/check-success.svg" alt="" />
                         <span>Delivery ready</span>
                     </p>
-                    <p className="text-color-purple font-semibold flex items-center gap-4">
-                      <span>1,000,000</span>{' '}
+                    <p className="text-color-purple flex items-center gap-4">
+                      <span className='text-gray-600 text-[1.4rem]'>Dec 3, 2023</span>{' '}
                       {showAccordion ? (
                         <img src="/icons/arrow-circle-up.svg" alt="" />
                       ) : (
