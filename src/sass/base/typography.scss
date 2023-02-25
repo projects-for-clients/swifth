@@ -119,7 +119,7 @@ p {
 
 .accordion__line{
   
-  &::after{
+  &::before{
     content: '';
     width: 2px;
     height: 100%;
