@@ -156,9 +156,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     'Delivered',
   ];
 
-  //   const [keyItem, setkeyItem] = useState<{ key: string | null }>({
-  //     key: null,
-  //   });
+
   const [keyItem, setkeyItem] = useState<Keys | null>(null);
   const accordianHandler = (item: Keys) => {
     

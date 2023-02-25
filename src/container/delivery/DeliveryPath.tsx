@@ -104,7 +104,7 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           </section>
         </div>
       </dialog>
-      {DELIVERY_DATA.map((item, i) => {
+      {deliveryData.map((item, i) => {
         const { name, description, date, tag } = item;
 
         return (

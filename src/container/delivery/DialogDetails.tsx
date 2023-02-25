@@ -1,9 +1,33 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 
 
 const DialogDetails = () => {
 
+
+  
+type Keys =
+  | 'Delivery ready'
+  | 'All documents submitted'
+  | 'Payments completed'
+  | 'Delivered';
+
+const keys: Keys[] = [
+  'All documents submitted',
+  'Delivery ready',
+  'Payments completed',
+  'Delivered',
+];
+
+const [keyItem, setkeyItem] = useState<Keys | null>(null);
+const accordianHandler = (item: Keys) => {
+  setkeyItem((prev) => {
+    if (prev === item) {
+      return null;
+    }
+    return item;
+  });
+};
 
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
