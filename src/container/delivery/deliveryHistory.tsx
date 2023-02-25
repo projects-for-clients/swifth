@@ -6,6 +6,7 @@ import {
   FC,
   useContext,
   SetStateAction,
+  SyntheticEvent,
 } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
@@ -54,6 +55,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
   setOpenHistoryDialog,
 }) => {
   //const  openHistoryDialog = useContext(DeliveryContext);
+  const [showAccordion, setShowAccordion] = useState(false);
 
   const [deliveryHistory, setDeliveryHistory] = useState<DeliveryHistory[]>(
     DELIVERY_HISTORY_DATA
@@ -135,6 +137,10 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
       handleOpenDialog();
     }
   }, [openHistoryDialog]);
+  
+   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
+     setShowAccordion((prev) => !prev);
+   };
 
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
@@ -149,9 +155,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
           />
         </figure>
 
-    
-          <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
-     
+        <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
 
         {isIndividualDetail ? (
           <>
@@ -162,72 +166,129 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
-                <main className="grid gap-16 mt-10  ">
-                  <div className="grid justify-start justify-items-start gap-4">
-                    <p className="text-[2rem] text-gray-600 text-center">
-                      {individualHistory?.name}
-                    </p>
-                    <p className='bg-color-primary text-white rounded-3xl py-2 px-6'>{individualHistory?.tag}</p>
-                  </div>
-                  <section
-                    className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
-                    style={{
-                      gridTemplateColumns:
-                        'repeat(auto-fit, minmax(15rem, 1fr))',
-                    }}
+            <main className="grid gap-16 mt-10  ">
+              <div className="grid justify-start justify-items-start gap-4">
+                <p className="text-[2rem] text-gray-600 text-center">
+                  {individualHistory?.name}
+                </p>
+                <p className="bg-color-primary text-white rounded-3xl py-2 px-6">
+                  {individualHistory?.tag}
+                </p>
+              </div>
+              <section
+                className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
+                style={{
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
+                }}
+              >
+                <div>
+                  <p className=" text-gray-400">Car Brand</p>
+                  <p className=" text-gray-600">Toyota</p>
+                </div>
+                <div>
+                  <p className=" text-gray-400">Car Year</p>
+                  <p className=" text-gray-600">2022</p>
+                </div>
+                <div>
+                  <p className=" text-gray-400">Car Model</p>
+                  <p className=" text-gray-600">Camry</p>
+                </div>
+                <div>
+                  <p className=" text-gray-400">Car Trim</p>
+                  <p className=" text-gray-600">XLE</p>
+                </div>
+              </section>
+              <section className="bg-color-red-light-2 grid gap-4 rounded-2xl">
+                <div className="border-b border-b-color-purple-light-2 ">
+                  <button
+                    className={`flex justify-between p-8 cursor-pointer w-full `}
+                    onClick={accordionHandler}
                   >
-                    <div>
-                      <p className=" text-gray-400">Car Brand</p>
-                      <p className=" text-gray-600">Toyota</p>
-                    </div>
-                    <div>
-                      <p className=" text-gray-400">Car Year</p>
-                      <p className=" text-gray-600">2022</p>
-                    </div>
-                    <div>
-                      <p className=" text-gray-400">Car Model</p>
-                      <p className=" text-gray-600">Camry</p>
-                    </div>
-                    <div>
-                      <p className=" text-gray-400">Car Trim</p>
-                      <p className=" text-gray-600">XLE</p>
-                    </div>
-                  </section>
-                  <section className="grid gap-4 rounded-2xl">
-                    <p className="text-gray-500 font-semibold text-[1.8rem]">
-                      Documents Submitted
+                    <p className="text-[1.4rem] text-color-purple-1">
+                      Total Bill
                     </p>
-                    <div className={`grid gap-4`}>
-                      <p className=" text-gray-500">Bills of Lading</p>
-                      <p className=" text-gray-500">Releases</p>
-                      <p className=" text-gray-500">CAC</p>
-                      <p className=" text-gray-500">Signed POA</p>
-                    </div>
-                  </section>
-                  <section className="grid gap-4 rounded-2xl">
-                    <p className="text-gray-500 font-medium text-[1.8rem]">
-                      Payments
+                    <p className="text-color-purple font-semibold flex items-center gap-4">
+                      <span>1,000,000</span>{' '}
+                      {showAccordion ? (
+                        <img src="/icons/arrow-circle-up.svg" alt="" />
+                      ) : (
+                        <img src="/icons/arrow-circle-down.svg" alt="" />
+                      )}
                     </p>
-                    <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
-                      <p className="text-[1.8rem] text-gray-500">ICOC</p>
-                      <div>
-                        <p className="text-color-purple-1 flex gap-1 font-medium items-center">
-                          <span className="text-gray-500">NGN</span>
-                          {`230000`.toLocaleString()}
+                  </button>
+                  {
+                    <div
+                      className={`grid  ${
+                        showAccordion ? 'visible h-auto' : 'invisible h-0'
+                      }`}
+                    >
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          ICOC
                         </p>
-                        <p className="text-[1.4rem] text-gray-500">
-                          Dec 9, 2023
+                        <p className="text-color-purple-1 font-semibold">
+                          400,000
+                        </p>
+                      </div>
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          Loan + (10%) Interest
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          220,000
+                        </p>
+                      </div>
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          Security charge as at: 3/6/23
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          80,000
+                        </p>
+                      </div>
+                      <div className=" border-b-color-purple-light-2 flex justify-between p-8">
+                        <p className="text-[1.4rem] text-color-purple-1">
+                          Telex Charge
+                        </p>
+                        <p className="text-color-purple-1 font-semibold">
+                          300,000
                         </p>
                       </div>
                     </div>
-                  </section>
-                  <button className="flex w-full items-center">
-                    <span className="bg-color-primary rounded-lg text-white w-full py-4">
-                      Create Order
-                    </span>
-                  </button>{' '}
-                </main>
-         
+                  }
+                </div>
+                <div className="border-b border-b-color-purple-light-2 flex justify-between p-8">
+                  <p className="text-[1.4rem] text-color-purple-1">Paid</p>
+                  <p className="text-color-purple font-semibold">7,000,000</p>
+                </div>
+                <div className="flex justify-between p-8">
+                  <p className="text-[1.4rem] text-color-purple-1">
+                    Outstanding
+                  </p>
+                  <p className="text-color-purple font-semibold">300,000</p>
+                </div>
+              </section>
+              <section className="grid gap-4 rounded-2xl">
+                <p className="text-gray-500 font-medium text-[1.8rem]">
+                  Payments
+                </p>
+                <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
+                  <p className="text-[1.8rem] text-gray-500">ICOC</p>
+                  <div>
+                    <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                      <span className="text-gray-500">NGN</span>
+                      {`230000`.toLocaleString()}
+                    </p>
+                    <p className="text-[1.4rem] text-gray-500">Dec 9, 2023</p>
+                  </div>
+                </div>
+              </section>
+              <button className="flex w-full items-center">
+                <span className="bg-color-primary rounded-lg text-white w-full py-4">
+                  Create Order
+                </span>
+              </button>{' '}
+            </main>
           </>
         ) : (
           <>

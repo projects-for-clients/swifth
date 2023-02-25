@@ -120,7 +120,6 @@ function Payments() {
   };
 
   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
-    console.log(e);
     setShowAccordion((prev) => !prev);
   };
 
