@@ -137,10 +137,10 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
       handleOpenDialog();
     }
   }, [openHistoryDialog]);
-  
-   const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
-     setShowAccordion((prev) => !prev);
-   };
+
+  const accordionHandler = (e: SyntheticEvent<HTMLButtonElement>) => {
+    setShowAccordion((prev) => !prev);
+  };
 
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
@@ -200,14 +200,17 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
               </section>
               <section className="relative">
                 <div className="grid gap-8 ">
-                  <button className={` w-full  `} onClick={accordionHandler}>
+                  <button className={` w-full `} onClick={accordionHandler}>
                     <div className="flex justify-between cursor-pointer">
                       <p className=" text-color-purple-1 flex items-center gap-6">
-                        <img
-                          src="/icons/check-success.svg"
-                          alt=""
-                          className="w-[2.4rem]"
-                        />
+                        <div>
+                          <img
+                            src="/icons/check-success.svg"
+                            alt=""
+                            className="w-[2.4rem]"
+                          />
+                          <span className="accordion__line"></span>
+                        </div>
                         <span>Delivery ready</span>
                       </p>
                       <p className="text-color-purple flex items-center gap-4">
@@ -221,7 +224,6 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                         )}
                       </p>
                     </div>
-                    <span className="accordion__line"></span>
                   </button>
                   {
                     <div
