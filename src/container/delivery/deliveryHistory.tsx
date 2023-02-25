@@ -303,9 +303,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                                     Proof of Delivery
                                 </p>
                                 <p className="text-color-grey-4 text-[1rem]">
-                                  {imageDetails.cacUri.message
-                                    ? imageDetails.cacUri.message
-                                    : imageDetails.cacUri.size}
+                                  520KB
                                 </p>
                               </div>
                             
@@ -316,21 +314,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   </Fragment>
                 ))}
               </section>
-              <section className="grid gap-4 rounded-2xl">
-                <p className="text-gray-500 font-medium text-[1.8rem]">
-                  Payments
-                </p>
-                <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
-                  <p className="text-[1.8rem] text-gray-500">ICOC</p>
-                  <div>
-                    <p className="text-color-purple-1 flex gap-1 font-medium items-center">
-                      <span className="text-gray-500">NGN</span>
-                      {`230000`.toLocaleString()}
-                    </p>
-                    <p className="text-[1.4rem] text-gray-500">Dec 9, 2023</p>
-                  </div>
-                </div>
-              </section>
+             
             </main>
           </>
         ) : (
