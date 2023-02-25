@@ -284,8 +284,9 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           </div>
                         </div>
                       ) : keyItem === doc && i === keys.length - 1 ? (
-                        <>
-                        </>
+                        <div className='grid gap-8'>
+                            <p>James Ibori marked {individualHistory?.name} item as delivered</p>
+                        </div>
                       ) : null}
                     </div>
                   </Fragment>
