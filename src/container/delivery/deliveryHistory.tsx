@@ -198,7 +198,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   <p className=" text-gray-600">XLE</p>
                 </div>
               </section>
-              <section className="grid gap-8">
+              <section className="grid gap-[2rem]">
               
                   <div className="grid relative">
                     <button className={` w-full `} onClick={accordionHandler}>
@@ -351,11 +351,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   </div>
                 </div>
               </section>
-              <button className="flex w-full items-center">
-                <span className="bg-color-primary rounded-lg text-white w-full py-4">
-                  Create Order
-                </span>
-              </button>{' '}
+              
             </main>
           </>
         ) : (
