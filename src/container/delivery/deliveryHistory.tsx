@@ -290,17 +290,17 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                             delivered
                           </p>
 
-                          <p
+                          <div
                             className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
                               `}
                           >
                             
                               <img src="/icons/admin/upload.svg" alt="" />
                         
-                            {imageDetails.cacUri.pathName ? (
+                           
                               <div className="grid">
-                                <p className="text-[1.4rem] font-normal">
-                                  {imageDetails.cacUri.pathName}
+                                <p className="text-[1.4rem]">
+                                    Proof of Delivery
                                 </p>
                                 <p className="text-color-grey-4 text-[1rem]">
                                   {imageDetails.cacUri.message
@@ -308,12 +308,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                                     : imageDetails.cacUri.size}
                                 </p>
                               </div>
-                            ) : (
-                              <p className="text-[1.4rem]">
-                                Upload CAC Certificate
-                              </p>
-                            )}
-                          </p>
+                            
+                          </div>
                         </div>
                       ) : null}
                     </div>
