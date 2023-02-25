@@ -144,6 +144,18 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
 
   type Keys = 'delivery ready' | 'all documents submitted' | 'payments completed' | 'delivered'
 
+  const [keyItem, setkeyItem] = useState<{ key: string | null }>({
+    key: null,
+  });
+  const handleRCDocChange = (item: string) => {
+    setkeyItem((prev) => {
+      if (prev.key === item) {
+        return { key: null };
+      }
+      return { key: item };
+    });
+  };
+
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
       <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
@@ -223,7 +235,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                           </span>
                         ) : null}
                       </p>
-                      {openToolTip && RCDocsItem.key === doc.name && (
+                      {openToolTip && keyItem.key === doc.name && (
                         <div
                           className={`absolute top-[6rem] w-[25rem] shadow-lg bg-white rounded-xl grid gap-2 z-20 capitalize ${
                             isOrderAssignedAgent ? 'left-0' : 'right-0 '
