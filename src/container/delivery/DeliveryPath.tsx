@@ -101,9 +101,9 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           </figure>
 
           <section className="h-full">
-            {deliveryData && deliveryData.length > 0 && (
+            {individualDeliveryData && (
               <DialogDetails
-                deliveryData={deliveryData}
+                deliveryData={individualDeliveryData}
                 handleCloseDialog={handleCloseDialog}
               />
             )}

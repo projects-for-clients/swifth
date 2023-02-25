@@ -8,7 +8,10 @@ interface DialogDetailsProps {
   handleCloseDialog: () => void;
 }
 
-const DialogDetails:FC<DialogDetailsProps> = ({ deliveryData, handleCloseDialog }) => {
+const DialogDetails: FC<DialogDetailsProps> = ({
+  deliveryData,
+  handleCloseDialog,
+}) => {
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
