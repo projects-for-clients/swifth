@@ -59,6 +59,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     DELIVERY_HISTORY_DATA
   );
   const [isIndividualDetail, setIsIndividualDetail] = useState(false);
+  const [individualHistory, setIndividualHistory] = useState<DeliveryHistory | null>(null)
 
   useEffect(() => {
     const sortedDates = [...DELIVERY_HISTORY_DATA].sort((a, b) => {
@@ -125,7 +126,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
 
   const openIndividualHistoryHandler = (item: DeliveryHistory) => {
     setIsIndividualDetail(true);
-
+    setIndividualHistory(item)
   }
 
   useEffect(() => {
@@ -156,15 +157,78 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
             <div className="flex gap-10 items-center">
               <BsArrowLeft
                 className="text-[2.4rem] cursor-pointer"
-                 onClick={() => setIsIndividualDetail(false)}
+                onClick={() => setIsIndividualDetail(false)}
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
-            <main className="grid gap-10 mt-10  ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              ducimus nobis iure placeat. Quasi, illo ut. Ea quo, eligendi
-              quidem at facere dignissimos sunt eum aut id saepe alias rerum?
-            </main>
+            <section className="h-full">
+              <div className=" h-full items-baseline w-[40rem] overflow-y-scroll pb-10">
+                <main className="grid gap-16 ">
+                  <div className="grid justify-start justify-items-start gap-4">
+                    <p className="text-[2rem] text-gray-600 text-center">
+                      {individualHistory?.name}
+                    </p>
+                  </div>
+                  <section
+                    className="grid gap-10 border border-color-purple-light p-8 rounded-2xl"
+                    style={{
+                      gridTemplateColumns:
+                        'repeat(auto-fit, minmax(15rem, 1fr))',
+                    }}
+                  >
+                    <div>
+                      <p className=" text-gray-400">Car Brand</p>
+                      <p className=" text-gray-600">Toyota</p>
+                    </div>
+                    <div>
+                      <p className=" text-gray-400">Car Year</p>
+                      <p className=" text-gray-600">2022</p>
+                    </div>
+                    <div>
+                      <p className=" text-gray-400">Car Model</p>
+                      <p className=" text-gray-600">Camry</p>
+                    </div>
+                    <div>
+                      <p className=" text-gray-400">Car Trim</p>
+                      <p className=" text-gray-600">XLE</p>
+                    </div>
+                  </section>
+                  <section className="grid gap-4 rounded-2xl">
+                    <p className="text-gray-500 font-semibold text-[1.8rem]">
+                      Documents Submitted
+                    </p>
+                    <div className={`grid gap-4`}>
+                      <p className=" text-gray-500">Bills of Lading</p>
+                      <p className=" text-gray-500">Releases</p>
+                      <p className=" text-gray-500">CAC</p>
+                      <p className=" text-gray-500">Signed POA</p>
+                    </div>
+                  </section>
+                  <section className="grid gap-4 rounded-2xl">
+                    <p className="text-gray-500 font-medium text-[1.8rem]">
+                      Payments
+                    </p>
+                    <div className="border border-gray-400 flex justify-between items-center rounded-2xl py-4 px-8">
+                      <p className="text-[1.8rem] text-gray-500">ICOC</p>
+                      <div>
+                        <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                          <span className="text-gray-500">NGN</span>
+                          {`230000`.toLocaleString()}
+                        </p>
+                        <p className="text-[1.4rem] text-gray-500">
+                          Dec 9, 2023
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                  <button className="flex w-full items-center">
+                    <span className="bg-color-primary rounded-lg text-white w-full py-4">
+                      Create Order
+                    </span>
+                  </button>{' '}
+                </main>
+              </div>
+            </section>
           </div>
         ) : (
           <>
