@@ -141,7 +141,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({ openHistoryDialog, setOpenH
         </figure>
 
         <section className="">
-          <h3 className="text-[2.4rem] mb-10">Delivery Report</h3>
+          <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
         </section>
 
 
