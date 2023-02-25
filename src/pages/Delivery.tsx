@@ -4,9 +4,7 @@ import {
   Fragment,
   useEffect,
   useState,
-  useRef,
   createContext,
-  useMemo,
   useContext,
 } from 'react';
 import SelectDropDown from '../components/utils/SelectDropDown';
@@ -152,7 +150,6 @@ function Delivery() {
     pickup: <PickupPath pickupData={pickupData} />,
   };
 
-  console.log('dsfsndf');
 
   return (
     <>
