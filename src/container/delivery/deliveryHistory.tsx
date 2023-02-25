@@ -143,7 +143,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
             src="/icons/close.svg"
             alt=""
             className="w-[3rem] cursor-pointer"
-            onClick={() => setIsIndividualDetail(false)}
+            onClick={() => handleCloseDialog()}
           />
         </figure>
 
@@ -156,7 +156,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
             <div className="flex gap-10 items-center">
               <BsArrowLeft
                 className="text-[2.4rem] cursor-pointer"
-                // onClick={() => handleCloseDialog('eachOrder')}
+                 onClick={() => setIsIndividualDetail(false)}
               />
               <p className="text-[2rem] text-gray-600 text-center">Details</p>
             </div>
