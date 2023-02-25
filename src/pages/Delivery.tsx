@@ -13,7 +13,6 @@ import { GrClose } from 'react-icons/gr';
 import DeliveryPath, {
   DeliveryData,
   DeliveryFilterBy,
-  // DeliveryPath,
   DELIVERY_DATA,
 } from '../container/delivery/DeliveryPath';
 import {
@@ -24,7 +23,6 @@ import {
 } from '../container/delivery/PickupPath';
 import DeliveryHistory from '../container/delivery/deliveryHistory';
 import { AgentOrderDetailContext } from '../container/order/AgentOrderDetail/AgentOrderDetail';
-import DialogDetails from '../container/delivery/DialogDetails';
 
 export type OrderHistoryPath = {
   path: 'list' | 'detail';
@@ -53,7 +51,6 @@ export interface DeliveryContext {
 export const DeliveryContext = createContext<DeliveryContext>(null as any);
 
 function Delivery() {
-  const data = useContext(AgentOrderDetailContext);
   type SwitchPath = 'delivery' | 'pickup';
   const sortBy: SortBy[] = ['Most Recent', 'A-Z'];
   const deliveryFilters: DeliveryFilterBy[] = ['delivered', 'delivery Pending'];
@@ -150,7 +147,6 @@ function Delivery() {
     pickup: <PickupPath pickupData={pickupData} />,
   };
 
-
   return (
     <>
       <DeliveryContext.Provider
@@ -161,7 +157,10 @@ function Delivery() {
         }}
       >
         <Header title="Delivery" />
-        <DeliveryHistory openHistoryDialog={openHistoryDialog} setOpenHistoryDialog={setOpenHistoryDialog} />
+        <DeliveryHistory
+          openHistoryDialog={openHistoryDialog}
+          setOpenHistoryDialog={setOpenHistoryDialog}
+        />
         <main className="text-[1.6rem]">
           <section className="relative flex items-center w-[45rem] mx-auto">
             <input
