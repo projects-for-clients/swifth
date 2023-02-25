@@ -205,6 +205,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                     onClick={accordionHandler}
                   >
                     <p className="text-[1.4rem] text-color-purple-1">
+                        <img src="/icons/check-success.svg" alt="" />
+                        <span>Delivery Read</span>
                       Total Bill
                     </p>
                     <p className="text-color-purple font-semibold flex items-center gap-4">
