@@ -17,27 +17,27 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     | 'Payments completed'
     | 'Delivered';
 
-interface Steps {
-  key: Keys;
-  status: 'success' | 'pending' | 'idle';
-}
-  
+  interface Steps {
+    key: Keys;
+    status: 'success' | 'pending' | 'idle';
+  }
+
   const steps: Steps[] = [
     {
       key: 'Delivery ready',
-      status: 'success'
+      status: 'success',
     },
     {
       key: 'Delivery ready',
-      status: 'success'
+      status: 'success',
     },
     {
       key: 'Delivery ready',
-      status: 'idle'
+      status: 'idle',
     },
     {
       key: 'Delivery ready',
-      status: 'idle'
+      status: 'idle',
     },
   ];
 
@@ -77,12 +77,12 @@ interface Steps {
           </div>
 
           <section className="grid gap-[2rem]">
-            {keys.map((doc, i) => (
-              <Fragment key={doc}>
+            {steps.map((step, i) => (
+              <Fragment key={step.key}>
                 <div className="grid relative">
                   <button
                     className={` w-full `}
-                    onClick={() => accordianHandler(doc)}
+                    onClick={() => accordianHandler(step.key)}
                   >
                     <div className="flex justify-between cursor-pointer">
                       <p className=" text-color-purple-1 flex items-center gap-6">
@@ -92,17 +92,17 @@ interface Steps {
                             alt=""
                             className="w-[2.4rem] relative z-[2]"
                           />
-                          {i !== keys.length - 1 && (
+                          {i !== steps.length - 1 && (
                             <span className="accordion__line"></span>
                           )}
                         </div>
-                        <span>{doc}</span>
+                        <span>{step.key}</span>
                       </p>
                       <p className="text-color-purple flex items-center gap-4">
                         <span className="text-gray-600 text-[1.4rem]">
                           Dec 3, 2023
                         </span>{' '}
-                        {keyItem === doc ? (
+                        {keyItem === step.key ? (
                           <img src="/icons/arrow-circle-up.svg" alt="" />
                         ) : (
                           <img src="/icons/arrow-circle-down.svg" alt="" />
@@ -110,10 +110,12 @@ interface Steps {
                       </p>
                     </div>
                   </button>
-                  {keyItem === doc && i !== keys.length - 1 ? (
+                  {keyItem === step.key && i !== steps.length - 1 ? (
                     <div
                       className={`grid mt-10 gap-8 px-16 ${
-                        keyItem === doc ? 'visible h-auto' : 'invisible h-0'
+                        keyItem === step.key
+                          ? 'visible h-auto'
+                          : 'invisible h-0'
                       }`}
                     >
                       <div className=" border-b-color-purple-light-2 flex justify-between">
@@ -127,7 +129,7 @@ interface Steps {
                         </p>
                       </div>
                     </div>
-                  ) : keyItem === doc && i === keys.length - 1 ? (
+                  ) : keyItem === step.key && i === steps.length - 1 ? (
                     <div className="grid gap-8 px-16 my-8">
                       <p className="text-[1.4rem] text-gray-500">
                         James Ibori marked {deliveryData.name}'s item as
