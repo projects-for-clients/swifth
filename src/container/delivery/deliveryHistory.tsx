@@ -156,11 +156,8 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
     'Delivered',
   ];
 
-
   const [keyItem, setkeyItem] = useState<Keys | null>(null);
   const accordianHandler = (item: Keys) => {
-    
-
     setkeyItem((prev) => {
       if (prev === item) {
         return null;
@@ -278,28 +275,27 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                         </div>
                       ) : keyItem === doc && i === keys.length - 1 ? (
                         <div className="grid gap-8 px-16 my-8">
-                          <p className='text-[1.4rem] text-gray-500'>
-                            James Ibori marked {individualHistory?.name}'s item as
-                            delivered
+                          <p className="text-[1.4rem] text-gray-500">
+                            James Ibori marked {individualHistory?.name}'s item
+                            as delivered
                           </p>
 
                           <div
                             className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
                               `}
                           >
-                            
-                              <img src="/icons/admin/upload.svg" alt="" />
-                        
-                           
-                              <div className="grid">
-                                <p className="text-[1.4rem]">
-                                    Proof of Delivery
-                                </p>
-                                <p className="text-color-grey-4 text-[1rem]">
-                                  520KB
-                                </p>
-                              </div>
-                            
+                            <img src="/icons/admin/upload.svg" alt="" />
+
+                            <a
+                              href="/images/document.jpg"
+                              download
+                              className="grid"
+                            >
+                              <p className="text-[1.4rem]">Proof of Delivery</p>
+                              <p className="text-color-grey-4 text-[1rem]">
+                                520KB
+                              </p>
+                            </a>
                           </div>
                         </div>
                       ) : null}
@@ -307,7 +303,6 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                   </Fragment>
                 ))}
               </section>
-             
             </main>
           </>
         ) : (
