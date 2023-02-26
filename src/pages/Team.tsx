@@ -101,7 +101,7 @@ function Team() {
     'Chukwudi Okoro',
   ] as const
 
-  const teamArr = Array.from({length: 20}, (_, i) => {
+  const teamArr = Array.from({length: 10}, (_, i) => {
     return {
       id: i,
       name: keyNames[Math.floor(Math.random() * keyNames.length)],
@@ -152,14 +152,14 @@ function Team() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
               }}
             >
-              {financeData.map((item, i) => {
-                const { name, date, loanAndInterest, amountPaid } = item;
+              {teamArr.map((item, i) => {
+                const {id, name, role } = item;
 
                 return (
                   <div
                     className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
                     key={i}
-                    onClick={() => handleOpenDialog(item)}
+                   // onClick={() => handleOpenDialog(item)}
                   >
                     <div className="text-[1.2rem] flex items-center justify-between">
                       <div className="grid gap-4">
