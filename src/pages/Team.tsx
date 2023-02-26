@@ -87,8 +87,8 @@ function Team() {
   const roles = [
     'admin',
     'field agent',
-    'Customer care rep',
-    'Revoke Invite'
+    'customer care rep',
+    'revoke invite'
   ] as const
 
   const keyNames = [
@@ -162,8 +162,8 @@ function Team() {
                     // onClick={() => handleOpenDialog(item)}
                   >
                     <div className="text-[1.2rem] flex items-center justify-between ">
-                      <p>{name}</p>
-                      <p className={`${role === 'rov'}`}>{role}</p>
+                      <p className='capitalize'>{name}</p>
+                      <p className={`${role === 'revoke invite' ? 'text-red-600': 'text-color-purple-1'}`}>{role}</p>
                     </div>
                   </div>
                 );
