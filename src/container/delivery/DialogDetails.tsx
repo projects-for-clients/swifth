@@ -5,24 +5,19 @@ import { RCDocs } from '../../store/features/order/order';
 import { DeliveryData, DeliveryFilterBy, FiltersProps } from './DeliveryPath';
 import { PickupData, PickupFilterBy } from './PickupPath';
 
-interface DialogDetailsProps<
-  T extends Record<PickupFilterBy | DeliveryFilterBy, FiltersProps>
-> {
+interface DialogDetailsProps {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
-  filterByColors: T;
   dialogType: 'delivery' | 'pickup';
 }
 
-const DialogDetails = <
-  T extends Record<PickupFilterBy | DeliveryFilterBy, FiltersProps>
->({
+const DialogDetails = ({
   data,
   handleCloseDialog,
   dialogType,
-}: DialogDetailsProps<T>) => {
+}: DialogDetailsProps) => {
   
-  const [filterByColors, setFilterByColors] = useState({})
+  const [filterByColors, setFilterByColors] = useState<Record<any, FiltersProps> | null>(null);
 
   useEffect(() => {
 
