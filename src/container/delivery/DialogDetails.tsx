@@ -140,13 +140,13 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                   </button>
                   {keyItem === step.key && i !== steps.length - 1 ? (
                     <div
-                      className={`grid mt-10 gap-8 px-16 ${
+                      className={`grid gap-8 px-16 ${
                         keyItem === step.key
                           ? 'visible h-auto'
                           : 'invisible h-0'
                       }`}
                     >
-                      <div className=" border-b-color-purple-light-2 flex justify-between">
+                      <div className=" flex justify-between border-b border-b-color-purple-light py-10">
                         <p className="text-[1.4rem] text-gray-500">
                           James Ibori marked {deliveryData.name}'s item as
                           delivered
