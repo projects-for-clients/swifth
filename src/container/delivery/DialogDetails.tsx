@@ -8,47 +8,14 @@ import { PickupData, PickupFilterBy } from './PickupPath';
 interface DialogDetailsProps {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
-  dialogType: 'delivery' | 'pickup';
 }
 
 const DialogDetails = ({
   data,
   handleCloseDialog,
-  dialogType,
 }: DialogDetailsProps) => {
   
-  const [filterByColors, setFilterByColors] = useState<unknown | null>(null);
-
-  useEffect(() => {
-
-    if(dialogType === 'delivery') {
-      setFilterByColors({
-        'picked up': {
-          text: 'text-[#fff]',
-          bg: 'bg-[#40AD6B]',
-        },
-
-        'pick up pending': {
-          text: 'text-[#182130]',
-          bg: 'bg-[#D3EE87]',
-        },
-      });
-    }
-    else if(dialogType === 'pickup') {
-      setFilterByColors({
-        delivered: {
-          text: 'text-[#fff]',
-          bg: 'bg-[#40AD6B]',
-        },
-
-        'delivery Pending': {
-          text: 'text-[#182130]',
-          bg: 'bg-[#D3EE87]',
-        },
-      });
-    }
-
-  }, [dialogType])
+  
 
   type Keys =
     | 'Delivery ready'
