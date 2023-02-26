@@ -153,11 +153,11 @@ const DialogDetails: FC<DialogDetailsProps> = ({
             </p>
             <p
               className={`py-1.5 px-4 rounded-2xl ${
-                filterByColors[deliveryData.tag].bg
-              } ${filterByColors[deliveryData.tag].text}`}
+                filterByColors[data.tag].bg
+              } ${filterByColors[data.tag].text}`}
             >
               {' '}
-              {deliveryData.tag}
+              {data.tag}
             </p>
           </div>
 

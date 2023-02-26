@@ -100,7 +100,7 @@ export const PickupPath: FC<PickupPathProps> = ({ pickupData }) => {
             <section className="h-full">
               {pickupPickupData && (
                 <DialogDetails
-                  deliveryData={pickupPickupData}
+                  data={pickupPickupData}
                   handleCloseDialog={handleCloseDialog}
                 />
               )}
