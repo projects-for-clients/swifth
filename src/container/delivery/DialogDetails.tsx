@@ -68,8 +68,9 @@ const DialogDetails: FC<DialogDetailsProps> = ({
               <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
 
               {doc.submitted ? (
-                <div>
+                <div className='text-color-primary'>
                   <img src="/icons/tick-square.svg" alt="" />
+                  <p>Approved</p>
                 </div>
               ) : (
                 <div>
