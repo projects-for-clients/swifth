@@ -70,7 +70,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       <p className=" text-color-purple-1 flex items-center gap-6">
                         <div>
                           <img
-                            src="/icons/check-pending.svg"
+                            src="/icons/check-success.svg"
                             alt=""
                             className="w-[2.4rem] relative z-[2]"
                           />
@@ -135,6 +135,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </section>
         </main>
       </>
+      <button>Go to Orders</button>
     </div>
   );
 };
