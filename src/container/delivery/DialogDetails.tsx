@@ -51,9 +51,14 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     });
   };
 
+  console.log(RCDocs);
+
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10 relative">
       <>
+        <span>
+          <img src="/icons/tick-square.svg" alt="" />
+        </span>
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"

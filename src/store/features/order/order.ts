@@ -35,7 +35,7 @@ interface AssignClearingDocFieldAgent {
 
 const generateRandomNum = () => Math.floor(100000 + Math.random() * 900000);
 
-const RCDocs = {
+export const RCDocs = {
   orderId: generateRandomNum(),
   docId: 0,
   content: [
@@ -62,7 +62,7 @@ const RCDocs = {
   ],
 } satisfies IDocs;
 
-const clearingDocs = {
+export const clearingDocs = {
   orderId: generateRandomNum(),
   docId: 0,
   content: [
