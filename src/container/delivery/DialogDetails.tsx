@@ -135,7 +135,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </section>
         </main>
       </>
-      <button>Go to Orders</button>
+      <button className='btn border border-color-primary text-color-primary basis-1/2 flex rounded-2xl w-full' >Go to Orders</button>
     </div>
   );
 };
