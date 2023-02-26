@@ -170,7 +170,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                   </button>
                   {keyItem === step.key && i !== steps.length - 1 ? (
                     <div
-                      className={`grid gap-8 px-8 py-5 ${
+                      className={`grid gap-8 px-16 py-5 ${
                         keyItem === step.key
                           ? 'visible h-auto'
                           : 'invisible h-0'
