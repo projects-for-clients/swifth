@@ -1,4 +1,4 @@
-import { FC, Fragment, useState } from 'react';
+import { FC, Fragment, useEffect, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import NotificationSvg from '../../components/icons/notificationSvg';
 import { RCDocs } from '../../store/features/order/order';
@@ -6,7 +6,7 @@ import { DeliveryData, DeliveryFilterBy, FiltersProps } from './DeliveryPath';
 import { PickupData, PickupFilterBy } from './PickupPath';
 
 interface DialogDetailsProps<
-  T extends Record<PickupFilterBy, FiltersProps>
+  T extends Record<PickupFilterBy | DeliveryFilterBy, FiltersProps>
 > {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
@@ -15,13 +15,46 @@ interface DialogDetailsProps<
 }
 
 const DialogDetails = <
-  T extends Record<PickupFilterBy, FiltersProps>
+  T extends Record<PickupFilterBy | DeliveryFilterBy, FiltersProps>
 >({
   data,
   handleCloseDialog,
-  filterByColors,
   dialogType,
 }: DialogDetailsProps<T>) => {
+  
+  const [filterByColors, setFilterByColors] = useState({})
+
+  useEffect(() => {
+
+    if(dialogType === 'delivery') {
+      setFilterByColors({
+        'picked up': {
+          text: 'text-[#fff]',
+          bg: 'bg-[#40AD6B]',
+        },
+
+        'pick up pending': {
+          text: 'text-[#182130]',
+          bg: 'bg-[#D3EE87]',
+        },
+      });
+    }
+    else if(dialogType === 'pickup') {
+      setFilterByColors({
+        delivered: {
+          text: 'text-[#fff]',
+          bg: 'bg-[#40AD6B]',
+        },
+
+        'delivery Pending': {
+          text: 'text-[#182130]',
+          bg: 'bg-[#D3EE87]',
+        },
+      });
+    }
+
+  }, [dialogType])
+
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
