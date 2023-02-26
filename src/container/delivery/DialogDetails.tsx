@@ -39,7 +39,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     },
     {
       key: 'Delivered',
-      status: 'idle',
+      status: 'success',
     },
   ];
 
