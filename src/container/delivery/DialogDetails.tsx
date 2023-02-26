@@ -68,9 +68,9 @@ const DialogDetails: FC<DialogDetailsProps> = ({
               <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
 
               {doc.submitted ? (
-                <div className='text-color-primary flex gap-2 items-center'>
+                <div className="text-color-primary flex gap-2 items-center">
                   <img src="/icons/tick-square.svg" alt="" />
-                  <p className='text-[1.4rem]'>Approved</p>
+                  <p className="text-[1.4rem]">Approved</p>
                 </div>
               ) : (
                 <div>
@@ -91,7 +91,6 @@ const DialogDetails: FC<DialogDetailsProps> = ({
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10 relative">
       <>
-        
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
@@ -164,10 +163,13 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       </p>
                       {step.status !== 'idle' && (
                         <p className="text-color-purple flex items-center gap-4">
-                          <span className="text-gray-600 text-[1.4rem]">
-                            Dec 3, 2023
-                          </span>{' '}
-                          {step.status === 'success' && keyItem === step.key ? (
+                          {keyItem === steps[0].key && (
+                            <span className="text-gray-600 text-[1.4rem]">
+                              Dec 3, 2023
+                            </span>
+                          )}
+
+                          {keyItem === step.key ? (
                             <img src="/icons/arrow-circle-up.svg" alt="" />
                           ) : (
                             <img src="/icons/arrow-circle-down.svg" alt="" />
