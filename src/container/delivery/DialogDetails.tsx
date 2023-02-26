@@ -81,8 +81,10 @@ const DialogDetails: FC<DialogDetailsProps> = ({
               <Fragment key={step.key}>
                 <div className="grid relative">
                   <button
-                    className={` w-full `}
+                    className={` w-full disabled:opacity-50 disabled:cursor-not-allowed `}
                     onClick={() => accordianHandler(step.key)}
+                    disabled={step.status === 'idle'}
+                    
                   >
                     <div className="flex justify-between cursor-pointer">
                       <p className=" text-color-purple-1 flex items-center gap-6">
