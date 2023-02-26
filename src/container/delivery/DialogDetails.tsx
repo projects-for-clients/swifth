@@ -116,14 +116,14 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                             ></span>
                           )}
                         </div>
-                        <span>{step.key}</span>
+                        <span className={`${keyItem === step.key ? 'font-semibold' : ''}`}>{step.key}</span>
                       </p>
                       {step.status !== 'idle' && (
                         <p className="text-color-purple flex items-center gap-4">
                           <span className="text-gray-600 text-[1.4rem]">
                             Dec 3, 2023
                           </span>{' '}
-                          {keyItem === step.key ? (
+                          { step.status === 'success' && keyItem === step.key ? (
                             <img src="/icons/arrow-circle-up.svg" alt="" />
                           ) : (
                             <img src="/icons/arrow-circle-down.svg" alt="" />
