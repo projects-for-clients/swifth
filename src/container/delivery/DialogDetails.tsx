@@ -35,7 +35,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
   };
 
   return (
-    <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10">
+    <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10 relative">
       <>
         <div className="flex gap-10 items-center">
           <BsArrowLeft
@@ -136,7 +136,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </section>
         </main>
       </>
-      <button className="btn border border-color-primary text-color-primary basis-1/2 flex rounded-2xl w-full">
+      <button className="btn border border-color-primary text-color-primary basis-1/2 flex rounded-2xl absolute bottom-[5rem] right-[2rem]">
         Go to Orders
       </button>
     </div>
