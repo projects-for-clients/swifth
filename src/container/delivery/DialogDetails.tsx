@@ -14,7 +14,7 @@ interface DialogDetailsProps<T> {
   dialogType: 'delivery' | 'pickup';
 }
 
-const DialogDetails: FC<DialogDetailsProps<fsf>> = ({
+const DialogDetails: FC<DialogDetailsProps<PickupFilterBy | DeliveryFilterBy>> = ({
   data,
   handleCloseDialog,
   filterByColors,
