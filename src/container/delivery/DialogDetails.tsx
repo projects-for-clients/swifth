@@ -1,5 +1,6 @@
 import { FC, Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import NotificationSvg from '../../components/icons/notificationSvg';
 import { RCDocs } from '../../store/features/order/order';
 import { DeliveryData, filterByColors } from './DeliveryPath';
 
@@ -74,7 +75,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                 </div>
               ) : (
                 <div className='text-gray-500 flex items-center gap-2'>
-                  <img src="/icons/notification.svg" alt="" />
+                  <NotificationSvg />
                   <p className="text-[1.4rem]">Send submission reminder</p>
                 </div>
               )}
