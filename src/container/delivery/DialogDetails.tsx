@@ -116,14 +116,20 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                             ></span>
                           )}
                         </div>
-                        <span className={`${keyItem === step.key ? 'font-semibold' : ''}`}>{step.key}</span>
+                        <span
+                          className={`${
+                            keyItem === step.key ? 'font-semibold' : ''
+                          }`}
+                        >
+                          {step.key}
+                        </span>
                       </p>
                       {step.status !== 'idle' && (
                         <p className="text-color-purple flex items-center gap-4">
                           <span className="text-gray-600 text-[1.4rem]">
                             Dec 3, 2023
                           </span>{' '}
-                          { step.status === 'success' && keyItem === step.key ? (
+                          {step.status === 'success' && keyItem === step.key ? (
                             <img src="/icons/arrow-circle-up.svg" alt="" />
                           ) : (
                             <img src="/icons/arrow-circle-down.svg" alt="" />
@@ -141,13 +147,9 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       }`}
                     >
                       <div className=" border-b-color-purple-light-2 flex justify-between">
-                        <p className="text-[1.4rem] text-color-purple-1">
-                          All Documents
-                        </p>
-                      </div>
-                      <div className=" border-b-color-purple-light-2 flex justify-between">
-                        <p className="text-[1.4rem] text-color-purple-1">
-                          All Documents
+                        <p className="text-[1.4rem] text-gray-500">
+                          James Ibori marked {deliveryData.name}'s item as
+                          delivered
                         </p>
                       </div>
                     </div>
