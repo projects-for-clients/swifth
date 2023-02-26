@@ -43,7 +43,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     },
   ];
 
-  const allCompleted = steps.every((step) => step.status === 'success');
+  const allStagesCompleted = steps.every((step) => step.status === 'success');
 
   const [keyItem, setkeyItem] = useState<Keys | null>(null);
   const accordianHandler = (item: Keys) => {
@@ -127,7 +127,6 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     ),
   };
 
-  console.log(RCDocs);
 
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10 relative">
@@ -255,7 +254,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </section>
         </main>
       </>
-      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" disabled={allCompleted}>
+      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" disabled={allStagesCompleted}>
         Go to Orders
       </button>
     </div>
