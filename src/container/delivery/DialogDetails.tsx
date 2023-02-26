@@ -11,12 +11,14 @@ interface DialogDetailsProps {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
   filterByColors: any;
+  dialogType: 'delivery' | 'pickup';
 }
 
 const DialogDetails: FC<DialogDetailsProps> = ({
   data,
   handleCloseDialog,
-  filterByColors
+  filterByColors,
+  dialogType
 }) => {
   type Keys =
     | 'Delivery ready'
