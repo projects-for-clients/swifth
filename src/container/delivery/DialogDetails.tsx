@@ -65,8 +65,17 @@ const DialogDetails: FC<DialogDetailsProps> = ({
         {RCDocs.content.map((doc, i) => {
           return (
             <div key={i} className="flex items-center">
-              <img src="/icons/file.svg" alt="" />
               <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
+
+              {doc.submitted ? (
+                <div>
+                  <img src="/icons/tick-square.svg" alt="" />
+                </div>
+              ) : (
+                <div>
+                  <img src="/icons/tick-square.svg" alt="" />
+                </div>
+              )}
             </div>
           );
         })}
@@ -81,9 +90,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10 relative">
       <>
-        <span>
-          <img src="/icons/tick-square.svg" alt="" />
-        </span>
+        
         <div className="flex gap-10 items-center">
           <BsArrowLeft
             className="text-[2.4rem] cursor-pointer"
