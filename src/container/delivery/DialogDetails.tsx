@@ -64,11 +64,11 @@ const DialogDetails: FC<DialogDetailsProps> = ({
       <>
         {RCDocs.content.map((doc, i) => {
           return (
-            <div key={i} className="flex items-center">
+            <div key={i} className="flex items-center justify-between">
               <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
 
               {doc.submitted ? (
-                <div className='text-color-primary'>
+                <div className='text-color-primary flex gap-2 items-center'>
                   <img src="/icons/tick-square.svg" alt="" />
                   <p>Approved</p>
                 </div>
