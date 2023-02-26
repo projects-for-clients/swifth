@@ -109,21 +109,14 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     Delivered: (
       <>
         <p className="text-[1.4rem] text-gray-500">
-          James Ibori marked {deliveryData?.name}'s item as delivered Lorem
-          ipsum dolor sit, amet consectetur adipisicing elit. Sit ullam
-          exercitationem aliquam adipisci, distinctio praesentium earum impedit
-          amet tempora ducimus veritatis placeat officiis omnis assumenda
-          doloribus quisquam dolores accusamus explicabo.
+          James Ibori marked {deliveryData?.name}'s item as delivered
         </p>
 
         <div
           className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
                               `}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-          eligendi, aut voluptates explicabo a voluptatum officiis, ullam
-          voluptas exercitationem deleniti ut facilis? Pariatur debitis,
-          reprehenderit aspernatur dolorum eligendi commodi alias?
+         
           <img src="/icons/admin/upload.svg" alt="" />
           <a href="/images/document.jpg" download className="grid">
             <p className="text-[1.4rem]">Proof of Delivery</p>
