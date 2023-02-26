@@ -101,7 +101,8 @@ export const PickupPath: FC<PickupPathProps> = ({ pickupData }) => {
               <DialogDetails
                 data={pickupPickupData}
                 handleCloseDialog={handleCloseDialog}
-                dialogType={'delivery'}
+                filterByColors={filterByColors}
+                dialogType={'pickup'}
               />
             )}
           </section>

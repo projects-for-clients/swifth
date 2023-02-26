@@ -17,7 +17,7 @@ const DialogDetails = ({
   dialogType,
 }: DialogDetailsProps) => {
   
-  const [filterByColors, setFilterByColors] = useState<Record<any, FiltersProps> | null>(null);
+  const [filterByColors, setFilterByColors] = useState<unknown | null>(null);
 
   useEffect(() => {
 

@@ -63,7 +63,8 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
   //const { deliveryData } = useContext(DeliveryContext);
 
   const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
-  const [individualDeliveryData, setIndividualDeliveryData] = useState<DeliveryData | null>(null)
+  const [individualDeliveryData, setIndividualDeliveryData] =
+    useState<DeliveryData | null>(null);
 
   const handleCloseDialog = () => {
     if (dialogDetailRef.current) {
@@ -77,9 +78,9 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
   };
 
   const handleDeliveryItem = (item: DeliveryData) => {
-    setIndividualDeliveryData(item)
-    handleOpenDialog()
-  }
+    setIndividualDeliveryData(item);
+    handleOpenDialog();
+  };
 
   return (
     <div
@@ -105,9 +106,10 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
               <DialogDetails
                 data={individualDeliveryData}
                 handleCloseDialog={handleCloseDialog}
-                dialogType={'delivery'}              />
-            )} 
-            </section>
+                filterByColors={filterByColors}
+              />
+            )}
+          </section>
         </div>
       </dialog>
       {deliveryData.map((item, i) => {
