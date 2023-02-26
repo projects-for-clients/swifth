@@ -95,22 +95,34 @@ const DialogDetails: FC<DialogDetailsProps> = ({
             <div key={i} className="flex items-center justify-between">
               <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
 
-            
-                <div className="text-color-primary flex gap-2 items-center">
-                  <img
-                    src="/icons/tick-square.svg"
-                    alt=""
-                    className="w-[2rem]"
-                  />
-                  <p className="text-[1.4rem]">Paid</p>
-                </div>
-              
+              <div className="text-color-primary flex gap-2 items-center">
+                <img src="/icons/tick-square.svg" alt="" className="w-[2rem]" />
+                <p className="text-[1.4rem]">Paid</p>
+              </div>
             </div>
           );
         })}
       </>
     ),
-    Delivered: <div></div>,
+    Delivered: (
+      <>
+        <p className="text-[1.4rem] text-gray-500">
+          James Ibori marked {deliveryData?.name}'s item as delivered
+        </p>
+
+        <div
+          className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
+                              `}
+        >
+          <img src="/icons/admin/upload.svg" alt="" />
+
+          <a href="/images/document.jpg" download className="grid">
+            <p className="text-[1.4rem]">Proof of Delivery</p>
+            <p className="text-color-grey-4 text-[1rem]">520KB</p>
+          </a>
+        </div>
+      </>
+    ),
   };
 
   console.log(RCDocs);
