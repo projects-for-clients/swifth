@@ -85,9 +85,9 @@ function Team() {
   };
 
   const roles = [
-    'Admin',
-    'Field Agent',
-    'Customer Care Rep',
+    'admin',
+    'field agent',
+    'Customer care rep',
     'Revoke Invite'
   ] as const
 
@@ -161,9 +161,9 @@ function Team() {
                     key={i}
                     // onClick={() => handleOpenDialog(item)}
                   >
-                    <div className="text-[1.2rem] flex items-center justify-between text-color-purple-1">
+                    <div className="text-[1.2rem] flex items-center justify-between ">
                       <p>{name}</p>
-                      <p>{role}</p>
+                      <p className={`${role === 'rov'}`}>{role}</p>
                     </div>
                   </div>
                 );
