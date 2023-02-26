@@ -123,6 +123,10 @@ const DialogDetails: FC<DialogDetailsProps> = ({
             <p className="text-color-grey-4 text-[1rem]">520KB</p>
           </a>
         </div>
+
+        <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" disabled={allStagesCompleted}>
+          Go to Orders
+        </button>
       </>
     ),
   };
@@ -254,7 +258,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </section>
         </main>
       </>
-      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" disabled={allStagesCompleted}>
+      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" >
         Go to Orders
       </button>
     </div>
