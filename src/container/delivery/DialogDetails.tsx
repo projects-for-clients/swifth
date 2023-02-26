@@ -20,6 +20,7 @@ const DialogDetails = <T extends PickupFilterBy | DeliveryFilterBy>({
   filterByColors,
   dialogType
 }: DialogDetailsProps<T>) => {
+  
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
