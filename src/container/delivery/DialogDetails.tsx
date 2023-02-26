@@ -54,15 +54,10 @@ const DialogDetails: FC<DialogDetailsProps> = ({
 
   const accordianContent: Record<Keys, JSX.Element> = {
     'Delivery ready': (
-      <div>
-        {RCDocs.content.map((doc, i) => {
-          return (
-            <div key={i} className="flex items-center gap-4">
-              <img src="/icons/file.svg" alt="" />
-              <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
-            </div>
-          );
-        })}
+      <div className=" flex justify-between border-b border-b-color-purple-light-2 py-5">
+        <p className="text-[1.4rem] text-gray-500">
+          James Ibori marked {deliveryData.name}'s item as delivered
+        </p>
       </div>
     ),
     'All documents submitted': (
@@ -181,12 +176,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                           : 'invisible h-0'
                       }`}
                     >
-                      <div className=" flex justify-between border-b border-b-color-purple-light-2 py-5">
-                        <p className="text-[1.4rem] text-gray-500">
-                          James Ibori marked {deliveryData.name}'s item as
-                          delivered
-                        </p>
-                      </div>
+                      {accordianContent[step.key]}
                     </div>
                   ) : keyItem === step.key && i === steps.length - 1 ? (
                     <div className="grid gap-8 px-16 my-8">
