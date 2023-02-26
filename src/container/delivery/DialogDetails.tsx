@@ -101,17 +101,15 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                               className="w-[2.4rem] relative z-[2]"
                             />
                           ) : (
-                            <span>
                               <img
                                 src="/icons/check-empty.svg"
                                 alt=""
                                 className="w-[2.4rem] relative z-[2]"
                               />
-                            </span>
                           )}
 
                           {i !== steps.length - 1 && (
-                            <span className="absolute w-[1px] h-full bg-color-purple-2"></span>
+                            <span className="absolute w-[1px] h-full bg-color-purple-2 z-[1]"></span>
                           )}
                         </div>
                         <span>{step.key}</span>
