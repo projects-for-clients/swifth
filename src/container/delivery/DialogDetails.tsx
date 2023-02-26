@@ -75,6 +75,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
               ) : (
                 <div>
                   <img src="/icons/tick-square.svg" alt="" />
+                  <p className="text-[1.4rem]">Approved</p>
                 </div>
               )}
             </div>
@@ -180,7 +181,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                   </button>
                   {keyItem === step.key && i !== steps.length - 1 ? (
                     <div
-                      className={`grid gap-8 px-16 py-5 ${
+                      className={`grid gap-8 pl-16 py-5 ${
                         keyItem === step.key
                           ? 'visible h-auto'
                           : 'invisible h-0'
