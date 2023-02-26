@@ -111,7 +111,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                           {i !== steps.length - 1 && (
                             <span
                               className={`absolute w-[1px] bg-color-purple-2 z-[1] ${
-                                keyItem ? 'h-[95%]' : 'h-[90%]'
+                                keyItem ? 'h-[97%]' : 'h-[90%]'
                               }`}
                             ></span>
                           )}
