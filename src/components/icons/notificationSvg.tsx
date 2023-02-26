@@ -3,13 +3,11 @@ import React from 'react'
 interface Props {
   width?: number
   height?: number
-  color?: string
   fill?: string
 }
 function notificationSvg({
   width = 30,
   height = 30,
-  color = '#251A45',
   fill = '#251A45',
 }:Props) {
   return (
