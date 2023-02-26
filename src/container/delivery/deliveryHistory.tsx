@@ -239,7 +239,7 @@ const DeliveryHistory: FC<DeliveryHistoryProps> = ({
                                 className="w-[2.4rem] relative z-[2]"
                               />
                               {i !== keys.length - 1 && (
-                                <span className="accordion__line"></span>
+                                <span className="absolute w-[1px] h-full bg-color-purple-2"></span>
                               )}
                             </div>
                             <span>{doc}</span>
