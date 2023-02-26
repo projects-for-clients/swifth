@@ -21,6 +21,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     key: Keys;
     status: 'success' | 'pending' | 'idle';
   }
+  
 
   const steps: Steps[] = [
     {
