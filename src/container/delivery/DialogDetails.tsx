@@ -35,7 +35,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     },
     {
       key: 'Payments completed',
-      status: 'idle',
+      status: 'pending',
     },
     {
       key: 'Delivered',
@@ -70,7 +70,11 @@ const DialogDetails: FC<DialogDetailsProps> = ({
 
               {doc.submitted ? (
                 <div className="text-color-primary flex gap-2 items-center">
-                  <img src="/icons/tick-square.svg" alt="" className='w-[2rem]' />
+                  <img
+                    src="/icons/tick-square.svg"
+                    alt=""
+                    className="w-[2rem]"
+                  />
                   <p className="text-[1.4rem]">Approved</p>
                 </div>
               ) : (
@@ -84,7 +88,28 @@ const DialogDetails: FC<DialogDetailsProps> = ({
         })}
       </>
     ),
-    'Payments completed': <div></div>,
+    'Payments completed': (
+      <>
+        {RCDocs.content.map((doc, i) => {
+          return (
+            <div key={i} className="flex items-center justify-between">
+              <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
+
+            
+                <div className="text-color-primary flex gap-2 items-center">
+                  <img
+                    src="/icons/tick-square.svg"
+                    alt=""
+                    className="w-[2rem]"
+                  />
+                  <p className="text-[1.4rem]">Paid</p>
+                </div>
+              
+            </div>
+          );
+        })}
+      </>
+    ),
     Delivered: <div></div>,
   };
 
