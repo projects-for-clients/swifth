@@ -162,7 +162,8 @@ function Team() {
                     // onClick={() => handleOpenDialog(item)}
                   >
                     <div className="text-[1.2rem] flex items-center justify-between text-color-purple-1">
-                      
+                      <p>{name}</p>
+                      <p>{role}</p>
                     </div>
                   </div>
                 );
