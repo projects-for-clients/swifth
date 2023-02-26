@@ -1,9 +1,9 @@
-import { FC, Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import NotificationSvg from '../../components/icons/notificationSvg';
 import { RCDocs } from '../../store/features/order/order';
-import { DeliveryData, DeliveryFilterBy, FiltersProps } from './DeliveryPath';
-import { PickupData, PickupFilterBy } from './PickupPath';
+import { DeliveryData } from './DeliveryPath';
+import { PickupData } from './PickupPath';
 
 interface DialogDetailsProps {
   data: DeliveryData | PickupData;
