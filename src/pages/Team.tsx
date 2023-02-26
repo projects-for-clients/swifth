@@ -104,12 +104,11 @@ function Team() {
   const teamArr = Array.from({length: 20}, (_, i) => {
     return {
       id: i,
-      name: keyNames[i],
+      name: keyNames[Math.floor(Math.random() * keyNames.length)],
       role: roles[Math.floor(Math.random() * roles.length)],
-      date: generateRandomDate(),
     }
   })
-  
+
 
   return (
     <>
