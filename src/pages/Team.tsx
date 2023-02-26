@@ -46,7 +46,7 @@ export interface FinanceContext {
 type SwitchPath = 'appliedLoans' | 'loanRequests';
 export const CreateFinanceContext = createContext<FinanceContext>(null as any);
 
-function Finance() {
+function Team() {
   const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
   const [search, setSearch] = useState('');
@@ -91,60 +91,7 @@ function Finance() {
       }}
     >
       <Header title="Finance" />
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-        <section className="grid place-content-center w-screen h-[100vh]">
-          <div className="bg-white rounded-2xl grid place-content-center justify-items-center  gap-16 w-[60rem] py-20 px-10">
-            <div>
-              <p className="text-[2.4rem] font-medium text-left flex w-full">
-                Set interest rate
-              </p>
-              <p className="font-medium text-left">
-                Set the interest rate you want to be attached to registered
-                customers approved loans
-              </p>
-            </div>
-
-            <form className="grid w-full gap-16" onSubmit={submitInterestRate}>
-              <div>
-                <label htmlFor="interestRate" className="">
-                  Interest Rate
-                </label>
-
-                <div className="flex items-center relative w-full">
-                  <input
-                    id="interestRate"
-                    type="text"
-                    required
-                    className="bg-gray-100 py-6 pl-6 pr-16 outline-none w-full rounded-lg"
-                  />
-
-                  <p className="absolute right-6 flex items-center gap-6">
-                    {' '}
-                    <img src="/icons/line.svg" alt="" />{' '}
-                    <img src="/icons/percent.svg" alt="" />{' '}
-                  </p>
-                </div>
-              </div>
-
-              <div className=" flex gap-8 w-[40rem] justify-self-end items-center">
-                <button
-                  className="w-full btn border border-gray-200 bg-gray-100 text-color-dark rounded-2xl"
-                  type="reset"
-                  onClick={() => handleCloseDialog()}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="w-full btn border border-color-primary text-color-primary rounded-2xl"
-                  onClick={() => handleCloseDialog()}
-                >
-                  Save
-                </button>
-              </div>
-            </form>
-          </div>
-        </section>
-      </dialog>
+     
       <main className="text-[1.6rem] grid gap-10">
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input
@@ -170,33 +117,6 @@ function Finance() {
             <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
           </button>
         </section>
-        <section>
-          <div className="radioBox gap-16">
-            <input
-              type="radio"
-              name="notification"
-              id="appliedLoans"
-              className="hidden"
-              onChange={() => setCurrentPath('appliedLoans')}
-              checked={currentPath === 'appliedLoans'}
-            />
-            <label htmlFor="appliedLoans" className="capitalize text-[1.8rem]">
-              Applied Loans
-            </label>
-
-            <input
-              type="radio"
-              name="notification"
-              id="loanRequests"
-              className="hidden"
-              checked={currentPath === 'loanRequests'}
-              onChange={() => setCurrentPath('loanRequests')}
-            />
-            <label htmlFor="loanRequests" className="capitalize text-[1.8rem]">
-              Loan Requests
-            </label>
-          </div>
-        </section>
 
         <section>
           {financeData.length < 1 ? (
@@ -204,7 +124,52 @@ function Finance() {
               <p>Nothing Found</p>
             </div>
           ) : (
-            <Fragment>{switchPath[currentPath]}</Fragment>
+            <div
+              className="grid mt-10 gap-10"
+              style={{
+                gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+              }}
+            >
+              {financeData.map((item, i) => {
+                const { name, date, loanAndInterest, amountPaid } = item;
+
+                return (
+                  <div
+                    className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
+                    key={i}
+                    onClick={() => handleOpenDialog(item)}
+                  >
+                    <div className="text-[1.2rem] flex items-center justify-between">
+                      <div className="grid gap-4">
+                        <p className="text-[1.6rem]">{name}</p>
+                        <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                          <span className="text-gray-500 text-[1.4rem] font-normal">
+                            Loan + Int :
+                          </span>
+                          {loanAndInterest?.toLocaleString()}
+                        </p>
+                      </div>
+
+                      <div className="grid gap-4">
+                        <p className="text-gray-500">
+                          {date.toLocaleString('en-GB', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric',
+                          })}
+                        </p>
+                        <p className="text-color-purple-1 flex gap-1 font-medium items-center">
+                          <span className="text-gray-500 text-[1.4rem] font-normal">
+                            Paid :
+                          </span>
+                          {amountPaid?.toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           )}
         </section>
       </main>
@@ -212,4 +177,4 @@ function Finance() {
   );
 }
 
-export default Finance;
+export default Team;
