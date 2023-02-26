@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid';
-import { FC, useContext } from 'react';
-import { DeliveryContext } from '../../pages/Delivery';
+import { FC, useContext, useRef, useState } from 'react';
+import { PickupContext } from '../../pages/Pickup';
+import { PickupData } from './PickupPath';
+import DialogDetails from './DialogDetails';
 
 export interface FiltersProps {
   text: string;
@@ -55,8 +57,27 @@ interface PickupPathProps {
 
 export const PickupPath: FC<PickupPathProps> = ({ pickupData }) => {
 
-//   const { pickupData } = useContext(DeliveryContext);
+//   const { pickupData } = useContext(PickupContext);
 
+ const dialogDetailRef = useRef<HTMLDialogElement | null>(null);
+ const [pickupPickupData, setPickupPickupData] =
+   useState<PickupData | null>(null);
+
+ const handleCloseDialog = () => {
+   if (dialogDetailRef.current) {
+     dialogDetailRef.current.close();
+   }
+ };
+ const handleOpenDialog = () => {
+   if (dialogDetailRef.current) {
+     dialogDetailRef.current.showModal();
+   }
+ };
+
+ const handlePickupItem = (item: PickupData) => {
+   setPickupPickupData(item);
+   handleOpenDialog();
+ };
     return (
       <div
         className="grid mt-[5rem] gap-10"
@@ -77,9 +98,9 @@ export const PickupPath: FC<PickupPathProps> = ({ pickupData }) => {
             </figure>
 
             <section className="h-full">
-              {individualDeliveryData && (
+              {pickupPickupData && (
                 <DialogDetails
-                  deliveryData={individualDeliveryData}
+                  deliveryData={pickupPickupData}
                   handleCloseDialog={handleCloseDialog}
                 />
               )}
@@ -93,6 +114,7 @@ export const PickupPath: FC<PickupPathProps> = ({ pickupData }) => {
             <div
               className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer"
               key={i}
+              onClick={() => handlePickupItem(item)}
             >
               <div>
                 <p className="text-[1.6rem]">{name}</p>

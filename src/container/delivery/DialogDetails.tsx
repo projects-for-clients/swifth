@@ -3,14 +3,15 @@ import { BsArrowLeft } from 'react-icons/bs';
 import NotificationSvg from '../../components/icons/notificationSvg';
 import { RCDocs } from '../../store/features/order/order';
 import { DeliveryData, filterByColors } from './DeliveryPath';
+import { PickupData } from './PickupPath';
 
 interface DialogDetailsProps {
-  deliveryData: DeliveryData;
+  data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
 }
 
 const DialogDetails: FC<DialogDetailsProps> = ({
-  deliveryData,
+  data,
   handleCloseDialog,
 }) => {
   type Keys =
@@ -59,7 +60,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     'Delivery ready': (
       <div className=" flex justify-between border-b border-b-color-purple-light-2">
         <p className="text-[1.4rem] text-gray-500">
-          James Ibori marked {deliveryData.name}'s item as delivered
+          James Ibori marked {data.name}'s item as delivered
         </p>
       </div>
     ),
@@ -109,7 +110,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     Delivered: (
       <>
         <p className="text-[1.4rem] text-gray-500">
-          James Ibori marked {deliveryData?.name}'s item as delivered
+          James Ibori marked {data?.name}'s item as delivered
         </p>
 
         <div className='grid items-end gap-8' style={{
@@ -148,7 +149,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
         <main className="grid gap-16 mt-10  ">
           <div className="grid justify-start justify-items-start gap-4">
             <p className="text-[2rem] text-gray-600 text-center">
-              {deliveryData.name}
+              {data.name}
             </p>
             <p
               className={`py-1.5 px-4 rounded-2xl ${
