@@ -159,34 +159,10 @@ function Team() {
                   <div
                     className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
                     key={i}
-                   // onClick={() => handleOpenDialog(item)}
+                    // onClick={() => handleOpenDialog(item)}
                   >
-                    <div className="text-[1.2rem] flex items-center justify-between">
-                      <div className="grid gap-4">
-                        <p className="text-[1.6rem]">{name}</p>
-                        <p className="text-color-purple-1 flex gap-1 font-medium items-center">
-                          <span className="text-gray-500 text-[1.4rem] font-normal">
-                            Loan + Int :
-                          </span>
-                          {loanAndInterest?.toLocaleString()}
-                        </p>
-                      </div>
-
-                      <div className="grid gap-4">
-                        <p className="text-gray-500">
-                          {date.toLocaleString('en-GB', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </p>
-                        <p className="text-color-purple-1 flex gap-1 font-medium items-center">
-                          <span className="text-gray-500 text-[1.4rem] font-normal">
-                            Paid :
-                          </span>
-                          {amountPaid?.toLocaleString()}
-                        </p>
-                      </div>
+                    <div className="text-[1.2rem] flex items-center justify-between text-color-purple-1">
+                      
                     </div>
                   </div>
                 );
