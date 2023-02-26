@@ -119,15 +119,15 @@ p {
 
 .accordion__line{
   
-  &::before{
+
     content: '';
     width: 1px;
-    height: 90%;
+    height: 100%;
     background-color: #7D67BD;
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     // left: 1.2rem;
-  }
+ 
 }
 
 
