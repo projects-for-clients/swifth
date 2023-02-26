@@ -28,15 +28,15 @@ const DialogDetails: FC<DialogDetailsProps> = ({
       status: 'success',
     },
     {
-      key: 'Delivery ready',
+      key: 'All documents submitted',
       status: 'success',
     },
     {
-      key: 'Delivery ready',
+      key: 'Payments completed',
       status: 'idle',
     },
     {
-      key: 'Delivery ready',
+      key: 'Delivered',
       status: 'idle',
     },
   ];
