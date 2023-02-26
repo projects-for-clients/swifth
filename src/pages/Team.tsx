@@ -84,6 +84,13 @@ function Team() {
     e.preventDefault();
   };
 
+  const roles = [
+    'Admin',
+    'Field Agent',
+    'Customer Care Rep',
+    'Revoke Invite'
+  ] as const
+
   return (
     <>
       <Header title="Team" />
