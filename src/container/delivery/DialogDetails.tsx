@@ -84,16 +84,30 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                     className={` w-full disabled:opacity-50 disabled:cursor-not-allowed `}
                     onClick={() => accordianHandler(step.key)}
                     disabled={step.status === 'idle'}
-                    
                   >
                     <div className="flex justify-between cursor-pointer">
                       <p className=" text-color-purple-1 flex items-center gap-6">
                         <div>
-                          <img
-                            src="/icons/check-success.svg"
-                            alt=""
-                            className="w-[2.4rem] relative z-[2]"
-                          />
+                          {step.status === 'success' ? (
+                            <img
+                              src="/icons/check-success.svg"
+                              alt=""
+                              className="w-[2.4rem] relative z-[2]"
+                            />
+                          ) : step.status === 'pending' ? (
+                            <img
+                              src="/icons/check-pending.svg"
+                              alt=""
+                              className="w-[2.4rem] relative z-[2]"
+                            />
+                          ) : (
+                            <img
+                              src="/icons/check-empty.svg"
+                              alt=""
+                              className="w-[2.4rem] relative z-[2]"
+                            />
+                          )}
+
                           {i !== steps.length - 1 && (
                             <span className="accordion__line"></span>
                           )}
