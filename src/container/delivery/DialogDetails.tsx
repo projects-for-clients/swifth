@@ -112,16 +112,18 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           James Ibori marked {deliveryData?.name}'s item as delivered
         </p>
 
-        <div
-          className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]`}
-        >
-          <>
+        <div className='grid items-center' style={{
+          gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+        }}>
+          <div
+            className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]`}
+          >
             <img src="/icons/admin/upload.svg" alt="" />
             <a href="/images/document.jpg" download className="grid">
               <p className="text-[1.4rem]">Proof of Delivery</p>
               <p className="text-color-grey-4 text-[1rem]">520KB</p>
             </a>
-          </>
+          </div>
           <button
             className="btn border border-color-primary bg-color-primary text-white rounded-2xl absolute bottom-[5rem] right-[1rem] disabled:cursor-not-allowed disabled:opacity-50 "
             disabled={allStagesCompleted}
