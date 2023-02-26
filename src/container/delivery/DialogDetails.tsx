@@ -64,7 +64,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
       <>
         {RCDocs.content.map((doc, i) => {
           return (
-            <div key={i} className="flex items-center gap-4">
+            <div key={i} className="flex items-center">
               <img src="/icons/file.svg" alt="" />
               <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
             </div>
@@ -170,7 +170,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                   </button>
                   {keyItem === step.key && i !== steps.length - 1 ? (
                     <div
-                      className={`grid gap-8 px-16 py-5 ${
+                      className={`grid gap-8 px-8 py-5 ${
                         keyItem === step.key
                           ? 'visible h-auto'
                           : 'invisible h-0'
