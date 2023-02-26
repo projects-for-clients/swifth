@@ -124,8 +124,8 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </a>
         </div>
 
-        <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" disabled={allStagesCompleted}>
-          Go to Orders
+        <button className="btn border border-color-primary bg-color-primary text-white rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2 disabled:cursor-not-allowed disabled:opacity-50 " disabled={allStagesCompleted}>
+          Mark as Delivered
         </button>
       </>
     ),
