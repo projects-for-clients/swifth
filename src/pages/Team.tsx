@@ -84,7 +84,7 @@ function Team() {
     e.preventDefault();
   };
 
-  
+
 
   return (
     <CreateFinanceContext.Provider
@@ -92,7 +92,7 @@ function Team() {
         financeData,
       }}
     >
-      <Header title="Finance" />
+      <Header title="Team" />
      
       <main className="text-[1.6rem] grid gap-10">
         <section className="relative flex items-center w-[45rem] mx-auto">
