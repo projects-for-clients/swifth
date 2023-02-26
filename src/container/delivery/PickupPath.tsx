@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import { FC, useRef, useState } from 'react';
+import { DeliveryFilterBy } from './DeliveryPath';
 import DialogDetails from './DialogDetails';
 
 export interface FiltersProps {

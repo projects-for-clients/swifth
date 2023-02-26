@@ -5,22 +5,23 @@ import { RCDocs } from '../../store/features/order/order';
 import { DeliveryData, DeliveryFilterBy, FiltersProps } from './DeliveryPath';
 import { PickupData, PickupFilterBy } from './PickupPath';
 
-
-
-interface DialogDetailsProps<T extends PickupFilterBy | DeliveryFilterBy> {
+interface DialogDetailsProps<
+  T extends Record<PickupFilterBy, FiltersProps>
+> {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
-  filterByColors: Record<T, FiltersProps>;
+  filterByColors: T;
   dialogType: 'delivery' | 'pickup';
 }
 
-const DialogDetails = <T extends PickupFilterBy | DeliveryFilterBy>({
+const DialogDetails = <
+  T extends Record<PickupFilterBy, FiltersProps>
+>({
   data,
   handleCloseDialog,
   filterByColors,
-  dialogType
+  dialogType,
 }: DialogDetailsProps<T>) => {
-  
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
@@ -120,9 +121,12 @@ const DialogDetails = <T extends PickupFilterBy | DeliveryFilterBy>({
           James Ibori marked {data?.name}'s item as delivered
         </p>
 
-        <div className='grid items-end gap-8' style={{
-          gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
-        }}>
+        <div
+          className="grid items-end gap-8"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(10rem, 1fr))',
+          }}
+        >
           <div
             className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem]  h-[8rem]`}
           >
@@ -155,9 +159,7 @@ const DialogDetails = <T extends PickupFilterBy | DeliveryFilterBy>({
         </div>
         <main className="grid gap-16 mt-10  ">
           <div className="grid justify-start justify-items-start gap-4">
-            <p className="text-[2rem] text-gray-600 text-center">
-              {data.name}
-            </p>
+            <p className="text-[2rem] text-gray-600 text-center">{data.name}</p>
             <p
               className={`py-1.5 px-4 rounded-2xl ${
                 filterByColors[data.tag].bg
