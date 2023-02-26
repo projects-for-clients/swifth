@@ -70,7 +70,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
 
               {doc.submitted ? (
                 <div className="text-color-primary flex gap-2 items-center">
-                  <img src="/icons/tick-square.svg" alt="" />
+                  <img src="/icons/tick-square.svg" alt="" className='w-[2rem]' />
                   <p className="text-[1.4rem]">Approved</p>
                 </div>
               ) : (
