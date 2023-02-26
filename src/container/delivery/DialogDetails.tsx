@@ -118,16 +118,18 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                         </div>
                         <span>{step.key}</span>
                       </p>
-                      <p className="text-color-purple flex items-center gap-4">
-                        <span className="text-gray-600 text-[1.4rem]">
-                          Dec 3, 2023
-                        </span>{' '}
-                        {keyItem === step.key ? (
-                          <img src="/icons/arrow-circle-up.svg" alt="" />
-                        ) : (
-                          <img src="/icons/arrow-circle-down.svg" alt="" />
-                        )}
-                      </p>
+                      {step.status !== 'idle' && (
+                        <p className="text-color-purple flex items-center gap-4">
+                          <span className="text-gray-600 text-[1.4rem]">
+                            Dec 3, 2023
+                          </span>{' '}
+                          {keyItem === step.key ? (
+                            <img src="/icons/arrow-circle-up.svg" alt="" />
+                          ) : (
+                            <img src="/icons/arrow-circle-down.svg" alt="" />
+                          )}
+                        </p>
+                      )}
                     </div>
                   </button>
                   {keyItem === step.key && i !== steps.length - 1 ? (
