@@ -1,5 +1,6 @@
 import { FC, Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import { RCDocs } from '../../store/features/order/order';
 import { DeliveryData, filterByColors } from './DeliveryPath';
 
 interface DialogDetailsProps {
@@ -49,6 +50,35 @@ const DialogDetails: FC<DialogDetailsProps> = ({
       }
       return item;
     });
+  };
+
+  const accordianContent: Record<Keys, JSX.Element> = {
+    'Delivery ready': (
+      <div>
+        {RCDocs.content.map((doc, i) => {
+          return (
+            <div key={i} className="flex items-center gap-4">
+              <img src="/icons/file.svg" alt="" />
+              <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
+            </div>
+          );
+        })}
+      </div>
+    ),
+    'All documents submitted': (
+      <div>
+        {RCDocs.content.map((doc, i) => {
+          return (
+            <div key={i} className="flex items-center gap-4">
+              <img src="/icons/file.svg" alt="" />
+              <p className="text-[1.4rem] text-gray-600">{doc.name}</p>
+            </div>
+          );
+        })}
+      </div>
+    ),
+    'Payments completed': <div></div>,
+    Delivered: <div></div>,
   };
 
   console.log(RCDocs);
