@@ -1,7 +1,5 @@
 import { nanoid } from 'nanoid';
-import { FC, useContext, useRef, useState } from 'react';
-import { PickupContext } from '../../pages/Pickup';
-import { PickupData } from './PickupPath';
+import { FC, useRef, useState } from 'react';
 import DialogDetails from './DialogDetails';
 
 export interface FiltersProps {
