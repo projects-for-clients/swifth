@@ -8,15 +8,14 @@ import { PickupData, PickupFilterBy } from './PickupPath';
 interface DialogDetailsProps {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
+  filterByColors: any;
 }
 
 const DialogDetails = ({
   data,
   handleCloseDialog,
+  filterByColors
 }: DialogDetailsProps) => {
-  
-  
-
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
