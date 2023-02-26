@@ -43,6 +43,8 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     },
   ];
 
+  const allCompleted = steps.every((step) => step.status === 'success');
+
   const [keyItem, setkeyItem] = useState<Keys | null>(null);
   const accordianHandler = (item: Keys) => {
     setkeyItem((prev) => {
@@ -253,7 +255,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
           </section>
         </main>
       </>
-      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2">
+      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" disabled={allCompleted}>
         Go to Orders
       </button>
     </div>
