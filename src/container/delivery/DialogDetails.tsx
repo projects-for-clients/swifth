@@ -73,7 +73,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                   <p className="text-[1.4rem]">Approved</p>
                 </div>
               ) : (
-                <div className='text-gray-500'>
+                <div className='text-gray-500 flex items-center gap-2'>
                   <img src="/icons/notification.svg" alt="" />
                   <p className="text-[1.4rem]">Send submission reminder</p>
                 </div>
