@@ -103,8 +103,9 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
           <section className="h-full">
             {individualDeliveryData && (
               <DialogDetails
-                deliveryData={individualDeliveryData}
+                data={individualDeliveryData}
                 handleCloseDialog={handleCloseDialog}
+                filterByColors={filterByColors}
               />
             )} 
             </section>

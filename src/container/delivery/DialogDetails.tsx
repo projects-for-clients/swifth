@@ -2,17 +2,21 @@ import { FC, Fragment, useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import NotificationSvg from '../../components/icons/notificationSvg';
 import { RCDocs } from '../../store/features/order/order';
-import { DeliveryData, filterByColors } from './DeliveryPath';
-import { PickupData } from './PickupPath';
+import { DeliveryData, DeliveryFilterBy, filterByColors, FiltersProps } from './DeliveryPath';
+import { PickupData, PickupFilterBy } from './PickupPath';
+
+
 
 interface DialogDetailsProps {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
+  filterByColors: Record<DeliveryFilterBy | PickupFilterBy, FiltersProps>;
 }
 
 const DialogDetails: FC<DialogDetailsProps> = ({
   data,
   handleCloseDialog,
+  filterByColors
 }) => {
   type Keys =
     | 'Delivery ready'
