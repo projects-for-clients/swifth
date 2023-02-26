@@ -17,11 +17,28 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     | 'Payments completed'
     | 'Delivered';
 
-  const keys: Keys[] = [
-    'All documents submitted',
-    'Delivery ready',
-    'Payments completed',
-    'Delivered',
+interface Steps {
+  key: Keys;
+  status: 'success' | 'pending' | 'idle';
+}
+  
+  const steps: Steps[] = [
+    {
+      key: 'Delivery ready',
+      status: 'success'
+    },
+    {
+      key: 'Delivery ready',
+      status: 'success'
+    },
+    {
+      key: 'Delivery ready',
+      status: 'idle'
+    },
+    {
+      key: 'Delivery ready',
+      status: 'idle'
+    },
   ];
 
   const [keyItem, setkeyItem] = useState<Keys | null>(null);
