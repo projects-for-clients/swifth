@@ -31,7 +31,7 @@ const router = createBrowserRouter(
       <Route path="finance" element={<Finance />} />
       <Route path="delivery" element={<Delivery />} />
       <Route path="payoutBank" element={<PayoutBank />} />
-      <Route path='teams' element={<Teams />} />
+      <Route path='team' element={<Team/>} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])

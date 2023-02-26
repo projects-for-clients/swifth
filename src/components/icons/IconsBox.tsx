@@ -54,7 +54,7 @@ function IconsBox() {
         </Link>
       </li>
       <li className="iconsBox__list">
-        <Link to="/dashboard/teams">
+        <Link to="/dashboard/team">
           {' '}
           <TeamSvg fill="white" />
           <span>Teams</span>
