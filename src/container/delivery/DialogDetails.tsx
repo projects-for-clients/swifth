@@ -73,9 +73,9 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                   <p className="text-[1.4rem]">Approved</p>
                 </div>
               ) : (
-                <div>
-                  <img src="/icons/tick-square.svg" alt="" />
-                  <p className="text-[1.4rem]">Approved</p>
+                <div className='text-gray-500'>
+                  <img src="/icons/notification.svg" alt="" />
+                  <p className="text-[1.4rem]">Send submission reminder</p>
                 </div>
               )}
             </div>
