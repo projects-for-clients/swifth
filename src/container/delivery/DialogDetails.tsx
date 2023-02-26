@@ -163,7 +163,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       </p>
                       {step.status !== 'idle' && (
                         <p className="text-color-purple flex items-center gap-4">
-                          {keyItem === steps[0].key && (
+                          {i === 0 && (
                             <span className="text-gray-600 text-[1.4rem]">
                               Dec 3, 2023
                             </span>
