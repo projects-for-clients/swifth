@@ -7,19 +7,19 @@ import { PickupData, PickupFilterBy } from './PickupPath';
 
 
 
-interface DialogDetailsProps<T> {
+interface DialogDetailsProps<T extends PickupFilterBy | DeliveryFilterBy> {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
   filterByColors: Record<T, FiltersProps>;
   dialogType: 'delivery' | 'pickup';
 }
 
-const DialogDetails: FC<DialogDetailsProps<PickupFilterBy | DeliveryFilterBy>> = ({
+const DialogDetails = <T extends PickupFilterBy | DeliveryFilterBy>({
   data,
   handleCloseDialog,
   filterByColors,
   dialogType
-}) => {
+}: DialogDetailsProps<T>) => {
   type Keys =
     | 'Delivery ready'
     | 'All documents submitted'
