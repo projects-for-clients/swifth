@@ -109,24 +109,25 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     Delivered: (
       <>
         <p className="text-[1.4rem] text-gray-500">
-          James Ibori marked {deliveryData?.name}'s item as delivered
+          James Ibori marked {deliveryData?.name}'s item as delivered Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ullam exercitationem aliquam adipisci, distinctio praesentium earum impedit amet tempora ducimus veritatis placeat officiis omnis assumenda doloribus quisquam dolores accusamus explicabo.
         </p>
 
         <div
           className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
                               `}
         >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eligendi, aut voluptates explicabo a voluptatum officiis, ullam voluptas exercitationem deleniti ut facilis? Pariatur debitis, reprehenderit aspernatur dolorum eligendi commodi alias?
           <img src="/icons/admin/upload.svg" alt="" />
 
           <a href="/images/document.jpg" download className="grid">
             <p className="text-[1.4rem]">Proof of Delivery</p>
             <p className="text-color-grey-4 text-[1rem]">520KB</p>
           </a>
-        </div>
-
-        <button className="btn border border-color-primary bg-color-primary text-white rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2 disabled:cursor-not-allowed disabled:opacity-50 " disabled={allStagesCompleted}>
+        <button className="btn border border-color-primary bg-color-primary text-white rounded-2xl absolute bottom-[5rem] right-[1rem] disabled:cursor-not-allowed disabled:opacity-50 " disabled={allStagesCompleted}>
           Mark as Delivered
         </button>
+        </div>
+
       </>
     ),
   };
@@ -231,6 +232,11 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       }`}
                     >
                       {accordianContent[step.key]}
+
+
+
+
+
                     </div>
                   ) : keyItem === step.key && i === steps.length - 1 ? (
                     <div className="grid gap-8 px-16 my-8">
