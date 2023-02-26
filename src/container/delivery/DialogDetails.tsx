@@ -7,14 +7,14 @@ import { PickupData, PickupFilterBy } from './PickupPath';
 
 
 
-interface DialogDetailsProps {
+interface DialogDetailsProps<T> {
   data: DeliveryData | PickupData;
   handleCloseDialog: () => void;
-  filterByColors: any;
+  filterByColors: Record<T, FiltersProps>;
   dialogType: 'delivery' | 'pickup';
 }
 
-const DialogDetails: FC<DialogDetailsProps> = ({
+const DialogDetails: FC<DialogDetailsProps<fsf>> = ({
   data,
   handleCloseDialog,
   filterByColors,

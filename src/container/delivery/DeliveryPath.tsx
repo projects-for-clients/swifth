@@ -105,8 +105,8 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
               <DialogDetails
                 data={individualDeliveryData}
                 handleCloseDialog={handleCloseDialog}
-                filterByColors={filterByColors}
-              />
+                filterByColors={filterByColors} 
+                dialogType={'delivery'}              />
             )} 
             </section>
         </div>
