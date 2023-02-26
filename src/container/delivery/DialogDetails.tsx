@@ -92,19 +92,19 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                             <img
                               src="/icons/check-success.svg"
                               alt=""
-                              className="w-[2.4rem] relative z-[2]"
+                              className="w-[2.4rem]"
                             />
                           ) : step.status === 'pending' ? (
                             <img
                               src="/icons/check-pending.svg"
                               alt=""
-                              className="w-[2.4rem] relative z-[2]"
+                              className="w-[2.4rem]"
                             />
                           ) : (
                               <img
                                 src="/icons/check-empty.svg"
                                 alt=""
-                                className="w-[2.4rem] relative z-[2]"
+                                className="w-[2.4rem]"
                               />
                           )}
 
