@@ -18,7 +18,7 @@ import Payments from '../pages/Payments';
 import Finance from '../pages/Finance';
 import PayoutBank from '../pages/PayoutBank';
 import Delivery from '../pages/Delivery';
-import Teams from '../pages/Teams';
+import Team from '../pages/Team';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
