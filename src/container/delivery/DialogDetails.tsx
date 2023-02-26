@@ -109,29 +109,36 @@ const DialogDetails: FC<DialogDetailsProps> = ({
     Delivered: (
       <>
         <p className="text-[1.4rem] text-gray-500">
-          James Ibori marked {deliveryData?.name}'s item as delivered Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit ullam exercitationem aliquam adipisci, distinctio praesentium earum impedit amet tempora ducimus veritatis placeat officiis omnis assumenda doloribus quisquam dolores accusamus explicabo.
+          James Ibori marked {deliveryData?.name}'s item as delivered Lorem
+          ipsum dolor sit, amet consectetur adipisicing elit. Sit ullam
+          exercitationem aliquam adipisci, distinctio praesentium earum impedit
+          amet tempora ducimus veritatis placeat officiis omnis assumenda
+          doloribus quisquam dolores accusamus explicabo.
         </p>
 
         <div
           className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
                               `}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate eligendi, aut voluptates explicabo a voluptatum officiis, ullam voluptas exercitationem deleniti ut facilis? Pariatur debitis, reprehenderit aspernatur dolorum eligendi commodi alias?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+          eligendi, aut voluptates explicabo a voluptatum officiis, ullam
+          voluptas exercitationem deleniti ut facilis? Pariatur debitis,
+          reprehenderit aspernatur dolorum eligendi commodi alias?
           <img src="/icons/admin/upload.svg" alt="" />
-
           <a href="/images/document.jpg" download className="grid">
             <p className="text-[1.4rem]">Proof of Delivery</p>
             <p className="text-color-grey-4 text-[1rem]">520KB</p>
           </a>
-        <button className="btn border border-color-primary bg-color-primary text-white rounded-2xl absolute bottom-[5rem] right-[1rem] disabled:cursor-not-allowed disabled:opacity-50 " disabled={allStagesCompleted}>
-          Mark as Delivered
-        </button>
+          <button
+            className="btn border border-color-primary bg-color-primary text-white rounded-2xl absolute bottom-[5rem] right-[1rem] disabled:cursor-not-allowed disabled:opacity-50 "
+            disabled={allStagesCompleted}
+          >
+            Mark as Delivered
+          </button>
         </div>
-
       </>
     ),
   };
-
 
   return (
     <div className=" h-full items-baseline w-[80rem] overflow-y-scroll pb-10 relative">
@@ -223,7 +230,7 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       )}
                     </div>
                   </button>
-                  {keyItem === step.key && i !== steps.length - 1 ? (
+                  {keyItem === step.key && (
                     <div
                       className={`grid gap-8 pl-16 py-5 ${
                         keyItem === step.key
@@ -232,39 +239,15 @@ const DialogDetails: FC<DialogDetailsProps> = ({
                       }`}
                     >
                       {accordianContent[step.key]}
-
-
-
-
-
                     </div>
-                  ) : keyItem === step.key && i === steps.length - 1 ? (
-                    <div className="grid gap-8 px-16 my-8">
-                      <p className="text-[1.4rem] text-gray-500">
-                        James Ibori marked {deliveryData.name}'s item as
-                        delivered
-                      </p>
-
-                      <div
-                        className={`flex border border-color-purple-light rounded-lg py-8 px-10 items-center gap-6 cursor-pointer text-[1.4rem] w-full h-[8rem]
-                              `}
-                      >
-                        <img src="/icons/admin/upload.svg" alt="" />
-
-                        <div className="grid">
-                          <p className="text-[1.4rem]">Proof of Delivery</p>
-                          <p className="text-color-grey-4 text-[1rem]">520KB</p>
-                        </div>
-                      </div>
-                    </div>
-                  ) : null}
+                  )}
                 </div>
               </Fragment>
             ))}
           </section>
         </main>
       </>
-      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2" >
+      <button className="btn border border-color-primary text-color-primary rounded-2xl absolute bottom-[5rem] right-[1rem] w-1/2">
         Go to Orders
       </button>
     </div>

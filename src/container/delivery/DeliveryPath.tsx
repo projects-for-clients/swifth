@@ -100,14 +100,14 @@ export const DeliveryPath: FC<DeliveryPathProps> = ({ deliveryData }) => {
             />
           </figure>
 
-          {/* <section className="h-full">
+          <section className="h-full">
             {individualDeliveryData && (
-              // <DialogDetails
-              //   deliveryData={individualDeliveryData}
-              //   handleCloseDialog={handleCloseDialog}
-              // />
+              <DialogDetails
+                deliveryData={individualDeliveryData}
+                handleCloseDialog={handleCloseDialog}
+              />
             )} 
-            </section> */}
+            </section>
         </div>
       </dialog>
       {deliveryData.map((item, i) => {
