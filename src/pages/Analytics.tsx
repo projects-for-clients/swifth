@@ -43,8 +43,8 @@ function Analytics() {
     <>
       <Header title="Analytics" />
 
-      <div className="overflow-hidden flex items-center">
-        <span className="">
+      <div className=" flex items-center overflow-x-hidden overflow-y-visible">
+        <span className="w-[15rem]">
           <SelectInput
             items={[
               'All time',
@@ -54,6 +54,7 @@ function Analytics() {
             ]}
             placeholder={'All time'}
             fullWidth
+            analytics
           />
         </span>
         <div className="flex w-full flex-nowrap overflow-scroll">

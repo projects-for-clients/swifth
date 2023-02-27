@@ -56,7 +56,9 @@ const SelectInput: FC<ISelectInput> = ({
 
         {toggleSortMenu && (
           <div
-            className={`absolute top-[5rem]  left-0 border border-color-primary-light  bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize ${
+            className={`absolute top-[5rem]  left-0 border ${
+              analytics ? 'border-gray-300' : 'border-color-primary-light'
+            }   bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize ${
               fullWidth ? 'w-[20rem]' : 'w-[10rem]'
             }`}
           >
