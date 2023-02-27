@@ -7,7 +7,22 @@ interface Carousel {
   count: number;
 }
 
-type keys = 'All' | 'Orders' | 'Quotes' | 'Customers' | 'Deliveries' | 'Payments';
+type keys =
+  | 'All'
+  | 'Orders'
+  | 'Quotes'
+  | 'Customers'
+  | 'Deliveries'
+  | 'Payments';
+
+const keys: keys[] = [
+  'All',
+  'Orders',
+  'Quotes',
+  'Customers',
+  'Deliveries',
+  'Payments',
+];
 
 const carousel: Carousel[] = [
   {
@@ -52,7 +67,7 @@ function Analytics() {
             gridTemplateColumns: '15% auto',
           }}
         >
-          <div className='relative'>
+          <div className="relative">
             <AnalyticsInput
               items={[
                 'All time',
