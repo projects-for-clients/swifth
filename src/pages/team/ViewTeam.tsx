@@ -86,7 +86,7 @@ const ViewTeam = () => {
               <img src="/icons/empty-Role.svg" alt="" />
 
               <div>
-                <p>Admin</p>
+                <p className="text-[2rem] font-medium">Admin</p>
                 <p>Account User with full access</p>
               </div>
             </label>
@@ -102,7 +102,7 @@ const ViewTeam = () => {
               <img src="/icons/empty-Role.svg" alt="" />
 
               <div>
-                <p>Field Agent</p>
+                <p className="text-[2rem] font-medium">Field Agent</p>
                 <p>Has full access except, user management and list exports</p>
               </div>
             </label>
@@ -118,7 +118,9 @@ const ViewTeam = () => {
               <img src="/icons/filled-Role.svg" alt="" />
 
               <div>
-                <p>Customer Care Representative</p>
+                <p className="text-[2rem] font-medium">
+                  Customer Care Representative
+                </p>
                 <p>Has full access except, user management and list exports</p>
               </div>
             </label>
