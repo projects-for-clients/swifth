@@ -60,7 +60,7 @@ function Analytics() {
               placeholder={'All time'}
             />
           </div>
-          <div className="flex w-full flex-nowrap h-[22rem] overflow-x-scroll">
+          <div className="flex w-full flex-nowrap h-[22rem] overflow-x-hidden">
             {carousel.map((item) => (
               <div
                 className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl self-center"
