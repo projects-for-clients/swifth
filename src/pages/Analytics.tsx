@@ -106,10 +106,19 @@ function Analytics() {
 
         <div>
           {keys.map((key) => {
-            return <div>
-
-                <input type="radio" name="analytic" id={key} className='hidden' />
-            </div>;
+            return (
+              <div>
+                <input
+                  type="radio"
+                  name="analytic"
+                  id={key}
+                  className="hidden"
+                />
+                <label htmlFor={key} className=" cursor-pointer">
+                  {key}
+                </label>
+              </div>
+            );
           })}
         </div>
       </main>
