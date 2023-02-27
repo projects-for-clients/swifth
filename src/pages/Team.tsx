@@ -135,11 +135,11 @@ function Team() {
           <div className='flex items-center gap-4'>
 
           <button
-            className="flex gap-2 rounded-lg py-4 px-8 bg-color-green-light-1 text-color-primary-dark-2 border border-color-green-light items-center cursor-pointer"
+            className="flex gap-2 rounded-lg py-4 px-8 bg-color-green-light-1 text-color-primary-dark border border-color-green-light items-center cursor-pointer"
            
             >
             <IoMdAdd/>
-            <p className="text-color-purple-1 font-medium">Add Member</p>
+            <p className=" font-medium">Add Member</p>
           </button>
           <button
             className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
