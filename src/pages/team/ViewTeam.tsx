@@ -20,18 +20,23 @@ const ViewTeam = () => {
         </div>
 
         <div>
+            <div>
+
           <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
             <img
               src=""
               alt=""
               className="absolute w-full h-full rounded-full  z-[1]"
-            />
+              />
             <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-color-red-light-3 grid place-content-center rounded-full">
               <span>{initials}</span>
             </p>
           </figure>
 
-
+        <button className='btn uppercase border border-color-primary text-color-primary text-center'>
+            Edit Profile
+        </button>
+              </div>
         </div>
       </main>
     </>
