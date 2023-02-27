@@ -5,10 +5,9 @@ import { useLocation } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 import { Roles } from './Team';
 
-
 const ViewTeam = () => {
   const location = useLocation();
-  const [currentRole, setCurrentRole] = useState<Roles>('admin')
+  const [currentRole, setCurrentRole] = useState<Roles>('admin');
 
   const { id, name, role } = location && location?.state;
 
@@ -79,12 +78,18 @@ const ViewTeam = () => {
         <div className="grid gap-8 max-w-[70rem] py-16">
           <p className="font-medium text-[2rem]">User type/Role</p>
 
-          <div className='grid gap-8'>
+          <div className="grid gap-8">
             <label
               htmlFor="admin"
               className="flex items-center gap-8 cursor-pointer"
             >
-              <input type="radio" name="role" id="admin" className="hidden" />
+              <input
+                type="radio"
+                name="role"
+                id="admin"
+                className="hidden"
+                onChange={() => setCurrentRole('admin')}
+              />
 
               <img src="/icons/empty-Role.svg" alt="" />
 
@@ -94,12 +99,13 @@ const ViewTeam = () => {
               </div>
             </label>
 
-            <label htmlFor="fieldAgent" className="flex items-center gap-8">
+            <label htmlFor="field agent" className="flex items-center gap-8">
               <input
                 type="radio"
                 name="role"
-                id="fieldAgent"
+                id="field agent"
                 className="hidden"
+                onChange={() => setCurrentRole('field agent')}
               />
 
               <img src="/icons/empty-Role.svg" alt="" />
@@ -116,6 +122,7 @@ const ViewTeam = () => {
                 name="role"
                 id="CustomerRep"
                 className="hidden"
+                onChange={() => setCurrentRole('customer care rep')}
               />
 
               <img src="/icons/filled-Role.svg" alt="" />
