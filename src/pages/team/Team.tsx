@@ -4,42 +4,8 @@ import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 import { generateRandomDate } from '../../container/order/OrdersData';
 import { IoMdAdd } from 'react-icons/io';
 
-export interface FinanceHistory {
-  id: number;
-  date: Date;
-  amount: number;
-}
-
-export type FinanceFilterBy = 'Fully Paid' | 'Pending Bill';
-
-export interface Finance {
-  id: number;
-  name: string;
-  date: Date;
-  wantsToLoan?: number;
-  amountPaid?: number;
-  loanAndInterest?: number;
-}
-
-export const FINANCE: Finance[] = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  name: `Ezekiel Doe ${i + 1}`,
-  description: `Toyota Camry XLE, ${200 + (i + 1)}`,
-  date: generateRandomDate(),
-  amountPaid: Math.floor(Math.random() * 900000 + 500000),
-  wantsToLoan: Math.floor(Math.random() * 900000 + 500000),
-  loanAndInterest: Math.floor(Math.random() * 2000000 + 900000),
-}));
-
-export interface FinanceContext {
-  financeData: Finance[];
-}
-
-type SwitchPath = 'appliedLoans' | 'loanRequests';
-export const CreateFinanceContext = createContext<FinanceContext>(null as any);
 
 function Team() {
-  const [currentPath, setCurrentPath] = useState<SwitchPath>('appliedLoans');
 
   const [search, setSearch] = useState('');
 
