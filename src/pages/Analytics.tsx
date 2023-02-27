@@ -1,58 +1,50 @@
 import Header from '../components/dashboard/Header';
 import SelectInput from '../components/utils/SelectInput';
 
-
 interface Carousel {
-    title: string;
-    imgUri: string;
-    count: number;
-
+  title: string;
+  imgUri: string;
+  count: number;
 }
 const carousel: Carousel[] = [
-   
-    {
-        title: 'quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
-    },
-    {
-        title: 'orders',
-        imgUri: '/icons/analytics/totalOrders.svg',
-        count: 300
-    },
-    {
-        title: 'Full Payments',
-        imgUri: '/icons/analytics/totalPayments.svg',
-        count: 105
-    },
-    {
-        title: 'customers',
-        imgUri: '/icons/analytics/totalCustomers.svg',
-        count: 70
-    },
-    {
-        title: 'deliveries',
-        imgUri: '/icons/analytics/totalDeliveries.svg',
-        count: 101
-    },
-    {
-        title: 'members',
-        imgUri: '/icons/analytics/totalMembers.svg',
-        count: 12
-    },
-   
-   
-]
+  {
+    title: 'quotes',
+    imgUri: '/icons/analytics/totalQuotes.svg',
+    count: 496,
+  },
+  {
+    title: 'orders',
+    imgUri: '/icons/analytics/totalOrders.svg',
+    count: 300,
+  },
+  {
+    title: 'Full Payments',
+    imgUri: '/icons/analytics/totalPayments.svg',
+    count: 105,
+  },
+  {
+    title: 'customers',
+    imgUri: '/icons/analytics/totalCustomers.svg',
+    count: 70,
+  },
+  {
+    title: 'deliveries',
+    imgUri: '/icons/analytics/totalDeliveries.svg',
+    count: 101,
+  },
+  {
+    title: 'members',
+    imgUri: '/icons/analytics/totalMembers.svg',
+    count: 12,
+  },
+];
 function Analytics() {
-
-
   return (
     <>
       <Header title="Analytics" />
 
-
-      <div className='overflow-hidden'>
-        <span className=''>
+      <div className="overflow-hidden">
+        <span className="">
           <SelectInput
             items={[
               'All time',
@@ -64,20 +56,22 @@ function Analytics() {
             fullWidth
           />
         </span>
-        <div className='flex w-full flex-nowrap overflow-scroll'>
+        <div className="flex w-full flex-nowrap overflow-scroll">
+          {carousel.map((item, index) => (
+            <div
+              className="flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative"
+              key={item.title}
+            >
+              <img src={item.imgUri} alt="" className="absolute top-0" />
 
-            {
-                carousel.map((item, index) => (
-                    <div className='flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative' key={item.title}>
+              <div>
+                <p>Total</p>
+                <p>{item.title}</p>
+              </div>
 
-                    <img src={item.imgUri} alt="" className='absolute top-0'/>
-
-                    <p>Total</p>
-                    <p>{item.title}</p>
-
-                    <p>{item.count}</p>
-            }
-
+              <p>{item.count}</p>
+            </div>
+          ))}
         </div>
       </div>
     </>
