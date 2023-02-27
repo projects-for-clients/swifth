@@ -58,8 +58,8 @@ const carousel: Carousel[] = [
   },
 ];
 function Analytics() {
-    const [current, setCurrent] = useState<keys>('All');
-    
+  const [current, setCurrent] = useState<keys>('All');
+
   return (
     <>
       <Header title="Analytics" />
@@ -102,6 +102,12 @@ function Analytics() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div>
+          {keys.map((key) => {
+            return <div></div>;
+          })}
         </div>
       </main>
     </>
