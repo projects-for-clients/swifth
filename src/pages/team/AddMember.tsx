@@ -23,11 +23,11 @@ const AddMember = () => {
           <p className="text-[2rem]">Add a team Member</p>
         </div>
 
-        <div>
-          <label>Email</label>
+        <div className='mt-10'>
+          <label className='text-[1.4rem] mb-4'>Email</label>
           <input
             type="text"
-            className=" border border-gray-300 p-6 outline-none w-full rounded-3xl"
+            className=" border border-gray-300 p-6 outline-none w-full rounded-2xl"
             placeholder="Enter email address"
           
           />{' '}
