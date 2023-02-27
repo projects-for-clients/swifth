@@ -4,7 +4,7 @@ import { GrUp, GrDown } from 'react-icons/gr';
 interface ISelectInput {
   items: string[];
   placeholder: string;
-  label: string;
+  label?: string;
   fullWidth?: boolean;
   setIsTerminal?: Dispatch<SetStateAction<boolean>>;
 }
