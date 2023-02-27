@@ -133,7 +133,7 @@ function Analytics() {
                   <h2 className="heading3">Business Analytics</h2>
                   <p className="text-[1.6rem] cursor-pointer">See Full Stats</p>
                 </div>
-                <AnalyticsChart />
+                <AnalyticsChart width={1000} />
               </>
             </div>
           </div>

@@ -197,7 +197,10 @@ interface AnalyticsChart {
   height?: number;
 }
 
-export default function AnalyticsChart({ width = 500, height =300 }: AnalyticsChart) {
+export default function AnalyticsChart({
+  width = 500,
+  height = 300,
+}: AnalyticsChart) {
   return (
     <LineChart width={width} height={height} data={data} className="">
       <CartesianGrid vertical={false} stroke="#FDE9E9" />
