@@ -82,7 +82,7 @@ function Team() {
           />
         </section>
         <section className="flex justify-end">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 capitalize">
             <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-green-light-1 text-color-primary-dark border border-color-green-light items-center cursor-pointer" onClick={() => navigate('/dashboard/team/add')}>
               <IoMdAdd />
               <p className=" font-medium">Add Member</p>
@@ -90,7 +90,7 @@ function Team() {
             <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer">
               <img src="/icons/percentage-circle.svg" alt="" />
               <p className="text-color-purple-1 font-medium">
-                Set Interest Rate
+                Add new role
               </p>
             </button>
           </div>
