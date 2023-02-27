@@ -2,8 +2,6 @@ import Header from '../../components/dashboard/Header';
 import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 
 import { generateRandomDate } from '../../container/order/OrdersData';
-import AppliedLoans from '../../container/finance/AppliedLoans';
-import LoanRequests from '../../container/finance/LoanRequests';
 import { IoMdAdd } from 'react-icons/io';
 
 export interface FinanceHistory {
@@ -123,7 +121,6 @@ function Team() {
             </button>
             <button
               className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
-              onClick={() => handleOpenDialog()}
             >
               <img src="/icons/percentage-circle.svg" alt="" />
               <p className="text-color-purple-1 font-medium">
