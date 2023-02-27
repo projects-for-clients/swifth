@@ -1,4 +1,5 @@
 import Header from "../components/dashboard/Header";
+import SelectInput from "../components/utils/SelectInput";
 
 function Analytics() {
 
@@ -6,7 +7,10 @@ function Analytics() {
     <>
       <Header title="Analytics" />
 
-  
+    <div>
+
+        <SelectInput items={['All time', 'The past year', 'The past month', 'The last 24 hours']} placeholder={""} label={""}        />
+    </div>
     </>
   );
 }
