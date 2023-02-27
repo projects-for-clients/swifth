@@ -69,7 +69,7 @@ function Analytics() {
                 <p className='text-color-purple font-medium'>{item.title}</p>
               </div>
 
-              <p>{item.count}</p>
+              <p className='text-color-purple text-[3rem]'>{item.count}</p>
             </div>
           ))}
         </div>
