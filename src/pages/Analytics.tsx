@@ -105,23 +105,25 @@ function Analytics() {
         </div>
 
         <div>
-          {keys.map((key) => {
-            return (
-              <div className='analytics__radioBox'>
-                <input
-                  type="radio"
-                  name="analytic"
-                  id={key}
-                  checked={current === key}
-                  onChange={() => setCurrent(key)}
-                  className="hidden"
-                />
-                <label htmlFor={key} className=" cursor-pointer">
-                  {key}
-                </label>
-              </div>
-            );
-          })}
+          <div className='flex items-center gap-3'>
+            {keys.map((key) => {
+              return (
+                <div className="analytics__radioBox">
+                  <input
+                    type="radio"
+                    name="analytic"
+                    id={key}
+                    checked={current === key}
+                    onChange={() => setCurrent(key)}
+                    className="hidden"
+                  />
+                  <label htmlFor={key} className=" cursor-pointer">
+                    {key}
+                  </label>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </main>
     </>
