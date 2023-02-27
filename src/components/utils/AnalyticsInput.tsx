@@ -33,7 +33,7 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
         className={`relative items-center flex cursor-pointer text-black`}
       >
         <p
-          className={` outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left`}
+          className={` outline-none rounded-lg w-full text-[1.4rem] cursor-pointer text-left`}
           onClick={sortMenuToggler}
         >
           {selectedSort ? (
