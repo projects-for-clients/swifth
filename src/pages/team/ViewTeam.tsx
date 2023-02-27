@@ -52,7 +52,7 @@ const ViewTeam = () => {
             </div>
 
             <div>
-
+            <p className='font-medium'>See Permissions</p>
                 <BsArrowRight/>
             </div>
           </div>
