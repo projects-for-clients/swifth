@@ -111,15 +111,11 @@ const AddMember = () => {
           </div>
        
 
-        {isEditProfile ? (
+        
           <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
             Save Changes
           </button>
-        ) : (
-          <button className="btn border border-red-600 rounded-2xl uppercase text-red-600 w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
-            Deactivate Member
-          </button>
-        )}
+      
       </main>
     </>
   );
