@@ -87,7 +87,9 @@ function Team() {
               <IoMdAdd />
               <p className=" font-medium">Add Member</p>
             </button>
-            <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer">
+            <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer" onClick={
+              () => navigate('/dashboard/team/add-role')
+            }>
               <img src="/icons/percentage-circle.svg" alt="" />
               <p className="text-color-purple-1 font-medium">
                 Add new role
