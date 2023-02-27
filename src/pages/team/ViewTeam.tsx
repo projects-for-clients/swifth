@@ -20,7 +20,7 @@ const ViewTeam = () => {
         </div>
 
         <div>
-            <div>
+            <div className='flex items-end gap-16'>
 
           <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
             <img
@@ -33,7 +33,7 @@ const ViewTeam = () => {
             </p>
           </figure>
 
-        <button className='btn uppercase border border-color-primary text-color-primary text-center'>
+        <button className='btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium'>
             Edit Profile
         </button>
               </div>
