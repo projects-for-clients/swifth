@@ -5,6 +5,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 import { Roles } from './Team';
 
+
+type DialogType = 'permissions' | 'history';
+
 const ViewTeam = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,6 +18,7 @@ const ViewTeam = () => {
 
   const permissionsDialogRef = useRef<HTMLDialogElement>(null);
 
+  const 
 
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
