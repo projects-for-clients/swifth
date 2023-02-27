@@ -59,25 +59,7 @@ function Team() {
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const handleCloseDialog = (): void => {
-    if (dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-  const handleOpenDialog = () => {
-    if (dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-  };
-  const switchPath: Record<SwitchPath, JSX.Element> = {
-    appliedLoans: <AppliedLoans />,
-    loanRequests: <LoanRequests />,
-  };
-
-  const submitInterestRate = (e: FormEvent) => {
-    e.preventDefault();
-  };
-
+  
   const roles = [
     'admin',
     'field agent',
@@ -110,7 +92,7 @@ function Team() {
   });
 
   const openMemberDetails = (item: Team) => {
-    
+  
   }
 
   return (
