@@ -6,14 +6,10 @@ import Header from '../../components/dashboard/Header';
 import { Roles } from './Team';
 
 const AddMember = () => {
-  const location = useLocation();
   const navigate = useNavigate();
   const [currentRole, setCurrentRole] = useState<Roles>('admin');
-  const [isEditProfile, setIsEditProfile] = useState(false);
 
-  const { name, role } = location?.state;
 
-  let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
     <>
       <Header title="Team" />
