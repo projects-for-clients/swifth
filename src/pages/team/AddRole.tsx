@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
+import { IoMdAdd } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 import { Roles } from './Team';
@@ -32,12 +33,19 @@ const AddRole = () => {
           </div>
           <div>
             <label className="text-[1.4rem] mb-4">Permission</label>
-            <div className="relative  border border-gray-300 p-6  w-full rounded-2xl">
+            <div className="relative  border border-gray-300 p-6  w-full rounded-2xl flex items-center">
               <input
                 type="text"
                 className=" outline-none w-full"
                 placeholder="Search and add permission"
               />
+
+              <button className="absolute right-0 outline-none border-none text-color-primary flex items-center gap-4 font-medium">
+                <IoMdAdd />
+                <span>
+                    Add
+                </span>
+              </button>
             </div>
           </div>
         </div>
