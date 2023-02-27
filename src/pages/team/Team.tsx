@@ -2,6 +2,7 @@ import Header from '../../components/dashboard/Header';
 import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 
 import { IoMdAdd } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 const roles = [
   'admin',
@@ -35,6 +36,7 @@ const teamArr: Team[] = Array.from({ length: 10 }, (_, i) => {
 });
 
 function Team() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
 
   const [teamData, setTeamData] = useState<Team[]>(teamArr);
@@ -49,7 +51,9 @@ function Team() {
     setTeamData(filtered);
   };
 
-  const openMemberDetails = (item: Team) => {};
+  const openMemberDetails = (item: Team) => {
+    navigate(`/dashboard/team/${item.id}`);
+  };
 
   return (
     <>

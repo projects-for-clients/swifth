@@ -33,7 +33,7 @@ const router = createBrowserRouter(
       <Route path="delivery" element={<Delivery />} />
       <Route path="payoutBank" element={<PayoutBank />} />
       <Route path="team" element={<Team />} />
-      <Route path="team/view/:Id" element={<ViewTeam />} />
+      <Route path="team/:Id" element={<ViewTeam />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])
