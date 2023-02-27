@@ -40,18 +40,16 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
       >
      <span className="text-color-purple">Your stats for</span>
         <p
-          className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left ${
-            analytics ? 'border-none' : 'border'
-          }`}
+          className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left`}
           onClick={sortMenuToggler}
         >
           {selectedSort ? (
             selectedSort
           ) : (
             <span
-              className={`${
-                analytics ? 'text-color-purple font-medium' : 'text-gray-500'
-              }`}
+              className=
+             'text-color-purple font-medium' 
+              
             >
               {placeholder}
             </span>
