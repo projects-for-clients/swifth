@@ -20,23 +20,27 @@ const ViewTeam = () => {
         </div>
 
         <div>
-            <div className='flex items-end gap-16'>
-
-          <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
-            <img
-              src=""
-              alt=""
-              className="absolute w-full h-full rounded-full  z-[1]"
+          <div className="flex items-end gap-16">
+            <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
+              <img
+                src=""
+                alt=""
+                className="absolute w-full h-full rounded-full  z-[1]"
               />
-            <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-color-red-light-3 grid place-content-center rounded-full">
-              <span>{initials}</span>
-            </p>
-          </figure>
+              <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-color-red-light-3 grid place-content-center rounded-full">
+                <span>{initials}</span>
+              </p>
+            </figure>
 
-        <button className='btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium'>
-            Edit Profile
-        </button>
-              </div>
+            <button className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium">
+              Edit Profile
+            </button>
+          </div>
+
+          <div>
+            <p>{name}@gmail.com</p>
+            <p>+23498523823</p>
+          </div>
         </div>
       </main>
     </>
