@@ -31,7 +31,7 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
       <p className="text-color-purple text-[1.4rem]">Your stats for</p>
       <div className={`relative items-center flex cursor-pointer text-black`}>
         <p
-          className={` outline-none rounded-lg w-full text-[1.4rem] cursor-pointer text-left text-color-purple `}
+          className={` outline-none rounded-lg w-full text-[1.4rem] cursor-pointer text-left text-color-purple font-semibold `}
           onClick={sortMenuToggler}
         >
           {selectedSort}

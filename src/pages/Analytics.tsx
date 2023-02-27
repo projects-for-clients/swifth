@@ -42,10 +42,13 @@ function Analytics() {
   return (
     <>
       <Header title="Analytics" />
-
-      <div className=" grid items-center mt-[5rem] overflow-hidden" style={{
-        gridTemplateColumns: '20% auto'
-      }}>
+      <main className='mt-[5rem] grid'>
+        <div
+          className=" grid items-center  overflow-x-scroll h-[22rem]"
+          style={{
+            gridTemplateColumns: '15% auto',
+          }}
+        >
           <AnalyticsInput
             items={[
               'All time',
@@ -54,27 +57,31 @@ function Analytics() {
               'The last 24 hours',
             ]}
             placeholder={'All time'}
-       
           />
-     
-        <div className="flex w-full flex-nowrap">
-          {carousel.map((item) => (
-            <div
-              className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl"
-              key={item.title}
-            >
-              <img src={item.imgUri} alt="" className="absolute top-[-2rem]" />
 
-              <div className='grid justify-items-center'>
-                <p className='text-color-purple-1'>Total</p>
-                <p className='text-color-purple font-medium'>{item.title}</p>
+          <div className="flex w-full flex-nowrap">
+            {carousel.map((item) => (
+              <div
+                className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl"
+                key={item.title}
+              >
+                <img
+                  src={item.imgUri}
+                  alt=""
+                  className="absolute top-[-2rem]"
+                />
+
+                <div className="grid justify-items-center">
+                  <p className="text-color-purple-1">Total</p>
+                  <p className="text-color-purple font-medium">{item.title}</p>
+                </div>
+
+                <p className="text-color-purple text-[3rem]">{item.count}</p>
               </div>
-
-              <p className='text-color-purple text-[3rem]'>{item.count}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }
