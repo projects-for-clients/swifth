@@ -9,15 +9,36 @@ interface Carousel {
 
 }
 const carousel: Carousel[] = [
+   
     {
-        title: 'Quotes',
-        imgUri: '/icons/analytics/total-quotes.svg',
+        title: 'quotes',
+        imgUri: '/icons/analytics/totalQuotes.svg',
         count: 496
     },
     {
-        title: 'Quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
+        title: 'orders',
+        imgUri: '/icons/analytics/totalOrders.svg',
+        count: 300
+    },
+    {
+        title: 'Full Payments',
+        imgUri: '/icons/analytics/totalPayments.svg',
+        count: 105
+    },
+    {
+        title: 'customers',
+        imgUri: '/icons/analytics/totalCustomers.svg',
+        count: 70
+    },
+    {
+        title: 'deliveries',
+        imgUri: '/icons/analytics/totalDeliveries.svg',
+        count: 101
+    },
+    {
+        title: 'members',
+        imgUri: '/icons/analytics/totalMembers.svg',
+        count: 12
     },
    
    
