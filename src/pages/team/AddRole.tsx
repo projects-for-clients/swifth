@@ -32,10 +32,10 @@ const AddRole = () => {
           </div>
           <div>
             <label className="text-[1.4rem] mb-4">Permission</label>
-            <div className="relative">
+            <div className="relative  border border-gray-300 p-6  w-full rounded-2xl">
               <input
                 type="text"
-                className=" border border-gray-300 p-6 outline-none w-full rounded-2xl"
+                className=" outline-none w-full"
                 placeholder="Search and add permission"
               />
             </div>
