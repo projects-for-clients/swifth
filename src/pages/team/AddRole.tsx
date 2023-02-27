@@ -19,17 +19,20 @@ const AddRole = () => {
             className="text-[1.8rem] cursor-pointer"
             onClick={() => navigate(-1)}
           />
-          <p className="text-[2rem]">Add a team Member</p>
+          <p className="text-[2rem]">Add New Role</p>
         </div>
 
         <div className='mt-10'>
+            <div>
+
           <label className='text-[1.4rem] mb-4'>Email</label>
           <input
             type="text"
             className=" border border-gray-300 p-6 outline-none w-full rounded-2xl"
             placeholder="Enter email address"
-          
-          />{' '}
+            
+            />{' '}
+            </div>
         </div>
 
         <div className="grid gap-8  py-16">
