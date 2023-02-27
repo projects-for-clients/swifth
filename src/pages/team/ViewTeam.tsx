@@ -103,7 +103,7 @@ const ViewTeam = () => {
               </div>
             </label>
 
-            <label htmlFor="field agent" className="flex items-center gap-8">
+            <label htmlFor="field agent" className="flex items-center gap-8 cursor-pointer">
               <input
                 type="radio"
                 name="role"
@@ -123,7 +123,7 @@ const ViewTeam = () => {
               </div>
             </label>
 
-            <label htmlFor="CustomerRep" className="flex items-center gap-8">
+            <label htmlFor="CustomerRep" className="flex items-center gap-8 cursor-pointer">
               <input
                 type="radio"
                 name="role"
