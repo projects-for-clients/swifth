@@ -52,7 +52,7 @@ function Team() {
   };
 
   const openMemberDetails = (item: Team) => {
-    navigate(`/dashboard/team/${item.id}`);
+    navigate(`/dashboard/team/${item.id}`, { state: item });
   };
 
   return (

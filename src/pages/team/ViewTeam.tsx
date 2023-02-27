@@ -3,6 +3,7 @@ import { BiArrowBack } from 'react-icons/bi'
 import Header from '../../components/dashboard/Header'
 
 const ViewTeam = () => {
+    const location = useLocation()
   return (
     <>
       <Header title="Team" />
