@@ -55,7 +55,7 @@ const ViewTeam = () => {
           <h3 className="text-[2.4rem] mb-10">{name}</h3>
 
           <div>
-            
+            <p>Permissions (<span className='text-color-purple-1'>{role}</span>)</p>
           </div>
         </div>
       </dialog>
