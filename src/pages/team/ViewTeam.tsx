@@ -9,7 +9,6 @@ import { Roles } from './Team';
 type DialogType = 'permissions' | 'history';
 type HistoryKey = 'created order' | 'valuation' | 'payment releasing' | 'duty processed'
 
-const historyKey:HistoryKey[] = ['created order', 'valuation', 'payment releasing', 'duty processed'] ;
 
 interface History {
   key: HistoryKey;
@@ -54,12 +53,15 @@ const ViewTeam = () => {
     };
   });
 
+  const historyKey:HistoryKey[] = ['created order', 'valuation', 'payment releasing', 'duty processed'] ;
+
 
   const HistoryArr: History[] = Array.from({ length: 5 }).map((_, i) => {
     return {
-      key: 'created order',
+      key: historyKey[Math.floor(Math.random() * historyKey.length))]
       agent: '12/12/2021',
     };
+  
   }
 
   return (
