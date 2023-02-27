@@ -47,117 +47,129 @@ const ViewTeam = () => {
           </div>
         </div>
 
-        <div className="grid gap-8 border-t max-w-[70rem] py-16">
-          <div className="grid grid-cols-2">
-            <div>
-              <p className="text-[1.4rem] text-gray-500">Role</p>
-              <p className="capitalize">{role}</p>
-            </div>
+        {isEditProfile ? (
+          <div className="grid gap-8 max-w-[70rem] py-16">
+            <p className="font-medium text-[2rem]">User type/Role</p>
 
-            <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
-              <p className="font-medium capitalize">See Permissions</p>
-              <BsArrowRight />
+            <div className="grid gap-8">
+              <label
+                htmlFor="admin"
+                className="flex items-center gap-8 cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="role"
+                  id="admin"
+                  className="hidden"
+                  onChange={() => setCurrentRole('admin')}
+                />
+
+                {currentRole === 'admin' ? (
+                  <img src="/icons/filled-Role.svg" alt="" />
+                ) : (
+                  <img src="/icons/empty-Role.svg" alt="" />
+                )}
+
+                <div>
+                  <p className="text-[2rem] font-medium">Admin</p>
+                  <p>Account User with full access</p>
+                </div>
+              </label>
+
+              <label
+                htmlFor="field agent"
+                className="flex items-center gap-8 cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="role"
+                  id="field agent"
+                  className="hidden"
+                  onChange={() => setCurrentRole('field agent')}
+                />
+
+                {currentRole === 'field agent' ? (
+                  <img src="/icons/filled-Role.svg" alt="" />
+                ) : (
+                  <img src="/icons/empty-Role.svg" alt="" />
+                )}
+                <div>
+                  <p className="text-[2rem] font-medium">Field Agent</p>
+                  <p>
+                    Has full access except, user management and list exports
+                  </p>
+                </div>
+              </label>
+
+              <label
+                htmlFor="CustomerRep"
+                className="flex items-center gap-8 cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  name="role"
+                  id="CustomerRep"
+                  className="hidden"
+                  onChange={() => setCurrentRole('customer care rep')}
+                />
+
+                {currentRole === 'customer care rep' ? (
+                  <img src="/icons/filled-Role.svg" alt="" />
+                ) : (
+                  <img src="/icons/empty-Role.svg" alt="" />
+                )}
+                <div>
+                  <p className="text-[2rem] font-medium">
+                    Customer Care Representative
+                  </p>
+                  <p>
+                    Has full access except, user management and list exports
+                  </p>
+                </div>
+              </label>
             </div>
           </div>
-          <div className="grid grid-cols-2">
+        ) : (
+          <div className="grid gap-8 border-t max-w-[70rem] py-16">
+            <div className="grid grid-cols-2">
+              <div>
+                <p className="text-[1.4rem] text-gray-500">Role</p>
+                <p className="capitalize">{role}</p>
+              </div>
+
+              <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
+                <p className="font-medium capitalize">See Permissions</p>
+                <BsArrowRight />
+              </div>
+            </div>
+            <div className="grid grid-cols-2">
+              <div>
+                <p className="text-[1.4rem] text-gray-500">Date Added</p>
+                <p className="capitalize">Dec 3, 2023</p>
+              </div>
+
+              <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
+                <p className="font-medium capitalize">History/Activity</p>
+                <BsArrowRight />
+              </div>
+            </div>
             <div>
-              <p className="text-[1.4rem] text-gray-500">Date Added</p>
+              <p className="text-[1.4rem] text-gray-500">Last Interaction</p>
               <p className="capitalize">Dec 3, 2023</p>
             </div>
-
-            <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
-              <p className="font-medium capitalize">History/Activity</p>
-              <BsArrowRight />
-            </div>
           </div>
-          <div>
-            <p className="text-[1.4rem] text-gray-500">Last Interaction</p>
-            <p className="capitalize">Dec 3, 2023</p>
-          </div>
-        </div>
+        )}
 
-        <div className="grid gap-8 max-w-[70rem] py-16">
-          <p className="font-medium text-[2rem]">User type/Role</p>
-
-          <div className="grid gap-8">
-            <label
-              htmlFor="admin"
-              className="flex items-center gap-8 cursor-pointer"
-            >
-              <input
-                type="radio"
-                name="role"
-                id="admin"
-                className="hidden"
-                onChange={() => setCurrentRole('admin')}
-              />
-
-              {currentRole === 'admin' ? (
-                <img src="/icons/filled-Role.svg" alt="" />
-              ) : (
-                <img src="/icons/empty-Role.svg" alt="" />
-              )}
-
-              <div>
-                <p className="text-[2rem] font-medium">Admin</p>
-                <p>Account User with full access</p>
-              </div>
-            </label>
-
-            <label
-              htmlFor="field agent"
-              className="flex items-center gap-8 cursor-pointer"
-            >
-              <input
-                type="radio"
-                name="role"
-                id="field agent"
-                className="hidden"
-                onChange={() => setCurrentRole('field agent')}
-              />
-
-              {currentRole === 'field agent' ? (
-                <img src="/icons/filled-Role.svg" alt="" />
-              ) : (
-                <img src="/icons/empty-Role.svg" alt="" />
-              )}
-              <div>
-                <p className="text-[2rem] font-medium">Field Agent</p>
-                <p>Has full access except, user management and list exports</p>
-              </div>
-            </label>
-
-            <label
-              htmlFor="CustomerRep"
-              className="flex items-center gap-8 cursor-pointer"
-            >
-              <input
-                type="radio"
-                name="role"
-                id="CustomerRep"
-                className="hidden"
-                onChange={() => setCurrentRole('customer care rep')}
-              />
-
-              {currentRole === 'customer care rep' ? (
-                <img src="/icons/filled-Role.svg" alt="" />
-              ) : (
-                <img src="/icons/empty-Role.svg" alt="" />
-              )}
-              <div>
-                <p className="text-[2rem] font-medium">
-                  Customer Care Representative
-                </p>
-                <p>Has full access except, user management and list exports</p>
-              </div>
-            </label>
-          </div>
-        </div>
-      <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
+        {isEditProfile ? (
+          <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
             Save Changes
-      </button>
+          </button>
+        ) : (
+          <button className="btn border border-red-600 rounded-2xl uppercase text-red-600 w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
+            Deactivate Member
+          </button>
+        )}
       </main>
-
     </>
   );
 };
