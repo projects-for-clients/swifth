@@ -5,9 +5,7 @@ interface IAnalyticsInput {
   items: string[];
   placeholder: string;
 
-    
   setIsTerminal?: Dispatch<SetStateAction<boolean>>;
-
 }
 
 const AnalyticsInput: FC<IAnalyticsInput> = ({
@@ -15,7 +13,6 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
   placeholder,
 
   setIsTerminal,
-  
 }) => {
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
@@ -30,15 +27,13 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
   };
 
   return (
-    <div
-      className={`grid gap-4 items-center`}
-    >
+    <div className={`grid gap-4 items-center`}>
       <div
         className={`relative ${
           analytics ? 'grid justify-items-center' : 'flex'
         } items-center  justify-items-start cursor-pointer text-black`}
       >
-     <span className="text-color-purple">Your stats for</span>
+        <span className="text-color-purple">Your stats for</span>
         <p
           className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left`}
           onClick={sortMenuToggler}
@@ -46,23 +41,14 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
           {selectedSort ? (
             selectedSort
           ) : (
-            <span
-              className=
-             'text-color-purple font-medium' 
-              
-            >
-              {placeholder}
-            </span>
+            <span className="text-color-purple font-medium">{placeholder}</span>
           )}
         </p>
 
         {toggleSortMenu && (
           <div
-            className={`absolute top-[5rem]  left-0 border ${
-              analytics ? 'border-gray-300' : 'border-color-primary-light'
-            }   bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize ${
-              fullWidth ? 'w-[20rem]' : 'w-[10rem]'
-            }`}
+            className={`absolute top-[5rem]  left-0 border border-gray-300 bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize w-[20rem]
+            `}
           >
             {items.map((item, index) => (
               <p
