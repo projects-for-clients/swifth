@@ -182,10 +182,10 @@ const ViewTeam = () => {
                 <p className="capitalize">{role}</p>
               </div>
 
-              <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
+              <button className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent">
                 <p className="font-medium capitalize">See Permissions</p>
                 <BsArrowRight />
-              </div>
+              </button>
             </div>
             <div className="grid grid-cols-2">
               <div>
