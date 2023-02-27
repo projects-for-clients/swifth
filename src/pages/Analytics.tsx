@@ -43,7 +43,7 @@ function Analytics() {
     <>
       <Header title="Analytics" />
 
-      <div className=" flex items-center">
+      <div className=" flex items-center mt-[5rem]">
         <span className="w-[15rem]">
           <SelectInput
             items={[
