@@ -2,6 +2,13 @@ import Header from '../components/dashboard/Header';
 import SelectInput from '../components/utils/SelectInput';
 
 function Analytics() {
+    
+
+        const carousel = [
+            {
+
+            }
+        ]
   return (
     <>
       <Header title="Analytics" />
@@ -21,7 +28,7 @@ function Analytics() {
         </span>
         <div>
 
-            
+
         </div>
       </div>
     </>
