@@ -17,7 +17,7 @@ const roles: Roles[] = [
   'revoke invite',
 ];
 
-const keyNames = [
+export const keyNames = [
   'Suleman Henry',
   'Ezekiel Doe',
   'Jonathan Sunyi',

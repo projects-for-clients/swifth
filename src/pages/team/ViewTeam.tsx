@@ -4,11 +4,14 @@ import { BsArrowRight } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 import { Access } from './AddRole';
-import { Roles } from './Team';
+import { keyNames, Roles } from './Team';
 
 type DialogType = 'permissions' | 'history';
-type HistoryKey = 'created order' | 'valuation' | 'payment releasing' | 'duty processed'
-
+type HistoryKey =
+  | 'created order'
+  | 'valuation'
+  | 'payment releasing'
+  | 'duty processed';
 
 interface History {
   key: HistoryKey;
@@ -37,11 +40,9 @@ const ViewTeam = () => {
     }
   };
 
-
-
   const closeDialog = () => {
     dialogRef.current?.close();
-  }
+  };
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
 
@@ -53,16 +54,19 @@ const ViewTeam = () => {
     };
   });
 
-  const historyKey:HistoryKey[] = ['created order', 'valuation', 'payment releasing', 'duty processed'] ;
-
+  const historyKey: HistoryKey[] = [
+    'created order',
+    'valuation',
+    'payment releasing',
+    'duty processed',
+  ];
 
   const HistoryArr: History[] = Array.from({ length: 5 }).map((_, i) => {
     return {
-      key: historyKey[Math.floor(Math.random() * historyKey.length))]
-      agent: '12/12/2021',
+      key: historyKey[Math.floor(Math.random() * historyKey.length)],
+      agent: keyNames[Math.floor(Math.random() * keyNames.length)],
     };
-  
-  }
+  });
 
   return (
     <>
@@ -99,8 +103,6 @@ const ViewTeam = () => {
                         {i === 0 ? 'Can only create orders' : description}
                       </p>
                     </div>
-
-                   
                   </div>
                 );
               })}
