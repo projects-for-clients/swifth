@@ -33,19 +33,20 @@ const AddRole = () => {
           </div>
           <div>
             <label className="text-[1.4rem] mb-4">Permission</label>
-            <div className="relative  border border-gray-300 p-6  w-full rounded-2xl flex items-center">
+            <div className="relative border border-gray-300 p-6  w-full rounded-2xl flex items-center pr-12">
               <input
                 type="text"
                 className=" outline-none w-full"
                 placeholder="Search and add permission"
               />
 
-              <button className="absolute right-0 outline-none border-none text-color-primary flex items-center gap-4 font-medium">
-                <IoMdAdd />
-                <span>
-                    Add
-                </span>
-              </button>
+              <div className="absolute right-4 flex items-center font-medium gap-8">
+                <img src="/icons/line.svg" alt="" />
+                <button className="outline-none border-none text-color-primary flex items-center gap-4">
+                  <IoMdAdd />
+                  <span>Add</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
