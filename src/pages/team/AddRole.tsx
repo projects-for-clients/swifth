@@ -3,10 +3,10 @@ import { BiArrowBack } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
-import { Roles } from './Team';
 
 const AddRole = () => {
   const navigate = useNavigate();
+  const [toggleAccess,]
 
   const AccessArr = Array.from({ length: 5 }).map((_, i) => {
     return {
@@ -62,8 +62,7 @@ const AddRole = () => {
           {AccessArr.map((item, i) => {
             const { name, description } = item;
             return (
-              <label
-                htmlFor={name}
+              <div
                 key={item.id}
                 className="flex items-center gap-8 cursor-pointer justify-between"
               >
@@ -72,13 +71,8 @@ const AddRole = () => {
                   <p>{i === 0 ? 'Can only create orders' : description}</p>
                 </div>
 
-                <input
-                  type="radio"
-                  name="access"
-                  id={name}
-                  className="hidden"
-                />
-              </label>
+                
+              </div>
             );
           })}
         </div>
