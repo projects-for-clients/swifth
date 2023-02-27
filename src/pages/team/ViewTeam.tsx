@@ -95,10 +95,10 @@ const ViewTeam = () => {
 
               <div className="grid gap-8 py-16">
                 {AccessArr.map((item, i) => {
-                  const { name, description } = item;
+                  const { name, description, id} = item;
                   return (
                     <div
-                      key={item.id}
+                      key={id}
                       className="flex items-center gap-8 cursor-pointer justify-between"
                     >
                       <div>
@@ -121,10 +121,10 @@ const ViewTeam = () => {
 
               <div className="grid gap-8 py-16">
                 {historyArr.map((item, i) => {
-                  const { agent, key } = item;
+                  const { agent, key, id } = item;
                   return (
                     <div
-                      key={item.id}
+                      key={id}
                       className="flex items-center gap-8 cursor-pointer justify-between"
                     >
                       <div>
