@@ -8,15 +8,13 @@ import { Roles } from './Team';
 const AddRole = () => {
   const navigate = useNavigate();
 
-
-  const AccessArr = Array.from({length: 5}).map((_, i) => {
+  const AccessArr = Array.from({ length: 5 }).map((_, i) => {
     return {
       id: i,
       name: `Access ${i + 1}`,
       description: 'Full access except user management',
     };
-  })
-
+  });
 
   return (
     <>
@@ -60,8 +58,19 @@ const AddRole = () => {
           </div>
         </div>
 
-        <div className="grid gap-8  py-16">
-          
+        <div className="grid gap-8 py-16">
+          {AccessArr.map((item, i) => {
+            const { name, description } = item;
+            return (
+              <div key={item.id} className="flex items-center justify-between">
+
+                <div>
+                <p>{name}</p>
+                <p>{i === 0 ? 'Can only create orders' : description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
