@@ -192,9 +192,14 @@ const data = [
   },
 ];
 
-export default function AnalyticsChart() {
+interface AnalyticsChart {
+  width?: number;
+  height?: number;
+}
+
+export default function AnalyticsChart({ width = 500, height =300 }: AnalyticsChart) {
   return (
-    <LineChart width={500} height={300} data={data} className="">
+    <LineChart width={width} height={height} data={data} className="">
       <CartesianGrid vertical={false} stroke="#FDE9E9" />
       <Legend />
       <XAxis dataKey="name" />
