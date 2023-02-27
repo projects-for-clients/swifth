@@ -95,8 +95,13 @@ function Team() {
     'Chukwudi Okoro',
   ] as const;
 
+  interface Team {
+    id: number;
+    name: typeof keyNames[number];
+    role: typeof roles[number];
+  }
 
-  const teamArr = Array.from({ length: 10 }, (_, i) => {
+  const teamArr:Team[] = Array.from({ length: 10 }, (_, i) => {
     return {
       id: i,
       name: keyNames[Math.floor(Math.random() * keyNames.length)],
@@ -104,7 +109,7 @@ function Team() {
     };
   });
 
-  const openMemberDetails = (item: typeof teamArr) => {
+  const openMemberDetails = (item: Team) => {
     
   }
 
