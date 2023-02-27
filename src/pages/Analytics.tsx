@@ -50,6 +50,7 @@ function Analytics() {
     <>
       <Header title="Analytics" />
 
+
       <div>
         <span className=''>
           <SelectInput
@@ -63,7 +64,7 @@ function Analytics() {
             fullWidth
           />
         </span>
-        <div>
+        <div className='flex w-full flex-nowrap overflow-scroll'>
 
 
         </div>
