@@ -95,6 +95,7 @@ function Team() {
     'Chukwudi Okoro',
   ] as const;
 
+
   const teamArr = Array.from({ length: 10 }, (_, i) => {
     return {
       id: i,
@@ -102,6 +103,10 @@ function Team() {
       role: roles[Math.floor(Math.random() * roles.length)],
     };
   });
+
+  const openMemberDetails = (item: typeof teamArr) => {
+    
+  }
 
   return (
     <>
@@ -154,13 +159,13 @@ function Team() {
               }}
             >
               {teamArr.map((item, i) => {
-                const { id, name, role } = item;
+                const { name, role } = item;
 
                 return (
                   <div
                     className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
                     key={i}
-                    // onClick={() => handleOpenDialog(item)}
+                   onClick={() => openMemberDetails(item)}
                   >
                     <div className="text-[1.2rem] flex items-center justify-between ">
                       <p className="capitalize">{name}</p>

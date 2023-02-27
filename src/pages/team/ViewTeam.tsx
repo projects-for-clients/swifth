@@ -7,6 +7,8 @@ const ViewTeam = () => {
       <Header title="Team" />
 
       <main className="text-[1.6rem] grid gap-10">
+
+        
         </main>
         </>
   )
