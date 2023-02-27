@@ -7,6 +7,7 @@ interface ISelectInput {
   label?: string;
   fullWidth?: boolean;
   setIsTerminal?: Dispatch<SetStateAction<boolean>>;
+  analytics?: boolean;
 }
 
 const SelectInput: FC<ISelectInput> = ({
@@ -15,6 +16,8 @@ const SelectInput: FC<ISelectInput> = ({
   label,
   setIsTerminal,
   fullWidth,
+  analytics
+
 }) => {
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
@@ -29,7 +32,9 @@ const SelectInput: FC<ISelectInput> = ({
   };
 
   return (
-    <div className="grid gap-4 min-w-[30rem] items-center">
+    <div
+      className={`grid gap-4 ${analytics ? '' : 'min-w-[30rem]'} items-center`}
+    >
       <label className="text-[1.4rem] text-color-dark-1">{label}</label>
       <div className="relative flex items-center  justify-items-start cursor-pointer text-black">
         <p
@@ -39,7 +44,13 @@ const SelectInput: FC<ISelectInput> = ({
           {selectedSort ? (
             selectedSort
           ) : (
-            <span className="text-gray-500">{placeholder}</span>
+            <span
+              className={`${
+                analytics ? 'text-color-purple font-medium' : 'text-gray-500'
+              }`}
+            >
+              {placeholder}
+            </span>
           )}
         </p>
 
