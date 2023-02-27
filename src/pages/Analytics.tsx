@@ -10,45 +10,17 @@ interface Carousel {
 }
 const carousel: Carousel[] = [
     {
-        title: 'Total Quotes',
+        title: 'Quotes',
         imgUri: '/icons/analytics/total-quotes.svg',
         count: 496
     },
     {
-        title: 'Total Quotes',
+        title: 'Quotes',
         imgUri: '/icons/analytics/totalQuotes.svg',
         count: 496
     },
-    {
-        title: 'Total Quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
-    },
-    {
-        title: 'Total orders',
-        imgUri: '/icons/analytics/totalOrders.svg',
-        count: 300
-    },
-    {
-        title: 'Total Quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
-    },
-    {
-        title: 'Total Quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
-    },
-    {
-        title: 'Total Quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
-    },
-    {
-        title: 'Total Quotes',
-        imgUri: '/icons/analytics/totalQuotes.svg',
-        count: 496
-    },
+   
+   
 ]
 function Analytics() {
 
