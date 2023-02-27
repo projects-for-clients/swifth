@@ -51,8 +51,8 @@ const ViewTeam = () => {
               <p className='capitalize'>{role}</p>
             </div>
 
-            <div>
-            <p className='font-medium'>See Permissions</p>
+            <div className='border rounded-2xl px-8 py-4'>
+            <p className='font-medium capitalize'>See Permissions</p>
                 <BsArrowRight/>
             </div>
           </div>
