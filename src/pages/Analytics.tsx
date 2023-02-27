@@ -44,12 +44,12 @@ function Analytics() {
       <Header title="Analytics" />
       <main className="mt-[5rem] grid">
         <div
-          className=" grid items-center  overflow-x-scroll"
+          className=" grid items-center"
           style={{
-            gridTemplateColumns: '15% auto',
+            //gridTemplateColumns: '15% auto',
           }}
         >
-          <div className='relative h-[]'>
+          <div className='relative'>
             <AnalyticsInput
               items={[
                 'All time',
@@ -60,7 +60,7 @@ function Analytics() {
               placeholder={'All time'}
             />
           </div>
-          <div className="flex w-full flex-nowrap h-[22rem]">
+          <div className="flex w-full flex-nowrap h-[22rem] overflow-x-scroll">
             {carousel.map((item) => (
               <div
                 className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl self-center"
