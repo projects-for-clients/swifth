@@ -103,7 +103,10 @@ const ViewTeam = () => {
               </div>
             </label>
 
-            <label htmlFor="field agent" className="flex items-center gap-8 cursor-pointer">
+            <label
+              htmlFor="field agent"
+              className="flex items-center gap-8 cursor-pointer"
+            >
               <input
                 type="radio"
                 name="role"
@@ -123,7 +126,10 @@ const ViewTeam = () => {
               </div>
             </label>
 
-            <label htmlFor="CustomerRep" className="flex items-center gap-8 cursor-pointer">
+            <label
+              htmlFor="CustomerRep"
+              className="flex items-center gap-8 cursor-pointer"
+            >
               <input
                 type="radio"
                 name="role"
@@ -148,8 +154,8 @@ const ViewTeam = () => {
         </div>
       </main>
 
-      <button className="btn border border-red-600 rounded-2xl uppercase text-red-600 w-[30rem] absolute right-0 bottom-0 mx-8 my-24 font-medium">
-        Deactivate Member
+      <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-24 font-medium">
+            Save Changes
       </button>
     </>
   );
