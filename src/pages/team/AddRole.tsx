@@ -8,7 +8,6 @@ const AddRole = () => {
   const navigate = useNavigate();
   const [currentRole, setCurrentRole] = useState<Roles>('admin');
 
-
   return (
     <>
       <Header title="Team" />
@@ -22,17 +21,23 @@ const AddRole = () => {
           <p className="text-[2rem]">Add New Role</p>
         </div>
 
-        <div className='mt-10'>
-            <div>
-
-          <label className='text-[1.4rem] mb-4'>Email</label>
-          <input
-            type="text"
-            className=" border border-gray-300 p-6 outline-none w-full rounded-2xl"
-            placeholder="Enter email address"
-            
-            />{' '}
-            </div>
+        <div className="mt-10">
+          <div>
+            <label className="text-[1.4rem] mb-4">Role name</label>
+            <input
+              type="text"
+              className=" border border-gray-300 p-6 outline-none w-full rounded-2xl"
+              placeholder="Enter role name"
+            />
+          </div>
+          <div>
+            <label className="text-[1.4rem] mb-4">Permission</label>
+            <input
+              type="text"
+              className=" border border-gray-300 p-6 outline-none w-full rounded-2xl"
+              placeholder="Search and add permission"
+            />
+          </div>
         </div>
 
         <div className="grid gap-8  py-16">
