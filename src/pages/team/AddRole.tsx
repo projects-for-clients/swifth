@@ -100,7 +100,7 @@ const AddRole = () => {
         </div>
       </main>
       <div className="flex w-full justify-end">
-        <button className="btn border border-color-primary rounded-2xl uppercase text-white bg-color-primary w-[30rem] mx-8 my-8 font-medium ">
+        <button className="btn border border-color-primary rounded-2xl uppercase text-white bg-color-primary w-[30rem] font-medium ">
           Add Role
         </button>
       </div>
