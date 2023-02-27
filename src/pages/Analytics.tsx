@@ -26,8 +26,8 @@ const keys: keys[] = [
   'Payments',
 ];
 
-type Options = 'annually' | 'monthly'
-const options:Options[] = ['annually', 'monthly']
+type Options = 'annually' | 'monthly';
+const options: Options[] = ['annually', 'monthly'];
 
 const carousel: Carousel[] = [
   {
@@ -63,7 +63,7 @@ const carousel: Carousel[] = [
 ];
 function Analytics() {
   const [current, setCurrent] = useState<keys>('All');
-  const [selectedOption, setSelectedOption] = useState<Options>(options[0])
+  const [selectedOption, setSelectedOption] = useState<Options>(options[0]);
 
   return (
     <>
@@ -131,30 +131,26 @@ function Analytics() {
             })}
           </div>
 
-          <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8 mt-5">
-            <div className="flex justify-between  mb-10">
-              {
-                options.map((option) => {
-                    return (
-                        <div>
-                  <input
-                    type="radio"
-                    name="analytic"
-                    id={option}
-                    checked={selectedOption === option}
-                    onChange={() => setSelectedOption(option)}
-                    className="hidden"
-                  />
-                  <label htmlFor={option} className="cursor-pointer">
-                    {option}
-                  </label>
-                </div>
-                    )
-                }
-
-                )
-              }
-              <div className='min-w-[8rem]'>
+          <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8 mt-5 relative">
+            <div className="flex mb-10 w-[50rem] justify-self-center">
+              {options.map((option) => {
+                return (
+                  <div className="border border-color-red-light ">
+                    <input
+                      type="radio"
+                      name="analytic"
+                      id={option}
+                      checked={selectedOption === option}
+                      onChange={() => setSelectedOption(option)}
+                      className="hidden"
+                    />
+                    <label htmlFor={option} className="cursor-pointer">
+                      {option}
+                    </label>
+                  </div>
+                );
+              })}
+              <div className="min-w-[8rem] absolute right-0 top-0 m-8">
                 <AnalyticsInput
                   items={['2023', '2022', '2021']}
                   placeholder={'2023'}
