@@ -128,11 +128,13 @@ const ViewTeam = () => {
                       className="flex items-center gap-8 cursor-pointer justify-between"
                     >
                       <div>
-                        <p>{name}</p>
+                        <p>{key}</p>
                         <p className="text-[1.4rem] text-gray-500">
-                          {i === 0 ? 'Can only create orders' : description}
+                          {`RC - ${agent}` }
                         </p>
                       </div>
+
+                      <p>Dec 9, 2023</p>
                     </div>
                   );
                 })}
