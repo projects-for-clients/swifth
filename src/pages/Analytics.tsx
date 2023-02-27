@@ -130,7 +130,7 @@ function Analytics() {
           <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8 mt-5">
             <div className="flex justify-between  mb-10">
               <h2 className="heading3">Business Analytics</h2>
-              <div className='min-w-[15rem]'>
+              <div className='min-w-[8rem]'>
                 <AnalyticsInput
                   items={['2023', '2022', '2021']}
                   placeholder={'2023'}
