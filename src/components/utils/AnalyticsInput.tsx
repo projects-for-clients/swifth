@@ -13,7 +13,7 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
   label,
   setIsTerminal,
 }) => {
-  const [selectedSort, setSelectedSort] = useState<string>('All time');
+  const [selectedSort, setSelectedSort] = useState<string>(items[0]);
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
   const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
