@@ -44,7 +44,7 @@ const ViewTeam = () => {
           </div>
         </div>
 
-        <div className="grid gap-8 border-t max-w-[70rem]">
+        <div className="grid gap-8 border-t max-w-[70rem] py-16">
           <div className='grid grid-cols-2'>
             <div>
               <p className="text-[1.4rem] text-gray-500">Role</p>
