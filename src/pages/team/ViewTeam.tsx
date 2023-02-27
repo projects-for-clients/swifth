@@ -76,7 +76,7 @@ const ViewTeam = () => {
         <div className="grid gap-8 max-w-[70rem] py-16">
           <p className="font-medium text-[2rem]">User type/Role</p>
 
-          <div>
+          <div className='grid gap-16'>
             <label
               htmlFor="admin"
               className="flex items-center gap-8 cursor-pointer"
