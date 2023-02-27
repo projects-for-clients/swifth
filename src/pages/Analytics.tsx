@@ -68,12 +68,14 @@ function Analytics() {
 
             {
                 carousel.map((item, index) => (
-                    <div className='flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative' key={index}>
+                    <div className='flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative' key={item.title}>
 
                     <img src={item.imgUri} alt="" className='absolute top-0'/>
 
                     <p>Total</p>
                     <p>{item.title}</p>
+
+                    <p>{item.count}</p>
             }
 
         </div>
