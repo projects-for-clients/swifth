@@ -4,17 +4,32 @@ import { IoMdAdd } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 
+interface Access {
+id: number;
+name: string;
+description: string;
+}
+
 const AddRole = () => {
   const navigate = useNavigate();
-  const [toggleAccess,]
+  const [toggleAccess, setToggleAccess] = useState<{
+    [key: string]: boolean;
+  } | null>(null);
 
-  const AccessArr = Array.from({ length: 5 }).map((_, i) => {
+  const AccessArr: Access[] = Array.from({ length: 5 }).map((_, i) => {
     return {
       id: i,
       name: `Access ${i + 1}`,
       description: 'Full access except user management',
     };
   });
+
+  const handleToggle = (key: string) => {
+    setToggleAccess((prev) => ({
+      ...prev,
+      [key]: !prev?.[key],
+    }));
+  };
 
   return (
     <>
@@ -70,8 +85,6 @@ const AddRole = () => {
                   <p>{name}</p>
                   <p>{i === 0 ? 'Can only create orders' : description}</p>
                 </div>
-
-                
               </div>
             );
           })}
