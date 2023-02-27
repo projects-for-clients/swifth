@@ -127,7 +127,7 @@ p {
 
   &::after {
     content: '';
-    width: 100%;
+    width: 100vw;
     height: 2px;
     background-color: $color-grey-1;
     position: absolute;

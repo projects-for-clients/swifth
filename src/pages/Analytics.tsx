@@ -104,8 +104,8 @@ function Analytics() {
           </div>
         </div>
 
-        <div>
-          <div className='flex '>
+        <div className='overflow-hidden'>
+          <div className='flex max-w-[60rem] '>
             {keys.map((key) => {
               return (
                 <div className="analytics__radioBox">
