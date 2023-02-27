@@ -20,13 +20,15 @@ const ViewTeam = () => {
         </div>
 
         <div>
-          <figure className="relative">
+          <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
             <img
               src=""
               alt=""
-              className="absolute w-[13rem] h-[13rem] rounded-full bg-red-100 border border-color-red-light"
+              className="absolute w-full h-full rounded-full  z-[1]"
             />
-            {initials}
+            <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-color-red-light-3 grid place-content-center rounded-full">
+              <span>{initials}</span>
+            </p>
           </figure>
         </div>
       </main>
