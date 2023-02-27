@@ -62,13 +62,23 @@ const AddRole = () => {
           {AccessArr.map((item, i) => {
             const { name, description } = item;
             return (
-              <div key={item.id} className="flex items-center justify-between">
-
+              <label
+                htmlFor={name}
+                key={item.id}
+                className="flex items-center gap-8 cursor-pointer justify-between"
+              >
                 <div>
-                <p>{name}</p>
-                <p>{i === 0 ? 'Can only create orders' : description}</p>
+                  <p>{name}</p>
+                  <p>{i === 0 ? 'Can only create orders' : description}</p>
                 </div>
-              </div>
+
+                <input
+                  type="radio"
+                  name="access"
+                  id={name}
+                  className="hidden"
+                />
+              </label>
             );
           })}
         </div>
