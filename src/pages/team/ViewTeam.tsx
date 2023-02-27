@@ -53,6 +53,10 @@ const ViewTeam = () => {
           </figure>
 
           <h3 className="text-[2.4rem] mb-10">{name}</h3>
+
+          <div>
+            
+          </div>
         </div>
       </dialog>
       <Header title="Team" />
