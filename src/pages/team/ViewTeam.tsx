@@ -18,8 +18,17 @@ const ViewTeam = () => {
           <BiArrowBack />
           <p className="text-[2rem]">{name}</p>
         </div>
-        {initials}
-        <div></div>
+
+        <div>
+          <figure className="relative">
+            <img
+              src=""
+              alt=""
+              className="absolute w-[13rem] h-[13rem] rounded-full bg-red-100 border border-color-red-light"
+            />
+            {initials}
+          </figure>
+        </div>
       </main>
     </>
   );
