@@ -18,7 +18,8 @@ import Payments from '../pages/Payments';
 import Finance from '../pages/Finance';
 import PayoutBank from '../pages/PayoutBank';
 import Delivery from '../pages/Delivery';
-import Team from '../pages/Team';
+import Team from '../pages/team/Team';
+import ViewTeam from '../pages/team/ViewTeam';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -31,7 +32,8 @@ const router = createBrowserRouter(
       <Route path="finance" element={<Finance />} />
       <Route path="delivery" element={<Delivery />} />
       <Route path="payoutBank" element={<PayoutBank />} />
-      <Route path='team' element={<Team/>} />
+      <Route path="team" element={<Team />} />
+      <Route path="team/view/:Id" element={<ViewTeam />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])

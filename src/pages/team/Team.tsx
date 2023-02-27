@@ -1,16 +1,10 @@
-import Header from '../components/dashboard/Header';
-import {
-  ChangeEvent,
-  useState,
-  createContext,
-  useRef,
-  FormEvent,
-} from 'react';
+import Header from '../../components/dashboard/Header';
+import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 
-import { generateRandomDate } from '../container/order/OrdersData';
-import AppliedLoans from '../container/finance/AppliedLoans';
-import LoanRequests from '../container/finance/LoanRequests';
-import {IoMdAdd} from 'react-icons/io'
+import { generateRandomDate } from '../../container/order/OrdersData';
+import AppliedLoans from '../../container/finance/AppliedLoans';
+import LoanRequests from '../../container/finance/LoanRequests';
+import { IoMdAdd } from 'react-icons/io';
 
 export interface FinanceHistory {
   id: number;
@@ -88,8 +82,8 @@ function Team() {
     'admin',
     'field agent',
     'customer care rep',
-    'revoke invite'
-  ] as const
+    'revoke invite',
+  ] as const;
 
   const keyNames = [
     'Suleman Henry',
@@ -99,16 +93,15 @@ function Team() {
     'Isaac Joseph',
     'Dikachi Nwankwo',
     'Chukwudi Okoro',
-  ] as const
+  ] as const;
 
-  const teamArr = Array.from({length: 10}, (_, i) => {
+  const teamArr = Array.from({ length: 10 }, (_, i) => {
     return {
       id: i,
       name: keyNames[Math.floor(Math.random() * keyNames.length)],
       role: roles[Math.floor(Math.random() * roles.length)],
-    }
-  })
-
+    };
+  });
 
   return (
     <>
@@ -124,7 +117,6 @@ function Team() {
             onChange={handleSearch}
           />
 
-
           <img
             src="/icons/search-normal.svg"
             alt=""
@@ -132,23 +124,21 @@ function Team() {
           />
         </section>
         <section className="flex justify-end">
-          <div className='flex items-center gap-4'>
-
-          <button
-            className="flex gap-2 rounded-lg py-4 px-8 bg-color-green-light-1 text-color-primary-dark border border-color-green-light items-center cursor-pointer"
-           
+          <div className="flex items-center gap-4">
+            <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-green-light-1 text-color-primary-dark border border-color-green-light items-center cursor-pointer">
+              <IoMdAdd />
+              <p className=" font-medium">Add Member</p>
+            </button>
+            <button
+              className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
+              onClick={() => handleOpenDialog()}
             >
-            <IoMdAdd/>
-            <p className=" font-medium">Add Member</p>
-          </button>
-          <button
-            className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
-            onClick={() => handleOpenDialog()}
-            >
-            <img src="/icons/percentage-circle.svg" alt="" />
-            <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
-          </button>
-            </div>
+              <img src="/icons/percentage-circle.svg" alt="" />
+              <p className="text-color-purple-1 font-medium">
+                Set Interest Rate
+              </p>
+            </button>
+          </div>
         </section>
 
         <section>
@@ -164,7 +154,7 @@ function Team() {
               }}
             >
               {teamArr.map((item, i) => {
-                const {id, name, role } = item;
+                const { id, name, role } = item;
 
                 return (
                   <div
@@ -173,8 +163,16 @@ function Team() {
                     // onClick={() => handleOpenDialog(item)}
                   >
                     <div className="text-[1.2rem] flex items-center justify-between ">
-                      <p className='capitalize'>{name}</p>
-                      <p className={`${role === 'revoke invite' ? 'text-red-600': 'text-color-purple-1'} capitalize`}>{role}</p>
+                      <p className="capitalize">{name}</p>
+                      <p
+                        className={`${
+                          role === 'revoke invite'
+                            ? 'text-red-600'
+                            : 'text-color-purple-1'
+                        } capitalize`}
+                      >
+                        {role}
+                      </p>
                     </div>
                   </div>
                 );
