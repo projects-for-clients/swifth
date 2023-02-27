@@ -43,7 +43,9 @@ function Analytics() {
     <>
       <Header title="Analytics" />
 
-      <div className=" flex items-center mt-[5rem]">
+      <div className=" grid items-center mt-[5rem] overflow-hidden" style={{
+        gridTemplateColumns: '20% auto'
+      }}>
           <AnalyticsInput
             items={[
               'All time',
@@ -54,7 +56,7 @@ function Analytics() {
             placeholder={'All time'}
        
           />
-        </span>
+     
         <div className="flex w-full flex-nowrap">
           {carousel.map((item) => (
             <div
