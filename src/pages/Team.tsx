@@ -1,7 +1,6 @@
 import Header from '../components/dashboard/Header';
 import {
   ChangeEvent,
-  Fragment,
   useState,
   createContext,
   useRef,
@@ -124,6 +123,7 @@ function Team() {
             onChange={handleSearch}
           />
 
+
           <img
             src="/icons/search-normal.svg"
             alt=""
@@ -131,13 +131,23 @@ function Team() {
           />
         </section>
         <section className="flex justify-end">
+          <div>
+
+          <button
+            className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
+           
+            >
+            <IoMdAdd/>
+            <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
+          </button>
           <button
             className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
             onClick={() => handleOpenDialog()}
-          >
+            >
             <img src="/icons/percentage-circle.svg" alt="" />
             <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
           </button>
+            </div>
         </section>
 
         <section>
@@ -149,7 +159,7 @@ function Team() {
             <div
               className="grid mt-10 gap-10"
               style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(33rem, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
               }}
             >
               {teamArr.map((item, i) => {
@@ -163,7 +173,7 @@ function Team() {
                   >
                     <div className="text-[1.2rem] flex items-center justify-between ">
                       <p className='capitalize'>{name}</p>
-                      <p className={`${role === 'revoke invite' ? 'text-red-600': 'text-color-purple-1'}`}>{role}</p>
+                      <p className={`${role === 'revoke invite' ? 'text-red-600': 'text-color-purple-1'} capitalize`}>{role}</p>
                     </div>
                   </div>
                 );
