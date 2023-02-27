@@ -38,7 +38,7 @@ const SelectInput: FC<ISelectInput> = ({
       <label className="text-[1.4rem] text-color-dark-1">{label}</label>
       <div className="relative flex items-center  justify-items-start cursor-pointer text-black">
         <p
-          className="border  p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left"
+          className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left ${analytics ? 'border-none': 'border'}`}
           onClick={sortMenuToggler}
         >
           {selectedSort ? (

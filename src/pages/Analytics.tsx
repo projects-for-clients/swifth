@@ -57,10 +57,10 @@ function Analytics() {
             analytics
           />
         </span>
-        <div className="flex w-full flex-nowrap overflow-scroll">
-          {carousel.map((item, index) => (
+        <div className="flex w-full flex-nowrap">
+          {carousel.map((item) => (
             <div
-              className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white rounded-lg shadow-lg m-4 relative gap-8 border border-color-purple-light"
+              className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl"
               key={item.title}
             >
               <img src={item.imgUri} alt="" className="absolute top-[-2rem]" />
