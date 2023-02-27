@@ -47,7 +47,7 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <div>
+    <div className='text-[1.6rem]'>
       <RouterProvider router={router} />
     </div>
   );

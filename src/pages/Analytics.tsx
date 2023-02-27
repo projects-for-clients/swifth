@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AnalyticsChart from '../components/charts/AnalyticsChart';
 import Header from '../components/dashboard/Header';
 import AnalyticsInput from '../components/utils/AnalyticsInput';
@@ -65,6 +65,10 @@ function Analytics() {
   const [current, setCurrent] = useState<keys>('All');
   const [selectedOption, setSelectedOption] = useState<Options>(options[0]);
 
+
+  useEffect(() => {
+    console.log({current})
+  }, [current])
   return (
     <>
       <Header title="Analytics" />
@@ -113,15 +117,16 @@ function Analytics() {
         <div className="overflow-hidden">
           <div className="flex max-w-[60rem] gap-8">
             {keys.map((key) => {
+                console.log({current, key})
               return (
-                <div className="analytics__radioBox">
+                <div className="analytics__radioBox" key={key}>
                   <input
                     type="radio"
                     name="analytic"
                     id={key}
                     checked={current === key}
                     onChange={() => setCurrent(key)}
-                    className="hidden"
+                    className=""
                   />
                   <label htmlFor={key} className="cursor-pointer">
                     {key}
@@ -132,24 +137,26 @@ function Analytics() {
           </div>
 
           <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8 mt-5 relative">
-            <div className="flex mb-10 w-[50rem] justify-self-center">
-              {options.map((option) => {
-                return (
-                  <div className="border border-color-red-light ">
-                    <input
-                      type="radio"
-                      name="analytic"
-                      id={option}
-                      checked={selectedOption === option}
-                      onChange={() => setSelectedOption(option)}
-                      className="hidden"
-                    />
-                    <label htmlFor={option} className="cursor-pointer">
-                      {option}
-                    </label>
-                  </div>
-                );
-              })}
+            <div className="flex mb-10 w-full justify-center">
+              <div className="w-[40rem] flex items-center justify-items-center border border-color-red-light rounded-2xl p-2">
+                {options.map((option) => {
+                  return (
+                    <div className={`w-full text-center rounded-2xl py-4 ${selectedOption === option ? 'bg-color-red-light-1': ''}`} key={option}>
+                      <input
+                        type="radio"
+                        name="analytic"
+                        id={option}
+                        checked={selectedOption === option}
+                        onChange={() => setSelectedOption(option)}
+                        className="hidden"
+                      />
+                      <label htmlFor={option} className="cursor-pointer capitalize">
+                        {option}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
               <div className="min-w-[8rem] absolute right-0 top-0 m-8">
                 <AnalyticsInput
                   items={['2023', '2022', '2021']}
