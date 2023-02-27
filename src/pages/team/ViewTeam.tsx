@@ -77,11 +77,18 @@ const ViewTeam = () => {
           <p className="font-medium text-[2rem]">User type/Role</p>
 
           <div>
-            <label htmlFor="admin" className="flex items-center gap-8">
+            <label
+              htmlFor="admin"
+              className="flex items-center gap-8 cursor-pointer"
+            >
               <input type="radio" name="role" id="admin" className="hidden" />
 
+              <img src="/icons/empty-Role.svg" alt="" />
 
-              
+              <div>
+                <p>Admin</p>
+                <p>Account User with full access</p>
+              </div>
             </label>
 
             <label htmlFor="fieldAgent" className="flex items-center gap-8">
@@ -91,6 +98,13 @@ const ViewTeam = () => {
                 id="fieldAgent"
                 className="hidden"
               />
+
+              <img src="/icons/empty-Role.svg" alt="" />
+
+              <div>
+                <p>Field Agent</p>
+                <p>Has full access except, user management and list exports</p>
+              </div>
             </label>
 
             <label htmlFor="CustomerRep" className="flex items-center gap-8">
@@ -100,6 +114,13 @@ const ViewTeam = () => {
                 id="CustomerRep"
                 className="hidden"
               />
+
+              <img src="/icons/filled-Role.svg" alt="" />
+
+              <div>
+                <p>Customer Care Representative</p>
+                <p>Has full access except, user management and list exports</p>
+              </div>
             </label>
           </div>
         </div>
