@@ -45,7 +45,7 @@ const ViewTeam = () => {
         </div>
 
         <div className="grid gap-8 border-t max-w-[70rem] py-16">
-          <div className='grid grid-cols-2'>
+          <div className="grid grid-cols-2">
             <div>
               <p className="text-[1.4rem] text-gray-500">Role</p>
               <p className="capitalize">{role}</p>
@@ -55,6 +55,21 @@ const ViewTeam = () => {
               <p className="font-medium capitalize">See Permissions</p>
               <BsArrowRight />
             </div>
+          </div>
+          <div className="grid grid-cols-2">
+            <div>
+              <p className="text-[1.4rem] text-gray-500">Date Added</p>
+              <p className="capitalize">Dec 3, 2023</p>
+            </div>
+
+            <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
+              <p className="font-medium capitalize">History/Activity</p>
+              <BsArrowRight />
+            </div>
+          </div>
+          <div>
+            <p className="text-[1.4rem] text-gray-500">Last Interaction</p>
+            <p className="capitalize">Dec 3, 2023</p>
           </div>
         </div>
       </main>
