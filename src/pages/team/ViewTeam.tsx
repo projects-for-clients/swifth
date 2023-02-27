@@ -14,6 +14,7 @@ type HistoryKey =
   | 'duty processed';
 
 interface History {
+  id: number,
   key: HistoryKey;
   agent: string;
 }
@@ -63,6 +64,7 @@ const ViewTeam = () => {
 
   const historyArr: History[] = Array.from({ length: 10 }).map((_, i) => {
     return {
+      id: i,
       key: historyKey[Math.floor(Math.random() * historyKey.length)],
       agent: keyNames[Math.floor(Math.random() * keyNames.length)],
     };
