@@ -3,62 +3,53 @@ import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 
 import { IoMdAdd } from 'react-icons/io';
 
- 
-  const roles = [
-    'admin',
-    'field agent',
-    'customer care rep',
-    'revoke invite',
-  ] as const;
+const roles = [
+  'admin',
+  'field agent',
+  'customer care rep',
+  'revoke invite',
+] as const;
 
-  const keyNames = [
-    'Suleman Henry',
-    'Ezekiel Doe',
-    'Jonathan Sunyi',
-    'Peter Oluwasegun',
-    'Isaac Joseph',
-    'Dikachi Nwankwo',
-    'Chukwudi Okoro',
-  ] as const;\
+const keyNames = [
+  'Suleman Henry',
+  'Ezekiel Doe',
+  'Jonathan Sunyi',
+  'Peter Oluwasegun',
+  'Isaac Joseph',
+  'Dikachi Nwankwo',
+  'Chukwudi Okoro',
+] as const;
 
 interface Team {
-    id: number;
-    name: typeof keyNames[number];
-    role: typeof roles[number];
-  }
+  id: number;
+  name: typeof keyNames[number];
+  role: typeof roles[number];
+}
 
-  const teamArr:Team[] = Array.from({ length: 10 }, (_, i) => {
-    return {
-      id: i,
-      name: keyNames[Math.floor(Math.random() * keyNames.length)],
-      role: roles[Math.floor(Math.random() * roles.length)],
-    };
-  });
-
+const teamArr: Team[] = Array.from({ length: 10 }, (_, i) => {
+  return {
+    id: i,
+    name: keyNames[Math.floor(Math.random() * keyNames.length)],
+    role: roles[Math.floor(Math.random() * roles.length)],
+  };
+});
 
 function Team() {
-
   const [search, setSearch] = useState('');
 
-  const [teamData, setTeamData] = useState<Finance[]>(FINANCE);
+  const [teamData, setTeamData] = useState<Team[]>(teamArr);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
 
-    const filtered = FINANCE.filter((item) =>
+    const filtered = teamArr.filter((item) =>
       item.name.toLowerCase().includes(value.toLowerCase())
     );
     setTeamData(filtered);
   };
 
-
- 
-
-  
-  const openMemberDetails = (item: Team) => {
-  
-  }
+  const openMemberDetails = (item: Team) => {};
 
   return (
     <>
@@ -86,9 +77,7 @@ function Team() {
               <IoMdAdd />
               <p className=" font-medium">Add Member</p>
             </button>
-            <button
-              className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
-            >
+            <button className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer">
               <img src="/icons/percentage-circle.svg" alt="" />
               <p className="text-color-purple-1 font-medium">
                 Set Interest Rate
@@ -116,7 +105,7 @@ function Team() {
                   <div
                     className="p-8 bg-white rounded-3xl border border-color-purple-light-2 cursor-pointer grid gap-8"
                     key={i}
-                   onClick={() => openMemberDetails(item)}
+                    onClick={() => openMemberDetails(item)}
                   >
                     <div className="text-[1.2rem] flex items-center justify-between ">
                       <p className="capitalize">{name}</p>
