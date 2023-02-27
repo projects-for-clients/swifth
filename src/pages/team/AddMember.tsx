@@ -19,41 +19,15 @@ const AddMember = () => {
           <BiArrowBack
             className="text-[1.8rem] cursor-pointer"
             onClick={
-              isEditProfile ? () => setIsEditProfile(false) : () => navigate(-1)
+             () => navigate(-1)
             }
           />
-          <p className="text-[2rem]">{name}</p>
+          <p className="text-[2rem]">Add a team Member</p>
         </div>
 
-        <div className="grid gap-8">
-          <div className="flex items-end gap-16">
-            <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
-              <img
-                src=""
-                alt=""
-                className="absolute w-full h-full rounded-full  z-[1]"
-              />
-              <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-color-red-light-3 grid place-content-center rounded-full">
-                <span>{initials}</span>
-              </p>
-            </figure>
-            {!isEditProfile && (
-              <button
-                className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
-                onClick={() => setIsEditProfile(true)}
-              >
-                Edit Profile
-              </button>
-            )}
-          </div>
+       
 
-          <div>
-            <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
-            <p>+23498523823</p>
-          </div>
-        </div>
-
-        {isEditProfile ? (
+       
           <div className="grid gap-8 max-w-[70rem] py-16">
             <p className="font-medium text-[2rem]">User type/Role</p>
 
@@ -135,36 +109,7 @@ const AddMember = () => {
               </label>
             </div>
           </div>
-        ) : (
-          <div className="grid gap-8 border-t max-w-[70rem] py-16">
-            <div className="grid grid-cols-2">
-              <div>
-                <p className="text-[1.4rem] text-gray-500">Role</p>
-                <p className="capitalize">{role}</p>
-              </div>
-
-              <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
-                <p className="font-medium capitalize">See Permissions</p>
-                <BsArrowRight />
-              </div>
-            </div>
-            <div className="grid grid-cols-2">
-              <div>
-                <p className="text-[1.4rem] text-gray-500">Date Added</p>
-                <p className="capitalize">Dec 3, 2023</p>
-              </div>
-
-              <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
-                <p className="font-medium capitalize">History/Activity</p>
-                <BsArrowRight />
-              </div>
-            </div>
-            <div>
-              <p className="text-[1.4rem] text-gray-500">Last Interaction</p>
-              <p className="capitalize">Dec 3, 2023</p>
-            </div>
-          </div>
-        )}
+       
 
         {isEditProfile ? (
           <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
