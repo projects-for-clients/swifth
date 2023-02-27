@@ -1,5 +1,5 @@
 import Header from '../components/dashboard/Header';
-import SelectInput from '../components/utils/SelectInput';
+import AnalyticsInput from '../components/utils/AnalyticsInput';
 
 interface Carousel {
   title: string;
@@ -45,7 +45,7 @@ function Analytics() {
 
       <div className=" flex items-center mt-[5rem]">
         <span className="w-[25rem]">
-          <SelectInput
+          <AnalyticsInput
             items={[
               'All time',
               'The past year',
