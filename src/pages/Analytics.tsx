@@ -59,14 +59,14 @@ function Analytics() {
         <div className="flex w-full flex-nowrap overflow-scroll">
           {carousel.map((item, index) => (
             <div
-              className="flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative"
+              className="flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative gap-8"
               key={item.title}
             >
               <img src={item.imgUri} alt="" className="absolute top-0" />
 
-              <div>
-                <p>Total</p>
-                <p>{item.title}</p>
+              <div className='grid justify-items-center'>
+                <p className='text-color-purple-1'>Total</p>
+                <p className='text-color-purple font-medium'>{item.title}</p>
               </div>
 
               <p>{item.count}</p>
