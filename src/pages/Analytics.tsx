@@ -107,11 +107,13 @@ function Analytics() {
         <div>
           {keys.map((key) => {
             return (
-              <div>
+              <div className='analytics__radioBox'>
                 <input
                   type="radio"
                   name="analytic"
                   id={key}
+                  checked={current === key}
+                  onChange={() => setCurrent(key)}
                   className="hidden"
                 />
                 <label htmlFor={key} className=" cursor-pointer">
