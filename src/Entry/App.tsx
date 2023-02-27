@@ -44,10 +44,10 @@ const router = createBrowserRouter(
 )
 
 const App = () => {
-  return (
-    <div className="text-[1.6rem]">
+  return (<div>
       <RouterProvider router={router} />;
-    </div>
+  </div>
+  
   )
 }
 

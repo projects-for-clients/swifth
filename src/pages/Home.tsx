@@ -6,13 +6,13 @@ import Auth from '../container/Auth';
 function Home() {
   return (
     <div className="app">
-      <Header />
+      {/* <Header />
 
-      <Hero />
+      <Hero /> */}
 
-      <Modal>
+      {/* <Modal>
         <Auth />
-      </Modal>
+      </Modal> */}
     </div>
   )
 }
