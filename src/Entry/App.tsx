@@ -25,7 +25,7 @@ import AddRole from '../pages/team/AddRole';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
-    <Route path="/" element={<Home />} />,
+   <Route path="/" element={<Home />} />,
     <Route path="/dashboard" element={<Dashboard />}>
       <Route index element={<DashboardHome />} />
       <Route path="onboarding" element={<OnBoarding />} />
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
       <Route path="team/add" element={<AddMember />} />
       <Route path="team/add-role" element={<AddRole />} />
     </Route>,
-    <Route path="*" element={<Navigate to="/" />} />,
+   <Route path="*" element={<Navigate to="/" />} />,
   ])
 )
 
