@@ -17,8 +17,17 @@ const ViewTeam = () => {
   const { name, role } = location?.state;
 
   const permissionsDialogRef = useRef<HTMLDialogElement>(null);
+  const historyDialogRef = useRef<HTMLDialogElement>(null);
 
-  const 
+  const openDialog = (dialogType: DialogType) => {
+    if (dialogType === 'permissions') {
+      permissionsDialogRef.current?.showModal();
+    }
+
+    if (dialogType === 'history') {
+      historyDialogRef.current?.showModal();
+    }
+  }
 
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
