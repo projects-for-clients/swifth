@@ -61,7 +61,7 @@ const ViewTeam = () => {
     'duty processed',
   ];
 
-  const HistoryArr: History[] = Array.from({ length: 5 }).map((_, i) => {
+  const historyArr: History[] = Array.from({ length: 10 }).map((_, i) => {
     return {
       key: historyKey[Math.floor(Math.random() * historyKey.length)],
       agent: keyNames[Math.floor(Math.random() * keyNames.length)],
@@ -84,30 +84,59 @@ const ViewTeam = () => {
 
           <h3 className="text-[2.4rem] mb-10">{name}</h3>
 
-          <div>
-            <p>
-              Permissions (<span className="text-color-purple-1">{role}</span>)
-            </p>
+          {dialogType === 'permissions' ? (
+            <div>
+              <p>
+                Permissions (<span className="text-color-purple-1">{role}</span>
+                )
+              </p>
 
-            <div className="grid gap-8 py-16">
-              {AccessArr.map((item, i) => {
-                const { name, description } = item;
-                return (
-                  <div
-                    key={item.id}
-                    className="flex items-center gap-8 cursor-pointer justify-between"
-                  >
-                    <div>
-                      <p>{name}</p>
-                      <p className="text-[1.4rem] text-gray-500">
-                        {i === 0 ? 'Can only create orders' : description}
-                      </p>
+              <div className="grid gap-8 py-16">
+                {AccessArr.map((item, i) => {
+                  const { name, description } = item;
+                  return (
+                    <div
+                      key={item.id}
+                      className="flex items-center gap-8 cursor-pointer justify-between"
+                    >
+                      <div>
+                        <p>{name}</p>
+                        <p className="text-[1.4rem] text-gray-500">
+                          {i === 0 ? 'Can only create orders' : description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div>
+              <p>
+                Permissions (<span className="text-color-purple-1">{role}</span>
+                )
+              </p>
+
+              <div className="grid gap-8 py-16">
+                {historyArr.map((item, i) => {
+                  const { agent, key } = item;
+                  return (
+                    <div
+                      key={item.id}
+                      className="flex items-center gap-8 cursor-pointer justify-between"
+                    >
+                      <div>
+                        <p>{name}</p>
+                        <p className="text-[1.4rem] text-gray-500">
+                          {i === 0 ? 'Can only create orders' : description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </dialog>
       <Header title="Team" />
