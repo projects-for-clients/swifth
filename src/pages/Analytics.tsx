@@ -6,6 +6,9 @@ interface Carousel {
   imgUri: string;
   count: number;
 }
+
+type keys = 'All' | 'Orders' | 'Quotes' | 'Customers' | 'Deliveries' | 'Payments';
+
 const carousel: Carousel[] = [
   {
     title: 'quotes',
