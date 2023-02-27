@@ -36,6 +36,8 @@ const ViewTeam = () => {
   }
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
+
+
   return (
     <>
       <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
@@ -184,8 +186,11 @@ const ViewTeam = () => {
                 <p className="capitalize">{role}</p>
               </div>
 
-              <button className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent">
-                <p className="font-medium capitalize" onClick={() => openDialog('permissions')}>See Permissions</p>
+              <button
+                className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent"
+                onClick={() => openDialog('permissions')}
+              >
+                <p className="font-medium capitalize">See Permissions</p>
                 <BsArrowRight />
               </button>
             </div>
