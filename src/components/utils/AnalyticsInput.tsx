@@ -5,6 +5,7 @@ interface IAnalyticsInput {
   items: string[];
   placeholder: string;
   label?: string;
+  right?: boolean;
   setIsTerminal?: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -12,6 +13,7 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
   items,
   label,
   setIsTerminal,
+  right
 }) => {
   const [selectedSort, setSelectedSort] = useState<string>(items[0]);
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
@@ -42,7 +44,7 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
 
         {toggleSortMenu && (
           <div
-            className={`absolute top-[5rem]  left-0 border border-gray-300 bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize w-[20rem]
+            className={`absolute top-[5rem] ${right ? 'right-0': 'left-0'} border border-gray-300 bg-color-white rounded-lg grid gap-2 shadow z-20 capitalize w-[20rem]
             `}
           >
             {items.map((item, index) => (

@@ -134,6 +134,7 @@ function Analytics() {
                 <AnalyticsInput
                   items={['2023', '2022', '2021']}
                   placeholder={'2023'}
+                  right
                 />
               </div>
             </div>
