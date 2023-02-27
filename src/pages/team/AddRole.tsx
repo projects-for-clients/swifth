@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 
 interface Access {
-id: number;
-name: string;
-description: string;
+  id: number;
+  name: string;
+  description: string;
 }
 
 const AddRole = () => {
@@ -80,11 +80,18 @@ const AddRole = () => {
               <div
                 key={item.id}
                 className="flex items-center gap-8 cursor-pointer justify-between"
+                onClick={() => handleToggle(name)}
               >
                 <div>
                   <p>{name}</p>
                   <p>{i === 0 ? 'Can only create orders' : description}</p>
                 </div>
+
+                {toggleAccess && toggleAccess[name] ? (
+                  <img src="/icons/switchOn.svg" alt="" />
+                ) : (
+                  <img src="/icons/switchOff.svg" alt="" />
+                )}
               </div>
             );
           })}
