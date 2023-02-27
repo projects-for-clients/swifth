@@ -7,18 +7,20 @@ function Analytics() {
       <Header title="Analytics" />
 
       <div>
-        <SelectInput
-          items={[
-            'All time',
-            'The past year',
-            'The past month',
-            'The last 24 hours',
-          ]}
-          placeholder={'All time'}
-          fullWidth
-        />
-
+        <span className=''>
+          <SelectInput
+            items={[
+              'All time',
+              'The past year',
+              'The past month',
+              'The last 24 hours',
+            ]}
+            placeholder={'All time'}
+            fullWidth
+          />
+        </span>
         <div>
+
             
         </div>
       </div>
