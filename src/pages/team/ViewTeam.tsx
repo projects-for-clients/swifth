@@ -14,7 +14,7 @@ type HistoryKey =
   | 'duty processed';
 
 interface History {
-  id: number,
+  id: number;
   key: HistoryKey;
   agent: string;
 }
@@ -95,7 +95,7 @@ const ViewTeam = () => {
 
               <div className="grid gap-8 py-16">
                 {AccessArr.map((item, i) => {
-                  const { name, description, id} = item;
+                  const { name, description, id } = item;
                   return (
                     <div
                       key={id}
@@ -114,9 +114,9 @@ const ViewTeam = () => {
             </div>
           ) : (
             <div>
-              <p>
-                Permissions (<span className="text-color-purple-1">{role}</span>
-                )
+              <p className='font-medium text-gray-500'>
+                History/Activity
+                
               </p>
 
               <div className="grid gap-8 py-16">
@@ -130,7 +130,7 @@ const ViewTeam = () => {
                       <div>
                         <p>{key}</p>
                         <p className="text-[1.4rem] text-gray-500">
-                          {`RC - ${agent}` }
+                          {`RC - ${agent}`}
                         </p>
                       </div>
 
@@ -288,7 +288,10 @@ const ViewTeam = () => {
                 <p className="capitalize">Dec 3, 2023</p>
               </div>
 
-              <button className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent" onClick={() => openDialog('history')}>
+              <button
+                className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent"
+                onClick={() => openDialog('history')}
+              >
                 <p className="font-medium capitalize">History/Activity</p>
                 <BsArrowRight />
               </button>
