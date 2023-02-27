@@ -126,7 +126,7 @@ function Analytics() {
                     id={key}
                     checked={current === key}
                     onChange={() => setCurrent(key)}
-                    className=""
+                    className="hidden"
                   />
                   <label htmlFor={key} className="cursor-pointer">
                     {key}
@@ -144,7 +144,7 @@ function Analytics() {
                     <div className={`w-full text-center rounded-2xl py-4 ${selectedOption === option ? 'bg-color-red-light-1': ''}`} key={option}>
                       <input
                         type="radio"
-                        name="analytic"
+                        name="options"
                         id={option}
                         checked={selectedOption === option}
                         onChange={() => setSelectedOption(option)}
