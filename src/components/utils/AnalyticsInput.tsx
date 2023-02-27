@@ -4,19 +4,18 @@ import { GrUp, GrDown } from 'react-icons/gr';
 interface IAnalyticsInput {
   items: string[];
   placeholder: string;
-  label?: string;
-  fullWidth?: boolean;
+
+    
   setIsTerminal?: Dispatch<SetStateAction<boolean>>;
-  analytics?: boolean;
+
 }
 
 const AnalyticsInput: FC<IAnalyticsInput> = ({
   items,
   placeholder,
-  label,
+
   setIsTerminal,
-  fullWidth,
-  analytics,
+  
 }) => {
   const [selectedSort, setSelectedSort] = useState<string | null>(null);
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
@@ -32,15 +31,14 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
 
   return (
     <div
-      className={`grid gap-4 ${analytics ? '' : 'min-w-[30rem]'} items-center`}
+      className={`grid gap-4 items-center`}
     >
-      <label className="text-[1.4rem] text-color-dark-1">{label}</label>
       <div
         className={`relative ${
           analytics ? 'grid justify-items-center' : 'flex'
         } items-center  justify-items-start cursor-pointer text-black`}
       >
-        {analytics && <span className="text-color-purple">Your stats for</span>}
+     <span className="text-color-purple">Your stats for</span>
         <p
           className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left ${
             analytics ? 'border-none' : 'border'
