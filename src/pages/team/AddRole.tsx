@@ -7,7 +7,16 @@ import { Roles } from './Team';
 
 const AddRole = () => {
   const navigate = useNavigate();
-  const [currentRole, setCurrentRole] = useState<Roles>('admin');
+
+
+  const AccessArr = Array.from({length: 5}).map((_, i) => {
+    return {
+      id: i,
+      name: `Access ${i + 1}`,
+      description: 'Full access except user management',
+    };
+  }
+
 
   return (
     <>
