@@ -36,12 +36,12 @@ const SelectInput: FC<ISelectInput> = ({
       className={`grid gap-4 ${analytics ? '' : 'min-w-[30rem]'} items-center`}
     >
       <label className="text-[1.4rem] text-color-dark-1">{label}</label>
-      <div className="relative flex items-center  justify-items-start cursor-pointer text-black">
+      <div className={`relative ${analytics ? 'grid' : 'flex'} items-center  justify-items-start cursor-pointer text-black`}>
+        {analytics && <span className="text-color-purple">Your stats for</span>}
         <p
           className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left ${analytics ? 'border-none': 'border'}`}
           onClick={sortMenuToggler}
           >
-          {analytics && <span className="text-color-purple">Your stats for</span>}
           {selectedSort ? (
             selectedSort
           ) : (

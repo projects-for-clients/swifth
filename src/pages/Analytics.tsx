@@ -44,7 +44,7 @@ function Analytics() {
       <Header title="Analytics" />
 
       <div className=" flex items-center mt-[5rem]">
-        <span className="w-[15rem]">
+        <span className="w-[25rem]">
           <SelectInput
             items={[
               'All time',
