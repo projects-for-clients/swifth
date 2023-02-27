@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 import { Roles } from './Team';
 
 const ViewTeam = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [currentRole, setCurrentRole] = useState<Roles>('admin');
   const [isEditProfile, setIsEditProfile] = useState(false);
 
   const { id, name, role } = location && location?.state;
+
+
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
@@ -19,7 +22,9 @@ const ViewTeam = () => {
 
       <main className="text-[1.6rem] grid gap-10">
         <div className="flex items-center gap-16">
-          <BiArrowBack />
+          <BiArrowBack onClick={
+            isEditProfile ? () => setIsEditProfile(false) : () => navigate(-1)
+          } />
           <p className="text-[2rem]">{name}</p>
         </div>
 
