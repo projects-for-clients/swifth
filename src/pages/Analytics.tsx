@@ -105,10 +105,10 @@ function Analytics() {
         </div>
 
         <div>
-          <div className='analytics__radioBox" '>
+          <div className='flex '>
             {keys.map((key) => {
               return (
-                <div>
+                <div className="analytics__radioBox">
                   <input
                     type="radio"
                     name="analytic"
