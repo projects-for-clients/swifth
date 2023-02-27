@@ -75,6 +75,13 @@ const ViewTeam = () => {
 
         <div className='grid gap-8 max-w-[70rem] py-16'>
             <p className='font-medium text-[2rem]'>User type/Role</p>
+
+            <div>
+                <input type="radio" name="role" id="admin" />
+                <input type="radio" name="role" id="fieldAgent" />
+                <input type="radio" name="role" id="CustomerRep" />
+
+            </div>
         </div>
       </main>
 
