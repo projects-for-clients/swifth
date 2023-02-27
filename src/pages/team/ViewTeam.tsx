@@ -38,7 +38,7 @@ const ViewTeam = () => {
           </div>
 
           <div>
-            <p>{name}@gmail.com</p>
+            <p>{name.split(' ').join('')}@gmail.com</p>
             <p>+23498523823</p>
           </div>
         </div>
