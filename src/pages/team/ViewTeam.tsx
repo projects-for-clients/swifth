@@ -74,7 +74,6 @@ const ViewTeam = () => {
                   <div
                     key={item.id}
                     className="flex items-center gap-8 cursor-pointer justify-between"
-                    onClick={() => handleToggle(name)}
                   >
                     <div>
                       <p>{name}</p>
@@ -83,11 +82,7 @@ const ViewTeam = () => {
                       </p>
                     </div>
 
-                    {toggleAccess && toggleAccess[name] ? (
-                      <img src="/icons/switchOn.svg" alt="" />
-                    ) : (
-                      <img src="/icons/switchOff.svg" alt="" />
-                    )}
+                   
                   </div>
                 );
               })}
