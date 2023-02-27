@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState, useRef } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -13,12 +13,14 @@ const ViewTeam = () => {
 
   const { name, role } = location?.state;
 
+  const permissionsDialogRef = useRef<HTMLDialogElement>(null);
+
 
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
     <>
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+      <dialog className="dialog relative text-[1.6rem]" ref={permissionsDialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
