@@ -8,6 +8,7 @@ import { Roles } from './Team';
 const ViewTeam = () => {
   const location = useLocation();
   const [currentRole, setCurrentRole] = useState<Roles>('admin');
+  const [isEditProfile, setIsEditProfile] = useState(false);
 
   const { id, name, role } = location && location?.state;
 
@@ -46,7 +47,7 @@ const ViewTeam = () => {
           </div>
         </div>
 
-        {/* <div className="grid gap-8 border-t max-w-[70rem] py-16">
+        <div className="grid gap-8 border-t max-w-[70rem] py-16">
           <div className="grid grid-cols-2">
             <div>
               <p className="text-[1.4rem] text-gray-500">Role</p>
@@ -73,7 +74,7 @@ const ViewTeam = () => {
             <p className="text-[1.4rem] text-gray-500">Last Interaction</p>
             <p className="capitalize">Dec 3, 2023</p>
           </div>
-        </div> */}
+        </div>
 
         <div className="grid gap-8 max-w-[70rem] py-16">
           <p className="font-medium text-[2rem]">User type/Role</p>
