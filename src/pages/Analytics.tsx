@@ -17,6 +17,10 @@ function Analytics() {
           placeholder={'All time'}
           fullWidth
         />
+
+        <div>
+            
+        </div>
       </div>
     </>
   );
