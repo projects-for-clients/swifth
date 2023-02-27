@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from '../components/dashboard/Header';
 import AnalyticsInput from '../components/utils/AnalyticsInput';
 
@@ -57,6 +58,8 @@ const carousel: Carousel[] = [
   },
 ];
 function Analytics() {
+    const [current, setCurrent] = useState<keys>('All');
+    
   return (
     <>
       <Header title="Analytics" />
