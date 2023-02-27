@@ -41,14 +41,14 @@ const router = createBrowserRouter(
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])
-);
+)
 
 const App = () => {
   return (
     <div className="text-[1.6rem]">
       <RouterProvider router={router} />;
     </div>
-  );
-};
+  )
+}
 
 export default App;
