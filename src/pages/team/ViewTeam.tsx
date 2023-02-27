@@ -125,7 +125,7 @@ const ViewTeam = () => {
                   return (
                     <div
                       key={id}
-                      className="flex items-center gap-8 cursor-pointer justify-between"
+                      className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-2xl py-4 px"
                     >
                       <div>
                         <p>{key}</p>
