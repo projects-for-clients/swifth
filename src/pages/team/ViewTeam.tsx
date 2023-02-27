@@ -22,7 +22,7 @@ const ViewTeam = () => {
 
       <main className="text-[1.6rem] grid gap-10">
         <div className="flex items-center gap-16">
-          <BiArrowBack onClick={
+          <BiArrowBack className='text-[1.8rem] curps' onClick={
             isEditProfile ? () => setIsEditProfile(false) : () => navigate(-1)
           } />
           <p className="text-[2rem]">{name}</p>
