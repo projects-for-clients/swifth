@@ -105,7 +105,7 @@ function Analytics() {
         </div>
 
         <div className='overflow-hidden'>
-          <div className='flex max-w-[60rem] '>
+          <div className='flex max-w-[60rem] gap-4'>
             {keys.map((key) => {
               return (
                 <div className="analytics__radioBox">
@@ -117,7 +117,7 @@ function Analytics() {
                     onChange={() => setCurrent(key)}
                     className="hidden"
                   />
-                  <label htmlFor={key} className=" cursor-pointer">
+                  <label htmlFor={key} className="cursor-pointer">
                     {key}
                   </label>
                 </div>
