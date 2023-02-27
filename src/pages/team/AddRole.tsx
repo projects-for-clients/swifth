@@ -4,7 +4,7 @@ import { IoMdAdd } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 
-interface Access {
+export interface Access {
   id: number;
   name: string;
   description: string;

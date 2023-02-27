@@ -3,6 +3,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
+import { Access } from './AddRole';
 import { Roles } from './Team';
 
 type DialogType = 'permissions' | 'history';
@@ -37,6 +38,13 @@ const ViewTeam = () => {
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
 
+  const AccessArr: Access[] = Array.from({ length: 5 }).map((_, i) => {
+    return {
+      id: i,
+      name: `Access ${i + 1}`,
+      description: 'Full access except user management',
+    };
+  });
 
   return (
     <>
@@ -55,7 +63,35 @@ const ViewTeam = () => {
           <h3 className="text-[2.4rem] mb-10">{name}</h3>
 
           <div>
-            <p>Permissions (<span className='text-color-purple-1'>{role}</span>)</p>
+            <p>
+              Permissions (<span className="text-color-purple-1">{role}</span>)
+            </p>
+
+            <div className="grid gap-8 py-16">
+              {AccessArr.map((item, i) => {
+                const { name, description } = item;
+                return (
+                  <div
+                    key={item.id}
+                    className="flex items-center gap-8 cursor-pointer justify-between"
+                    onClick={() => handleToggle(name)}
+                  >
+                    <div>
+                      <p>{name}</p>
+                      <p className="text-[1.4rem] text-gray-500">
+                        {i === 0 ? 'Can only create orders' : description}
+                      </p>
+                    </div>
+
+                    {toggleAccess && toggleAccess[name] ? (
+                      <img src="/icons/switchOn.svg" alt="" />
+                    ) : (
+                      <img src="/icons/switchOff.svg" alt="" />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </dialog>
