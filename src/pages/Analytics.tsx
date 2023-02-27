@@ -53,8 +53,7 @@ function Analytics() {
               'The last 24 hours',
             ]}
             placeholder={'All time'}
-            fullWidth
-            analytics
+       
           />
         </span>
         <div className="flex w-full flex-nowrap">
