@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AnalyticsChart from '../components/charts/AnalyticsChart';
 import Header from '../components/dashboard/Header';
 import AnalyticsInput from '../components/utils/AnalyticsInput';
 
@@ -104,8 +105,8 @@ function Analytics() {
           </div>
         </div>
 
-        <div className='overflow-hidden'>
-          <div className='flex max-w-[60rem] gap-8'>
+        <div className="overflow-hidden">
+          <div className="flex max-w-[60rem] gap-8">
             {keys.map((key) => {
               return (
                 <div className="analytics__radioBox">
@@ -123,6 +124,18 @@ function Analytics() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="rounded-3xl p-8 border border-color-purple-light grid gap-8">
+            <div>
+              <>
+                <div className="flex justify-between  mb-10">
+                  <h2 className="heading3">Business Analytics</h2>
+                  <p className="text-[1.6rem] cursor-pointer">See Full Stats</p>
+                </div>
+                <AnalyticsChart />
+              </>
+            </div>
           </div>
         </div>
       </main>
