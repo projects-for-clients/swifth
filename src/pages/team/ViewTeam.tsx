@@ -47,13 +47,13 @@ const ViewTeam = () => {
         <div className="grid gap-8 border-t">
           <div>
             <div>
-              <p className='text-[1.4rem] text-gray-500'>Role</p>
-              <p className='capitalize'>{role}</p>
+              <p className="text-[1.4rem] text-gray-500">Role</p>
+              <p className="capitalize">{role}</p>
             </div>
 
-            <div className='border rounded-2xl px-8 py-4'>
-            <p className='font-medium capitalize'>See Permissions</p>
-                <BsArrowRight/>
+            <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
+              <p className="font-medium capitalize">See Permissions</p>
+              <BsArrowRight />
             </div>
           </div>
         </div>
