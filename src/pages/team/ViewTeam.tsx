@@ -9,6 +9,11 @@ import { Roles } from './Team';
 type DialogType = 'permissions' | 'history';
 type HistoryKey = 'created order' | 'valuation' | 'payment releasing' | 'duty processed'
 
+interface History {
+  key: HistoryKey;
+  agent: string;
+}
+
 const ViewTeam = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,6 +51,14 @@ const ViewTeam = () => {
       description: 'Full access except user management',
     };
   });
+
+
+  const HistoryArr: History[] = Array.from({ length: 5 }).map((_, i) => {
+    return {
+      key: 'created order',
+      agent: '12/12/2021',
+    };
+  }
 
   return (
     <>
