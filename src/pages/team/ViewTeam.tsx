@@ -9,6 +9,8 @@ import { Roles } from './Team';
 type DialogType = 'permissions' | 'history';
 type HistoryKey = 'created order' | 'valuation' | 'payment releasing' | 'duty processed'
 
+const historyKey:HistoryKey[] = ['created order', 'valuation', 'payment releasing', 'duty processed'] ;
+
 interface History {
   key: HistoryKey;
   agent: string;
