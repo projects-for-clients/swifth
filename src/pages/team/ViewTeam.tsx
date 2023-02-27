@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { useLocation } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
+import { Roles } from './Team';
+
 
 const ViewTeam = () => {
   const location = useLocation();
+  const [currentRole, setCurrentRole] = useState<Roles>('admin')
 
   const { id, name, role } = location && location?.state;
 
@@ -76,7 +79,7 @@ const ViewTeam = () => {
         <div className="grid gap-8 max-w-[70rem] py-16">
           <p className="font-medium text-[2rem]">User type/Role</p>
 
-          <div className='grid gap-16'>
+          <div className='grid gap-8'>
             <label
               htmlFor="admin"
               className="flex items-center gap-8 cursor-pointer"

@@ -4,12 +4,18 @@ import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 import { IoMdAdd } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
-const roles = [
+export type Roles =
+  | 'admin'
+  | 'field agent'
+  | 'customer care rep'
+  | 'revoke invite';
+
+const roles: Roles[] = [
   'admin',
   'field agent',
   'customer care rep',
   'revoke invite',
-] as const;
+];
 
 const keyNames = [
   'Suleman Henry',
