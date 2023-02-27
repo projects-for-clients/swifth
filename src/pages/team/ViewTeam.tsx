@@ -1,5 +1,6 @@
 import React from 'react';
 import { BiArrowBack } from 'react-icons/bi';
+import { BsArrowRight } from 'react-icons/bs';
 import { useLocation } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 
@@ -19,7 +20,7 @@ const ViewTeam = () => {
           <p className="text-[2rem]">{name}</p>
         </div>
 
-        <div className='grid gap-8'>
+        <div className="grid gap-8">
           <div className="flex items-end gap-16">
             <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
               <img
@@ -38,13 +39,23 @@ const ViewTeam = () => {
           </div>
 
           <div>
-            <p className='lowercase'>{name.split(' ').join('')}@gmail.com</p>
+            <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
             <p>+23498523823</p>
           </div>
         </div>
 
-        <div className='grid gap-8 border-t'>
+        <div className="grid gap-8 border-t">
+          <div>
+            <div>
+              <p className='text-[1.4rem] text-gray-500'>Role</p>
+              <p className='capitalize'>{role}</p>
+            </div>
 
+            <div>
+
+                <BsArrowRight/>
+            </div>
+          </div>
         </div>
       </main>
     </>
