@@ -11,7 +11,7 @@ const ViewTeam = () => {
   const [currentRole, setCurrentRole] = useState<Roles>('admin');
   const [isEditProfile, setIsEditProfile] = useState(false);
 
-  const { id, name, role } = location && location?.state;
+  const { name, role } = location?.state;
 
 
 
