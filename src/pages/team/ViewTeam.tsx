@@ -152,11 +152,11 @@ const ViewTeam = () => {
             </label>
           </div>
         </div>
-      </main>
-
-      <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-24 font-medium">
+      <button className="btn border border-color-primary rounded-2xl uppercase text-color-primary w-[30rem] absolute right-0 bottom-0 mx-8 my-8 font-medium">
             Save Changes
       </button>
+      </main>
+
     </>
   );
 };
