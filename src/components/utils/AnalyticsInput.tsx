@@ -4,14 +4,13 @@ import { GrUp, GrDown } from 'react-icons/gr';
 interface IAnalyticsInput {
   items: string[];
   placeholder: string;
-
+  label?: string;
   setIsTerminal?: Dispatch<SetStateAction<boolean>>;
 }
 
 const AnalyticsInput: FC<IAnalyticsInput> = ({
   items,
-  placeholder,
-
+  label,
   setIsTerminal,
 }) => {
   const [selectedSort, setSelectedSort] = useState<string>('All time');
@@ -28,7 +27,9 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
 
   return (
     <div className={`grid items-center`}>
-      <p className="text-color-purple text-[1.4rem]">Your stats for</p>
+      {label && (
+        <p className="text-color-purple text-[1.4rem]">{label}</p>
+      )}
       <div
         className={`relative items-center flex cursor-pointer text-black`}
         onClick={sortMenuToggler}

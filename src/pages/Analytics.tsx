@@ -73,6 +73,7 @@ function Analytics() {
         >
           <div className="relative">
             <AnalyticsInput
+            label="Your stats for"
               items={[
                 'All time',
                 'The past year',
