@@ -49,6 +49,7 @@ const SelectInput: FC<ISelectInput> = ({
                 analytics ? 'text-color-purple font-medium' : 'text-gray-500'
               }`}
             >
+              {analytics && <span className="text-color-purple">Your stats for</span>}
               {placeholder}
             </span>
           )}
