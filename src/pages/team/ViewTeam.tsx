@@ -19,7 +19,7 @@ const ViewTeam = () => {
           <p className="text-[2rem]">{name}</p>
         </div>
 
-        <div>
+        <div className='grid gap-8'>
           <div className="flex items-end gap-16">
             <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
               <img
@@ -41,6 +41,10 @@ const ViewTeam = () => {
             <p className='lowercase'>{name.split(' ').join('')}@gmail.com</p>
             <p>+23498523823</p>
           </div>
+        </div>
+
+        <div className='grid gap-8 border-t'>
+
         </div>
       </main>
     </>
