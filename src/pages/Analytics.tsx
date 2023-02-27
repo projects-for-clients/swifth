@@ -46,7 +46,7 @@ function Analytics() {
         <div
           className=" grid items-center"
           style={{
-            //gridTemplateColumns: '15% auto',
+            gridTemplateColumns: '15% auto',
           }}
         >
           <div className='relative'>
@@ -60,10 +60,10 @@ function Analytics() {
               placeholder={'All time'}
             />
           </div>
-          <div className="flex w-full flex-nowrap h-[22rem] overflow-x-hidden">
+          <div className="flex w-full flex-nowrap h-[22rem] overflow-x-scroll">
             {carousel.map((item) => (
               <div
-                className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl self-center"
+                className="flex flex-col items-center justify-center min-w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl self-center"
                 key={item.title}
               >
                 <img
