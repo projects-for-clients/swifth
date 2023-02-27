@@ -51,7 +51,7 @@ function Analytics() {
       <Header title="Analytics" />
 
 
-      <div>
+      <div className='overflow-hidden'>
         <span className=''>
           <SelectInput
             items={[
@@ -66,6 +66,15 @@ function Analytics() {
         </span>
         <div className='flex w-full flex-nowrap overflow-scroll'>
 
+            {
+                carousel.map((item, index) => (
+                    <div className='flex flex-col items-center justify-center w-[20rem] h-[20rem] bg-color-white rounded-lg shadow-lg m-4 relative' key={index}>
+
+                    <img src={item.imgUri} alt="" className='absolute top-0'/>
+
+                    <p>Total</p>
+                    <p>{item.title}</p>
+            }
 
         </div>
       </div>
