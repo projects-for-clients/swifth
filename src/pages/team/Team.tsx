@@ -1,29 +1,9 @@
 import Header from '../../components/dashboard/Header';
 import { ChangeEvent, useState, createContext, useRef, FormEvent } from 'react';
 
-import { generateRandomDate } from '../../container/order/OrdersData';
 import { IoMdAdd } from 'react-icons/io';
 
-
-function Team() {
-
-  const [search, setSearch] = useState('');
-
-  const [financeData, setFinanceData] = useState<Finance[]>(FINANCE);
-
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearch(value);
-
-    const filtered = FINANCE.filter((item) =>
-      item.name.toLowerCase().includes(value.toLowerCase())
-    );
-    setFinanceData(filtered);
-  };
-
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
-
-  
+ 
   const roles = [
     'admin',
     'field agent',
@@ -39,9 +19,9 @@ function Team() {
     'Isaac Joseph',
     'Dikachi Nwankwo',
     'Chukwudi Okoro',
-  ] as const;
+  ] as const;\
 
-  interface Team {
+interface Team {
     id: number;
     name: typeof keyNames[number];
     role: typeof roles[number];
@@ -55,6 +35,27 @@ function Team() {
     };
   });
 
+
+function Team() {
+
+  const [search, setSearch] = useState('');
+
+  const [teamData, setTeamData] = useState<Finance[]>(FINANCE);
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearch(value);
+
+    const filtered = FINANCE.filter((item) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setTeamData(filtered);
+  };
+
+
+ 
+
+  
   const openMemberDetails = (item: Team) => {
   
   }
@@ -97,7 +98,7 @@ function Team() {
         </section>
 
         <section>
-          {financeData.length < 1 ? (
+          {teamData.length < 1 ? (
             <div className="grid place-content-center h-[70vh] text-center">
               <p>Nothing Found</p>
             </div>
@@ -108,7 +109,7 @@ function Team() {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(40rem, 1fr))',
               }}
             >
-              {teamArr.map((item, i) => {
+              {teamData.map((item, i) => {
                 const { name, role } = item;
 
                 return (
