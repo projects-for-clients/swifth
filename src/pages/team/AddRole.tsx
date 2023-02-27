@@ -84,7 +84,9 @@ const AddRole = () => {
               >
                 <div>
                   <p>{name}</p>
-                  <p className='text-[1.4rem] text-gray-500'>{i === 0 ? 'Can only create orders' : description}</p>
+                  <p className="text-[1.4rem] text-gray-500">
+                    {i === 0 ? 'Can only create orders' : description}
+                  </p>
                 </div>
 
                 {toggleAccess && toggleAccess[name] ? (
@@ -93,16 +95,15 @@ const AddRole = () => {
                   <img src="/icons/switchOff.svg" alt="" />
                 )}
               </div>
-            )
+            );
           })}
         </div>
-
       </main>
-        <button className="btn border border-color-primary rounded-2xl uppercase text-white bg-color-primary w-[30rem] mx-8 my-8 font-medium">
-          Add Role
-        </button>
+      <button className="btn border border-color-primary rounded-2xl uppercase text-white bg-color-primary w-[30rem] mx-8 my-8 font-medium">
+        Add Role
+      </button>
     </div>
-  )
+  );
 };
 
 export default AddRole;

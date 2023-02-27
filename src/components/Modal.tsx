@@ -39,15 +39,7 @@ function Modal({ children }: IModal) {
           <div className="authDialog relative z-10 " id="authDialog">
             {isToast && (
               <ToastContainer />
-              // <p
-              //   className={`authDialog__message text-center ${
-              //     messageType === 'error'
-              //       ? 'bg-[#FDE9E9] text-[#E82830]'
-              //       : 'bg-[#D9EFE1] text-[#319F5A]'
-              //   } `}
-              // >
-              //   {errorMessage}
-              // </p>
+            
             )}
             <div className="authDialog__container">
               <button className="authDialog__button" onClick={closeModal}>
@@ -60,7 +52,7 @@ function Modal({ children }: IModal) {
         )}
       </div>
     </AuthContext.Provider>
-  );
+  )
 }
 
 export default Modal;

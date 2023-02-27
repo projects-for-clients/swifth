@@ -14,7 +14,7 @@ function Home() {
         <Auth />
       </Modal>
     </div>
-  );
+  )
 }
 
 export default Home;
