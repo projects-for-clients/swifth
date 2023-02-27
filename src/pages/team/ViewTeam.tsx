@@ -125,7 +125,7 @@ const ViewTeam = () => {
                   return (
                     <div
                       key={id}
-                      className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-2xl py-4 px"
+                      className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-2xl p-6"
                     >
                       <div>
                         <p>{key}</p>
@@ -288,10 +288,10 @@ const ViewTeam = () => {
                 <p className="capitalize">Dec 3, 2023</p>
               </div>
 
-              <div className="border rounded-2xl px-8 py-4 flex justify-between items-center">
+              <button className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent" onClick={() => openDialog('history')}>
                 <p className="font-medium capitalize">History/Activity</p>
                 <BsArrowRight />
-              </div>
+              </button>
             </div>
             <div>
               <p className="text-[1.4rem] text-gray-500">Last Interaction</p>
