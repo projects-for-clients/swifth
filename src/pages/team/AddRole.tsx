@@ -15,7 +15,7 @@ const AddRole = () => {
       name: `Access ${i + 1}`,
       description: 'Full access except user management',
     };
-  }
+  })
 
 
   return (
