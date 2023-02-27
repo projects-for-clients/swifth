@@ -131,7 +131,12 @@ function Analytics() {
               <>
                 <div className="flex justify-between  mb-10">
                   <h2 className="heading3">Business Analytics</h2>
-                  <p className="text-[1.6rem] cursor-pointer">See Full Stats</p>
+                  <div>
+                    <AnalyticsInput
+                        items={['2023', '2022', '2021']}
+                        placeholder={'2023'}
+                        />
+                  </div>
                 </div>
                 <AnalyticsChart width={1000} />
               </>
