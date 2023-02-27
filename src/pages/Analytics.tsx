@@ -43,7 +43,7 @@ function Analytics() {
     <>
       <Header title="Analytics" />
 
-      <div className=" flex items-center overflow-x-hidden overflow-y-visible">
+      <div className=" flex items-center">
         <span className="w-[15rem]">
           <SelectInput
             items={[
@@ -60,10 +60,10 @@ function Analytics() {
         <div className="flex w-full flex-nowrap overflow-scroll">
           {carousel.map((item, index) => (
             <div
-              className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white rounded-lg shadow-lg m-4 relative gap-8"
+              className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white rounded-lg shadow-lg m-4 relative gap-8 border border-color-purple-light"
               key={item.title}
             >
-              <img src={item.imgUri} alt="" className="absolute top-0" />
+              <img src={item.imgUri} alt="" className="absolute top-[-2rem]" />
 
               <div className='grid justify-items-center'>
                 <p className='text-color-purple-1'>Total</p>
