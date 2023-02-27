@@ -28,12 +28,10 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
 
   return (
     <div className={`grid gap-4 items-center`}>
-      <div
-        className={`relative ${
-          analytics ? 'grid justify-items-center' : 'flex'
-        } items-center  justify-items-start cursor-pointer text-black`}
-      >
         <span className="text-color-purple">Your stats for</span>
+      <div
+        className={`relative items-center flex cursor-pointer text-black`}
+      >
         <p
           className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left`}
           onClick={sortMenuToggler}
