@@ -7,6 +7,7 @@ import { Access } from './AddRole';
 import { Roles } from './Team';
 
 type DialogType = 'permissions' | 'history';
+type HistoryKey = 'created order' | 'valuation' | 'payment releasing' | 'duty processed'
 
 const ViewTeam = () => {
   const location = useLocation();
