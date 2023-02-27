@@ -40,7 +40,8 @@ const SelectInput: FC<ISelectInput> = ({
         <p
           className={` p-4 outline-none rounded-lg w-full text-[1.6rem] cursor-pointer text-left ${analytics ? 'border-none': 'border'}`}
           onClick={sortMenuToggler}
-        >
+          >
+          {analytics && <span className="text-color-purple">Your stats for</span>}
           {selectedSort ? (
             selectedSort
           ) : (
@@ -49,7 +50,6 @@ const SelectInput: FC<ISelectInput> = ({
                 analytics ? 'text-color-purple font-medium' : 'text-gray-500'
               }`}
             >
-              {analytics && <span className="text-color-purple">Your stats for</span>}
               {placeholder}
             </span>
           )}
