@@ -49,19 +49,18 @@ function Analytics() {
             gridTemplateColumns: '15% auto',
           }}
         >
-          <AnalyticsInput
-            items={[
-              'All time',
-              'The past year',
-              'The past month',
-              'The last 24 hours',
-            ]}
-            placeholder={'All time'}
-          />
-
-          <div className="grid w-full flex-nowrap h-[22rem]" style={{
-            gridTemplateColumns: 'repeat(6, minmax(10rem, 1fr))',
-          }}>
+          <div className='relative h-[]'>
+            <AnalyticsInput
+              items={[
+                'All time',
+                'The past year',
+                'The past month',
+                'The last 24 hours',
+              ]}
+              placeholder={'All time'}
+            />
+          </div>
+          <div className="flex w-full flex-nowrap h-[22rem]">
             {carousel.map((item) => (
               <div
                 className="flex flex-col items-center justify-center w-[14rem] h-[16rem] bg-color-white shadow-lg m-4 relative gap-8 border border-color-purple-light rounded-3xl self-center"
