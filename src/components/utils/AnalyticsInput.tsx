@@ -14,7 +14,7 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
 
   setIsTerminal,
 }) => {
-  const [selectedSort, setSelectedSort] = useState<string | null>(null);
+  const [selectedSort, setSelectedSort] = useState<string>('All time');
   const [toggleSortMenu, setToggleSortMenu] = useState(false);
 
   const sortMenuToggler = () => setToggleSortMenu(!toggleSortMenu);
@@ -28,19 +28,13 @@ const AnalyticsInput: FC<IAnalyticsInput> = ({
 
   return (
     <div className={`grid items-center`}>
-        <p className="text-color-purple text-[1.4rem]">Your stats for</p>
-      <div
-        className={`relative items-center flex cursor-pointer text-black`}
-      >
+      <p className="text-color-purple text-[1.4rem]">Your stats for</p>
+      <div className={`relative items-center flex cursor-pointer text-black`}>
         <p
-          className={` outline-none rounded-lg w-full text-[1.4rem] cursor-pointer text-left`}
+          className={` outline-none rounded-lg w-full text-[1.4rem] cursor-pointer text-left text-color-purple `}
           onClick={sortMenuToggler}
         >
-          {selectedSort ? (
-            selectedSort
-          ) : (
-            <span className="text-color-purple font-medium">{placeholder}</span>
-          )}
+          {selectedSort}
         </p>
 
         {toggleSortMenu && (
