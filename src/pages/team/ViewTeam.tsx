@@ -73,6 +73,10 @@ const ViewTeam = () => {
           </div>
         </div>
       </main>
+
+      <button className="btn border border-red-600 rounded-2xl uppercase text-red-600 w-[40rem] absolute right-0 bottom-0 m-8">
+        Deactivate Member
+      </button>
     </>
   );
 };
