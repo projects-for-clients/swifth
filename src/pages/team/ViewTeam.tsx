@@ -1,10 +1,9 @@
-import  { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 import { Roles } from './Team';
-
 
 type DialogType = 'permissions' | 'history';
 
@@ -12,6 +11,7 @@ const ViewTeam = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [currentRole, setCurrentRole] = useState<Roles>('admin');
+  const [dialogType, setDialogType] = useState<DialogType>('permissions');
   const [isEditProfile, setIsEditProfile] = useState(false);
 
   const { name, role } = location?.state;
@@ -19,13 +19,15 @@ const ViewTeam = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openDialog = (dialogType: DialogType) => {
-  
+    if (dialogType === 'permissions') {
+      setDialogType('permissions');
       dialogRef.current?.showModal();
-  
-
-  
-  }
-
+    }
+    if (dialogType === 'history') {
+      setDialogType('history');
+      dialogRef.current?.showModal();
+    }
+  };
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
@@ -38,13 +40,12 @@ const ViewTeam = () => {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-             // onClick={() => handleCloseDialog()}
+              // onClick={() => handleCloseDialog()}
             />
           </figure>
 
           <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
-          
-</div>
+        </div>
       </dialog>
       <Header title="Team" />
 
