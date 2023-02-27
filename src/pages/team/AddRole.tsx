@@ -22,7 +22,7 @@ const AddRole = () => {
           <p className="text-[2rem]">Add New Role</p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 grid gap-4">
           <div>
             <label className="text-[1.4rem] mb-4">Role name</label>
             <input
@@ -40,7 +40,7 @@ const AddRole = () => {
                 placeholder="Search and add permission"
               />
 
-              <div className="absolute right-4 flex items-center font-medium gap-8">
+              <div className="absolute right-8 flex items-center font-medium gap-8">
                 <img src="/icons/line.svg" alt="" />
                 <button className="outline-none border-none text-color-primary flex items-center gap-4">
                   <IoMdAdd />
