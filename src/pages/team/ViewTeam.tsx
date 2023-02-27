@@ -18,13 +18,32 @@ const ViewTeam = () => {
   let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
     <>
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
+        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
+          <input type="text" className="absolute top-0 w-0" />
+          <figure className="flex justify-end">
+            <img
+              src="/icons/close.svg"
+              alt=""
+              className="w-[3rem] cursor-pointer"
+             // onClick={() => handleCloseDialog()}
+            />
+          </figure>
+
+          <h3 className="text-[2.4rem] mb-10">Delivery history</h3>
+          
+</div>
+      </dialog>
       <Header title="Team" />
 
       <main className="text-[1.6rem] grid gap-10">
         <div className="flex items-center gap-16">
-          <BiArrowBack className='text-[1.8rem] cursor-pointer' onClick={
-            isEditProfile ? () => setIsEditProfile(false) : () => navigate(-1)
-          } />
+          <BiArrowBack
+            className="text-[1.8rem] cursor-pointer"
+            onClick={
+              isEditProfile ? () => setIsEditProfile(false) : () => navigate(-1)
+            }
+          />
           <p className="text-[2rem]">{name}</p>
         </div>
 
@@ -41,9 +60,10 @@ const ViewTeam = () => {
               </p>
             </figure>
             {!isEditProfile && (
-              <button className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium" onClick={
-                () => setIsEditProfile(true)
-              }>
+              <button
+                className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
+                onClick={() => setIsEditProfile(true)}
+              >
                 Edit Profile
               </button>
             )}
