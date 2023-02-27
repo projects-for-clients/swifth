@@ -10,6 +10,7 @@ import {
 import { generateRandomDate } from '../container/order/OrdersData';
 import AppliedLoans from '../container/finance/AppliedLoans';
 import LoanRequests from '../container/finance/LoanRequests';
+import {IoMdAdd} from 'react-icons/io'
 
 export interface FinanceHistory {
   id: number;
@@ -131,14 +132,14 @@ function Team() {
           />
         </section>
         <section className="flex justify-end">
-          <div>
+          <div className='flex items-center gap-4'>
 
           <button
-            className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
+            className="flex gap-2 rounded-lg py-4 px-8 bg-color-green-light-1 text-color-primary-dark-2 border border-color-green-light items-center cursor-pointer"
            
             >
             <IoMdAdd/>
-            <p className="text-color-purple-1 font-medium">Set Interest Rate</p>
+            <p className="text-color-purple-1 font-medium">Add Member</p>
           </button>
           <button
             className="flex gap-2 rounded-lg py-4 px-8 bg-color-purple-light-1 border border-color-purple-light items-center cursor-pointer"
