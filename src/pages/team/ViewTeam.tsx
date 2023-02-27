@@ -29,6 +29,10 @@ const ViewTeam = () => {
     }
   };
 
+  const closeDialog = () => {
+    dialogRef.current?.close();
+  }
+
   let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
     <>
@@ -40,7 +44,7 @@ const ViewTeam = () => {
               src="/icons/close.svg"
               alt=""
               className="w-[3rem] cursor-pointer"
-              // onClick={() => handleCloseDialog()}
+              onClick={() => closeDialog()}
             />
           </figure>
 
