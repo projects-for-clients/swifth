@@ -35,10 +35,11 @@ const ViewTeam = () => {
                 <span>{initials}</span>
               </p>
             </figure>
-
-            <button className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium">
-              Edit Profile
-            </button>
+            {!isEditProfile && (
+              <button className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium">
+                Edit Profile
+              </button>
+            )}
           </div>
 
           <div>
