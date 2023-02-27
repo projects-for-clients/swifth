@@ -16,24 +16,21 @@ const ViewTeam = () => {
 
   const { name, role } = location?.state;
 
-  const permissionsDialogRef = useRef<HTMLDialogElement>(null);
-  const historyDialogRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openDialog = (dialogType: DialogType) => {
-    if (dialogType === 'permissions') {
-      permissionsDialogRef.current?.showModal();
-    }
+  
+      dialogRef.current?.showModal();
+  
 
-    if (dialogType === 'history') {
-      historyDialogRef.current?.showModal();
-    }
+  
   }
 
 
   let initials = name.split(' ').map((n: string[]) => n[0]);
   return (
     <>
-      <dialog className="dialog relative text-[1.6rem]" ref={permissionsDialogRef}>
+      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
         <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
           <input type="text" className="absolute top-0 w-0" />
           <figure className="flex justify-end">
