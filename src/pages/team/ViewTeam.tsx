@@ -91,7 +91,11 @@ const ViewTeam = () => {
                 onChange={() => setCurrentRole('admin')}
               />
 
-              <img src="/icons/empty-Role.svg" alt="" />
+              {currentRole === 'admin' ? (
+                <img src="/icons/filled-Role.svg" alt="" />
+              ) : (
+                <img src="/icons/empty-Role.svg" alt="" />
+              )}
 
               <div>
                 <p className="text-[2rem] font-medium">Admin</p>
@@ -108,8 +112,11 @@ const ViewTeam = () => {
                 onChange={() => setCurrentRole('field agent')}
               />
 
-              <img src="/icons/empty-Role.svg" alt="" />
-
+              {currentRole === 'field agent' ? (
+                <img src="/icons/filled-Role.svg" alt="" />
+              ) : (
+                <img src="/icons/empty-Role.svg" alt="" />
+              )}
               <div>
                 <p className="text-[2rem] font-medium">Field Agent</p>
                 <p>Has full access except, user management and list exports</p>
@@ -125,8 +132,11 @@ const ViewTeam = () => {
                 onChange={() => setCurrentRole('customer care rep')}
               />
 
-              <img src="/icons/filled-Role.svg" alt="" />
-
+              {currentRole === 'customer care rep' ? (
+                <img src="/icons/filled-Role.svg" alt="" />
+              ) : (
+                <img src="/icons/empty-Role.svg" alt="" />
+              )}
               <div>
                 <p className="text-[2rem] font-medium">
                   Customer Care Representative
