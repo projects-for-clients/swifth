@@ -29,6 +29,8 @@ const ViewTeam = () => {
     }
   };
 
+
+
   const closeDialog = () => {
     dialogRef.current?.close();
   }
@@ -183,7 +185,7 @@ const ViewTeam = () => {
               </div>
 
               <button className="border rounded-2xl px-8 py-4 flex justify-between items-center outline-transparent">
-                <p className="font-medium capitalize">See Permissions</p>
+                <p className="font-medium capitalize" onClick={() => openDialog('permissions')}>See Permissions</p>
                 <BsArrowRight />
               </button>
             </div>
