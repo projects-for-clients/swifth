@@ -30,6 +30,8 @@ const ViewTeam = () => {
               <span>{initials}</span>
             </p>
           </figure>
+
+
         </div>
       </main>
     </>
