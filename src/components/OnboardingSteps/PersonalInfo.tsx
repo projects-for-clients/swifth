@@ -20,7 +20,9 @@ interface ImageDetails {
   value: 'idCardUri' | 'POAUri';
 }
 
-const PersonalInfo = () => {
+const PersonalInfo = ({setup}: {
+  setup?: boolean;
+}) => {
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
 
@@ -201,11 +203,13 @@ const PersonalInfo = () => {
 
   return (
     <>
-      <Header
-        title="Personal Information"
-        subTitle="Enter your personal information"
-        onboarding
-      />
+      {!setup && (
+        <Header
+          title="Personal Information"
+          subTitle="Enter your personal information"
+          onboarding
+        />
+      )}
 
       <div className="grid gap-16">
         <div className="flex gap-2">
