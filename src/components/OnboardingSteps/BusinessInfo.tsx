@@ -38,11 +38,11 @@ const businessInfo = ({
 }) => {
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
- const contextData = useContext(OnboardingContext);
+  const contextData = useContext(OnboardingContext);
 
- const handleStep = contextData?.handleStep;
- const validationErrors = contextData?.validationErrors;
- 
+  const handleStep = contextData?.handleStep;
+  const validationErrors = contextData?.validationErrors;
+
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
   const [imageDetails, setImageDetails] = useState<Record<UriKeys, KeyProps>>({
@@ -159,18 +159,22 @@ const businessInfo = ({
 
   return (
     <>
-      <Header
-        title="Business Information"
-        subTitle="Enter your business details"
-        onboarding
-      />
+      {!setup && (
+        <Header
+          title="Business Information"
+          subTitle="Enter your business details"
+          onboarding
+        />
+      )}
 
       <div className="grid gap-16">
-        <div className="flex gap-2">
-          <img src="/icons/admin/barFilled.svg" alt="" />
-          <img src="/icons/admin/barEmpty.svg" alt="" />
-          <img src="/icons/admin/barEmpty.svg" alt="" />
-        </div>
+        {!setup && (
+          <div className="flex gap-2">
+            <img src="/icons/admin/barFilled.svg" alt="" />
+            <img src="/icons/admin/barFilled.svg" alt="" />
+            <img src="/icons/admin/barFilled.svg" alt="" />
+          </div>
+        )}
 
         <form
           className="grid gap-10 "
