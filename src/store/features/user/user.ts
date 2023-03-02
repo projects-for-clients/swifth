@@ -144,7 +144,7 @@ export const userSlice = createSlice({
 
       state.onboardingInputs.businessInfo = data;
     },
-    updatePersonalInfor: (state, { payload }) => {
+    updatePersonalInfo: (state, { payload }) => {
       const data = payload as PersonalInfo;
 
       state.onboardingInputs.personalInfo = data;
@@ -160,7 +160,7 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { updateUserOnboarding, updateUser } = userSlice.actions;
+export const { updateUserOnboarding, updateUser, updateBusinessInfo, updatePersonalInfo, updatePortsAndTerminalInfo } = userSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;
 
