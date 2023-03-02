@@ -10,6 +10,8 @@ import {
 import { GrDown, GrUp } from 'react-icons/gr';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
+import { updatePortsAndTerminalInfo } from '../../store/features/user/user';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
 type ErrorMessage = {
@@ -35,6 +37,8 @@ const Terminal: FC<ITerminal> = ({
   setIsError,
   isError,
 }) => {
+  const dispatch = useAppDispatch()
+  const userState = useAppSelector((state) => state.user);
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
@@ -62,7 +66,7 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(!toggleSelectMenu);
   };
 
-  const { handleInputChange, onboardingInputs, validationErrors } =
+  const {  onboardingInputs, validationErrors } =
     useContext(OnboardingContext);
 
   const uploadUriHandler = async (
@@ -127,18 +131,18 @@ const Terminal: FC<ITerminal> = ({
 
   useEffect(() => {
     if (selectedItem) {
-      const data = {
-        target: {
-          name: `terminal${id}`,
-          value: {
+     
+
+      dispatch(
+        updatePortsAndTerminalInfo({
+          ...userState.onboardingInputs.portsAndTerminal,
+          [`terminal${id}`]: {
             terminal: selectedItem,
             formCUri: imageDetails.error ? 'too large' : formCUri,
             formCExpirationDate: dateChange,
-          },
-        },
-      } as unknown as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'terminal');
+          }
+        })
+      );
     }
   }, [selectedItem, formCUri, dateChange]);
 

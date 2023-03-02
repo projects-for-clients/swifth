@@ -9,7 +9,10 @@ import {
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
-import { updateBusinessInfo } from '../../store/features/user/user';
+import {
+  updateBusinessInfo,
+  updatePersonalInfo,
+} from '../../store/features/user/user';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
 interface ImageDetails {
@@ -21,6 +24,9 @@ interface ImageDetails {
 }
 
 const PersonalInfo = () => {
+  const dispatch = useAppDispatch();
+  const userState = useAppSelector((state) => state.user);
+
   const { handleStep, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
 
@@ -122,16 +128,14 @@ const PersonalInfo = () => {
 
   useEffect(() => {
     if (idCardDetails.name && formUri.idCardUri) {
-      const data = {
-        target: {
-          name: 'idCardUri',
-          value: idCardDetails.error
+      dispatch(
+        updatePersonalInfo({
+          ...userState.onboardingInputs.personalInfo,
+          idCardUri: idCardDetails.error
             ? 'File size must not exceed 2MB'
             : formUri.idCardUri,
-        },
-      } as ChangeEvent<HTMLInputElement>;
-
-      handleInputChange(data, 'personalInfo');
+        })
+      );
     }
 
     if (POADetails.name && formUri.POAUri) {
@@ -144,7 +148,14 @@ const PersonalInfo = () => {
         },
       } as ChangeEvent<HTMLInputElement>;
 
-      handleInputChange(data, 'personalInfo');
+      dispatch(
+        updatePersonalInfo({
+          ...userState.onboardingInputs.personalInfo,
+          POAUri: idCardDetails.error
+            ? 'File size must not exceed 2MB'
+            : formUri.idCardUri,
+        })
+      );
     }
   }, [POADetails, idCardDetails, formUri]);
 
@@ -162,10 +173,6 @@ const PersonalInfo = () => {
     }
   }, [setInput]);
 
-  const dispatch = useAppDispatch();
-
-  const userState = useAppSelector((state) => state.user);
-
   function setInput(e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     if (
@@ -174,8 +181,14 @@ const PersonalInfo = () => {
     )
       return;
 
-    
-    handleInputChange(changeEvent, 'personalInfo');
+    const { name, value } = changeEvent.target;
+
+    dispatch(
+      updatePersonalInfo({
+        ...userState.onboardingInputs.personalInfo,
+        [name]: value,
+      })
+    );
   }
 
   const formErrorField = (val: string): boolean | string => {

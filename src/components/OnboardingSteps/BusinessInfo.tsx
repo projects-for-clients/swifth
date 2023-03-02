@@ -28,6 +28,8 @@ const keyProps = {
 } satisfies KeyProps;
 
 const businessInfo = () => {
+  const dispatch = useAppDispatch();
+  const userState = useAppSelector((state) => state.user);
   const { handleStep, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
 
@@ -126,8 +128,7 @@ const businessInfo = () => {
     }
   }, [setInput]);
 
-  const dispatch = useAppDispatch();
-  const userState = useAppSelector((state) => state.user);
+  
   function setInput(e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 
