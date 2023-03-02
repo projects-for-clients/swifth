@@ -201,7 +201,9 @@ const businessInfo = ({
             />
             <div>
               <p className="text-[1.6rem] text-color-primary uppercase">
-                Upload Logo
+                {
+                  setup ? 'Change Logo' : 'Upload Logo'
+                }
               </p>
               {imageDetails.logoUri.error && (
                 <p className="text-red-600 text-[1.2rem]">
