@@ -66,14 +66,18 @@ function PersonalInformation() {
 
   const third = (
     <>
-      <div>
+      <div className="grid justify-items-center gap-8">
         <img src="/icons/goodMark.svg" alt="" />
         <p className="text-[2rem]">Changes submitted!</p>
-        <p>
-          The changes you have made would be applied when they have been
-          reviewed and approved.
-          <span>You will be notified when they have been approved.</span>
-        </p>
+        <div className="text-center">
+          <p>
+            The changes you have made would be applied when they have been
+            reviewed and approved.
+          </p>
+          <p className="mt-10">
+            You will be notified when they have been approved.
+          </p>
+        </div>
       </div>
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold w-full absolute bottom-0  `}
@@ -92,7 +96,7 @@ function PersonalInformation() {
   //console.log({signalValues})
 
   return (
-    <div className='relative'>
+    <div className="relative h-[90vh]">
       <p className="text-[2rem] mb-16">Personal Information</p>
 
       {Paths.get(step)}
