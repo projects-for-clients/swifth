@@ -66,15 +66,15 @@ function PersonalInformation() {
 
   const third = (
     <>
-      <div className="grid justify-items-center gap-8">
+      <div className="grid justify-items-center gap-8 mt-[10rem] ">
         <img src="/icons/goodMark.svg" alt="" />
-        <p className="text-[2rem]">Changes submitted!</p>
-        <div className="text-center">
+        <p className="text-[2.4rem]">Changes submitted!</p>
+        <div className="text-center text-[1.4rem] text-gray-500">
           <p>
             The changes you have made would be applied when they have been
             reviewed and approved.
           </p>
-          <p className="mt-10">
+          <p className="mt-5">
             You will be notified when they have been approved.
           </p>
         </div>
