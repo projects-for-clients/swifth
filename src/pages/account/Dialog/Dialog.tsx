@@ -5,13 +5,10 @@ import PersonalInformation from './PersonalInformation';
 function Dialog() {
   const { dialogType, setDialogType } = useContext(DialogContext);
 
-  console.log({ dialogType });
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const openDialog = (dialogType: DialogType) => {
-    if (dialogType === 'personal') {
-      dialogRef.current?.showModal();
-    }
+  const openDialog = () => {
+    dialogRef.current?.showModal();
   };
 
   const closeDialog = () => {
@@ -21,7 +18,7 @@ function Dialog() {
 
   useEffect(() => {
     if (dialogType) {
-      openDialog(dialogType);
+      openDialog();
     }
   }, [dialogType]);
 
