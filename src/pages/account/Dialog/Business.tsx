@@ -8,7 +8,7 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
 
   const first = (
     <>
-      <div className="grid justify-center">
+      <div className="grid justify-items-center">
         <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
           <img
             src=""
@@ -34,9 +34,11 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
           >
             Edit Details
           </button>
-          <p>
+          <p className="flex items-center gap-4 mt-10">
             <img src="/icons/info-circle-1.svg" alt="" />
-            <span>Business information is up to date</span>
+            <span className="text-[#66BD89] text-[1.4rem]">
+              Business information is up to date
+            </span>
           </p>
         </div>
       </div>
