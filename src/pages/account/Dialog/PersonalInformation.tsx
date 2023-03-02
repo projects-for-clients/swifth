@@ -88,12 +88,11 @@ function PersonalInformation() {
   );
 
   const Paths = new Map<number, JSX.Element>([
-    [1, third],
+    [1, first],
     [2, <PersonalInfo setup={true} setStep={setStep} />],
     [3, third],
   ]);
 
-  //console.log({signalValues})
 
   return (
     <div className="relative h-[90vh]">
