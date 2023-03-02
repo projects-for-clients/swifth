@@ -9,11 +9,45 @@ function Reports() {
     setSearch(e.target.value);
   };
 
+  const generateMonth = (month: string) => {
+    const startDate = new Date(month); // use current date
+    startDate.setDate(1); // set to 1st day of the month
+
+    const endDate = new Date(
+      startDate.getFullYear(),
+      startDate.getMonth() + 1,
+      0
+    ); // get the last day of the month
+
+    const dates = [];
+
+    for (
+      let date = startDate;
+      date <= endDate;
+      date.setDate(date.getDate() + 1)
+    ) {
+      dates.push(new Date(date)); // add each date to the list
+    }
+
+    return dates
+    
+  };
+
+  interface ReportTable {
+    date: Date;
+    activeCustomers: number;
+    quotesRequested: number;
+    ordersPlaced: number;
+    deliveredItems: number;
+    individualPayments: number;
+    completedPayments: number;
+  }
+
   return (
     <>
       <Header title="Reports" />
 
-      <main className="text-[1.6rem]">
+      <main className="text-[1.6rem] ">
         <section className="relative flex items-center w-[45rem] mx-auto">
           <input
             type="text"
@@ -61,13 +95,35 @@ function Reports() {
             </div>
           </div>
         </section>
-        <section className="mt-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ducimus
-          beatae voluptates dolore illo. Blanditiis natus pariatur nesciunt
-          sint. Natus, ea quae voluptatibus aperiam error illo laborum quidem
-          labore nihil!
+        <section className="mt-10 w-[90rem]">
+          <table className="w-full text-center  reports">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Client</th>
+                <th>Hours</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Project 1</td>
+                <td>Client 1</td>
+                <td>10</td>
+                <td>100</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>Project 2</td>
+                <td>Client 2</td>
+                <td>10</td>
+                <td>100</td>
+                <td>1000</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
-        
       </main>
     </>
   );
