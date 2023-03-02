@@ -141,14 +141,14 @@ const Account = () => {
                 alt=""
                 className="absolute w-full h-full rounded-full  z-[1]"
               />
-              <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-color-red-light-3 grid place-content-center rounded-full">
+              <p className="absolute w-full h-full z-[2] text-[5rem] bg-purple-100 border border-color-purple-light grid place-content-center rounded-full">
                 <span>{initials}</span>
               </p>
             </figure>
            
             
           <div>
-            <p className='flex items-center gap-4 font-semibold'>
+            <p className='flex items-center gap-4 font-medium'>
                 <span >{name}</span> <img src="/icons/line.svg" alt=""  /> <span className='text-color-purple'>BenDavis Clearing Services Ltd</span>
             </p>
             <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
