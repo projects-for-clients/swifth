@@ -134,20 +134,24 @@ function Reports() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Project 1</td>
-                <td>Client 1</td>
-                <td>10</td>
-                <td>100</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>Project 2</td>
-                <td>Client 2</td>
-                <td>10</td>
-                <td>100</td>
-                <td>1000</td>
-              </tr>
+              {
+                reportTable.map((report, i) => (
+                    <tr key={i}>
+                        <td>{report.date.toLocaleDateString(undefined, {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+
+                        })}</td>
+                        <td>{report.activeCustomers}</td>
+                        <td>{report.quotesRequested}</td>
+                        <td>{report.ordersPlaced}</td>
+                        <td>{report.deliveredItems}</td>
+                        <td>{report.individualPayments}</td>
+                        <td>{report.completedPayments}</td>
+                    </tr>
+                ))
+              }
             </tbody>
           </table>
         </section>

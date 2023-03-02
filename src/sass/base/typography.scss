@@ -90,7 +90,6 @@ p {
   width: 100%;
   position: relative;
   display: flex;
-  
 
   &::after {
     content: '';
@@ -122,7 +121,6 @@ p {
   position: relative;
   display: flex;
   font-size: 1.6rem;
-  
 
   &::after {
     content: '';
@@ -152,13 +150,18 @@ p {
 
 .reports {
   table,
-      th,
-      td {
-        padding: 10px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #BEB3DE;
+    border-collapse: collapse;
+  }
+
+  thead{
+    th{
+      font-size: 1.4rem;
+      background: #EEEBF6;
+      font-weight: 500;
+    }
+  }
 }
-
-
-
