@@ -1,7 +1,9 @@
 import {
   ChangeEvent,
+  Dispatch,
   FormEvent,
   MouseEvent,
+  SetStateAction,
   useContext,
   useEffect,
   useState,
@@ -27,13 +29,18 @@ const keyProps = {
   pathName: '',
 } satisfies KeyProps;
 
-const businessInfo = () => {
+const businessInfo = ({
+  setup,
+  setStep,
+}: {
+  setup?: boolean;
+  setStep?: Dispatch<SetStateAction<number>>;
+}) => {
   const dispatch = useAppDispatch();
-  const {onboardingInputs} = useAppSelector((state) => state.user);
-  const { handleStep, validationErrors, } =
-    useContext(OnboardingContext);
+  const { onboardingInputs } = useAppSelector((state) => state.user);
+  const { handleStep, validationErrors } = useContext(OnboardingContext);
 
-  const { businessName, officeAddress } = onboardingInputs.businessInfo
+  const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
   const [imageDetails, setImageDetails] = useState<Record<UriKeys, KeyProps>>({
     logoUri: keyProps,
@@ -128,7 +135,6 @@ const businessInfo = () => {
     }
   }, [setInput]);
 
-  
   function setInput(e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 

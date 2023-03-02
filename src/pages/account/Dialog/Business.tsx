@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
-import PersonalInfo from '../../../components/OnboardingSteps/PersonalInfo';
+import BusinessInfo from '../../../components/OnboardingSteps/BusinessInfo';
 
 function Business({ closeDialog }: { closeDialog: () => void }) {
   const [step, setStep] = useState(1);
@@ -90,13 +90,13 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
 
   const Paths = new Map<number, JSX.Element>([
     [1, first],
-    [2, <PersonalInfo setup={true} setStep={setStep} />],
+    [2, <BusinessInfo setup={true} setStep={setStep} />],
     [3, third],
   ]);
 
   return (
     <div className="relative h-[90vh]">
-      <p className="text-[2rem] mb-16">Personal Information</p>
+      <p className="text-[2rem] mb-16">Business Information</p>
 
       {Paths.get(step)}
     </div>
