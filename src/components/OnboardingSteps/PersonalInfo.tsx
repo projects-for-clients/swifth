@@ -10,7 +10,6 @@ import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
 import {
-  ,
   updatePersonalInfo,
 } from '../../store/features/user/user';
 import { getPhotoUri } from '../../utils/getPhotoUri';
