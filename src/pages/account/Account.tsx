@@ -1,12 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { IoMdCheckmark } from 'react-icons/io';
+
 import Header from '../../components/dashboard/Header';
 import Dialog from './Dialog/Dialog';
 
+export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 const Account = () => {
-  export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 
   const [dialogType, setDialogType] = useState<DialogType>('personal');
 
