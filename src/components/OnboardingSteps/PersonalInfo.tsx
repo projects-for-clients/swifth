@@ -1,7 +1,9 @@
 import {
   ChangeEvent,
+  Dispatch,
   FormEvent,
   MouseEvent,
+  SetStateAction,
   useContext,
   useEffect,
   useState,
@@ -20,7 +22,13 @@ interface ImageDetails {
   value: 'idCardUri' | 'POAUri';
 }
 
-const PersonalInfo = ({ setup }: { setup?: boolean }) => {
+const PersonalInfo = ({
+  setup,
+  setStep,
+}: {
+  setup?: boolean;
+  setStep?: Dispatch<SetStateAction<number>>;
+}) => {
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
 
@@ -395,8 +403,7 @@ const PersonalInfo = ({ setup }: { setup?: boolean }) => {
             }`}
             disabled={isDisabled}
           >
-
-            {setup ? 'Save' : 'Continue'}
+            {setup ? 'Save Changes' : 'Continue'}
           </button>
         </form>
       </div>
