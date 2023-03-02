@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import {HiOutlineChevronRight} from 'react-icons/hi'
+import { HiOutlineChevronRight } from 'react-icons/hi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
 
@@ -143,13 +143,21 @@ const Account = () => {
               <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
             </div>
           </div>
-          <div className='mt-10'>
-            <p className='border border-color-purple-light-2 rounded-2xl py-8 px-8 flex items-center justify-between'>
-              <span>Personal Information</span>
+          <div className="mt-10">
+            <div className="border border-color-purple-light-2 rounded-2xl p-8 flex items-center justify-between">
+              <p>Personal Information</p>
               <span>
                 <HiOutlineChevronRight />
               </span>
-            </p>
+            </div>
+            <div className="border border-color-purple-light-2 rounded-2xl p-8 flex items-center justify-between">
+              <p>
+                <span>Business Information</span>
+              </p>
+              <span>
+                <HiOutlineChevronRight />
+              </span>
+            </div>
           </div>
         </section>
 
