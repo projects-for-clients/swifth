@@ -36,19 +36,17 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
           </button>
           <p>
             <img src="/icons/info-circle-1.svg" alt="" />
-            <span>
-                Business information is up to date
-            </span>
+            <span>Business information is up to date</span>
           </p>
         </div>
       </div>
 
       <div className="grid gap-4 font-medium border-t border-t-color-purple-light pt-10 mt-10">
-        <p>090238232323</p>
+        <p>14 Abraham Ladipe Lekki Phase 1</p>
         <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
 
         <div className="flex justify-between items-center">
-          <p>Contact Person ID card</p>
+          <p>CAC Certificate</p>
           <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
             <span>
               <IoMdCheckmark />
@@ -57,7 +55,7 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
           </p>
         </div>
         <div className="flex justify-between items-center">
-          <p>Proof of Address</p>
+          <p>Custom license</p>
           <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
             <span>
               <IoMdCheckmark />
