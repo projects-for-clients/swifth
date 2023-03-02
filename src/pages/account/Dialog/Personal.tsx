@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 import PersonalInfo from '../../../components/OnboardingSteps/PersonalInfo';
 
-function PersonalInformation({
+function Personal({
   closeDialog
 }: {
   closeDialog: () => void;
@@ -108,4 +108,4 @@ function PersonalInformation({
   );
 }
 
-export default PersonalInformation;
+export default Personal;

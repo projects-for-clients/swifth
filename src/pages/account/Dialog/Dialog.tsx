@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { DialogContext, DialogType } from '../Account';
-import PersonalInformation from './PersonalInformation';
+import Personal from './Personal';
 
 function Dialog() {
   const { dialogType, setDialogType } = useContext(DialogContext);
@@ -23,10 +23,9 @@ function Dialog() {
   }, [dialogType]);
 
   const Paths = new Map<DialogType, JSX.Element>([
-    ['personal', <PersonalInformation closeDialog={closeDialog}/>],
-    ['business', <PersonalInformation />],
-    ['ports', <PersonalInformation />],
-    ['config', <PersonalInformation />],
+    ['personal', <Personal closeDialog={closeDialog}/>],
+    ['business', <Personal />],
+  
   ]);
 
   return (
