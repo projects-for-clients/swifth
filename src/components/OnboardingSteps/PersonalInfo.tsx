@@ -170,7 +170,7 @@ const PersonalInfo = ({
     e.preventDefault();
 
     if (setup && setStep) {
-      return setStep(2)
+      return setStep(3)
     }
     handleStep('next');
   };
