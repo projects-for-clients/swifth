@@ -66,7 +66,7 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(!toggleSelectMenu);
   };
 
-  const {  onboardingInputs, validationErrors } =
+  const {  validationErrors } =
     useContext(OnboardingContext);
 
   const uploadUriHandler = async (
@@ -300,6 +300,8 @@ const Terminal: FC<ITerminal> = ({
 type Port = 'Lagos' | 'Onitsha';
 
 const PortAndTerminals = () => {
+  const dispatch = useAppDispatch();
+  const userState = useAppSelector((state) => state.user);
   const port: Port[] = ['Lagos', 'Onitsha'];
   const [selectedItem, setSelectedItem] = useState<Port | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
@@ -314,7 +316,7 @@ const PortAndTerminals = () => {
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
-  const { handleStep, handleInputChange } = useContext(OnboardingContext);
+  const { handleStep,  } = useContext(OnboardingContext);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -351,7 +353,15 @@ const PortAndTerminals = () => {
         },
       } as ChangeEvent<HTMLInputElement>;
 
-      handleInputChange(data, 'port');
+
+      dispatch(
+        updatePortsAndTerminalInfo({
+          ...userState.onboardingInputs.portsAndTerminal,
+          port: selectedItem,
+        })
+      );
+
+      
     }
   }, [selectedItem]);
 

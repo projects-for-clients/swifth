@@ -289,7 +289,6 @@ const Onboarding = () => {
       value={{
         step,
         handleStep,
-        onboardingInputs,
         validationErrors,
       }}
     >
