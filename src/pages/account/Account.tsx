@@ -74,7 +74,7 @@ const Account = () => {
                 <img src="/icons/camera.svg" alt="" className='absolute right-0 z-20 bottom-0 mb-3' />
               </figure>
 
-              <div>
+              <div className='text-center mt-10'>
                 <p className="text-[3rem]">{name}</p>
                 <button
                   className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
