@@ -203,7 +203,9 @@ const Account = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div className='grid gap-8 mt-10' style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))'
+          }}>
 
             <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
                 <img src="/icons/settings.svg" alt="" />
