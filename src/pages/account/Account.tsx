@@ -104,7 +104,7 @@ const Account = () => {
               <p className="font-medium text-gray-500">History/Activity</p>
 
               <div className="grid gap-8 py-16">
-                <div className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-2xl p-6">
+                <div className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-3xl p-6">
                   <div>
                     <p>sdfsf</p>
                     <p className="text-[1.4rem] text-gray-500">{`RC - sdfs`}</p>
@@ -144,16 +144,16 @@ const Account = () => {
             </div>
           </div>
           <div className="mt-10 grid gap-8">
-            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+            <div className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between">
               <p>Personal Information</p>
               <span>
                 <HiOutlineChevronRight />
               </span>
             </div>
-            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+            <div className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between">
               <div className="grid justify-items-start gap-4">
                 <p>Business Information</p>
-                <span className="border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-2xl py-2 px-4">
+                <span className="border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-3xl py-2 px-4">
                   Up to date
                 </span>
               </div>
@@ -161,10 +161,10 @@ const Account = () => {
                 <HiOutlineChevronRight />
               </span>
             </div>
-            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+            <div className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between">
               <div className="grid justify-items-start gap-4">
                 <p>Ports and Terminals Information</p>
-                <span className="border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-2xl py-2 px-4">
+                <span className="border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-3xl py-2 px-4">
                   Up to date
                 </span>
               </div>
@@ -172,13 +172,13 @@ const Account = () => {
                 <HiOutlineChevronRight />
               </span>
             </div>
-            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+            <div className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between">
               <p>Formular Configuration</p>
               <span>
                 <HiOutlineChevronRight />
               </span>
             </div>
-            <div className="border border-red-600 rounded-2xl p-6 flex items-center justify-between text-red-600 self-stretch">
+            <div className="border border-red-600 rounded-3xl p-6 flex items-center justify-between text-red-600 mt-20">
               <p>Logout</p>
               <span>
                 <img src="/icons/logout.svg" alt="" />
@@ -188,10 +188,36 @@ const Account = () => {
         </section>
 
         <section>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
-          repudiandae expedita deserunt saepe quaerat recusandae exercitationem
-          maxime atque commodi explicabo culpa enim mollitia repellendus, dicta
-          eaque molestiae quas dolore quod.
+          <div
+            className="bg-color-red-light-2 border border-color-red-light-3
+       p-14 rounded-3xl relative"
+          >
+            <div className="absolute right-4 top-4 flex gap-4 items-center">
+              <img src="/icons/send.svg" alt="" className="cursor-pointer" />
+              <img src="/icons/copy.svg" alt="" className="cursor-pointer" />
+            </div>
+            <div>
+              <p className="text-[2.4rem] text-color-purple">AB-3423</p>
+              <p className="text-[1.4rem] max-w-[25rem] text-gray-500">
+                Here's your Code. Share this with your customers.
+              </p>
+            </div>
+          </div>
+          <div>
+
+            <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
+                <img src="/icons/settings.svg" alt="" />
+                <span>Settings</span>
+            </p>
+            <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
+                <img src="/icons/support.svg" alt="" />
+                <span>Support</span>
+            </p>
+            <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
+                <img src="/icons/t&C.svg" alt="" />
+                <span>Terms & Conditions</span>
+            </p>
+          </div>
         </section>
       </main>
     </>
