@@ -87,7 +87,7 @@ const Account = () => {
               </div>
             </div>
 
-            <div className='grid gap-4 font-medium'>
+            <div className='grid gap-4 font-medium border-t border-t-color-purple-light pt-10 mt-10'>
               <p>090238232323</p>
               <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
 
