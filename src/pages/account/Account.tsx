@@ -148,8 +148,10 @@ const Account = () => {
            
             
           <div>
+            <p className='flex items-center gap-4 font-Satoshi-Medium'>
+                <span >{name}</span> <img src="/icons/line.svg" alt=""  /> <span>BenDavis Clearing Services Ltd</span>
+            </p>
             <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
-            <p>+23498523823</p>
           </div>
         </div>
          
