@@ -146,51 +146,51 @@ function Reports() {
 
   return (
     <>
-    
-        <Header title="Reports" />
-        
-        <main className="text-[1.6rem]">
-          <section className="relative flex items-center w-[45rem] mx-auto">
-            <input
-              type="text"
-              className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
-              placeholder="Search"
-              value={search}
-              onChange={handleSearch}
-            />
+      <Header title="Reports" />
 
-            <img
-              src="/icons/search-normal.svg"
-              alt=""
-              className="absolute left-6 text-[1.8rem]"
-            />
-          </section>
+      <main className="text-[1.6rem]">
+        <section className="relative flex items-center w-[45rem] mx-auto">
+          <input
+            type="text"
+            className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
+            placeholder="Search"
+            value={search}
+            onChange={handleSearch}
+          />
 
-          <section>
-        
-            
-                <div className="flex justify-between items-center mt-10">
-                  <div
-                    className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
-                    onClick={() => setOpenHistoryDialog(true)}
-                  >
-                    <img
-                      src="/icons/history.svg"
-                      alt=""
-                      className="w-[1.6rem] h-[1.6rem]"
-                    />
-                    <p>March</p>
-                  </div>
-                  <div className="flex items-center gap-8">
-                  <button className='btn'>
-                        <img src="/icons/send-square.svg" alt="" className='w-[1.6rem] h-[1.6rem]' />
-                        <span>Download</span>
-                  </button>
-                  </div>
-                </div>
-           
-          </section>
-        </main>
+          <img
+            src="/icons/search-normal.svg"
+            alt=""
+            className="absolute left-6 text-[1.8rem]"
+          />
+        </section>
+
+        <section>
+          <div className="flex justify-between items-center mt-10">
+            <div
+              className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer w-[15rem]"
+              onClick={() => setOpenHistoryDialog(true)}
+            >
+              <img
+                src="/icons/history.svg"
+                alt=""
+                className="w-[1.6rem] h-[1.6rem]"
+              />
+              <p>March</p>
+            </div>
+            <div className="flex items-center gap-8">
+              <button className="btn text-color-purple bg-color-red-light-1 border border-color-red-light flex items-center gap-4">
+                <img
+                  src="/icons/send-square.svg"
+                  alt=""
+                  className="w-[1.8rem] h-[1.6rem]"
+                />
+                <span>Download</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
