@@ -84,7 +84,7 @@ function PersonalInformation() {
   );
 
   const Paths = new Map<number, JSX.Element>([
-    [1, first],
+    [1, third],
     [2, <PersonalInfo setup={true} setStep={setStep} />],
     [3, third],
   ]);
@@ -92,11 +92,11 @@ function PersonalInformation() {
   //console.log({signalValues})
 
   return (
-    <>
+    <div className='relative'>
       <p className="text-[2rem] mb-16">Personal Information</p>
 
       {Paths.get(step)}
-    </>
+    </div>
   );
 }
 
