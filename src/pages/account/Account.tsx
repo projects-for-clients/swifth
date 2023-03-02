@@ -42,7 +42,7 @@ const Account = () => {
     dialogRef.current?.close();
   };
 
-  const name = 'John Doe'
+  const name = 'Ben Davis'
   let initials = name.split(' ').map((n: string) => n[0]);
 
   const AccessArr = Array.from({ length: 5 }).map((_, i) => {
@@ -128,18 +128,10 @@ const Account = () => {
           )}
         </div>
       </dialog>
-      <Header title="Team" />
+      <Header title="Account" />
 
       <main className="text-[1.6rem] grid gap-10">
-        <div className="flex items-center gap-16">
-          <BiArrowBack
-            className="text-[1.8rem] cursor-pointer"
-            onClick={
-              isEditProfile ? () => setIsEditProfile(false) : () => navigate(-1)
-            }
-          />
-          <p className="text-[2rem]">{name}</p>
-        </div>
+       
 
         <div className="grid gap-8">
           <div className="flex items-end gap-16">
@@ -153,21 +145,16 @@ const Account = () => {
                 <span>{initials}</span>
               </p>
             </figure>
-            {!isEditProfile && (
-              <button
-                className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
-                onClick={() => setIsEditProfile(true)}
-              >
-                Edit Profile
-              </button>
-            )}
-          </div>
-
+           
+            
           <div>
             <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
             <p>+23498523823</p>
           </div>
         </div>
+         
+          </div>
+
 
        
 
