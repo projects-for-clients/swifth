@@ -69,8 +69,8 @@ function PersonalInformation() {
 
   const Paths = new Map<number, JSX.Element>([
     [1, first],
-    // [2, <PersonalInfo />],
-    [2, second],
+    [2, <PersonalInfo />],
+    // [2, second],
     [3, first],
   ]);
 
