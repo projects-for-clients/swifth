@@ -143,7 +143,7 @@ const Account = () => {
               <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 grid gap-8">
             <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
               <p>Personal Information</p>
               <span>
@@ -178,10 +178,10 @@ const Account = () => {
                 <HiOutlineChevronRight />
               </span>
             </div>
-            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+            <div className="border border-red-600 rounded-2xl p-6 flex items-center justify-between text-red-600 self-stretch">
               <p>Logout</p>
               <span>
-                <HiOutlineChevronRight />
+                <img src="/icons/logout.svg" alt="" />
               </span>
             </div>
           </div>
