@@ -25,7 +25,7 @@ interface ImageDetails {
 
 const PersonalInfo = () => {
   const dispatch = useAppDispatch();
-  const userState = useAppSelector((state) => state.user);
+  const {onboardingInputs} = useAppSelector((state) => state.user);
 
   const { handleStep, validationErrors } =
     useContext(OnboardingContext);
@@ -130,7 +130,7 @@ const PersonalInfo = () => {
     if (idCardDetails.name && formUri.idCardUri) {
       dispatch(
         updatePersonalInfo({
-          ...userState.onboardingInputs.personalInfo,
+          ...onboardingInputs.personalInfo,
           idCardUri: idCardDetails.error
             ? 'File size must not exceed 2MB'
             : formUri.idCardUri,
@@ -150,7 +150,7 @@ const PersonalInfo = () => {
 
       dispatch(
         updatePersonalInfo({
-          ...userState.onboardingInputs.personalInfo,
+          ...onboardingInputs.personalInfo,
           POAUri: idCardDetails.error
             ? 'File size must not exceed 2MB'
             : formUri.idCardUri,
@@ -185,7 +185,7 @@ const PersonalInfo = () => {
 
     dispatch(
       updatePersonalInfo({
-        ...userState.onboardingInputs.personalInfo,
+        ...onboardingInputs.personalInfo,
         [name]: value,
       })
     );
