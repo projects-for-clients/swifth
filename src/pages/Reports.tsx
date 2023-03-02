@@ -11,14 +11,14 @@ function Reports() {
   };
 
   const generateMonth = (month: string) => {
-    const startDate = new Date(month); // use current date
-    startDate.setDate(1); // set to 1st day of the month
+    const startDate = new Date(month); 
+    startDate.setDate(1); 
 
     const endDate = new Date(
       startDate.getFullYear(),
       startDate.getMonth() + 1,
       0
-    ); // get the last day of the month
+    ); 
 
     const dates = [];
 
@@ -27,7 +27,7 @@ function Reports() {
       date <= endDate;
       date.setDate(date.getDate() + 1)
     ) {
-      dates.push(new Date(date)); // add each date to the list
+      dates.push(new Date(date)); 
     }
 
     return dates;
@@ -90,7 +90,7 @@ function Reports() {
         </section>
         <section>
           <div className="flex justify-between items-center mt-10">
-            <div>
+            <div className='cursor-pointer'>
               <input
                 type="month"
                 id="month"
@@ -120,7 +120,7 @@ function Reports() {
             </div>
           </div>
         </section>
-        <section className="mt-10 w-[90rem]">
+        <section className="mt-10 ">
           <table className="w-full text-center  reports">
             <thead>
               <tr>
@@ -137,7 +137,7 @@ function Reports() {
               {
                 reportTable.map((report, i) => (
                     <tr key={i}>
-                        <td>{report.date.toLocaleDateString(undefined, {
+                        <td className=' whitespace-nowrap'>{report.date.toLocaleDateString(undefined, {
                             month: 'short',
                             day: 'numeric',
                             year: 'numeric'
