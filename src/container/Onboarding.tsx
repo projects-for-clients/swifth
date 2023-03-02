@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import DashboardHome from './Home';
 import { useAppDispatch, useAppSelector } from '../store/app/hooks';
-import { updateUser, updateUserOnboarding } from '../store/features/user/user';
+import { updateBusinessInfo, updateUser, updateUserOnboarding } from '../store/features/user/user';
 
 
 
@@ -53,7 +53,7 @@ const Onboarding = () => {
     initialState
   );
 
-  
+
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
@@ -63,6 +63,9 @@ const Onboarding = () => {
 
     setValidationErrors(null);
     if (key === 'businessInfo') {
+      updateBusinessInfo({
+        sfsf: ''
+      })
       setOnboardingInputs({
         type: 'UPDATE_BUSINESS_INFO',
         payload: {

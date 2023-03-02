@@ -38,7 +38,6 @@ export interface OnboardingInputs {
   personalInfo: PersonalInfo;
 }
 
-
 export interface IUser {
   onboardingInputs: OnboardingInputs;
   validated: boolean;
@@ -138,29 +137,46 @@ export const userSlice = createSlice({
       state.email = data.personalInfo.email;
     },
 
-
-    updateBusinessInfo: (state, { payload }) => {
-      const data = payload as BusinessInfo;
-
-      state.onboardingInputs.businessInfo = data;
+    updateBusinessInfo: (
+      state,
+      {
+        payload,
+      }: {
+        payload: BusinessInfo;
+      }
+    ) => {
+      state.onboardingInputs.businessInfo = payload;
     },
-    updatePersonalInfo: (state, { payload }) => {
-      const data = payload as PersonalInfo;
-
-      state.onboardingInputs.personalInfo = data;
+    updatePersonalInfo: (
+      state,
+      {
+        payload,
+      }: {
+        payload: PersonalInfo;
+      }
+    ) => {
+      state.onboardingInputs.personalInfo = payload;
     },
-    updatePortsAndTerminalInfo: (state, { payload }) => {
-      const data = payload as PortsAndTerminal;
-
-      state.onboardingInputs.portsAndTerminal = data;
+    updatePortsAndTerminalInfo: (
+      state,
+      {
+        payload,
+      }: {
+        payload: PortsAndTerminal;
+      }
+    ) => {
+      state.onboardingInputs.portsAndTerminal = payload;
     },
-
   },
-
-  extraReducers: (builder) => {},
 });
 
-export const { updateUserOnboarding, updateUser, updateBusinessInfo, updatePersonalInfo, updatePortsAndTerminalInfo } = userSlice.actions;
+export const {
+  updateUserOnboarding,
+  updateUser,
+  updateBusinessInfo,
+  updatePersonalInfo,
+  updatePortsAndTerminalInfo,
+} = userSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;
 
