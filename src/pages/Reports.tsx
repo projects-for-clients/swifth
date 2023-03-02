@@ -187,7 +187,7 @@ function Reports() {
                 />
                 <span>Download</span>
               </button>
-              <button className="btn text-green-600 bg-color-bg-color-primary-light border border-color-primary-dark items-center gap-4 rounded-2xl flex">
+              <button className="btn text-green-600 bg-green-100 border border-[#ADD9BD] items-center gap-4 rounded-2xl flex">
                 <img
                   src="/icons/send-2.svg"
                   alt=""
