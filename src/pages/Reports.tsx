@@ -182,38 +182,7 @@ function Reports() {
                     <p>March</p>
                   </div>
                   <div className="flex items-center gap-8">
-                    <>
-                      <SelectDropDown
-                        selectFrom={sortBy}
-                        selectedItem={selectedSort}
-                        setSelectedItem={setSelectedSort}
-                        label={'sortBy'}
-                        setDropDownState={setDropDownState}
-                        dropDownState={dropDownState}
-                      />
-                      <SelectDropDown
-                        selectFrom={
-                          currentPath === 'delivery'
-                            ? deliveryFilters
-                            : pickupFilters
-                        }
-                        selectedItem={
-                          currentPath === 'delivery'
-                            ? deliveryFilteredBy
-                            : pickupFilteredBy
-                        }
-                        setSelectedItem={
-                          currentPath === 'delivery'
-                            ? setDeliveryFilteredBy
-                            : setPickupFilteredBy
-                        }
-                        isFilter
-                        label={'filterBy'}
-                        setDropDownState={setDropDownState}
-                        dropDownState={dropDownState}
-                      />
-                     
-                    </>
+                  
                   </div>
                 </div>
            
