@@ -123,6 +123,10 @@ const businessInfo = ({
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    if(setup && setStep){
+      return setStep(3);
+    }
+
     handleStep('portsAndTerminal');
   };
 
