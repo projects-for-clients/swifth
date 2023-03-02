@@ -97,55 +97,52 @@ function Reports() {
     }
   };
 
-  useEffect(() => {
-    if (deliveryFilteredBy && currentPath === 'delivery') {
-      const filtered = DELIVERY_DATA.filter(
-        (item) => item.tag === deliveryFilteredBy
-      );
+//   useEffect(() => {
+//     if (deliveryFilteredBy && currentPath === 'delivery') {
+//       const filtered = DELIVERY_DATA.filter(
+//         (item) => item.tag === deliveryFilteredBy
+//       );
 
-      return setDeliveryData(() => [...filtered]);
-    }
+//       return setDeliveryData(() => [...filtered]);
+//     }
 
-    if (pickupFilteredBy && currentPath === 'pickup') {
-      const filtered = PICKUP_DATA.filter(
-        (item) => item.tag.toLowerCase() === pickupFilteredBy.toLowerCase()
-      );
+//     if (pickupFilteredBy && currentPath === 'pickup') {
+//       const filtered = PICKUP_DATA.filter(
+//         (item) => item.tag.toLowerCase() === pickupFilteredBy.toLowerCase()
+//       );
 
-      return setPickupData(() => [...filtered]);
-    }
-  }, [deliveryFilteredBy, pickupFilteredBy]);
+//       return setPickupData(() => [...filtered]);
+//     }
+//   }, [deliveryFilteredBy, pickupFilteredBy]);
 
-  useEffect(() => {
-    if (selectedSort) {
-      if ((selectedSort as SortBy) === 'A-Z') {
-        const sortedNames = [...DELIVERY_DATA].sort((a, b) => {
-          return a.name.localeCompare(b.name);
-        });
+//   useEffect(() => {
+//     if (selectedSort) {
+//       if ((selectedSort as SortBy) === 'A-Z') {
+//         const sortedNames = [...DELIVERY_DATA].sort((a, b) => {
+//           return a.name.localeCompare(b.name);
+//         });
 
-        return setDeliveryData(() => [...sortedNames]);
-      } else if ((selectedSort as SortBy) === 'Most Recent') {
-        const sortedDates = [...DELIVERY_DATA].sort((a, b) => {
-          return new Date(a.date).getTime() - new Date(b.date).getTime();
-        });
+//         return setDeliveryData(() => [...sortedNames]);
+//       } else if ((selectedSort as SortBy) === 'Most Recent') {
+//         const sortedDates = [...DELIVERY_DATA].sort((a, b) => {
+//           return new Date(a.date).getTime() - new Date(b.date).getTime();
+//         });
 
-        return setDeliveryData(() => [...sortedDates]);
-      }
-    }
-  }, [selectedSort]);
+//         return setDeliveryData(() => [...sortedDates]);
+//       }
+//     }
+//   }, [selectedSort]);
 
-  const handleClearFilter = (toClear: 'delivery' | 'pickup') => {
-    if (toClear === 'delivery') {
-      setDeliveryFilteredBy('');
-      setDropDownState((prev) => ({ ...prev, filterBy: false }));
-    } else {
-      setPickupFilteredBy('');
-    }
-  };
+//   const handleClearFilter = (toClear: 'delivery' | 'pickup') => {
+//     if (toClear === 'delivery') {
+//       setDeliveryFilteredBy('');
+//       setDropDownState((prev) => ({ ...prev, filterBy: false }));
+//     } else {
+//       setPickupFilteredBy('');
+//     }
+//   };
 
-  const pathToSwitch: Record<SwitchPath, JSX.Element> = {
-    delivery: <DeliveryPath deliveryData={deliveryData} />,
-    pickup: <PickupPath pickupData={pickupData} />,
-  };
+
 
   return (
     <>
@@ -182,7 +179,7 @@ function Reports() {
                       alt=""
                       className="w-[1.6rem] h-[1.6rem]"
                     />
-                    <p>History</p>
+                    <p>March</p>
                   </div>
                   <div className="flex items-center gap-8">
                     <>
@@ -215,12 +212,7 @@ function Reports() {
                         setDropDownState={setDropDownState}
                         dropDownState={dropDownState}
                       />
-                      {deliveryFilteredBy && (
-                        <GrClose
-                          className="text-[1.4rem] cursor-pointer"
-                          onClick={() => handleClearFilter('delivery')}
-                        />
-                      )}
+                     
                     </>
                   </div>
                 </div>
