@@ -7,8 +7,8 @@ import Dialog from './Dialog/Dialog';
 export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 
 interface DialogContextType {
-    dialogType: DialogType;
-    setDialogType: Dispatch<SetStateAction<DialogType>>;
+    dialogType: DialogType | null;
+    setDialogType: Dispatch<SetStateAction<DialogType | null>>;
     isDialogOpen: boolean;
     setIsDialogOpen: Dispatch<SetStateAction<boolean>>;
 }
@@ -16,7 +16,7 @@ interface DialogContextType {
 export const DialogContext = createContext<DialogContextType>(null as any)
 const Account = () => {
 
-  const [dialogType, setDialogType] = useState<DialogType>('personal');
+  const [dialogType, setDialogType] = useState<DialogType | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const name = 'Ben Davis';
