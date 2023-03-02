@@ -20,9 +20,7 @@ interface ImageDetails {
   value: 'idCardUri' | 'POAUri';
 }
 
-const PersonalInfo = ({setup}: {
-  setup?: boolean;
-}) => {
+const PersonalInfo = ({ setup }: { setup?: boolean }) => {
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
 
@@ -212,11 +210,13 @@ const PersonalInfo = ({setup}: {
       )}
 
       <div className="grid gap-16">
-        <div className="flex gap-2">
-          <img src="/icons/admin/barFilled.svg" alt="" />
-          <img src="/icons/admin/barFilled.svg" alt="" />
-          <img src="/icons/admin/barFilled.svg" alt="" />
-        </div>
+        {!setup && (
+          <div className="flex gap-2">
+            <img src="/icons/admin/barFilled.svg" alt="" />
+            <img src="/icons/admin/barFilled.svg" alt="" />
+            <img src="/icons/admin/barFilled.svg" alt="" />
+          </div>
+        )}
 
         <form
           className="grid gap-10 "
