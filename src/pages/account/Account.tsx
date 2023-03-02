@@ -151,10 +151,35 @@ const Account = () => {
               </span>
             </div>
             <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
-              <div className='grid justify-items-start gap-4'>
+              <div className="grid justify-items-start gap-4">
                 <p>Business Information</p>
-                <span className='border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-2xl py-2 px-4'>Up to date</span>
+                <span className="border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-2xl py-2 px-4">
+                  Up to date
+                </span>
               </div>
+              <span>
+                <HiOutlineChevronRight />
+              </span>
+            </div>
+            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+              <div className="grid justify-items-start gap-4">
+                <p>Ports and Terminals Information</p>
+                <span className="border border-color-primary-light bg-green-100 text-color-primary-dark text-[1.2rem] rounded-2xl py-2 px-4">
+                  Up to date
+                </span>
+              </div>
+              <span>
+                <HiOutlineChevronRight />
+              </span>
+            </div>
+            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+              <p>Formular Configuration</p>
+              <span>
+                <HiOutlineChevronRight />
+              </span>
+            </div>
+            <div className="border border-color-purple-light-2 rounded-2xl p-6 flex items-center justify-between">
+              <p>Logout</p>
               <span>
                 <HiOutlineChevronRight />
               </span>
