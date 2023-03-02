@@ -64,7 +64,7 @@ function PersonalInformation() {
     </>
   );
 
-  const second = (
+  const third = (
     <>
       <div>
         <img src="/icons/goodMark.svg" alt="" />
@@ -86,8 +86,7 @@ function PersonalInformation() {
   const Paths = new Map<number, JSX.Element>([
     [1, first],
     [2, <PersonalInfo setup={true} setStep={setStep} />],
-    // [2, second],
-    [3, first],
+    [3, third],
   ]);
 
   //console.log({signalValues})
