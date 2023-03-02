@@ -60,11 +60,17 @@ function PersonalInformation() {
     </>
   );
 
+  const Paths = new Map<number, JSX.Element>([
+    [1, first],
+    [2, first],
+    [3, first],
+  ]);
+
   return (
     <>
       <p className="text-[2rem] mb-16">Personal Information</p>
 
-      
+      {Paths.get(step)}
     </>
   );
 }
