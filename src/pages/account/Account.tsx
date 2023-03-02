@@ -144,7 +144,7 @@ const Account = () => {
             </div>
           </div>
           <div className='mt-10'>
-            <p className='border border-color-purple-light rounded-2xl py-4 px-8 flex items-center justify-between'>
+            <p className='border border-color-purple-light-2 rounded-2xl py-8 px-8 flex items-center justify-between'>
               <span>Personal Information</span>
               <span>
                 <HiOutlineChevronRight />
