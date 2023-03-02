@@ -10,7 +10,7 @@ import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 import dayjs from 'dayjs';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import DashboardHome from './Home';
-import { useAppDispatch } from '../store/app/hooks';
+import { useAppDispatch, useAppSelector } from '../store/app/hooks';
 import { updateUser, updateUserOnboarding } from '../store/features/user/user';
 
 
@@ -25,6 +25,9 @@ const Onboarding = () => {
     payload: OnboardingInputs;
   }
 
+  const userState = useAppSelector((state) => state.user);
+
+  const initialState = userState.onboardingInputs
   
   const [step, setStep] = useState<Step>('businessInfo');
 
@@ -49,6 +52,8 @@ const Onboarding = () => {
     },
     initialState
   );
+
+  
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
