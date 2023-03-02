@@ -64,12 +64,28 @@ function PersonalInformation() {
     </>
   );
 
-  const second = <>
-  </>;
+  const second = (
+    <>
+      <div>
+        <img src="/icons/goodMark.svg" alt="" />
+        <p className="text-[2rem]">Changes submitted!</p>
+        <p>
+          The changes you have made would be applied when they have been
+          reviewed and approved.
+          <span>You will be notified when they have been approved.</span>
+        </p>
+      </div>
+      <button
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center `}
+      >
+        Done
+      </button>{' '}
+    </>
+  );
 
   const Paths = new Map<number, JSX.Element>([
     [1, first],
-    [2, <PersonalInfo setup={true} setStep={setStep}/>],
+    [2, <PersonalInfo setup={true} setStep={setStep} />],
     // [2, second],
     [3, first],
   ]);
