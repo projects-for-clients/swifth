@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 import DashboardHome from './Home';
 import { useAppDispatch, useAppSelector } from '../store/app/hooks';
 import {
-  updateBusinessInfo,
+  ,
   updateUser,
   updateUserOnboarding,
   OnboardingInputs,
@@ -20,41 +20,34 @@ import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
   const dispatch = useAppDispatch();
-  interface Action {
-    type:
-      | 'UPDATE_BUSINESS_INFO'
-      | 'UPDATE_PORTS_AND_TERMINAL'
-      | 'UPDATE_PERSONAL_INFO';
-    payload: OnboardingInputs;
-  }
 
-  const userState = useAppSelector((state) => state.user);
 
-  const initialState = userState.onboardingInputs;
+  const {onboardingInputs} = useAppSelector((state) => state.user);
+
 
   const [step, setStep] = useState<Step>('businessInfo');
 
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
 
-  const [onboardingInputs, setOnboardingInputs] = useReducer(
-    (state: OnboardingInputs, action: Action) => {
-      switch (action.type) {
-        case 'UPDATE_BUSINESS_INFO':
-          return { ...state, businessInfo: action.payload.businessInfo };
-        case 'UPDATE_PORTS_AND_TERMINAL':
-          return {
-            ...state,
-            portsAndTerminal: action.payload.portsAndTerminal,
-          };
-        case 'UPDATE_PERSONAL_INFO':
-          return { ...state, personalInfo: action.payload.personalInfo };
-        default:
-          return state;
-      }
-    },
-    initialState
-  );
+  // const [onboardingInputs, setOnboardingInputs] = useReducer(
+  //   (state: OnboardingInputs, action: Action) => {
+  //     switch (action.type) {
+  //       case 'UPDATE_BUSINESS_INFO':
+  //         return { ...state, businessInfo: action.payload.businessInfo };
+  //       case 'UPDATE_PORTS_AND_TERMINAL':
+  //         return {
+  //           ...state,
+  //           portsAndTerminal: action.payload.portsAndTerminal,
+  //         };
+  //       case 'UPDATE_PERSONAL_INFO':
+  //         return { ...state, personalInfo: action.payload.personalInfo };
+  //       default:
+  //         return state;
+  //     }
+  //   },
+  //   initialState
+  // );
 
   // const handleInputChange = (
   //   e: ChangeEvent<HTMLInputElement>,
