@@ -30,14 +30,17 @@ function Reports() {
       dates.push(new Date(date)); // add each date to the list
     }
 
-    return dates
-    
+    return dates;
   };
+
+  useEffect(() => {
+    setDates(generateMonth(month));
+  }, []);
 
   const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMonth(e.target.value);
     setDates(generateMonth(e.target.value));
-    };
+  };
 
   interface ReportTable {
     date: Date;
@@ -49,9 +52,21 @@ function Reports() {
     completedPayments: number;
   }
 
- useEffect(() => {
-    console.log({dates})
- }, [dates])
+  const reportTable: ReportTable[] = Array.from({length: dates.length}, (_, i) => {
+    return {
+      date: dates[i],
+      activeCustomers: Math.floor(Math.random() * 20 + 2),
+      quotesRequested: Math.floor(Math.random() * 40 + 5),
+      ordersPlaced: Math.floor(Math.random() * 50 + 10),
+      deliveredItems: Math.floor(Math.random() * 100 + 20),
+      individualPayments: Math.floor(Math.random() * 100 + 20),
+      completedPayments: Math.floor(Math.random() * 100 + 20),
+    };
+  })
+
+ 
+
+  
 
   return (
     <>
@@ -109,11 +124,13 @@ function Reports() {
           <table className="w-full text-center  reports">
             <thead>
               <tr>
-                <th>Project</th>
-                <th>Client</th>
-                <th>Hours</th>
-                <th>Rate</th>
-                <th>Amount</th>
+                <th>Date</th>
+                <th>Active Customers</th>
+                <th>Quotes Requested</th>
+                <th>Orders placed</th>
+                <th>Delivered Items</th>
+                <th>Individual Payments</th>
+                <th>Completed Payments</th>
               </tr>
             </thead>
             <tbody>
