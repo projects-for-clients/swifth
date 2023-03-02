@@ -29,7 +29,6 @@ function Reports() {
             className="absolute left-6 text-[1.8rem]"
           />
         </section>
-
         <section>
           <div className="flex justify-between items-center mt-10">
             <div>
@@ -62,10 +61,13 @@ function Reports() {
             </div>
           </div>
         </section>
-
         <section className="mt-10">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ducimus beatae voluptates dolore illo. Blanditiis natus pariatur nesciunt sint. Natus, ea quae voluptatibus aperiam error illo laborum quidem labore nihil!
-            </section>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ducimus
+          beatae voluptates dolore illo. Blanditiis natus pariatur nesciunt
+          sint. Natus, ea quae voluptatibus aperiam error illo laborum quidem
+          labore nihil!
+        </section>
+        
       </main>
     </>
   );
