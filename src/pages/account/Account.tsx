@@ -42,20 +42,6 @@ const Account = () => {
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
 
-  const AccessArr = Array.from({ length: 5 }).map((_, i) => {
-    return {
-      id: i,
-      name: `Access ${i + 1}`,
-      description: 'Full access except user management',
-    };
-  });
-
-  const historyKey: HistoryKey[] = [
-    'created order',
-    'valuation',
-    'payment releasing',
-    'duty processed',
-  ];
 
   return (
     <>
@@ -74,31 +60,7 @@ const Account = () => {
           <h3 className="text-[2.4rem] mb-10">{name}</h3>
 
          
-            <div>
-              <p>
-                Permissions (
-                <span className="text-color-purple-1">'sdfsf'</span>)
-              </p>
-
-              <div className="grid gap-8 py-16">
-                {AccessArr.map((item, i) => {
-                  const { name, description, id } = item;
-                  return (
-                    <div
-                      key={id}
-                      className="flex items-center gap-8 cursor-pointer justify-between"
-                    >
-                      <div>
-                        <p>{name}</p>
-                        <p className="text-[1.4rem] text-gray-500">
-                          {i === 0 ? 'Can only create orders' : description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            
          
         </div>
       </dialog>
