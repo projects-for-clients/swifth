@@ -182,7 +182,10 @@ function Reports() {
                     <p>March</p>
                   </div>
                   <div className="flex items-center gap-8">
-                  
+                  <button className='btn'>
+                        <img src="/icons/send-square.svg" alt="" className='w-[1.6rem] h-[1.6rem]' />
+                        <span>Download</span>
+                  </button>
                   </div>
                 </div>
            
