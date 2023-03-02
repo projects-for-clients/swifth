@@ -87,15 +87,26 @@ const Account = () => {
               </div>
             </div>
 
-            <div>
+            <div className='grid gap-4 font-medium'>
               <p>090238232323</p>
               <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
 
-              <div>
+              <div className="flex justify-between items-center">
                 <p>Contact Person ID card</p>
-                <p className='bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary'>
-                    <span><IoMdCheckmark/></span>
-                    <span className='text-[1.2rem]'>Verified</span>
+                <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
+                  <span>
+                    <IoMdCheckmark />
+                  </span>
+                  <span className="text-[1.2rem] font-normal">Verified</span>
+                </p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p>Proof of Address</p>
+                <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
+                  <span>
+                    <IoMdCheckmark />
+                  </span>
+                  <span className="text-[1.2rem] font-normal">Verified</span>
                 </p>
               </div>
             </div>
