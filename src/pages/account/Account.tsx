@@ -4,18 +4,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {IoMdCheckmark} from 'react-icons/io'
 import Header from '../../components/dashboard/Header';
 
-type DialogType = 'permissions' | 'history';
-type HistoryKey =
-  | 'created order'
-  | 'valuation'
-  | 'payment releasing'
-  | 'duty processed';
+type DialogType = 'personal' | 'business' | 'ports';
 
-interface History {
-  id: number;
-  key: HistoryKey;
-  agent: string;
-}
+
 
 const Account = () => {
   const location = useLocation();
