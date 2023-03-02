@@ -1,9 +1,7 @@
 import { useState, useRef } from 'react';
-import { BiArrowBack } from 'react-icons/bi';
-import { BsArrowRight } from 'react-icons/bs';
+import {HiOutlineChevronRight} from 'react-icons/hi'
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/dashboard/Header';
-
 
 type DialogType = 'permissions' | 'history';
 type HistoryKey =
@@ -24,7 +22,6 @@ const Account = () => {
   const [dialogType, setDialogType] = useState<DialogType>('permissions');
   const [isEditProfile, setIsEditProfile] = useState(false);
 
-
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const openDialog = (dialogType: DialogType) => {
@@ -42,7 +39,7 @@ const Account = () => {
     dialogRef.current?.close();
   };
 
-  const name = 'Ben Davis'
+  const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
 
   const AccessArr = Array.from({ length: 5 }).map((_, i) => {
@@ -59,8 +56,6 @@ const Account = () => {
     'payment releasing',
     'duty processed',
   ];
-
- 
 
   return (
     <>
@@ -81,8 +76,8 @@ const Account = () => {
           {dialogType === 'permissions' ? (
             <div>
               <p>
-                Permissions (<span className="text-color-purple-1">'sdfsf'</span>
-                )
+                Permissions (
+                <span className="text-color-purple-1">'sdfsf'</span>)
               </p>
 
               <div className="grid gap-8 py-16">
@@ -109,20 +104,14 @@ const Account = () => {
               <p className="font-medium text-gray-500">History/Activity</p>
 
               <div className="grid gap-8 py-16">
-                
-                    <div
-                      className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-2xl p-6"
-                    >
-                      <div>
-                        <p>sdfsf</p>
-                        <p className="text-[1.4rem] text-gray-500">
-                          {`RC - sdfs`}
-                        </p>
-                      </div>
+                <div className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-2xl p-6">
+                  <div>
+                    <p>sdfsf</p>
+                    <p className="text-[1.4rem] text-gray-500">{`RC - sdfs`}</p>
+                  </div>
 
-                      <p>Dec 9, 2023</p>
-                    </div>
-                 
+                  <p>Dec 9, 2023</p>
+                </div>
               </div>
             </div>
           )}
@@ -130,10 +119,8 @@ const Account = () => {
       </dialog>
       <Header title="Account" />
 
-      <main className="text-[1.6rem] grid gap-10">
-       
-
-        <div className="grid gap-8">
+      <main className="text-[1.6rem] grid gap-10 grid-cols-2">
+        <section>
           <div className="flex items-end gap-16">
             <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
               <img
@@ -145,22 +132,33 @@ const Account = () => {
                 <span>{initials}</span>
               </p>
             </figure>
-           
-            
-          <div>
-            <p className='flex items-center gap-4 font-medium'>
-                <span >{name}</span> <img src="/icons/line.svg" alt=""  /> <span className='text-color-purple'>BenDavis Clearing Services Ltd</span>
+
+            <div>
+              <p className="flex items-center gap-4 font-medium">
+                <span>{name}</span> <img src="/icons/line.svg" alt="" />{' '}
+                <span className="text-color-purple">
+                  BenDavis Clearing Services Ltd
+                </span>
+              </p>
+              <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
+            </div>
+          </div>
+          <div className='mt-10'>
+            <p>
+              <span>Personal Information</span>
+              <span>
+                <HiOutlineChevronRight />
+              </span>
             </p>
-            <p className="lowercase">{name.split(' ').join('')}@gmail.com</p>
           </div>
-        </div>
-         
-          </div>
+        </section>
 
-
-       
-
-        
+        <section>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
+          repudiandae expedita deserunt saepe quaerat recusandae exercitationem
+          maxime atque commodi explicabo culpa enim mollitia repellendus, dicta
+          eaque molestiae quas dolore quod.
+        </section>
       </main>
     </>
   );
