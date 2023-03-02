@@ -117,7 +117,6 @@ function Analytics() {
         <div className="overflow-hidden">
           <div className="flex max-w-[60rem] gap-8">
             {keys.map((key) => {
-                console.log({current, key})
               return (
                 <div className="analytics__radioBox" key={key}>
                   <input
