@@ -76,7 +76,7 @@ function PersonalInformation() {
         </p>
       </div>
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center absolute bottom-0  `}
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold w-full absolute bottom-0  `}
       >
         Done
       </button>{' '}
