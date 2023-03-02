@@ -73,7 +73,7 @@ const Account = () => {
 
           <h3 className="text-[2.4rem] mb-10">{name}</h3>
 
-          {dialogType === 'permissions' ? (
+         
             <div>
               <p>
                 Permissions (
@@ -99,22 +99,7 @@ const Account = () => {
                 })}
               </div>
             </div>
-          ) : (
-            <div>
-              <p className="font-medium text-gray-500">History/Activity</p>
-
-              <div className="grid gap-8 py-16">
-                <div className="flex items-center gap-8 cursor-pointer justify-between bg-color-purple-light-1 rounded-3xl p-6">
-                  <div>
-                    <p>sdfsf</p>
-                    <p className="text-[1.4rem] text-gray-500">{`RC - sdfs`}</p>
-                  </div>
-
-                  <p>Dec 9, 2023</p>
-                </div>
-              </div>
-            </div>
-          )}
+         
         </div>
       </dialog>
       <Header title="Account" />
@@ -144,7 +129,7 @@ const Account = () => {
             </div>
           </div>
           <div className="mt-10 grid gap-8">
-            <button className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between">
+            <button className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between" onClick={() => openDialog('permissions')}>
               <p>Personal Information</p>
               <span>
                 <HiOutlineChevronRight />
