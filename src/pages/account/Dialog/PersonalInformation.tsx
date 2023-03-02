@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 import PersonalInfo from '../../../components/OnboardingSteps/PersonalInfo';
 
-function PersonalInformation() {
+function PersonalInformation({
+  closeDialog
+}: {
+  closeDialog: () => void;
+}) {
   const [step, setStep] = useState(1);
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
@@ -80,7 +84,8 @@ function PersonalInformation() {
         </div>
       </div>
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold w-full absolute bottom-0  `}
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold w-full absolute bottom-0 `}
+        onClick={() => closeDialog()}
       >
         Done
       </button>{' '}

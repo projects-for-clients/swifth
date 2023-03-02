@@ -23,7 +23,7 @@ function Dialog() {
   }, [dialogType]);
 
   const Paths = new Map<DialogType, JSX.Element>([
-    ['personal', <PersonalInformation />],
+    ['personal', <PersonalInformation closeDialog={closeDialog}/>],
     ['business', <PersonalInformation />],
     ['ports', <PersonalInformation />],
     ['config', <PersonalInformation />],

@@ -288,7 +288,13 @@ const PersonalInfo = ({
                   )}
                   {idCardDetails.name ? (
                     <div className="grid">
-                      <p className="text-[1.4rem] font-normal">
+                      <p
+                        className={`text-[1.4rem] font-normal ${
+                          setup
+                            ? 'whitespace-nowrap max-w-[10rem] overflow-hidden text-ellipsis'
+                            : ''
+                        }`}
+                      >
                         {idCardDetails.name}
                       </p>
                       <p className="text-color-grey-4 text-[1rem]">
@@ -330,7 +336,14 @@ const PersonalInfo = ({
                   )}
                   {POADetails.name ? (
                     <div className="grid">
-                      <p className="text-[1.4rem] font-normal">
+                      <p
+                        className={`text-[1.4rem] font-normal ${
+                          setup
+                            ? 'whitespace-nowrap max-w-[10rem] overflow-hidden text-ellipsis'
+                            : ''
+                        }`}
+                      >
+                        {' '}
                         {POADetails.name}
                       </p>
                       <p className="text-color-grey-4 text-[1rem]">
@@ -402,7 +415,7 @@ const PersonalInfo = ({
 
           <button
             className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${
-              setup ? 'w-full mt-10' : 'w-[28rem]'
+              setup ? 'w-full mt-10 mb-10' : 'w-[28rem]'
             }`}
             disabled={isDisabled}
           >
