@@ -70,13 +70,14 @@ const Account = () => {
                 <p className="absolute w-full h-full z-[2] text-[5rem] bg-purple-100 border border-color-purple-light grid place-content-center rounded-full">
                   <span>{initials}</span>
                 </p>
+
+                <img src="/icons/camera.svg" alt="" className='absolute right-0 z-20 bottom-0 mb-3' />
               </figure>
 
               <div>
-                <p className="font-medium">{name}</p>
+                <p className="text-[3rem]">{name}</p>
                 <button
                   className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
-                  onClick={() => setIsEditProfile(true)}
                 >
                   Edit Profile
                 </button>
