@@ -1,19 +1,13 @@
 import Header from '../components/dashboard/Header';
 import { ChangeEvent, useState } from 'react';
 
-
-
 function Reports() {
- 
-
-
   const [search, setSearch] = useState('');
+  const [month, setMonth] = useState('2023-08');
 
-
-    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-    };
-
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
 
   return (
     <>
@@ -42,12 +36,11 @@ function Reports() {
               <input
                 type="month"
                 id="month"
-                value='2023-08'
-
+                value={month}
+                onChange={(e) => setMonth(e.target.value)}
                 name="month"
                 className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer"
               />
-             
             </div>
             <div className="flex items-center gap-8">
               <button className="btn text-color-purple bg-color-red-light-1 border border-color-red-light-3 flex items-center gap-4 rounded-2xl">
