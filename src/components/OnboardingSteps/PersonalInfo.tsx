@@ -169,6 +169,9 @@ const PersonalInfo = ({
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    if (setup && setStep) {
+      return setStep(2)
+    }
     handleStep('next');
   };
 
