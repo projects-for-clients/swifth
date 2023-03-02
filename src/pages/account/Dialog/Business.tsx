@@ -34,6 +34,12 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
           >
             Edit Details
           </button>
+          <p>
+            <img src="/icons/info-circle-1.svg" alt="" />
+            <span>
+                Business information is up to date
+            </span>
+          </p>
         </div>
       </div>
 
