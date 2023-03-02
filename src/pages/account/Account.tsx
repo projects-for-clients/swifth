@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {IoMdCheckmark} from 'react-icons/io'
 import Header from '../../components/dashboard/Header';
 
 type DialogType = 'permissions' | 'history';
