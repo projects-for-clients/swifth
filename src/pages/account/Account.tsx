@@ -3,6 +3,7 @@ import { HiOutlineChevronRight } from 'react-icons/hi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {IoMdCheckmark} from 'react-icons/io'
 import Header from '../../components/dashboard/Header';
+import Dialog from './Dialog/Dialog';
 
 type DialogType = 'personal' | 'business' | 'ports' | 'config';
 
@@ -35,19 +36,7 @@ const Account = () => {
 
   return (
     <>
-      <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
-        <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
-          <input type="text" className="absolute top-0 w-0" />
-          <figure className="flex justify-end">
-            <img
-              src="/icons/close.svg"
-              alt=""
-              className="w-[3rem] cursor-pointer"
-              onClick={() => closeDialog()}
-            />
-          </figure>
-        </div>
-      </dialog>
+      <Dialog/>
       <Header title="Account" />
 
       <main className="text-[1.6rem] grid gap-10 grid-cols-2">
