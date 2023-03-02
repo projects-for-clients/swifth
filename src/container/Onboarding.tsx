@@ -11,10 +11,9 @@ import dayjs from 'dayjs';
 import DashboardHome from './Home';
 import { useAppDispatch, useAppSelector } from '../store/app/hooks';
 import {
-  ,
+  
   updateUser,
   updateUserOnboarding,
-  OnboardingInputs,
 } from '../store/features/user/user';
 import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
