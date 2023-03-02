@@ -1,9 +1,10 @@
 import Header from '../components/dashboard/Header';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 function Reports() {
   const [search, setSearch] = useState('');
   const [month, setMonth] = useState('2023-08');
+  const [dates, setDates] = useState<Date[]>([]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -33,6 +34,11 @@ function Reports() {
     
   };
 
+  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setMonth(e.target.value);
+    setDates(generateMonth(e.target.value));
+    };
+
   interface ReportTable {
     date: Date;
     activeCustomers: number;
@@ -42,6 +48,10 @@ function Reports() {
     individualPayments: number;
     completedPayments: number;
   }
+
+ useEffect(() => {
+    console.log({dates})
+ }, [dates])
 
   return (
     <>
@@ -70,7 +80,7 @@ function Reports() {
                 type="month"
                 id="month"
                 value={month}
-                onChange={(e) => setMonth(e.target.value)}
+                onChange={handleDateChange}
                 name="month"
                 className="flex items-center bg-gray-100 border border-gray-300 py-3 px-8 rounded-xl gap-4 justify-center cursor-pointer"
               />
