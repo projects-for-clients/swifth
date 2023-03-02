@@ -64,7 +64,8 @@ function PersonalInformation() {
     </>
   );
 
-  const second = <></>;
+  const second = <>
+  </>;
 
   const Paths = new Map<number, JSX.Element>([
     [1, first],
@@ -72,6 +73,8 @@ function PersonalInformation() {
     [2, second],
     [3, first],
   ]);
+
+  //console.log({signalValues})
 
   return (
     <>
