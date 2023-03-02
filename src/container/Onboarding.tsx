@@ -25,30 +25,7 @@ const Onboarding = () => {
     payload: OnboardingInputs;
   }
 
-  const initialState: OnboardingInputs = {
-    businessInfo: {
-      businessName: '',
-      officeAddress: '',
-      cacUri: '',
-      licenseExpirationDate: '',
-      licenseUri: '',
-      logoUri: '',
-    },
-    portsAndTerminal: {
-      port: '',
-      terminalList: [],
-    },
-    personalInfo: {
-      fullName: '',
-      email: '',
-      phoneNumber: '',
-      idCardExpirationDate: '',
-      idCardUri: '',
-      idCardNumber: 0,
-      idCardType: '',
-      POAUri: '',
-    },
-  };
+  
   const [step, setStep] = useState<Step>('businessInfo');
 
   const [validationErrors, setValidationErrors] =
@@ -306,7 +283,7 @@ const Onboarding = () => {
         handleStep,
         onboardingInputs,
         handleInputChange,
-        validationErrors,
+        validationErrors
       }}
     >
       {onboardingSteps[step]}
