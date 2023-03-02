@@ -58,9 +58,9 @@ const Account = () => {
           </figure>
 
           <>
-            <h3 className="text-[2.4rem] mb-10">{name}</h3>
+            <p className="text-[2rem] mb-16">Personal Information</p>
 
-            <div>
+            <div className='grid justify-center'>
               <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
                 <img
                   src=""
