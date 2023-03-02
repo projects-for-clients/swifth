@@ -139,21 +139,22 @@ export const userSlice = createSlice({
     },
 
 
-    updateOnboardingInputs: (
-      state,
-      {
-        payload,
-      }: {
-        payload: {
-          path: ValidatingPath;
-          data: any;
-        };
+    updateBusinessInfo: (state, { payload }) => {
+      const data = payload as BusinessInfo;
 
-      }
-    ) => {
-      const { path, data } = payload;
-      state.onboardingInputs[path] = data;
-    }
+      state.onboardingInputs.businessInfo = data;
+    },
+    updatePersonalInfor: (state, { payload }) => {
+      const data = payload as PersonalInfo;
+
+      state.onboardingInputs.personalInfo = data;
+    },
+    updatePortsAndTerminalInfo: (state, { payload }) => {
+      const data = payload as PortsAndTerminal;
+
+      state.onboardingInputs.portsAndTerminal = data;
+    },
+
   },
 
   extraReducers: (builder) => {},
