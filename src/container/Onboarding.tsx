@@ -56,73 +56,69 @@ const Onboarding = () => {
     initialState
   );
 
-  const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement>,
-    key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
-  ) => {
-    let { name, value } = e.target;
+  // const handleInputChange = (
+  //   e: ChangeEvent<HTMLInputElement>,
+  //   key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
+  // ) => {
+  //   let { name, value } = e.target;
 
-    setValidationErrors(null);
-    if (key === 'businessInfo') {
+  //   console.log({ name, value, key })
 
-      dispatch(
-        updateBusinessInfo({
-          ...onboardingInputs.businessInfo,
-          [name]: value,
-        })
-      );
-      setOnboardingInputs({
-        type: 'UPDATE_BUSINESS_INFO',
-        payload: {
-          ...onboardingInputs,
-          businessInfo: {
-            ...onboardingInputs.businessInfo,
-            [name]: value,
-          },
-        },
-      });
-    }
-    if (key === 'port') {
-      setOnboardingInputs({
-        type: 'UPDATE_PORTS_AND_TERMINAL',
-        payload: {
-          ...onboardingInputs,
-          portsAndTerminal: {
-            ...onboardingInputs.portsAndTerminal,
-            [name]: value,
-          },
-        },
-      });
-    }
-    if (key === 'terminal') {
-      setOnboardingInputs({
-        type: 'UPDATE_PORTS_AND_TERMINAL',
-        payload: {
-          ...onboardingInputs,
-          portsAndTerminal: {
-            ...onboardingInputs.portsAndTerminal,
-            terminalList: {
-              ...onboardingInputs.portsAndTerminal.terminalList,
-              [name]: value,
-            },
-          },
-        },
-      });
-    }
+  //   setValidationErrors(null);
+  //   if (key === 'businessInfo') {
 
-    if (key === 'personalInfo') {
-      setOnboardingInputs({
-        type: 'UPDATE_PERSONAL_INFO',
-        payload: {
-          ...onboardingInputs,
-          personalInfo: {
-            ...onboardingInputs.personalInfo,
-            [name]: value,
-          },
-        },
-      });
-    }
-  };
+  //     // setOnboardingInputs({
+  //     //   type: 'UPDATE_BUSINESS_INFO',
+  //     //   payload: {
+  //     //     ...onboardingInputs,
+  //     //     businessInfo: {
+  //     //       ...onboardingInputs.businessInfo,
+  //     //       [name]: value,
+  //     //     },
+  //     //   },
+  //     // });
+  //   }
+  //   if (key === 'port') {
+  //     setOnboardingInputs({
+  //       type: 'UPDATE_PORTS_AND_TERMINAL',
+  //       payload: {
+  //         ...onboardingInputs,
+  //         portsAndTerminal: {
+  //           ...onboardingInputs.portsAndTerminal,
+  //           [name]: value,
+  //         },
+  //       },
+  //     });
+  //   }
+  //   if (key === 'terminal') {
+  //     setOnboardingInputs({
+  //       type: 'UPDATE_PORTS_AND_TERMINAL',
+  //       payload: {
+  //         ...onboardingInputs,
+  //         portsAndTerminal: {
+  //           ...onboardingInputs.portsAndTerminal,
+  //           terminalList: {
+  //             ...onboardingInputs.portsAndTerminal.terminalList,
+  //             [name]: value,
+  //           },
+  //         },
+  //       },
+  //     });
+  //   }
+
+  //   if (key === 'personalInfo') {
+  //     setOnboardingInputs({
+  //       type: 'UPDATE_PERSONAL_INFO',
+  //       payload: {
+  //         ...onboardingInputs,
+  //         personalInfo: {
+  //           ...onboardingInputs.personalInfo,
+  //           [name]: value,
+  //         },
+  //       },
+  //     });
+  //   }
+  // };
 
   const formValidate = (): boolean => {
     const isValidMail = (e: string, cb: (checkValid: boolean) => void) => {
@@ -294,7 +290,6 @@ const Onboarding = () => {
         step,
         handleStep,
         onboardingInputs,
-        handleInputChange,
         validationErrors,
       }}
     >

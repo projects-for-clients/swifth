@@ -8,6 +8,8 @@ import {
 } from 'react';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
+import { updateBusinessInfo } from '../../store/features/user/user';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
 interface ImageDetails {
@@ -19,7 +21,7 @@ interface ImageDetails {
 }
 
 const PersonalInfo = () => {
-  const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
+  const { handleStep, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
 
   const [showCalendarIcon, setShowCalendarIcon] = useState(true);
@@ -153,19 +155,18 @@ const PersonalInfo = () => {
   };
 
   useEffect(() => {
-
-    if(POADetails.error || idCardDetails.error || isOnboardingError) {
-      setIsDisabled(true)
+    if (POADetails.error || idCardDetails.error || isOnboardingError) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
     }
-    else{
-      setIsDisabled(false)
-    }
+  }, [setInput]);
 
-  }, [setInput])
+  const dispatch = useAppDispatch();
 
-    
+  const userState = useAppSelector((state) => state.user);
 
-  function setInput (e: FormEvent, key: string) {
+  function setInput(e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
     if (
       changeEvent.target.name === 'idCardUri' ||
@@ -173,8 +174,15 @@ const PersonalInfo = () => {
     )
       return;
 
+    const { name, value } = changeEvent.target;
+    dispatch(
+      updateBusinessInfo({
+        ...userState.onboardingInputs.businessInfo,
+        [name]: value,
+      })
+    );
     handleInputChange(changeEvent, 'personalInfo');
-  };
+  }
 
   const formErrorField = (val: string): boolean | string => {
     if (validationErrors && validationErrors[val]) {

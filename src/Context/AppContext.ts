@@ -73,10 +73,10 @@ namespace Onboarding {
     step: Step;
     onboardingInputs: OnboardingInputs;
     validationErrors: ValidationErrors | null;
-    handleInputChange: (
-      e: React.ChangeEvent<HTMLInputElement>,
-      key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
-    ) => void;
+    // handleInputChange: (
+    //   e: React.ChangeEvent<HTMLInputElement>,
+    //   key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
+    // ) => void;
     notify?: (message: string) => void;
   }
 }

@@ -145,7 +145,17 @@ export const userSlice = createSlice({
         payload: BusinessInfo;
       }
     ) => {
-      state.onboardingInputs.businessInfo = payload;
+      console.log({ payload })
+      return {
+        ...state,
+        onboardingInputs: {
+          ...state.onboardingInputs,
+          businessInfo: {
+            ...state.onboardingInputs.businessInfo,
+            ...payload,
+          }
+        },
+      }
     },
     updatePersonalInfo: (
       state,

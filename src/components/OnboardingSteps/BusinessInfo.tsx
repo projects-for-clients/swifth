@@ -50,7 +50,6 @@ const businessInfo = () => {
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.businessInfo);
 
-    console.log(onboardingInputs.businessInfo, 'onboardingInputs.businessInfo')
 
     const filterValues = inputValues.some((value) => value === '');
 
