@@ -6,10 +6,8 @@ function PersonalInformation() {
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
 
-  return (
+  const first = (
     <>
-      <p className="text-[2rem] mb-16">Personal Information</p>
-
       <div className="grid justify-center">
         <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
           <img
@@ -59,6 +57,14 @@ function PersonalInformation() {
           </p>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <>
+      <p className="text-[2rem] mb-16">Personal Information</p>
+
+      
     </>
   );
 }
