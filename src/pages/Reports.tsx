@@ -179,11 +179,19 @@ function Reports() {
               <p>March</p>
             </div>
             <div className="flex items-center gap-8">
-              <button className="btn text-color-purple bg-color-red-light-1 border border-color-red-light flex items-center gap-4">
+              <button className="btn text-color-purple bg-color-red-light-1 border border-x-color-red-light-3 flex items-center gap-4 rounded-2xl">
                 <img
                   src="/icons/send-square.svg"
                   alt=""
-                  className="w-[1.8rem] h-[1.6rem]"
+                  className="w-[2rem] h-[2rem]"
+                />
+                <span>Download</span>
+              </button>
+              <button className="btn text-color-purple bg-color-red-light-1 border border-x-color-red-light-3 flex items-center gap-4 rounded-2xl">
+                <img
+                  src="/icons/send-square.svg"
+                  alt=""
+                  className="w-[2rem] h-[2rem]"
                 />
                 <span>Download</span>
               </button>
