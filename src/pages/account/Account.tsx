@@ -9,15 +9,15 @@ export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 interface DialogContextType {
     dialogType: DialogType | null;
     setDialogType: Dispatch<SetStateAction<DialogType | null>>;
-    isDialogOpen: boolean;
-    setIsDialogOpen: Dispatch<SetStateAction<boolean>>;
+    // isDialogOpen: boolean;
+    // setIsDialogOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DialogContext = createContext<DialogContextType>(null as any)
 const Account = () => {
 
   const [dialogType, setDialogType] = useState<DialogType | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  //const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
@@ -26,8 +26,8 @@ const Account = () => {
     <DialogContext.Provider value={{
         dialogType,
         setDialogType,
-        isDialogOpen,
-        setIsDialogOpen
+        // isDialogOpen,
+        // setIsDialogOpen
     }}>
       <Dialog />
       <Header title="Account" />

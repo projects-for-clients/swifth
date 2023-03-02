@@ -1,23 +1,30 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react';
 import { DialogContext, DialogType } from '../Account';
 
 function Dialog() {
-    const { dialogType, setDialogType, isDialogOpen, setIsDialogOpen} = useContext(DialogContext)
+  const { dialogType, setDialogType } =
+    useContext(DialogContext);
 
-    console.log({dialogType})
-     const dialogRef = useRef<HTMLDialogElement>(null);
+  console.log({ dialogType });
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
-     const openDialog = (dialogType: DialogType) => {
-       if (dialogType === 'personal') {
-         dialogRef.current?.showModal();
-       }
-     };
+  const openDialog = (dialogType: DialogType) => {
+    if (dialogType === 'personal') {
+      dialogRef.current?.showModal();
+    }
+  };
 
-     const closeDialog = () => {
-       dialogRef.current?.close();
-     };
+  const closeDialog = () => {
+    dialogRef.current?.close();
+    setDialogType(null);
+  };
 
-     
+  useEffect(() => {
+    if (dialogType) {
+      openDialog(dialogType);
+    }
+  }, [dialogType]);
+
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
       <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
@@ -35,4 +42,4 @@ function Dialog() {
   );
 }
 
-export default Dialog
+export default Dialog;
