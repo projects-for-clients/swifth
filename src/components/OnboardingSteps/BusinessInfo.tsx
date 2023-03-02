@@ -29,11 +29,11 @@ const keyProps = {
 
 const businessInfo = () => {
   const dispatch = useAppDispatch();
-  const userState = useAppSelector((state) => state.user);
-  const { handleStep, validationErrors, onboardingInputs } =
+  const {onboardingInputs} = useAppSelector((state) => state.user);
+  const { handleStep, validationErrors, } =
     useContext(OnboardingContext);
 
-  const { businessName, officeAddress } = onboardingInputs.businessInfo;
+  const { businessName, officeAddress } = onboardingInputs.businessInfo
 
   const [imageDetails, setImageDetails] = useState<Record<UriKeys, KeyProps>>({
     logoUri: keyProps,
@@ -66,7 +66,7 @@ const businessInfo = () => {
 
     dispatch(
       updateBusinessInfo({
-        ...userState.onboardingInputs.businessInfo,
+        ...onboardingInputs.businessInfo,
         [key]: getUri,
       })
     );
@@ -141,7 +141,7 @@ const businessInfo = () => {
 
       dispatch(
         updateBusinessInfo({
-          ...userState.onboardingInputs.businessInfo,
+          ...onboardingInputs.businessInfo,
           [name]: value,
         })
       );

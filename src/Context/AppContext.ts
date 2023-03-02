@@ -71,7 +71,6 @@ namespace Onboarding {
   export interface IOnboardingContext {
     handleStep: (step: Step ) => void;
     step: Step;
-    onboardingInputs: OnboardingInputs;
     validationErrors: ValidationErrors | null;
     // handleInputChange: (
     //   e: React.ChangeEvent<HTMLInputElement>,
