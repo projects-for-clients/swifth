@@ -169,12 +169,12 @@ const ViewTeam = () => {
               </p>
             </figure>
             {!isEditProfile && (
-              <button
-                className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
-                onClick={() => setIsEditProfile(true)}
-              >
-                Edit Profile
-              </button>
+                <button
+                  className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
+                  onClick={() => setIsEditProfile(true)}
+                >
+                  Edit Profile
+                </button>
             )}
           </div>
 

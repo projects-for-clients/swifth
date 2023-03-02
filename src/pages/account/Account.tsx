@@ -57,11 +57,32 @@ const Account = () => {
             />
           </figure>
 
-          <h3 className="text-[2.4rem] mb-10">{name}</h3>
+          <>
+            <h3 className="text-[2.4rem] mb-10">{name}</h3>
 
-         
-            
-         
+            <div>
+              <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
+                <img
+                  src=""
+                  alt=""
+                  className="absolute w-full h-full rounded-full  z-[1]"
+                />
+                <p className="absolute w-full h-full z-[2] text-[5rem] bg-purple-100 border border-color-purple-light grid place-content-center rounded-full">
+                  <span>{initials}</span>
+                </p>
+              </figure>
+
+              <div>
+                <p className="font-medium">{name}</p>
+                <button
+                  className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
+                  onClick={() => setIsEditProfile(true)}
+                >
+                  Edit Profile
+                </button>
+              </div>
+            </div>
+          </>
         </div>
       </dialog>
       <Header title="Account" />
@@ -91,7 +112,10 @@ const Account = () => {
             </div>
           </div>
           <div className="mt-10 grid gap-8">
-            <button className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between" onClick={() => openDialog('permissions')}>
+            <button
+              className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between"
+              onClick={() => openDialog('permissions')}
+            >
               <p>Personal Information</p>
               <span>
                 <HiOutlineChevronRight />
@@ -150,21 +174,23 @@ const Account = () => {
               </p>
             </div>
           </div>
-          <div className='grid gap-8 mt-10' style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))'
-          }}>
-
-            <button className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
-                <img src="/icons/settings.svg" alt="" />
-                <span>Settings</span>
+          <div
+            className="grid gap-8 mt-10"
+            style={{
+              gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+            }}
+          >
+            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center">
+              <img src="/icons/settings.svg" alt="" />
+              <span>Settings</span>
             </button>
-            <button className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
-                <img src="/icons/support.svg" alt="" />
-                <span>Support</span>
+            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center">
+              <img src="/icons/support.svg" alt="" />
+              <span>Support</span>
             </button>
-            <button className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
-                <img src="/icons/t&C.svg" alt="" />
-                <span>Terms & Conditions</span>
+            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center">
+              <img src="/icons/t&C.svg" alt="" />
+              <span>Terms & Conditions</span>
             </button>
           </div>
         </section>
