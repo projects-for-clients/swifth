@@ -38,8 +38,11 @@ const businessInfo = ({
 }) => {
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
-  const { handleStep, validationErrors } = useContext(OnboardingContext);
+ const contextData = useContext(OnboardingContext);
 
+ const handleStep = contextData?.handleStep;
+ const validationErrors = contextData?.validationErrors;
+ 
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
 
   const [imageDetails, setImageDetails] = useState<Record<UriKeys, KeyProps>>({
