@@ -24,7 +24,6 @@ const Account = () => {
   const [dialogType, setDialogType] = useState<DialogType>('permissions');
   const [isEditProfile, setIsEditProfile] = useState(false);
 
-  const { name, role } = location?.state;
 
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -43,7 +42,8 @@ const Account = () => {
     dialogRef.current?.close();
   };
 
-  let initials = name.split(' ').map((n: string[]) => n[0]);
+  const name = 'John Doe'
+  let initials = name.split(' ').map((n: string) => n[0]);
 
   const AccessArr = Array.from({ length: 5 }).map((_, i) => {
     return {
@@ -81,7 +81,7 @@ const Account = () => {
           {dialogType === 'permissions' ? (
             <div>
               <p>
-                Permissions (<span className="text-color-purple-1">{role}</span>
+                Permissions (<span className="text-color-purple-1">'sdfsf'</span>
                 )
               </p>
 
