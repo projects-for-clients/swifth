@@ -5,7 +5,6 @@ import BusinessInfo from '../../../components/OnboardingSteps/BusinessInfo';
 function Business({ closeDialog }: { closeDialog: () => void }) {
   const [step, setStep] = useState(1);
   const name = 'Ben Davis';
-  let initials = name.split(' ').map((n: string) => n[0]);
 
   const first = (
     <>
@@ -16,15 +15,15 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
             alt=""
             className="absolute w-full h-full rounded-full  z-[1]"
           />
-          <p className="absolute w-full h-full z-[2] text-[5rem] bg-purple-100 border border-color-purple-light grid place-content-center rounded-full">
-            <span>{initials}</span>
+          <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-red-300 grid place-content-center rounded-full">
+            <span>LG</span>
           </p>
 
-          <img
+          {/* <img
             src="/icons/camera.svg"
             alt=""
             className="absolute right-0 z-20 bottom-0 mb-3"
-          />
+          /> */}
         </figure>
 
         <div className="text-center mt-10">
@@ -33,7 +32,7 @@ function Business({ closeDialog }: { closeDialog: () => void }) {
             className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
             onClick={() => setStep(2)}
           >
-            Edit Profile
+            Edit Details
           </button>
         </div>
       </div>
