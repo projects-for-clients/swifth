@@ -2,7 +2,6 @@ import { ChangeEvent, useEffect, useReducer, useState } from 'react';
 import PersonalInfo from '../components/OnboardingSteps/PersonalInfo';
 import {
   OnboardingContext,
-  OnboardingInputs,
   Step,
   ValidationErrors,
 } from '../Context/AppContext';
@@ -15,8 +14,9 @@ import {
   updateBusinessInfo,
   updateUser,
   updateUserOnboarding,
-  BusinessInfo
+  OnboardingInputs,
 } from '../store/features/user/user';
+import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 
 const Onboarding = () => {
   const dispatch = useAppDispatch();
@@ -67,7 +67,8 @@ const Onboarding = () => {
 
       dispatch(
         updateBusinessInfo({
-          [name as any]: value,
+          ...onboardingInputs.businessInfo,
+          [name]: value,
         })
       );
       setOnboardingInputs({
