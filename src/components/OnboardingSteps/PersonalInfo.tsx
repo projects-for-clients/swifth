@@ -174,13 +174,7 @@ const PersonalInfo = () => {
     )
       return;
 
-    const { name, value } = changeEvent.target;
-    dispatch(
-      updateBusinessInfo({
-        ...userState.onboardingInputs.businessInfo,
-        [name]: value,
-      })
-    );
+    
     handleInputChange(changeEvent, 'personalInfo');
   }
 

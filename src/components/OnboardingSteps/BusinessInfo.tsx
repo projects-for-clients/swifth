@@ -8,6 +8,8 @@ import {
 } from 'react';
 import Header from '../../components/dashboard/Header';
 import { OnboardingContext } from '../../Context/AppContext';
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
+import { updateBusinessInfo } from '../../store/features/user/user';
 import { getPhotoUri } from '../../utils/getPhotoUri';
 
 type UriKeys = 'logoUri' | 'cacUri' | 'licenseUri';
@@ -26,7 +28,7 @@ const keyProps = {
 } satisfies KeyProps;
 
 const businessInfo = () => {
-  const { handleStep, handleInputChange, validationErrors, onboardingInputs } =
+  const { handleStep, validationErrors, onboardingInputs } =
     useContext(OnboardingContext);
 
   const { businessName, officeAddress } = onboardingInputs.businessInfo;
@@ -50,7 +52,6 @@ const businessInfo = () => {
   useEffect(() => {
     const inputValues = Object.values(onboardingInputs.businessInfo);
 
-
     const filterValues = inputValues.some((value) => value === '');
 
     setIsOnboardingError(filterValues);
@@ -61,14 +62,12 @@ const businessInfo = () => {
 
     setImgUris((prev) => ({ ...prev, [key]: getUri }));
 
-    const data = {
-      target: {
-        name: key,
-        value: getUri,
-      },
-    } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(data, 'businessInfo');
+    dispatch(
+      updateBusinessInfo({
+        ...userState.onboardingInputs.businessInfo,
+        [key]: getUri,
+      })
+    );
   };
 
   const formUploadHandler = (
@@ -113,7 +112,6 @@ const businessInfo = () => {
     e.preventDefault();
 
     handleStep('portsAndTerminal');
-
   };
 
   useEffect(() => {
@@ -121,15 +119,15 @@ const businessInfo = () => {
       return value.error === true || value.pathName === '';
     });
 
-
-    if(filterValues || isOnboardingError) {
+    if (filterValues || isOnboardingError) {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
     }
-
   }, [setInput]);
 
+  const dispatch = useAppDispatch();
+  const userState = useAppSelector((state) => state.user);
   function setInput(e: FormEvent, key: string) {
     const changeEvent = e as ChangeEvent<HTMLInputElement>;
 
@@ -138,7 +136,14 @@ const businessInfo = () => {
     if (name === 'cacUri' || name === 'licenseUri' || name === 'logoUri') {
       return;
     } else {
-      handleInputChange(changeEvent, 'businessInfo');
+      const { name, value } = changeEvent.target;
+
+      dispatch(
+        updateBusinessInfo({
+          ...userState.onboardingInputs.businessInfo,
+          [name]: value,
+        })
+      );
     }
   }
 
