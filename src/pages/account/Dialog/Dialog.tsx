@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { DialogContext, DialogType } from '../Account';
+import PersonalInformation from './PersonalInformation';
 
 function Dialog() {
-  const { dialogType, setDialogType } =
-    useContext(DialogContext);
+  const { dialogType, setDialogType } = useContext(DialogContext);
 
   console.log({ dialogType });
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -25,6 +25,13 @@ function Dialog() {
     }
   }, [dialogType]);
 
+  const Paths = new Map<DialogType, JSX.Element>([
+    ['personal', <PersonalInformation />],
+    ['business', <PersonalInformation />],
+    ['ports', <PersonalInformation />],
+    ['config', <PersonalInformation />],
+  ]);
+
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
       <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
@@ -37,6 +44,8 @@ function Dialog() {
             onClick={() => closeDialog()}
           />
         </figure>
+
+        {dialogType && Paths.get(dialogType)}
       </div>
     </dialog>
   );
