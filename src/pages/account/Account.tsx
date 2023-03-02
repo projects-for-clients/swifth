@@ -8,13 +8,16 @@ export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 
 interface DialogContextType {
     dialogType: DialogType;
-    setDialogType: Dispatch<SetStateAction<DialogType>>
+    setDialogType: Dispatch<SetStateAction<DialogType>>;
+    openDialog: boolean;
+    setOpenDialog: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DialogContext = createContext<DialogContextType>(null as any)
 const Account = () => {
 
   const [dialogType, setDialogType] = useState<DialogType>('personal');
+  const [openDialog, setOpenDialog] = useState(false);
 
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
@@ -22,7 +25,9 @@ const Account = () => {
   return (
     <DialogContext.Provider value={{
         dialogType,
-        setDialogType
+        setDialogType,
+        openDialog,
+        setOpenDialog
     }}>
       <Dialog />
       <Header title="Account" />
