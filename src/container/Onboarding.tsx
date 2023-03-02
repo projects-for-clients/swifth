@@ -8,12 +8,15 @@ import {
 } from '../Context/AppContext';
 import PortsAndTerminal from '../components/OnboardingSteps/Port_and_Terminals';
 import dayjs from 'dayjs';
-import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
+
 import DashboardHome from './Home';
 import { useAppDispatch, useAppSelector } from '../store/app/hooks';
-import { updateBusinessInfo, updateUser, updateUserOnboarding } from '../store/features/user/user';
-
-
+import {
+  updateBusinessInfo,
+  updateUser,
+  updateUserOnboarding,
+  BusinessInfo
+} from '../store/features/user/user';
 
 const Onboarding = () => {
   const dispatch = useAppDispatch();
@@ -27,8 +30,8 @@ const Onboarding = () => {
 
   const userState = useAppSelector((state) => state.user);
 
-  const initialState = userState.onboardingInputs
-  
+  const initialState = userState.onboardingInputs;
+
   const [step, setStep] = useState<Step>('businessInfo');
 
   const [validationErrors, setValidationErrors] =
@@ -53,19 +56,20 @@ const Onboarding = () => {
     initialState
   );
 
-
-
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
     key: 'businessInfo' | 'port' | 'personalInfo' | 'terminal'
   ) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
 
     setValidationErrors(null);
     if (key === 'businessInfo') {
-      updateBusinessInfo({
-        sfsf: ''
-      })
+
+      dispatch(
+        updateBusinessInfo({
+          [name as any]: value,
+        })
+      );
       setOnboardingInputs({
         type: 'UPDATE_BUSINESS_INFO',
         payload: {
@@ -283,7 +287,6 @@ const Onboarding = () => {
     next: <DashboardHome />,
   };
 
- 
   return (
     <OnboardingContext.Provider
       value={{
@@ -291,7 +294,7 @@ const Onboarding = () => {
         handleStep,
         onboardingInputs,
         handleInputChange,
-        validationErrors
+        validationErrors,
       }}
     >
       {onboardingSteps[step]}
