@@ -29,9 +29,10 @@ function PersonalInformation() {
 
         <div className="text-center mt-10">
           <p className="text-[3rem]">{name}</p>
-          <button className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium" onClick={
-            () => setStep(2)
-          }>
+          <button
+            className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
+            onClick={() => setStep(2)}
+          >
             Edit Profile
           </button>
         </div>
@@ -63,15 +64,12 @@ function PersonalInformation() {
     </>
   );
 
-  const second = (
-    <>
-    
-    </>
-  )
+  const second = <></>;
 
   const Paths = new Map<number, JSX.Element>([
     [1, first],
-    [2, <PersonalInfo/>],
+    // [2, <PersonalInfo />],
+    [2, second],
     [3, first],
   ]);
 

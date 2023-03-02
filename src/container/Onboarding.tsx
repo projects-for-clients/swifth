@@ -12,6 +12,10 @@ import BusinessInfo from '../components/OnboardingSteps/BusinessInfo';
 import DashboardHome from './Home';
 import { useAppDispatch } from '../store/app/hooks';
 import { updateUser, updateUserOnboarding } from '../store/features/user/user';
+import { signal } from '@preact/signals';
+
+
+export const signalValues = signal(null as any)
 
 const Onboarding = () => {
   const dispatch = useAppDispatch();
@@ -294,6 +298,14 @@ const Onboarding = () => {
     personalInfo: <PersonalInfo />,
     portsAndTerminal: <PortsAndTerminal />,
     next: <DashboardHome />,
+  };
+
+  signalValues.value = {
+    step,
+    handleStep,
+    onboardingInputs,
+    handleInputChange,
+    validationErrors,
   };
 
   return (
