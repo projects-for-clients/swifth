@@ -207,18 +207,18 @@ const Account = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))'
           }}>
 
-            <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
+            <button className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
                 <img src="/icons/settings.svg" alt="" />
                 <span>Settings</span>
-            </p>
-            <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
+            </button>
+            <button className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
                 <img src="/icons/support.svg" alt="" />
                 <span>Support</span>
-            </p>
-            <p className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
+            </button>
+            <button className='border rounded-3xl flex gap-6 px-6 py-4 items-center'>
                 <img src="/icons/t&C.svg" alt="" />
                 <span>Terms & Conditions</span>
-            </p>
+            </button>
           </div>
         </section>
       </main>
