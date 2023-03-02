@@ -14,7 +14,6 @@ function Dialog() {
        dialogRef.current?.close();
      };
 
-     const name = 'Ben Davis';
      
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>

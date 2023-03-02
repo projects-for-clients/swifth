@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 
 import Header from '../../components/dashboard/Header';
 import Dialog from './Dialog/Dialog';
 
 export type DialogType = 'personal' | 'business' | 'ports' | 'config';
+
+export const DialogContext = createContext<null>(null as any)
 const Account = () => {
 
   const [dialogType, setDialogType] = useState<DialogType>('personal');
