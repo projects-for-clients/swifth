@@ -23,6 +23,7 @@ import ViewTeam from '../pages/team/ViewTeam';
 import AddMember from '../pages/team/AddMember';
 import AddRole from '../pages/team/AddRole';
 import Analytics from '../pages/Analytics';
+import Reports from '../pages/Reports';
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
       <Route path="team/add" element={<AddMember />} />
       <Route path="team/add-role" element={<AddRole />} />
       <Route path="analytics" element={<Analytics />} />
+      <Route path="reports" element={<Reports />} />
     </Route>,
     <Route path="*" element={<Navigate to="/" />} />,
   ])
