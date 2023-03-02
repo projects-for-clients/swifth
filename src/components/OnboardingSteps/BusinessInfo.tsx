@@ -228,7 +228,14 @@ const businessInfo = ({
                 )}
                 {imageDetails.cacUri.pathName ? (
                   <div className="grid">
-                    <p className="text-[1.4rem] font-normal">
+                    <p
+                      className={`text-[1.4rem] font-normal ${
+                        setup
+                          ? 'whitespace-nowrap max-w-[10rem] overflow-hidden text-ellipsis'
+                          : ''
+                      }`}
+                    >
+                      {' '}
                       {imageDetails.cacUri.pathName}
                     </p>
                     <p className="text-color-grey-4 text-[1rem]">
@@ -267,7 +274,14 @@ const businessInfo = ({
                 )}
                 {imageDetails.licenseUri.pathName ? (
                   <div className="grid">
-                    <p className="text-[1.4rem] font-normal">
+                    <p
+                      className={`text-[1.4rem] font-normal ${
+                        setup
+                          ? 'whitespace-nowrap max-w-[10rem] overflow-hidden text-ellipsis'
+                          : ''
+                      }`}
+                    >
+                      {' '}
                       {imageDetails.licenseUri.pathName}
                     </p>
                     <p className="text-color-grey-4 text-[1rem]">
@@ -369,10 +383,12 @@ const businessInfo = ({
             </div>
           </div>
           <button
-            className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+            className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${
+              setup ? 'w-full mt-10 mb-10' : 'w-[28rem]'
+            }`}
             disabled={isDisabled}
           >
-            Continue
+            {setup ? 'Save Changes' : 'Continue'}
           </button>
         </form>
       </div>
