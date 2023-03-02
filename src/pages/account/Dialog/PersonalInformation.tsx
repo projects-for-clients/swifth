@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 
 function PersonalInformation() {
+  const [step, setStep] = useState(1);
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
 
