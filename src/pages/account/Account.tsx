@@ -1,42 +1,21 @@
 import { useState, useRef } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {IoMdCheckmark} from 'react-icons/io'
+import { IoMdCheckmark } from 'react-icons/io';
 import Header from '../../components/dashboard/Header';
 import Dialog from './Dialog/Dialog';
 
-type DialogType = 'personal' | 'business' | 'ports' | 'config';
-
-
-
 const Account = () => {
-  
+  export type DialogType = 'personal' | 'business' | 'ports' | 'config';
+
   const [dialogType, setDialogType] = useState<DialogType>('personal');
-  
-
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  const openDialog = (dialogType: DialogType) => {
-    if (dialogType === 'personal') {
-     
-      dialogRef.current?.showModal();
-    }
-   
-
-    
-  };
-
-  const closeDialog = () => {
-    dialogRef.current?.close();
-  };
 
   const name = 'Ben Davis';
   let initials = name.split(' ').map((n: string) => n[0]);
 
-
   return (
     <>
-      <Dialog/>
+      <Dialog />
       <Header title="Account" />
 
       <main className="text-[1.6rem] grid gap-10 grid-cols-2">

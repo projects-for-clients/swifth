@@ -1,6 +1,21 @@
 import React from 'react'
 
 function Dialog() {
+     const dialogRef = useRef<HTMLDialogElement>(null);
+
+     const openDialog = (dialogType: DialogType) => {
+       if (dialogType === 'personal') {
+         dialogRef.current?.showModal();
+       }
+     };
+
+     const closeDialog = () => {
+       dialogRef.current?.close();
+     };
+
+     const name = 'Ben Davis';
+     let initials = name.split(' ').map((n: string) => n[0]);
+     
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
       <div className="bg-white fixed right-0 h-[100vh] w-[50rem] py-4 px-12 overflow-y-scroll">
