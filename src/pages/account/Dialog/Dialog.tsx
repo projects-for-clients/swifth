@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
-import { DialogType } from '../Account';
+import React, { useContext, useRef } from 'react'
+import { DialogContext, DialogType } from '../Account';
 
 function Dialog() {
+    const { dialogType, setDialogType } = useContext(DialogContext)
      const dialogRef = useRef<HTMLDialogElement>(null);
 
      const openDialog = (dialogType: DialogType) => {

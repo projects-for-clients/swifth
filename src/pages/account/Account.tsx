@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, Dispatch, SetStateAction, useState } from 'react';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 
 import Header from '../../components/dashboard/Header';
@@ -6,7 +6,12 @@ import Dialog from './Dialog/Dialog';
 
 export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 
-export const DialogContext = createContext<null>(null as any)
+interface DialogContextType {
+    dialogType: DialogType;
+    setDialogType: Dispatch<SetStateAction<DialogType>>
+}
+
+export const DialogContext = createContext<DialogContextType>(null as any)
 const Account = () => {
 
   const [dialogType, setDialogType] = useState<DialogType>('personal');
@@ -15,7 +20,10 @@ const Account = () => {
   let initials = name.split(' ').map((n: string) => n[0]);
 
   return (
-    <>
+    <DialogContext.Provider value={{
+        dialogType,
+        setDialogType
+    }}>
       <Dialog />
       <Header title="Account" />
 
@@ -136,7 +144,7 @@ const Account = () => {
           </div>
         </section>
       </main>
-    </>
+    </DialogContext.Provider>
   );
 };
 
