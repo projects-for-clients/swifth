@@ -390,10 +390,13 @@ const PersonalInfo = ({ setup }: { setup?: boolean }) => {
           </div>
 
           <button
-            className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${setup ? '': ''}`}
+            className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${
+              setup ? 'w-full mt-10' : 'w-[28rem]'
+            }`}
             disabled={isDisabled}
           >
-            Continue
+
+            {setup ? 'Save' : 'Continue'}
           </button>
         </form>
       </div>
