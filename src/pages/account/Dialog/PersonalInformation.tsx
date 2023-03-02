@@ -1,6 +1,9 @@
 import { IoMdCheckmark } from 'react-icons/io';
 
 function PersonalInformation() {
+  const name = 'Ben Davis';
+  let initials = name.split(' ').map((n: string) => n[0]);
+
   return (
     <>
       <p className="text-[2rem] mb-16">Personal Information</p>
@@ -58,4 +61,4 @@ function PersonalInformation() {
   );
 }
 
-export default PersonalInformation
+export default PersonalInformation;

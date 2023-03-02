@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { DialogType } from '../Account';
 
 function Dialog() {
      const dialogRef = useRef<HTMLDialogElement>(null);
@@ -14,7 +15,6 @@ function Dialog() {
      };
 
      const name = 'Ben Davis';
-     let initials = name.split(' ').map((n: string) => n[0]);
      
   return (
     <dialog className="dialog relative text-[1.6rem]" ref={dialogRef}>
