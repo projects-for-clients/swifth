@@ -364,7 +364,7 @@ const PortAndTerminals = ({
 
   const addTerminal = () => {
     console.log('add terminal');
-    setIsTerminalCount((prev) => [...prev, prev.length + 1]);
+    setIsTerminalCount((prev) => prev + 1);
   };
 
   const selectItemHandler = (item: Port) => {
@@ -452,26 +452,22 @@ const PortAndTerminals = ({
 
              
 
-              {Array.from({length: terminalCount[0]}).map((_, index) => {
+              {Array.from({length: terminalCount}).map((_, index) => {
                 console.count('terminal')
                 return (
-                  <>
-                  <p>
-                    {index}
-                  </p>
-                  </>
-                  // showNext && (
-                  //   <Terminal
-                  //     isTerminal={isTerminal}
-                  //     setIsTerminal={setIsTerminal}
-                  //     terminalCount={terminalCount}
-                  //     setIsError={setIsError}
-                  //     isError={isError}
-                  //     key={index}
-                  //     id={index}
-                  //     setup={setup}
-                  //   />
-                  // )
+                  
+                  showNext && (
+                    <Terminal
+                      isTerminal={isTerminal}
+                      setIsTerminal={setIsTerminal}
+                      terminalCount={terminalCount}
+                      setIsError={setIsError}
+                      isError={isError}
+                      key={index}
+                      id={index}
+                      setup={setup}
+                    />
+                  )
                 );
               })}
 
