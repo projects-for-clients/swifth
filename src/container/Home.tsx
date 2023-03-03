@@ -281,7 +281,7 @@ function DashboardHome() {
     <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-3xl p-8 border border-color-purple-light">
       <div className="flex justify-between">
         <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
-        <p>See All</p>
+        <Link to='/dashboard/payments'>See All</Link>
       </div>
 
       <div className="grid gap-8 mt-8">
@@ -656,9 +656,9 @@ function DashboardHome() {
                   <>
                     <div className="flex justify-between  mb-10">
                       <h2 className="heading3">Business Analytics</h2>
-                      <p className="text-[1.6rem] cursor-pointer">
+                      <Link className="text-[1.6rem] cursor-pointer" to='/dashboard/analytics'>
                         See Full Stats
-                      </p>
+                      </Link>
                     </div>
                     <AnalyticsChart />
                   </>
