@@ -185,7 +185,7 @@ function Config({
             </div>
           ))}
         </div>
-        <div>
+        <div className='mb-[5rem]'>
           <p className="font-medium mb-5">All Brands</p>
           <div
             className="grid gap-8"
