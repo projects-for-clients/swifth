@@ -319,7 +319,7 @@ const PortAndTerminals = ({
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
   const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedItem, setSelectedItem] = useState<Port | string | null>(
+  const [selectedItem, setSelectedItem] = useState<Port | null>(
    null
   );
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
