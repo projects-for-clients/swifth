@@ -51,13 +51,17 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between ">
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between" onClick={
+            () => setStep('dutyConstant')
+        }>
           <p>Surface Duty Constant</p>
           <span>
             <BsArrowRight />
           </span>
         </button>
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between ">
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between" onClick={
+            () => setStep('surfaceDuty')
+        }>
           <p>Surface Duty </p>
           <span>
             <BsArrowRight />
@@ -107,6 +111,8 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
   const Paths = new Map<Steps, JSX.Element>([
     ['duty', first],
     ['dutyCalculation', dutyCalculation],
+    ['dutyConstant', SurfaceConstant],
+    ['surfaceDuty', SurfaceDuty],
     ['shipping', <div>second</div>],
     ['charges', <div>third</div>],
   ]);
