@@ -24,6 +24,11 @@ function Config({
   const [step, setStep] = useState<Steps>('duty');
   const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
 
+  const handleSurfaceDuty = () => {
+    setStep('surfaceDuty');
+    setWidth('w-[60%]');
+    };
+
   const first = (
     <>
       <p className="text-[2rem] mb-16">Formular Configuration</p>
@@ -73,7 +78,7 @@ function Config({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between"
-          onClick={() => setStep('surfaceDuty')}
+          onClick={handleSurfaceDuty}
         >
           <p>Surface Duty </p>
           <span>
