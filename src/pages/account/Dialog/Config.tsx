@@ -252,7 +252,7 @@ function Config({
             {Array.from({ length: 20 }, (_, i) => (
               <button
                 key={i}
-                className="border bg-gray-100 rounded-3xl p-6 outline-transparent"
+                className="border bg-gray-100 rounded-3xl p-6 outline-transparent cursor-pointer"
                 onClick={() => moveToCarTrims('XLE 2018')}
               >
                 Accord
@@ -309,10 +309,10 @@ function Config({
         />
         <p className="text-[2rem]"> Surface Duty Constant</p>
       </div>
-      <p className="text-color-purple-1 font-medium text-[2rem]">
+      <p className="text-color-purple-1 font-medium text-[2rem] mt-[5rem]">
         {selectedCar?.name} Accord {selectedCar?.trim}
       </p>
-      <div className="grid gap-4 mt-[5rem]">
+      <div className="grid gap-4 mt-2">
         <label htmlFor="" className=" text-[1.4rem] text-gray-500">
           
         Surface Duty
