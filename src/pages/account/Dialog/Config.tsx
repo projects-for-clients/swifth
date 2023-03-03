@@ -291,7 +291,7 @@ function Config({
             {Array.from({ length: 20 }, (_, i) => (
               <p
                 key={i}
-                className="border bg-gray-100 rounded-3xl p-6"
+                className="border bg-gray-100 rounded-3xl p-6 cursor-pointer"
                 onClick={() => setStep('carSurfaceDuty')}
               >
                 {selectedCar?.trim}
@@ -307,7 +307,7 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('dutyCalculation')}
+          onClick={() => setStep('carTrims')}
         />
         <p className="text-[2rem]"> Surface Duty Constant</p>
       </div>
@@ -316,8 +316,7 @@ function Config({
       </p>
       <div className="grid gap-4 mt-2">
         <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          
-        Surface Duty
+          Surface Duty
         </label>
         <input
           type="text"
@@ -326,10 +325,12 @@ function Config({
       </div>
 
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        className={`flex w-full justify-end`}
         onClick={() => closeDialog()}
       >
-        Save Changes
+        <span className=" bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
+          Save Changes
+        </span>
       </button>
     </>
   );
