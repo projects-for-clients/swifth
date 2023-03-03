@@ -398,16 +398,26 @@ function Config({
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
       <div className="grid">
-          <button
-            className={`flex items-center justify-items-start py-4 outline-none `}
-          
-          >
-            <p className="grid">
-              <span className="text-[#4B5463] capitalize">{selectedShippingItem?.name}</span>
-              <span className='text-[2rem] text-color-purple-1'>{selectedShippingItem?.content}</span>
-            </p>
-            
-          </button>
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none `}
+        >
+          <p className="grid">
+            <span className="text-[#4B5463] capitalize">
+              {selectedShippingItem?.name}
+            </span>
+            <span className="text-[2rem] text-color-purple-1">
+              {selectedShippingItem?.content}
+            </span>
+          </p>
+        </button>
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem]`}
+        >
+          <p className="grid">
+            <span className="text-[#4B5463] capitalize">2015 and older</span>
+            <span className="text-[2rem] text-[#4B5463]">50k x 1.75</span>
+          </p>
+        </button>
         {shippingItemProps.map((item, index) => (
           <button
             className={`flex items-center justify-items-start py-4 outline-none ${
@@ -420,7 +430,6 @@ function Config({
               <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
-            
           </button>
         ))}
       </div>
