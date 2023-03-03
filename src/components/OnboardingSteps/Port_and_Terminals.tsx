@@ -1,8 +1,4 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useContext,
-} from 'react';
+import React, { Dispatch, SetStateAction, useContext } from 'react';
 import {
   ChangeEvent,
   FC,
@@ -172,7 +168,6 @@ const Terminal: FC<ITerminal> = ({
   if (setup) {
     useEffect(() => {
       if (!loaded) {
-
         if (onboardingInputs.portsAndTerminal.terminalList[id]) {
           const { terminal, formCUri, formCExpirationDate } =
             onboardingInputs.portsAndTerminal.terminalList[id];
@@ -181,14 +176,11 @@ const Terminal: FC<ITerminal> = ({
           setFormCUri(formCUri);
           setDateChange(formCExpirationDate);
 
-        setLoaded(true);
+          setLoaded(true);
+        }
       }
-    }
     }, [onboardingInputs.portsAndTerminal]);
-  
   }
-
-
 
   return (
     <section
