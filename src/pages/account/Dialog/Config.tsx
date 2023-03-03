@@ -115,7 +115,6 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
             type="text"
             className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
             placeholder="Search"
-         
           />
 
           <img
@@ -123,6 +122,13 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
             alt=""
             className="absolute left-6 text-[1.8rem]"
           />
+        </div>
+
+        <div>
+            <p className='font-medium'>Most popular</p>
+          {Array.from({ length: 6 }, (_, i) => (
+            <p key={i} className='border border-gray-100'></p>
+          ))}
         </div>
       </div>
     </>
