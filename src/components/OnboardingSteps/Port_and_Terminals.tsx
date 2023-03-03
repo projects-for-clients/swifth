@@ -39,13 +39,13 @@ const Terminal: FC<ITerminal> = ({
   isError,
   setup,
 }) => {
-  console.log('mounted');
   const contextData = useContext(OnboardingContext);
-
+  
   const validationErrors = contextData?.validationErrors;
-
+  
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
+  console.log('mounted', onboardingInputs.portsAndTerminal.terminalList);
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
