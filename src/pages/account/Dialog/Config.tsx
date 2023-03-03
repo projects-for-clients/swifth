@@ -75,19 +75,14 @@ function Config({
   };
 
   const saveShipping = () => {
-     setStep('carTrims');
+     setStep('shipping');
 
-    console.log('hellof')
     toast('Changes Saved', {
       type: 'success',
       className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
     });
   }
 
-
-  useEffect(() => {
-    console.log({ step }, 'step');
-  }, [step, SaveShipping]);
 
   const first = (
     <>
