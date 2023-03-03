@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 
 function Config({ closeDialog }: { closeDialog: () => void }) {
-  const [step, setStep] = useState(1);
+  type Steps = 'duty' | 'shipping' | 'charges';
+  const [step, setStep] = useState<Steps>('duty');
   const name = 'Ben Davis';
 
   const first = (
@@ -52,10 +53,11 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
     </>
   );
 
-  const Paths = new Map<number, JSX.Element>([
-    [1, first],
-    [2, <div>second</div>],
-  ]);
+  const Paths = new Map<Steps, JSX.Element>([
+    ['duty', first],
+    ['shipping', <div>second</div>],
+    ['charges', third],
+  ])
 
   return (
     <div className="relative h-[90vh]">
