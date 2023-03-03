@@ -12,13 +12,11 @@ export interface BusinessInfo {
   licenseExpirationDate: string;
 }
 
+type TerminalKeys = 'terminal' | 'formCUri' | 'formCExpirationDate';
+
 export interface PortsAndTerminal {
   port: string | null;
-  terminalList: {
-    terminal: string;
-    formCUri: string;
-    formCExpirationDate: string;
-  } | {}
+  terminalList: Map<TerminalKeys, string>;
 }
 
 export interface PersonalInfo {
@@ -195,7 +193,6 @@ export const userSlice = createSlice({
           portsAndTerminal: {
             port: 'Lagos',
             terminalList: {
-
               ...updatedMap,
             },
           },
