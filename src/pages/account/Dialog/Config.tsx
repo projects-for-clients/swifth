@@ -16,13 +16,22 @@ function Config({
     | 'charges'
     | 'dutyCalculation'
     | 'dutyConstant'
-    | 'surfaceDuty';
+    | 'surfaceDuty'
+    | 'carModels'
+    | 'carTrims'
+    | 'carSurfaceDuty';
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
 
+  type CarProp = {
+    name?: string;
+    trim?: string;
+  };
+
   const [step, setStep] = useState<Steps>('duty');
   const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
+  const [selectedCar, setSelectedCar] = useState<CarProp | null>(null);
 
   const toSurfaceDuty = () => {
     setStep('surfaceDuty');
@@ -34,6 +43,12 @@ function Config({
     setWidth('w-[50rem]');
   };
 
+  const moveToCarModels = (item: string) => {
+    setStep('carModels');
+    setSelectedCar((prev) => ({ ...prev, name: item }));
+    
+    };
+  
   const first = (
     <>
       <p className="text-[2rem] mb-16">Formular Configuration</p>
@@ -185,7 +200,7 @@ function Config({
             </div>
           ))}
         </div>
-        <div className='mb-[5rem]'>
+        <div className="mb-[5rem]">
           <p className="font-medium mb-5">All Brands</p>
           <div
             className="grid gap-8"
@@ -194,9 +209,11 @@ function Config({
             }}
           >
             {Array.from({ length: 20 }, (_, i) => (
-              <p key={i} className="border bg-gray-100 rounded-3xl p-6" onClick={
-                moveToCarModels
-              }>
+              <p
+                key={i}
+                className="border bg-gray-100 rounded-3xl p-6"
+                onClick={() => moveToCarModels('Honda')}
+              >
                 Honda
               </p>
             ))}
@@ -205,7 +222,7 @@ function Config({
       </div>
     </>
   );
-  const SurfaceDutyItem = (
+  const carModels = (
     <>
       <div className="flex items-center gap-16">
         <BiArrowBack
@@ -269,7 +286,7 @@ function Config({
             </div>
           ))}
         </div>
-        <div className='mb-[5rem]'>
+        <div className="mb-[5rem]">
           <p className="font-medium mb-5">All Brands</p>
           <div
             className="grid gap-8"
@@ -293,6 +310,7 @@ function Config({
     ['dutyCalculation', dutyCalculation],
     ['dutyConstant', SurfaceConstant],
     ['surfaceDuty', SurfaceDuty],
+    ['carModels', carModels],
     ['shipping', <div>second</div>],
     ['charges', <div>third</div>],
   ]);
