@@ -522,7 +522,7 @@ function Config({
           onClick={() => setStep('EditShippingItem')}
         >
           <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full" onClick={
-           SaveShipping
+           () => SaveShipping()
           }>
             Save Changes
           </span>
