@@ -22,7 +22,7 @@ interface ITerminal {
   isTerminal: boolean;
   setIsTerminal: (value: boolean) => void;
   id: number;
-  terminalCount: number[];
+  terminalCount: number;
   isError: ErrorMessage;
   setup?: boolean;
   setIsError: Dispatch<SetStateAction<ErrorMessage>>;
@@ -150,7 +150,7 @@ const Terminal: FC<ITerminal> = ({
   }, [selectedItem, formCUri, dateChange]);
 
   useEffect(() => {
-    if (terminalCount.length > 1 && !selectedItem) {
+    if (terminalCount > 1 && !selectedItem) {
       return setIsError({
         error: true,
       });
