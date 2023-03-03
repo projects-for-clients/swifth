@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
+import { toast, ToastContainer } from 'react-toastify';
 
 function Config({
   closeDialog,
@@ -72,6 +73,15 @@ function Config({
     setStep('shippingItem');
     setSelectedShippingItem(item);
   };
+
+  const SaveShipping = () => {
+    setStep('shipping');
+
+    toast('Changes Saved', {
+      type: 'success',
+      className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
+    });
+  }
 
   const first = (
     <>
@@ -505,7 +515,9 @@ function Config({
           className={`flex w-full justify-end`}
           onClick={() => setStep('EditShippingItem')}
         >
-          <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
+          <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full" onClick={
+           SaveShipping
+          }>
             Save Changes
           </span>
         </button>
@@ -527,7 +539,9 @@ function Config({
     ['charges', <div>third</div>],
   ]);
 
-  return <div className="relative h-[90vh]">{Paths.get(step)}</div>;
+  return <div className="relative h-[90vh]">
+    <ToastContainer/>
+    {Paths.get(step)}</div>;
 }
 
 export default Config;
