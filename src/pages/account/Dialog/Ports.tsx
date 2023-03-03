@@ -17,12 +17,10 @@ function Ports({ closeDialog, setWidth }: { closeDialog: () => void, setWidth:(i
   }, [step])
 
   const handleClose = () => {
-    console.log('close 1')
     closeDialog();
     setStep(1);
     setWidth('w-[50rem]')
 
-    console.log('close 2')
   }
 
   const first = (
