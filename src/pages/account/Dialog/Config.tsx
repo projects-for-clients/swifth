@@ -5,7 +5,7 @@ import { BsArrowRight } from 'react-icons/bs';
 
 function Config({
   closeDialog,
-  setWidth
+  setWidth,
 }: {
   closeDialog: () => void;
   setWidth: (item: string) => void;
@@ -24,10 +24,15 @@ function Config({
   const [step, setStep] = useState<Steps>('duty');
   const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
 
-  const handleSurfaceDuty = () => {
+  const toSurfaceDuty = () => {
     setStep('surfaceDuty');
     setWidth('w-[60%]');
-    };
+  };
+
+  const backToDutyCalculation = () => {
+    setStep('dutyCalculation');
+    setWidth('w-[50rem]');
+  };
 
   const first = (
     <>
@@ -78,7 +83,7 @@ function Config({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between"
-          onClick={handleSurfaceDuty}
+          onClick={toSurfaceDuty}
         >
           <p>Surface Duty </p>
           <span>
@@ -110,6 +115,7 @@ function Config({
 
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        onClick={() => closeDialog()}
       >
         Save Changes
       </button>
@@ -120,12 +126,12 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('dutyCalculation')}
+          onClick={backToDutyCalculation}
         />
         <p className="text-[2rem]"> Surface Duty </p>
       </div>
 
-      <div className="grid gap-8 mt-[5rem]">
+      <div className="grid gap-16 mt-[5rem]">
         <div className="relative flex items-center w-[45rem] mx-auto">
           <input
             type="text"
@@ -140,18 +146,20 @@ function Config({
           />
         </div>
 
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
-          }}
-        >
+        <div>
           <p className="font-medium">Most popular</p>
-          {Array.from({ length: 6 }, (_, i) => (
-            <p key={i} className="border border-gray-100 rounded-3xl p-4">
-              Lexus LX 570, 2019
-            </p>
-          ))}
+          <div
+            className="grid"
+            style={{
+              gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+            }}
+          >
+            {Array.from({ length: 6 }, (_, i) => (
+              <p key={i} className="border bg-gray-100 rounded-3xl p-4">
+                Lexus LX 570, 2019
+              </p>
+            ))}
+          </div>
         </div>
 
         <div className="flex items-center gap-4">
