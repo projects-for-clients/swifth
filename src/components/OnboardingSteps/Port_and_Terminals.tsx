@@ -377,11 +377,13 @@ const PortAndTerminals = ({
 
   return (
     <>
-      <Header
-        title="Ports and Terminals"
-        subTitle="Enter your ports and terminals details"
-        onboarding
-      />
+      {!setup && (
+        <Header
+          title="Ports and Terminals"
+          subTitle="Enter your ports and terminals details"
+          onboarding
+        />
+      )}
 
       <div
         className="grid gap-16 h-[85vh] overflow-y-scroll"
@@ -389,11 +391,13 @@ const PortAndTerminals = ({
           gridTemplateRows: 'max-content 1fr',
         }}
       >
-        <div className="flex gap-2">
-          <img src="/icons/admin/barFilled.svg" alt="" />
-          <img src="/icons/admin/barFilled.svg" alt="" />
-          <img src="/icons/admin/barEmpty.svg" alt="" />
-        </div>
+        {!setup && (
+          <div className="flex gap-2">
+            <img src="/icons/admin/barFilled.svg" alt="" />
+            <img src="/icons/admin/barFilled.svg" alt="" />
+            <img src="/icons/admin/barEmpty.svg" alt="" />
+          </div>
+        )}
 
         <form className="grid gap-10" onSubmit={handleFormSubmit}>
           <div>
@@ -468,12 +472,16 @@ const PortAndTerminals = ({
             </div>
           </div>
 
+        
+
           <button
-            className="text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end w-[28rem] rounded-lg text-color-white uppercase font-semibold mt-auto disabled:opacity-60 disabled:cursor-not-allowed"
+            className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${
+              setup ? 'w-full mt-10 mb-10' : 'w-[28rem]'
+            }`}
             disabled={!isTerminal}
             onClick={handleFormSubmit}
           >
-            Continue
+            {setup ? 'Save Changes' : 'Continue'}
           </button>
         </form>
       </div>
