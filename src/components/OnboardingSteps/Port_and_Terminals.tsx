@@ -341,15 +341,20 @@ const PortAndTerminals = ({
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setTerminalCount] = useState(1);
 
+  let loaded = false
   useEffect(() => {
-   
-    if (onboardingInputs.portsAndTerminal?.port) {
+    console.log('the onboarding inputs re', onboardingInputs.portsAndTerminal);
+    if (onboardingInputs.portsAndTerminal?.port && !loaded) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true);
-      console.log('the terminal list is', onboardingInputs.portsAndTerminal)
-      setTerminalCount(onboardingInputs.portsAndTerminal.terminalList?.length || 1)
+      console.log('the terminal list is', onboardingInputs.portsAndTerminal);
+      setTerminalCount(
+        onboardingInputs.portsAndTerminal.terminalList?.length || 1
+      );
+
+      loaded = true
     }
-  }, []);
+  }, [onboardingInputs.portsAndTerminal.terminalList]);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
