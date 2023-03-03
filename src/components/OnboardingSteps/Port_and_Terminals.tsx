@@ -339,7 +339,7 @@ const PortAndTerminals = ({
     if (onboardingInputs.portsAndTerminal?.port) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true);
-      setIsTerminalCount(onboardingInputs.portsAndTerminal.terminalList.size)
+      setIsTerminalCount(onboardingInputs.portsAndTerminal.terminalList.length)
     }
   }, [onboardingInputs.portsAndTerminal]);
 
