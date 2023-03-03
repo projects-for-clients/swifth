@@ -46,9 +46,8 @@ function Config({
   const moveToCarModels = (item: string) => {
     setStep('carModels');
     setSelectedCar((prev) => ({ ...prev, name: item }));
-    
-    };
-  
+  };
+
   const first = (
     <>
       <p className="text-[2rem] mb-16">Formular Configuration</p>
@@ -227,29 +226,55 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={backToDutyCalculation}
+          onClick={() => setStep('surfaceDuty')}
         />
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
       <div className="grid gap-16 mt-[5rem]">
-        <div className="relative flex items-center w-[45rem] mx-auto">
-          <input
-            type="text"
-            className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
-            placeholder="Search"
-          />
+        <p className="text-color-purple-1 font-medium text-[2rem]">
+          {selectedCar?.name}
+        </p>
 
-          <img
-            src="/icons/search-normal.svg"
-            alt=""
-            className="absolute left-6 text-[1.8rem]"
-          />
-        </div>
-
-         
         <div className="mb-[5rem]">
-          <p className="font-medium mb-5">{}</p>
+          <p className="font-medium mb-5">{selectedCar?.name} Models</p>
+          <div
+            className="grid gap-8"
+            style={{
+              gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+            }}
+          >
+            {Array.from({ length: 20 }, (_, i) => (
+              <button
+                key={i}
+                className="border bg-gray-100 rounded-3xl p-6 outline-transparent"
+                onClick={() => moveToCarTrims('Honda')}
+              >
+                Honda
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+  const carTrims = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('surfaceDuty')}
+        />
+        <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
+      </div>
+
+      <div className="grid gap-16 mt-[5rem]">
+        <p className="text-color-purple-1 font-medium text-[2rem]">
+          {selectedCar?.name}
+        </p>
+
+        <div className="mb-[5rem]">
+          <p className="font-medium mb-5">{selectedCar?.name} Models</p>
           <div
             className="grid gap-8"
             style={{
