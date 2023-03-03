@@ -101,8 +101,8 @@ function Ports({ closeDialog, setWidth }: { closeDialog: () => void, setWidth:(i
   );
 
   const Paths = new Map<number, JSX.Element>([
-    [2, first],
-    [1, <PortAndTerminals setup={true} setStep={setStep} />],
+    [1, first],
+    [2, <PortAndTerminals setup={true} setStep={setStep} />],
     [3, third],
   ]);
 
