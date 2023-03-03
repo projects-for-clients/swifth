@@ -51,17 +51,19 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between" onClick={
-            () => setStep('dutyConstant')
-        }>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between"
+          onClick={() => setStep('dutyConstant')}
+        >
           <p>Surface Duty Constant</p>
           <span>
             <BsArrowRight />
           </span>
         </button>
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between" onClick={
-            () => setStep('surfaceDuty')
-        }>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between"
+          onClick={() => setStep('surfaceDuty')}
+        >
           <p>Surface Duty </p>
           <span>
             <BsArrowRight />
@@ -84,8 +86,17 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         <label htmlFor="" className=" text-[1.4rem] text-gray-500">
           Duty Constant
         </label>
-        <input type="text" className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none" />
+        <input
+          type="text"
+          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+        />
       </div>
+
+      <button
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed`}
+      >
+        Save Changes
+      </button>
     </>
   );
   const SurfaceDuty = (
@@ -102,11 +113,13 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         <label htmlFor="" className="mb-4 text-[1.4rem] text-gray-500">
           Duty Constant
         </label>
-        <input type="text" className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none" />
+        <input
+          type="text"
+          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+        />
       </div>
     </>
   );
-
 
   const Paths = new Map<Steps, JSX.Element>([
     ['duty', first],
