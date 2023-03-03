@@ -340,7 +340,6 @@ const PortAndTerminals = ({
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true)
 
-
     }
 
 
