@@ -462,8 +462,8 @@ function Config({
             <span className="text-[#4B5463] capitalize">
               {selectedShippingItem?.name}
             </span>
-            <input type='text' className="text-[2rem] text-color-purple-1" p>
-              {selectedShippingItem?.content}
+            <input type='text' className="text-[2rem] text-color-purple-1" placeholder={selectedShippingItem?.content}/>
+              
          
           </p>
         </button>
