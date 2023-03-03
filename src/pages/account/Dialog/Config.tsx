@@ -289,7 +289,9 @@ function Config({
             }}
           >
             {Array.from({ length: 20 }, (_, i) => (
-              <p key={i} className="border bg-gray-100 rounded-3xl p-6">
+              <p key={i} className="border bg-gray-100 rounded-3xl p-6" onClick={
+                () => setStep('carSurfaceDuty')
+              }>
                 {selectedCar?.trim}
               </p>
             ))}
@@ -307,10 +309,13 @@ function Config({
         />
         <p className="text-[2rem]"> Surface Duty Constant</p>
       </div>
-
+      <p className="text-color-purple-1 font-medium text-[2rem]">
+        {selectedCar?.name} Accord {selectedCar?.trim}
+      </p>
       <div className="grid gap-4 mt-[5rem]">
         <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          Duty Constant
+          
+        Surface Duty
         </label>
         <input
           type="text"
@@ -334,6 +339,7 @@ function Config({
     ['surfaceDuty', SurfaceDuty],
     ['carModels', carModels],
     ['carTrims', carTrims],
+    ['carSurfaceDuty', carSurfaceDuty],
     ['shipping', <div>second</div>],
     ['charges', <div>third</div>],
   ]);
