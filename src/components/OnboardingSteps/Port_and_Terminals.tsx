@@ -340,8 +340,8 @@ const PortAndTerminals = ({
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setTerminalCount] = useState(1);
 
+  
   let loaded = false;
-
   if (setup) {
     console.log('setup')
     useEffect(() => {
@@ -364,7 +364,9 @@ const PortAndTerminals = ({
         loaded = true;
       }
     }, [onboardingInputs.portsAndTerminal]);
+
   }
+  console.log({loaded})
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
