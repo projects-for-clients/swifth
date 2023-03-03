@@ -370,7 +370,6 @@ const PortAndTerminals = ({
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (isError.error) {
-      console.log('error');
       setIsError((prev) => {
         return {
           ...prev,
@@ -387,13 +386,10 @@ const PortAndTerminals = ({
   };
 
   const addTerminal = () => {
-    console.log('add terminal');
     setTerminalCount((prev) => prev + 1);
   };
 
-  useEffect(() => {
-    console.log('the terminal count is', terminalCount);
-  }, [terminalCount]);
+
 
   const selectItemHandler = (item: Port) => {
     setSelectedItem(item);
@@ -403,7 +399,6 @@ const PortAndTerminals = ({
 
   useEffect(() => {
     if (selectedItem) {
-      console.log({ selectedItem });
 
       dispatch(
         updatePortsAndTerminalInfo({

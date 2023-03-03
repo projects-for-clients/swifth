@@ -27,6 +27,10 @@ function Dialog() {
     }
   }, [dialogType]);
 
+  useEffect(() => {
+    console.log({width})
+  }, [width])
+
   const Paths = new Map<DialogType, JSX.Element>([
     ['personal', <Personal closeDialog={closeDialog} />],
     ['business', <Business closeDialog={closeDialog} />],

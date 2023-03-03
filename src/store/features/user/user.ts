@@ -182,7 +182,6 @@ export const userSlice = createSlice({
         payload: PortsAndTerminal;
       }
     ) => {
-      console.log('payload', payload);
 
       return {
         ...state,
