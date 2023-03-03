@@ -334,7 +334,7 @@ const PortAndTerminals = ({
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
   const [isTerminal, setIsTerminal] = useState(false);
-  const [terminalCount, setIsTerminalCount] = useState([1]);
+  const [terminalCount, setIsTerminalCount] = useState(3);
 
   useEffect(() => {
     if (onboardingInputs.portsAndTerminal?.port) {
@@ -450,20 +450,28 @@ const PortAndTerminals = ({
                 </div>
               </div>
 
-              {terminalCount.map((_, index) => {
+             
+
+              {Array.from({length: terminalCount[0]}).map((_, index) => {
+                console.count('terminal')
                 return (
-                  showNext && (
-                    <Terminal
-                      isTerminal={isTerminal}
-                      setIsTerminal={setIsTerminal}
-                      terminalCount={terminalCount}
-                      setIsError={setIsError}
-                      isError={isError}
-                      key={index}
-                      id={index}
-                      setup={setup}
-                    />
-                  )
+                  <>
+                  <p>
+                    {index}
+                  </p>
+                  </>
+                  // showNext && (
+                  //   <Terminal
+                  //     isTerminal={isTerminal}
+                  //     setIsTerminal={setIsTerminal}
+                  //     terminalCount={terminalCount}
+                  //     setIsError={setIsError}
+                  //     isError={isError}
+                  //     key={index}
+                  //     id={index}
+                  //     setup={setup}
+                  //   />
+                  // )
                 );
               })}
 
