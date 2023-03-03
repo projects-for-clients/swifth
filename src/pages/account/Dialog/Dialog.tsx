@@ -17,6 +17,7 @@ function Dialog() {
   const closeDialog = () => {
     dialogRef.current?.close();
     setDialogType(null);
+    setWidth('w-[50rem]')
   };
 
  
