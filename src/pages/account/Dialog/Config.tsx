@@ -435,7 +435,7 @@ function Config({
         ))}
       <button
         className={`flex w-full justify-end`}
-        onClick={() => closeDialog()}
+        onClick={() => setStep('EditShippingItem')}
       >
         <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
           Edit Formular
@@ -454,41 +454,52 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <div className="grid">
+      <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
         <button
-          className={`flex items-center justify-items-start py-4 outline-none `}
+          className={`flex items-center justify-items-start py-4 outline-none border-b`}
         >
-          <p className="grid">
+          <p className="grid justify-items-start">
             <span className="text-[#4B5463] capitalize">
               {selectedShippingItem?.name}
             </span>
-            <input type="text" className="border-none outline-none" />
+            <span className="text-[2rem] text-color-purple-1">
+              {selectedShippingItem?.content}
+            </span>
+          </p>
+        </button>
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
+        >
+          <p className="grid justify-items-start">
+            <span className=" capitalize">2015 and older</span>
+            <span>50k x 1.75</span>
           </p>
         </button>
         {shippingItemProps.map((item, index) => (
           <button
-            className={`flex items-center justify-items-start py-4 outline-none ${
-              index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
+            className={`flex items-center justify-items-start py-4 outline-none text-[#4B5463] ${
+              index !== shippingItemProps.length - 1
+                ? 'border-b '
+                : 'border-none'
             }`}
             onClick={() => setStep('shippingItem')}
             key={item.name}
           >
-            <p className="grid">
-              <span className="text-[#4B5463] capitalize">{item.name}</span>
+            <p className="grid justify-items-start">
+              <span className=" capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
           </button>
         ))}
+        <button
+          className={`flex w-full justify-end`}
+          onClick={() => setStep('EditShippingItem')}
+        >
+          <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
+            Edit Formular
+          </span>
+        </button>
       </div>
-
-      <button
-        className={`flex w-full justify-end`}
-        onClick={() => closeDialog()}
-      >
-        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
-          Edit Formular
-        </span>
-      </button>
     </>
   );
 
