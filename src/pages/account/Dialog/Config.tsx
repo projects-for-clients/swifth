@@ -8,10 +8,12 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
   const first = (
     <>
       <div className="grid justify-items-center">
-        
-        <div>
-            
-        </div>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between"
+        >
+            <p></p>
+         
+        </button>
       </div>
     </>
   );
