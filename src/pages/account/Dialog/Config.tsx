@@ -11,8 +11,8 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between"
         >
-            <p></p>
-         
+            <p>Duty Calculation</p>
+            <p className='text-[1.4rem] text-gray-500'>Duty charges configuration</p>
         </button>
       </div>
     </>
