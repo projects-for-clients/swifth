@@ -338,6 +338,8 @@ function Config({
 
     const shippingItems = [
     { name: 'sedan', content: '120k' },
+    { name: 'suv/bus/pick-up', content: '150k' },
+    { name: 'truck', content: '180k' },
     ]
 
   const shipping = (
