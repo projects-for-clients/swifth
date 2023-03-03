@@ -170,7 +170,6 @@ const Terminal: FC<ITerminal> = ({
   };
 
   if (setup) {
-    console.log('mounted', onboardingInputs.portsAndTerminal.terminalList[id]);
     useEffect(() => {
       if (!loaded) {
 
