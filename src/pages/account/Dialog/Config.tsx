@@ -268,7 +268,7 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('surfaceDuty')}
+          onClick={() => setStep('carModels')}
         />
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
@@ -278,7 +278,7 @@ function Config({
           {selectedCar?.name} Accord
         </p>
 
-        <div className="mb-[5rem]">
+        <div>
           <p className="font-medium mb-5">
             {selectedCar?.name} Accord Trims & Years
           </p>
