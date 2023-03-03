@@ -18,7 +18,7 @@ function Config({
     | 'surfaceDuty'
     | 'carModels'
     | 'carTrims'
-    | 'carSurfaceDuty';
+    | 'carSurfaceDuty'|'shippingItem'
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -388,17 +388,24 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <p className="text-color-purple-1 font-medium text-[2rem] mt-[5rem]">
-        {selectedCar?.name} Accord {selectedCar?.trim}
-      </p>
-      <div className="grid gap-4 mt-2">
-        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          Surface Duty
-        </label>
-        <input
-          type="text"
-          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
-        />
+      <div className="grid">
+        {shippingContent.map((item, index) => (
+          <button
+            className={`flex items-center justify-between py-4 outline-none ${
+              index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
+            }`}
+            onClick={() => setStep('shippingItem')}
+            key={item.name}
+          >
+            <p className="grid">
+              <span className="text-[#4B5463] capitalize">{item.name}</span>
+              <span>{item.content}</span>
+            </p>
+            <p>
+              <BsArrowRight className="text-[#4B5463" />
+            </p>
+          </button>
+        ))}
       </div>
 
       <button
@@ -421,6 +428,7 @@ function Config({
     ['carTrims', carTrims],
     ['carSurfaceDuty', carSurfaceDuty],
     ['shipping', shipping],
+    ['shippingItem', shippingItem],
     ['charges', <div>third</div>],
   ]);
 
