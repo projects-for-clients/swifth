@@ -357,27 +357,17 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <p className="text-color-purple-1 font-medium text-[2rem] mt-[5rem]">
-        {selectedCar?.name} Accord {selectedCar?.trim}
-      </p>
-      <div className="grid gap-4 mt-2">
-        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          Surface Duty
-        </label>
-        <input
-          type="text"
-          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
-        />
-      </div>
 
-      <button
-        className={`flex w-full justify-end`}
-        onClick={() => closeDialog()}
-      >
-        <span className=" bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
-          Save Changes
-        </span>
-      </button>
+      <div className="grid">
+        {shippingItems.map((item, index) => (
+          <div className="flex items-center justify-between">
+            <p className="grid">
+              <span className="text-[#4B5463] capitalize">{item.name}</span>
+              <span>{item.content}</span>
+            </p>
+          </div>
+        ))}
+      </div>
     </>
   );
   const shippingItem = (
