@@ -344,22 +344,16 @@ const PortAndTerminals = ({
   if (setup) {
     useEffect(() => {
       if (!loaded) {
-
         selectItemHandler(onboardingInputs.portsAndTerminal?.port as Port);
         setIsTerminal(true);
         setTerminalCount(
           onboardingInputs.portsAndTerminal.terminalList?.length || 1
         );
 
-        setLoaded(true)
+        setLoaded(true);
       }
     }, [onboardingInputs.portsAndTerminal]);
   }
-
-      console.log({ loaded }, 'loaded 2');
-
-      console.log("second loading")
-
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
