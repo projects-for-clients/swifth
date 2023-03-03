@@ -48,6 +48,11 @@ function Config({
     setSelectedCar((prev) => ({ ...prev, name: item }));
   };
 
+    const moveToCarTrims = (item: string) => {
+    setStep('carTrims');
+    setSelectedCar((prev) => ({ ...prev, trim: item }));
+    };
+
   const first = (
     <>
       <p className="text-[2rem] mb-16">Formular Configuration</p>
@@ -248,9 +253,9 @@ function Config({
               <button
                 key={i}
                 className="border bg-gray-100 rounded-3xl p-6 outline-transparent"
-                onClick={() => moveToCarTrims('Honda')}
+                onClick={() => moveToCarTrims('XLE 2018')}
               >
-                Honda
+                Accord
               </button>
             ))}
           </div>
@@ -298,6 +303,7 @@ function Config({
     ['dutyConstant', SurfaceConstant],
     ['surfaceDuty', SurfaceDuty],
     ['carModels', carModels],
+    ['carTrims', carTrims],
     ['shipping', <div>second</div>],
     ['charges', <div>third</div>],
   ]);
