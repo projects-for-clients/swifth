@@ -4,13 +4,11 @@ import PortAndTerminals from '../../../components/OnboardingSteps/Port_and_Termi
 
 function Ports({ closeDialog }: { closeDialog: () => void }) {
   const [step, setStep] = useState(1);
-  const name = 'Ben Davis';
 
   const first = (
     <>
       <div className="grid justify-items-center">
         <div className="text-center mt-10">
-          <p className="text-[3rem]">{name}</p>
           <button
             className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
             onClick={() => setStep(2)}
