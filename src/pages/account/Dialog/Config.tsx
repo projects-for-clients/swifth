@@ -75,13 +75,13 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('duty')}
+          onClick={() => setStep('dutyCalculation')}
         />
         <p className="text-[2rem]"> Surface Duty Constant</p>
       </div>
 
-      <div className="grid gap-8 mt-[5rem]">
-        <label htmlFor="" className="mb-4 text-[1.4rem] text-gray-500">
+      <div className="grid gap-4 mt-[5rem]">
+        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
           Duty Constant
         </label>
         <input type="text" className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none" />
@@ -93,7 +93,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('duty')}
+          onClick={() => setStep('dutyCalculation')}
         />
         <p className="text-[2rem]"> Surface Duty </p>
       </div>
