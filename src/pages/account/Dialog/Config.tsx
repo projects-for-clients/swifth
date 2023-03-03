@@ -360,10 +360,18 @@ function Config({
 
       <div className="grid">
         {shippingItems.map((item, index) => (
-          <div className="flex items-center justify-between">
+          <div
+            className={`flex items-center justify-between py-4 ${
+              index !== shippingItems.length - 1 ? 'border-b' : ''
+            }`}
+            key={item.name}
+          >
             <p className="grid">
               <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
+            </p>
+            <p>
+              <BsArrowRight />
             </p>
           </div>
         ))}
