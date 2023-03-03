@@ -3,7 +3,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { IoMdCheckmark } from 'react-icons/io';
 
 function Config({ closeDialog }: { closeDialog: () => void }) {
-  type Steps = 'duty' | 'shipping' | 'charges';
+  type Steps = 'duty' | 'shipping' | 'charges' | 'dutyCalculation';
   const [step, setStep] = useState<Steps>('duty');
   const name = 'Ben Davis';
 
@@ -40,23 +40,15 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         />
         <p className="text-[2rem]">Duty Calculation</p>
       </div>
+
       <div className="grid gap-8 mt-[5rem]">
         <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
-          <p>Duty Calculation</p>
+          <p>Surface Duty Constant</p>
           <p className="text-[1.4rem] text-gray-500">
             Duty charges configuration
           </p>
         </button>
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
-          <p>Shipping and Terminal</p>
-          <p className="text-[1.4rem] text-gray-500">
-            Shipping & Terminal charges configuration
-          </p>
-        </button>
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
-          <p>Charges</p>
-          <p className="text-[1.4rem] text-gray-500">Charges configuration</p>
-        </button>
+       
       </div>
     </>
   );
@@ -87,6 +79,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
 
   const Paths = new Map<Steps, JSX.Element>([
     ['duty', first],
+    ['dutyCalculation', dutyCalculation],
     ['shipping', <div>second</div>],
     ['charges', third],
   ]);
