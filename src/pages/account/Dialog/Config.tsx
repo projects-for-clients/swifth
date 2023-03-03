@@ -371,7 +371,7 @@ function Config({
               <span>{item.content}</span>
             </p>
             <p>
-              <BsArrowRight />
+              <BsArrowRight className="text-[#4B5463" />
             </p>
           </div>
         ))}
