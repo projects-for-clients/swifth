@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BiArrowBack } from 'react-icons/bi';
 import { IoMdCheckmark } from 'react-icons/io';
 
 function Config({ closeDialog }: { closeDialog: () => void }) {
@@ -8,6 +9,37 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
 
   const first = (
     <>
+      <p className="text-[2rem] mb-16">Formular Configuration</p>
+
+      <div className="grid gap-8 mt-[5rem]">
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+          <p>Duty Calculation</p>
+          <p className="text-[1.4rem] text-gray-500">
+            Duty charges configuration
+          </p>
+        </button>
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+          <p>Shipping and Terminal</p>
+          <p className="text-[1.4rem] text-gray-500">
+            Shipping & Terminal charges configuration
+          </p>
+        </button>
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+          <p>Charges</p>
+          <p className="text-[1.4rem] text-gray-500">Charges configuration</p>
+        </button>
+      </div>
+    </>
+  );
+  const dutyCalculation = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('duty')}
+        />
+        <p className="text-[2rem]">Duty Calculation</p>
+      </div>
       <div className="grid gap-8 mt-[5rem]">
         <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
           <p>Duty Calculation</p>
@@ -61,7 +93,6 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
 
   return (
     <div className="relative h-[90vh]">
-      <p className="text-[2rem] mb-16">Formular Configuration</p>
 
       {Paths.get(step)}
     </div>
