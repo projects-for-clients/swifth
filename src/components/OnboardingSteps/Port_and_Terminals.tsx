@@ -25,6 +25,7 @@ interface ITerminal {
   terminalCount: number[];
   isError: ErrorMessage;
   setup?: boolean;
+  validationErrors?: any;
   setIsError: Dispatch<SetStateAction<ErrorMessage>>;
 }
 
@@ -37,7 +38,8 @@ const Terminal: FC<ITerminal> = ({
   terminalCount,
   setIsError,
   isError,
-  setup
+  setup,
+  validationErrors
 }) => {
   const dispatch = useAppDispatch()
   const userState = useAppSelector((state) => state.user);
@@ -68,8 +70,7 @@ const Terminal: FC<ITerminal> = ({
     setToggleSelectMenu(!toggleSelectMenu);
   };
 
-  const {  validationErrors } =
-    useContext(OnboardingContext);
+ 
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -308,7 +309,18 @@ const Terminal: FC<ITerminal> = ({
 
 type Port = 'Lagos' | 'Onitsha';
 
-const PortAndTerminals = () => {
+const PortAndTerminals = ({
+  setup,
+  setStep,
+}: {
+  setup?: boolean;
+  setStep?: Dispatch<SetStateAction<number>>;
+}) => {
+   const contextData = useContext(OnboardingContext);
+
+   const handleStep = contextData?.handleStep;
+   const validationErrors = contextData?.validationErrors;
+
   const dispatch = useAppDispatch();
   const userState = useAppSelector((state) => state.user);
   const port: Port[] = ['Lagos', 'Onitsha'];
@@ -325,7 +337,6 @@ const PortAndTerminals = () => {
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
-  const { handleStep,  } = useContext(OnboardingContext);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -362,15 +373,12 @@ const PortAndTerminals = () => {
         },
       } as ChangeEvent<HTMLInputElement>;
 
-
       dispatch(
         updatePortsAndTerminalInfo({
           ...userState.onboardingInputs.portsAndTerminal,
           port: selectedItem,
         })
       );
-
-      
     }
   }, [selectedItem]);
 
