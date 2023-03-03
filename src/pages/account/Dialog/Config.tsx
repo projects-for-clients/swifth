@@ -141,10 +141,19 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         <div>
           {filter.map((item) => (
             <div key={item}>
-              <input type="radio" name="filter" id={item} className="hidden" onChange={
-                () => setSelectedFilter(item)
-              } />
-              <label htmlFor={item} className={`${item === selectedFilter}`}>
+              <input
+                type="radio"
+                name="filter"
+                id={item}
+                className="hidden"
+                onChange={() => setSelectedFilter(item)}
+              />
+              <label
+                htmlFor={item}
+                className={`${
+                  item === selectedFilter ? 'bg-color-primary text' : ''
+                } `}
+              >
                 {item}
               </label>
             </div>
