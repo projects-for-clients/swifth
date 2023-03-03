@@ -494,6 +494,11 @@ function Config({
             <p className="grid justify-items-start">
               <span className=" capitalize">{item.name}</span>
               <span>{item.content}</span>
+              <input
+                type="text"
+                className=" border-none outline-none"
+                placeholder={`50k x 1.75`}
+              />
             </p>
           </button>
         ))}
