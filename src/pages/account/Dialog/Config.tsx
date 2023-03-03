@@ -66,9 +66,10 @@ function Config({
             Duty charges configuration
           </p>
         </button>
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left" onClick={
-            () => setStep('shipping')
-        }>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left"
+          onClick={() => setStep('shipping')}
+        >
           <p>Shipping and Terminal</p>
           <p className="text-[1.4rem] text-gray-500">
             Shipping & Terminal charges configuration
@@ -336,11 +337,16 @@ function Config({
     </>
   );
 
-    const shippingItems = [
+  const shippingItems = [
     { name: 'sedan', content: '120k' },
     { name: 'suv/bus/pick-up', content: '150k' },
     { name: 'truck', content: '180k' },
-    ]
+  ];
+
+  const shippingItemProps = Array.from({ length: 10 }, (_, i) => ({
+    name: 2015 + (i + 1),
+    content: `50k x ${i + 1}`,
+  }));
 
   const shipping = (
     <>
@@ -374,8 +380,38 @@ function Config({
       </button>
     </>
   );
+  const shippingItem = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('carTrims')}
+        />
+        <p className="text-[2rem]"> Shipping and Terminal</p>
+      </div>
+      <p className="text-color-purple-1 font-medium text-[2rem] mt-[5rem]">
+        {selectedCar?.name} Accord {selectedCar?.trim}
+      </p>
+      <div className="grid gap-4 mt-2">
+        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+          Surface Duty
+        </label>
+        <input
+          type="text"
+          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+        />
+      </div>
 
-  
+      <button
+        className={`flex w-full justify-end`}
+        onClick={() => closeDialog()}
+      >
+        <span className=" bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
+          Save Changes
+        </span>
+      </button>
+    </>
+  );
 
   const Paths = new Map<Steps, JSX.Element>([
     ['duty', first],
