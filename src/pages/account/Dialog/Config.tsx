@@ -488,7 +488,6 @@ function Config({
                 ? 'border-b '
                 : 'border-none'
             }`}
-            onClick={() => setStep('shippingItem')}
             key={item.name}
           >
             <p className="grid justify-items-start">
