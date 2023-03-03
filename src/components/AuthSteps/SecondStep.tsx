@@ -3,7 +3,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { AuthContext } from '../../Context/AppContext';
 import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
-import { open } from '../../store/features/modal';
+import { close, open } from '../../store/features/modal';
 import { useNavigate } from 'react-router';
 
 export const SecondSignUpStep = () => {
@@ -223,10 +223,11 @@ export const SecondLoginStep = () => {
 
   const handleSubmit = () => {
     console.log('submit');
-
+    
     setLoading(true);
     setTimeout(() => {
       navigate('/dashboard');
+      dispatch(close())
     }, 1000);
   };
 
