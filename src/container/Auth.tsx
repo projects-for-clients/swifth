@@ -1,7 +1,4 @@
-import React, {
- 
-  useContext,
-} from 'react';
+import React, { useContext } from 'react';
 import {
   FirstSignUpStep,
   FirstLoginStep,
@@ -17,14 +14,13 @@ import { modalSelector } from '../store/features/modal';
 import { useAppSelector } from '../store/app/hooks';
 
 function Auth() {
-
   const modalData = useAppSelector(modalSelector);
   const AuthContextData = useContext(AuthContext);
   const { step } = AuthContextData;
 
   const { path } = modalData;
 
-  console.log('path', {path}, {step})
+  console.log('path', { path }, { step });
 
   const AuthSteps = () => {
     switch (step) {
@@ -33,9 +29,9 @@ function Auth() {
       case 1:
         return path === 'signup' ? <SecondSignUpStep /> : <SecondLoginStep />;
       case 2:
-        return <ThirdStep />;
+        return path === 'signup' ? <ThirdStep /> : <FirstLoginStep />;
       case 3:
-        return <FourthStep />;
+        return path === 'signup' ? <FourthStep /> : <FirstLoginStep />;
 
       default:
         return path === 'signup' ? <FirstSignUpStep /> : <FirstLoginStep />;
