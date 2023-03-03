@@ -40,9 +40,9 @@ const Terminal: FC<ITerminal> = ({
   setup,
 }) => {
   const contextData = useContext(OnboardingContext);
-  
+
   const validationErrors = contextData?.validationErrors;
-  
+
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
   console.log('mounted', onboardingInputs.portsAndTerminal.terminalList);
@@ -137,12 +137,11 @@ const Terminal: FC<ITerminal> = ({
           ...onboardingInputs.portsAndTerminal,
           terminalList: {
             ...onboardingInputs.portsAndTerminal.terminalList,
-              [`terminal${id}`]: {
-                terminal: selectedItem,
-                formCUri: imageDetails.error ? 'too large' : formCUri,
-                formCExpirationDate: dateChange,
-              },
-            
+            [`terminal${id}`]: {
+              terminal: selectedItem,
+              formCUri: imageDetails.error ? 'too large' : formCUri,
+              formCExpirationDate: dateChange,
+            },
           },
         })
       );
@@ -334,12 +333,13 @@ const PortAndTerminals = ({
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
   const [isTerminal, setIsTerminal] = useState(false);
-  const [terminalCount, setIsTerminalCount] = useState(3);
+  const [terminalCount, setIsTerminalCount] = useState(1);
 
   useEffect(() => {
     if (onboardingInputs.portsAndTerminal?.port) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true);
+      setIsTerminalCount(onboardingInputs.portsAndTerminal.terminalList.size)
     }
   }, [onboardingInputs.portsAndTerminal]);
 
@@ -450,12 +450,8 @@ const PortAndTerminals = ({
                 </div>
               </div>
 
-             
-
-              {Array.from({length: terminalCount}).map((_, index) => {
-                console.count('terminal')
+              {Array.from({ length: terminalCount }).map((_, index) => {
                 return (
-                  
                   showNext && (
                     <Terminal
                       isTerminal={isTerminal}
