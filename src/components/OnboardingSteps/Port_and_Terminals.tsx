@@ -44,7 +44,7 @@ const Terminal: FC<ITerminal> = ({
   const validationErrors = contextData?.validationErrors;
 
   const dispatch = useAppDispatch();
-  const {onboardingInputs} = useAppSelector((state) => state.user);
+  const { onboardingInputs } = useAppSelector((state) => state.user);
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
@@ -316,9 +316,11 @@ const PortAndTerminals = ({
   const handleStep = contextData?.handleStep;
 
   const dispatch = useAppDispatch();
-  const userState = useAppSelector((state) => state.user);
+  const { onboardingInputs } = useAppSelector((state) => state.user);
   const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedItem, setSelectedItem] = useState<Port | null>('Lagos');
+  const [selectedItem, setSelectedItem] = useState<Port | string | null>(
+   null
+  );
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
   const [showNext, setShowNext] = useState(false);
   const [isError, setIsError] = useState<ErrorMessage>({
@@ -328,8 +330,20 @@ const PortAndTerminals = ({
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const [isTerminal, setIsTerminal] = useState(selectedItem ? true : false);
+  const [isTerminal, setIsTerminal] = useState( false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
+
+  useEffect(() => {
+    if (onboardingInputs.portsAndTerminal?.port){
+
+      setSelectedItem(onboardingInputs.portsAndTerminal.port);
+      setIsTerminal(true)
+
+      
+    }
+
+
+  }, [onboardingInputs.portsAndTerminal])
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -362,16 +376,11 @@ const PortAndTerminals = ({
 
   useEffect(() => {
     if (selectedItem) {
-      const data = {
-        target: {
-          name: 'port',
-          value: selectedItem,
-        },
-      } as ChangeEvent<HTMLInputElement>;
+      console.log({ selectedItem })
 
       dispatch(
         updatePortsAndTerminalInfo({
-          ...userState.onboardingInputs.portsAndTerminal,
+          ...onboardingInputs.portsAndTerminal,
           port: selectedItem,
         })
       );
@@ -474,8 +483,6 @@ const PortAndTerminals = ({
               </button>
             </div>
           </div>
-
-        
 
           <button
             className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${

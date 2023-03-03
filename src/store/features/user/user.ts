@@ -13,7 +13,7 @@ export interface BusinessInfo {
 }
 
 export interface PortsAndTerminal {
-  port: string;
+  port: string | null;
   terminalList: {
     terminal: string;
     formCUri: string;
@@ -66,7 +66,7 @@ const initialState: IUser = {
       logoUri: '',
     },
     portsAndTerminal: {
-      port: '',
+      port: null,
       terminalList: [],
     },
     personalInfo: {
