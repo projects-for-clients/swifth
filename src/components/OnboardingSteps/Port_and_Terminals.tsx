@@ -343,7 +343,7 @@ const PortAndTerminals = ({
 
   let loaded = false
   useEffect(() => {
-    console.log('the onboarding inputs re', onboardingInputs.portsAndTerminal);
+    console.log('the onboarding inputs re', onboardingInputs.portsAndTerminal, {loaded}, !loaded);
     if (onboardingInputs.portsAndTerminal?.port && !loaded) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true);
