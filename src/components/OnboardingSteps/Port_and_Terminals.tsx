@@ -333,13 +333,13 @@ const PortAndTerminals = ({
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
   const [isTerminal, setIsTerminal] = useState(false);
-  const [terminalCount, setIsTerminalCount] = useState(1);
+  const [terminalCount, setTerminalCount] = useState(1);
 
   useEffect(() => {
     if (onboardingInputs.portsAndTerminal?.port) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true);
-      setIsTerminalCount(onboardingInputs.portsAndTerminal.terminalList.length)
+      setTerminalCount(onboardingInputs.portsAndTerminal.terminalList.length)
     }
   }, [onboardingInputs.portsAndTerminal]);
 
@@ -364,8 +364,12 @@ const PortAndTerminals = ({
 
   const addTerminal = () => {
     console.log('add terminal');
-    setIsTerminalCount((prev) => prev + 1);
+    setTerminalCount((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    console.log({  });
+  }, [terminalCount])
 
   const selectItemHandler = (item: Port) => {
     setSelectedItem(item);
