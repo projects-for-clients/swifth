@@ -53,7 +53,7 @@ function ThirdAuthStep() {
   };
 
   return (
-    <div className="grid gap-10 mt-16 justify-center pb-5">
+    <div className="grid gap-10 mt-16 justify-center pb-5 self-center">
       <h2 className="heading2 text-center">Create your password</h2>
 
       <form className="grid form w-[34rem]" onSubmit={handleSubmit}>
