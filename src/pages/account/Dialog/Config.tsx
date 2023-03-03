@@ -397,7 +397,7 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <div className="grid">
+      <div className="grid max-h-[60vh] overflow-scroll">
         <button
           className={`flex items-center justify-items-start py-4 outline-none `}
         >
