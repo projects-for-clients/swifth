@@ -28,9 +28,21 @@ function Config({
     trim?: string;
   };
 
+  const shippingContent = [
+    { name: 'sedan', content: '120k' },
+    { name: 'suv/bus/pick-up', content: '150k' },
+    { name: 'truck', content: '180k' },
+  ];
+
+  const shippingItemProps = Array.from({ length: 10 }, (_, i) => ({
+    name: 2015 + (i + 1),
+    content: `50k x ${i + 1}`,
+  }));
+
   const [step, setStep] = useState<Steps>('duty');
   const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
   const [selectedCar, setSelectedCar] = useState<CarProp | null>(null);
+  const [selectedShippingItem, setSelectedShippingItem] = useState<string | null>(null);
 
   const toSurfaceDuty = () => {
     setStep('surfaceDuty');
@@ -51,6 +63,10 @@ function Config({
     setStep('carTrims');
     setSelectedCar((prev) => ({ ...prev, trim: item }));
   };
+
+  const moveToShippingItem = (item: string) => {
+
+  }
 
   const first = (
     <>
@@ -337,16 +353,7 @@ function Config({
     </>
   );
 
-  const shippingContent = [
-    { name: 'sedan', content: '120k' },
-    { name: 'suv/bus/pick-up', content: '150k' },
-    { name: 'truck', content: '180k' },
-  ];
-
-  const shippingItemProps = Array.from({ length: 10 }, (_, i) => ({
-    name: 2015 + (i + 1),
-    content: `50k x ${i + 1}`,
-  }));
+  
 
   const shipping = (
     <>
@@ -364,7 +371,7 @@ function Config({
             className={`flex items-center justify-between py-4 outline-none ${
               index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
             }`}
-            onClick={() => setStep('shippingItem')}
+            onClick={() => moveToShippingItem(item.name)}
             key={item.name}
           >
             <p className="grid">
@@ -389,6 +396,16 @@ function Config({
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
       <div className="grid">
+          <button
+            className={`flex items-center justify-items-start py-4 outline-none `}
+          
+          >
+            <p className="grid">
+              <span className="text-[#4B5463] capitalize"></span>
+              <span>{item.content}</span>
+            </p>
+            
+          </button>
         {shippingItemProps.map((item, index) => (
           <button
             className={`flex items-center justify-items-start py-4 outline-none ${
