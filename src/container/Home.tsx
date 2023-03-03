@@ -697,8 +697,8 @@ function DashboardHome() {
                       {' '}
                       Orders
                     </h2>
-                    
-                    <p>See All</p>
+
+                    <Link to='/dashboard/orders'>See All</Link>
                   </div>
                   <div className="max-w-[60rem] overflow-x-scroll flex gap-8">
                     <div className="p-8 w-[22rem] bg-white rounded-3xl">
@@ -869,7 +869,9 @@ function DashboardHome() {
                 <>
                   <div className="flex justify-between  mb-10">
                     <h2 className="heading3"> Payout Bank</h2>{' '}
+                    <Link to="/dashboard/payments">
                     <img src="/icons/arrow-right.svg" alt="" />
+                    </Link>
                   </div>
                   <div className="flex items-center gap-8">
                     <img src="/icons/payoutBank.svg" alt="" />
