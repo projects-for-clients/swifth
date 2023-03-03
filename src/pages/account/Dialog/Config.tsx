@@ -586,7 +586,7 @@ function Config({
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('charges')}
         />
-        <p className="text-[2rem]"> Shipping and Terminal</p>
+        <p className="text-[2rem]"> Edit Charges</p>
       </div>
       <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
        
