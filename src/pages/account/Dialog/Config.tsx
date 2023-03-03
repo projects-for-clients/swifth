@@ -164,7 +164,7 @@ function Config({
 
         <div className="flex items-center gap-4 mt-10">
           {filter.map((item) => (
-            <div key={item}>
+            <div key={item} className='text-center'>
               <input
                 type="radio"
                 name="filter"
