@@ -697,6 +697,7 @@ function DashboardHome() {
                       {' '}
                       Orders
                     </h2>
+                    
                     <p>See All</p>
                   </div>
                   <div className="max-w-[60rem] overflow-x-scroll flex gap-8">
@@ -817,7 +818,7 @@ function DashboardHome() {
                     Teams
                   </h2>
 
-                <Link to="/dashboard/teams">
+                <Link to="/dashboard/team">
 
                   <img src="/icons/arrow-right.svg" alt="" />
                 </Link>
