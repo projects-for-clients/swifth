@@ -561,10 +561,10 @@ function Config({
         ))}
         <button
           className={`flex w-full justify-end`}
-          onClick={() => setStep('EditShippingItem')}
+          onClick={() => setStep('editCharges')}
         >
           <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
-            Edit Formular
+            Edit Charges
           </span>
         </button>
       </div>
@@ -575,25 +575,12 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('shippingItem')}
+          onClick={() => setStep('charges')}
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
       <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
-        <button
-          className={`flex items-center justify-items-start py-4 outline-none border-b`}
-        >
-          <p className="grid justify-items-start">
-            <span className="text-[#4B5463] capitalize">
-              {selectedShippingItem?.name}
-            </span>
-            <input
-              type="text"
-              className="text-[2rem] text-color-purple-1 border-none outline-none"
-              placeholder={selectedShippingItem?.content}
-            />
-          </p>
-        </button>
+       
         <button
           className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
         >
