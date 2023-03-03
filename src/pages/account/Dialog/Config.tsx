@@ -215,7 +215,7 @@ function Config({
             {Array.from({ length: 20 }, (_, i) => (
               <p
                 key={i}
-                className="border bg-gray-100 rounded-3xl p-6"
+                className="border bg-gray-100 rounded-3xl p-6 cursor-pointer"
                 onClick={() => moveToCarModels('Honda')}
               >
                 Honda
@@ -236,12 +236,12 @@ function Config({
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
-      <div className="grid gap-4 mt-[5rem]">
+      <div className=" mt-[5rem]">
         <p className="text-color-purple-1 font-medium text-[2.4rem]">
           {selectedCar?.name}
         </p>
 
-        <div className="mb-[5rem]">
+        <div>
           <p className="font-medium mb-5">{selectedCar?.name} Models</p>
           <div
             className="grid gap-8"
@@ -273,7 +273,7 @@ function Config({
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
-      <div className="grid gap-16 mt-[5rem]">
+      <div className=" mt-[5rem]">
         <p className="text-color-purple-1 font-medium text-[2rem]">
           {selectedCar?.name} Accord
         </p>
