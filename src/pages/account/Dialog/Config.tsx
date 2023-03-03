@@ -127,7 +127,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         <div>
             <p className='font-medium'>Most popular</p>
           {Array.from({ length: 6 }, (_, i) => (
-            <p key={i} className='border border-gray-100'></p>
+            <p key={i} className='border border-gray-100 rounded-3xl p-4'></p>
           ))}
         </div>
       </div>
