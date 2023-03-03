@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 import PortAndTerminals from '../../../components/OnboardingSteps/Port_and_Terminals';
 
-function Ports({ closeDialog }: { closeDialog: () => void }) {
+function Ports({ closeDialog, enLarge }: { closeDialog: () => void, enLarge:() => void }) {
   const [step, setStep] = useState(1);
+
+  useEffect(() => {
+    if(step === 2) return enLarge()
+  }, [step])
 
   const first = (
     <>
