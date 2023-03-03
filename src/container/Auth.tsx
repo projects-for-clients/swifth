@@ -24,6 +24,8 @@ function Auth() {
 
   const { path } = modalData;
 
+  console.log('path', path)
+
   const AuthSteps = () => {
     switch (step) {
       case 0:
