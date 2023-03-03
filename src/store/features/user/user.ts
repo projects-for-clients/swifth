@@ -188,6 +188,8 @@ export const userSlice = createSlice({
         ['formCExpirationDate', ''],
       ] as [TerminalKeys, string][]);
 
+      console.log({updatedMap})
+
       
 
       return {
