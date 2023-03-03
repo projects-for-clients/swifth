@@ -422,7 +422,9 @@ function Config({
         {shippingItemProps.map((item, index) => (
           <button
             className={`flex items-center justify-items-start py-4 outline-none text-[#4B5463] ${
-              index !== shippingItemProps.length - 1 ? 'border-b ' : 'border-none'
+              index !== shippingItemProps.length - 1
+                ? 'border-b '
+                : 'border-none'
             }`}
             onClick={() => setStep('shippingItem')}
             key={item.name}
@@ -433,16 +435,15 @@ function Config({
             </p>
           </button>
         ))}
-      <button
-        className={`flex w-full justify-end`}
-        onClick={() => setStep('EditShippingItem')}
-      >
-        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
-          Edit Formular
-        </span>
-      </button>
+        <button
+          className={`flex w-full justify-end`}
+          onClick={() => setStep('EditShippingItem')}
+        >
+          <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
+            Edit Formular
+          </span>
+        </button>
       </div>
-
     </>
   );
   const EditShippingItem = (
