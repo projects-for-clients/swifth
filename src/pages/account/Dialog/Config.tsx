@@ -151,8 +151,8 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
               <label
                 htmlFor={item}
                 className={`${
-                  item === selectedFilter ? 'bg-color-primary text' : ''
-                } `}
+                  item === selectedFilter ? 'bg-color-primary text-white border-none' : 'border'
+                } rounded-3xl `}
               >
                 {item}
               </label>
