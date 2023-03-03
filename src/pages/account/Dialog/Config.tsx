@@ -108,7 +108,10 @@ function Config({
             Shipping & Terminal charges configuration
           </p>
         </button>
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left "
+          onClick={() => setStep('charges')}
+        >
           <p>Charges</p>
           <p className="text-[1.4rem] text-gray-500">Charges configuration</p>
         </button>
@@ -526,23 +529,12 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('shipping')}
+          onClick={() => setStep('duty')}
         />
-        <p className="text-[2rem]"> Shipping and Terminal</p>
+        <p className="text-[2rem]"> Charges</p>
       </div>
       <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
-        <button
-          className={`flex items-center justify-items-start py-4 outline-none border-b`}
-        >
-          <p className="grid justify-items-start">
-            <span className="text-[#4B5463] capitalize">
-              {selectedShippingItem?.name}
-            </span>
-            <span className="text-[2rem] text-color-purple-1">
-              {selectedShippingItem?.content}
-            </span>
-          </p>
-        </button>
+       
         <button
           className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
         >
