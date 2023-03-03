@@ -25,7 +25,6 @@ interface ITerminal {
   terminalCount: number[];
   isError: ErrorMessage;
   setup?: boolean;
-  validationErrors?: any;
   setIsError: Dispatch<SetStateAction<ErrorMessage>>;
 }
 
@@ -39,9 +38,12 @@ const Terminal: FC<ITerminal> = ({
   setIsError,
   isError,
   setup,
-  validationErrors
 }) => {
-  const dispatch = useAppDispatch()
+  const contextData = useContext(OnboardingContext);
+
+  const validationErrors = contextData?.validationErrors;
+
+  const dispatch = useAppDispatch();
   const userState = useAppSelector((state) => state.user);
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
@@ -69,8 +71,6 @@ const Terminal: FC<ITerminal> = ({
     });
     setToggleSelectMenu(!toggleSelectMenu);
   };
-
- 
 
   const uploadUriHandler = async (
     e: MouseEvent<HTMLInputElement>,
@@ -121,21 +121,16 @@ const Terminal: FC<ITerminal> = ({
 
   const keyId = `terminal${id}`;
   const terminalError = (val: string): boolean | string => {
-    if(validationErrors && validationErrors[keyId]){
-
+    if (validationErrors && validationErrors[keyId]) {
       const isError = validationErrors[keyId][val];
       return isError;
     }
 
     return false;
-
-
   };
 
   useEffect(() => {
     if (selectedItem) {
-     
-
       dispatch(
         updatePortsAndTerminalInfo({
           ...userState.onboardingInputs.portsAndTerminal,
@@ -143,7 +138,7 @@ const Terminal: FC<ITerminal> = ({
             terminal: selectedItem,
             formCUri: imageDetails.error ? 'too large' : formCUri,
             formCExpirationDate: dateChange,
-          }
+          },
         })
       );
     }
@@ -316,10 +311,9 @@ const PortAndTerminals = ({
   setup?: boolean;
   setStep?: Dispatch<SetStateAction<number>>;
 }) => {
-   const contextData = useContext(OnboardingContext);
+  const contextData = useContext(OnboardingContext);
 
-   const handleStep = contextData?.handleStep;
-   const validationErrors = contextData?.validationErrors;
+  const handleStep = contextData?.handleStep;
 
   const dispatch = useAppDispatch();
   const userState = useAppSelector((state) => state.user);
@@ -336,7 +330,6 @@ const PortAndTerminals = ({
 
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
-
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
