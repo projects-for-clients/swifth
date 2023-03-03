@@ -11,14 +11,12 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
     | 'dutyCalculation'
     | 'dutyConstant'
     | 'surfaceDuty';
+
+  type Filter = 'brand' | 'model' | 'trim';
+  const filter: Filter[] = ['brand', 'model', 'trim'];
+
   const [step, setStep] = useState<Steps>('duty');
-
-
-  const filter = [
-    'brand',
-    'model',
-    'trim'
-  ]
+  const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
 
   const first = (
     <>
@@ -132,24 +130,25 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
         </div>
 
         <div>
-            <p className='font-medium'>Most popular</p>
+          <p className="font-medium">Most popular</p>
           {Array.from({ length: 6 }, (_, i) => (
-            <p key={i} className='border border-gray-100 rounded-3xl p-4'>
-                Lexus LX 570, 2019
+            <p key={i} className="border border-gray-100 rounded-3xl p-4">
+              Lexus LX 570, 2019
             </p>
           ))}
         </div>
 
         <div>
-            {
-                filter.map((item) => (
-                    
-                    <div key={item}>
-                        <input type="radio" name="filter" id={item} />
-                    </div>
-
-                ))
-            }
+          {filter.map((item) => (
+            <div key={item}>
+              <input type="radio" name="filter" id={item} className="hidden" onChange={
+                () => setSelectedFilter(item)
+              } />
+              <label htmlFor={item} className={`${item === selectedFilter}`}>
+                {item}
+              </label>
+            </div>
+          ))}
         </div>
       </div>
     </>
