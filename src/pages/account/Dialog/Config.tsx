@@ -42,7 +42,7 @@ function Config({
   const [step, setStep] = useState<Steps>('duty');
   const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
   const [selectedCar, setSelectedCar] = useState<CarProp | null>(null);
-  const [selectedShippingItem, setSelectedShippingItem] = useState<string | null>(null);
+  const [selectedShippingItem, setSelectedShippingItem] = useState<CarProp | null>(null);
 
   const toSurfaceDuty = () => {
     setStep('surfaceDuty');
@@ -64,7 +64,7 @@ function Config({
     setSelectedCar((prev) => ({ ...prev, trim: item }));
   };
 
-  const moveToShippingItem = (item: string) => {
+  const moveToShippingItem = (item: CarProp) => {
     setStep('shippingItem');
     setSelectedShippingItem(item);
   }
@@ -372,7 +372,7 @@ function Config({
             className={`flex items-center justify-between py-4 outline-none ${
               index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
             }`}
-            onClick={() => moveToShippingItem(item.name)}
+            onClick={() => moveToShippingItem(item)}
             key={item.name}
           >
             <p className="grid">
@@ -402,8 +402,8 @@ function Config({
           
           >
             <p className="grid">
-              <span className="text-[#4B5463] capitalize">{selectedShippingItem}</span>
-              <input type="text" className='border-none outline-none' />
+              <span className="text-[#4B5463] capitalize">{selectedShippingItem?.name}</span>
+              <span>{selectedShippingItem?.trim}</span>
             </p>
             
           </button>
@@ -492,6 +492,7 @@ function Config({
     ['carSurfaceDuty', carSurfaceDuty],
     ['shipping', shipping],
     ['shippingItem', shippingItem],
+    ['EditShippingItem', EditShippingItem],
     ['charges', <div>third</div>],
   ]);
 
