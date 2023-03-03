@@ -477,7 +477,7 @@ function Config({
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('shippingItem')}
         />
-        <p className="text-[2rem]"> Shipping and Terminal</p>
+        <p className="text-[2rem]"> Edit Shipping and Terminal</p>
       </div>
       <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
         <button
@@ -543,7 +543,6 @@ function Config({
         <p className="text-[2rem]"> Charges</p>
       </div>
       <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
-       
         <button
           className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
         >
@@ -589,7 +588,6 @@ function Config({
         <p className="text-[2rem]"> Edit Charges</p>
       </div>
       <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
-       
         <button
           className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
         >
