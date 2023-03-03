@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { toast, ToastContainer } from 'react-toastify';
@@ -77,11 +77,17 @@ function Config({
   const SaveShipping = () => {
     setStep('shipping');
 
-    toast('Changes Saved', {
-      type: 'success',
-      className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
-    });
+
+    // toast('Changes Saved', {
+    //   type: 'success',
+    //   className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
+    // });
   }
+
+
+  useEffect(() => {
+    console.log({ step }, 'step');
+  }, [step, SaveShipping]);
 
   const first = (
     <>
