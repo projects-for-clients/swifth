@@ -20,7 +20,7 @@ function Dialog() {
   };
 
   const enLarge = () => {
-    setWidth('w-[70rem]');
+    setWidth('w-[100rem]');
   }
 
   useEffect(() => {
