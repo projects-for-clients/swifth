@@ -368,7 +368,7 @@ const PortAndTerminals = ({
   };
 
   useEffect(() => {
-    console.log({  });
+    console.log('the terminal count is', terminalCount);
   }, [terminalCount])
 
   const selectItemHandler = (item: Port) => {
