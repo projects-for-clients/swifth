@@ -242,9 +242,9 @@ function Config({
         </p>
 
         <div>
-          <p className="font-medium mb-5">{selectedCar?.name} Models</p>
+          <p className="font-medium mb-10">{selectedCar?.name} Models</p>
           <div
-            className="grid gap-8"
+            className="grid gap-8 mb-[5rem]"
             style={{
               gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
             }}
@@ -279,7 +279,7 @@ function Config({
         </p>
 
         <div>
-          <p className="font-medium mb-5">
+          <p className="font-medium mb-10">
             {selectedCar?.name} Accord Trims & Years
           </p>
           <div
