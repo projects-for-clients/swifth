@@ -18,7 +18,7 @@ function Config({
     | 'surfaceDuty'
     | 'carModels'
     | 'carTrims'
-    | 'carSurfaceDuty'|'shippingItem'
+    | 'carSurfaceDuty'|'shippingItem'|'EditShippingItem'
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -65,7 +65,8 @@ function Config({
   };
 
   const moveToShippingItem = (item: string) => {
-
+    setStep('shippingItem');
+    setSelectedShippingItem(item);
   }
 
   const first = (
@@ -401,8 +402,55 @@ function Config({
           
           >
             <p className="grid">
-              <span className="text-[#4B5463] capitalize"></span>
+              <span className="text-[#4B5463] capitalize">{selectedShippingItem}</span>
+              <input type="text" className='border-none outline-none' />
+            </p>
+            
+          </button>
+        {shippingItemProps.map((item, index) => (
+          <button
+            className={`flex items-center justify-items-start py-4 outline-none ${
+              index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
+            }`}
+            onClick={() => setStep('shippingItem')}
+            key={item.name}
+          >
+            <p className="grid">
+              <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
+            </p>
+            
+          </button>
+        ))}
+      </div>
+
+      <button
+        className={`flex w-full justify-end`}
+        onClick={() => closeDialog()}
+      >
+        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
+          Edit Formular
+        </span>
+      </button>
+    </>
+  );
+  const EditShippingItem = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('shipping')}
+        />
+        <p className="text-[2rem]"> Shipping and Terminal</p>
+      </div>
+      <div className="grid">
+          <button
+            className={`flex items-center justify-items-start py-4 outline-none `}
+          
+          >
+            <p className="grid">
+              <span className="text-[#4B5463] capitalize">{selectedShippingItem}</span>
+              <input type="text" className='border-none outline-none' />
             </p>
             
           </button>
