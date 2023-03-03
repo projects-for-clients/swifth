@@ -8,29 +8,9 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
   const first = (
     <>
       <div className="grid justify-items-center">
-       
-
-      </div>
-
-        <p>14 Abraham Ladipe Lekki Phase 1</p>
-
-        <div className="flex justify-between items-center">
-          <p>CAC Certificate</p>
-          <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
-            <span>
-              <IoMdCheckmark />
-            </span>
-            <span className="text-[1.2rem] font-normal">Verified</span>
-          </p>
-        </div>
-        <div className="flex justify-between items-center">
-          <p>Custom license</p>
-          <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
-            <span>
-              <IoMdCheckmark />
-            </span>
-            <span className="text-[1.2rem] font-normal">Verified</span>
-          </p>
+        
+        <div>
+            
         </div>
       </div>
     </>
