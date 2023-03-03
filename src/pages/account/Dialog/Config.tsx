@@ -398,7 +398,7 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <div className="grid max-h-[60vh] overflow-scroll mt-[5rem]">
+      <div className="grid max-h-[80vh] overflow-scroll mt-[5rem]">
         <button
           className={`flex items-center justify-items-start py-4 outline-none `}
         >
@@ -412,7 +412,7 @@ function Config({
           </p>
         </button>
         <button
-          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] text-[#4B5463`}
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] text-[#4B5463]`}
         >
           <p className="grid justify-items-start">
             <span className=" capitalize">2015 and older</span>
@@ -421,14 +421,14 @@ function Config({
         </button>
         {shippingItemProps.map((item, index) => (
           <button
-            className={`flex items-center justify-items-start py-4 outline-none ${
-              index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
+            className={`flex items-center justify-items-start py-4 outline-none text-[#4B5463] ${
+              index !== shippingItemProps.length - 1 ? 'border-b ' : 'border-none'
             }`}
             onClick={() => setStep('shippingItem')}
             key={item.name}
           >
             <p className="grid justify-items-start">
-              <span className="text-[#4B5463] capitalize">{item.name}</span>
+              <span className=" capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
           </button>
