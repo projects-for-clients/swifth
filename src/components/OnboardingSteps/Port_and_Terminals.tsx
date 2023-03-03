@@ -339,27 +339,26 @@ const PortAndTerminals = ({
 
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setTerminalCount] = useState(1);
+  const [loaded, setLoaded] = useState(false);
 
-  let loaded = false;
   if (setup) {
     useEffect(() => {
       if (!loaded) {
-        console.log('inside', onboardingInputs.portsAndTerminal.port);
 
         selectItemHandler(onboardingInputs.portsAndTerminal?.port as Port);
         setIsTerminal(true);
-        console.log('the terminal list is', onboardingInputs.portsAndTerminal);
         setTerminalCount(
           onboardingInputs.portsAndTerminal.terminalList?.length || 1
         );
 
-        loaded = true;
+        setLoaded(true)
       }
-      console.log({ loaded }, 'loaded 1');
     }, [onboardingInputs.portsAndTerminal]);
   }
 
       console.log({ loaded }, 'loaded 2');
+
+      console.log("second loading")
 
 
   const handleFormSubmit = (e: FormEvent) => {
