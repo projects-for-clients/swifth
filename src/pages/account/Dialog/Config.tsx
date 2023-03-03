@@ -48,10 +48,10 @@ function Config({
     setSelectedCar((prev) => ({ ...prev, name: item }));
   };
 
-    const moveToCarTrims = (item: string) => {
+  const moveToCarTrims = (item: string) => {
     setStep('carTrims');
     setSelectedCar((prev) => ({ ...prev, trim: item }));
-    };
+  };
 
   const first = (
     <>
@@ -275,11 +275,13 @@ function Config({
 
       <div className="grid gap-16 mt-[5rem]">
         <p className="text-color-purple-1 font-medium text-[2rem]">
-          {selectedCar?.name}
+          {selectedCar?.name} Accord
         </p>
 
         <div className="mb-[5rem]">
-          <p className="font-medium mb-5">{selectedCar?.name} Models</p>
+          <p className="font-medium mb-5">
+            {selectedCar?.name} Accord Trims & Years
+          </p>
           <div
             className="grid gap-8"
             style={{
@@ -288,12 +290,40 @@ function Config({
           >
             {Array.from({ length: 20 }, (_, i) => (
               <p key={i} className="border bg-gray-100 rounded-3xl p-6">
-                Honda
+                {selectedCar?.trim}
               </p>
             ))}
           </div>
         </div>
       </div>
+    </>
+  );
+  const carSurfaceDuty = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('dutyCalculation')}
+        />
+        <p className="text-[2rem]"> Surface Duty Constant</p>
+      </div>
+
+      <div className="grid gap-4 mt-[5rem]">
+        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+          Duty Constant
+        </label>
+        <input
+          type="text"
+          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+        />
+      </div>
+
+      <button
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        onClick={() => closeDialog()}
+      >
+        Save Changes
+      </button>
     </>
   );
 
