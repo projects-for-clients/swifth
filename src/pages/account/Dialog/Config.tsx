@@ -14,6 +14,7 @@ function Config({
     | 'duty'
     | 'shipping'
     | 'charges'
+    | 'editCharges'
     | 'dutyCalculation'
     | 'dutyConstant'
     | 'surfaceDuty'
