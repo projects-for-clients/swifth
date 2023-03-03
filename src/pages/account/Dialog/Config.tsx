@@ -4,7 +4,8 @@ import { IoMdCheckmark } from 'react-icons/io';
 import { BsArrowRight } from 'react-icons/bs';
 
 function Config({ closeDialog }: { closeDialog: () => void }) {
-  type Steps = 'duty' | 'shipping' | 'charges' | 'dutyCalculation';
+  type Steps = 'duty' | 'shipping' | 'charges' | 'dutyCalculation' | 
+'dutyConstant' | 'surfaceDuty';
   const [step, setStep] = useState<Steps>('duty');
 
   const first = (
@@ -46,6 +47,12 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       <div className="grid gap-8 mt-[5rem]">
         <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between ">
           <p>Surface Duty Constant</p>
+          <span>
+            <BsArrowRight />
+          </span>
+        </button>
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between ">
+          <p>Surface Duty </p>
           <span>
             <BsArrowRight />
           </span>
