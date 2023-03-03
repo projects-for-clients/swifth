@@ -24,6 +24,7 @@ interface ITerminal {
   id: number;
   terminalCount: number[];
   isError: ErrorMessage;
+  setup?: boolean;
   setIsError: Dispatch<SetStateAction<ErrorMessage>>;
 }
 
@@ -36,6 +37,7 @@ const Terminal: FC<ITerminal> = ({
   terminalCount,
   setIsError,
   isError,
+  setup
 }) => {
   const dispatch = useAppDispatch()
   const userState = useAppSelector((state) => state.user);
@@ -443,6 +445,7 @@ const PortAndTerminals = () => {
                       isError={isError}
                       key={index}
                       id={index}
+                      setup={setup}
                     />
                   )
                 );
