@@ -195,7 +195,7 @@ function Config({
                     : 'border'
                 } rounded-3xl p-4 w-[10rem] cursor-pointer flex justify-center`}
               >
-                {item}
+                {`By ${item}`}
               </label>
             </div>
           ))}
@@ -229,7 +229,7 @@ function Config({
           className="text-[1.8rem] cursor-pointer"
           onClick={backToDutyCalculation}
         />
-        <p className="text-[2rem]"> Surface Duty </p>
+        <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
       <div className="grid gap-16 mt-[5rem]">
@@ -247,47 +247,9 @@ function Config({
           />
         </div>
 
-        <div>
-          <p className="font-medium mb-5">Most popular</p>
-          <div
-            className="grid gap-8"
-            style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
-            }}
-          >
-            {Array.from({ length: 6 }, (_, i) => (
-              <p key={i} className="border bg-gray-100 rounded-3xl p-6">
-                Lexus LX 570, 2019
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4 mt-10">
-          {filter.map((item) => (
-            <div key={item}>
-              <input
-                type="radio"
-                name="filter"
-                id={item}
-                className="hidden"
-                onChange={() => setSelectedFilter(item)}
-              />
-              <label
-                htmlFor={item}
-                className={`${
-                  item === selectedFilter
-                    ? 'bg-color-primary text-white border-none'
-                    : 'border'
-                } rounded-3xl p-4 w-[10rem] cursor-pointer flex justify-center`}
-              >
-                {item}
-              </label>
-            </div>
-          ))}
-        </div>
+         
         <div className="mb-[5rem]">
-          <p className="font-medium mb-5">All Brands</p>
+          <p className="font-medium mb-5">{}</p>
           <div
             className="grid gap-8"
             style={{
