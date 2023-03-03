@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import HomeSvg from './sidebar/homeSvg';
 import TeamSvg from './sidebar/teamSvg';
@@ -12,12 +12,17 @@ import DeliverySvg from './sidebar/deliverySvg';
 import PayoutBankSvg from './sidebar/payoutBankSvg';
 
 function IconsBox() {
+  const location = useLocation();
+
+  const { pathname } = location;
+
+  console.log(pathname)
   return (
     <ul className="iconsBox">
       <li>
         <NavLink
           to="/dashboard"
-          className={(props) => (props.isActive ? 'active' : '')}
+          className={(props) => (props.isActive && location.pathname === '/dashboard' ? 'active' : '')}
         >
           <HomeSvg fill="white" />
           <span>Home</span>
