@@ -3,7 +3,13 @@ import { BiArrowBack } from 'react-icons/bi';
 import { IoMdCheckmark } from 'react-icons/io';
 import { BsArrowRight } from 'react-icons/bs';
 
-function Config({ closeDialog }: { closeDialog: () => void }) {
+function Config({
+  closeDialog,
+  setWidth
+}: {
+  closeDialog: () => void;
+  setWidth: (item: string) => void;
+}) {
   type Steps =
     | 'duty'
     | 'shipping'
