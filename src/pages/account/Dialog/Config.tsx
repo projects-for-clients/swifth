@@ -398,9 +398,9 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <div className="grid max-h-[80vh] overflow-scroll mt-[5rem]">
+      <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
         <button
-          className={`flex items-center justify-items-start py-4 outline-none `}
+          className={`flex items-center justify-items-start py-4 outline-none border-b`}
         >
           <p className="grid justify-items-start">
             <span className="text-[#4B5463] capitalize">
@@ -412,7 +412,7 @@ function Config({
           </p>
         </button>
         <button
-          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] text-[#4B5463]`}
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
         >
           <p className="grid justify-items-start">
             <span className=" capitalize">2015 and older</span>
@@ -437,7 +437,7 @@ function Config({
         className={`flex w-full justify-end`}
         onClick={() => closeDialog()}
       >
-        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
+        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
           Edit Formular
         </span>
       </button>
