@@ -39,6 +39,7 @@ const Terminal: FC<ITerminal> = ({
   isError,
   setup,
 }) => {
+  console.log('mounted')
   const contextData = useContext(OnboardingContext);
 
   const validationErrors = contextData?.validationErrors;
