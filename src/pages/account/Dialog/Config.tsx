@@ -77,8 +77,10 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <label htmlFor='' className='mb-4'>Duty Constant</label>
-       <input type="text" className='bg-gray-100 px-4 py-8 rounded-2xl'/>
+        <label htmlFor="" className="mb-4 text-[1.4rem] text-gray-500">
+          Duty Constant
+        </label>
+        <input type="text" className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none" />
       </div>
     </>
   );
