@@ -18,7 +18,9 @@ function Config({
     | 'surfaceDuty'
     | 'carModels'
     | 'carTrims'
-    | 'carSurfaceDuty'|'shippingItem'|'EditShippingItem'
+    | 'carSurfaceDuty'
+    | 'shippingItem'
+    | 'EditShippingItem';
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -26,7 +28,7 @@ function Config({
   type CarProp = {
     name?: string;
     trim?: string;
-    content?: string
+    content?: string;
   };
 
   const shippingContent = [
@@ -43,7 +45,8 @@ function Config({
   const [step, setStep] = useState<Steps>('duty');
   const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
   const [selectedCar, setSelectedCar] = useState<CarProp | null>(null);
-  const [selectedShippingItem, setSelectedShippingItem] = useState<CarProp | null>(null);
+  const [selectedShippingItem, setSelectedShippingItem] =
+    useState<CarProp | null>(null);
 
   const toSurfaceDuty = () => {
     setStep('surfaceDuty');
@@ -68,7 +71,7 @@ function Config({
   const moveToShippingItem = (item: CarProp) => {
     setStep('shippingItem');
     setSelectedShippingItem(item);
-  }
+  };
 
   const first = (
     <>
@@ -355,8 +358,6 @@ function Config({
     </>
   );
 
-  
-
   const shipping = (
     <>
       <div className="flex items-center gap-16">
@@ -414,7 +415,7 @@ function Config({
           className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] text-[#4B5463`}
         >
           <p className="grid justify-items-start">
-            <span className="text-[#4B5463] capitalize">2015 and older</span>
+            <span className=" capitalize">2015 and older</span>
             <span>50k x 1.75</span>
           </p>
         </button>
@@ -454,16 +455,16 @@ function Config({
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
       <div className="grid">
-          <button
-            className={`flex items-center justify-items-start py-4 outline-none `}
-          
-          >
-            <p className="grid">
-              <span className="text-[#4B5463] capitalize">{selectedShippingItem?.name}</span>
-              <input type="text" className='border-none outline-none' />
-            </p>
-            
-          </button>
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none `}
+        >
+          <p className="grid">
+            <span className="text-[#4B5463] capitalize">
+              {selectedShippingItem?.name}
+            </span>
+            <input type="text" className="border-none outline-none" />
+          </p>
+        </button>
         {shippingItemProps.map((item, index) => (
           <button
             className={`flex items-center justify-items-start py-4 outline-none ${
@@ -476,7 +477,6 @@ function Config({
               <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
-            
           </button>
         ))}
       </div>
