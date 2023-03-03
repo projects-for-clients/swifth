@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { IoMdCheckmark } from 'react-icons/io';
+import { BsArrowRight } from 'react-icons/bs';
 
 function Config({ closeDialog }: { closeDialog: () => void }) {
   type Steps = 'duty' | 'shipping' | 'charges' | 'dutyCalculation';
   const [step, setStep] = useState<Steps>('duty');
-  const name = 'Ben Davis';
 
   const first = (
     <>
       <p className="text-[2rem] mb-16">Formular Configuration</p>
 
       <div className="grid gap-8 mt-[5rem]">
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left " onClick={
+            () => setStep('dutyCalculation')
+        }>
           <p>Duty Calculation</p>
           <p className="text-[1.4rem] text-gray-500">
             Duty charges configuration
@@ -42,13 +44,12 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center justify-between ">
           <p>Surface Duty Constant</p>
-          <p className="text-[1.4rem] text-gray-500">
-            Duty charges configuration
-          </p>
+          <span>
+            <BsArrowRight />
+          </span>
         </button>
-       
       </div>
     </>
   );
@@ -84,12 +85,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
     ['charges', third],
   ]);
 
-  return (
-    <div className="relative h-[90vh]">
-
-      {Paths.get(step)}
-    </div>
-  );
+  return <div className="relative h-[90vh]">{Paths.get(step)}</div>;
 }
 
 export default Config;
