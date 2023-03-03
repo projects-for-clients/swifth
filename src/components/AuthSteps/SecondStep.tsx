@@ -95,11 +95,11 @@ export const SecondSignUpStep = () => {
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('form submitted')
+    console.log('form submitted');
     const isValid = formValidate();
 
     if (!isValid) {
-      console.log('form not valid')
+      console.log('form not valid');
       return false;
     }
 
@@ -201,7 +201,7 @@ export const SecondSignUpStep = () => {
 
 export const SecondLoginStep = () => {
   const [eyeIcon, setEyeIcon] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
   const redirectToRegister = () => dispatch(open('signup'));
@@ -268,9 +268,7 @@ export const SecondLoginStep = () => {
 
       if (key === 'password') {
         if (inputField[key].length < 6) {
-          errors[
-            key as keyof InputTypes
-          ] = `${key} cannot be less than 6`;
+          errors[key as keyof InputTypes] = `${key} cannot be less than 6`;
 
           setValidationError(errors);
         }
@@ -314,7 +312,7 @@ export const SecondLoginStep = () => {
       value: string;
     }
 
-    setValidationError(null)
+    setValidationError(null);
 
     const target = e.target as InputProps;
 
@@ -384,9 +382,8 @@ export const SecondLoginStep = () => {
         <button
           className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 form__btn"
           disabled={disabled}
-
         >
-          {loading ? 'Loading...': 'Continue'}
+          {loading ? 'Loading...' : 'Continue'}
         </button>
       </form>
       <p className="authText mt-10">
