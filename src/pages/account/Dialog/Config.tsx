@@ -75,13 +75,13 @@ function Config({
   };
 
   const SaveShipping = () => {
-    setStep('shipping');
+     setStep('carTrims');
 
-
-    // toast('Changes Saved', {
-    //   type: 'success',
-    //   className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
-    // });
+    console.log('hellof')
+    toast('Changes Saved', {
+      type: 'success',
+      className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
+    });
   }
 
 
