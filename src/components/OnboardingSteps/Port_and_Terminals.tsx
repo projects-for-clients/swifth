@@ -236,7 +236,14 @@ const Terminal: FC<ITerminal> = ({
               )}
               {imageDetails.name ? (
                 <div className="grid">
-                  <p className="text-[1.4rem] font-normal">
+                  <p
+                    className={`text-[1.4rem] font-normal ${
+                      setup
+                        ? 'whitespace-nowrap max-w-[10rem] overflow-hidden text-ellipsis'
+                        : ''
+                    }`}
+                  >
+                    {' '}
                     {imageDetails.name}
                   </p>
                   <p className="text-color-grey-4 text-[1rem]">
