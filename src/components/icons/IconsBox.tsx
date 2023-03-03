@@ -15,7 +15,7 @@ function IconsBox() {
   return (
     <ul className="iconsBox">
       <li className="iconsBox__list">
-        <NavLink to="/dashboard" >
+        <NavLink to="/dashboard">
           <HomeSvg fill="white" />
           <span>Home</span>
         </NavLink>
