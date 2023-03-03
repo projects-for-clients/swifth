@@ -65,7 +65,11 @@ const initialState: IUser = {
     },
     portsAndTerminal: {
       port: null,
-      terminalList: new Map(),
+      terminalList: new Map([
+        ['terminal', ''],
+        ['formCUri', ''],
+        ['formCExpirationDate', ''],
+      ] as [TerminalKeys, string][]),
     },
     personalInfo: {
       fullName: '',
@@ -178,13 +182,13 @@ export const userSlice = createSlice({
     },
 
     fetchedPortsAndTerminal: (state) => {
-      const updatedMap = new Map();
+      const updatedMap = new Map([
+        ['terminal', ''],
+        ['formCUri', ''],
+        ['formCExpirationDate', ''],
+      ] as [TerminalKeys, string][]);
 
-      updatedMap.set('Terminal 1', {
-        terminal: 'Terminal 1',
-        formCUri: '',
-        formCExpirationDate: '',
-      });
+      
 
       return {
         ...state,
@@ -192,9 +196,7 @@ export const userSlice = createSlice({
           ...state.onboardingInputs,
           portsAndTerminal: {
             port: 'Lagos',
-            terminalList: {
-              ...updatedMap,
-            },
+            terminalList: updatedMap,
           },
         },
       };
