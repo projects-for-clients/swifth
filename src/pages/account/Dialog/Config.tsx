@@ -7,12 +7,22 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
 
   const first = (
     <>
-      <div className="grid gap-8 bg-red-400">
-        <button
-          className="border border-color-purple-light-2 rounded-3xl p-6 text-left "
-        >
-            <p>Duty Calculation</p>
-            <p className='text-[1.4rem] text-gray-500'>Duty charges configuration</p>
+      <div className="grid gap-8 mt-[5rem]">
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+          <p>Duty Calculation</p>
+          <p className="text-[1.4rem] text-gray-500">
+            Duty charges configuration
+          </p>
+        </button>
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+          <p>Shipping and Terminal</p>
+          <p className="text-[1.4rem] text-gray-500">
+            Shipping & Terminal charges configuration
+          </p>
+        </button>
+        <button className="border border-color-purple-light-2 rounded-3xl p-6 text-left ">
+          <p>Charges</p>
+          <p className="text-[1.4rem] text-gray-500">Charges configuration</p>
         </button>
       </div>
     </>
