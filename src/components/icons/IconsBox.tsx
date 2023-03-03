@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import HomeSvg from './sidebar/homeSvg';
 import TeamSvg from './sidebar/teamSvg';
@@ -16,24 +16,29 @@ function IconsBox() {
 
   const { pathname } = location;
 
-  console.log(pathname)
+  console.log(pathname);
   return (
     <ul className="iconsBox">
       <li>
         <NavLink
           to="/dashboard"
-          className={(props) => (props.isActive && location.pathname === '/dashboard' ? 'active' : '')}
+          className={(props) =>
+            props.isActive && location.pathname === '/dashboard' ? 'active' : ''
+          }
         >
           <HomeSvg fill="white" />
           <span>Home</span>
         </NavLink>
       </li>
       <li className="iconsBox">
-        <Link to="/dashboard/orders">
+        <NavLink
+          to="/dashboard/orders"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           {' '}
           <OrderSvg fill="white" />
           <span>Orders</span>
-        </Link>
+        </NavLink>
       </li>
       <li>
         <NavLink
@@ -45,50 +50,71 @@ function IconsBox() {
         </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/finance">
+        <NavLink
+          to="/dashboard/finance"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           {' '}
           <FinanceSvg fill="white" />
           <span>Finance</span>
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/payoutBank">
+        <NavLink
+          to="/dashboard/payoutBank"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           <PayoutBankSvg fill="white" />
           <span>Payout Bank</span>
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/delivery">
+        <NavLink
+          to="/dashboard/delivery"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           {' '}
           <DeliverySvg fill="white" />
           <span>Delivery</span>{' '}
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/team">
+        <NavLink
+          to="/dashboard/team"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           {' '}
           <TeamSvg fill="white" />
           <span>Teams</span>
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/analytics">
+        <NavLink
+          to="/dashboard/analytics"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           <AnalyticSvg fill="white" />
           <span>Analytics</span>
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/reports">
+        <NavLink
+          to="/dashboard/reports"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           {' '}
           <ReportSvg fill="white" />
           <span>Reports</span>
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/dashboard/account">
+        <NavLink
+          to="/dashboard/account"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           <AccountSvg fill="white" />
           <span>Account</span>
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );
