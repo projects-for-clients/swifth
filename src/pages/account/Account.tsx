@@ -9,8 +9,6 @@ export type DialogType = 'personal' | 'business' | 'ports' | 'config';
 interface DialogContextType {
     dialogType: DialogType | null;
     setDialogType: Dispatch<SetStateAction<DialogType | null>>;
-    // isDialogOpen: boolean;
-    // setIsDialogOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const DialogContext = createContext<DialogContextType>(null as any)
@@ -27,6 +25,7 @@ const Account = () => {
       value={{
         dialogType,
         setDialogType,
+        
         // isDialogOpen,
         // setIsDialogOpen
       }}
