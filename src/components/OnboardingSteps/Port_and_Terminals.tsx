@@ -343,6 +343,9 @@ const PortAndTerminals = ({
       });
       return;
     } else {
+      if (setup && setStep) {
+        return setStep(3);
+      }
       handleStep('personalInfo');
     }
   };
