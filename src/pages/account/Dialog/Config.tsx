@@ -164,7 +164,7 @@ function Config({
 
         <div className="flex items-center gap-4 mt-10">
           {filter.map((item) => (
-            <div key={item} className='text-center'>
+            <div key={item}>
               <input
                 type="radio"
                 name="filter"
@@ -178,7 +178,7 @@ function Config({
                   item === selectedFilter
                     ? 'bg-color-primary text-white border-none'
                     : 'border'
-                } rounded-3xl p-4 w-[10rem] cursor-pointer flex`}
+                } rounded-3xl p-4 w-[10rem] cursor-pointer flex justify-center`}
               >
                 {item}
               </label>
@@ -188,7 +188,7 @@ function Config({
         <div>
           <p className="font-medium mb-5">All Brands</p>
           <div
-            className="grid"
+            className="grid gap-8"
             style={{
               gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
             }}
