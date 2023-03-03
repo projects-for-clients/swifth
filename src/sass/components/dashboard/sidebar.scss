@@ -59,6 +59,17 @@
       gap: 1rem;
       width: 100%;
 
+      .active {
+        transition: all 0.2s;
+        padding: 1rem 2rem;
+        background-color: $color-green-light;
+        color: black;
+        transform: translateX(1rem) scale(1.01);
+
+        svg {
+          fill: black;
+        }
+      }
 
       a {
         display: flex;
@@ -74,7 +85,7 @@
           fill: white;
         }
 
-        &:hover{
+        &:hover {
           transition: all 0.2s;
           padding: 1rem 2rem;
           background-color: $color-green-light;

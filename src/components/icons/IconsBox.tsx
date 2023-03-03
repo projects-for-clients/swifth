@@ -14,66 +14,72 @@ import PayoutBankSvg from './sidebar/payoutBankSvg';
 function IconsBox() {
   return (
     <ul className="iconsBox">
-      <li className="iconsBox__list">
-        <NavLink to="/dashboard">
+      <li>
+        <NavLink
+          to="/dashboard"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           <HomeSvg fill="white" />
           <span>Home</span>
         </NavLink>
       </li>
-      <li className="iconsBox__list">
+      <li className="iconsBox">
         <Link to="/dashboard/orders">
           {' '}
           <OrderSvg fill="white" />
           <span>Orders</span>
         </Link>
       </li>
-      <li className="iconsBox__list">
-        <Link to="/dashboard/payments">
+      <li>
+        <NavLink
+          to="/dashboard/payments"
+          className={(props) => (props.isActive ? 'active' : '')}
+        >
           <PaymentSvg fill="white" />
           <span>Payments</span>
-        </Link>
+        </NavLink>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/finance">
           {' '}
           <FinanceSvg fill="white" />
           <span>Finance</span>
         </Link>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/payoutBank">
           <PayoutBankSvg fill="white" />
           <span>Payout Bank</span>
         </Link>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/delivery">
           {' '}
           <DeliverySvg fill="white" />
           <span>Delivery</span>{' '}
         </Link>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/team">
           {' '}
           <TeamSvg fill="white" />
           <span>Teams</span>
         </Link>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/analytics">
           <AnalyticSvg fill="white" />
           <span>Analytics</span>
         </Link>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/reports">
           {' '}
           <ReportSvg fill="white" />
           <span>Reports</span>
         </Link>
       </li>
-      <li className="iconsBox__list">
+      <li>
         <Link to="/dashboard/account">
           <AccountSvg fill="white" />
           <span>Account</span>
