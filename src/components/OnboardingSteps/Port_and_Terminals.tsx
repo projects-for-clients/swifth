@@ -1,7 +1,6 @@
 import React, {
   Dispatch,
   SetStateAction,
-  useCallback,
   useContext,
 } from 'react';
 import {
@@ -142,7 +141,7 @@ const Terminal: FC<ITerminal> = ({
           ...onboardingInputs.portsAndTerminal,
           terminalList: {
             ...onboardingInputs.portsAndTerminal.terminalList,
-            [`terminal${id}`]: {
+            [`${id}`]: {
               terminal: selectedItem,
               formCUri: imageDetails.error ? 'too large' : formCUri,
               formCExpirationDate: dateChange,
