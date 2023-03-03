@@ -2,12 +2,19 @@ import { useEffect, useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 import PortAndTerminals from '../../../components/OnboardingSteps/Port_and_Terminals';
 
-function Ports({ closeDialog, enLarge }: { closeDialog: () => void, enLarge:() => void }) {
+function Ports({ closeDialog, setWidth }: { closeDialog: () => void, setWidth:(item: string) => void }) {
   const [step, setStep] = useState(1);
 
   useEffect(() => {
-    if(step === 2) return enLarge()
+    if(step === 2) return setWidth('w-[120rem]');
+
   }, [step])
+
+  const handleClose = () => {
+    closeDialog();
+    setStep(1);
+    setWidth('w-[50rem]')
+  }
 
   const first = (
     <>
@@ -80,7 +87,7 @@ function Ports({ closeDialog, enLarge }: { closeDialog: () => void, enLarge:() =
       </div>
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold w-full absolute bottom-0 `}
-        onClick={() => closeDialog()}
+        onClick={handleClose}
       >
         Done
       </button>{' '}

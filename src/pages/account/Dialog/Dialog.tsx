@@ -19,9 +19,7 @@ function Dialog() {
     setDialogType(null);
   };
 
-  const enLarge = () => {
-    setWidth('w-[100rem]');
-  }
+ 
 
   useEffect(() => {
     if (dialogType) {
@@ -32,7 +30,7 @@ function Dialog() {
   const Paths = new Map<DialogType, JSX.Element>([
     ['personal', <Personal closeDialog={closeDialog} />],
     ['business', <Business closeDialog={closeDialog} />],
-    ['ports', <Ports closeDialog={closeDialog} enLarge={enLarge}/>],
+    ['ports', <Ports closeDialog={closeDialog} setWidth={setWidth}/>],
   ]);
 
   return (

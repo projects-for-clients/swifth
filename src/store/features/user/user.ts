@@ -145,7 +145,7 @@ export const userSlice = createSlice({
         payload: BusinessInfo;
       }
     ) => {
-      console.log({ payload })
+      console.log({ payload });
       return {
         ...state,
         onboardingInputs: {
@@ -153,9 +153,9 @@ export const userSlice = createSlice({
           businessInfo: {
             ...state.onboardingInputs.businessInfo,
             ...payload,
-          }
+          },
         },
-      }
+      };
     },
     updatePersonalInfo: (
       state,
@@ -176,6 +176,19 @@ export const userSlice = createSlice({
       }
     ) => {
       state.onboardingInputs.portsAndTerminal = payload;
+    },
+
+    fetchedPortsAndTerminal: (state, payload) => {
+      return {
+        ...state,
+        onboardingInputs: {
+          ...state.onboardingInputs,
+          portsAndTerminal: {
+            port: 'Lagos',
+            terminalList: [],
+          },
+        },
+      };
     },
   },
 });
