@@ -8,38 +8,8 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
   const first = (
     <>
       <div className="grid justify-items-center">
-        <figure className="relative grid place-content-center w-[13rem] h-[13rem]">
-          <img
-            src=""
-            alt=""
-            className="absolute w-full h-full rounded-full  z-[1]"
-          />
-          <p className="absolute w-full h-full z-[2] text-[5rem] bg-red-100 border border-red-300 grid place-content-center rounded-full">
-            <span>LG</span>
-          </p>
+       
 
-          {/* <img
-            src="/icons/camera.svg"
-            alt=""
-            className="absolute right-0 z-20 bottom-0 mb-3"
-          /> */}
-        </figure>
-
-        <div className="text-center mt-10">
-          <p className="text-[3rem]">{name}</p>
-          <button
-            className="btn uppercase border border-color-primary text-color-primary text-center rounded-2xl font-medium"
-            onClick={() => setStep(2)}
-          >
-            Edit Details
-          </button>
-          <p className="flex items-center gap-4 mt-10">
-            <img src="/icons/info-circle-1.svg" alt="" />
-            <span className="text-[#66BD89] text-[1.4rem]">
-              Business information is up to date
-            </span>
-          </p>
-        </div>
       </div>
 
       <div className="grid gap-4 font-medium border-t border-t-color-purple-light pt-10 mt-10">
