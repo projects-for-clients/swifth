@@ -186,6 +186,21 @@ export const userSlice = createSlice({
           portsAndTerminal: {
             port: 'Lagos',
             terminalList: [],
+            terminal0: {
+            'terminal':"Terminal 1",
+            'formCUri':"",
+            'formCExpirationDate':""
+            },
+            terminal1: {
+            'terminal':"Terminal 2",
+            'formCUri':"",
+            'formCExpirationDate':""
+            },
+            terminal2: {
+            'terminal':"Terminal 3",
+            'formCUri':"",
+            'formCExpirationDate':""
+            },
           },
         },
       };
@@ -199,6 +214,7 @@ export const {
   updateBusinessInfo,
   updatePersonalInfo,
   updatePortsAndTerminalInfo,
+  fetchedPortsAndTerminal,
 } = userSlice.actions;
 
 export const selectUser = (state: AppState) => state.user;

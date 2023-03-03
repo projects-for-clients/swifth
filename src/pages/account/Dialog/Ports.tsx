@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
 import PortAndTerminals from '../../../components/OnboardingSteps/Port_and_Terminals';
+import { useAppDispatch } from '../../../store/app/hooks';
+import { fetchedPortsAndTerminal } from '../../../store/features/user/user';
 
 function Ports({ closeDialog, setWidth }: { closeDialog: () => void, setWidth:(item: string) => void }) {
   const [step, setStep] = useState(1);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if(step === 2) return setWidth('w-[120rem]');
+    if(step === 2) {
+      setWidth('w-[120rem]')
+      dispatch(fetchedPortsAndTerminal);
+    };
 
   }, [step])
 
