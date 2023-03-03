@@ -342,11 +342,12 @@ const PortAndTerminals = ({
   const [terminalCount, setTerminalCount] = useState(1);
 
   useEffect(() => {
+   
     if (onboardingInputs.portsAndTerminal?.port) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
       setIsTerminal(true);
-      console.log('the terminal list is', onboardingInputs.portsAndTerminal.terminalList)
-      setTerminalCount(onboardingInputs.portsAndTerminal.terminalList.length)
+      console.log('the terminal list is', onboardingInputs.portsAndTerminal)
+      setTerminalCount(onboardingInputs.portsAndTerminal.terminalList?.length || 1)
     }
   }, [onboardingInputs.portsAndTerminal]);
 

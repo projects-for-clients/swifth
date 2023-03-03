@@ -16,7 +16,7 @@ type TerminalKeys = 'terminal' | 'formCUri' | 'formCExpirationDate';
 
 export interface PortsAndTerminal {
   port: string | null;
-  terminalList: Map<TerminalKeys, string>[];
+  terminalList: Record<TerminalKeys, string>[];
 }
 
 export interface PersonalInfo {
@@ -201,14 +201,6 @@ export const userSlice = createSlice({
     },
 
     fetchedPortsAndTerminal: (state) => {
-      const updatedMap = new Map([
-        ['terminal', ''],
-        ['formCUri', ''],
-        ['formCExpirationDate', ''],
-      ] as [TerminalKeys, string][]);
-
-      console.log({ updatedMap });
-
       return {
         ...state,
         onboardingInputs: {
@@ -216,8 +208,11 @@ export const userSlice = createSlice({
           portsAndTerminal: {
             port: 'Lagos',
             terminalList: [
-              ...state.onboardingInputs.portsAndTerminal.terminalList,
-              updatedMap,
+              ...Array.from({ length: 3 }, (_, i) => ({
+                terminal: `Terminal ${i + 1}`,
+                formCUri: '',
+                formCExpirationDate: '',
+              })),
             ],
           },
         },
