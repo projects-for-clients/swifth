@@ -341,15 +341,15 @@ const PortAndTerminals = ({
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setTerminalCount] = useState(1);
 
-  // useEffect(() => {
+  useEffect(() => {
    
-  //   if (onboardingInputs.portsAndTerminal?.port) {
-  //     selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
-  //     setIsTerminal(true);
-  //     console.log('the terminal list is', onboardingInputs.portsAndTerminal)
-  //     setTerminalCount(onboardingInputs.portsAndTerminal.terminalList?.length || 1)
-  //   }
-  // }, [onboardingInputs.portsAndTerminal]);
+    if (onboardingInputs.portsAndTerminal?.port) {
+      selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
+      setIsTerminal(true);
+      console.log('the terminal list is', onboardingInputs.portsAndTerminal)
+      setTerminalCount(onboardingInputs.portsAndTerminal.terminalList?.length || 1)
+    }
+  }, []);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
