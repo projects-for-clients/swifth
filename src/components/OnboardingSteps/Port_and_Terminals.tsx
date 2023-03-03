@@ -49,7 +49,6 @@ const Terminal: FC<ITerminal> = ({
 
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
-  console.log('mounted', onboardingInputs.portsAndTerminal.terminalList);
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
@@ -168,6 +167,9 @@ const Terminal: FC<ITerminal> = ({
     const date = new Date(e.target.value).toLocaleDateString();
     setDateChange(date);
   };
+
+
+    console.log('mounted', onboardingInputs.portsAndTerminal.terminalList);
 
   return (
     <section
