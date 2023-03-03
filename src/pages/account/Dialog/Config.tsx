@@ -236,8 +236,8 @@ function Config({
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
-      <div className="grid gap-16 mt-[5rem]">
-        <p className="text-color-purple-1 font-medium text-[2rem]">
+      <div className="grid gap-4 mt-[5rem]">
+        <p className="text-color-purple-1 font-medium text-[2.4rem]">
           {selectedCar?.name}
         </p>
 
