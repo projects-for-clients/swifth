@@ -274,7 +274,7 @@ function Config({
       </div>
 
       <div className=" mt-[5rem]">
-        <p className="text-color-purple-1 font-medium text-[2rem]">
+        <p className="text-color-purple-1 font-medium text-[2.4rem]">
           {selectedCar?.name} Accord
         </p>
 
