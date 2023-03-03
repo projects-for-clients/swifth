@@ -18,7 +18,7 @@ export interface PortsAndTerminal {
     terminal: string;
     formCUri: string;
     formCExpirationDate: string;
-  }[];
+  } | {}
 }
 
 export interface PersonalInfo {
@@ -67,7 +67,7 @@ const initialState: IUser = {
     },
     portsAndTerminal: {
       port: null,
-      terminalList: [],
+      terminalList: {},
     },
     personalInfo: {
       fullName: '',
@@ -175,6 +175,7 @@ export const userSlice = createSlice({
         payload: PortsAndTerminal;
       }
     ) => {
+      console.log('payload', payload);
       state.onboardingInputs.portsAndTerminal = payload;
     },
 
@@ -185,21 +186,22 @@ export const userSlice = createSlice({
           ...state.onboardingInputs,
           portsAndTerminal: {
             port: 'Lagos',
-            terminalList: [],
-            terminal0: {
-            'terminal':"Terminal 1",
-            'formCUri':"",
-            'formCExpirationDate':""
-            },
-            terminal1: {
-            'terminal':"Terminal 2",
-            'formCUri':"",
-            'formCExpirationDate':""
-            },
-            terminal2: {
-            'terminal':"Terminal 3",
-            'formCUri':"",
-            'formCExpirationDate':""
+            terminalList: {
+              terminal0: {
+                terminal: 'Terminal 1',
+                formCUri: '',
+                formCExpirationDate: '',
+              },
+              terminal1: {
+                terminal: 'Terminal 2',
+                formCUri: '',
+                formCExpirationDate: '',
+              },
+              terminal2: {
+                terminal: 'Terminal 3',
+                formCUri: '',
+                formCExpirationDate: '',
+              },
             },
           },
         },

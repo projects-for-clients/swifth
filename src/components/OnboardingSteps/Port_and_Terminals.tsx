@@ -39,7 +39,7 @@ const Terminal: FC<ITerminal> = ({
   isError,
   setup,
 }) => {
-  console.log('mounted')
+  console.log('mounted');
   const contextData = useContext(OnboardingContext);
 
   const validationErrors = contextData?.validationErrors;
@@ -135,10 +135,14 @@ const Terminal: FC<ITerminal> = ({
       dispatch(
         updatePortsAndTerminalInfo({
           ...onboardingInputs.portsAndTerminal,
-          [`terminal${id}`]: {
-            terminal: selectedItem,
-            formCUri: imageDetails.error ? 'too large' : formCUri,
-            formCExpirationDate: dateChange,
+          terminalList: {
+            ...onboardingInputs.portsAndTerminal.terminalList,
+              [`terminal${id}`]: {
+                terminal: selectedItem,
+                formCUri: imageDetails.error ? 'too large' : formCUri,
+                formCExpirationDate: dateChange,
+              },
+            
           },
         })
       );
@@ -319,9 +323,7 @@ const PortAndTerminals = ({
   const dispatch = useAppDispatch();
   const { onboardingInputs } = useAppSelector((state) => state.user);
   const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedItem, setSelectedItem] = useState<Port | null>(
-   null
-  );
+  const [selectedItem, setSelectedItem] = useState<Port | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
   const [showNext, setShowNext] = useState(false);
   const [isError, setIsError] = useState<ErrorMessage>({
@@ -331,19 +333,15 @@ const PortAndTerminals = ({
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const [isTerminal, setIsTerminal] = useState( false);
+  const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
   useEffect(() => {
-    if (onboardingInputs.portsAndTerminal?.port){
-
+    if (onboardingInputs.portsAndTerminal?.port) {
       selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
-      setIsTerminal(true)
-
+      setIsTerminal(true);
     }
-
-
-  }, [onboardingInputs.portsAndTerminal])
+  }, [onboardingInputs.portsAndTerminal]);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -369,7 +367,7 @@ const PortAndTerminals = ({
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
 
-  const selectItemHandler = ( item: Port) => {
+  const selectItemHandler = (item: Port) => {
     setSelectedItem(item);
     setToggleSelectMenu(false);
     setShowNext(true);
@@ -377,7 +375,7 @@ const PortAndTerminals = ({
 
   useEffect(() => {
     if (selectedItem) {
-      console.log({ selectedItem })
+      console.log({ selectedItem });
 
       dispatch(
         updatePortsAndTerminalInfo({
@@ -437,7 +435,7 @@ const PortAndTerminals = ({
                         <p
                           className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
                           key={index}
-                          onClick={() => selectItemHandler( item)}
+                          onClick={() => selectItemHandler(item)}
                         >
                           {item}
                         </p>
