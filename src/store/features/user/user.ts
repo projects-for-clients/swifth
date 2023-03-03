@@ -178,7 +178,7 @@ export const userSlice = createSlice({
       state.onboardingInputs.portsAndTerminal = payload;
     },
 
-    fetchedPortsAndTerminal: (state, payload) => {
+    fetchedPortsAndTerminal: (state) => {
       return {
         ...state,
         onboardingInputs: {

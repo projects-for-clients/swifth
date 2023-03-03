@@ -44,7 +44,7 @@ const Terminal: FC<ITerminal> = ({
   const validationErrors = contextData?.validationErrors;
 
   const dispatch = useAppDispatch();
-  const userState = useAppSelector((state) => state.user);
+  const {onboardingInputs} = useAppSelector((state) => state.user);
   const [imageDetails, setImageDetails] = useState<{
     error: boolean;
     message: string | null;
@@ -133,7 +133,7 @@ const Terminal: FC<ITerminal> = ({
     if (selectedItem) {
       dispatch(
         updatePortsAndTerminalInfo({
-          ...userState.onboardingInputs.portsAndTerminal,
+          ...onboardingInputs.portsAndTerminal,
           [`terminal${id}`]: {
             terminal: selectedItem,
             formCUri: imageDetails.error ? 'too large' : formCUri,
@@ -318,7 +318,7 @@ const PortAndTerminals = ({
   const dispatch = useAppDispatch();
   const userState = useAppSelector((state) => state.user);
   const port: Port[] = ['Lagos', 'Onitsha'];
-  const [selectedItem, setSelectedItem] = useState<Port | null>(null);
+  const [selectedItem, setSelectedItem] = useState<Port | null>('Lagos');
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
   const [showNext, setShowNext] = useState(false);
   const [isError, setIsError] = useState<ErrorMessage>({
@@ -328,7 +328,7 @@ const PortAndTerminals = ({
 
   const selectMenuToggler = () => setToggleSelectMenu(!toggleSelectMenu);
 
-  const [isTerminal, setIsTerminal] = useState(false);
+  const [isTerminal, setIsTerminal] = useState(selectedItem ? true : false);
   const [terminalCount, setIsTerminalCount] = useState([1]);
 
   const handleFormSubmit = (e: FormEvent) => {
