@@ -94,11 +94,11 @@ export const SecondSignUpStep = () => {
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log({ validationError });
+    console.log('form submitted')
     const isValid = formValidate();
 
     if (!isValid) {
+      console.log('form not valid')
       return false;
     }
 
