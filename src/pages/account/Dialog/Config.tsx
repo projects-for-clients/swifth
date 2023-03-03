@@ -404,7 +404,7 @@ function Config({
           >
             <p className="grid">
               <span className="text-[#4B5463] capitalize">{selectedShippingItem?.name}</span>
-              <span>{selectedShippingItem?.trim}</span>
+              <span className='text-[2rem] text-color-purple-1'>{selectedShippingItem?.content}</span>
             </p>
             
           </button>
