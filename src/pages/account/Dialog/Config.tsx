@@ -462,9 +462,11 @@ function Config({
             <span className="text-[#4B5463] capitalize">
               {selectedShippingItem?.name}
             </span>
-            <input type='text' className="text-[2rem] text-color-purple-1" placeholder={selectedShippingItem?.content}/>
-              
-         
+            <input
+              type="text"
+              className="text-[2rem] text-color-purple-1 border-none outline-none"
+              placeholder={selectedShippingItem?.content}
+            />
           </p>
         </button>
         <button
@@ -472,7 +474,11 @@ function Config({
         >
           <p className="grid justify-items-start">
             <span className=" capitalize">2015 and older</span>
-            <span>50k x 1.75</span>
+            <input
+              type="text"
+              className=" border-none outline-none"
+              placeholder={`50k x 1.75`}
+            />
           </p>
         </button>
         {shippingItemProps.map((item, index) => (
