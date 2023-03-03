@@ -817,7 +817,10 @@ function DashboardHome() {
                     Teams
                   </h2>
 
+                <Link to="/dashboard/teams">
+
                   <img src="/icons/arrow-right.svg" alt="" />
+                </Link>
                 </div>
 
                 <div className="grid gap-8 mt-8 max-h-[20rem] overflow-y-scroll">
