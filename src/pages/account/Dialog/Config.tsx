@@ -57,7 +57,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
     ['duty', first],
     ['shipping', <div>second</div>],
     ['charges', third],
-  ])
+  ]);
 
   return (
     <div className="relative h-[90vh]">
