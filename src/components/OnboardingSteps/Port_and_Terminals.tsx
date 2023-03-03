@@ -67,6 +67,7 @@ const Terminal: FC<ITerminal> = ({
   const [formCUri, setFormCUri] = useState('');
   const [selectedItem, setSelectedItem] = useState<Terminal | null>(null);
   const [toggleSelectMenu, setToggleSelectMenu] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const selectMenuToggler = () => {
     setIsError({
@@ -168,8 +169,27 @@ const Terminal: FC<ITerminal> = ({
     setDateChange(date);
   };
 
+  if (setup) {
+    console.log('mounted', onboardingInputs.portsAndTerminal.terminalList[id]);
+    useEffect(() => {
+      if (!loaded) {
 
-    console.log('mounted', onboardingInputs.portsAndTerminal.terminalList);
+        if (onboardingInputs.portsAndTerminal.terminalList[id]) {
+          const { terminal, formCUri, formCExpirationDate } =
+            onboardingInputs.portsAndTerminal.terminalList[id];
+
+          setSelectedItem(terminal as Terminal);
+          setFormCUri(formCUri);
+          setDateChange(formCExpirationDate);
+
+        setLoaded(true);
+      }
+    }
+    }, [onboardingInputs.portsAndTerminal]);
+  
+  }
+
+
 
   return (
     <section
