@@ -84,36 +84,31 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
     </>
   );
-
-  const third = (
+  const SurfaceDuty = (
     <>
-      <div className="grid justify-items-center gap-8 mt-[10rem] ">
-        <img src="/icons/goodMark.svg" alt="" />
-        <p className="text-[2.4rem]">Changes submitted!</p>
-        <div className="text-center text-[1.4rem] text-gray-500">
-          <p>
-            The changes you have made would be applied when they have been
-            reviewed and approved.
-          </p>
-          <p className="mt-5">
-            You will be notified when they have been approved.
-          </p>
-        </div>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('duty')}
+        />
+        <p className="text-[2rem]"> Surface Duty </p>
       </div>
-      <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold w-full absolute bottom-0 `}
-        onClick={() => closeDialog()}
-      >
-        Done
-      </button>{' '}
+
+      <div className="grid gap-8 mt-[5rem]">
+        <label htmlFor="" className="mb-4 text-[1.4rem] text-gray-500">
+          Duty Constant
+        </label>
+        <input type="text" className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none" />
+      </div>
     </>
   );
+
 
   const Paths = new Map<Steps, JSX.Element>([
     ['duty', first],
     ['dutyCalculation', dutyCalculation],
     ['shipping', <div>second</div>],
-    ['charges', third],
+    ['charges', <div>third</div>],
   ]);
 
   return <div className="relative h-[90vh]">{Paths.get(step)}</div>;
