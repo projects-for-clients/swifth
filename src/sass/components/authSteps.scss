@@ -13,11 +13,12 @@
   &__container {
     background-color: $color-white;
     border-radius: $border-radius;
+    align-items: center;
     justify-content: center;
     width: 76rem;
     margin: 0 auto;
     position: relative;
-    min-height: 50vh;
+    min-height: 40rem;
   }
   &__message {
     border-radius: $border-radius;

@@ -102,7 +102,7 @@ export const SecondSignUpStep = () => {
       return false;
     }
 
-    dispatch(updateUser(inputField));
+    //dispatch(updateUser(inputField));
     setStep(2);
   };
 
