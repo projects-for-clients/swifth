@@ -306,6 +306,12 @@ const Terminal: FC<ITerminal> = ({
   );
 };
 
+
+
+
+
+
+
 type Port = 'Lagos' | 'Onitsha';
 
 const PortAndTerminals = ({
@@ -364,7 +370,10 @@ const PortAndTerminals = ({
 
   const addTerminal = () => {
     console.log('add terminal');
-    setTerminalCount((prev) => prev + 1);
+    setTerminalCount((prev) => {
+      console.log(prev);
+      return prev + 1;
+    });
   };
 
   useEffect(() => {
