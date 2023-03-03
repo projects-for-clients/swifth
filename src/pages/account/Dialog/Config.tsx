@@ -236,7 +236,7 @@ function Config({
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
-      <div className=" mt-[5rem]">
+      <div className="mt-[5rem] pb-[5rem]">
         <p className="text-color-purple-1 font-medium text-[2.4rem]">
           {selectedCar?.name}
         </p>
@@ -244,7 +244,7 @@ function Config({
         <div>
           <p className="font-medium mb-10">{selectedCar?.name} Models</p>
           <div
-            className="grid gap-8 mb-[5rem]"
+            className="grid gap-8 "
             style={{
               gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
             }}
@@ -273,7 +273,7 @@ function Config({
         <p className="text-[2rem]"> Surface Duty - {selectedCar?.name} </p>
       </div>
 
-      <div className=" mt-[5rem]">
+      <div className=" mt-[5rem] pb-[5rem]">
         <p className="text-color-purple-1 font-medium text-[2.4rem]">
           {selectedCar?.name} Accord
         </p>
@@ -289,9 +289,11 @@ function Config({
             }}
           >
             {Array.from({ length: 20 }, (_, i) => (
-              <p key={i} className="border bg-gray-100 rounded-3xl p-6" onClick={
-                () => setStep('carSurfaceDuty')
-              }>
+              <p
+                key={i}
+                className="border bg-gray-100 rounded-3xl p-6"
+                onClick={() => setStep('carSurfaceDuty')}
+              >
                 {selectedCar?.trim}
               </p>
             ))}
