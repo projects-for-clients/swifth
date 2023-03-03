@@ -59,6 +59,7 @@
       gap: 1rem;
       width: 100%;
 
+
       a {
         display: flex;
         gap: 1rem;
@@ -73,7 +74,7 @@
           fill: white;
         }
 
-        &:hover {
+        &:hover{
           transition: all 0.2s;
           padding: 1rem 2rem;
           background-color: $color-green-light;

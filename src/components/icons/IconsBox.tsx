@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import HomeSvg from './sidebar/homeSvg';
 import TeamSvg from './sidebar/teamSvg';
@@ -15,10 +15,10 @@ function IconsBox() {
   return (
     <ul className="iconsBox">
       <li className="iconsBox__list">
-        <Link to="/dashboard">
+        <NavLink to="/dashboard" >
           <HomeSvg fill="white" />
           <span>Home</span>
-        </Link>
+        </NavLink>
       </li>
       <li className="iconsBox__list">
         <Link to="/dashboard/orders">
