@@ -376,7 +376,7 @@ function Config({
             onClick={() => moveToShippingItem(item)}
             key={item.name}
           >
-            <p className="grid">
+            <p className="grid justify-items-start">
               <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
