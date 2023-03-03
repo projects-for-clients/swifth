@@ -353,7 +353,7 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('carTrims')}
+          onClick={() => closeDialog()}
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
@@ -384,7 +384,7 @@ function Config({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('carTrims')}
+          onClick={() => setStep('shipping')}
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
