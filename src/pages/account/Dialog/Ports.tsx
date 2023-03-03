@@ -9,8 +9,6 @@ function Ports({ closeDialog }: { closeDialog: () => void }) {
   const first = (
     <>
       <div className="grid justify-items-center">
-        
-
         <div className="text-center mt-10">
           <p className="text-[3rem]">{name}</p>
           <button
@@ -33,7 +31,7 @@ function Ports({ closeDialog }: { closeDialog: () => void }) {
         <p>3 Terminals</p>
 
         <div className="flex justify-between items-center">
-          <p>CAC Certificate</p>
+          <p>Form C-30 for Terminal 1</p>
           <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
             <span>
               <IoMdCheckmark />
@@ -42,7 +40,16 @@ function Ports({ closeDialog }: { closeDialog: () => void }) {
           </p>
         </div>
         <div className="flex justify-between items-center">
-          <p>Custom license</p>
+          <p>Form C-30 for Terminal 2</p>
+          <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
+            <span>
+              <IoMdCheckmark />
+            </span>
+            <span className="text-[1.2rem] font-normal">Verified</span>
+          </p>
+        </div>
+        <div className="flex justify-between items-center">
+          <p>Form C-30 for Terminal 3</p>
           <p className="bg-green-100 border border-color-primary rounded-2xl flex items-center gap-4 text-color-primary-dark py-2 px-4">
             <span>
               <IoMdCheckmark />
