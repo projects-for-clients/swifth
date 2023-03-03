@@ -337,7 +337,7 @@ function Config({
     </>
   );
 
-  const shippingItems = [
+  const shippingContent = [
     { name: 'sedan', content: '120k' },
     { name: 'suv/bus/pick-up', content: '150k' },
     { name: 'truck', content: '180k' },
@@ -359,11 +359,12 @@ function Config({
       </div>
 
       <div className="grid">
-        {shippingItems.map((item, index) => (
-          <div
-            className={`flex items-center justify-between py-4 ${
-              index !== shippingItems.length - 1 ? 'border-b' : ''
+        {shippingContent.map((item, index) => (
+          <button
+            className={`flex items-center justify-between py-4 outline-none ${
+              index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
             }`}
+            onClick={() => setStep('shippingItem')}
             key={item.name}
           >
             <p className="grid">
@@ -373,7 +374,7 @@ function Config({
             <p>
               <BsArrowRight className="text-[#4B5463" />
             </p>
-          </div>
+          </button>
         ))}
       </div>
     </>
