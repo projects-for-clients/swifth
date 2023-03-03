@@ -12,7 +12,6 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
 
       </div>
 
-      <div className="grid gap-4 font-medium border-t border-t-color-purple-light pt-10 mt-10">
         <p>14 Abraham Ladipe Lekki Phase 1</p>
 
         <div className="flex justify-between items-center">
