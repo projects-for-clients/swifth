@@ -147,15 +147,15 @@ function Config({
         </div>
 
         <div>
-          <p className="font-medium">Most popular</p>
+          <p className="font-medium mb-5">Most popular</p>
           <div
-            className="grid"
+            className="grid gap-8"
             style={{
-              gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
             }}
           >
             {Array.from({ length: 6 }, (_, i) => (
-              <p key={i} className="border bg-gray-100 rounded-3xl p-4">
+              <p key={i} className="border bg-gray-100 rounded-3xl p-6">
                 Lexus LX 570, 2019
               </p>
             ))}
@@ -185,18 +185,21 @@ function Config({
             </div>
           ))}
         </div>
+        <div>
+
+            <p className="font-medium mb-5">All Brands</p>
         <div
           className="grid"
           style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
-          }}
-        >
-          <p className="font-medium">All Brands</p>
+              gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
+            }}
+            >
           {Array.from({ length: 20 }, (_, i) => (
-            <p key={i} className="border border-gray-100 rounded-3xl p-4">
+              <p key={i} className="border bg-gray-100 rounded-3xl p-4">
               Honda
             </p>
           ))}
+          </div>
         </div>
       </div>
     </>
