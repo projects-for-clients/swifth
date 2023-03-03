@@ -162,7 +162,7 @@ function Config({
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mt-10">
           {filter.map((item) => (
             <div key={item}>
               <input
@@ -178,7 +178,7 @@ function Config({
                   item === selectedFilter
                     ? 'bg-color-primary text-white border-none'
                     : 'border'
-                } rounded-3xl `}
+                } rounded-3xl p-4 w-[10rem] cursor-pointer flex`}
               >
                 {item}
               </label>
@@ -186,19 +186,18 @@ function Config({
           ))}
         </div>
         <div>
-
-            <p className="font-medium mb-5">All Brands</p>
-        <div
-          className="grid"
-          style={{
+          <p className="font-medium mb-5">All Brands</p>
+          <div
+            className="grid"
+            style={{
               gridTemplateColumns: 'repeat(auto-fit, minmax(30rem, 1fr))',
             }}
-            >
-          {Array.from({ length: 20 }, (_, i) => (
-              <p key={i} className="border bg-gray-100 rounded-3xl p-4">
-              Honda
-            </p>
-          ))}
+          >
+            {Array.from({ length: 20 }, (_, i) => (
+              <p key={i} className="border bg-gray-100 rounded-3xl p-6">
+                Honda
+              </p>
+            ))}
           </div>
         </div>
       </div>
