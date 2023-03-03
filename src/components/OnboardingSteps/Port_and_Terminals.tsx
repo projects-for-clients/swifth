@@ -365,12 +365,12 @@ const PortAndTerminals = ({
     }
   };
 
-  const addTerminal = (_: MouseEvent<HTMLButtonElement>) => {
+  const addTerminal = () => {
     console.log('add terminal');
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
 
-  const selectItemHandler = (_: MouseEvent, item: Port) => {
+  const selectItemHandler = ( item: Port) => {
     setSelectedItem(item);
     setToggleSelectMenu(false);
     setShowNext(true);
@@ -438,7 +438,7 @@ const PortAndTerminals = ({
                         <p
                           className="text-[1.4rem] hover:bg-color-grey border-b p-4 cursor-pointer text-left"
                           key={index}
-                          onClick={(e) => selectItemHandler(e, item)}
+                          onClick={() => selectItemHandler( item)}
                         >
                           {item}
                         </p>
