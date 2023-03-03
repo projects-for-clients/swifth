@@ -367,7 +367,7 @@ function Config({
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
 
-      <div className="grid">
+      <div className="grid mt-[10rem]">
         {shippingContent.map((item, index) => (
           <button
             className={`flex items-center justify-between py-4 outline-none ${
