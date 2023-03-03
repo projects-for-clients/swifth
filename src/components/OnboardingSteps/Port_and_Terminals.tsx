@@ -340,21 +340,13 @@ const PortAndTerminals = ({
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setTerminalCount] = useState(1);
 
-  
   let loaded = false;
   if (setup) {
-    console.log('setup')
     useEffect(() => {
-      console.log(
-        'the onboarding inputs re',
-        onboardingInputs.portsAndTerminal,
-        { loaded },
-        !loaded
-      );
-      if (onboardingInputs.portsAndTerminal?.port && !!loaded) {
+      if (!loaded) {
         console.log('inside', onboardingInputs.portsAndTerminal.port);
 
-        selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
+        selectItemHandler(onboardingInputs.portsAndTerminal?.port as Port);
         setIsTerminal(true);
         console.log('the terminal list is', onboardingInputs.portsAndTerminal);
         setTerminalCount(
@@ -363,10 +355,12 @@ const PortAndTerminals = ({
 
         loaded = true;
       }
+      console.log({ loaded }, 'loaded 1');
     }, [onboardingInputs.portsAndTerminal]);
-
   }
-  console.log({loaded})
+
+      console.log({ loaded }, 'loaded 2');
+
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
