@@ -39,10 +39,10 @@ function ThirdAuthStep() {
       return;
     }
 
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
       navigate('/dashboard');
-    }, 2000);
+    }, 1000);
   };
 
   const toggleEyeIcon = () => setEyeIcon(!eyeIcon);

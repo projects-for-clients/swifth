@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AppContext';
 import { useAppDispatch } from '../../store/app/hooks';
 import { updateUser } from '../../store/features/user/user';
 import { open } from '../../store/features/modal';
+import { useNavigate } from 'react-router';
 
 export const SecondSignUpStep = () => {
   interface InputTypes {
@@ -200,6 +201,7 @@ export const SecondSignUpStep = () => {
 
 export const SecondLoginStep = () => {
   const [eyeIcon, setEyeIcon] = useState(false);
+  const navigate = useNavigate()
 
   const dispatch = useAppDispatch();
   const redirectToRegister = () => dispatch(open('signup'));
@@ -209,6 +211,7 @@ export const SecondLoginStep = () => {
     password: string;
   }
   const [disabled, setDisabled] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [inputField, setInputField] = useState<InputTypes>({
     email: '',
@@ -220,6 +223,11 @@ export const SecondLoginStep = () => {
 
   const handleSubmit = () => {
     console.log('submit');
+
+    setLoading(true);
+    setTimeout(() => {
+      navigate('/dashboard');
+    }, 1000);
   };
 
   useEffect(() => {
@@ -294,7 +302,7 @@ export const SecondLoginStep = () => {
       return false;
     }
 
-    dispatch(updateUser(inputField));
+    //dispatch(updateUser(inputField));
 
     handleSubmit();
   };
@@ -376,8 +384,9 @@ export const SecondLoginStep = () => {
         <button
           className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 form__btn"
           disabled={disabled}
+
         >
-          Continue
+          {loading ? 'Loading...': 'Continue'}
         </button>
       </form>
       <p className="authText mt-10">
