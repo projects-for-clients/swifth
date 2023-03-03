@@ -433,16 +433,16 @@ function Config({
             </p>
           </button>
         ))}
-      </div>
-
       <button
         className={`flex w-full justify-end`}
         onClick={() => closeDialog()}
       >
-        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
+        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
           Edit Formular
         </span>
       </button>
+      </div>
+
     </>
   );
   const EditShippingItem = (
