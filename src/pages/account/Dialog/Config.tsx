@@ -129,7 +129,12 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
           />
         </div>
 
-        <div>
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+          }}
+        >
           <p className="font-medium">Most popular</p>
           {Array.from({ length: 6 }, (_, i) => (
             <p key={i} className="border border-gray-100 rounded-3xl p-4">
@@ -138,7 +143,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
           ))}
         </div>
 
-        <div>
+        <div className="flex items-center gap-4">
           {filter.map((item) => (
             <div key={item}>
               <input
@@ -151,12 +156,27 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
               <label
                 htmlFor={item}
                 className={`${
-                  item === selectedFilter ? 'bg-color-primary text-white border-none' : 'border'
+                  item === selectedFilter
+                    ? 'bg-color-primary text-white border-none'
+                    : 'border'
                 } rounded-3xl `}
               >
                 {item}
               </label>
             </div>
+          ))}
+        </div>
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
+          }}
+        >
+          <p className="font-medium">All Brands</p>
+          {Array.from({ length: 20 }, (_, i) => (
+            <p key={i} className="border border-gray-100 rounded-3xl p-4">
+              Honda
+            </p>
           ))}
         </div>
       </div>
