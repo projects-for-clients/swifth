@@ -1,4 +1,9 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useContext,
+} from 'react';
 import {
   ChangeEvent,
   FC,
@@ -306,12 +311,6 @@ const Terminal: FC<ITerminal> = ({
   );
 };
 
-
-
-
-
-
-
 type Port = 'Lagos' | 'Onitsha';
 
 const PortAndTerminals = ({
@@ -341,20 +340,31 @@ const PortAndTerminals = ({
   const [isTerminal, setIsTerminal] = useState(false);
   const [terminalCount, setTerminalCount] = useState(1);
 
-  let loaded = false
-  useEffect(() => {
-    console.log('the onboarding inputs re', onboardingInputs.portsAndTerminal, {loaded}, !loaded);
-    if (onboardingInputs.portsAndTerminal?.port && !loaded) {
-      selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
-      setIsTerminal(true);
-      console.log('the terminal list is', onboardingInputs.portsAndTerminal);
-      setTerminalCount(
-        onboardingInputs.portsAndTerminal.terminalList?.length || 1
-      );
+  let loaded = false;
 
-      loaded = true
-    }
-  }, [onboardingInputs.portsAndTerminal.terminalList]);
+  if (setup) {
+    console.log('setup')
+    useEffect(() => {
+      console.log(
+        'the onboarding inputs re',
+        onboardingInputs.portsAndTerminal,
+        { loaded },
+        !loaded
+      );
+      if (onboardingInputs.portsAndTerminal?.port && !!loaded) {
+        console.log('inside', onboardingInputs.portsAndTerminal.port);
+
+        selectItemHandler(onboardingInputs.portsAndTerminal.port as Port);
+        setIsTerminal(true);
+        console.log('the terminal list is', onboardingInputs.portsAndTerminal);
+        setTerminalCount(
+          onboardingInputs.portsAndTerminal.terminalList?.length || 1
+        );
+
+        loaded = true;
+      }
+    }, [onboardingInputs.portsAndTerminal]);
+  }
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -382,7 +392,7 @@ const PortAndTerminals = ({
 
   useEffect(() => {
     console.log('the terminal count is', terminalCount);
-  }, [terminalCount])
+  }, [terminalCount]);
 
   const selectItemHandler = (item: Port) => {
     setSelectedItem(item);
