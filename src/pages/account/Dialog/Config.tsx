@@ -93,7 +93,7 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
 
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed`}
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
       >
         Save Changes
       </button>
@@ -110,13 +110,20 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <label htmlFor="" className="mb-4 text-[1.4rem] text-gray-500">
-          Duty Constant
-        </label>
-        <input
-          type="text"
-          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
-        />
+        <div className="relative flex items-center w-[45rem] mx-auto">
+          <input
+            type="text"
+            className=" border border-gray-300 py-6 pr-3 pl-[4rem] outline-none w-full rounded-3xl"
+            placeholder="Search"
+         
+          />
+
+          <img
+            src="/icons/search-normal.svg"
+            alt=""
+            className="absolute left-6 text-[1.8rem]"
+          />
+        </div>
       </div>
     </>
   );
