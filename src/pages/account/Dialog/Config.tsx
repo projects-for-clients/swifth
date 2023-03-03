@@ -76,14 +76,14 @@ function Config({
   };
 
   const saveShipping = () => {
-     setStep('shipping');
+    setStep('shipping');
 
     toast('Changes Saved', {
       type: 'success',
-      className: 'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
+      className:
+        'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
     });
-  }
-
+  };
 
   const first = (
     <>
@@ -513,10 +513,127 @@ function Config({
             </p>
           </button>
         ))}
+        <button className={`flex w-full justify-end`} onClick={saveShipping}>
+          <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
+            Save Changes
+          </span>
+        </button>
+      </div>
+    </>
+  );
+  const charges = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('shipping')}
+        />
+        <p className="text-[2rem]"> Shipping and Terminal</p>
+      </div>
+      <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none border-b`}
+        >
+          <p className="grid justify-items-start">
+            <span className="text-[#4B5463] capitalize">
+              {selectedShippingItem?.name}
+            </span>
+            <span className="text-[2rem] text-color-purple-1">
+              {selectedShippingItem?.content}
+            </span>
+          </p>
+        </button>
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
+        >
+          <p className="grid justify-items-start">
+            <span className=" capitalize">2015 and older</span>
+            <span>50k x 1.75</span>
+          </p>
+        </button>
+        {shippingItemProps.map((item, index) => (
+          <button
+            className={`flex items-center justify-items-start py-4 outline-none text-[#4B5463] ${
+              index !== shippingItemProps.length - 1
+                ? 'border-b '
+                : 'border-none'
+            }`}
+            onClick={() => setStep('shippingItem')}
+            key={item.name}
+          >
+            <p className="grid justify-items-start">
+              <span className=" capitalize">{item.name}</span>
+              <span>{item.content}</span>
+            </p>
+          </button>
+        ))}
         <button
           className={`flex w-full justify-end`}
-          onClick={ saveShipping}
+          onClick={() => setStep('EditShippingItem')}
         >
+          <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
+            Edit Formular
+          </span>
+        </button>
+      </div>
+    </>
+  );
+  const editCharges = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('shippingItem')}
+        />
+        <p className="text-[2rem]"> Shipping and Terminal</p>
+      </div>
+      <div className="grid max-h-[65vh] overflow-scroll mt-[5rem]">
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none border-b`}
+        >
+          <p className="grid justify-items-start">
+            <span className="text-[#4B5463] capitalize">
+              {selectedShippingItem?.name}
+            </span>
+            <input
+              type="text"
+              className="text-[2rem] text-color-purple-1 border-none outline-none"
+              placeholder={selectedShippingItem?.content}
+            />
+          </p>
+        </button>
+        <button
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] border-b text-[#4B5463]`}
+        >
+          <p className="grid justify-items-start">
+            <span className=" capitalize">2015 and older</span>
+            <input
+              type="text"
+              className=" border-none outline-none"
+              placeholder={`50k x 1.75`}
+            />
+          </p>
+        </button>
+        {shippingItemProps.map((item, index) => (
+          <button
+            className={`flex items-center justify-items-start py-4 outline-none text-[#4B5463] ${
+              index !== shippingItemProps.length - 1
+                ? 'border-b '
+                : 'border-none'
+            }`}
+            key={item.name}
+          >
+            <p className="grid justify-items-start">
+              <span className=" capitalize">{item.name}</span>
+              <input
+                type="text"
+                className=" border-none outline-none"
+                placeholder={item.content}
+              />
+            </p>
+          </button>
+        ))}
+        <button className={`flex w-full justify-end`} onClick={saveShipping}>
           <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
             Save Changes
           </span>
@@ -536,12 +653,16 @@ function Config({
     ['shipping', shipping],
     ['shippingItem', shippingItem],
     ['EditShippingItem', EditShippingItem],
-    ['charges', <div>third</div>],
+    ['charges', charges],
+    ['editCharges', editCharges],
   ]);
 
-  return <div className="relative h-[90vh]">
-    <ToastContainer/>
-    {Paths.get(step)}</div>;
+  return (
+    <div className="relative h-[90vh]">
+      <ToastContainer />
+      {Paths.get(step)}
+    </div>
+  );
 }
 
 export default Config;
