@@ -367,7 +367,7 @@ function Config({
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
 
-      <div className="grid mt-[10rem]">
+      <div className="grid mt-[5rem]">
         {shippingContent.map((item, index) => (
           <button
             className={`flex items-center justify-between py-4 outline-none ${
@@ -397,11 +397,11 @@ function Config({
         />
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
-      <div className="grid max-h-[60vh] overflow-scroll">
+      <div className="grid max-h-[60vh] overflow-scroll mt-[5rem]">
         <button
           className={`flex items-center justify-items-start py-4 outline-none `}
         >
-          <p className="grid">
+          <p className="grid justify-items-start">
             <span className="text-[#4B5463] capitalize">
               {selectedShippingItem?.name}
             </span>
@@ -411,11 +411,11 @@ function Config({
           </p>
         </button>
         <button
-          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem]`}
+          className={`flex items-center justify-items-start py-4 outline-none text-[1.4rem] text-[#4B5463`}
         >
-          <p className="grid">
+          <p className="grid justify-items-start">
             <span className="text-[#4B5463] capitalize">2015 and older</span>
-            <span className="text-[2rem] text-[#4B5463]">50k x 1.75</span>
+            <span>50k x 1.75</span>
           </p>
         </button>
         {shippingItemProps.map((item, index) => (
@@ -426,7 +426,7 @@ function Config({
             onClick={() => setStep('shippingItem')}
             key={item.name}
           >
-            <p className="grid">
+            <p className="grid justify-items-start">
               <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
