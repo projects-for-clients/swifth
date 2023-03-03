@@ -84,6 +84,15 @@ function Config({
         'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
     });
   };
+  const saveCharges = () => {
+    setStep('charges');
+
+    toast('Changes Saved', {
+      type: 'success',
+      className:
+        'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
+    });
+  };
 
   const first = (
     <>
@@ -612,7 +621,7 @@ function Config({
             </p>
           </button>
         ))}
-        <button className={`flex w-full justify-end`} onClick={saveShipping}>
+        <button className={`flex w-full justify-end`} onClick={saveCharges}>
           <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
             Save Changes
           </span>
