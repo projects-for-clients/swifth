@@ -508,7 +508,7 @@ const PortAndTerminals = ({
 
           <button
             className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed ${
-              setup ? 'w-full mt-10 mb-10' : 'w-[28rem]'
+              setup ? ' mt-10 mb-10' : 'w-[28rem]'
             }`}
             disabled={!isTerminal}
             onClick={handleFormSubmit}
