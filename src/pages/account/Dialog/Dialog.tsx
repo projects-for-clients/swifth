@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { DialogContext, DialogType } from '../Account';
 import Business from './Business';
+import Config from './Config';
 import Personal from './Personal';
 import Ports from './Ports';
 
@@ -36,6 +37,7 @@ function Dialog() {
     ['personal', <Personal closeDialog={closeDialog} />],
     ['business', <Business closeDialog={closeDialog} />],
     ['ports', <Ports closeDialog={closeDialog} setWidth={setWidth}/>],
+    ['config', <Config closeDialog={closeDialog} />],
   ]);
 
   return (
