@@ -74,7 +74,7 @@ function Config({
     setSelectedShippingItem(item);
   };
 
-  const SaveShipping = () => {
+  const saveShipping = () => {
      setStep('carTrims');
 
     console.log('hellof')
@@ -519,11 +519,9 @@ function Config({
         ))}
         <button
           className={`flex w-full justify-end`}
-          onClick={() => setStep('EditShippingItem')}
+          onClick={ saveShipping}
         >
-          <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full" onClick={
-           () => SaveShipping()
-          }>
+          <span className=" bg-color-primary px-10 py-6 border justify-self-end  rounded-lg text-white self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full">
             Save Changes
           </span>
         </button>
