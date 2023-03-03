@@ -389,9 +389,9 @@ function Config({
         <p className="text-[2rem]"> Shipping and Terminal</p>
       </div>
       <div className="grid">
-        {shippingContent.map((item, index) => (
+        {shippingItemProps.map((item, index) => (
           <button
-            className={`flex items-center justify-between py-4 outline-none ${
+            className={`flex items-center justify-items-start py-4 outline-none ${
               index !== shippingContent.length - 1 ? 'border-b ' : 'border-none'
             }`}
             onClick={() => setStep('shippingItem')}
@@ -401,9 +401,7 @@ function Config({
               <span className="text-[#4B5463] capitalize">{item.name}</span>
               <span>{item.content}</span>
             </p>
-            <p>
-              <BsArrowRight className="text-[#4B5463" />
-            </p>
+            
           </button>
         ))}
       </div>
@@ -412,8 +410,8 @@ function Config({
         className={`flex w-full justify-end`}
         onClick={() => closeDialog()}
       >
-        <span className=" bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
-          Save Changes
+        <span className=" border-color-primary px-10 py-6 border justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-[30rem]">
+          Edit Formular
         </span>
       </button>
     </>
