@@ -9,7 +9,8 @@ function Ports({ closeDialog, setWidth }: { closeDialog: () => void, setWidth:(i
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if(step === 2) {
+    // if(step === 2) {
+      if(step === 1){
       setWidth('w-[80%]')
       dispatch(fetchedPortsAndTerminal());
     };

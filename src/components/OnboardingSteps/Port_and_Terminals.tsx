@@ -339,7 +339,7 @@ const PortAndTerminals = ({
       setSelectedItem(onboardingInputs.portsAndTerminal.port);
       setIsTerminal(true)
 
-      
+
     }
 
 
@@ -365,6 +365,7 @@ const PortAndTerminals = ({
   };
 
   const addTerminal = (_: MouseEvent<HTMLButtonElement>) => {
+    console.log('add terminal');
     setIsTerminalCount((prev) => [...prev, prev.length + 1]);
   };
 
