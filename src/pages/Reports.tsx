@@ -94,6 +94,7 @@ function Reports() {
               <input
                 type="month"
                 id="month"
+    
                 value={month}
                 onChange={handleDateChange}
                 name="month"

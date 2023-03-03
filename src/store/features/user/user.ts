@@ -82,38 +82,38 @@ const initialState: IUser = {
       POAUri: '',
     },
   },
-  // validated: true,
-  // fullName: '',
-  // email: '',
-  // onboarding: {
-  //   validating: 'succeeded',
-  //   validatingArr: [],
-  // },
-
-  validated: false,
+  validated: true,
   fullName: '',
   email: '',
   onboarding: {
-    validating: 'idle',
-
-    validatingArr: [
-      {
-        path: 'businessInfo',
-        message: 'Business info is not valid',
-        error: false,
-      },
-      {
-        path: 'personalInfo',
-        message: 'Details Validated',
-        error: false,
-      },
-      {
-        path: 'portsAndTerminal',
-        message: 'Details Validated',
-        error: true,
-      },
-    ],
+    validating: 'succeeded',
+    validatingArr: [],
   },
+
+  // validated: false,
+  // fullName: '',
+  // email: '',
+  // onboarding: {
+  //   validating: 'idle',
+
+  //   validatingArr: [
+  //     {
+  //       path: 'businessInfo',
+  //       message: 'Business info is not valid',
+  //       error: false,
+  //     },
+  //     {
+  //       path: 'personalInfo',
+  //       message: 'Details Validated',
+  //       error: false,
+  //     },
+  //     {
+  //       path: 'portsAndTerminal',
+  //       message: 'Details Validated',
+  //       error: true,
+  //     },
+  //   ],
+  // },
 };
 
 export const userSlice = createSlice({
