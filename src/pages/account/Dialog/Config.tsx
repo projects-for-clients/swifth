@@ -7,9 +7,9 @@ function Config({ closeDialog }: { closeDialog: () => void }) {
 
   const first = (
     <>
-      <div className="grid justify-items-center">
+      <div className="grid gap-8 bg-red-400">
         <button
-          className="border border-color-purple-light-2 rounded-3xl p-6 flex items-center justify-between"
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left "
         >
             <p>Duty Calculation</p>
             <p className='text-[1.4rem] text-gray-500'>Duty charges configuration</p>
