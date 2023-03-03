@@ -26,13 +26,14 @@ function Config({
   type CarProp = {
     name?: string;
     trim?: string;
+    content?: string
   };
 
   const shippingContent = [
     { name: 'sedan', content: '120k' },
     { name: 'suv/bus/pick-up', content: '150k' },
     { name: 'truck', content: '180k' },
-  ];
+  ] as CarProp[];
 
   const shippingItemProps = Array.from({ length: 10 }, (_, i) => ({
     name: 2015 + (i + 1),
@@ -449,7 +450,7 @@ function Config({
           
           >
             <p className="grid">
-              <span className="text-[#4B5463] capitalize">{selectedShippingItem}</span>
+              <span className="text-[#4B5463] capitalize">{selectedShippingItem?.name}</span>
               <input type="text" className='border-none outline-none' />
             </p>
             
