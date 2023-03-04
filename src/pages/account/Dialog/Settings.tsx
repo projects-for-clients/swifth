@@ -100,8 +100,8 @@ function Settings({
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <section className='grid items-baseline gap-0'>
-        <div className="grid gap-4 mt-[5rem]">
+      <section className='grid items-baseline gap-10 mt-[5rem]'>
+        <div className="grid gap-4">
           <label htmlFor="" className=" text-[1.4rem] text-gray-500">
             Car Brand
           </label>
@@ -111,7 +111,7 @@ function Settings({
             placeholder="Enter brand name"
           />
         </div>
-        <div className="grid gap-4 mt-[5rem]">
+        <div className="grid gap-4">
           <label htmlFor="" className=" text-[1.4rem] text-gray-500">
             Car Model
           </label>
@@ -121,7 +121,7 @@ function Settings({
             placeholder="Enter model name"
           />
         </div>
-        <div className="grid gap-4 mt-[5rem]">
+        <div className="grid gap-4">
           <label htmlFor="" className=" text-[1.4rem] text-gray-500">
             Car Trim
           </label>
@@ -131,7 +131,7 @@ function Settings({
             placeholder="Enter trim"
           />
         </div>
-        <div className="grid gap-4 mt-[5rem]">
+        <div className="grid gap-4">
           <label htmlFor="" className=" text-[1.4rem] text-gray-500">
             Car Year
           </label>
@@ -151,7 +151,7 @@ function Settings({
       </button>
     </>
   );
-  const addedcar = (
+  const addedCar = (
     <div className='h-[100vh] grid '>
       <div className="flex items-center gap-16 self-start">
         <BiArrowBack
@@ -175,7 +175,7 @@ function Settings({
     </div>
   );
 
-  const Paths = new Map<Steps, JSX.Element>([['initial', initial], ['addCar', addCar]]);
+  const Paths = new Map<Steps, JSX.Element>([['initial', initial], ['addCar', addCar], ['addedCar', addedCar]]);
 
   return (
     <div className="relative h-[90vh]">
