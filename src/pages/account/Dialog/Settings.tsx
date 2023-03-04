@@ -100,7 +100,7 @@ function Settings({
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <section>
+      <section className='grid items-baseline gap-0'>
         <div className="grid gap-4 mt-[5rem]">
           <label htmlFor="" className=" text-[1.4rem] text-gray-500">
             Car Brand
@@ -145,14 +145,37 @@ function Settings({
 
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        onClick={() => closeDialog()}
+        onClick={() => setStep('addedCar')}
       >
         Add Car
       </button>
     </>
   );
+  const addedcar = (
+    <div className='h-[100vh] grid '>
+      <div className="flex items-center gap-16 self-start">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('initial')}
+        />
+        <p className="text-[2rem]"> Add a New Car</p>
+      </div>
 
-  const Paths = new Map<Steps, JSX.Element>([['initial', initial]]);
+      <div className='display grid justify-items-center gap-2 self-center'>
+        <img src="/icons/goodMark.svg" alt="" />
+        <p>Car Added</p>
+      </div>
+
+      <button
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        onClick={() => closeDialog()}
+      >
+        Done
+      </button>
+    </div>
+  );
+
+  const Paths = new Map<Steps, JSX.Element>([['initial', initial], ['addCar', addCar]]);
 
   return (
     <div className="relative h-[90vh]">
