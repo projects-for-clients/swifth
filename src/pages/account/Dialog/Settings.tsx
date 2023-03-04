@@ -233,7 +233,7 @@ function Settings({
           </button>
         </div>
 
-        <button className={`contents ${toggle && toggle['restrictCus'] ? '': '' }`}  disabled={toggle && toggle['restrictCus'] ? true : false}>
+        <button className={`contents :disabled:opacity-50 :disabled:cursor-not-allowed`}  disabled={toggle && toggle['restrictCus'] ? true : false}>
           <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
