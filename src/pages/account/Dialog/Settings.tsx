@@ -37,6 +37,8 @@ console.log({eyeIcon})
     [key: string]: boolean;
   } | null>(null);
 
+  const [enable2FA, setEnable2FA] = useState(false);
+
   const [step, setStep] = useState<Steps>('initial');
 
   const handleToggle = (key: ToggleKeys) => {
@@ -314,33 +316,7 @@ console.log({eyeIcon})
       </button>
     </>
   );
-  const passwordChanged = (
-    <>
-      <div className="flex items-baseline gap-16 self-start">
-        <BiArrowBack
-          className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('initial')}
-        />
-        <div>
-          <p className="text-[2rem]"> Password & Security</p>
-          <p className="text-[1.4rem] text-gray-500 mt-2">
-            Change password and set up 2FA
-          </p>
-        </div>
-      </div>
-
-      <div className="grid gap-8 mt-[5rem]">
-       
-      </div>
-
-      <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        onClick={updatedPayment}
-      >
-        Update Settings
-      </button>
-    </>
-  );
+ 
   const changePassword = (
     <>
       <div className="flex items-baseline gap-16 self-start">
@@ -430,10 +406,63 @@ console.log({eyeIcon})
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
         onClick={updatedPayment}
       >
-        Update Settings
+        Upda;te Settings
       </button>
     </>
   );
+
+   const passwordChanged = (
+     <div className="grid h-full">
+       <div className="flex items-baseline gap-16 self-start">
+         <BiArrowBack
+           className="text-[1.8rem] cursor-pointer"
+           onClick={() => setStep('initial')}
+         />
+         <div>
+           <p className="text-[2rem]"> Password & Security</p>
+           <p className="text-[1.4rem] text-gray-500 mt-2">
+             Change password and set up 2FA
+           </p>
+         </div>
+       </div>
+
+       <div className="flex flex-col items-center gap-4 mt-[-15rem]">
+         <div>
+           <img
+             src="/icons/goodMark.svg"
+             alt=""
+             className="w-[6rem] h-[6rem]"
+           />
+           <p>Password Changed</p>
+         </div>
+         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+           <div className="max-w-[35rem]">
+             <p className="text-[1.4rem] text-gray-500">
+               Enable 2-Factor Authentification
+             </p>
+           </div>
+
+           <button
+             onClick={() => handleToggle('moreThanOne')}
+             className="w-[5rem] h-[2.5rem] absolute right-2"
+           >
+             {toggle && toggle['moreThanOne'] ? (
+               <img src="/icons/switchOn.svg" alt="" />
+             ) : (
+               <img src="/icons/switchOff.svg" alt="" />
+             )}
+           </button>
+         </div>
+       </div>
+
+       <button
+         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+         onClick={updatedPayment}
+       >
+         Update Settings
+       </button>
+     </div>
+   );
 
   const Paths = new Map<Steps, JSX.Element>([
     ['initial', initial],
@@ -441,6 +470,7 @@ console.log({eyeIcon})
     ['addedCar', addedCar],
     ['payment', payment],
     ['changePassword', changePassword ],
+    ['passwordChanged', passwordChanged],
   ]);
 
   return (
