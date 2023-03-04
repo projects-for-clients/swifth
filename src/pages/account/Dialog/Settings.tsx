@@ -53,7 +53,7 @@ function Settings({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
-          onClick={() => setStep('dutyCalculation')}
+          onClick={() => setStep('payment')}
         >
           <img src="/icons/customerPayment.svg" alt="" />
           <div>
@@ -174,8 +174,31 @@ function Settings({
       </button>
     </div>
   );
+  const payment = (
+    <div className='h-full grid'>
+      <div className="flex items-center gap-16 self-start">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('initial')}
+        />
+        <p className="text-[2rem]"> Add a New Car</p>
+      </div>
 
-  const Paths = new Map<Steps, JSX.Element>([['initial', initial], ['addCar', addCar], ['addedCar', addedCar]]);
+      <div className='flex flex-col items-center gap-4 mt-[-15rem]'>
+        <img src="/icons/goodMark.svg" alt="" className='w-[6rem] h-[6rem]' />
+        <p>Car Added</p>
+      </div>
+
+      <button
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        onClick={() => closeDialog()}
+      >
+        Done
+      </button>
+    </div>
+  );
+
+  const Paths = new Map<Steps, JSX.Element>([['initial', initial], ['addCar', addCar], ['addedCar', addedCar], ['payment', payment]]);
 
   return (
     <div className="relative h-[90vh]">
