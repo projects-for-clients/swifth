@@ -351,7 +351,7 @@ console.log({eyeIcon})
           </div>
         </div>
         <div>
-          <label className="text-[#0e2043cc] mt-10">new Password</label>
+          <label className="text-[#0e2043cc] mt-10">New Password</label>
           <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
             <input
               type={eyeIcon && eyeIcon['newPassword'] ? 'text' : 'password'}
@@ -379,7 +379,9 @@ console.log({eyeIcon})
             />
             <span className="absolute right-4 cursor-pointer">
               {eyeIcon && eyeIcon['confirmPassword'] ? (
-                <AiOutlineEye onClick={() => toggleEyeIcon('confirmPassword')} />
+                <AiOutlineEye
+                  onClick={() => toggleEyeIcon('confirmPassword')}
+                />
               ) : (
                 <AiOutlineEyeInvisible
                   onClick={() => toggleEyeIcon('confirmPassword')}
@@ -388,10 +390,17 @@ console.log({eyeIcon})
             </span>
           </div>
         </div>
+
+        <button
+          className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+          onClick={() => setStep('passwordChanged')}
+        >
+          Change Password
+        </button>
       </div>
 
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
         onClick={updatedPayment}
       >
         Update Settings
