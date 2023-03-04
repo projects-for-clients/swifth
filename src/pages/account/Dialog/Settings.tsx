@@ -188,10 +188,7 @@ const [toggle, setToggle] = useState<{
       </div>
 
       <div>
-        <div
-          className="flex items-center gap-8 cursor-pointer justify-between"
-          onClick={() => handleToggle()}
-        >
+        <div className="flex items-center gap-8 cursor-pointer justify-between">
           <div>
             <p>Start clearing without payment</p>
             <p className="text-[1.4rem] text-gray-500">
@@ -199,11 +196,13 @@ const [toggle, setToggle] = useState<{
             </p>
           </div>
 
-          {toggleAccess && toggleAccess[name] ? (
-            <img src="/icons/switchOn.svg" alt="" />
-          ) : (
-            <img src="/icons/switchOff.svg" alt="" />
-          )}
+          <button onClick={() => handleToggle()}>
+            {toggleAccess && toggleAccess[name] ? (
+              <img src="/icons/switchOn.svg" alt="" />
+            ) : (
+              <img src="/icons/switchOff.svg" alt="" />
+            )}
+          </button>
         </div>
       </div>
 
