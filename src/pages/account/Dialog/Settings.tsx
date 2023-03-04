@@ -224,15 +224,9 @@ function Settings({
             className="w-[5rem] h-[2.5rem] absolute right-2"
           >
             {toggle && toggle['moreThanOne'] ? (
-              <img
-                src="/icons/switchOn.svg"
-                alt=""
-              />
+              <img src="/icons/switchOn.svg" alt="" />
             ) : (
-              <img
-                src="/icons/switchOff.svg"
-                alt=""
-              />
+              <img src="/icons/switchOff.svg" alt="" />
             )}
           </button>
         </div>
@@ -247,19 +241,17 @@ function Settings({
 
           <button
             onClick={() => handleToggle('restrictCus')}
-            className="w-[5rem] h-[2.5rem]"
+            className="w-[5rem] h-[2.5rem] absolute right-2"
           >
             {toggle && toggle['restrictCus'] ? (
               <img
                 src="/icons/switchOn.svg"
                 alt=""
-                className="w-[5rem] h-full"
               />
             ) : (
               <img
                 src="/icons/switchOff.svg"
                 alt=""
-                className="w-[5rem] h-full"
               />
             )}
           </button>
