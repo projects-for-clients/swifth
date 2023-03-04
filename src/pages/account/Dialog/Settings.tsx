@@ -253,9 +253,8 @@ function Settings({
 
         <button
           className={` :disabled:opacity-50 :disabled:cursor-not-allowed`}
-          disabled={true}
+            disabled={!toggle['restrictCus']}
         >
-            click me
          <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
@@ -274,7 +273,7 @@ function Settings({
               </button>
             </div>
           </div> 
-        </button>
+        </d>
       </div>
 
       <button
