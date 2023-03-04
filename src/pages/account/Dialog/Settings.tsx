@@ -13,9 +13,11 @@ function Settings({
 }) {
   const [eyeIcon, setEyeIcon] = useState<{
     [key: string]: boolean;
-  } | null>(null);
+  } | null>(null)
 
-  const toggleEyeIcon = (key: string) => {
+    type PasswordKeys = 'oldPassword' | 'newPassword' | 'confirmPassword';
+
+  const toggleEyeIcon = (key:  PasswordKeys) => {
     console.log({ key }, 'key')
     setEyeIcon((prev) => ({
       ...prev,
