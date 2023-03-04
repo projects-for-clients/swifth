@@ -335,7 +335,7 @@ console.log({eyeIcon})
           <label className="text-[#0e2043cc] mt-10">old Password</label>
           <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
             <input
-              type={eyeIcon ? 'text' : 'password'}
+              type={eyeIcon && eyeIcon['oldPassword'] ? 'text' : 'password'}
               className={` w-full bg-inherit outline-none border-none`}
               name="password"
             />
@@ -345,6 +345,44 @@ console.log({eyeIcon})
               ) : (
                 <AiOutlineEyeInvisible
                   onClick={() => toggleEyeIcon('oldPassword')}
+                />
+              )}
+            </span>
+          </div>
+        </div>
+        <div>
+          <label className="text-[#0e2043cc] mt-10">new Password</label>
+          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
+            <input
+              type={eyeIcon && eyeIcon['newPassword'] ? 'text' : 'password'}
+              className={` w-full bg-inherit outline-none border-none`}
+              name="password"
+            />
+            <span className="absolute right-4 cursor-pointer">
+              {eyeIcon && eyeIcon['newPassword'] ? (
+                <AiOutlineEye onClick={() => toggleEyeIcon('newPassword')} />
+              ) : (
+                <AiOutlineEyeInvisible
+                  onClick={() => toggleEyeIcon('newPassword')}
+                />
+              )}
+            </span>
+          </div>
+        </div>
+        <div>
+          <label className="text-[#0e2043cc] mt-10">confirm Password</label>
+          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
+            <input
+              type={eyeIcon && eyeIcon['confirmPassword'] ? 'text' : 'password'}
+              className={` w-full bg-inherit outline-none border-none`}
+              name="password"
+            />
+            <span className="absolute right-4 cursor-pointer">
+              {eyeIcon && eyeIcon['confirmPassword'] ? (
+                <AiOutlineEye onClick={() => toggleEyeIcon('confirmPassword')} />
+              ) : (
+                <AiOutlineEyeInvisible
+                  onClick={() => toggleEyeIcon('confirmPassword')}
                 />
               )}
             </span>
