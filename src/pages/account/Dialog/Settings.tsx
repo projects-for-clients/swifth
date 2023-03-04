@@ -18,7 +18,6 @@ function Settings({
     type PasswordKeys = 'oldPassword' | 'newPassword' | 'confirmPassword';
 
   const toggleEyeIcon = (key:  PasswordKeys) => {
-    console.log({ key }, 'key')
     setEyeIcon((prev) => ({
       ...prev,
       [key]: !prev?.[key],
@@ -441,7 +440,7 @@ console.log({eyeIcon})
            </p>
 
            <button
-             onClick={() => setEnable2FA(!enable2FA)}
+            // onClick={() => setEnable2FA(!enable2FA)}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
              {enable2FA ? (
