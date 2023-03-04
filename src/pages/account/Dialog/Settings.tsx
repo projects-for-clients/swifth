@@ -218,9 +218,9 @@ function Settings({
 
           <button onClick={() => handleToggle('moreThanOne')} className='w-[5rem] h-[2.5rem]'>
             {toggle && toggle['moreThanOne'] ? (
-              <img src="/icons/switchOn.svg" alt="" className='w-[5rem] h-[2.5rem]'/>
+              <img src="/icons/switchOn.svg" alt="" className='w-[5rem] h-full'/>
             ) : (
-              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-[2.5rem]'/>
+              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-full'/>
             )}
           </button>
         </div>
@@ -235,9 +235,9 @@ function Settings({
 
           <button onClick={() => handleToggle('restrictCus')} className='w-[5rem] h-[2.5rem]'>
             {toggle && toggle['restrictCus'] ? (
-              <img src="/icons/switchOn.svg" alt="" className='w-[5rem] h-[2.5rem]'/>
+              <img src="/icons/switchOn.svg" alt="" className='w-[5rem] h-full'/>
             ) : (
-              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-[2.5rem]'/>
+              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-full'/>
             )}
           </button>
         </div>
