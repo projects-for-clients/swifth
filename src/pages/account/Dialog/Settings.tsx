@@ -16,9 +16,10 @@ function Settings({
 const [toggle, setToggle] = useState<{
   [key: string]: boolean;
 } | null>(null);
+
   const [step, setStep] = useState<Steps>('initial');
 
-   const handleToggle = (key: string) => {
+   const handleToggle = (key: 'withoutPayment' | 'moreThanOne' | 'restrictCus') => {
      setToggle((prev) => ({
        ...prev,
        [key]: !prev?.[key],
