@@ -181,7 +181,7 @@ function Settings({
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('initial')}
         />
-        <p className="text-[2rem]"> Add a New Car</p>
+        <p className="text-[2rem]"> Customer/Payment Settings</p>
       </div>
 
       <div className='flex flex-col items-center gap-4 mt-[-15rem]'>
