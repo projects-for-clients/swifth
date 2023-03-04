@@ -15,12 +15,12 @@ function Settings({
     [key: string]: boolean;
   } | null>(null);
 
-const toggleEyeIcon = (key: string) => {
-  setEyeIcon((prev) => ({
-    ...prev,
-    [key]: !prev?.[key],
-  }));
-};
+  const toggleEyeIcon = (key: string) => {
+    setEyeIcon((prev) => ({
+      ...prev,
+      [key]: !prev?.[key],
+    }));
+  };
 
   type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'security';
 
@@ -324,18 +324,19 @@ const toggleEyeIcon = (key: string) => {
 
       <div className="grid gap-8 mt-[5rem]">
         <div className="relative">
-            <p>Change Password</p>
+          <p>old Password</p>
           <input
             type={eyeIcon ? 'text' : 'password'}
-            placeholder="create a password..."
             className={`input__item w-full`}
             name="password"
           />
           <span className="form__eyeIcon">
             {eyeIcon ? (
-              <AiOutlineEyeInvisible onClick={toggleEyeIcon} />
+              <AiOutlineEyeInvisible
+                onClick={() => toggleEyeIcon('oldPassword')}
+              />
             ) : (
-              <AiOutlineEye onClick={toggleEyeIcon} />
+              <AiOutlineEye onClick={() => toggleEyeIcon('oldPassword')} />
             )}
           </span>
         </div>
