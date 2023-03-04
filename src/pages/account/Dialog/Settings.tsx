@@ -436,17 +436,16 @@ console.log({eyeIcon})
            <p>Password Changed</p>
          </div>
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-           <div className="max-w-[35rem]">
-             <p className="text-[1.4rem] text-gray-500">
+             <p className=" text-gray-500 max-w-[35rem] font-medium">
                Enable 2-Factor Authentification
              </p>
-           </div>
+     
 
            <button
-             onClick={() => handleToggle('moreThanOne')}
+             onClick={() => setEnable2FA(!enable2FA)}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggle && toggle['moreThanOne'] ? (
+             {enable2FA ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
