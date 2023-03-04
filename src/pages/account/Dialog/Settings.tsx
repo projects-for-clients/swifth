@@ -233,7 +233,7 @@ function Settings({
           </button>
         </div>
 
-        <div className={`contents ${toggle && toggle['restrictCus'] }`}>
+        <button className={`contents ${toggle && toggle['restrictCus'] ? '': '' }`}  disabled={toggle && toggle['restrictCus'] ? true : false}>
           <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
@@ -252,7 +252,7 @@ function Settings({
               </button>
             </div>
           </div>
-        </div>
+        </but>
       </div>
 
       <button
