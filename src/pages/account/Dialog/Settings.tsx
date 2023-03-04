@@ -11,7 +11,7 @@ function Settings({
   setWidth: (item: string) => void;
 }) {
   type Steps =
-    | 'initial' | 'addCard' | 'addedCar' | 'payment' | 'updatePayment'
+    | 'initial' | 'addCar' | 'addedCar' | 'payment' | 'updatePayment'
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -45,7 +45,7 @@ function Settings({
       <div className="grid gap-8 mt-[5rem]">
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
-          onClick={() => setStep('dutyCalculation')}
+          onClick={() => setStep('addCar')}
         >
           <img src="/icons/car.svg" alt="" />
           <div>
@@ -99,14 +99,14 @@ function Settings({
       <div className="flex items-center gap-16">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
-          onClick={() => setStep('dutyCalculation')}
+          onClick={() => setStep('initial')}
         />
         <p className="text-[2rem]"> Add a New Card</p>
       </div>
 
       <div className="grid gap-4 mt-[5rem]">
         <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          Duty Constant
+          card
         </label>
         <input
           type="text"
