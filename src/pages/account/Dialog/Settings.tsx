@@ -29,7 +29,7 @@ function Settings({
 console.log({eyeIcon})
   }, [eyeIcon])
 
-  type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'changePassword';
+  type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'changePassword' | 'passwordChanged';
 
   type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
 
@@ -314,7 +314,7 @@ console.log({eyeIcon})
       </button>
     </>
   );
-  const changePassword = (
+  const passwordChanged = (
     <>
       <div className="flex items-baseline gap-16 self-start">
         <BiArrowBack
@@ -330,73 +330,7 @@ console.log({eyeIcon})
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <p className="text-[2rem] font-medium">Change Password</p>
-        <div>
-          <label className="text-[#0e2043cc] mt-10">old Password</label>
-          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
-            <input
-              type={eyeIcon && eyeIcon['oldPassword'] ? 'text' : 'password'}
-              className={` w-full bg-inherit outline-none border-none`}
-              name="password"
-            />
-            <span className="absolute right-4 cursor-pointer">
-              {eyeIcon && eyeIcon['oldPassword'] ? (
-                <AiOutlineEye onClick={() => toggleEyeIcon('oldPassword')} />
-              ) : (
-                <AiOutlineEyeInvisible
-                  onClick={() => toggleEyeIcon('oldPassword')}
-                />
-              )}
-            </span>
-          </div>
-        </div>
-        <div>
-          <label className="text-[#0e2043cc] mt-10">New Password</label>
-          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
-            <input
-              type={eyeIcon && eyeIcon['newPassword'] ? 'text' : 'password'}
-              className={` w-full bg-inherit outline-none border-none`}
-              name="password"
-            />
-            <span className="absolute right-4 cursor-pointer">
-              {eyeIcon && eyeIcon['newPassword'] ? (
-                <AiOutlineEye onClick={() => toggleEyeIcon('newPassword')} />
-              ) : (
-                <AiOutlineEyeInvisible
-                  onClick={() => toggleEyeIcon('newPassword')}
-                />
-              )}
-            </span>
-          </div>
-        </div>
-        <div>
-          <label className="text-[#0e2043cc] mt-10">Confirm Password</label>
-          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
-            <input
-              type={eyeIcon && eyeIcon['confirmPassword'] ? 'text' : 'password'}
-              className={` w-full bg-inherit outline-none border-none`}
-              name="password"
-            />
-            <span className="absolute right-4 cursor-pointer">
-              {eyeIcon && eyeIcon['confirmPassword'] ? (
-                <AiOutlineEye
-                  onClick={() => toggleEyeIcon('confirmPassword')}
-                />
-              ) : (
-                <AiOutlineEyeInvisible
-                  onClick={() => toggleEyeIcon('confirmPassword')}
-                />
-              )}
-            </span>
-          </div>
-        </div>
-
-        <button
-          className={`text-[1.6rem] border-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-primary border mt-10 self-center disabled:opacity-60 disabled:cursor-not-allowed  w-full`}
-          onClick={() => setStep('passwordChanged')}
-        >
-          Change Password
-        </button>
+       
       </div>
 
       <button
