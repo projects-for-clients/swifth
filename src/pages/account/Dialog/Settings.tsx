@@ -324,15 +324,15 @@ function Settings({
 
       <div className="grid gap-8 mt-[5rem]">
         <div>
-            <p className="text-[2rem] font-medium">Change Password</p>
-          <div className="relative">
-            <p>old Password</p>
+          <p className="text-[2rem] font-medium">Change Password</p>
+            <label>old Password</label>
+          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
             <input
               type={eyeIcon ? 'text' : 'password'}
-              className={`input__item w-full`}
+              className={` w-full bg-inherit`}
               name="password"
             />
-            <span className="form__eyeIcon">
+            <span className="absolute right-4 ">
               {eyeIcon ? (
                 <AiOutlineEyeInvisible
                   onClick={() => toggleEyeIcon('oldPassword')}
