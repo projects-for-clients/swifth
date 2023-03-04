@@ -192,19 +192,19 @@ function Settings({
       </div>
 
       <div className='grid gap-4'>
-        <div className="flex items-center gap-8 cursor-pointer justify-between">
-          <div>
+        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+          <div className='max-w-[35rem]'>
             <p>Start clearing without payment</p>
             <p className="text-[1.4rem] text-gray-500">
               Allow clearing to commence if no payment has been made by cutomer
             </p>
           </div>
 
-          <button onClick={() => handleToggle('withoutPayment')}>
+          <button onClick={() => handleToggle('withoutPayment')} className='w-[5rem] h-[2.5rem] absolute right-4'>
             {toggle && toggle['withoutPayment'] ? (
-              <img src="/icons/switchOn.svg" alt=""className='w-[5rem] h-[2.5rem]' />
+              <img src="/icons/switchOn.svg" alt=""className='w-full h-full' />
             ) : (
-              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-[2.5rem]'/>
+              <img src="/icons/switchOff.svg" alt="" className=''/>
             )}
           </button>
         </div>
