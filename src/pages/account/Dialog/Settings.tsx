@@ -12,14 +12,7 @@ function Settings({
 }) {
   type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'updatePayment';
 
-  type Filter = 'brand' | 'model' | 'trim';
-  const filter: Filter[] = ['brand', 'model', 'trim'];
-
-  type CarProp = {
-    name?: string;
-    trim?: string;
-    content?: string;
-  };
+  
 const [toggle, setToggle] = useState<{
   [key: string]: boolean;
 } | null>(null);
