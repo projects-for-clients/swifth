@@ -10,8 +10,7 @@ function Settings({
   closeDialog: () => void;
   setWidth: (item: string) => void;
 }) {
-  type Steps =
-    | 'initial' | 'addCar' | 'addedCar' | 'payment' | 'updatePayment'
+  type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'updatePayment';
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -34,9 +33,6 @@ function Settings({
   }));
 
   const [step, setStep] = useState<Steps>('initial');
-
-
-
 
   const initial = (
     <>
@@ -104,31 +100,59 @@ function Settings({
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <div className="grid gap-4 mt-[5rem]">
-        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          Car Brand
-        </label>
-        <input
-          type="text"
-          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
-          placeholder='Enter brand name'
-        />
-      </div>
+      <section>
+        <div className="grid gap-4 mt-[5rem]">
+          <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+            Car Brand
+          </label>
+          <input
+            type="text"
+            className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+            placeholder="Enter brand name"
+          />
+        </div>
+        <div className="grid gap-4 mt-[5rem]">
+          <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+            Car Model
+          </label>
+          <input
+            type="text"
+            className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+            placeholder="Enter model name"
+          />
+        </div>
+        <div className="grid gap-4 mt-[5rem]">
+          <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+            Car Trim
+          </label>
+          <input
+            type="text"
+            className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+            placeholder="Enter trim"
+          />
+        </div>
+        <div className="grid gap-4 mt-[5rem]">
+          <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+            Car Year
+          </label>
+          <input
+            type="text"
+            className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+            placeholder="Enter year"
+          />
+        </div>
+      </section>
 
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
         onClick={() => closeDialog()}
       >
-        Save Changes
+        Add Car
       </button>
     </>
   );
-  
 
-  const Paths = new Map<Steps, JSX.Element>([
-    ['initial', initial]
-    
-  ]);
+  const Paths = new Map<Steps, JSX.Element>([['initial', initial]]);
 
   return (
     <div className="relative h-[90vh]">
