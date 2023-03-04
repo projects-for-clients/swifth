@@ -328,7 +328,7 @@ console.log({eyeIcon})
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-          <p className="text-[2rem] font-medium">Change Password</p>
+        <p className="text-[2rem] font-medium">Change Password</p>
         <div>
           <label className="text-[#0e2043cc] mt-10">old Password</label>
           <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
@@ -337,13 +337,13 @@ console.log({eyeIcon})
               className={` w-full bg-inherit outline-none border-none`}
               name="password"
             />
-            <span className="absolute right-4 ">
+            <span className="absolute right-4 cursor-pointer">
               {eyeIcon && eyeIcon['oldPassword'] ? (
+                <AiOutlineEye onClick={() => toggleEyeIcon('oldPassword')} />
+              ) : (
                 <AiOutlineEyeInvisible
                   onClick={() => toggleEyeIcon('oldPassword')}
                 />
-              ) : (
-                <AiOutlineEye onClick={() => toggleEyeIcon('oldPassword')} />
               )}
             </span>
           </div>
