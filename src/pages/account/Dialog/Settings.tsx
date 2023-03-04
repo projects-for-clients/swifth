@@ -100,18 +100,17 @@ function Settings({
 
       <div className="grid gap-8 mt-[5rem]">
         <button
-          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-16 "
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
           onClick={() => setStep('dutyCalculation')}
         >
           <img src="/icons/car.svg" alt="" />
           <div>
-            <p>Add a Card</p>
+            <p className="text-[#251A45]">Add a Car</p>
             <p className="text-[1.4rem] text-gray-500">
               Add new car and details
             </p>
           </div>
         </button>
-     
       </div>
     </>
   );
