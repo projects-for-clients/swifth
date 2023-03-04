@@ -28,11 +28,11 @@ function Settings({
   };
 
   const updatedPayment = () => {
-    closeDialog();
+    //closeDialog();
 
     toast('Payment Updated', {
       type: 'success',
-      className: 'bg-green-100 text-green-500 border-none',
+      className: 'bg-green-100 text-color-primary border-none',
     });
   };
 
