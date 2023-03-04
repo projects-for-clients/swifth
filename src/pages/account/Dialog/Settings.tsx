@@ -177,21 +177,21 @@ function Settings({
     </div>
   );
   const payment = (
-    <div className="">
-      <div className="flex items-center gap-16 self-start">
+    <div className='grid h-full'>
+      <div className="flex items-baseline gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('initial')}
         />
         <div>
           <p className="text-[2rem]"> Customer/Payment Settings</p>
-          <p className="text-[1.4rem] text-gray-500 mt-4">
+          <p className="text-[1.4rem] text-gray-500 mt-2">
             Manage customer & payment settings
           </p>
         </div>
       </div>
 
-      <div>
+      <div className='grid gap-4'>
         <div className="flex items-center gap-8 cursor-pointer justify-between">
           <div>
             <p>Start clearing without payment</p>
