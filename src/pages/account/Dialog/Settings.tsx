@@ -103,27 +103,15 @@ function Settings({
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left "
           onClick={() => setStep('dutyCalculation')}
         >
-          <p>Duty Calculation</p>
-          <p className="text-[1.4rem] text-gray-500">
-            Duty charges configuration
-          </p>
+          <img src="/icons/car.svg" alt="" />
+          <div>
+            <p>Duty Calculation</p>
+            <p className="text-[1.4rem] text-gray-500">
+              Duty charges configuration
+            </p>
+          </div>
         </button>
-        <button
-          className="border border-color-purple-light-2 rounded-3xl p-6 text-left"
-          onClick={() => setStep('shipping')}
-        >
-          <p>Shipping and Terminal</p>
-          <p className="text-[1.4rem] text-gray-500">
-            Shipping & Terminal charges configuration
-          </p>
-        </button>
-        <button
-          className="border border-color-purple-light-2 rounded-3xl p-6 text-left "
-          onClick={() => setStep('charges')}
-        >
-          <p>Charges</p>
-          <p className="text-[1.4rem] text-gray-500">Charges configuration</p>
-        </button>
+     
       </div>
     </>
   );
