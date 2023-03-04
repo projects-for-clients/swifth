@@ -27,6 +27,15 @@ function Settings({
     }));
   };
 
+  const updatedPayment = () => {
+    closeDialog();
+
+    toast('Payment Updated', {
+      type: 'success',
+      className: 'bg-green-100 text-green-500 border-none',
+    });
+  };
+
   const initial = (
     <>
       <p className="text-[2rem] mb-16">Settings</p>
@@ -233,7 +242,10 @@ function Settings({
           </button>
         </div>
 
-        <button className={`contents :disabled:opacity-50 :disabled:cursor-not-allowed`}  disabled={toggle && toggle['restrictCus'] ? true : false}>
+        <button
+          className={`contents :disabled:opacity-50 :disabled:cursor-not-allowed`}
+          disabled={toggle && toggle['restrictCus'] ? true : false}
+        >
           <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
@@ -257,7 +269,7 @@ function Settings({
 
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        onClick={() => closeDialog()}
+        onClick={updatedPayment}
       >
         Update Settings
       </button>
