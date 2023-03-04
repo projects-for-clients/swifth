@@ -273,7 +273,7 @@ function Settings({
               </button>
             </div>
           </div> 
-        </d>
+        </button>
       </div>
 
       <button
