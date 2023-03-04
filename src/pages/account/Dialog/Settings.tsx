@@ -67,7 +67,7 @@ function Settings({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
-          onClick={() => setStep('dutyCalculation')}
+          onClick={() => setStep('security')}
         >
           <img src="/icons/security.svg" alt="" />
           <div>
@@ -79,7 +79,7 @@ function Settings({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
-          onClick={() => setStep('dutyCalculation')}
+        //   onClick={() => setStep('dutyCalculation')}
         >
           <img src="/icons/notification-1.svg" alt="" />
           <div>
