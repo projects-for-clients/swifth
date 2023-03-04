@@ -11,18 +11,7 @@ function Settings({
   setWidth: (item: string) => void;
 }) {
   type Steps =
-    | 'duty'
-    | 'shipping'
-    | 'charges'
-    | 'editCharges'
-    | 'dutyCalculation'
-    | 'dutyConstant'
-    | 'surfaceDuty'
-    | 'carModels'
-    | 'carTrims'
-    | 'carSurfaceDuty'
-    | 'shippingItem'
-    | 'EditShippingItem';
+    | 'first' | 'addCard' | 'addedCar' | 'payment' |  'updatePayment'
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -154,17 +143,7 @@ function Settings({
 
   const Paths = new Map<Steps, JSX.Element>([
     ['duty', first],
-    ['dutyCalculation', dutyCalculation],
-    ['dutyConstant', SurfaceConstant],
-    ['surfaceDuty', SurfaceDuty],
-    ['carModels', carModels],
-    ['carTrims', carTrims],
-    ['carSurfaceDuty', carSurfaceDuty],
-    ['shipping', shipping],
-    ['shippingItem', shippingItem],
-    ['EditShippingItem', EditShippingItem],
-    ['charges', charges],
-    ['editCharges', editCharges],
+    [
   ]);
 
   return (
