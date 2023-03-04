@@ -111,6 +111,42 @@ function Settings({
             </p>
           </div>
         </button>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
+          onClick={() => setStep('dutyCalculation')}
+        >
+          <img src="/icons/customerPayment.svg" alt="" />
+          <div>
+            <p className="text-[#251A45]">Customer/Payment Settings</p>
+            <p className="text-[1.4rem] text-gray-500">
+              Add new car and details
+            </p>
+          </div>
+        </button>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
+          onClick={() => setStep('dutyCalculation')}
+        >
+          <img src="/icons/car.svg" alt="" />
+          <div>
+            <p className="text-[#251A45]">Add a Car</p>
+            <p className="text-[1.4rem] text-gray-500">
+              Add new car and details
+            </p>
+          </div>
+        </button>
+        <button
+          className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
+          onClick={() => setStep('dutyCalculation')}
+        >
+          <img src="/icons/car.svg" alt="" />
+          <div>
+            <p className="text-[#251A45]">Add a Car</p>
+            <p className="text-[1.4rem] text-gray-500">
+              Add new car and details
+            </p>
+          </div>
+        </button>
       </div>
     </>
   );
