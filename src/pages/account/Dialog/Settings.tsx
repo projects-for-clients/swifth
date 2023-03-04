@@ -188,26 +188,23 @@ const [toggle, setToggle] = useState<{
       </div>
 
       <div>
-        
-            <div
-             
-              className="flex items-center gap-8 cursor-pointer justify-between"
-              onClick={() => handleToggle(name)}
-            >
-              <div>
-                <p>{name}</p>
-                <p className="text-[1.4rem] text-gray-500">
-                  {i === 0 ? 'Can only create orders' : description}
-                </p>
-              </div>
+        <div
+          className="flex items-center gap-8 cursor-pointer justify-between"
+          onClick={() => handleToggle()}
+        >
+          <div>
+            <p>Start clearing without payment</p>
+            <p className="text-[1.4rem] text-gray-500">
+              Allow clearing to commence if no payment has been made by cutomer
+            </p>
+          </div>
 
-              {toggleAccess && toggleAccess[name] ? (
-                <img src="/icons/switchOn.svg" alt="" />
-              ) : (
-                <img src="/icons/switchOff.svg" alt="" />
-              )}
-            </div>
-        
+          {toggleAccess && toggleAccess[name] ? (
+            <img src="/icons/switchOn.svg" alt="" />
+          ) : (
+            <img src="/icons/switchOff.svg" alt="" />
+          )}
+        </div>
       </div>
 
       <button
