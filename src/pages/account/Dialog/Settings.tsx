@@ -177,7 +177,7 @@ function Settings({
     </div>
   );
   const payment = (
-    <div className='grid h-full'>
+    <div className="grid h-full">
       <div className="flex items-baseline gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
@@ -191,16 +191,19 @@ function Settings({
         </div>
       </div>
 
-      <div className='grid gap-4'>
+      <div className="grid gap-4">
         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-          <div className='max-w-[35rem]'>
+          <div className="max-w-[35rem]">
             <p>Start clearing without payment</p>
             <p className="text-[1.4rem] text-gray-500">
               Allow clearing to commence if no payment has been made by cutomer
             </p>
           </div>
 
-          <button onClick={() => handleToggle('withoutPayment')} className='w-[5rem] h-[2.5rem] absolute right-2'>
+          <button
+            onClick={() => handleToggle('withoutPayment')}
+            className="w-[5rem] h-[2.5rem] absolute right-2"
+          >
             {toggle && toggle['withoutPayment'] ? (
               <img src="/icons/switchOn.svg" alt="" />
             ) : (
@@ -209,23 +212,32 @@ function Settings({
           </button>
         </div>
         <div className="flex items-center gap-8 cursor-pointer justify-between">
-          <div>
+          <div className="max-w-[35rem]">
             <p>Item per Order</p>
             <p className="text-[1.4rem] text-gray-500">
               Allow more than 1 item in an order{' '}
             </p>
           </div>
 
-          <button onClick={() => handleToggle('moreThanOne')} className='w-[5rem] h-[2.5rem]'>
+          <button
+            onClick={() => handleToggle('moreThanOne')}
+            className="w-[5rem] h-[2.5rem] absolute right-2"
+          >
             {toggle && toggle['moreThanOne'] ? (
-              <img src="/icons/switchOn.svg" alt="" className='w-[5rem] h-full'/>
+              <img
+                src="/icons/switchOn.svg"
+                alt=""
+              />
             ) : (
-              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-full'/>
+              <img
+                src="/icons/switchOff.svg"
+                alt=""
+              />
             )}
           </button>
         </div>
         <div className="flex items-center gap-8 cursor-pointer justify-between">
-          <div>
+          <div className="max-w-[35rem]">
             <p>Restrict Defaulting Customers</p>
             <p className="text-[1.4rem] text-gray-500">
               When customers have not paid their outstanding bills to a certain
@@ -233,11 +245,22 @@ function Settings({
             </p>
           </div>
 
-          <button onClick={() => handleToggle('restrictCus')} className='w-[5rem] h-[2.5rem]'>
+          <button
+            onClick={() => handleToggle('restrictCus')}
+            className="w-[5rem] h-[2.5rem]"
+          >
             {toggle && toggle['restrictCus'] ? (
-              <img src="/icons/switchOn.svg" alt="" className='w-[5rem] h-full'/>
+              <img
+                src="/icons/switchOn.svg"
+                alt=""
+                className="w-[5rem] h-full"
+              />
             ) : (
-              <img src="/icons/switchOff.svg" alt="" className='w-[5rem] h-full'/>
+              <img
+                src="/icons/switchOff.svg"
+                alt=""
+                className="w-[5rem] h-full"
+              />
             )}
           </button>
         </div>
