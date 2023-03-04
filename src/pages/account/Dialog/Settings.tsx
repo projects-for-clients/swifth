@@ -127,7 +127,7 @@ function Settings({
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
           onClick={() => setStep('dutyCalculation')}
         >
-          <img src="/icons/car.svg" alt="" />
+          <img src="/icons/security.svg" alt="" />
           <div>
             <p className="text-[#251A45]">Password & Security</p>
             <p className="text-[1.4rem] text-gray-500">
@@ -139,11 +139,11 @@ function Settings({
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
           onClick={() => setStep('dutyCalculation')}
         >
-          <img src="/icons/car.svg" alt="" />
+          <img src="/icons/notification-1.svg" alt="" />
           <div>
             <p className="text-[#251A45]">Notification Settings</p>
             <p className="text-[1.4rem] text-gray-500">
-              Add new car and details
+              Adjust your notification setting
             </p>
           </div>
         </button>
