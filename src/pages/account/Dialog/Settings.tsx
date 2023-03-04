@@ -29,7 +29,7 @@ function Settings({
 console.log({eyeIcon})
   }, [eyeIcon])
 
-  type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'changePassword' | 'passwordChanged';
+  type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'changePassword' | 'passwordChanged' | '2FA' | 'verify2FA';
 
   type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
 
