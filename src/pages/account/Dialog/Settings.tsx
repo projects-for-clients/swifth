@@ -252,7 +252,7 @@ function Settings({
         </div>
 
         <div
-          className={` ${
+          className={`mt-8 ${
             toggle && toggle['restrictCus']
               ? 'block'
               : 'text-gray-400 cursor-not-allowed'
