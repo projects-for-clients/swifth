@@ -94,6 +94,34 @@ function Settings({
       </div>
     </>
   );
+  const addCar = (
+    <>
+      <div className="flex items-center gap-16">
+        <BiArrowBack
+          className="text-[1.8rem] cursor-pointer"
+          onClick={() => setStep('dutyCalculation')}
+        />
+        <p className="text-[2rem]"> Add a New Card</p>
+      </div>
+
+      <div className="grid gap-4 mt-[5rem]">
+        <label htmlFor="" className=" text-[1.4rem] text-gray-500">
+          Duty Constant
+        </label>
+        <input
+          type="text"
+          className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+        />
+      </div>
+
+      <button
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        onClick={() => closeDialog()}
+      >
+        Save Changes
+      </button>
+    </>
+  );
   
 
   const Paths = new Map<Steps, JSX.Element>([
