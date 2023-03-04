@@ -252,26 +252,40 @@ function Settings({
         </div>
 
         <div
-          className={` `}
+          className={` ${
+            toggle && toggle['restrictCus']
+              ? 'block'
+              : 'text-gray-400 cursor-not-allowed'
+          }`}
         >
-         <p>
+          <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
           </p>
-          <div className="relative border border-gray-300 p-6  w-full rounded-2xl flex items-center pr-12">
-            <input
-              type="text"
-              className=" outline-none w-full"
-              placeholder="80%"
-            />
+          <div className="mt-8">
+            <label className="mb-2">Percentage</label>
+            <div
+              className={`relative p-6  w-full rounded-2xl flex items-center pr-12 ${
+                toggle && toggle['restrictCus']
+                  ? 'bg-gray-200'
+                  : 'bg-gray-100 '
+              }`}
+            >
+              <input
+                type="text"
+                className=" outline-none w-full h-full bg-inherit"
+                placeholder="80%"
+                disabled={toggle && toggle['restrictCus'] ? false : true}
+              />
 
-            <div className="absolute right-8 flex items-center font-medium gap-8">
-              <img src="/icons/line.svg" alt="" />
-              <button className="outline-none border-none text-color-primary flex items-center gap-4">
-                <img src="/icons/percentage.svg" alt="" />
-              </button>
+              <div className="absolute right-8 flex items-center font-medium gap-8">
+                <img src="/icons/line.svg" alt="" />
+                <button className="outline-none border-none text-color-primary flex items-center gap-4">
+                  <img src="/icons/percentage.svg" alt="" />
+                </button>
+              </div>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
 
