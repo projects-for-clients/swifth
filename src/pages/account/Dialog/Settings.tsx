@@ -12,19 +12,20 @@ function Settings({
 }) {
   type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'updatePayment';
 
+  type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
   
-const [toggle, setToggle] = useState<{
-  [key: string]: boolean;
-} | null>(null);
+  const [toggle, setToggle] = useState<{
+    [key: string]: boolean;
+  } | null>(null);
 
   const [step, setStep] = useState<Steps>('initial');
 
-   const handleToggle = (key: 'withoutPayment' | 'moreThanOne' | 'restrictCus') => {
-     setToggle((prev) => ({
-       ...prev,
-       [key]: !prev?.[key],
-     }));
-   };
+  const handleToggle = (key: ToggleKeys) => {
+    setToggle((prev) => ({
+      ...prev,
+      [key]: !prev?.[key],
+    }));
+  };
 
   const initial = (
     <>
@@ -92,7 +93,7 @@ const [toggle, setToggle] = useState<{
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <section className='grid items-baseline gap-10 mt-[5rem]'>
+      <section className="grid items-baseline gap-10 mt-[5rem]">
         <div className="grid gap-4">
           <label htmlFor="" className=" text-[1.4rem] text-gray-500">
             Car Brand
@@ -144,7 +145,7 @@ const [toggle, setToggle] = useState<{
     </>
   );
   const addedCar = (
-    <div className='h-full grid'>
+    <div className="h-full grid">
       <div className="flex items-center gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
@@ -153,8 +154,8 @@ const [toggle, setToggle] = useState<{
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <div className='flex flex-col items-center gap-4 mt-[-15rem]'>
-        <img src="/icons/goodMark.svg" alt="" className='w-[6rem] h-[6rem]' />
+      <div className="flex flex-col items-center gap-4 mt-[-15rem]">
+        <img src="/icons/goodMark.svg" alt="" className="w-[6rem] h-[6rem]" />
         <p>Car Added</p>
       </div>
 
@@ -209,7 +210,12 @@ const [toggle, setToggle] = useState<{
     </div>
   );
 
-  const Paths = new Map<Steps, JSX.Element>([['initial', initial], ['addCar', addCar], ['addedCar', addedCar], ['payment', payment]]);
+  const Paths = new Map<Steps, JSX.Element>([
+    ['initial', initial],
+    ['addCar', addCar],
+    ['addedCar', addedCar],
+    ['payment', payment],
+  ]);
 
   return (
     <div className="relative h-[90vh]">
