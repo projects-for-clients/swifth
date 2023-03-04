@@ -412,7 +412,7 @@ console.log({eyeIcon})
   );
 
    const passwordChanged = (
-     <div className="grid h-full">
+     <div className="grid">
        <div className="flex items-baseline gap-16 self-start">
          <BiArrowBack
            className="text-[1.8rem] cursor-pointer"
@@ -426,7 +426,7 @@ console.log({eyeIcon})
          </div>
        </div>
 
-       <div className=" mt-[-15rem] flex flex-col justify-between">
+       <div className="mt-[10rem] flex flex-col justify-between h-[40vh]">
          <div className="flex flex-col items-center gap-4">
            <img
              src="/icons/goodMark.svg"
@@ -436,7 +436,7 @@ console.log({eyeIcon})
            <p>Password Changed</p>
          </div>
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-           <p className=" text-gray-500 max-w-[35rem] font-medium">
+           <p className=" text-gray-600 max-w-[35rem] font-medium">
              Enable 2-Factor Authentification
            </p>
 
