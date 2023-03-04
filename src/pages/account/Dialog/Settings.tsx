@@ -200,11 +200,11 @@ function Settings({
             </p>
           </div>
 
-          <button onClick={() => handleToggle('withoutPayment')} className='w-[5rem] h-[2.5rem] absolute right-4'>
+          <button onClick={() => handleToggle('withoutPayment')} className='w-[5rem] h-[2.5rem] absolute right-2'>
             {toggle && toggle['withoutPayment'] ? (
-              <img src="/icons/switchOn.svg" alt=""className='w-full h-full' />
+              <img src="/icons/switchOn.svg" alt="" />
             ) : (
-              <img src="/icons/switchOff.svg" alt="" className=''/>
+              <img src="/icons/switchOff.svg" alt="" />
             )}
           </button>
         </div>
