@@ -204,7 +204,7 @@ function Settings({
             onClick={() => handleToggle('withoutPayment')}
             className="w-[5rem] h-[2.5rem] absolute right-2"
           >
-            {toggle && toggle['moreThanOne'] ? (
+            {toggle && toggle['withoutPayment'] ? (
               <img src="/icons/switchOn.svg" alt="" />
             ) : (
               <img src="/icons/switchOff.svg" alt="" />
@@ -252,11 +252,11 @@ function Settings({
         </div>
 
         <button
-          className={`contents :disabled:opacity-50 :disabled:cursor-not-allowed c`}
+          className={` :disabled:opacity-50 :disabled:cursor-not-allowed`}
           disabled={true}
         >
             click me
-          {/* <p>
+         <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
           </p>
@@ -273,7 +273,7 @@ function Settings({
                 <img src="/icons/percentage.svg" alt="" />
               </button>
             </div>
-          </div> */}
+          </div> 
         </button>
       </div>
 
