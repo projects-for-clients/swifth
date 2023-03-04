@@ -175,17 +175,20 @@ function Settings({
     </div>
   );
   const payment = (
-    <div className='h-full grid'>
+    <div className="h-full grid">
       <div className="flex items-center gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('initial')}
         />
-        <p className="text-[2rem]"> Customer/Payment Settings</p>
+        <div>
+          <p className="text-[2rem]"> Customer/Payment Settings</p>
+          <p className="text-[1.4rem] text-gray-500 mt-4">Manage customer & payment settings</p>
+        </div>
       </div>
 
-      <div className='flex flex-col items-center gap-4 mt-[-15rem]'>
-        <img src="/icons/goodMark.svg" alt="" className='w-[6rem] h-[6rem]' />
+      <div className="flex flex-col items-center gap-4 mt-[-15rem]">
+        <img src="/icons/goodMark.svg" alt="" className="w-[6rem] h-[6rem]" />
         <p>Car Added</p>
       </div>
 
