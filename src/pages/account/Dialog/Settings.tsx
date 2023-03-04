@@ -416,7 +416,7 @@ console.log({eyeIcon})
        <div className="flex items-baseline gap-16 self-start">
          <BiArrowBack
            className="text-[1.8rem] cursor-pointer"
-           onClick={() => setStep('initial')}
+           onClick={() => setStep('changePassword')}
          />
          <div>
            <p className="text-[2rem]"> Password & Security</p>
@@ -426,8 +426,8 @@ console.log({eyeIcon})
          </div>
        </div>
 
-       <div className="flex flex-col items-center gap-4 mt-[-15rem]">
-         <div>
+       <div className=" mt-[-15rem] flex flex-col justify-between">
+         <div className="flex flex-col items-center gap-4">
            <img
              src="/icons/goodMark.svg"
              alt=""
@@ -436,10 +436,9 @@ console.log({eyeIcon})
            <p>Password Changed</p>
          </div>
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-             <p className=" text-gray-500 max-w-[35rem] font-medium">
-               Enable 2-Factor Authentification
-             </p>
-     
+           <p className=" text-gray-500 max-w-[35rem] font-medium">
+             Enable 2-Factor Authentification
+           </p>
 
            <button
              onClick={() => setEnable2FA(!enable2FA)}
