@@ -4,7 +4,7 @@ import { HiOutlineChevronRight } from 'react-icons/hi';
 import Header from '../../components/dashboard/Header';
 import Dialog from './Dialog/Dialog';
 
-export type DialogType = 'personal' | 'business' | 'ports' | 'config';
+export type DialogType = 'personal' | 'business' | 'ports' | 'config' | 'settings' | 'support' | 'terms'
 
 interface DialogContextType {
     dialogType: DialogType | null;

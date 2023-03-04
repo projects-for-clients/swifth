@@ -38,6 +38,7 @@ function Dialog() {
     ['business', <Business closeDialog={closeDialog} />],
     ['ports', <Ports closeDialog={closeDialog} setWidth={setWidth} />],
     ['config', <Config closeDialog={closeDialog} setWidth={setWidth} />],
+    ['config', <Config closeDialog={closeDialog} setWidth={setWidth} />],
   ]);
 
   return (
