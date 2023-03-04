@@ -191,7 +191,7 @@ function Settings({
         </div>
       </div>
 
-      <div className="grid gap-4 mt-[5rem]">
+      <div className="grid gap-8 mt-[5rem]">
         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
           <div className="max-w-[35rem]">
             <p>Start clearing without payment</p>
@@ -252,10 +252,11 @@ function Settings({
         </div>
 
         <button
-          className={`contents :disabled:opacity-50 :disabled:cursor-not-allowed`}
-          disabled={toggle && toggle['restrictCus'] ? false : true}
+          className={`contents :disabled:opacity-50 :disabled:cursor-not-allowed c`}
+          disabled={true}
         >
-          <p>
+            click me
+          {/* <p>
             Set the percentage you want customers to have paid to avoid
             restrictions
           </p>
@@ -272,7 +273,7 @@ function Settings({
                 <img src="/icons/percentage.svg" alt="" />
               </button>
             </div>
-          </div>
+          </div> */}
         </button>
       </div>
 
