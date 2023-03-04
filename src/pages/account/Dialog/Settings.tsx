@@ -161,7 +161,7 @@ function Settings({
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <div className='flex flex-col items-center gap-4'>
+      <div className='flex flex-col items-center gap-4 mt-[-15rem]'>
         <img src="/icons/goodMark.svg" alt="" className='w-[6rem] h-[6rem]' />
         <p>Car Added</p>
       </div>
