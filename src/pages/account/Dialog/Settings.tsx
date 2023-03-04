@@ -20,19 +20,17 @@ function Settings({
     trim?: string;
     content?: string;
   };
-
-  const shippingContent = [
-    { name: 'sedan', content: '120k' },
-    { name: 'suv/bus/pick-up', content: '150k' },
-    { name: 'truck', content: '180k' },
-  ] as CarProp[];
-
-  const shippingItemProps = Array.from({ length: 10 }, (_, i) => ({
-    name: 2015 + (i + 1),
-    content: `50k x ${i + 1}`,
-  }));
-
+const [toggle, setToggle] = useState<{
+  [key: string]: boolean;
+} | null>(null);
   const [step, setStep] = useState<Steps>('initial');
+
+   const handleToggle = (key: string) => {
+     setToggle((prev) => ({
+       ...prev,
+       [key]: !prev?.[key],
+     }));
+   };
 
   const initial = (
     <>
@@ -175,7 +173,7 @@ function Settings({
     </div>
   );
   const payment = (
-    <div className="h-full grid">
+    <div className="">
       <div className="flex items-center gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
@@ -183,13 +181,33 @@ function Settings({
         />
         <div>
           <p className="text-[2rem]"> Customer/Payment Settings</p>
-          <p className="text-[1.4rem] text-gray-500 mt-4">Manage customer & payment settings</p>
+          <p className="text-[1.4rem] text-gray-500 mt-4">
+            Manage customer & payment settings
+          </p>
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-4 mt-[-15rem]">
-        <img src="/icons/goodMark.svg" alt="" className="w-[6rem] h-[6rem]" />
-        <p>Car Added</p>
+      <div>
+        
+            <div
+             
+              className="flex items-center gap-8 cursor-pointer justify-between"
+              onClick={() => handleToggle(name)}
+            >
+              <div>
+                <p>{name}</p>
+                <p className="text-[1.4rem] text-gray-500">
+                  {i === 0 ? 'Can only create orders' : description}
+                </p>
+              </div>
+
+              {toggleAccess && toggleAccess[name] ? (
+                <img src="/icons/switchOn.svg" alt="" />
+              ) : (
+                <img src="/icons/switchOff.svg" alt="" />
+              )}
+            </div>
+        
       </div>
 
       <button
