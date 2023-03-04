@@ -11,7 +11,7 @@ function Settings({
   setWidth: (item: string) => void;
 }) {
   type Steps =
-    | 'first' | 'addCard' | 'addedCar' | 'payment' | 'updatePayment'
+    | 'initial' | 'addCard' | 'addedCar' | 'payment' | 'updatePayment'
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -33,15 +33,12 @@ function Settings({
     content: `50k x ${i + 1}`,
   }));
 
-  const [step, setStep] = useState<Steps>('duty');
-  const [selectedFilter, setSelectedFilter] = useState<Filter>('brand');
-  const [selectedCar, setSelectedCar] = useState<CarProp | null>(null);
-  const [selectedShippingItem, setSelectedShippingItem] =
-    useState<CarProp | null>(null);
+  const [step, setStep] = useState<Steps>('initial');
 
 
 
-  const first = (
+
+  const initial = (
     <>
       <p className="text-[2rem] mb-16">Settings</p>
 
@@ -100,7 +97,7 @@ function Settings({
   
 
   const Paths = new Map<Steps, JSX.Element>([
-    ['duty', first]
+    ['initial', initial]
     
   ]);
 
