@@ -242,7 +242,7 @@ function Settings({
             <input
               type="text"
               className=" outline-none w-full"
-              placeholder="Search and add permission"
+              placeholder="80%"
             />
 
             <div className="absolute right-8 flex items-center font-medium gap-8">
@@ -259,7 +259,7 @@ function Settings({
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white uppercase font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
         onClick={() => closeDialog()}
       >
-        Done
+        Update Settings
       </button>
     </div>
   );
