@@ -325,7 +325,7 @@ function Settings({
       <div className="grid gap-8 mt-[5rem]">
         <div>
           <p className="text-[2rem] font-medium">Change Password</p>
-            <label>old Password</label>
+          <label className="text-[#0e2043cc]">old Password</label>
           <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
             <input
               type={eyeIcon ? 'text' : 'password'}
