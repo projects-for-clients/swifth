@@ -11,7 +11,7 @@ function Settings({
   setWidth: (item: string) => void;
 }) {
   type Steps =
-    | 'first' | 'addCard' | 'addedCar' | 'payment' |  'updatePayment'
+    | 'first' | 'addCard' | 'addedCar' | 'payment' | 'updatePayment'
 
   type Filter = 'brand' | 'model' | 'trim';
   const filter: Filter[] = ['brand', 'model', 'trim'];
@@ -39,49 +39,7 @@ function Settings({
   const [selectedShippingItem, setSelectedShippingItem] =
     useState<CarProp | null>(null);
 
-  const toSurfaceDuty = () => {
-    setStep('surfaceDuty');
-    setWidth('w-[60%]');
-  };
 
-  const backToDutyCalculation = () => {
-    setStep('dutyCalculation');
-    setWidth('w-[50rem]');
-  };
-
-  const moveToCarModels = (item: string) => {
-    setStep('carModels');
-    setSelectedCar((prev) => ({ ...prev, name: item }));
-  };
-
-  const moveToCarTrims = (item: string) => {
-    setStep('carTrims');
-    setSelectedCar((prev) => ({ ...prev, trim: item }));
-  };
-
-  const moveToShippingItem = (item: CarProp) => {
-    setStep('shippingItem');
-    setSelectedShippingItem(item);
-  };
-
-  const saveShipping = () => {
-    setStep('shipping');
-
-    toast('Changes Saved', {
-      type: 'success',
-      className:
-        'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
-    });
-  };
-  const saveCharges = () => {
-    setStep('charges');
-
-    toast('Changes Saved', {
-      type: 'success',
-      className:
-        'bg-[#D9EFE1] border border-[#8CCEA6] text-[#319F5A] py-4 px-8 rounded-3xl',
-    });
-  };
 
   const first = (
     <>
@@ -142,8 +100,8 @@ function Settings({
   
 
   const Paths = new Map<Steps, JSX.Element>([
-    ['duty', first],
-    [
+    ['duty', first]
+    
   ]);
 
   return (
