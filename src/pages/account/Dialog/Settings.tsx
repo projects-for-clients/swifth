@@ -96,7 +96,7 @@ function Settings({
 
   const first = (
     <>
-      <p className="text-[2rem] mb-16">Formular Configuration</p>
+      <p className="text-[2rem] mb-16">Settings</p>
 
       <div className="grid gap-8 mt-[5rem]">
         <button
