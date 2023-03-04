@@ -232,6 +232,25 @@ function Settings({
             )}
           </button>
         </div>
+
+        <p>
+          Set the percentage you want customers to have paid to avoid
+          restrictions
+        </p>
+        <div className="relative border border-gray-300 p-6  w-full rounded-2xl flex items-center pr-12">
+          <input
+            type="text"
+            className=" outline-none w-full"
+            placeholder="Search and add permission"
+          />
+
+          <div className="absolute right-8 flex items-center font-medium gap-8">
+            <img src="/icons/line.svg" alt="" />
+            <button className="outline-none border-none text-color-primary flex items-center gap-4">
+              <img src="/icons/percentage.svg" alt="" />
+            </button>
+          </div>
+        </div>
       </div>
 
       <button
