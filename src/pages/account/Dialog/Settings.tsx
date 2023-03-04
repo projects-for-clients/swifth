@@ -204,14 +204,14 @@ function Settings({
             onClick={() => handleToggle('withoutPayment')}
             className="w-[5rem] h-[2.5rem] absolute right-2"
           >
-            {toggle && toggle['withoutPayment'] ? (
+            {toggle && toggle['moreThanOne'] ? (
               <img src="/icons/switchOn.svg" alt="" />
             ) : (
               <img src="/icons/switchOff.svg" alt="" />
             )}
           </button>
         </div>
-        <div className="flex items-center gap-8 cursor-pointer justify-between">
+        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
           <div className="max-w-[35rem]">
             <p>Item per Order</p>
             <p className="text-[1.4rem] text-gray-500">
@@ -230,7 +230,7 @@ function Settings({
             )}
           </button>
         </div>
-        <div className="flex items-center gap-8 cursor-pointer justify-between">
+        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
           <div className="max-w-[35rem]">
             <p>Restrict Defaulting Customers</p>
             <p className="text-[1.4rem] text-gray-500">
@@ -244,15 +244,9 @@ function Settings({
             className="w-[5rem] h-[2.5rem] absolute right-2"
           >
             {toggle && toggle['restrictCus'] ? (
-              <img
-                src="/icons/switchOn.svg"
-                alt=""
-              />
+              <img src="/icons/switchOn.svg" alt="" />
             ) : (
-              <img
-                src="/icons/switchOff.svg"
-                alt=""
-              />
+              <img src="/icons/switchOff.svg" alt="" />
             )}
           </button>
         </div>
