@@ -16,11 +16,16 @@ function Settings({
   } | null>(null);
 
   const toggleEyeIcon = (key: string) => {
+    console.log({ key }, 'key')
     setEyeIcon((prev) => ({
       ...prev,
       [key]: !prev?.[key],
     }));
   };
+
+  useEffect(() => {
+console.log({eyeIcon})
+  }, [eyeIcon])
 
   type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'security';
 
@@ -323,17 +328,17 @@ function Settings({
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <div>
           <p className="text-[2rem] font-medium">Change Password</p>
-          <label className="text-[#0e2043cc]">old Password</label>
+        <div>
+          <label className="text-[#0e2043cc] mt-10">old Password</label>
           <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
             <input
               type={eyeIcon ? 'text' : 'password'}
-              className={` w-full bg-inherit`}
+              className={` w-full bg-inherit outline-none border-none`}
               name="password"
             />
             <span className="absolute right-4 ">
-              {eyeIcon ? (
+              {eyeIcon && eyeIcon['oldPassword'] ? (
                 <AiOutlineEyeInvisible
                   onClick={() => toggleEyeIcon('oldPassword')}
                 />
