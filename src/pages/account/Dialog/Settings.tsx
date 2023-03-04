@@ -13,7 +13,7 @@ function Settings({
   type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'updatePayment';
 
   type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
-  
+
   const [toggle, setToggle] = useState<{
     [key: string]: boolean;
   } | null>(null);
@@ -191,8 +191,41 @@ function Settings({
             </p>
           </div>
 
-          <button onClick={() => handleToggle()}>
-            {toggleAccess && toggleAccess[name] ? (
+          <button onClick={() => handleToggle('withoutPayment')}>
+            {toggle && toggle['withoutPayment'] ? (
+              <img src="/icons/switchOn.svg" alt="" />
+            ) : (
+              <img src="/icons/switchOff.svg" alt="" />
+            )}
+          </button>
+        </div>
+        <div className="flex items-center gap-8 cursor-pointer justify-between">
+          <div>
+            <p>Item per Order</p>
+            <p className="text-[1.4rem] text-gray-500">
+              Allow more than 1 item in an order{' '}
+            </p>
+          </div>
+
+          <button onClick={() => handleToggle('moreThanOne')}>
+            {toggle && toggle['moreThanOne'] ? (
+              <img src="/icons/switchOn.svg" alt="" />
+            ) : (
+              <img src="/icons/switchOff.svg" alt="" />
+            )}
+          </button>
+        </div>
+        <div className="flex items-center gap-8 cursor-pointer justify-between">
+          <div>
+            <p>Restrict Defaulting Customers</p>
+            <p className="text-[1.4rem] text-gray-500">
+              When customers have not paid their outstanding bills to a certain
+              percentage, restrict them from seeing updates on clearing process{' '}
+            </p>
+          </div>
+
+          <button onClick={() => handleToggle('restrictCus')}>
+            {toggle && toggle['restrictCus'] ? (
               <img src="/icons/switchOn.svg" alt="" />
             ) : (
               <img src="/icons/switchOff.svg" alt="" />
