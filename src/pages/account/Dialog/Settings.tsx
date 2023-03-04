@@ -101,16 +101,17 @@ function Settings({
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('initial')}
         />
-        <p className="text-[2rem]"> Add a New Card</p>
+        <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
       <div className="grid gap-4 mt-[5rem]">
         <label htmlFor="" className=" text-[1.4rem] text-gray-500">
-          card
+          Car Brand
         </label>
         <input
           type="text"
           className="bg-gray-100 px-4 py-8 rounded-2xl border-none outline-none"
+          placeholder='Enter brand name'
         />
       </div>
 
