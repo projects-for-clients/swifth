@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { toast, ToastContainer } from 'react-toastify';
@@ -10,6 +11,17 @@ function Settings({
   closeDialog: () => void;
   setWidth: (item: string) => void;
 }) {
+  const [eyeIcon, setEyeIcon] = useState<{
+    [key: string]: boolean;
+  } | null>(null);
+
+const toggleEyeIcon = (key: string) => {
+  setEyeIcon((prev) => ({
+    ...prev,
+    [key]: !prev?.[key],
+  }));
+};
+
   type Steps = 'initial' | 'addCar' | 'addedCar' | 'payment' | 'security';
 
   type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
@@ -79,7 +91,7 @@ function Settings({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
-        //   onClick={() => setStep('dutyCalculation')}
+          //   onClick={() => setStep('dutyCalculation')}
         >
           <img src="/icons/notification-1.svg" alt="" />
           <div>
@@ -266,9 +278,7 @@ function Settings({
             <label className="mb-2">Percentage</label>
             <div
               className={`relative p-6  w-full rounded-2xl flex items-center pr-12 ${
-                toggle && toggle['restrictCus']
-                  ? 'bg-gray-200'
-                  : 'bg-gray-100 '
+                toggle && toggle['restrictCus'] ? 'bg-gray-200' : 'bg-gray-100 '
               }`}
             >
               <input
@@ -305,108 +315,29 @@ function Settings({
           onClick={() => setStep('initial')}
         />
         <div>
-          <p className="text-[2rem]"> Customer/Payment Settings</p>
+          <p className="text-[2rem]"> Password & Security</p>
           <p className="text-[1.4rem] text-gray-500 mt-2">
-            Manage customer & payment settings
+            Change password and set up 2FA
           </p>
         </div>
       </div>
 
       <div className="grid gap-8 mt-[5rem]">
-        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-          <div className="max-w-[35rem]">
-            <p>Start clearing without payment</p>
-            <p className="text-[1.4rem] text-gray-500">
-              Allow clearing to commence if no payment has been made by cutomer
-            </p>
-          </div>
-
-          <button
-            onClick={() => handleToggle('withoutPayment')}
-            className="w-[5rem] h-[2.5rem] absolute right-2"
-          >
-            {toggle && toggle['withoutPayment'] ? (
-              <img src="/icons/switchOn.svg" alt="" />
+        <div className="relative">
+            <p>Change Password</p>
+          <input
+            type={eyeIcon ? 'text' : 'password'}
+            placeholder="create a password..."
+            className={`input__item w-full`}
+            name="password"
+          />
+          <span className="form__eyeIcon">
+            {eyeIcon ? (
+              <AiOutlineEyeInvisible onClick={toggleEyeIcon} />
             ) : (
-              <img src="/icons/switchOff.svg" alt="" />
+              <AiOutlineEye onClick={toggleEyeIcon} />
             )}
-          </button>
-        </div>
-        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-          <div className="max-w-[35rem]">
-            <p>Item per Order</p>
-            <p className="text-[1.4rem] text-gray-500">
-              Allow more than 1 item in an order{' '}
-            </p>
-          </div>
-
-          <button
-            onClick={() => handleToggle('moreThanOne')}
-            className="w-[5rem] h-[2.5rem] absolute right-2"
-          >
-            {toggle && toggle['moreThanOne'] ? (
-              <img src="/icons/switchOn.svg" alt="" />
-            ) : (
-              <img src="/icons/switchOff.svg" alt="" />
-            )}
-          </button>
-        </div>
-        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-          <div className="max-w-[35rem]">
-            <p>Restrict Defaulting Customers</p>
-            <p className="text-[1.4rem] text-gray-500">
-              When customers have not paid their outstanding bills to a certain
-              percentage, restrict them from seeing updates on clearing process{' '}
-            </p>
-          </div>
-
-          <button
-            onClick={() => handleToggle('restrictCus')}
-            className="w-[5rem] h-[2.5rem] absolute right-2"
-          >
-            {toggle && toggle['restrictCus'] ? (
-              <img src="/icons/switchOn.svg" alt="" />
-            ) : (
-              <img src="/icons/switchOff.svg" alt="" />
-            )}
-          </button>
-        </div>
-
-        <div
-          className={`mt-8 ${
-            toggle && toggle['restrictCus']
-              ? 'block'
-              : 'text-gray-400 cursor-not-allowed'
-          }`}
-        >
-          <p>
-            Set the percentage you want customers to have paid to avoid
-            restrictions
-          </p>
-          <div className="mt-8">
-            <label className="mb-2">Percentage</label>
-            <div
-              className={`relative p-6  w-full rounded-2xl flex items-center pr-12 ${
-                toggle && toggle['restrictCus']
-                  ? 'bg-gray-200'
-                  : 'bg-gray-100 '
-              }`}
-            >
-              <input
-                type="text"
-                className=" outline-none w-full h-full bg-inherit"
-                placeholder="80%"
-                disabled={toggle && toggle['restrictCus'] ? false : true}
-              />
-
-              <div className="absolute right-8 flex items-center font-medium gap-8">
-                <img src="/icons/line.svg" alt="" />
-                <button className="outline-none border-none text-color-primary flex items-center gap-4">
-                  <img src="/icons/percentage.svg" alt="" />
-                </button>
-              </div>
-            </div>
-          </div>
+          </span>
         </div>
       </div>
 
