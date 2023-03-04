@@ -152,7 +152,7 @@ function Settings({
     </>
   );
   const addedCar = (
-    <div className=' grid h-full'>
+    <div className='h-full grid'>
       <div className="flex items-center gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
@@ -161,8 +161,8 @@ function Settings({
         <p className="text-[2rem]"> Add a New Car</p>
       </div>
 
-      <div className='flex flex-col '>
-        <img src="/icons/goodMark.svg" alt="" />
+      <div className='flex flex-col items-center gap-4'>
+        <img src="/icons/goodMark.svg" alt="" className='w-[6rem] h-[6rem]' />
         <p>Car Added</p>
       </div>
 
