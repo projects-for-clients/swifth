@@ -177,7 +177,7 @@ function Settings({
     </div>
   );
   const payment = (
-    <div className="grid h-full">
+    <>
       <div className="flex items-baseline gap-16 self-start">
         <BiArrowBack
           className="text-[1.8rem] cursor-pointer"
@@ -191,7 +191,7 @@ function Settings({
         </div>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-4 mt-[5rem]">
         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
           <div className="max-w-[35rem]">
             <p>Start clearing without payment</p>
@@ -282,7 +282,7 @@ function Settings({
       >
         Update Settings
       </button>
-    </div>
+    </>
   );
 
   const Paths = new Map<Steps, JSX.Element>([
