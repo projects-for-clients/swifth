@@ -135,15 +135,21 @@ const Account = () => {
               gridTemplateColumns: 'repeat(auto-fit, minmax(20rem, 1fr))',
             }}
           >
-            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center">
+            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center" onClick={
+              () => setDialogType('settings')
+            }>
               <img src="/icons/settings.svg" alt="" />
               <span>Settings</span>
             </button>
-            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center">
+            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center" onClick={
+              () => setDialogType('support')
+            }>
               <img src="/icons/support.svg" alt="" />
               <span>Support</span>
             </button>
-            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center">
+            <button className="border rounded-3xl flex gap-6 px-6 py-4 items-center" onClick={
+              () => setDialogType('terms')
+            }>
               <img src="/icons/t&C.svg" alt="" />
               <span>Terms & Conditions</span>
             </button>
