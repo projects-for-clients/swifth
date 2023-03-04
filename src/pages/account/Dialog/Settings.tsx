@@ -119,7 +119,7 @@ function Settings({
           <div>
             <p className="text-[#251A45]">Customer/Payment Settings</p>
             <p className="text-[1.4rem] text-gray-500">
-              Add new car and details
+              Manage customer & payment settings{' '}
             </p>
           </div>
         </button>
@@ -129,9 +129,9 @@ function Settings({
         >
           <img src="/icons/car.svg" alt="" />
           <div>
-            <p className="text-[#251A45]">Add a Car</p>
+            <p className="text-[#251A45]">Password & Security</p>
             <p className="text-[1.4rem] text-gray-500">
-              Add new car and details
+              Set up password and 2FA
             </p>
           </div>
         </button>
@@ -141,7 +141,7 @@ function Settings({
         >
           <img src="/icons/car.svg" alt="" />
           <div>
-            <p className="text-[#251A45]">Add a Car</p>
+            <p className="text-[#251A45]">Notification Settings</p>
             <p className="text-[1.4rem] text-gray-500">
               Add new car and details
             </p>
