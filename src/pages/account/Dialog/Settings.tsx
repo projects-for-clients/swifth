@@ -65,8 +65,6 @@ function Settings({
     });
   };
 
-  
-
   const initial = (
     <>
       <p className="text-[2rem] mb-16">Settings</p>
@@ -486,14 +484,14 @@ function Settings({
         </p>
       </div>
 
-      <div className='mt-[5rem]'>
+      <div className="mt-[5rem]">
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
           type="number"
           value={phoneNumber}
-        
-          className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-200`}
-          placeholder='Enter phone number'
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
+          placeholder="Enter phone number"
         />
       </div>
 
