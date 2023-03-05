@@ -354,7 +354,7 @@ function Settings({
         <p className="text-[2rem] font-medium">Change Password</p>
         <div>
           <label className="text-[#0e2043cc] mt-10">old Password</label>
-          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
+          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-100">
             <input
               type={eyeIcon && eyeIcon['oldPassword'] ? 'text' : 'password'}
               className={` w-full bg-inherit outline-none border-none`}
@@ -373,7 +373,7 @@ function Settings({
         </div>
         <div>
           <label className="text-[#0e2043cc] mt-10">New Password</label>
-          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
+          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-100">
             <input
               type={eyeIcon && eyeIcon['newPassword'] ? 'text' : 'password'}
               className={` w-full bg-inherit outline-none border-none`}
@@ -392,7 +392,7 @@ function Settings({
         </div>
         <div>
           <label className="text-[#0e2043cc] mt-10">Confirm Password</label>
-          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
+          <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-100">
             <input
               type={eyeIcon && eyeIcon['confirmPassword'] ? 'text' : 'password'}
               className={` w-full bg-inherit outline-none border-none`}
