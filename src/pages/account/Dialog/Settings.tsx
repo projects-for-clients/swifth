@@ -498,7 +498,7 @@ function Settings({
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
           type="number"
-          value={phoneNumber}
+          value={phoneNumber}            
           onChange={(e) => setPhoneNumber(e.target.value)}
           className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
           placeholder="Enter phone number"
