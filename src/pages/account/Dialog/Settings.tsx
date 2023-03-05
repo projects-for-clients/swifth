@@ -46,6 +46,7 @@ function Settings({
 
   const [enable2FA, setEnable2FA] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [isPhoneNumValid, setIsPhoneNumValid] = useState(false);
 
   const [step, setStep] = useState<Steps>('initial');
 
@@ -64,6 +65,16 @@ function Settings({
       className: 'bg-green-100 text-color-primary border-none',
     });
   };
+
+  const phoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPhoneNumber(value);
+    if (value.length === 10) {
+      setIsPhoneNumValid(true);
+    } else {
+      setIsPhoneNumValid(false);
+    }
+  }
 
   const initial = (
     <>
@@ -489,7 +500,7 @@ function Settings({
         <input
           type="number"
           value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          onChange={phoneNumberHandler}
           className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
           placeholder="Enter phone number"
         />
