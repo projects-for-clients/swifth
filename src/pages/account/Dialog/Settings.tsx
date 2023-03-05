@@ -484,12 +484,11 @@ function Settings({
         </p>
       </div>
 
-      <div className="relative p-6 w-full rounded-2xl flex items-center pr-12 bg-gray-200">
+      <div className="  flex items-center pr-12 ">
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
-          type='number'
-          className={` w-full bg-inherit outline-none border-none`}
-          name="password"
+          type="number"
+          className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-200`}
         />
       </div>
 
