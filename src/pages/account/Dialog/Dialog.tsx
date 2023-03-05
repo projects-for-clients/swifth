@@ -6,6 +6,7 @@ import Personal from './Personal';
 import Ports from './Ports';
 import Settings from './Settings';
 import Support from './Support';
+import Terms from './Terms';
 
 function Dialog() {
   const { dialogType, setDialogType } = useContext(DialogContext);
@@ -42,6 +43,7 @@ function Dialog() {
     ['config', <Config closeDialog={closeDialog} setWidth={setWidth} />],
     ['settings', <Settings closeDialog={closeDialog} setWidth={setWidth} />],
     ['support', <Support closeDialog={closeDialog}  />],
+    ['terms', <Terms closeDialog={closeDialog}  />]
   ]);
 
   return (
