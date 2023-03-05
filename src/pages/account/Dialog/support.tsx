@@ -6,7 +6,7 @@ function Support({closeDialog}: {
    return (
      <div className="">
        <>
-         <p className="text-[2rem] mb-16">Supportsfsf</p>
+         <p className="text-[2rem] mb-16">Support</p>
 
 
          <div className="grid gap-8 mt-[5rem]">
