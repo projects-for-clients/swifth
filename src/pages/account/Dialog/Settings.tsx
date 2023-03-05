@@ -442,11 +442,28 @@ function Settings({
         </div>
 
         <button
-          className={`text-[1.6rem] border-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-primary border mt-10 self-center disabled:opacity-60 disabled:cursor-not-allowed  w-full`}
+          className={`text-[1.6rem] border-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-primary border mt-10 self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
           onClick={() => setStep('passwordChanged')}
         >
           Change Password
         </button>
+
+        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+          <p className=" text-gray-600 max-w-[35rem] font-medium">
+            Enable 2-Factor Authentification
+          </p>
+
+          <button
+            onClick={() => setStep('authFA')}
+            className="w-[5rem] h-[2.5rem] absolute right-2"
+          >
+            {enable2FA ? (
+              <img src="/icons/switchOn.svg" alt="" />
+            ) : (
+              <img src="/icons/switchOff.svg" alt="" />
+            )}
+          </button>
+        </div>
       </div>
 
       <button
