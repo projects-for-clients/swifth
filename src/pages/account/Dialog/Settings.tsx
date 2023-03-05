@@ -515,7 +515,7 @@ function Settings({
         </div>
       </div>
 
-      <div className="mt-[10rem] flex flex-col justify-between h-[40vh]">
+      <div className="mt-[5rem] flex flex-col justify-between h-[40vh]">
         <div className="flex flex-col items-center gap-4">
           <img src="/icons/goodMark.svg" alt="" className="w-[6rem] h-[6rem]" />
           <p>Password Changed</p>
