@@ -159,7 +159,7 @@ function Settings({
         </button>
         <button
           className="border border-color-purple-light-2 rounded-3xl p-6 text-left flex items-center gap-8 "
-          //   onClick={() => setStep('dutyCalculation')}
+          onClick={() => setStep('notification')}
         >
           <img src="/icons/notification-1.svg" alt="" />
           <div>
@@ -760,6 +760,7 @@ function Settings({
     ['passwordChanged', passwordChanged],
     ['authFA', authFA],
     ['verifyFA', verifyFA],
+    ['notification', notification ]
   ]);
 
   return (
