@@ -526,45 +526,43 @@ function Settings({
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('changePassword')}
         />
-        <div>
-          <p className="text-[2rem]"> Password & Security</p>
-          <p className="text-[1.4rem] text-gray-500 mt-2">
-            Change password and set up 2FA
-          </p>
-        </div>
+        <p className="text-[2rem]"> 2-Factor Authentication</p>
       </div>
 
-      <div className="mt-[10rem] flex flex-col justify-between h-[40vh]">
-        <div className="flex flex-col items-center gap-4">
-          <img src="/icons/goodMark.svg" alt="" className="w-[6rem] h-[6rem]" />
-          <p>Password Changed</p>
-        </div>
-        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-          <p className=" text-gray-600 max-w-[35rem] font-medium">
-            Enable 2-Factor Authentification
-          </p>
+      <div className="mt-[5rem]">
+        <p className="text-[2.4rem]">Enter your phone number</p>
+        <p className="text-[1.4rem] text-[#4B5463] mt-2">
+          This authentication protects your account by requiring an additional
+          code when you log in on a device we don't recognize.
+        </p>
+      </div>
 
-          <button
-            // onClick={() => setEnable2FA(!enable2FA)}
-            className="w-[5rem] h-[2.5rem] absolute right-2"
-          >
-            {enable2FA ? (
-              <img src="/icons/switchOn.svg" alt="" />
-            ) : (
-              <img src="/icons/switchOff.svg" alt="" />
-            )}
-          </button>
-        </div>
+      <div className="mt-[5rem]">
+        <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
+        <input
+          type="number"
+          value={phoneNumber}            
+          onChange={(e) => setPhoneNumber((prev) => {
+            if (e.target.value.length <= 11) {
+                return e.target.value;
+            }
+            return prev;
+          })}
+          className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
+          placeholder="Enter phone number"
+        />
       </div>
 
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        onClick={updatedPayment}
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        //onClick={updatedPayment}
+        disabled={phoneNumber.length < 11}
       >
-        Update Settings
+        Verify Phone Number
       </button>
     </div>
   );
+ 
 
 
 
