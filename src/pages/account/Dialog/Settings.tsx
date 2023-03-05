@@ -477,17 +477,18 @@ function Settings({
 
       <div className="mt-[5rem]">
         <p className="text-[2.4rem]">Enter your phone number</p>
-        <p className="text-[1.4rem] text-[#4B5463]">
+        <p className="text-[1.4rem] text-[#4B5463] mt-2">
           This authentication protects your account by requiring an additional
           code when you log in on a device we don't recognize.
         </p>
       </div>
 
-      <div>
+      <div className='mt-[5rem]'>
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
           type="number"
           className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-200`}
+          placeholder='Enter phone number'
         />
       </div>
 
