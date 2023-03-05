@@ -688,11 +688,11 @@ function Settings({
            </div>
 
            <button
-             onClick={() => handleToggleNotification('customerRegistration')}
+             onClick={() => handleToggleNotification('newOrders')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
              {toggleNotification &&
-             toggleNotification['customerRegistration'] ? (
+             toggleNotification['newOrders'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
@@ -701,16 +701,16 @@ function Settings({
          </div>
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
            <div className="max-w-[35rem]">
-             <p>Customer registeration</p>
+             <p>Payments</p>
              <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
            </div>
 
            <button
-             onClick={() => handleToggleNotification('customerRegistration')}
+             onClick={() => handleToggleNotification('payments')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
              {toggleNotification &&
-             toggleNotification['customerRegistration'] ? (
+             toggleNotification['payments'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
