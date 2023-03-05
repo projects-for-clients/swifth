@@ -565,16 +565,16 @@ function Settings({
         
       </div>
 
-      <div className="absolute bottom-0 w-ful">
+      <div className="absolute bottom-0 w-full grid">
         <button
-          className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed l`}
+          className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white   self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
           //onClick={updatedPayment}
           disabled={phoneNumber.length < 11}
         >
           Verify Phone Number
         </button>
         <button
-          className={`text-[1.6rem] border-color-primary border px-10 py-6 justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed l`}
+          className={`text-[1.6rem] border-color-primary border px-10 py-6 justify-self-end  rounded-lg text-color-primary   self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
           //onClick={updatedPayment}
           disabled={isOtpLengthInValid}
         >
