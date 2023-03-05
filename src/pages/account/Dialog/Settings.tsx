@@ -66,29 +66,29 @@ function Settings({
     });
   };
 
-//   const phoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     const value = e.target.value;
-//     setPhoneNumber(value);
-//     if (value.length === 10) {
-//       setIsPhoneNumValid(true);
-//     } else {
-//       setIsPhoneNumValid(false);
-//     }
-//   }
+  //   const phoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //     const value = e.target.value;
+  //     setPhoneNumber(value);
+  //     if (value.length === 10) {
+  //       setIsPhoneNumValid(true);
+  //     } else {
+  //       setIsPhoneNumValid(false);
+  //     }
+  //   }
 
- const [otp, setOtp] = useState<string>('');
- 
- const [isOtpLengthInValid, setIsOtpLengthInValid] = useState(true);
- const [loading, setLoading] = useState(false);
- 
- const otpHandler = (input: string) => {
-   setOtp(input);
-   if (input.length < 4) {
-     setIsOtpLengthInValid(true);
-   } else {
-     setIsOtpLengthInValid(false);
-   }
- };
+  const [otp, setOtp] = useState<string>('');
+
+  const [isOtpLengthInValid, setIsOtpLengthInValid] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const otpHandler = (input: string) => {
+    setOtp(input);
+    if (input.length < 4) {
+      setIsOtpLengthInValid(true);
+    } else {
+      setIsOtpLengthInValid(false);
+    }
+  };
 
   const initial = (
     <>
@@ -513,13 +513,15 @@ function Settings({
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
           type="number"
-          value={phoneNumber}            
-          onChange={(e) => setPhoneNumber((prev) => {
-            if (e.target.value.length <= 11) {
+          value={phoneNumber}
+          onChange={(e) =>
+            setPhoneNumber((prev) => {
+              if (e.target.value.length <= 11) {
                 return e.target.value;
-            }
-            return prev;
-          })}
+              }
+              return prev;
+            })
+          }
           className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
           placeholder="Enter phone number"
         />
@@ -547,12 +549,12 @@ function Settings({
       <div className="mt-[5rem]">
         <p className="text-[2.4rem]">Enter verification code</p>
         <p className="text-[1.4rem] text-[#4B5463] mt-2">
-          Please enter the six (4) digit verification code sent to this number
-          <span className="font-semibold">{phoneNumber}</span> below
+          Please enter the six (4) digit verification code sent to this number 
+          <span className="font-semibold">{' '}{phoneNumber}</span> below
         </p>
       </div>
 
-      <div className="mt-[5rem]">
+      <div className="mt-[2rem]">
         <OtpInput
           value={otp}
           onChange={otpHandler}
@@ -562,10 +564,9 @@ function Settings({
           shouldAutoFocus
           isInputNum
         />
-        
       </div>
 
-      <div className="absolute bottom-0 w-full grid">
+      <div className="absolute bottom-0 w-full grid gap-8">
         <button
           className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white   self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
           //onClick={updatedPayment}
@@ -583,9 +584,6 @@ function Settings({
       </div>
     </div>
   );
- 
-
-
 
   const Paths = new Map<Steps, JSX.Element>([
     ['initial', initial],
