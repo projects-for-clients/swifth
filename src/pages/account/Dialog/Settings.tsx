@@ -545,10 +545,10 @@ function Settings({
       </div>
 
       <div className="mt-[5rem]">
-        <p className="text-[2.4rem]">Enter your phone number</p>
+        <p className="text-[2.4rem]">Enter verification code</p>
         <p className="text-[1.4rem] text-[#4B5463] mt-2">
           Please enter the six (4) digit verification code sent to this number
-          <span className='font-semibold'>{phoneNumber}</span> below to complete your password reset .
+          <span className="font-semibold">{phoneNumber}</span> below
         </p>
       </div>
 
@@ -562,22 +562,25 @@ function Settings({
           shouldAutoFocus
           isInputNum
         />
-        <button
-          className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 btn1"
-          type="submit"
-          disabled={isOtpLengthInValid}
-        >
-          {loading ? 'Loading...' : 'Continue'}
-        </button>
+        
       </div>
 
-      <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        //onClick={updatedPayment}
-        disabled={phoneNumber.length < 11}
-      >
-        Verify Phone Number
-      </button>
+      <div className="absolute bottom-0 w-ful">
+        <button
+          className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed l`}
+          //onClick={updatedPayment}
+          disabled={phoneNumber.length < 11}
+        >
+          Verify Phone Number
+        </button>
+        <button
+          className={`text-[1.6rem] border-color-primary border px-10 py-6 justify-self-end  rounded-lg text-color-primary  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed l`}
+          //onClick={updatedPayment}
+          disabled={isOtpLengthInValid}
+        >
+          {loading ? 'Loading...' : 'Get New Code'}
+        </button>
+      </div>
     </div>
   );
  
