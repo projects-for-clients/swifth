@@ -101,7 +101,7 @@ function Settings({
   const moveToVerifiedFA = () => {
     setEnable2FA(true);
 
-    setStep('changePassword');
+    setStep('passwordChanged');
   }
 
   const initial = (
@@ -496,12 +496,12 @@ function Settings({
         </div>
       </div>
 
-      <button
+      {/* <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        onClick={updatedPayment}
+        //onClick={updatedPayment}
       >
         Update Settings
-      </button>
+      </button> */}
     </div>
   );
 
