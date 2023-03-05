@@ -561,6 +561,8 @@ function Settings({
     </div>
   );
 
+  
+
   const Paths = new Map<Steps, JSX.Element>([
     ['initial', initial],
     ['addCar', addCar],
