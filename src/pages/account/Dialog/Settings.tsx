@@ -40,6 +40,7 @@ function Settings({
     | 'verifyFA';
 
   type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
+  type NotificationKeys = 'customerRegistration' | 'quoteRequests' | 'newOrders' | 'payments'
 
   const [toggle, setToggle] = useState<{
     [key: string]: boolean;
@@ -627,7 +628,7 @@ function Settings({
          <div>
            <p className="text-[2rem]"> Notification Settings</p>
            <p className="text-[1.4rem] text-gray-500 mt-2">
-             Manage customer & payment settings
+             Manage the kind of messages you get from Swifth{' '}
            </p>
          </div>
        </div>
