@@ -85,8 +85,15 @@ function Settings({
       className: 'bg-green-100 text-color-primary border-none',
     });
   }
+  const updateNotifications = () => {
 
-  const
+    toast('Notifications Updated', {
+      type: 'success',
+      className: 'bg-green-100 text-color-primary border-none',
+    });
+  }
+
+
 
   //   const phoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
   //     const value = e.target.value;
