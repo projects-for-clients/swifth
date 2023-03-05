@@ -499,7 +499,12 @@ function Settings({
         <input
           type="number"
           value={phoneNumber}            
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          onChange={(e) => setPhoneNumber((prev) => {
+            if (e.target.value.length <= 11) {
+                return e.target.value;
+            }
+            return prev;
+          })}
           className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
           placeholder="Enter phone number"
         />
@@ -508,7 +513,7 @@ function Settings({
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
         //onClick={updatedPayment}
-        disabled={phoneNumber.length < 10}
+        disabled={phoneNumber.length < 11}
       >
         Verify Phone Number
       </button>
