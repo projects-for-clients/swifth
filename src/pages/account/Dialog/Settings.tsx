@@ -647,17 +647,15 @@ function Settings({
        <div className="grid gap-8 mt-[5rem]">
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
            <div className="max-w-[35rem]">
-             <p>Start clearing without payment</p>
-             <p className="text-[1.4rem] text-gray-500">
-               Allow clearing to commence if no payment has been made by cutomer
-             </p>
+             <p>Customer registeration</p>
+             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
            </div>
 
            <button
-             onClick={() => handleToggle('withoutPayment')}
+             onClick={() => handleToggleNotification('customerRegistration')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggle && toggle['withoutPayment'] ? (
+             {toggle && toggle['customer'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
@@ -673,7 +671,7 @@ function Settings({
            </div>
 
            <button
-             onClick={() => handleToggle('moreThanOne')}
+             onClick={() => handleToggleNotification('moreThanOne')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
              {toggle && toggle['moreThanOne'] ? (
@@ -693,7 +691,7 @@ function Settings({
            </div>
 
            <button
-             onClick={() => handleToggle('restrictCus')}
+             onClick={() => handleToggleNotification('restrictCus')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
              {toggle && toggle['restrictCus'] ? (
@@ -704,42 +702,7 @@ function Settings({
            </button>
          </div>
 
-         <div
-           className={`mt-8 ${
-             toggle && toggle['restrictCus']
-               ? 'block'
-               : 'text-gray-400 cursor-not-allowed'
-           }`}
-         >
-           <p>
-             Set the percentage you want customers to have paid to avoid
-             restrictions
-           </p>
-           <div className="mt-8">
-             <label className="mb-2">Percentage</label>
-             <div
-               className={`relative p-6  w-full rounded-2xl flex items-center pr-12 ${
-                 toggle && toggle['restrictCus']
-                   ? 'bg-gray-200'
-                   : 'bg-gray-100 '
-               }`}
-             >
-               <input
-                 type="text"
-                 className=" outline-none w-full h-full bg-inherit"
-                 placeholder="80%"
-                 disabled={toggle && toggle['restrictCus'] ? false : true}
-               />
-
-               <div className="absolute right-8 flex items-center font-medium gap-8">
-                 <img src="/icons/line.svg" alt="" />
-                 <button className="outline-none border-none text-color-primary flex items-center gap-4">
-                   <img src="/icons/percentage.svg" alt="" />
-                 </button>
-               </div>
-             </div>
-           </div>
-         </div>
+        
        </div>
 
        <button
