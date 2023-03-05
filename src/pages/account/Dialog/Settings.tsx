@@ -617,7 +617,7 @@ function Settings({
   );
 
 
-   const payment = (
+   const notification = (
      <>
        <div className="flex items-baseline gap-16 self-start">
          <BiArrowBack
@@ -625,7 +625,7 @@ function Settings({
            onClick={() => setStep('initial')}
          />
          <div>
-           <p className="text-[2rem]"> Customer/Payment Settings</p>
+           <p className="text-[2rem]"> Notification Settings</p>
            <p className="text-[1.4rem] text-gray-500 mt-2">
              Manage customer & payment settings
            </p>
