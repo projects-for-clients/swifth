@@ -75,6 +75,24 @@ function Settings({
 //     }
 //   }
 
+ const [otp, setOtp] = useState<string>('');
+ const [message, setMessage] = useState<{
+   message: string;
+   type: string;
+ } | null>(null);
+ const [isOtpLengthInValid, setIsOtpLengthInValid] = useState(true);
+ const [loading, setLoading] = useState(false);
+ 
+ const otpHandler = (input: string) => {
+   setOtp(input);
+   setMessage(null);
+   if (input.length < 4) {
+     setIsOtpLengthInValid(true);
+   } else {
+     setIsOtpLengthInValid(false);
+   }
+ };
+
   const initial = (
     <>
       <p className="text-[2rem] mb-16">Settings</p>
