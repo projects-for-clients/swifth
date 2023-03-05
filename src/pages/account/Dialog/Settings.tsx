@@ -101,7 +101,7 @@ function Settings({
   const moveToVerifiedFA = () => {
     setEnable2FA(true);
 
-    setStep('passwordChanged');
+    setStep('changePassword');
   }
 
   const initial = (
