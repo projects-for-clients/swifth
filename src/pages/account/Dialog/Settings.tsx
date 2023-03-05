@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiArrowBack } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
+import OtpInput from 'react-otp-input';
 import { toast, ToastContainer } from 'react-toastify';
 
 function Settings({
@@ -76,16 +77,12 @@ function Settings({
 //   }
 
  const [otp, setOtp] = useState<string>('');
- const [message, setMessage] = useState<{
-   message: string;
-   type: string;
- } | null>(null);
+ 
  const [isOtpLengthInValid, setIsOtpLengthInValid] = useState(true);
  const [loading, setLoading] = useState(false);
  
  const otpHandler = (input: string) => {
    setOtp(input);
-   setMessage(null);
    if (input.length < 4) {
      setIsOtpLengthInValid(true);
    } else {
