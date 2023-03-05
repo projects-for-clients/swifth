@@ -1,6 +1,8 @@
 import React from 'react'
 
-function support() {
+function support({closeDialog}: {
+    closeDialog: () => void
+}) {
  
    return (
      <div className="relative h-[90vh]">
