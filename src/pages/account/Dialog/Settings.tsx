@@ -37,7 +37,7 @@ function Settings({
     | 'changePassword'
     | 'passwordChanged'
     | 'authFA'
-    | 'verifyFA';
+    | 'verifyFA' | 'notification' | 'support' | 'terms'
 
   type ToggleKeys = 'withoutPayment' | 'moreThanOne' | 'restrictCus';
   type NotificationKeys = 'customerRegistration' | 'quoteRequests' | 'newOrders' | 'payments'
