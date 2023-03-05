@@ -66,6 +66,14 @@ function Settings({
     });
   };
 
+  const updatePassword = () => {
+
+    toast('Password Updated', {
+      type: 'success',
+      className: 'bg-green-100 text-color-primary border-none',
+    });
+  }
+
   //   const phoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
   //     const value = e.target.value;
   //     setPhoneNumber(value);
@@ -443,7 +451,7 @@ function Settings({
 
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        onClick={updatedPayment}
+        onClick={updatePassword}
       >
         Update Settings
       </button>
