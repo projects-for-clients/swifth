@@ -472,13 +472,12 @@ function Settings({
           className="text-[1.8rem] cursor-pointer"
           onClick={() => setStep('changePassword')}
         />
-
         <p className="text-[2rem]"> 2-Factor Authentication</p>
       </div>
 
-      <div className="mt-[10rem]">
+      <div className="mt-[5rem]">
         <p className="text-[2.4rem]">Enter your phone number</p>
-        <p className="text-[1.4rem]">
+        <p className="text-[1.4rem] text-[#4B5463]">
           This authentication protects your account by requiring an additional
           code when you log in on a device we don't recognize.
         </p>
@@ -515,7 +514,7 @@ function Settings({
         </div>
       </div>
 
-      <div className="mt-[5rem] flex flex-col justify-between h-[40vh]">
+      <div className="mt-[10rem] flex flex-col justify-between h-[40vh]">
         <div className="flex flex-col items-center gap-4">
           <img src="/icons/goodMark.svg" alt="" className="w-[6rem] h-[6rem]" />
           <p>Password Changed</p>
