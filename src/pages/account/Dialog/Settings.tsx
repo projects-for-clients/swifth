@@ -549,8 +549,8 @@ function Settings({
       <div className="mt-[5rem]">
         <p className="text-[2.4rem]">Enter verification code</p>
         <p className="text-[1.4rem] text-[#4B5463] mt-2">
-          Please enter the six (4) digit verification code sent to this number 
-          <span className="font-semibold">{' '}{phoneNumber}</span> below
+          Please enter the six (4) digit verification code sent to this number
+          <span className="font-semibold"> {phoneNumber}</span> below
         </p>
       </div>
 
@@ -570,7 +570,7 @@ function Settings({
         <button
           className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white   self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
           //onClick={updatedPayment}
-          disabled={phoneNumber.length < 11}
+          disabled={isOtpLengthInValid}
         >
           Verify Phone Number
         </button>
