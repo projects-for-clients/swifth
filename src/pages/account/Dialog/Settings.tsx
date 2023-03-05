@@ -46,6 +46,10 @@ function Settings({
     [key: string]: boolean;
   } | null>(null);
 
+  const [toggleNotification, setToggleNotification] = useState<{
+    [key: string]: boolean;
+    } | null>(null);
+
   const [enable2FA, setEnable2FA] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
 
@@ -57,6 +61,13 @@ function Settings({
       [key]: !prev?.[key],
     }));
   };
+
+    const handleToggleNotification = (key: NotificationKeys) => {
+    setToggleNotification((prev) => ({
+        ...prev,
+        [key]: !prev?.[key],
+    }));
+    };
 
   const updatedPayment = () => {
     //closeDialog();
