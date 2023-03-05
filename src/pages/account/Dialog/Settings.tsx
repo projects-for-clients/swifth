@@ -444,7 +444,7 @@ function Settings({
           </p>
 
           <button
-            // onClick={() => setEnable2FA(!enable2FA)}
+            onClick={() => setStep('authFA')}
             className="w-[5rem] h-[2.5rem] absolute right-2"
           >
             {enable2FA ? (
