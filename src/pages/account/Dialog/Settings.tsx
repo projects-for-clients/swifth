@@ -553,7 +553,7 @@ function Settings({
       </div>
 
       <button
-        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
+        className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
         onClick={updatedPayment}
       >
         Update Settings
