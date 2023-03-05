@@ -90,6 +90,10 @@ function Settings({
     }
   };
 
+  const moveToVerifiedFA = () => {
+    setEnable2FA(true);
+  }
+
   const initial = (
     <>
       <p className="text-[2rem] mb-16">Settings</p>
@@ -569,7 +573,7 @@ function Settings({
       <div className="absolute bottom-0 w-full grid gap-8">
         <button
           className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white   self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
-          //onClick={updatedPayment}
+          onClick={moveToVerifiedFA}
           disabled={isOtpLengthInValid}
         >
           Verify Phone Number
@@ -577,7 +581,7 @@ function Settings({
         <button
           className={`text-[1.6rem] border-color-primary border px-10 py-6 justify-self-end  rounded-lg text-color-primary   self-center disabled:opacity-60 disabled:cursor-not-allowed w-full`}
           //onClick={updatedPayment}
-          disabled={isOtpLengthInValid}
+          //disabled={isOtpLengthInValid}
         >
           {loading ? 'Loading...' : 'Get New Code'}
         </button>
