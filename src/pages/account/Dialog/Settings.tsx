@@ -484,7 +484,7 @@ function Settings({
         </p>
       </div>
 
-      <div className="  flex items-center pr-12 ">
+      <div>
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
           type="number"
