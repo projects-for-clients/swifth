@@ -655,7 +655,7 @@ function Settings({
              onClick={() => handleToggleNotification('customerRegistration')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggle && toggle['customer'] ? (
+             {toggleNotification && toggleNotification['customerRegistration'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
@@ -664,17 +664,15 @@ function Settings({
          </div>
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
            <div className="max-w-[35rem]">
-             <p>Item per Order</p>
-             <p className="text-[1.4rem] text-gray-500">
-               Allow more than 1 item in an order{' '}
-             </p>
+             <p>Customer registeration</p>
+             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
            </div>
 
            <button
-             onClick={() => handleToggleNotification('moreThanOne')}
+             onClick={() => handleToggleNotification('customerRegistration')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggle && toggle['moreThanOne'] ? (
+             {toggleNotification && toggleNotification['customerRegistration'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
@@ -683,24 +681,39 @@ function Settings({
          </div>
          <div className="flex items-center gap-8 cursor-pointer justify-between relative">
            <div className="max-w-[35rem]">
-             <p>Restrict Defaulting Customers</p>
-             <p className="text-[1.4rem] text-gray-500">
-               When customers have not paid their outstanding bills to a certain
-               percentage, restrict them from seeing updates on clearing process{' '}
-             </p>
+             <p>Customer registeration</p>
+             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
            </div>
 
            <button
-             onClick={() => handleToggleNotification('restrictCus')}
+             onClick={() => handleToggleNotification('customerRegistration')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggle && toggle['restrictCus'] ? (
+             {toggleNotification && toggleNotification['customerRegistration'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
              )}
            </button>
          </div>
+         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+           <div className="max-w-[35rem]">
+             <p>Customer registeration</p>
+             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
+           </div>
+
+           <button
+             onClick={() => handleToggleNotification('customerRegistration')}
+             className="w-[5rem] h-[2.5rem] absolute right-2"
+           >
+             {toggleNotification && toggleNotification['customerRegistration'] ? (
+               <img src="/icons/switchOn.svg" alt="" />
+             ) : (
+               <img src="/icons/switchOff.svg" alt="" />
+             )}
+           </button>
+         </div>
+        
 
         
        </div>
