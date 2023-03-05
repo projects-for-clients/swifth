@@ -448,7 +448,7 @@ function Settings({
           Change Password
         </button>
 
-        <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+        <div className="flex items-center gap-8 cursor-pointer justify-between relative mt-5">
           <p className=" text-gray-600 max-w-[35rem] font-medium">
             Enable 2-Factor Authentification
           </p>
