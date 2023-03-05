@@ -45,6 +45,7 @@ function Settings({
   } | null>(null);
 
   const [enable2FA, setEnable2FA] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const [step, setStep] = useState<Steps>('initial');
 
@@ -63,6 +64,8 @@ function Settings({
       className: 'bg-green-100 text-color-primary border-none',
     });
   };
+
+  const 
 
   const initial = (
     <>
@@ -487,6 +490,8 @@ function Settings({
         <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
         <input
           type="number"
+          value={phoneNumber}
+        
           className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-200`}
           placeholder='Enter phone number'
         />
