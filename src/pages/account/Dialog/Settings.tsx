@@ -655,7 +655,44 @@ function Settings({
              onClick={() => handleToggleNotification('customerRegistration')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggleNotification && toggleNotification['customerRegistration'] ? (
+             {toggleNotification &&
+             toggleNotification['customerRegistration'] ? (
+               <img src="/icons/switchOn.svg" alt="" />
+             ) : (
+               <img src="/icons/switchOff.svg" alt="" />
+             )}
+           </button>
+         </div>
+         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+           <div className="max-w-[35rem]">
+             <p>Quote requests</p>
+             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
+           </div>
+
+           <button
+             onClick={() => handleToggleNotification('quoteRequests')}
+             className="w-[5rem] h-[2.5rem] absolute right-2"
+           >
+             {toggleNotification &&
+             toggleNotification['quoteRequests'] ? (
+               <img src="/icons/switchOn.svg" alt="" />
+             ) : (
+               <img src="/icons/switchOff.svg" alt="" />
+             )}
+           </button>
+         </div>
+         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
+           <div className="max-w-[35rem]">
+             <p>New Orders</p>
+             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
+           </div>
+
+           <button
+             onClick={() => handleToggleNotification('customerRegistration')}
+             className="w-[5rem] h-[2.5rem] absolute right-2"
+           >
+             {toggleNotification &&
+             toggleNotification['customerRegistration'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
@@ -672,50 +709,14 @@ function Settings({
              onClick={() => handleToggleNotification('customerRegistration')}
              className="w-[5rem] h-[2.5rem] absolute right-2"
            >
-             {toggleNotification && toggleNotification['customerRegistration'] ? (
+             {toggleNotification &&
+             toggleNotification['customerRegistration'] ? (
                <img src="/icons/switchOn.svg" alt="" />
              ) : (
                <img src="/icons/switchOff.svg" alt="" />
              )}
            </button>
          </div>
-         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-           <div className="max-w-[35rem]">
-             <p>Customer registeration</p>
-             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
-           </div>
-
-           <button
-             onClick={() => handleToggleNotification('customerRegistration')}
-             className="w-[5rem] h-[2.5rem] absolute right-2"
-           >
-             {toggleNotification && toggleNotification['customerRegistration'] ? (
-               <img src="/icons/switchOn.svg" alt="" />
-             ) : (
-               <img src="/icons/switchOff.svg" alt="" />
-             )}
-           </button>
-         </div>
-         <div className="flex items-center gap-8 cursor-pointer justify-between relative">
-           <div className="max-w-[35rem]">
-             <p>Customer registeration</p>
-             <p className="text-[1.4rem] text-gray-500">Notification enabled</p>
-           </div>
-
-           <button
-             onClick={() => handleToggleNotification('customerRegistration')}
-             className="w-[5rem] h-[2.5rem] absolute right-2"
-           >
-             {toggleNotification && toggleNotification['customerRegistration'] ? (
-               <img src="/icons/switchOn.svg" alt="" />
-             ) : (
-               <img src="/icons/switchOff.svg" alt="" />
-             )}
-           </button>
-         </div>
-        
-
-        
        </div>
 
        <button
