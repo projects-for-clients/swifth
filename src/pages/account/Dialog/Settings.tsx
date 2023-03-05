@@ -468,13 +468,16 @@ console.log({eyeIcon})
            className="text-[1.8rem] cursor-pointer"
            onClick={() => setStep('changePassword')}
          />
-       
-           <p className="text-[2rem]"> 2-Factor Authentication</p>
-          
+
+         <p className="text-[2rem]"> 2-Factor Authentication</p>
        </div>
 
        <div className="mt-[10rem]">
-         
+         <p className='text-[2.4rem]'>Enter your phone number</p>
+         <p className='text-[1.4rem]'>
+           This authentication protects your account by requiring an additional
+           code when you log iin on a device we don’t recognize.
+         </p>
        </div>
 
        <button
