@@ -547,8 +547,8 @@ function Settings({
       <div className="mt-[5rem]">
         <p className="text-[2.4rem]">Enter your phone number</p>
         <p className="text-[1.4rem] text-[#4B5463] mt-2">
-          This authentication protects your account by requiring an additional
-          code when you log in on a device we don't recognize.
+          Please enter the six (4) digit verification code sent to this number
+          <span className='font-semibold'>{phoneNumber}</span> below to complete your password reset .
         </p>
       </div>
 
