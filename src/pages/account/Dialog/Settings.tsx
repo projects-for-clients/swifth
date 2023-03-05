@@ -512,7 +512,7 @@ function Settings({
 
       <button
         className={`text-[1.6rem] bg-color-primary px-10 py-6 justify-self-end  rounded-lg text-color-white  font-semibold self-center disabled:opacity-60 disabled:cursor-not-allowed absolute bottom-0 w-full`}
-        //onClick={updatedPayment}
+        onClick={() => setStep('verifyFA')}
         disabled={phoneNumber.length < 11}
       >
         Verify Phone Number
@@ -538,19 +538,22 @@ function Settings({
       </div>
 
       <div className="mt-[5rem]">
-        <label className="text-[#0e2043cc] mt-10">Enter Phone number</label>
-        <input
-          type="number"
-          value={phoneNumber}            
-          onChange={(e) => setPhoneNumber((prev) => {
-            if (e.target.value.length <= 11) {
-                return e.target.value;
-            }
-            return prev;
-          })}
-          className={`p-6 w-full rounded-2xl outline-none border-none bg-gray-100`}
-          placeholder="Enter phone number"
+        <OtpInput
+          value={otp}
+          onChange={otpHandler}
+          numInputs={4}
+          inputStyle="pinlogin-field"
+          containerStyle="pinlogin"
+          shouldAutoFocus
+          isInputNum
         />
+        <button
+          className="bg-[#40AD6B] text-[1.6rem] py-6 disabled:opacity-50 btn1"
+          type="submit"
+          disabled={isOtpLengthInValid}
+        >
+          {loading ? 'Loading...' : 'Continue'}
+        </button>
       </div>
 
       <button
