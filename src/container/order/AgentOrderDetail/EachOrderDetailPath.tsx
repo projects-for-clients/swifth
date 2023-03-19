@@ -675,9 +675,9 @@ export const AgentOrderHistory = () => {
       ))}
 
       <div className="flex justify-end pt-10">
-        <button className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 ">
+        {/* <button className="border p-6 rounded-lg cursor-pointer text-white border-color-primary bg-color-primary disabled:opacity-50 disabled:cursor-not-allowed basis-1/2 ">
           Next
-        </button>
+        </button> */}
       </div>
     </div>
   );

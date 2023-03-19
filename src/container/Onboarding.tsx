@@ -24,7 +24,7 @@ const Onboarding = () => {
   const {onboardingInputs} = useAppSelector((state) => state.user);
 
 
-  const [step, setStep] = useState<Step>('businessInfo');
+  const [step, setStep] = useState<Step>('personalInfo');
 
   const [validationErrors, setValidationErrors] =
     useState<ValidationErrors | null>(null);
