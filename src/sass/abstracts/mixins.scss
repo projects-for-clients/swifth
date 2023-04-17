@@ -70,7 +70,7 @@
   }
 
   @if $breakpoint==landscape {
-    @media only screen and (orientation: landscape) and (max-height: 400px) {
+    @media only screen and (orientation: landscape) and (max-height: 25em) {
       @content;
     }
   }
