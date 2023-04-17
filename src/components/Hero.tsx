@@ -12,7 +12,7 @@ const Hero = () => {
         <img src="mobileHero.png" alt="" />
       </div>
       <div className="hero__container">
-        <div className='hero__container-box'>
+        <div className='hero__container-box shadow'>
           <h1 className="hero__header <sm:text-lg ">Manage Goods Clearing</h1>
           <p className="hero__text">
             Easily manage the process of clearing your goods with your clearing

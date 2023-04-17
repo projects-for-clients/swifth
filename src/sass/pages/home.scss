@@ -46,6 +46,8 @@
       display: grid;
       justify-items: center;
       width: max-content;
+      padding: 2rem;
+      border-radius: $border-radius;
       gap: 1rem;
       text-align: center;
       background-color: rgba(0, 0, 0, 0.5);
