@@ -13,7 +13,7 @@ const Hero = () => {
       </div>
       <div className="hero__container">
         <div className='hero__container-box'>
-          <h1 className="hero__header <sm:text-lg ">Manage Goods Clearing</h1>
+          <h1 className="hero__header ">Manage Goods Clearing</h1>
           <p className="hero__text">
             Easily manage the process of clearing your goods with your clearing
             agents
