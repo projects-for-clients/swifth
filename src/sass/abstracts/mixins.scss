@@ -69,7 +69,7 @@
     }
   }
 
-  @if $breakpoint == responsive {
+  @if $breakpoint==landscape {
     @media only screen and (orientation: landscape) {
       @content;
     }
