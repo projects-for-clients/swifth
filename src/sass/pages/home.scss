@@ -33,16 +33,22 @@
   }
 
   &__container {
+    transform: translateY($translate);
     display: grid;
+
+    height: 100%;
+    z-index: 5;
+    position: relative;
     justify-items: center;
     align-content: center;
-    height: 100%;
-    gap: 1rem;
-    position: relative;
-    z-index: 5;
-    text-align: center;
 
-    transform: translateY($translate);
+    &-box {
+      display: grid;
+      width: max-content;
+      gap: 1rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
   }
 
   &__header {
@@ -82,9 +88,10 @@
   // }
 
   @include respond(landscape) {
-    &__container-box{
+    &__container-box {
       transform: translateY(0);
-      background-color: rgba(0,0,0, .5);
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
     }
   }
 
