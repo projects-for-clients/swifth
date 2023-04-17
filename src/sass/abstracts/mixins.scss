@@ -68,5 +68,10 @@
       @content;
     }
   }
-}
 
+  @if $breakpoint == responsive {
+    @media only screen and (orientation: landscape) {
+      @content;
+    }
+  }
+}
