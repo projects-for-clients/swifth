@@ -8,17 +8,19 @@ const Hero = () => {
 
   return (
     <div className={`hero`}>
-        <div className="hero__mobileImg">
-          <img src="mobileHero.png" alt="" />
-        </div>
+      <div className="hero__mobileImg">
+        <img src="mobileHero.png" alt="" />
+      </div>
       <div className="hero__container">
-        <h1 className="hero__header <sm:text-lg ">Manage Goods Clearing</h1>
-        <p className="hero__text">
-          Easily manage the process of clearing your goods with your clearing
-          agents
-        </p>
-        <div className="btn hero__btn" onClick={openModal}>
-          <button>Get Started</button>
+        <div className='hero__container-box'>
+          <h1 className="hero__header <sm:text-lg ">Manage Goods Clearing</h1>
+          <p className="hero__text">
+            Easily manage the process of clearing your goods with your clearing
+            agents
+          </p>
+          <div className="btn hero__btn" onClick={openModal}>
+            <button>Get Started</button>
+          </div>
         </div>
       </div>
     </div>

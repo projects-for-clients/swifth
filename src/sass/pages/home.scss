@@ -82,9 +82,9 @@
   // }
 
   @include respond(landscape) {
-    &__container {
+    &__container-box{
       transform: translateY(0);
-      background-color: rgba(0,0,0,0, .5);
+      background-color: rgba(0,0,0, .5);
     }
   }
 
