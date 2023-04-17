@@ -5,6 +5,7 @@
   z-index: 1;
   justify-items: center;
   max-height: 100rem;
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -46,7 +47,6 @@
     &-box {
       display: grid;
       justify-items: center;
-      width: max-content;
       padding: 2rem;
       border-radius: $border-radius;
       gap: 1rem;
