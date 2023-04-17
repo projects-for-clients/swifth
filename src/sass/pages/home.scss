@@ -39,11 +39,12 @@
     height: 100%;
     z-index: 5;
     position: relative;
-    justify-items: center;
     align-content: center;
-
+    justify-items: center;
+    
     &-box {
       display: grid;
+      justify-items: center;
       width: max-content;
       gap: 1rem;
       text-align: center;
