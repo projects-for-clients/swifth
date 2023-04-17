@@ -42,11 +42,7 @@
     z-index: 5;
     text-align: center;
 
-    transform: translateY(-25%);
-
-    @include respond(landscape) {
-      background-color: red;
-    }
+    transform: translateY($translate);
   }
 
   &__header {
@@ -79,9 +75,16 @@
 
   //RESPONSIVENESS
 
-  @include respond(tab-land) {
+  // @include respond(tab-land) {
+  //   &__container {
+  //     transform: translateY(-20%);
+  //   }
+  // }
+
+  @include respond(landscape) {
     &__container {
-      transform: translateY(-20%);
+      transform: translateY(0);
+      background-color: rgba(0,0,0,0, .5);
     }
   }
 
