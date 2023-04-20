@@ -34,7 +34,7 @@ function Sidebar() {
   return (
     <div className="translate-x-[-100vw] sm:sidebar " ref={sidebarRef}>
       <div
-        className={`sidebar__container ${
+        className={` ${
           openSidebar ? 'items-start' : 'items-center'
         }`}
       >
