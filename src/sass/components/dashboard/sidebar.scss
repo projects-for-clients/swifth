@@ -5,13 +5,12 @@
   position: relative;
   display: grid;
   justify-items: center;
- background-color: $color-primary-dark;
+  background-color: $color-primary-dark;
+  transform: translateX(0);
 
-
-//  @include respond(tab){
-//     transform: translateX(-100vw);
-//   }
-
+  //  @include respond(tab){
+  //     transform: translateX(-100vw);
+  //   }
 
   &__container {
     position: absolute;
@@ -94,8 +93,8 @@
         &:hover {
           transition: all 0.2s;
           padding: 1rem 2rem;
-         // background-color: $color-green-light;
-         background-color: $color-primary;
+          // background-color: $color-green-light;
+          background-color: $color-primary;
           color: black;
           transform: translateX(1rem) scale(1.01);
 

@@ -31,7 +31,7 @@ function Sidebar() {
   }, [menuCheckboxRef.current?.checked])
 
   return (
-    <div className="bg-red- sidebar" ref={sidebarRef}>
+    <div className="translate-x-[-100vw] sidebar" ref={sidebarRef}>
       <div
         className={`sidebar__container ${
           openSidebar ? 'items-start' : 'items-center'
