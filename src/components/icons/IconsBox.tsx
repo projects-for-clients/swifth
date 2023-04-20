@@ -12,8 +12,16 @@ import DeliverySvg from './sidebar/deliverySvg';
 import PayoutBankSvg from './sidebar/payoutBankSvg';
 
 function IconsBox() {
-  const location = useLocation();
-
+  interface Link {
+    name: string;
+    to: string;
+    icon: string
+  }
+  const LINKS = [{
+    name: 'home',
+    to: '/dashboard',
+    icon: 'HomeSvg'
+  }] satisfies Link[];
 
   return (
     <ul className="iconsBox">
