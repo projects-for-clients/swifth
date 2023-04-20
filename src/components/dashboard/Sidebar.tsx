@@ -44,7 +44,7 @@ function Sidebar() {
         <section className="flex w-full gap-16 justify-between items-center relative">
           <div className="flex gap-2">
             <img src="/logo-white.svg" alt="" width={28} height={28} />
-            <h3>Swifth</h3>
+            <h3 className='text-white font-medium'>Swifth</h3>
           </div>
           <span onChange={handleToggleMenu}>
             <input
