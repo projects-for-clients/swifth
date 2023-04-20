@@ -15,8 +15,8 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
     openDialog && openDialog();
   };
   return (
-    <div className="header">
-      <div className="header__left">
+    <div className="flex justify-between mb-[3rem]">
+      <div className="grid gap-0">
         <span className='bg-color-primary-dark'>
           <BiMenu className='text-white' />
         </span>
@@ -27,9 +27,9 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
           </p>
         </div>
       </div>
-      <div className="header__right">
-        <span onClick={handleToggle} className="cursor-pointer">
-          <NotificationSvg />
+      <div className="flex items-center gap-4">
+        <span onClick={handleToggle} className="cursor-pointer ">
+          <NotificationSvg width={25} height={25}/>
         </span>
         <AccountSvg fill="black" />
       </div>
