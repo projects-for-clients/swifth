@@ -31,7 +31,10 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
         <span onClick={handleToggle} className="cursor-pointer ">
           <NotificationSvg width={25} height={25} />
         </span>
+        <span className='hidden sm:flex'>
+
         <AccountSvg fill="black" />
+        </span>
       </div>
     </div>
   );
