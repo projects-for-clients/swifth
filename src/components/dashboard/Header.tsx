@@ -17,9 +17,9 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   return (
     <div className="header">
       <div className="header__left">
-        <label htmlFor="menu__checkbox">
-          <BiMenu />
-        </label>
+        <span className='bg-color-primary-dark'>
+          <BiMenu className='text-white' />
+        </span>
         <div>
           <p className="font-medium text-[2.4rem]">{title}</p>
           <p className={`${onboarding ? 'text-[1.4rem]' : 'font-medium'}`}>
