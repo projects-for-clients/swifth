@@ -4,7 +4,7 @@
 
 @layer components {
   .sidebar {
-    @apply h-full transition-all duration-[3s] w-[30rem] relative grid justify-items-center bg-color-primary-dark translate-x-0;
+    @apply h-full transition-all duration-75 delay-100 w-[30rem] relative grid justify-items-center bg-color-primary-dark translate-x-0;
   }
 
   .sidebar__container {
