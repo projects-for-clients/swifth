@@ -2,8 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-  .sidebars {
-    @apply bg-red-600;
-  }
-}
+
