@@ -78,11 +78,10 @@ function IconsBox() {
             <NavLink
               to={to}
               className={(props) =>
-                idx === 0 &&
-                props.isActive &&
-                location.pathname === '/dashboard'
-                  ? 'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black'
-                  : props.isActive && idx > 0
+                (idx === 0 &&
+                  props.isActive &&
+                  location.pathname === '/dashboard') ||
+                (props.isActive && idx > 0)
                   ? 'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black'
                   : ''
               }
