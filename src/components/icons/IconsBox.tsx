@@ -15,18 +15,18 @@ function IconsBox() {
   interface Link {
     name: string;
     to: string;
-    icon: string
+    Icon: string
   }
   const LINKS = [{
     name: 'home',
     to: '/dashboard',
-    icon: 'HomeSvg'
+    Icon: 'HomeSvg'
   }] satisfies Link[];
 
   return (
     <ul className="iconsBox">
       {
-        LINKS.map(({to, icon, name}, idx) => {
+        LINKS.map(({to, Icon, name}, idx) => {
 
           return (
             <li>
@@ -38,7 +38,7 @@ function IconsBox() {
                     : ''
                 }
               >
-                <HomeSvg fill="white" />
+                <Icon fill='white'/>
                 <span>{name}</span>
               </NavLink>
             </li>
