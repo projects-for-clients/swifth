@@ -6,7 +6,8 @@ import LogoutSvg from '../icons/sidebar/logoutSvg';
 
 function Sidebar() {
   const sidebarRef = useRef(null);
-  const menuCheckboxRef: MutableRefObject<HTMLInputElement | null> = useRef(null)
+  const menuCheckboxRef: MutableRefObject<HTMLInputElement | null> =
+    useRef(null);
 
   const [openSidebar, setOpenSidebar] = useState(true);
 
@@ -22,19 +23,21 @@ function Sidebar() {
     setOpenSidebar((state) => !state);
   };
 
-  const selectDashboard = document.querySelector('.dashboard__home')
+  const selectDashboard = document.querySelector('.dashboard__home');
 
   useEffect(() => {
-
-    if(menuCheckboxRef.current?.checked){
-      selectDashboard?.classList.toggle('dashboard__home--mobile')
+    if (menuCheckboxRef.current?.checked) {
+      selectDashboard?.classList.toggle('dashboard__home--mobile');
     }
-  }, [menuCheckboxRef.current?.checked])
+  }, [menuCheckboxRef.current?.checked]);
 
   return (
-    <div className="translate-x-[-100vw] opacity-0 sm:sidebar " ref={sidebarRef}>
+    <div
+      className="translate-x-[-100vw] opacity-0 sm:sidebar "
+      ref={sidebarRef}
+    >
       <div
-        className={`sidebar__container ${
+        className={`absolute p-16 w-full h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
           openSidebar ? 'items-start' : 'items-center'
         }`}
       >
@@ -44,7 +47,12 @@ function Sidebar() {
             <h3>Swifth</h3>
           </div>
           <span onChange={handleToggleMenu}>
-            <input type="checkbox" id="menu__checkbox" ref={menuCheckboxRef} className='hidden' />
+            <input
+              type="checkbox"
+              id="menu__checkbox"
+              ref={menuCheckboxRef}
+              className="hidden"
+            />
 
             <label htmlFor="menu__checkbox">
               <BiMenu />
