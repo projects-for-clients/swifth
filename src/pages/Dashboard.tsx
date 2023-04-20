@@ -3,7 +3,7 @@ import Sidebar from '../components/dashboard/Sidebar';
 
 function Dashboard() {
   return (
-    <div className="dashboard">
+    <div className=" grid grid-cols-none grid-cols-[max-content auto]">
       <Sidebar />
       <div className="dashboard__container">
         <Outlet />

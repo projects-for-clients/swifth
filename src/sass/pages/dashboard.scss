@@ -3,9 +3,9 @@
   grid-template-columns: max-content auto;
   height: 100vh;
 
-  @include respond(tab){
-    grid-template-columns: auto;
-  }
+  // @include respond(tab){
+  //   grid-template-columns: auto;
+  // }
 
   &__container {
     padding: 2rem 4rem;
@@ -41,14 +41,5 @@
 
   //RESPONSIVENESS
 
-  @include respond(tab-land){
-    
-    &__home--mobile{
-      //background-color: red;
-    }
-
-    &__home{
-      grid-template-columns: auto;
-    }
-  }
+ 
 }
