@@ -25,6 +25,26 @@ function IconsBox() {
 
   return (
     <ul className="iconsBox">
+      {
+        LINKS.map(({to, icon, name}, idx) => {
+
+          return (
+            <li>
+              <NavLink
+                to={to}
+                className={(props) =>
+                  props.isActive && location.pathname === '/dashboard'
+                    ? 'active'
+                    : ''
+                }
+              >
+                <HomeSvg fill="white" />
+                <span>{name}</span>
+              </NavLink>
+            </li>
+          );
+        })
+      }
       <li>
         <NavLink
           to="/dashboard"
