@@ -24,29 +24,49 @@ function IconsBox() {
       Icon: HomeSvg,
     },
     {
-      name: 'home',
-      to: '/dashboard',
-      Icon: HomeSvg,
+      name: 'orders',
+      to: '/dashboard/orders',
+      Icon: OrderSvg,
     },
     {
-      name: 'home',
-      to: '/dashboard',
-      Icon: HomeSvg,
+      name: 'payments',
+      to: '/dashboard/payments',
+      Icon: PaymentSvg,
     },
     {
-      name: 'home',
-      to: '/dashboard',
-      Icon: HomeSvg,
+      name: 'finance',
+      to: '/dashboard/finance',
+      Icon: FinanceSvg,
     },
     {
-      name: 'home',
-      to: '/dashboard',
-      Icon: HomeSvg,
+      name: 'payout bank',
+      to: '/dashboard/payoutBank',
+      Icon: PayoutBankSvg,
     },
     {
-      name: 'home',
-      to: '/dashboard',
-      Icon: HomeSvg,
+      name: 'delivery',
+      to: '/dashboard/delivery',
+      Icon: DeliverySvg,
+    },
+    {
+      name: 'teams',
+      to: '/dashboard/team',
+      Icon: TeamSvg,
+    },
+    {
+      name: 'analytics',
+      to: '/dashboard/analytics',
+      Icon: AnalyticSvg,
+    },
+    {
+      name: 'reports',
+      to: '/dashboard/reports',
+      Icon: ReportSvg,
+    },
+    {
+      name: 'account',
+      to: '/dashboard/account',
+      Icon: AccountSvg,
     },
   ] satisfies Link[];
 
@@ -68,98 +88,11 @@ function IconsBox() {
               }
             >
               <Icon fill={'white'} />
-              <span>{name}</span>
+              <span className="capitalize">{name}</span>
             </NavLink>
           </li>
         );
       })}
-     
-      <li className="">
-        <NavLink
-          to="/dashboard/orders"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          {' '}
-          <OrderSvg fill="white" />
-          <span>Orders</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/payments"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          <PaymentSvg fill="white" />
-          <span>Payments</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/finance"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          {' '}
-          <FinanceSvg fill="white" />
-          <span>Finance</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/payoutBank"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          <PayoutBankSvg fill="white" />
-          <span>Payout Bank</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/delivery"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          {' '}
-          <DeliverySvg fill="white" />
-          <span>Delivery</span>{' '}
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/team"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          {' '}
-          <TeamSvg fill="white" />
-          <span>Teams</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/analytics"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          <AnalyticSvg fill="white" />
-          <span>Analytics</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/reports"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          {' '}
-          <ReportSvg fill="white" />
-          <span>Reports</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/dashboard/account"
-          className={(props) => (props.isActive ? 'active' : '')}
-        >
-          <AccountSvg fill="white" />
-          <span>Account</span>
-        </NavLink>
-      </li>
     </ul>
   );
 }
