@@ -41,10 +41,10 @@ function Sidebar() {
           openSidebar ? 'items-start' : 'items-center'
         }`}
       >
-        <section className="flex w-full gap-16 justify-between items-center relative">
-          <div className="flex gap-2">
+        <section className="flex w-full gap-16 justify-between items-center relative section-1">
+          <div className="flex gap-2 section-1__box">
             <img src="/logo-white.svg" alt="" width={28} height={28} />
-            <h3 className='text-white font-medium'>Swifth</h3>
+            <h3 className="text-white font-medium">Swifth</h3>
           </div>
           <span onChange={handleToggleMenu}>
             <input
@@ -54,16 +54,22 @@ function Sidebar() {
               className="hidden"
             />
 
-            <label htmlFor="menu__checkbox" className='w-[2.8rem] h-[2.8rem] text-white cursor-pointer'>
+            <label
+              htmlFor="menu__checkbox"
+              className="w-[2.8rem] h-[2.8rem] text-white cursor-pointer"
+            >
               <BiMenu />
             </label>
           </span>
         </section>
-        <section >
+        <section className='section-2'>
           <IconsBox />
         </section>
         <section className="section-3">
-          <button onClick={handleLogout}>
+          <button
+            onClick={handleLogout}
+            className="flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s] hover:px-8 hover:bg-color-primary hover:text-black hover:translate-x-4 hover:scale-[1.01] [&>svg]:hover:fill-black [&>svg]:hover:transition-all [&>svg]:hover:duration-[.1s]"
+          >
             <LogoutSvg fill="white" />
             <span>Logout</span>
           </button>

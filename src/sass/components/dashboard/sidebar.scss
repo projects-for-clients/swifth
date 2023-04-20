@@ -136,44 +136,44 @@
 //   }
 // }
 
-// .sidebarToggle {
-//   width: 8rem;
+.sidebarToggle {
+  width: 8rem;
 
-//   .section-1 {
-//     justify-content: center;
-//     &__box {
-//       display: none;
-//     }
-//   }
+  .section-1 {
+    justify-content: center;
+    &__box {
+      display: none;
+    }
+  }
 
-//   .section-2 {
-//     .iconsBox {
-//       a {
-//         padding: 1rem 2rem;
+  .section-2 {
+    .iconsBox {
+      a {
+        padding: 1rem 2rem;
 
-//         span {
-//           display: none;
-//         }
+        span {
+          display: none;
+        }
 
-//         &:hover {
-//           transition: all 0.5s;
-//           transform: none;
+        &:hover {
+          transition: all 0.5s;
+          transform: none;
 
-//           svg {
-//             transform: scale(0.8);
-//             width: 100%;
-//             height: 100%;
-//           }
-//         }
-//       }
-//     }
-//   }
+          svg {
+            transform: scale(0.8);
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
 
-//   .section-3 {
-//     button {
-//       span {
-//         display: none;
-//       }
-//     }
-//   }
-// }
+  .section-3 {
+    button {
+      span {
+        display: none;
+      }
+    }
+  }
+}
