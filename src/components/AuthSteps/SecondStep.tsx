@@ -123,7 +123,7 @@ export const SecondSignUpStep = () => {
   };
 
   return (
-    <div className="grid gap-10 mt-16 justify-center pb-5">
+    <div className="grid gap-10 mt-16 justify-center pb-5 px-4">
       <h1 className="heading1 text-center">Join Swifth</h1>
       <p>Enter your required details to get started</p>
       <form
@@ -324,7 +324,7 @@ export const SecondLoginStep = () => {
   };
 
   return (
-    <div className="grid gap-10 mt-16 justify-center pb-5">
+    <div className="grid gap-10 mt-16 justify-center pb-5 px-4">
       <h1 className="heading1 text-center">Welcome Back!</h1>
       <p>Enter your email and password to log in</p>
       <form

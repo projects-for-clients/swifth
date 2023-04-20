@@ -20,6 +20,10 @@
     position: relative;
     min-height: 40rem;
     padding-bottom: 2rem;
+
+    @include respond(tab){
+      width: 60rem;
+    }
   }
   &__message {
     border-radius: $border-radius;
