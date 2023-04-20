@@ -59,7 +59,7 @@ function Sidebar() {
             </label>
           </span>
         </section>
-        <section className="section-2">
+        <section >
           <IconsBox />
         </section>
         <section className="section-3">
