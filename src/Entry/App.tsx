@@ -51,7 +51,7 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <div className='text-[1.6rem] max-w-[192rem] mx-auto outline shadow'>
+    <div className='text-[1.6rem] max-w-[144rem] mx-auto shadow'>
       <RouterProvider router={router} />
     </div>
   );
