@@ -78,7 +78,7 @@ function IconsBox() {
             <NavLink
               to={to}
               className={(props) =>
-                props.isActive
+                props.isActive 
                   ? 'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black'
                   : ''
               }
