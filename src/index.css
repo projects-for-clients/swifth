@@ -5,9 +5,9 @@
 @layer components {
   .sidebar {
     @apply h-full transition-all duration-[3s] w-[30rem] relative grid justify-items-center bg-color-primary-dark;
+  }
 
-    .sidebar__container{
-        @apply bg-red-600
-    }
+  .sidebar__container {
+    @apply absolute p-16 w-full h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark;
   }
 }
