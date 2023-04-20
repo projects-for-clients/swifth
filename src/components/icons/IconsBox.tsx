@@ -73,7 +73,7 @@ function IconsBox() {
   return (
     <ul className="grid gap-4 w-full">
       {LINKS.map(({ to, Icon, name }, idx) => {
-        const classes = `flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s] hover:px-8 hover:bg-color-primary hover:text-black hover:translate-x-4 hover:scale-[1.01] [&>svg]:hover:fill-black`;
+        const classes = `flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s] hover:px-8 hover:bg-color-primary hover:text-black hover:translate-x-4 hover:scale-[1.01] [&>svg]:hover:fill-black [&>svg]:hover:transition-color [&>svg]:hover:duration-[.2s] `;
 
         return (
           <li key={idx}>
@@ -85,7 +85,7 @@ function IconsBox() {
                   location.pathname === '/dashboard') ||
                 (props.isActive && idx > 0)
                   ? classes +
-                    'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black [&>svg]:fill-black '
+                    'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black [&>svg]:fill-black'
                   : classes
               }
             >
