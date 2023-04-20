@@ -23,6 +23,31 @@ function IconsBox() {
       to: '/dashboard',
       Icon: HomeSvg,
     },
+    {
+      name: 'home',
+      to: '/dashboard',
+      Icon: HomeSvg,
+    },
+    {
+      name: 'home',
+      to: '/dashboard',
+      Icon: HomeSvg,
+    },
+    {
+      name: 'home',
+      to: '/dashboard',
+      Icon: HomeSvg,
+    },
+    {
+      name: 'home',
+      to: '/dashboard',
+      Icon: HomeSvg,
+    },
+    {
+      name: 'home',
+      to: '/dashboard',
+      Icon: HomeSvg,
+    },
   ] satisfies Link[];
 
   return (
@@ -48,18 +73,8 @@ function IconsBox() {
           </li>
         );
       })}
-      <li>
-        <NavLink
-          to="/dashboard"
-          className={(props) =>
-            props.isActive && location.pathname === '/dashboard' ? 'active' : ''
-          }
-        >
-          <HomeSvg fill="white" />
-          <span>Home</span>
-        </NavLink>
-      </li>
-      <li className="iconsBox">
+     
+      <li className="">
         <NavLink
           to="/dashboard/orders"
           className={(props) => (props.isActive ? 'active' : '')}
