@@ -4,6 +4,6 @@
 
 @layer components {
   .sidebar {
-    @apply h-full transition-all duration-[3s];
+    @apply h-full transition-all duration-[3s] w-[30rem] relative;
   }
 }
