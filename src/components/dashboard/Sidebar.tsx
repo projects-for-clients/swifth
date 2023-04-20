@@ -41,7 +41,7 @@ function Sidebar() {
           openSidebar ? 'items-start' : 'items-center'
         }`}
       >
-        <section className="section-1">
+        <section className="flex w-full gap-16 justify-between items-center relative">
           <div className="section-1__box">
             <img src="/logo-white.svg" alt="" width={28} height={28} />
             <h3>Swifth</h3>
@@ -54,7 +54,7 @@ function Sidebar() {
               className="hidden"
             />
 
-            <label htmlFor="menu__checkbox">
+            <label htmlFor="menu__checkbox" className='w-[2.8rem] h-[2.8rem] text-white'>
               <BiMenu />
             </label>
           </span>
