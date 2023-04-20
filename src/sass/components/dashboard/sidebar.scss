@@ -8,6 +8,10 @@
   background-color: $color-primary-dark;
 
 
+ @include respond(tab){
+    transform: translateX(-100vw);
+  }
+
 
   &__container {
     position: absolute;
@@ -37,8 +41,8 @@
       }
 
       svg {
-        width: 28px;
-        height: 28px;
+        width: 2.8rem;
+        height: 2.8rem;
         color: white;
       }
     }
