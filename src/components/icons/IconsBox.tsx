@@ -14,9 +14,7 @@ import PayoutBankSvg from './sidebar/payoutBankSvg';
 function IconsBox() {
   const location = useLocation();
 
-  const { pathname } = location;
 
-  console.log(pathname);
   return (
     <ul className="iconsBox">
       <li>
