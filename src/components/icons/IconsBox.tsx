@@ -71,7 +71,7 @@ function IconsBox() {
   ] satisfies Link[];
 
   return (
-    <ul className="grid gap-4 w-[40%] iconsBox">
+    <ul className="grid gap-4 w-full iconsBox">
       {LINKS.map(({ to, Icon, name }, idx) => {
         const classes = `flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s] hover:px-8 hover:bg-color-primary hover:text-black hover:translate-x-4 hover:scale-[1.01] [&>svg]:hover:fill-black [&>svg]:hover:transition-all [&>svg]:hover:duration-[.1s]`;
 
