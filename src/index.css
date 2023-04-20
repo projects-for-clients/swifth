@@ -4,6 +4,6 @@
 
 @layer components {
   .sidebar {
-    @apply h-full transition-all duration-[3s] w-[30rem] relative;
+    @apply h-full transition-all duration-[3s] w-[30rem] relative grid justify-items-center bg-color-primary-dark;
   }
 }
