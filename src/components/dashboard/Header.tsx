@@ -16,11 +16,11 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   };
   return (
     <div className="flex justify-between mb-[3rem]">
-      <div className="grid gap-0">
+      <div className="flex">
         <span className='bg-color-primary-dark flex sm:hidden'>
           <BiMenu className='text-white' />
         </span>
-        <div>
+        <div className='grid'>
           <p className="font-medium text-[2.4rem]">{title}</p>
           <p className={`${onboarding ? 'text-[1.4rem]' : 'font-medium'}`}>
             {subTitle}
