@@ -45,7 +45,7 @@ function Sidebar() {
           <span onChange={handleToggleMenu}>
             <input type="checkbox" id="menu__checkbox" ref={menuCheckboxRef} className='hidden' />
 
-            <label htmlFor="">
+            <label htmlFor="menu__checkbox">
               <BiMenu />
             </label>
           </span>
