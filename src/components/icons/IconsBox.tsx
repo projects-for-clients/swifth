@@ -74,7 +74,7 @@ function IconsBox() {
     <ul className="grid gap-4 w-full">
       {LINKS.map(({ to, Icon, name }, idx) => {
         const classes =
-          'flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s]';
+          'flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s] hover:bg-red-600';
 
         return (
           <li key={idx}>
