@@ -77,7 +77,7 @@ function IconsBox() {
           <li key={idx}>
             <NavLink
               to={to}
-              className={(props) =>
+              className={(props) => idx === 0 && location.pathname === '/dashboard' ||
                 props.isActive 
                   ? 'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black'
                   : ''
