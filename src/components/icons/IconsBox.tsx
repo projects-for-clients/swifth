@@ -38,7 +38,7 @@ function IconsBox() {
                     : ''
                 }
               >
-                <Icon fill='white'/>
+                {<Icon/>}
                 <span>{name}</span>
               </NavLink>
             </li>
