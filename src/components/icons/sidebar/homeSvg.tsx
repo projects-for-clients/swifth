@@ -1,5 +1,5 @@
 
-function homeSvg({fill}: {fill?: string}) {
+function homeSvg({fill}: {fill: string}) {
   return (
     <svg
       width="24"

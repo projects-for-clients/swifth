@@ -15,36 +15,39 @@ function IconsBox() {
   interface Link {
     name: string;
     to: string;
-    Icon: JSX.Element
+    Icon: ({ fill }: { fill: string }) => JSX.Element;
   }
-  const LINKS = [{
-    name: 'home',
-    to: '/dashboard',
-    Icon: <HomeSvg/>
-  }] satisfies Link[];
+  const LINKS = [
+    {
+      name: 'home',
+      to: '/dashboard',
+      Icon: HomeSvg,
+    },
+  ] satisfies Link[];
 
   return (
     <ul className="iconsBox">
-      {
-        LINKS.map(({to, Icon, name}, idx) => {
-
-          return (
-            <li>
-              <NavLink
-                to={to}
-                className={(props) =>
-                  props.isActive && location.pathname === '/dashboard'
-                    ? 'active'
-                    : ''
-                }
-              >
-                {Icon}
-                <span>{name}</span>
-              </NavLink>
-            </li>
-          );
-        })
-      }
+      {LINKS.map(({ to, Icon, name }, idx) => {
+        return (
+          <li key={idx}>
+            <NavLink
+              to={to}
+              className={(props) =>
+                idx === 0 &&
+                props.isActive &&
+                location.pathname === '/dashboard'
+                  ? 'active'
+                  : props.isActive
+                  ? 'active'
+                  : ''
+              }
+            >
+              <Icon fill={'white'} />
+              <span>{name}</span>
+            </NavLink>
+          </li>
+        );
+      })}
       <li>
         <NavLink
           to="/dashboard"
