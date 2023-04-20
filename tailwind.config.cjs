@@ -44,6 +44,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         '60-auto': '60% auto',
+        'max-auto': 'max-content auto'
       },
     },
     plugins: [],
