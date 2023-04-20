@@ -15,9 +15,9 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
     openDialog && openDialog();
   };
   return (
-    <div className="flex justify-between mb-[3rem]">
-      <div className="flex items-center gap-4">
-        <span className="bg-color-primary-dark flex p-2 rounded-full fixed left-0 m-4  sm:hidden">
+    <div className="flex justify-between mb-[3rem] ">
+      <div className="flex items-center gap-4 relative">
+        <span className="bg-color-primary-dark flex p-2 rounded-full absolute left-0 m-4  sm:hidden">
           <BiMenu className="text-white w-[2rem] h-[2rem]" />
         </span>
         <div className="grid ml-[5rem]">
@@ -31,9 +31,8 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
         <span onClick={handleToggle} className="cursor-pointer ">
           <NotificationSvg width={25} height={25} />
         </span>
-        <span className='hidden sm:flex'>
-
-        <AccountSvg fill="black" />
+        <span className="hidden sm:flex">
+          <AccountSvg fill="black" />
         </span>
       </div>
     </div>
