@@ -17,7 +17,7 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   return (
     <div className="flex justify-between mb-[3rem]">
       <div className="flex items-center gap-4">
-        <span className="bg-color-primary-dark flex p-2 rounded-full sm:hidden">
+        <span className="bg-color-primary-dark flex p-2 rounded-full absolute left-0 sm:hidden">
           <BiMenu className="text-white w-[2rem] h-[2rem]" />
         </span>
         <div className="grid">
