@@ -56,13 +56,13 @@ function Sidebar() {
 
             <label
               htmlFor="menu__checkbox"
-              className="w-[2.8rem] h-[2.8rem] text-white cursor-pointer"
+              className=" text-white cursor-pointer"
             >
-              <BiMenu />
+              <BiMenu className="w-[2.8rem] h-[2.8rem]" />
             </label>
           </span>
         </section>
-        <section className='section-2'>
+        <section className="section-2">
           <IconsBox />
         </section>
         <section className="section-3">
