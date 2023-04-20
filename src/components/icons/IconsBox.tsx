@@ -73,9 +73,9 @@ function IconsBox() {
   return (
     <ul className="grid gap-4 w-full">
       {LINKS.map(({ to, Icon, name }, idx) => {
-        const classes = [
-          'flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s]',
-        ];
+        const classes =
+          'flex gap-4 rounded-[8px] items-center py-4 w-max transition-all duration-[.2s]';
+
         return (
           <li key={idx}>
             <NavLink
@@ -85,11 +85,9 @@ function IconsBox() {
                   props.isActive &&
                   location.pathname === '/dashboard') ||
                 (props.isActive && idx > 0)
-                  ? [
-                      ...classes,
-                      'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black',
-                    ]
-                  : [...classes]
+                  ? classes +
+                    'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black [&>svg]:fill-black'
+                  : classes
               }
             >
               <Icon fill={'white'} />

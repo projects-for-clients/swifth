@@ -24,7 +24,7 @@ module.exports = {
         'color-grey': '#D2D4D8',
         'color-grey-1': '#d2d4d84d',
         'color-grey-2': '#D9EFE1',
-        
+
         'color-grey-3': '#4B5463',
         'color-grey-4': '#787F8A',
 
@@ -44,9 +44,9 @@ module.exports = {
       },
       gridTemplateColumns: {
         '60-auto': '60% auto',
-        'max-auto': 'max-content auto'
+        'max-auto': 'max-content auto',
       },
     },
-    plugins: [],
+    plugins: [process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}],
   },
 };
