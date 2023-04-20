@@ -17,10 +17,10 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   return (
     <div className="flex justify-between mb-[3rem]">
       <div className="flex">
-        <span className='bg-color-primary-dark flex sm:hidden'>
-          <BiMenu className='text-white' />
+        <span className="bg-color-primary-dark flex sm:hidden">
+          <BiMenu className="text-white w-[2.8rem] h-[2.8rem]" />
         </span>
-        <div className='grid'>
+        <div className="grid">
           <p className="font-medium text-[2.4rem]">{title}</p>
           <p className={`${onboarding ? 'text-[1.4rem]' : 'font-medium'}`}>
             {subTitle}
@@ -29,7 +29,7 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
       </div>
       <div className="flex items-center gap-4">
         <span onClick={handleToggle} className="cursor-pointer ">
-          <NotificationSvg width={25} height={25}/>
+          <NotificationSvg width={25} height={25} />
         </span>
         <AccountSvg fill="black" />
       </div>
