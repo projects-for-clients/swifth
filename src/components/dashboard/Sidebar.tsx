@@ -23,6 +23,7 @@ function Sidebar() {
   };
 
   const selectDashboard = document.querySelector('.dashboard__home')
+
   useEffect(() => {
 
     if(menuCheckboxRef.current?.checked){
@@ -31,7 +32,7 @@ function Sidebar() {
   }, [menuCheckboxRef.current?.checked])
 
   return (
-    <div className="translate-x-[-100vw] sidebar" ref={sidebarRef}>
+    <div className=" sidebars" ref={sidebarRef}>
       <div
         className={`sidebar__container ${
           openSidebar ? 'items-start' : 'items-center'
