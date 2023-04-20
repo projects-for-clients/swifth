@@ -15,12 +15,12 @@ function IconsBox() {
   interface Link {
     name: string;
     to: string;
-    Icon: string
+    Icon: JSX.Element
   }
   const LINKS = [{
     name: 'home',
     to: '/dashboard',
-    Icon: 'HomeSvg'
+    Icon: <HomeSvg/>
   }] satisfies Link[];
 
   return (
@@ -38,7 +38,7 @@ function IconsBox() {
                     : ''
                 }
               >
-                {<Icon/>}
+                {Icon}
                 <span>{name}</span>
               </NavLink>
             </li>
