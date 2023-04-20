@@ -71,7 +71,7 @@ function IconsBox() {
   ] satisfies Link[];
 
   return (
-    <ul className="iconsBox">
+    <ul className="grid gap-4 w-full">
       {LINKS.map(({ to, Icon, name }, idx) => {
         return (
           <li key={idx}>
@@ -81,7 +81,7 @@ function IconsBox() {
                 idx === 0 &&
                 props.isActive &&
                 location.pathname === '/dashboard'
-                  ? 'active'
+                  ? 'transition-all duration-[.2s] py-4 px-8 bg-color-green-light text-black'
                   : props.isActive
                   ? 'active'
                   : ''
