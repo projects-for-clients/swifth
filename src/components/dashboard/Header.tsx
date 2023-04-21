@@ -17,12 +17,12 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
     openDialog && openDialog();
   };
 
-  const {is_sidebar_open} = useAppSelector(selectUI)
-  const dispatch = useAppDispatch()
+  const { is_sidebar_open } = useAppSelector(selectUI);
+  const dispatch = useAppDispatch();
 
   const sidebar_handler = () => {
-    is_sidebar_open ? closeSidebar() : openSidebar
-  }
+    is_sidebar_open ? dispatch(closeSidebar) : dispatch(openSidebar);
+  };
   return (
     <div className="flex justify-between mb-[3rem] relative">
       <div className="flex items-center gap-4 ">
