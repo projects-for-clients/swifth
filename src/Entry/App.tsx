@@ -1,7 +1,6 @@
 import {
   Navigate,
   Route,
-  Routes,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
