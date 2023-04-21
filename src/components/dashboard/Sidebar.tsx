@@ -3,12 +3,11 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import IconsBox from '../icons/IconsBox';
 import LogoutSvg from '../icons/sidebar/logoutSvg';
-import {selectUI} from '../../store/features/ui';
+import { selectUI } from '../../store/features/ui';
 import { useAppSelector } from '../../store/app/hooks';
 
-
 function Sidebar() {
-  const {is_sidebar_open} = useAppSelector(selectUI)
+  const { is_sidebar_open } = useAppSelector(selectUI);
   const sidebarRef = useRef(null);
   const menuCheckboxRef: MutableRefObject<HTMLInputElement | null> =
     useRef(null);
@@ -37,12 +36,10 @@ function Sidebar() {
 
   return (
     <div
-      className={`${!is_sidebar_open ? 'translate-x-[-100vw] opacity-0': ''} sm:sidebar `}
+      className={`${
+        !is_sidebar_open ? 'translate-x-[-100vw] opacity-0' : ''
+      } sm:sidebar `}
       ref={sidebarRef}
-      style={{
-        transform: 'translateX(0)',
-        opacity: '1',
-      }}
     >
       <div
         className={`absolute p-16 w-full h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
