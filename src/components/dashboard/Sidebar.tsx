@@ -3,9 +3,12 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import IconsBox from '../icons/IconsBox';
 import LogoutSvg from '../icons/sidebar/logoutSvg';
-import selectUI from '../../store/features/ui';
+import {selectUI} from '../../store/features/ui';
+import { useAppSelector } from '../../store/app/hooks';
+
 
 function Sidebar() {
+  const {is_sidebar_open} = useAppSelector(selectUI)
   const sidebarRef = useRef(null);
   const menuCheckboxRef: MutableRefObject<HTMLInputElement | null> =
     useRef(null);
