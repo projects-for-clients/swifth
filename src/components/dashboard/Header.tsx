@@ -14,6 +14,10 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   const handleToggle = () => {
     openDialog && openDialog();
   };
+
+  const sidebar_handler = () => {
+    
+  }
   return (
     <div className="flex justify-between mb-[3rem] relative">
       <div className="flex items-center gap-4 ">
