@@ -35,6 +35,9 @@ function Sidebar() {
     <div
       className="translate-x-[-100vw] opacity-0 sm:sidebar "
       ref={sidebarRef}
+      style={{
+        display: 'flex'
+      }}
     >
       <div
         className={`absolute p-16 w-full h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
