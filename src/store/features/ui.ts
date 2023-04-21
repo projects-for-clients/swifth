@@ -13,17 +13,15 @@ const UI_slice = createSlice({
   name: 'UI_slice',
   initialState,
   reducers: {
-    closeSidebar: (state, _) => {
-      state.is_sidebar_open = false;
+    toggleSidebar: (state, action) => {
+      state.is_sidebar_open = action.payload;
     },
 
-    openSidebar: (state, _) => {
-      state.is_sidebar_open = true;
-    },
+   
   },
 });
 
-export const {closeSidebar, openSidebar} = UI_slice.actions
+export const {toggleSidebar} = UI_slice.actions
 
 export const selectUI = (state:AppState) => state.ui
 
