@@ -2,6 +2,8 @@ import { Dispatch, SetStateAction } from 'react';
 import NotificationSvg from '../icons/notificationSvg';
 import AccountSvg from '../icons/sidebar/accountSvg';
 import { BiMenu } from 'react-icons/bi';
+import { closeSidebar, openSidebar, selectUI } from '../../store/features/ui';
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
 
 type THeader = {
   title: string;
@@ -15,8 +17,11 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
     openDialog && openDialog();
   };
 
+  const {is_sidebar_open} = useAppSelector(selectUI)
+  const dispatch = useAppDispatch()
+
   const sidebar_handler = () => {
-    
+    is_sidebar_open ? closeSidebar() : openSidebar
   }
   return (
     <div className="flex justify-between mb-[3rem] relative">
