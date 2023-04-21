@@ -36,7 +36,8 @@ function Sidebar() {
       className="translate-x-[-100vw] opacity-0 sm:sidebar "
       ref={sidebarRef}
       style={{
-        display: 'flex'
+        transform: 'translateX(0)',
+        opacity:"1"
       }}
     >
       <div
