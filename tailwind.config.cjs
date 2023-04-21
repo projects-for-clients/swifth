@@ -44,8 +44,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         '60-auto': '60% auto',
-        '1_1.2': '1fr 1.2fr',
-        '1.2_1': '1.2fr 1fr',
+        '1fr_1.2fr': '1fr 1.2fr',
+        '1.2fr_1fr': '1.2fr 1fr',
         'max-auto': 'max-content auto',
       },
     },

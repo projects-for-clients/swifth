@@ -281,7 +281,7 @@ function DashboardHome() {
     <section className="grid gap-4 self-baseline max-h-[28rem] overflow-y-scroll rounded-3xl p-8 border border-color-purple-light">
       <div className="flex justify-between">
         <h2 className="text-[1.6rem] font-medium"> Latest Transactions</h2>
-        <Link to='/dashboard/payments'>See All</Link>
+        <Link to="/dashboard/payments">See All</Link>
       </div>
 
       <div className="grid gap-8 mt-8">
@@ -619,7 +619,7 @@ function DashboardHome() {
       </dialog>
       <div
         className={`grid gap-4 max-w-[120rem] mx-auto text-[1.6rem] ${
-          validated ? 'grid-cols-1_1.2' : 'grid-cols-1.2_2'
+          validated ? 'grid-cols-1fr_1.2fr' : 'grid-cols-1.2fr_1fr'
         }`}
         // style={{
         //   gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
