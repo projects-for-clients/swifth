@@ -620,7 +620,7 @@ function DashboardHome() {
       <div
         className="grid gap-4 max-w-[120rem] mx-auto text-[1.6rem]"
         style={{
-          gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
+          // gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
         }}
       >
         <div className={`grid gap-4 ${validated ? 'order-2' : ''}`}>
