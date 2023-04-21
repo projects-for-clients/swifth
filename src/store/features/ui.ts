@@ -27,4 +27,4 @@ export const {closeSidebar, openSidebar} = UI_slice.actions
 
 export const selectUI = (state:AppState) => state.ui
 
-export default UI_slice
+export default UI_slice.reducer
