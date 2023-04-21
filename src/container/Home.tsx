@@ -618,10 +618,10 @@ function DashboardHome() {
         </div>
       </dialog>
       <div
-        className="grid gap-4 max-w-[120rem] mx-auto text-[1.6rem] grid-cols-[1fr 1fr]"
-        style={{
-          gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
-        }}
+        className="grid gap-4 max-w-[120rem] mx-auto text-[1.6rem] grid-cols-1fr-1.2fr"
+        // style={{
+        //   gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
+        // }}
       >
         <div className={`grid gap-4 ${validated ? 'order-2' : ''}`}>
           <section
