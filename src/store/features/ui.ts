@@ -1,3 +1,8 @@
+import { createSlice } from "@reduxjs/toolkit"
 
 
-const Ui
+
+
+const UI_slice = createSlice({
+    initialState
+})
