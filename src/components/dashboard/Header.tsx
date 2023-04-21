@@ -21,12 +21,10 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
   const dispatch = useAppDispatch();
 
   const sidebar_handler = () => {
-    console.log('called');
     is_sidebar_open
       ? dispatch(toggleSidebar('close'))
       : dispatch(toggleSidebar('open'));
 
-    console.log('called2');
   };
   return (
     <div className="flex justify-between mb-[3rem] relative">
