@@ -1,10 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 
-const initialState = {
-    is_sidebar_open: false
+interface UI {
+    is_sidebar_open: boolean
 }
 
+const initialState = {
+    is_sidebar_open: false
+} satisfies UI
+
 const UI_slice = createSlice({
-    initialState
+    name: 'UI_slice', 
+    initialState,
+    reducers: ({
+
+        
+    })
 })
