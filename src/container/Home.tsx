@@ -619,7 +619,7 @@ function DashboardHome() {
       </dialog>
       <div
         className={`grid gap-4 max-w-[120rem] mx-auto text-[1.6rem] ${
-          validated ? 'grid-cols-1fr_1.2fr' : 'grid-cols-1.2fr_1fr'
+          validated ? 'sm:grid-cols-1fr_1.2fr' : 'sm:grid-cols-1.2fr_1fr'
         }`}
         // style={{
         //   gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
