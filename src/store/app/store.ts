@@ -1,4 +1,9 @@
-import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  combineReducers,
+} from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import {
   FLUSH,
@@ -11,11 +16,10 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 
-
 import userReducer from '../features/user/user';
 import modalReducer from '../features/modal';
 import orderReducer from '../features/order/order';
-
+import uiReducer from '../features/ui';
 
 const persistConfig = {
   key: 'root',
@@ -26,8 +30,8 @@ const rootReducer = combineReducers({
   user: userReducer,
   modal: modalReducer,
   order: orderReducer,
-})
-
+  ui: uiReducer,
+});
 
 //const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -42,7 +46,6 @@ export const store = configureStore({
 
       serializableCheck: false,
     }),
-
 });
 
 export const persistedStore = persistStore(store);
@@ -50,5 +53,3 @@ export const persistedStore = persistStore(store);
 export type AppState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
-
-
