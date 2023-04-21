@@ -14,7 +14,8 @@ const UI_slice = createSlice({
   initialState,
   reducers: {
     toggleSidebar: (state, action) => {
-      state.is_sidebar_open = action.payload;
+      
+      state.is_sidebar_open = action.payload.state;
     },
 
    

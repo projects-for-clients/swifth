@@ -22,9 +22,8 @@ function Header({ title, subTitle, onboarding, openDialog }: THeader) {
 
   const sidebar_handler = () => {
     is_sidebar_open
-      ? dispatch(toggleSidebar('close'))
-      : dispatch(toggleSidebar('open'));
-
+      ? dispatch(toggleSidebar({ state: false }))
+      : dispatch(toggleSidebar({ state: true }));
   };
   return (
     <div className="flex justify-between mb-[3rem] relative">
