@@ -618,7 +618,9 @@ function DashboardHome() {
         </div>
       </dialog>
       <div
-        className={`grid gap-4 max-w-[120rem] mx-auto text-[1.6rem] grid-cols-1_1.2`}
+        className={`grid gap-4 max-w-[120rem] mx-auto text-[1.6rem] ${
+          validated ? 'grid-cols-1_1.2' : 'grid-cols-1.2_2'
+        }`}
         // style={{
         //   gridTemplateColumns: validated ? '1fr 1.2fr' : '1.2fr 1fr',
         // }}
@@ -656,7 +658,10 @@ function DashboardHome() {
                   <>
                     <div className="flex justify-between  mb-10">
                       <h2 className="heading3">Business Analytics</h2>
-                      <Link className="text-[1.6rem] cursor-pointer" to='/dashboard/analytics'>
+                      <Link
+                        className="text-[1.6rem] cursor-pointer"
+                        to="/dashboard/analytics"
+                      >
                         See Full Stats
                       </Link>
                     </div>
@@ -698,7 +703,7 @@ function DashboardHome() {
                       Orders
                     </h2>
 
-                    <Link to='/dashboard/orders'>See All</Link>
+                    <Link to="/dashboard/orders">See All</Link>
                   </div>
                   <div className="max-w-[60rem] overflow-x-scroll flex gap-8">
                     <div className="p-8 w-[22rem] bg-white rounded-3xl">
@@ -818,10 +823,9 @@ function DashboardHome() {
                     Teams
                   </h2>
 
-                <Link to="/dashboard/team">
-
-                  <img src="/icons/arrow-right.svg" alt="" />
-                </Link>
+                  <Link to="/dashboard/team">
+                    <img src="/icons/arrow-right.svg" alt="" />
+                  </Link>
                 </div>
 
                 <div className="grid gap-8 mt-8 max-h-[20rem] overflow-y-scroll">
@@ -870,7 +874,7 @@ function DashboardHome() {
                   <div className="flex justify-between  mb-10">
                     <h2 className="heading3"> Payout Bank</h2>{' '}
                     <Link to="/dashboard/payments">
-                    <img src="/icons/arrow-right.svg" alt="" />
+                      <img src="/icons/arrow-right.svg" alt="" />
                     </Link>
                   </div>
                   <div className="flex items-center gap-8">
