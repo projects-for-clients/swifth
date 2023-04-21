@@ -34,7 +34,7 @@ function Sidebar() {
 
   return ( 
     <div
-      className={`translate-x-[-100vw] opacity-0 sm:sidebar `}
+      className={`${closeSidebar ? 'translate-x-[-100vw] opacity-0' : ''} sm:sidebar `}
       ref={sidebarRef}
       style={{
         transform: 'translateX(0)',
