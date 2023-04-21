@@ -31,7 +31,7 @@ function Sidebar() {
     }
   }, [menuCheckboxRef.current?.checked]);
 
-  return (
+  return ( 
     <div
       className="translate-x-[-100vw] opacity-0 sm:sidebar "
       ref={sidebarRef}
