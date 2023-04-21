@@ -37,7 +37,7 @@ function Sidebar() {
   return (
     <div
       className={`${
-        !is_sidebar_open ? 'translate-x-[-100vw] opacity-0 w-0' : 'w-[50rem]'
+        !is_sidebar_open ? 'translate-x-[-100vw] opacity-0 w-0' : 'w-[50vw]'
       } grid  sm:sidebar `}
       ref={sidebarRef}
     >
