@@ -1,3 +1,4 @@
+import { AppState } from './../app/store';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface UI {
@@ -23,5 +24,7 @@ const UI_slice = createSlice({
 });
 
 export const {closeSidebar, openSidebar} = UI_slice.actions
+
+export const selectUI = (state:AppState) => state.ui
 
 export default UI_slice
