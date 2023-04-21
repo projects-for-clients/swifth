@@ -42,7 +42,7 @@ function Sidebar() {
       ref={sidebarRef}
     >
       <div
-        className={`absolute p-16 w-full h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
+        className={`absolute p-16 min-w-[30rem] h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
           openSidebar ? 'items-start' : 'items-center'
         }`}
       >
