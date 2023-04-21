@@ -41,11 +41,11 @@ function Sidebar() {
     <div
       className={`${
         !is_sidebar_open ? 'translate-x-[-100vw] opacity-0 w-0' : 'w-[50vw]'
-      } grid relative sm:sidebar `}
+      } grid relative overflow-hidden sm:sidebar `}
       ref={sidebarRef}
     >
       <div
-        className={`absolute py-16 min-w-[30rem] sm:min-w-0 h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
+        className={`absolute py-16 w-full min-w-[30rem] sm:min-w-0 h-[80rem] flex flex-col justify-between text-white bg-color-primary-dark ${
           openSidebar || is_sidebar_open ? 'items-start' : 'items-center'
         }`}
       >
