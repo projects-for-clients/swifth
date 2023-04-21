@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import IconsBox from '../icons/IconsBox';
 import LogoutSvg from '../icons/sidebar/logoutSvg';
-import { selectUI } from '../../store/features/ui';
+import { selectUI, toggleSidebar } from '../../store/features/ui';
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
 
 function Sidebar() {
@@ -13,14 +13,14 @@ function Sidebar() {
     useRef(null);
 
   const [openSidebar, setOpenSidebar] = useState(true);
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const handleLogout = () => {
     console.log('logout');
   };
 
   const handleToggleMenu = () => {
-    if(is_sidebar_open){
-
+    if (is_sidebar_open) {
+      return dispatch(toggleSidebar({ state: false }));
     }
     const sidebar: HTMLDivElement = sidebarRef.current!;
 
