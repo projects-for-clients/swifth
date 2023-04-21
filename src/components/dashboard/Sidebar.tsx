@@ -3,10 +3,9 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import IconsBox from '../icons/IconsBox';
 import LogoutSvg from '../icons/sidebar/logoutSvg';
-import { selectUI } from '../../store/features/ui';
+import selectUI from '../../store/features/ui';
 
 function Sidebar() {
-  
   const sidebarRef = useRef(null);
   const menuCheckboxRef: MutableRefObject<HTMLInputElement | null> =
     useRef(null);
@@ -33,13 +32,13 @@ function Sidebar() {
     }
   }, [menuCheckboxRef.current?.checked]);
 
-  return ( 
+  return (
     <div
-      className={`${  'translate-x-[-100vw] opacity-0' } sm:sidebar `}
+      className={`${'translate-x-[-100vw] opacity-0'} sm:sidebar `}
       ref={sidebarRef}
       style={{
         transform: 'translateX(0)',
-        opacity:"1"
+        opacity: '1',
       }}
     >
       <div
