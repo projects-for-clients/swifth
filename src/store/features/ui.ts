@@ -21,3 +21,7 @@ const UI_slice = createSlice({
     },
   },
 });
+
+export const {closeSidebar, openSidebar} = UI_slice.actions
+
+export default UI_slice
